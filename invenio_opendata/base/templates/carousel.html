@@ -1,0 +1,199 @@
+{% extends "page.html" %}
+
+
+{%- css url_for('static', filename='css/home_carousel.css') %}
+{%- css url_for('static', filename='css/icomoon.css') %}
+
+<!-- HERE ends the HEADER -->
+
+
+<!-- HERE starts the BODY -->
+{% block page_body %}
+{% block body %}
+ {{ super() }}
+
+<section class="intro">
+<div class="carouselBlock container">
+<div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+    <!-- Carousel indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>   
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+        <div class="active item">
+            <div class="carousel-caption">
+              <h3>First slide label</h3>
+              <p>Lorem ipsum dolor sit amet consectetur…</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="carousel-caption">
+              <h3>Second slide label</h3>
+              <p>Aliquam sit amet gravida nibh, facilisis gravida…</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="carousel-caption">
+              <h3>Third slide label</h3>
+              <p>Praesent commodo cursus magna vel…</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+
+<section class="collections">
+	<div class="nav">
+		<div class="container">
+			<ul>
+				<li class="active"><span class="icon-tag"></span>LATEST</li>
+				<li><span class="icon-heart"></span>FAVOURITES</li>
+				<li><span class="icon-binoculars"></span>ARCHIVE</li>
+			</ul>
+		</div>
+	</div>
+	<div class="collRecords">
+		<div class="container">
+			<ul>
+				<li class="col-md-3 col-xs-12 col-sm-6">
+					<div class="recordbox">
+						<div class="top">
+							<span class="icon-bars"></span>
+							<h5>DATA_1</h5>
+						</div>
+						<div class="thumb">
+							<img src="{{ url_for('static', filename='img/opendata/dielectron2-scaled.png') }}" alt="">
+						</div>
+						<div class="details">
+							<span>READ MORE ...</span>
+						</div>
+					</div>
+				</li>
+				<li class="col-md-3 col-xs-12 col-sm-6">
+					<div class="recordbox">
+						<div class="top">
+							<span class="icon-stack"></span>
+							<h5>CMS Document 1</h5>
+						</div>
+						<div class="thumb iconed">
+							<div class="icon-file"></div>
+						</div>
+						<div class="details">
+							<span>READ MORE ...</span>
+						</div>	
+					</div>
+				</li>
+				<li class="col-md-3 col-sm-6 col-xs-12">
+					<div class="recordbox">
+						<div class="top">
+							<span class="icon-bars"></span>
+							<h5>DATA_2</h5>
+						</div>
+						<div class="thumb">
+							<img src="{{ url_for('static', filename='img/opendata/HtoGammaGamma-scaled.png') }}" alt="">
+						</div>
+						<div class="details">
+							<span>READ MORE ...</span>
+						</div>			
+					</div>
+				</li>
+				<li class="col-md-3 col-sm-6 col-xs-12">
+					<div class="recordbox">
+						<div class="top">
+							<span class="icon-stack"></span>
+							<h5>CDS Document 2</h5>
+						</div>
+						<div class="thumb iconed">
+							<div class="icon-file-xml"></div>
+						</div>
+						<div class="details">
+							<span>READ MORE ...</span>
+						</div>			
+					</div>
+				</li>
+				<li class="col-md-3 col-sm-6 col-xs-12">
+					<div class="recordbox">
+						<div class="top">
+							<span class="icon-bars"></span>
+							<h5>DATA_3</h5>
+						</div>
+						<div class="thumb">
+							<img src="{{ url_for('static', filename='img/opendata/ttbar-scaled.png') }}" alt="">
+						</div>
+						<div class="details">
+							<span>READ MORE ...</span>
+						</div>			
+					</div>
+					<li class="col-md-3 col-sm-6 col-xs-12">
+					<div class="recordbox">
+						<div class="top">
+							<span class="icon-bars"></span>
+							<h5>DATA_4</h5>
+						</div>
+						<div class="thumb">
+							<img src="{{ url_for('static', filename='img/opendata/Jpsimumu-scaled.png') }}" alt="">
+						</div>
+						<div class="details">
+							<span>READ MORE ...</span>
+						</div>			
+					</div>
+				</li>
+				<li class="col-md-3 col-sm-6 col-xs-12">
+					<div class="recordbox">
+						<div class="top">
+							<span class="icon-stack"></span>
+							<h5>CDS Document 3</h5>
+						</div>
+						<div class="thumb iconed">
+							<div class="icon-file"></div>
+						</div>
+						<div class="details">
+							<span>READ MORE ...</span>
+						</div>			
+					</div>
+				</li>
+				<li class="col-md-3 col-sm-6 col-xs-12">
+					<div class="recordbox">
+						<div class="top">
+							<span class="icon-bars"></span>
+							<h5>DATA_5</h5>
+						</div>
+						<div class="thumb">
+							<img src="{{ url_for('static', filename='img/opendata/Jpsiee-scaled.png') }}" alt="">
+						</div>
+						<div class="details">
+							<span>READ MORE ...</span>
+						</div>			
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="container seeall">
+			<a href="#">SEE ALL</a>
+		</div>
+	</div>
+</section>
+<section >
+	<div class="info"></div>
+	<div class="info dark"></div>
+</section>
+{% endblock body %}
+{% endblock page_body %}
+<!-- HERE ends the BODY -->
+
+{% block javascript %}
+	{{ super() }}
+<script type="text/javascript">
+$(document).ready(function(){
+     $("#myCarousel").carousel({
+         interval : 3000
+     });
+});
+</script>
+
+
+{% endblock javascript%}

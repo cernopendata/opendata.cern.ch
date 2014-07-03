@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webjournal name="AtlantisTimes">
+    <view>
+        <niceName>Atlantis Times</niceName>
+        <css>
+            <screen>css/AtlantisTimes.css</screen>
+            <print>css/AtlantisTimes.css</print>
+        </css>
+        <format_template>
+            <index>AtlantisTimes_Index.bft</index>
+            <detailed>AtlantisTimes_Detailed.bft</detailed>
+            <search>AtlantisTimes_Search.bft</search>
+        </format_template>
+    </view>
+
+    <model>
+        <record>
+            <rule>News, 980__a:ATLANTISTIMESNEWS or 980__a:ATLANTISTIMESNEWSDRAFT</rule>
+            <rule>Science, 980__a:ATLANTISTIMESSCIENCE or 980__a:ATLANTISTIMESSCIENCEDRAFT</rule>
+            <rule>Arts, 980__a:ATLANTISTIMESARTS or 980__a:ATLANTISTIMESARTSDRAFT</rule>
+        </record>
+    </model>
+
+    <controller>
+        <issue_grouping>2</issue_grouping>
+	<issues_per_year>52</issues_per_year>
+	<hide_unreleased_issues>all</hide_unreleased_issues>
+        <marc_tags>
+            <issue_number>773__n</issue_number>
+	    <order_number>773__c</order_number>
+        </marc_tags>
+	<alert_recipients>recipients@atlantis.atl</alert_recipients>
+	<languages>en,fr</languages>
+	<submission>
+            <doctype>DEMOJRN</doctype>
+            <identifier_element>DEMOJRN_RN</identifier_element>
+	    <identifier_field>037__a</identifier_field>
+	</submission>
+        <update_on_release>
+            <collection>Atlantis Times</collection>
+            <collection>Atlantis Times Drafts</collection>
+            <index>collection</index>
+        </update_on_release>
+	<first_issue>02/2009</first_issue>
+        <draft_keyword>DRAFT</draft_keyword>
+        <draft_image_access_policy>allow</draft_image_access_policy>
+    </controller>
+</webjournal>
