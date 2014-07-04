@@ -15,9 +15,9 @@
 				{% if not (current_user.is_guest) %}
 					<a  class="logoutBut" href="{{ url_for('webaccount.logout') }}">LOGOUT</a>
 					{% endif %}
-				<a href="#"><span class="icon-facebook"></span></a>
-				<a href="#"><span class="icon-twitter"></span></a>
-				<a href="#"><span class="icon-youtube"></span></a>
+				<a href="#"><span class="fa fa-facebook"></span></a>
+				<a href="#"><span class="fa fa-twitter"></span></a>
+				<a href="#"><span class="fa fa-youtube-play"></span></a>
 			</div>
 		</div>
 	</div>
@@ -44,18 +44,7 @@
 						<a href="#"><li>MENU1</li></a>
 						<a href="#"><li>MENU2</li></a>
 						<a href="#"><li>INFO</li></a>				
-						<a href="#"><li>MORE</li></a>
-						<!-- {% if current_user.is_guest %}
-						<a href="{{ url_for('webaccount.login') }}"><li><span class="icon-user"></span>LOGIN</li></a>
-						{% else %}
-						<a href="{{ url_for('webaccount.index') }}">
-							<li>
-								<span class="icon-user"></span>
-								{{ current_user.nickname|default(current_user.email) }}
-							</li>
-						</a>
-
-						{% endif %} -->
+						<a href="#"><li>MORE</li></a>						
 					</ul>
 				</div>
 			</div>

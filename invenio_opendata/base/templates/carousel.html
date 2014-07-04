@@ -2,7 +2,6 @@
 
 
 {%- css url_for('static', filename='css/home_carousel.css') %}
-{%- css url_for('static', filename='css/icomoon.css') %}
 
 <!-- HERE ends the HEADER -->
 
@@ -11,10 +10,103 @@
 {% block page_body %}
 {% block body %}
  {{ super() }}
+<style>
+.intro .imagebox img {
+	height: 85%;
+}
+.intro .inneritem  {
+	margin: 30px 60px;
+	display: inline-block;
+}
+.intro .entrypoints  {
+	color: #fff;
+	font-size: 50px;
+	font-weight: 200;
+	padding: 0;
+	margin: 10px 0;
+	text-align: left;
+}
+
+.intro .entryactions li {
+	width: 100%;
+	font-weight: 300;
+	font-size: 25px;
+}
+.intro .entryactions li span {
+	margin-right: 10px;
+	width: 30px;
+}
+.intro .entryactions {
+	float: left;
+	text-align: left;
+}
+
+.entryactions span.fa-chevron-right {
+	font-size: 15px;
+	margin-left: 5px;
+	margin-right: 0;
+}
+
+.intro .news .ntitle {
+    display: inline-block;
+}
+
+.intro .news .ntitle  {
+    float: left;
+    width: auto;
+    height: 25px;
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+}
+.intro .news .ndate {
+    width: auto;
+    font-size: 10px;
+    float: left;
+    height: 25px;
+    position: relative;
+}
+.intro .news .nbody {
+    float: left;
+    width: 100%;
+    text-align: left;
+    font-size: 17px;
+    font-weight: 100;
+}
+.intro .news .ndate span {
+    bottom: 0;
+    display: inline-block;
+    margin: 10px 5px;
+
+}
+.intro .news .nbody span {
+    font-size: 16px;
+    float: left;
+}
+
+.intro .news h5 {
+	float: left;
+	font-size: 40px;
+	font-weight: 200;
+	margin-top: 0;
+}
+
+.intro .item .newsimg {
+	margin-top: 10px;
+}
+.intro  .item .newsimg img {
+float: left;
+height: 130px;
+width: 200px;
+}
+
+</style>
+
+
 
 <section class="intro">
 <div class="carouselBlock container">
-<div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+<div id="myCarousel" class="carousel slide" data-interval="5000" data-ride="carousell"
     <!-- Carousel indicators -->
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -25,20 +117,92 @@
     <div class="carousel-inner">
         <div class="active item">
             <div class="carousel-caption">
-              <h3>First slide label</h3>
-              <p>Lorem ipsum dolor sit amet consectetur…</p>
+              <div class="inneritem education">
+				<div class="imagebox col-md-6">
+					<img src="{{ url_for('static', filename='/img/education3.png') }}" alt="">
+				</div>
+				<div class="col-md-6">
+					<div class="entrypoints"><a href="#">For Education</a></div>
+					<div class="entryactions">
+						<div>
+							<ul>
+								<li><span class="fa fa-play-circle-o"></span>Visualise detector events <span class="fa fa-chevron-right"></span></li>
+								<li><span class="fa fa-flash"></span>Visualise data histograms<span class="fa fa-chevron-right"></span></li>
+								<li><span class="fa fa-cube"></span>Learn more <span class="fa fa-chevron-right"></span></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+            </div>
+        </div>
+        <div class="item">
+	            <div class="carousel-caption">
+	              <div class="inneritem research">
+					<div class="col-md-6">
+						<div class="imagebox">
+							<img src="{{ url_for('static', filename='/img/research1.png') }}" alt="">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="entrypoints"><a href="#">For Research</a></div>
+						<div class="entryactions">
+							<div>
+								<ul>
+									<li><span class="fa fa-database"></span>Download Virtual Machine image <span class="fa fa-chevron-right"></span></li>
+								<li><span class="fa fa-ge"></span>Access data via XROOTD streaming <span class="fa fa-chevron-right"></span></li>
+								<li><span class="fa fa-lightbulb-o"></span>Learn more <span class="fa fa-chevron-right"></span></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+									</div>
             </div>
         </div>
         <div class="item">
             <div class="carousel-caption">
-              <h3>Second slide label</h3>
-              <p>Aliquam sit amet gravida nibh, facilisis gravida…</p>
-            </div>
-        </div>
-        <div class="item">
-            <div class="carousel-caption">
-              <h3>Third slide label</h3>
-              <p>Praesent commodo cursus magna vel…</p>
+              	<div class="col-md-7 pull-left">
+					<div class="news box">
+						<h5>Latest News</h5>
+						<ul>
+							<li>
+								<ul class="nbox">
+									<li class="ntitle">CMS open data release</li>
+									<li class="ndate"><span>2014-09-30</span></li>
+									<li class="nbody"><span>Today CMS is releasing its data in open access! Play, visualise it here..</span></li>
+								</ul>
+							</li>
+							<li>
+								<ul class="nbox">
+									<li class="ntitle">Some more news</li>
+									<li class="ndate"><span>2014-08-24</span></li></li>
+									<li class="nbody"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea asperiores quidem consectetur perferendis accusamus, officia quos.</span></li>
+								</ul>
+							</li>
+							<li>
+								<ul class="nbox">
+									<li class="ntitle">Some more news news news</li>
+									<li class="ndate"><span>2014-05-04</span></li>
+									<li class="nbody"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></li>
+								</ul>
+							</li>
+							<li>
+								<ul class="nbox">
+									<li class="ntitle">News news</li>
+									<li class="ndate"><span>2013-12-20</span></li>
+									<li class="nbody"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea asperiores quidem.</span></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-5 pull-right newsimg">
+					<img src=" {{ url_for('static', filename='/img/opendata/news1.jpg') }}" alt="" class="col-md-6 no-padding">
+					<img src=" {{ url_for('static', filename='/img/opendata/news2.jpg') }}" alt="" class="col-md-6 no-padding">
+					<img src=" {{ url_for('static', filename='/img/opendata/news4.jpg') }}" alt="" class="col-md-6 no-padding">
+					<img src=" {{ url_for('static', filename='/img/opendata/news3.jpg') }}" alt="" class="col-md-6 no-padding">
+				</div>
             </div>
         </div>
     </div>
@@ -49,10 +213,11 @@
 <section class="collections">
 	<div class="nav">
 		<div class="container">
-			<ul>
-				<li class="active"><span class="icon-tag"></span>LATEST</li>
-				<li><span class="icon-heart"></span>FAVOURITES</li>
-				<li><span class="icon-binoculars"></span>ARCHIVE</li>
+			<ul class="pull-left">
+				<li class="active"><span class="fa fa-tag"></span>LATEST</li>
+				<li><span class="fa fa-dot-circle-o"></span>CMS</li>
+				<li><span class="fa fa-circle-o"></span>Alice</li>
+				<li><span class="fa fa-circle"></span>LHCb</li>
 			</ul>
 		</div>
 	</div>
@@ -62,7 +227,7 @@
 				<li class="col-md-3 col-xs-12 col-sm-6">
 					<div class="recordbox">
 						<div class="top">
-							<span class="icon-bars"></span>
+							<span class="fa fa-bar-chart-o"></span>
 							<h5>DATA_1</h5>
 						</div>
 						<div class="thumb">
@@ -76,7 +241,7 @@
 				<li class="col-md-3 col-xs-12 col-sm-6">
 					<div class="recordbox">
 						<div class="top">
-							<span class="icon-stack"></span>
+							<span class="fa fa-file"></span>
 							<h5>CMS Document 1</h5>
 						</div>
 						<div class="thumb iconed">
@@ -90,7 +255,7 @@
 				<li class="col-md-3 col-sm-6 col-xs-12">
 					<div class="recordbox">
 						<div class="top">
-							<span class="icon-bars"></span>
+							<span class="fa fa-bar-chart-o"></span>
 							<h5>DATA_2</h5>
 						</div>
 						<div class="thumb">
@@ -104,7 +269,7 @@
 				<li class="col-md-3 col-sm-6 col-xs-12">
 					<div class="recordbox">
 						<div class="top">
-							<span class="icon-stack"></span>
+							<span class="fa fa-file"></span>
 							<h5>CDS Document 2</h5>
 						</div>
 						<div class="thumb iconed">
@@ -118,7 +283,7 @@
 				<li class="col-md-3 col-sm-6 col-xs-12">
 					<div class="recordbox">
 						<div class="top">
-							<span class="icon-bars"></span>
+							<span class="fa fa-bar-chart-o"></span>
 							<h5>DATA_3</h5>
 						</div>
 						<div class="thumb">
@@ -131,7 +296,7 @@
 					<li class="col-md-3 col-sm-6 col-xs-12">
 					<div class="recordbox">
 						<div class="top">
-							<span class="icon-bars"></span>
+							<span class="fa fa-bar-chart-o"></span>
 							<h5>DATA_4</h5>
 						</div>
 						<div class="thumb">
@@ -145,7 +310,7 @@
 				<li class="col-md-3 col-sm-6 col-xs-12">
 					<div class="recordbox">
 						<div class="top">
-							<span class="icon-stack"></span>
+							<span class="fa fa-file"></span>
 							<h5>CDS Document 3</h5>
 						</div>
 						<div class="thumb iconed">
@@ -159,7 +324,7 @@
 				<li class="col-md-3 col-sm-6 col-xs-12">
 					<div class="recordbox">
 						<div class="top">
-							<span class="icon-bars"></span>
+							<span class="fa fa-bar-chart-o"></span>
 							<h5>DATA_5</h5>
 						</div>
 						<div class="thumb">

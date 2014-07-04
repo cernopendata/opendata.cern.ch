@@ -31,6 +31,12 @@ DEPOSIT_TYPES = [
 CFG_SITE_URL = 'http://open-data-demo.cern.ch'
 #CFG_SITE_SECURE_URL = 'https://opendata-demo.cern.ch'
 CFG_SITE_SECURE_URL = 'http://open-data-demo.cern.ch'
-# CFG_SITE_NAME_INTL['en'] = 'Open Data - CERN'
 
+CFG_SITE_NAME = 'Open Data - CERN'
 
+CFG_SITE_NAME_INTL = {
+    "en": "Open Data - CERN", # Shouldn't be required.
+    "fr": "Open Data - CERN",
+    "de": "Open Data - CERN",
+    "it": "Open Data - CERN"
+}

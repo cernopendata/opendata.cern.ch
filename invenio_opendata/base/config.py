@@ -26,3 +26,12 @@ PACKAGES = [
 DEPOSIT_TYPES = [
     'invenio_opendata.modules.deposit.workflows.article.article',
 ]
+
+CFG_SITE_NAME = 'Open Data - CERN'
+
+CFG_SITE_NAME_INTL = {
+    "en": "Open Data - CERN", # Shouldn't be required.
+    "fr": "Open Data - CERN",
+    "de": "Open Data - CERN",
+    "it": "Open Data - CERN"
+}

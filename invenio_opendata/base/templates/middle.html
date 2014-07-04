@@ -2,7 +2,6 @@
 
 
 {%- css url_for('static', filename='css/home_middle.css') %}
-{%- css url_for('static', filename='css/icomoon.css') %}
 
 <!-- HERE ends the HEADER -->
 
@@ -15,18 +14,40 @@
 
 <div class="upper">
 	<div class="container">
-		<div class="col-md-6 pull-left">
+		<div class="col-md-12 pull-left">
 			<div class="news box">
 				<h5>Latest News</h5>
-				<ul>
+				<ul class="col-md-6 no-padding">
 					<li>
-						<div class="ntitle">2014-09-30 CMS open data release</div>
-						<div class="nbody">Today CMS is releasing its data in open access! Play, visualise it here..</div>
-					</li>
-					<li>
-						<div class="ntitle">2014-08-24 Some more news</div>
-						<div class="nbody">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea asperiores quidem consectetur perferendis accusamus, officia quos.</div>
-					</li>
+					<ul class="nbox">
+						<li class="ntitle">CMS open data release</li>
+						<li class="ndate"><span>2014-09-30</span></li>
+						<li class="nbody"><span>Today CMS is releasing its data in open access! Play, visualise it here..</span></li>
+					</ul>
+				</li>
+				<li>
+					<ul class="nbox">
+						<li class="ntitle">Some more news</li>
+						<li class="ndate"><span>2014-08-24</span></li></li>
+						<li class="nbody"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea asperiores quidem consectetur perferendis accusamus, officia quos.</span></li>
+					</ul>
+				</li>
+				</ul>
+				<ul class="col-md-6 no-padding">
+				<li>
+					<ul class="nbox">
+						<li class="ntitle">Some more news news news</li>
+						<li class="ndate"><span>2014-05-04</span></li>
+						<li class="nbody"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></li>
+					</ul>
+				</li>
+				<li>
+					<ul class="nbox">
+						<li class="ntitle">News news</li>
+						<li class="ndate"><span>2013-12-20</span></li>
+						<li class="nbody"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea asperiores quidem.</span></li>
+					</ul>
+				</li>
 				</ul>
 			</div>
 		</div>
@@ -50,9 +71,9 @@
 				<div class="entryactions" style="float:right;text-align:right;">
 					<div >
 						<ul>
-							<li>Visualise detector events<span class="icon-vynil"></span></li>
-							<li>Visualise data histograms<span class="icon-lab"></span></li>
-							<li>Learn more<span class="icon-display"></span></li>
+							<li><span class="fa fa-play-circle-o"></span>Visualise detector events</li>
+							<li><span class="fa fa-flash"></span>Visualise data histograms</li>
+							<li><span class="fa fa-cube"></span>Learn more</li>
 						</ul>
 					</div>
 				</div>
@@ -66,9 +87,9 @@
 				<div class="entryactions" style="float:left;text-align:left;">
 					<div>
 						<ul>
-							<li><span class="icon-data"></span>Download <b>Virtual Machine</b> image</li>
-							<li><span class="icon-world"></span>Access data via <b>XROOTD</b> streaming</li>
-							<li><span class="icon-bulb"></span>Learn more</li>
+							<li><span class="fa fa-database"></span>Download Virtual Machine image</li>
+						<li><span class="fa fa-ge"></span>Access data via XROOTD streaming</li>
+						<li><span class="fa fa-lightbulb-o"></span>Learn more</li>
 						</ul>
 					</div>
 				</div>
@@ -81,10 +102,10 @@
 	<div class="nav">
 		<div class="container">
 			<ul class="pull-left">
-				<li class="active"><span class="icon-tag"></span>LATEST</li>
-				<li><span class="icon-spinner2"></span>CMS</li>
-				<li><span class="icon-spinner3"></span>Alice</li>
-				<li><span class="icon-spinner4"></span>LHCb</li>
+				<li class="active"><span class="fa fa-tag"></span>LATEST</li>
+				<li><span class="fa fa-dot-circle-o"></span>CMS</li>
+				<li><span class="fa fa-circle-o"></span>Alice</li>
+				<li><span class="fa fa-circle"></span>LHCb</li>
 			</ul>
 			<ul class="pull-right">
 				
@@ -97,7 +118,7 @@
 				<li class="col-md-3 col-xs-12 col-sm-6">
 					<div class="recordbox">
 						<div class="top">
-							<span class="icon-bars"></span>
+							<span class="fa fa-bar-chart-o"></span>
 							<h5>DATA_1</h5>
 						</div>
 						<div class="thumb">
@@ -111,11 +132,11 @@
 				<li class="col-md-3 col-xs-12 col-sm-6">
 					<div class="recordbox">
 						<div class="top">
-							<span class="icon-stack"></span>
+							<span class="fa fa-file"></span>
 							<h5>CMS Document 1</h5>
 						</div>
 						<div class="thumb iconed">
-							<div class="icon-file"></div>
+							<div class="fa fa-file"></div>
 						</div>
 						<div class="details">
 							<span>READ MORE ...</span>
@@ -125,7 +146,7 @@
 				<li class="col-md-3 col-sm-6 col-xs-12">
 					<div class="recordbox">
 						<div class="top">
-							<span class="icon-bars"></span>
+							<span class="fa fa-bar-chart-o"></span>
 							<h5>DATA_2</h5>
 						</div>
 						<div class="thumb">
@@ -139,11 +160,11 @@
 				<li class="col-md-3 col-sm-6 col-xs-12">
 					<div class="recordbox">
 						<div class="top">
-							<span class="icon-stack"></span>
+							<span class="fa fa-file"></span>
 							<h5>CDS Document 2</h5>
 						</div>
 						<div class="thumb iconed">
-							<div class="icon-file-xml"></div>
+							<div class="fa fa-file-xml"></div>
 						</div>
 						<div class="details">
 							<span>READ MORE ...</span>
@@ -153,7 +174,7 @@
 				<li class="col-md-3 col-sm-6 col-xs-12">
 					<div class="recordbox">
 						<div class="top">
-							<span class="icon-bars"></span>
+							<span class="fa fa-bar-chart-o"></span>
 							<h5>DATA_3</h5>
 						</div>
 						<div class="thumb">
@@ -166,7 +187,7 @@
 					<li class="col-md-3 col-sm-6 col-xs-12">
 					<div class="recordbox">
 						<div class="top">
-							<span class="icon-bars"></span>
+							<span class="fa fa-bar-chart-o"></span>
 							<h5>DATA_4</h5>
 						</div>
 						<div class="thumb">
@@ -180,11 +201,11 @@
 				<li class="col-md-3 col-sm-6 col-xs-12">
 					<div class="recordbox">
 						<div class="top">
-							<span class="icon-stack"></span>
+							<span class="fa fa-file"></span>
 							<h5>CDS Document 3</h5>
 						</div>
 						<div class="thumb iconed">
-							<div class="icon-file"></div>
+							<div class="fa fa-file"></div>
 						</div>
 						<div class="details">
 							<span>READ MORE ...</span>
@@ -194,7 +215,7 @@
 				<li class="col-md-3 col-sm-6 col-xs-12">
 					<div class="recordbox">
 						<div class="top">
-							<span class="icon-bars"></span>
+							<span class="fa fa-bar-chart-o"></span>
 							<h5>DATA_5</h5>
 						</div>
 						<div class="thumb">

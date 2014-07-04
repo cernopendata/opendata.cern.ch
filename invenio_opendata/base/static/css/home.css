@@ -278,6 +278,7 @@
     font-size: 18px;
     font-weight: 400;
     font-style: italic;
+    padding: 1px 0;
 }
  .intro .news .details li {
     float: left;
@@ -288,8 +289,39 @@
  }
 
 .intro .news .ntitle {
-
+    display: inline-block;
 }
+
+.intro .news .ntitle  {
+    float: left;
+    width: auto;
+    height: 25px;
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+}
+.intro .news .ndate {
+    width: auto;
+    font-size: 10px;
+    float: left;
+    height: 25px;
+    position: relative;
+}
+.intro .news .nbody {
+    float: left;
+    width: 100%;
+}
+.intro .news .ndate span {
+    bottom: 0;
+    display: inline-block;
+    margin: 10px 5px;
+}
+.intro .news .nbody span {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 100;
+}
+
 
 .intro .news .nbody {
     font-size: 14px;

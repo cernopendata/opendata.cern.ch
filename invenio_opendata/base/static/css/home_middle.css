@@ -373,11 +373,9 @@
 	margin-top: 25px;
 }
 
-.intro .research .entryactions li span{
+.intro .entryactions li span{
 	padding-right: 5px;
-}
-.intro .education .entryactions li span{
-	padding-left: 5px;
+	width: 20px;
 }
 
 .intro .middle {
@@ -414,35 +412,75 @@
 .intro .upper>.container>.col-md-6.pull-right{
 	height: 50%;	
 }
-.intro .news h5{
+intro .box h5{
+    color: #fff;
+    font-size: 30px;
+    font-weight: 200;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 10px;
+}
+.intro .box li{
+    width: 100%;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: italic;
+    padding: 1px 0;
+}
+ .intro .news .details li {
+    float: left;
+    width: auto;
+    font-size: 11px;
+    padding-right: 5px;
+    color: #e8e8e8;
+ }
+
+.intro .news .ntitle {
+    display: inline-block;
+}
+
+.intro .news .ntitle  {
+    float: left;
+    width: auto;
+    height: 25px;
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+}
+.intro .news .ndate {
+    width: auto;
+    font-size: 10px;
+    float: left;
+    height: 25px;
+    position: relative;
+}
+.intro .news .nbody {
+    float: left;
+    width: 100%;
+}
+.intro .news .ndate span {
+    bottom: 0;
+    display: inline-block;
+    margin: 10px 5px;
+}
+.intro .news .nbody span {
+    background-color: #606D75;
+    font-size: 16px;
+}
+
+
+.intro .news .nbody {
+    font-size: 14px;
+}
+
+.intro .box h5 {
 	color: #fff;
 	font-size: 30px;
 	font-weight: 200;
 	padding: 0;
 	margin: 0;
 	margin-bottom: 10px;
-}
-.intro .news li{
-	width: 100%;
-	color: #fff;
-	font-size: 18px;
-	font-weight: 400;
-	font-style: italic;
-}
- .intro .news .details li {
- 	float: left;
- 	width: auto;
- 	font-size: 11px;
- 	padding-right: 5px;
- 	color: #e8e8e8;
- }
-
-.intro .news .ntitle {
-
-}
-
-.intro .news .nbody {
-	font-size: 14px;
 }
 
 .middle .circle {
