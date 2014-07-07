@@ -32,11 +32,34 @@ CFG_SITE_URL = 'http://open-data-demo.cern.ch'
 #CFG_SITE_SECURE_URL = 'https://opendata-demo.cern.ch'
 CFG_SITE_SECURE_URL = 'http://open-data-demo.cern.ch'
 
-CFG_SITE_NAME = 'Open Data - CERN'
-
-CFG_SITE_NAME_INTL = {
-    "en": "Open Data - CERN", # Shouldn't be required.
-    "fr": "Open Data - CERN",
-    "de": "Open Data - CERN",
-    "it": "Open Data - CERN"
-}
+CFG_SITE_NAME = 'CERN Open Data Portal'
+CFG_SITE_NAME_INTL = {}
+CFG_SITE_NAME_INTL['en'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['fr'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['de'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['es'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['ca'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['pt'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['it'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['ru'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['sk'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['cs'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['no'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['sv'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['el'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['uk'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['ja'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['pl'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['bg'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['hr'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['zh_CN'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['zh_TW'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['hu'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['af'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['gl'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['ro'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['rw'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['ka'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['lt'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['ar'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['fa'] = 'CERN Open Data Portal Demo'
