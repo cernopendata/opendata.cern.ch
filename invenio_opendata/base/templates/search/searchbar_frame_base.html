@@ -1,0 +1,70 @@
+{#
+## This file is part of Invenio.
+## Copyright (C) 2012, 2014 CERN.
+##
+## Invenio is free software; you can redistribute it and/or
+## modify it under the terms of the GNU General Public License as
+## published by the Free Software Foundation; either version 2 of the
+## License, or (at your option) any later version.
+##
+## Invenio is distributed in the hope that it will be useful, but
+## WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+## General Public License for more details.
+##
+## You should have received a copy of the GNU General Public License
+## along with Invenio; if not, write to the Free Software Foundation, Inc.,
+## 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+#}
+{% from "search/helpers.html" import search_form_javascript with context %}
+{% extends "page.html" %}
+{# set title = collection.name_ln if collection.id > 1 else None #}
+
+{% block header %}
+  {{ super() }}
+  {%- js url_for('static', filename='js/jquery-caret.js') -%}
+  {%- js url_for('static', filename='js/typeahead.js'), '10-invenio' -%}
+  {%- js url_for('search.static', filename='js/search/search_parser.js') -%}
+  {%- js url_for('search.static', filename='js/search/typeahead.js') -%}
+  {%- js url_for('search.static', filename='js/search/default_typeahead_configuration.js') -%}
+  {%- js url_for('search.static', filename='js/search/facet.js') -%}
+  {%- js url_for('static', filename='js/bootstrap-select.js') -%}
+{#  {% js url_for('static', 'js/jquery.hotkeys.js') %}#}
+{#  {% js url_for('search.static', filename='js/search/hotkeys.js') %}#}
+
+  {%- css url_for('static', filename='css/typeahead.js-bootstrap.css'), '50-search' -%}
+  {%- css url_for('search.static', filename='css/search/searchbar.css'), '50-search' -%}
+{% endblock %}
+
+
+
+{%- block page_body -%}
+  {% block title %}
+  {% if title %}
+  <div class="page-header">
+    <h1>{{ title }}</h1>
+  </div>
+  {% endif %}
+  {% endblock title %}
+  {{ flashed_messages() }}
+    {%- include "search/form/index.html" -%}
+
+  {% block body %}
+  {%- block breadcrumb %}
+  {%- endblock breadcrumb %}
+
+  
+<div id="search_content">
+  <div class="container">
+    {% block inner_content %}{% endblock %}
+    {% endblock %}
+  </div>
+</div>
+{%- endblock page_body -%}
+
+
+
+{% block javascript %}
+  {{ super() }}
+  {{ search_form_javascript(collection) }}
+{% endblock %}

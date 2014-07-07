@@ -1,0 +1,95 @@
+{#
+## This file is part of Invenio.
+## Copyright (C) 2014 CERN.
+##
+## Invenio is free software; you can redistribute it and/or
+## modify it under the terms of the GNU General Public License as
+## published by the Free Software Foundation; either version 2 of the
+## License, or (at your option) any later version.
+##
+## Invenio is distributed in the hope that it will be useful, but
+## WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+## General Public License for more details.
+##
+## You should have received a copy of the GNU General Public License
+## along with Invenio; if not, write to the Free Software Foundation, Inc.,
+## 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+#}
+
+
+  {%- block search_form -%}
+  {%- block search_form_body -%}  
+  
+    <style>
+  #search-box-main {
+    background-color: #899AA5;
+    color: #fff;
+    padding-top: 8px;
+  }
+
+  #searchform-input-group input {
+    border-radius: 0;
+    border: 0;
+
+  }
+  #searchform-input-group button[name=action_search]{
+    background-color: #606D75;
+    border-color: #606D75;
+  } 
+
+  #searchform-input-group .invenio-collapsable-tabs button, #searchform-input-group .invenio-collapsable-tabs button:hover, #searchform-input-group .invenio-collapsable-tabs button:focus {
+    border: 1px #fff solid;
+    outline: 0;
+  }
+
+  #search_content{
+    background-color: #B9CEDD;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .search-facet {
+    background-color: #f4f4f4;
+    border-radius: 3px;
+    padding: 10px;
+  }
+
+  form.form-inline {
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 3px;
+  }
+
+  form.form-inline .row.record:nth-child(2n+1) {
+    background-color: #fff;
+  }
+  </style>
+
+
+  <div id="search-box-main" class="rw">
+    <div class="container">
+      <div class="navbar">
+        {% include "search/form/text.html" %}
+        {%- block search_form_form -%}
+        <div class="navbar-collapse">
+          {% include "search/form/form.html" %}
+          {% include "search/form/settings.html" %}
+        </div>
+        {%- endblock search_form_form -%}
+      </div>
+    </div>
+  </div>
+  {%- block search_form_flashed_messages -%}
+  {%- for category, msg in get_flashed_messages(with_categories=True,
+                                               category_filter=['websearch-after-search-form']) %}
+  <div class="row">
+    <div class="col-md-12">
+      {{ msg|safe }}
+    </div>
+  </div>
+    {%- endfor %}
+  {%- endblock search_form_flashed_messages -%}
+  
+  {%- endblock search_form_body -%}
+  {%- endblock search_form -%}
