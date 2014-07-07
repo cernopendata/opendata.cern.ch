@@ -34,18 +34,23 @@ blueprint = Blueprint('invenio_opendata', __name__, url_prefix='',
 
 
 @blueprint.route('/')
-@blueprint.route('/index')
 def index():
 	try:
-		return render_template('index.html')
-		# return render_template('index.html')
+		return render_template('carousel.html')
 	except TemplateNotFound:
 		abort(404)
 
-@blueprint.route('/carousel')
-def carousel():
+@blueprint.route('/carouselsearch')
+def index_search():
 	try:
-		return render_template('carousel.html')
+		return render_template('carousel_search.html')
+	except TemplateNotFound:
+		abort(404)
+
+@blueprint.route('/static')
+def static_view():
+	try:
+		return render_template('index.html')
 	except TemplateNotFound:
 		abort(404)
 

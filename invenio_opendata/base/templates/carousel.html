@@ -35,6 +35,7 @@
 .intro .entryactions li span {
 	margin-right: 10px;
 	width: 30px;
+	text-align: center;
 }
 .intro .entryactions {
 	float: left;
@@ -55,8 +56,8 @@
     float: left;
     width: auto;
     height: 25px;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 25px;
+    font-weight: 300;
     font-style: normal;
 }
 .intro .news .ndate {
@@ -70,13 +71,13 @@
     float: left;
     width: 100%;
     text-align: left;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 100;
 }
 .intro .news .ndate span {
     bottom: 0;
     display: inline-block;
-    margin: 10px 5px;
+    margin: 15px 5px;
 
 }
 .intro .news .nbody span {
@@ -86,7 +87,7 @@
 
 .intro .news h5 {
 	float: left;
-	font-size: 40px;
+	font-size: 50px;
 	font-weight: 200;
 	margin-top: 0;
 }
@@ -98,6 +99,26 @@
 float: left;
 height: 130px;
 width: 200px;
+}
+
+
+.searchForm form {
+	margin-top: 15px;
+}
+
+.searchForm input {
+	height: 35px;
+	font-size: 18px;
+	float: left;
+	width: 400px;
+}
+
+.searchForm button {
+	height: 35px;
+	float: left;
+	font-size: 16px;
+	width: auto;
+	background-color: #606D75;
 }
 
 </style>
@@ -150,8 +171,8 @@ width: 200px;
 						<div class="entryactions">
 							<div>
 								<ul>
-									<li><span class="fa fa-database"></span>Download Virtual Machine image <span class="fa fa-chevron-right"></span></li>
-								<li><span class="fa fa-ge"></span>Access data via XROOTD streaming <span class="fa fa-chevron-right"></span></li>
+									<li><span class="fa fa-database"></span>Download <b>Virtual Machine</b> image <span class="fa fa-chevron-right"></span></li>
+								<li><span class="fa fa-ge"></span>Access data via <b>XROOTD</b> streaming <span class="fa fa-chevron-right"></span></li>
 								<li><span class="fa fa-lightbulb-o"></span>Learn more <span class="fa fa-chevron-right"></span></li>
 								</ul>
 							</div>
@@ -162,7 +183,13 @@ width: 200px;
         </div>
         <div class="item">
             <div class="carousel-caption">
-              	<div class="col-md-7 pull-left">
+              	<div class="col-md-5 pull-left newsimg">
+					<img src=" {{ url_for('static', filename='/img/opendata/news1.jpg') }}" alt="" class="col-md-6 no-padding">
+					<img src=" {{ url_for('static', filename='/img/opendata/news2.jpg') }}" alt="" class="col-md-6 no-padding">
+					<img src=" {{ url_for('static', filename='/img/opendata/news4.jpg') }}" alt="" class="col-md-6 no-padding">
+					<img src=" {{ url_for('static', filename='/img/opendata/news3.jpg') }}" alt="" class="col-md-6 no-padding">
+				</div>
+				<div class="col-md-7 pull-right">
 					<div class="news box">
 						<h5>Latest News</h5>
 						<ul>
@@ -197,12 +224,7 @@ width: 200px;
 						</ul>
 					</div>
 				</div>
-				<div class="col-md-5 pull-right newsimg">
-					<img src=" {{ url_for('static', filename='/img/opendata/news1.jpg') }}" alt="" class="col-md-6 no-padding">
-					<img src=" {{ url_for('static', filename='/img/opendata/news2.jpg') }}" alt="" class="col-md-6 no-padding">
-					<img src=" {{ url_for('static', filename='/img/opendata/news4.jpg') }}" alt="" class="col-md-6 no-padding">
-					<img src=" {{ url_for('static', filename='/img/opendata/news3.jpg') }}" alt="" class="col-md-6 no-padding">
-				</div>
+				
             </div>
         </div>
     </div>
@@ -219,6 +241,12 @@ width: 200px;
 				<li><span class="fa fa-circle-o"></span>Alice</li>
 				<li><span class="fa fa-circle"></span>LHCb</li>
 			</ul>
+			<div class="pull-right searchForm">
+				<form action="post" name="searchForm" role="form" id="searchForm">
+						<input type="text" name="searchQuery" placeholder="Looking for ..." class="form-control">
+						<button class="btn btn-search fa fa-search"></button>
+				</form>
+			</div>
 		</div>
 	</div>
 	<div class="collRecords">
@@ -245,7 +273,7 @@ width: 200px;
 							<h5>CMS Document 1</h5>
 						</div>
 						<div class="thumb iconed">
-							<div class="icon-file"></div>
+							<div class="fa fa-file"></div>
 						</div>
 						<div class="details">
 							<span>READ MORE ...</span>
@@ -270,10 +298,10 @@ width: 200px;
 					<div class="recordbox">
 						<div class="top">
 							<span class="fa fa-file"></span>
-							<h5>CDS Document 2</h5>
+							<h5>CMS Document 2</h5>
 						</div>
 						<div class="thumb iconed">
-							<div class="icon-file-xml"></div>
+							<div class="fa fa-file-text"></div>
 						</div>
 						<div class="details">
 							<span>READ MORE ...</span>
@@ -311,10 +339,10 @@ width: 200px;
 					<div class="recordbox">
 						<div class="top">
 							<span class="fa fa-file"></span>
-							<h5>CDS Document 3</h5>
+							<h5>CMS Document 3</h5>
 						</div>
 						<div class="thumb iconed">
-							<div class="icon-file"></div>
+							<div class="fa fa-file"></div>
 						</div>
 						<div class="details">
 							<span>READ MORE ...</span>
@@ -338,7 +366,7 @@ width: 200px;
 			</ul>
 		</div>
 		<div class="container seeall">
-			<a href="#">SEE ALL</a>
+			<a href="{{ url_for('search') }}">SEE ALL</a>
 		</div>
 	</div>
 </section>
