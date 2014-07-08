@@ -29,7 +29,7 @@ OB
 {% block details %}
     <big>
     {{ bfe_authors(bfo, suffix="<br />", limit="25", interactive="yes", print_affiliations="yes", affiliation_prefix="<small> (", affiliation_suffix=")</small>") }}
-    </big>  
+    </big>
     {{ bfe_addresses(bfo) }}
     {{ bfe_affiliation(bfo) }}
     {{ bfe_date(bfo, prefix="<br />", suffix="<br />") }}
@@ -52,8 +52,6 @@ OB
 {% endblock %}
 
 {% block footer %}
-    {{ bfe_appears_in_collections(bfo, prefix="<p style='margin-left: 10px;'><em>The record appears in these collections:</em><br />", suffix="</p>") }}
-
     {# WebTags #}
     {{ tfn_webtag_record_tags(record['recid'], current_user.get_id())|prefix('<hr />') }}
 
