@@ -63,3 +63,5 @@ CFG_SITE_NAME_INTL['ka'] = 'CERN Open Data Portal Demo'
 CFG_SITE_NAME_INTL['lt'] = 'CERN Open Data Portal Demo'
 CFG_SITE_NAME_INTL['ar'] = 'CERN Open Data Portal Demo'
 CFG_SITE_NAME_INTL['fa'] = 'CERN Open Data Portal Demo'
+
+CFG_WEBCOMMENT_ALLOW_REVIEWS = 0
