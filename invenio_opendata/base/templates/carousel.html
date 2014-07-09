@@ -1,6 +1,5 @@
 {% extends "page.html" %}
 
-
 {%- css url_for('static', filename='css/home_carousel.css') %}
 
 <!-- HERE ends the HEADER -->
@@ -111,6 +110,7 @@ width: 200px;
 	font-size: 18px;
 	float: left;
 	width: 400px;
+	border-radius: 2px 0 0 0;
 }
 
 .searchForm button {
@@ -119,6 +119,12 @@ width: 200px;
 	font-size: 16px;
 	width: auto;
 	background-color: #606D75;
+	border-radius: 0 2px 0 0;
+	border: 0;
+}
+
+.collections .nav ul > a {
+	float: left;
 }
 
 </style>
@@ -233,145 +239,51 @@ width: 200px;
 </section>
 
 <section class="collections">
-	<div class="nav">
-		<div class="container">
-			<ul class="pull-left">
-				<li class="active"><span class="fa fa-tag"></span>LATEST</li>
-				<li><span class="fa fa-dot-circle-o"></span>CMS</li>
-				<li><span class="fa fa-circle-o"></span>Alice</li>
-				<li><span class="fa fa-circle"></span>LHCb</li>
-			</ul>
-			<div class="pull-right searchForm">
-				<form action="post" name="searchForm" role="form" id="searchForm">
-						<input type="text" name="searchQuery" placeholder="Looking for ..." class="form-control">
-						<button class="btn btn-search fa fa-search"></button>
-				</form>
-			</div>
-		</div>
-	</div>
-	<div class="collRecords">
-		<div class="container">
-			<ul>
-				<li class="col-md-3 col-xs-12 col-sm-6">
-					<div class="recordbox">
-						<div class="top">
-							<span class="fa fa-bar-chart-o"></span>
-							<h5>DATA_1</h5>
-						</div>
-						<div class="thumb">
-							<img src="{{ url_for('static', filename='img/opendata/dielectron2-scaled.png') }}" alt="">
-						</div>
-						<div class="details">
-							<span>READ MORE ...</span>
-						</div>
-					</div>
-				</li>
-				<li class="col-md-3 col-xs-12 col-sm-6">
-					<div class="recordbox">
-						<div class="top">
-							<span class="fa fa-file"></span>
-							<h5>CMS Document 1</h5>
-						</div>
-						<div class="thumb iconed">
-							<div class="fa fa-file"></div>
-						</div>
-						<div class="details">
-							<span>READ MORE ...</span>
-						</div>	
-					</div>
-				</li>
-				<li class="col-md-3 col-sm-6 col-xs-12">
-					<div class="recordbox">
-						<div class="top">
-							<span class="fa fa-bar-chart-o"></span>
-							<h5>DATA_2</h5>
-						</div>
-						<div class="thumb">
-							<img src="{{ url_for('static', filename='img/opendata/HtoGammaGamma-scaled.png') }}" alt="">
-						</div>
-						<div class="details">
-							<span>READ MORE ...</span>
-						</div>			
-					</div>
-				</li>
-				<li class="col-md-3 col-sm-6 col-xs-12">
-					<div class="recordbox">
-						<div class="top">
-							<span class="fa fa-file"></span>
-							<h5>CMS Document 2</h5>
-						</div>
-						<div class="thumb iconed">
-							<div class="fa fa-file-text"></div>
-						</div>
-						<div class="details">
-							<span>READ MORE ...</span>
-						</div>			
-					</div>
-				</li>
-				<li class="col-md-3 col-sm-6 col-xs-12">
-					<div class="recordbox">
-						<div class="top">
-							<span class="fa fa-bar-chart-o"></span>
-							<h5>DATA_3</h5>
-						</div>
-						<div class="thumb">
-							<img src="{{ url_for('static', filename='img/opendata/ttbar-scaled.png') }}" alt="">
-						</div>
-						<div class="details">
-							<span>READ MORE ...</span>
-						</div>			
-					</div>
-					<li class="col-md-3 col-sm-6 col-xs-12">
-					<div class="recordbox">
-						<div class="top">
-							<span class="fa fa-bar-chart-o"></span>
-							<h5>DATA_4</h5>
-						</div>
-						<div class="thumb">
-							<img src="{{ url_for('static', filename='img/opendata/Jpsimumu-scaled.png') }}" alt="">
-						</div>
-						<div class="details">
-							<span>READ MORE ...</span>
-						</div>			
-					</div>
-				</li>
-				<li class="col-md-3 col-sm-6 col-xs-12">
-					<div class="recordbox">
-						<div class="top">
-							<span class="fa fa-file"></span>
-							<h5>CMS Document 3</h5>
-						</div>
-						<div class="thumb iconed">
-							<div class="fa fa-file"></div>
-						</div>
-						<div class="details">
-							<span>READ MORE ...</span>
-						</div>			
-					</div>
-				</li>
-				<li class="col-md-3 col-sm-6 col-xs-12">
-					<div class="recordbox">
-						<div class="top">
-							<span class="fa fa-bar-chart-o"></span>
-							<h5>DATA_5</h5>
-						</div>
-						<div class="thumb">
-							<img src="{{ url_for('static', filename='img/opendata/Jpsiee-scaled.png') }}" alt="">
-						</div>
-						<div class="details">
-							<span>READ MORE ...</span>
-						</div>			
-					</div>
-				</li>
-			</ul>
-		</div>
-		<div class="container seeall">
-			<a href="{{ url_for('search') }}">SEE ALL</a>
-		</div>
-	</div>
-</section>
+	{% with show_searchbar = true %}
+		{% include 'collections_list.html' %}
+	{% endwith %}
+	</section>
+	
+<style>
+	.info {
+		padding: 20px 0;
+		height: auto;
+	}
+
+	.testimonial {
+		color: #fff;
+	}
+	.testimonial .quote span.fa {
+		font-size: 20px;
+		font-style: italic;
+		margin: 8px;
+		width: 100%;
+	}
+	.testimonial .quote {
+		font-size: 17px;
+		font-style: italic;
+	}
+
+	.testimonial .quote .text {
+		padding: 7px;
+		display: inline-block;
+	}
+
+	.testimonial .details {
+		float: right;
+		width: 60%;
+		font-weight: 100;
+		font-size: 15px;
+		text-align: right;
+	}
+</style>
+
 <section >
-	<div class="info"></div>
+	<div class="info">
+		<div class="container">
+			{% include 'testimonials.html' %}
+		</div>
+	</div>
 	<div class="info dark"></div>
 </section>
 {% endblock body %}

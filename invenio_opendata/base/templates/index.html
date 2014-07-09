@@ -8,6 +8,39 @@
 {% block page_body %}
 {% block body %}
  {{ super() }}
+<style>
+	.info {
+		padding: 20px 0;
+		height: auto;
+	}
+
+	.testimonial {
+		color: #fff;
+	}
+	.testimonial .quote span.fa {
+		font-size: 20px;
+		font-style: italic;
+		margin: 8px;
+		width: 100%;
+	}
+	.testimonial .quote {
+		font-size: 25px;
+		font-style: italic;
+	}
+
+	.testimonial .quote .text {
+		padding: 7px;
+		display: inline-block;
+	}
+
+	.testimonial .details {
+		float: right;
+		width: 60%;
+		font-weight: 100;
+		font-size: 15px;
+		text-align: right;
+	}
+</style>
 <section class="intro">
 
 <div class="container">
@@ -79,9 +112,9 @@
 		<div class="container">
 			<ul class="pull-left">
 				<li class="active"><span class="fa fa-tag"></span>LATEST</li>
-				<li><span class="fa fa-dot-circle-o"></span>CMS</li>
-				<li><span class="fa fa-circle-o"></span>Alice</li>
-				<li><span class="fa fa-circle"></span>LHCb</li>
+				<a href="/search?cc=CMS"><li><span class="fa fa-dot-circle-o"></span>CMS</li></a>
+				<a href="/search?cc=ALICE"><li><span class="fa fa-circle-o"></span>Alice</li></a>
+				<a href="/search?cc=LHCb"><li><span class="fa fa-circle"></span>LHCb</li></a>
 			</ul>
 		</div>
 	</div>
@@ -207,7 +240,36 @@
 	</div>
 </section>
 <section >
-	<div class="info"></div>
+	<div class="info">
+		<div class="container">
+			<ul>
+				<li class="testimonial col-md-4">
+					<div class="quote">
+						<span class="fa fa-quote-left" style="text-align:left;"></span>
+						<span class="text">I find it fascinating -— all the leptons, bosons, hadrons -- oh my!</span>
+						<span class="fa fa-quote-right" style="text-align:right;"></span>
+					</div>
+					<div class="details">-- Stephen Bohlman, high school student, EPPOG Masterclasses 2006</div>
+				</li>
+				<li class="testimonial col-md-4">
+					<div class="quote">
+						<span class="fa fa-quote-left" style="text-align:left;"></span>
+						<span class="text">We could do something with this data. It made us feel that we were scientists for a day.  When we saw [one], we’d just scream out, ‘The muon'!</span>
+						<span class="fa fa-quote-right" style="text-align:right;"></span>
+					</div>
+					<div class="details">-- Sammi Qin, EPPOG Masterclasses 2006</div>
+				</li>
+				<li class="testimonial col-md-4">
+					<div class="quote">
+						<span class="fa fa-quote-left" style="text-align:left;"></span>
+						<span class="text">I find it fascinating -— all the leptons, bosons, hadrons -- oh my!</span>
+						<span class="fa fa-quote-right" style="text-align:right;"></span>
+					</div>
+					<div class="details"> Stephen Bohlman, high school student, EPPOG Masterclasses 2006</div>
+				</li>
+			</ul>
+		</div>
+	</div>
 	<div class="info dark"></div>
 </section>
 {% endblock body %}

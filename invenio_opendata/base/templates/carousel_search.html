@@ -101,6 +101,38 @@ height: 130px;
 width: 200px;
 }
 
+.info {
+	padding: 20px 0;
+	height: auto;
+}
+
+.testimonial {
+	color: #fff;
+}
+.testimonial .quote span.fa {
+	font-size: 20px;
+	font-style: italic;
+	margin: 8px;
+	width: 100%;
+}
+.testimonial .quote {
+	font-size: 25px;
+	font-style: italic;
+}
+
+.testimonial .quote .text {
+	padding: 7px;
+	display: inline-block;
+}
+
+.testimonial .details {
+	float: right;
+	width: 60%;
+	font-weight: 100;
+	font-size: 15px;
+	text-align: right;
+}
+
 </style>
 
 
@@ -218,9 +250,9 @@ width: 200px;
                         <div class="phraseTxt">RECORDS WAITING!</div>
                 </div>
                 <div class="searchForm col-md-9">
-                        <form action="post" name="searchForm" role="form" id="searchForm">
+                        <form action="{{ url_for('search')}}" method="get" name="searchForm" role="form" id="searchForm">
                                 <div class="form-group col-md-9">
-                                        <input type="text" name="searchQuery" placeholder="Looking for ..." class="form-control">
+                                        <input type="text" name="p" placeholder="Looking for ..." class="form-control">
                                 </div>
                                 <div class="form-group col-md-3">
                                         <button type="submit" class="btn btn-search fa fa-search"></button>
@@ -231,139 +263,14 @@ width: 200px;
 </section>
 
 <section class="collections">
-	<div class="nav">
-		<div class="container">
-			<ul class="pull-left">
-				<li class="active"><span class="fa fa-tag"></span>LATEST</li>
-				<li><span class="fa fa-dot-circle-o"></span>CMS</li>
-				<li><span class="fa fa-circle-o"></span>Alice</li>
-				<li><span class="fa fa-circle"></span>LHCb</li>
-			</ul>
-		</div>
-	</div>
-	<div class="collRecords">
-		<div class="container">
-			<ul>
-				<li class="col-md-3 col-xs-12 col-sm-6">
-					<div class="recordbox">
-						<div class="top">
-							<span class="fa fa-bar-chart-o"></span>
-							<h5>DATA_1</h5>
-						</div>
-						<div class="thumb">
-							<img src="{{ url_for('static', filename='img/opendata/dielectron2-scaled.png') }}" alt="">
-						</div>
-						<div class="details">
-							<span>READ MORE ...</span>
-						</div>
-					</div>
-				</li>
-				<li class="col-md-3 col-xs-12 col-sm-6">
-					<div class="recordbox">
-						<div class="top">
-							<span class="fa fa-file"></span>
-							<h5>CMS Document 1</h5>
-						</div>
-						<div class="thumb iconed">
-							<div class="fa fa-file"></div>
-						</div>
-						<div class="details">
-							<span>READ MORE ...</span>
-						</div>	
-					</div>
-				</li>
-				<li class="col-md-3 col-sm-6 col-xs-12">
-					<div class="recordbox">
-						<div class="top">
-							<span class="fa fa-bar-chart-o"></span>
-							<h5>DATA_2</h5>
-						</div>
-						<div class="thumb">
-							<img src="{{ url_for('static', filename='img/opendata/HtoGammaGamma-scaled.png') }}" alt="">
-						</div>
-						<div class="details">
-							<span>READ MORE ...</span>
-						</div>			
-					</div>
-				</li>
-				<li class="col-md-3 col-sm-6 col-xs-12">
-					<div class="recordbox">
-						<div class="top">
-							<span class="fa fa-file"></span>
-							<h5>CMS Document 2</h5>
-						</div>
-						<div class="thumb iconed">
-							<div class="fa fa-file-text"></div>
-						</div>
-						<div class="details">
-							<span>READ MORE ...</span>
-						</div>			
-					</div>
-				</li>
-				<li class="col-md-3 col-sm-6 col-xs-12">
-					<div class="recordbox">
-						<div class="top">
-							<span class="fa fa-bar-chart-o"></span>
-							<h5>DATA_3</h5>
-						</div>
-						<div class="thumb">
-							<img src="{{ url_for('static', filename='img/opendata/ttbar-scaled.png') }}" alt="">
-						</div>
-						<div class="details">
-							<span>READ MORE ...</span>
-						</div>			
-					</div>
-					<li class="col-md-3 col-sm-6 col-xs-12">
-					<div class="recordbox">
-						<div class="top">
-							<span class="fa fa-bar-chart-o"></span>
-							<h5>DATA_4</h5>
-						</div>
-						<div class="thumb">
-							<img src="{{ url_for('static', filename='img/opendata/Jpsimumu-scaled.png') }}" alt="">
-						</div>
-						<div class="details">
-							<span>READ MORE ...</span>
-						</div>			
-					</div>
-				</li>
-				<li class="col-md-3 col-sm-6 col-xs-12">
-					<div class="recordbox">
-						<div class="top">
-							<span class="fa fa-file"></span>
-							<h5>CMS Document 3</h5>
-						</div>
-						<div class="thumb iconed">
-							<div class="fa fa-file"></div>
-						</div>
-						<div class="details">
-							<span>READ MORE ...</span>
-						</div>			
-					</div>
-				</li>
-				<li class="col-md-3 col-sm-6 col-xs-12">
-					<div class="recordbox">
-						<div class="top">
-							<span class="fa fa-bar-chart-o"></span>
-							<h5>DATA_5</h5>
-						</div>
-						<div class="thumb">
-							<img src="{{ url_for('static', filename='img/opendata/Jpsiee-scaled.png') }}" alt="">
-						</div>
-						<div class="details">
-							<span>READ MORE ...</span>
-						</div>			
-					</div>
-				</li>
-			</ul>
-		</div>
-		<div class="container seeall">
-			<a href="{{ url_for('search') }}">SEE ALL</a>
-		</div>
-	</div>
+	{% include('collections_list.html') %}
 </section>
 <section >
-	<div class="info"></div>
+	<div class="info">
+		<div class="container">
+			{% include 'testimonials.html' %}
+		</div>
+	</div>
 	<div class="info dark"></div>
 </section>
 {% endblock body %}
