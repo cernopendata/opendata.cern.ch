@@ -49,6 +49,13 @@ OB
     {{ bfe_doi(bfo, tag="0247_", prefix='<span style="background: #ccc;"><strong>DOI: </strong>', suffix=" </span><br />") }}
 
     {{ bfe_plots(bfo, width="200px", caption="no") }}
+
+{% if record['recid'] == 15 %}
+   <center>
+   <img src="{{ url_for("static", filename="img/cms-d3-visualisation.png")}}" alt=""/>
+   </center>
+{% endif %}
+
 {% endblock %}
 
 {% block footer %}
