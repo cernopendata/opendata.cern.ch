@@ -17,46 +17,50 @@
 ## along with Invenio; if not, write to the Free Software Foundation, Inc.,
 ## 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
 
-"""
-    invenio_demosite.views
-    -------------------------------
+"""CDS Demosite interface."""
 
-    Demosite interface.
-"""
 from invenio.base.i18n import _
 
-from flask import Blueprint, render_template, redirect, url_for
+from flask import Blueprint, render_template, redirect, url_for, abort
 from jinja2 import TemplateNotFound
-from flask.ext.breadcrumbs import register_breadcrumb
 
-blueprint = Blueprint('invenio_opendata', __name__, url_prefix='',
+
+blueprint = Blueprint('cds', __name__, url_prefix='/',
                       template_folder='templates', static_folder='static')
 
 
 @blueprint.route('/')
 def index():
 	try:
-		return render_template('carousel.html')
-	except TemplateNotFound:
-		abort(404)
-
-@blueprint.route('/carouselsearch')
-def index_search():
-	try:
-		return render_template('carousel_search.html')
-	except TemplateNotFound:
-		abort(404)
-
-@blueprint.route('/static')
-def static_view():
-	try:
 		return render_template('index.html')
 	except TemplateNotFound:
-		abort(404)
+		return abort(404)
 
-@blueprint.route('/middle')
-def middle():
+@blueprint.route('index2')
+def index2():
 	try:
-		return render_template('middle.html')
+		return render_template('index2.html')
 	except TemplateNotFound:
-		abort(404)
+		return abort(405)
+
+@blueprint.route('educate')
+def educate():
+	try:
+		return render_template('educate.html')
+	except TemplateNotFound:
+		return abort(404)
+
+@blueprint.route('research')
+def research():
+	try:
+		return render_template('research.html')
+	except TemplateNotFound:
+		return abort(404)
+
+@blueprint.route('news')
+def news():
+	try:
+		return render_template('news.html')
+	except TemplateNotFound:
+		return abort(404)
+

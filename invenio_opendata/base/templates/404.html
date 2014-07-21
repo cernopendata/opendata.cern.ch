@@ -1,15 +1,7 @@
 {% extends "page.html" %}
-
-{%- css url_for('static', filename='css/home.css') , 'dphep' %}
-{%- css url_for('static', filename='js/prettyCheckbox/prettyCheckbox.css') -%}
-
-{%- js url_for('static', filename='js/home.js'), 'dphep_js' %}
-{%- js url_for('static', filename='js/prettyCheckbox/prettyCheckbox.min.js') -%}
-<!-- HERE ends the HEADER -->
-
+{% set title = None %}
 
 <!-- HERE starts the BODY -->
-{% block page_body %}
 {% block body %}
  {{ super() }}
 
@@ -141,4 +133,3 @@ input[type=checkbox].checkbox {
 	</div>
 </section>
 {% endblock body %}
-{% endblock page_body %}

@@ -35,16 +35,16 @@ def post_handler_demosite_populate(sender, default_data='', *args, **kwargs):
 
         class CrcLIBRARY_1:
             phone = u'1234567'
-            name = u'Atlantis Main Library'
+            name = u'CERN Document Server'
             address = u'CH-1211 Geneva 23'
-            notes = u''
+            notes = u'Access articles, reports and multimedia content in HEP'
             type = None
             id = 1L
             email = u'atlantis@cds.cern.ch'
 
         class CrcLIBRARY_2:
             phone = u'1234567'
-            name = u'Atlantis HEP Library'
+            name = u'CDS HEP Library'
             address = u'CH-1211 Geneva 21'
             notes = u''
             type = None

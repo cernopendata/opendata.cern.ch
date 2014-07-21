@@ -16,17 +16,34 @@
 
 }
 
+header, footer, header .navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border: 0;
+}
+
 body {
     padding: 0;
     margin: 0;
     font-family: 'Source Sans Pro', sans-serif;
     color: #091B26;
+    border: 0;
 }
 
+body #wrap {
+    min-height: 200px;
+}
 a, a:hover, a:focus {
-    color: inherit;
+    color: #091B26;
     text-decoration: none;
     font-size: inherit;
+}
+
+header a, header a:hover, header a:focus,
+footer a, footer a:hover, footer a:focus {
+    color: #fff;
 }
 
 ul {
@@ -239,7 +256,8 @@ header, footer {
 
 @media (min-width: 768px) {
 .upperfoot{
-    height: 85px;
+    height: 100px;
+    overflow: hidden;
 }
 
 .upperfoot .actions {
@@ -265,7 +283,9 @@ header, footer {
 }
 }
 
-
+.content {
+    background-color: #B9CEDD;
+}
 
 @media (min-width: 768px) and (max-width: 992px) {
 }
@@ -326,6 +346,9 @@ header, footer {
         padding: 10px;
         margin-right: 15px;
         display: inline-block;
+        width: 45px;
+        height: 45px;
+        text-align: center;
     }
 
 
@@ -340,5 +363,53 @@ header, footer {
         margin-top: 23px;
     }
 
+.infobar {
+  background-color: #A2B4C0;
+  padding: 20px 0;
+  color: #fff;
+}
 
+.infobar h3 {
+    font-size: 30px;
+    font-weight: 100;
+    margin: 0;
+}
+/*---------- css for index2.html -------*/
+.searchsect {
+    background-color: #606D75;
+    height: 170px;
+    padding: 50px 0;
+}
+
+
+.searchsect .phrase {
+        color: #fff;
+        font-size: 27px;
+        height: 100px;
+}
+
+.searchsect .searchForm {
+        height: 100px;
+}
+
+.searchsect .searchForm input {
+        height: 50px;
+        border: 0;
+        border-radius: 0;
+        box-shadow: 0 0 3px #fff;
+        font-size: 25px;
+        font-weight: 100;
+        color: #496B72;
+        width: 100%;    
+}
+
+.searchsect .searchForm button {
+        height: 50px;
+        border-radius: 2px;
+        width: 100%;
+        background-color: #B36666;
+        color: #fff;
+        font-size: 27px;
+}
+/*-------------------------------------*/
 

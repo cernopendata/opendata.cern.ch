@@ -1,0 +1,35 @@
+{%- extends 'page.html' %}
+
+{% block body %}
+	<section class="intro">
+	{% include "helpers/carousel.html" %}
+	</section>
+	<section class="searchsect">
+		<div class="container">
+			<div class="phrase col-md-3 text-center">
+				<div class="phraseNum">XXX,XXX,XXX</div>
+				<div class="phraseTxt">RECORDS WAITING!</div>
+			</div>
+			<div class="searchForm col-md-9">
+				<form action="{{ url_for('search')}}" method="get" name="searchForm" role="form" id="searchForm">
+					<div class="form-group col-md-9">
+						<input type="text" name="p" placeholder="Looking for ..." class="form-control">
+					</div>
+					<div class="form-group col-md-3">
+						<button type="submit" class="btn btn-search fa fa-search"></button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	<section class="collections">
+	{% with show_searchbar = false %}
+		{% include 'helpers/collections_list.html' %}
+	{% endwith %}
+	</section>
+	<section class="info">
+		<div class="container">
+		{% include "helpers/testimonials.html" %}	
+		</div>
+	</section>
+{% endblock body %}

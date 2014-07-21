@@ -1,0 +1,82 @@
+/*
+ * This file is part of Invenio.
+ * Copyright (C) 2014 CERN.
+ *
+ * Invenio is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation; either version 2 of the
+ * License, or (at your option) any later version.
+ *
+ * Invenio is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Invenio; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+ */
+
+#cern-toolbar {
+    background-color: rgba(30, 30, 30, 0.95);
+    box-shadow: 0 -1px 0 rgba(100, 100, 100, 0.2) inset;
+    color: #999999;
+    font-family: 'PT Sans','Trebuchet MS',Tahoma,sans-serif;
+    font-size: 14px;
+    height: 40px;
+    line-height: 1;
+    overflow: hidden;
+    padding: 0 5%;
+    border-bottom: 4px solid #4D94CC;
+    z-index: 1000;
+
+    h1 {
+        float: left;
+        font-size: 14px;
+        font-weight: 400;
+        left: -8px;
+        letter-spacing: 0.08em;
+        line-height: 1;
+        margin: 0;
+        padding: 6px 0;
+        position: relative;
+    }
+
+    a {
+        border-radius: 5px;
+        color: #CCCCCC;
+        display: inline-block;
+        padding: 6px 8px;
+        text-decoration: none;
+
+        &:hover {
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+    }
+
+    a, a span {
+        transition: background-color 0.1s ease-out 0s;
+    }
+
+    span {
+        color: #999999;
+        letter-spacing: normal;
+        padding: 0;
+    }
+
+    ul {
+        float: right;
+        list-style: none outside none;
+        margin: 0;
+        position: relative;
+        right: -8px;
+
+        li {
+            display: block;
+            float: left;
+            margin-left: 1em;
+            padding: 6px 0;
+        }
+    }
+}

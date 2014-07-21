@@ -232,6 +232,9 @@ class CollectionData(DataSet):
             ('ar', 'ln'): u'كتب',
         }
 
+
+
+
     class theses(siteCollection):
         id = 4
         name = 'Theses'
@@ -900,6 +903,15 @@ class CollectionData(DataSet):
             ('pl','ln'): u'Tematy',
         }
         name = u'Authority Subject'
+
+    class CMS(siteCollection):
+        id = 39
+        name = u'CMS'
+        dbquery = '980:"CMS"'
+        names = {
+            ('en', 'ln'): u'CMS'
+            }
+        }
 
 
 class CollectionCollectionData(DataSet):

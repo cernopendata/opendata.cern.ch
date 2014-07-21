@@ -17,11 +17,18 @@
 ## along with Invenio; if not, write to the Free Software Foundation, Inc.,
 ## 59 Temple Place, Suite 330, Boston, MA 02D111-1307, USA.
 
+from __future__ import unicode_literals
+
 PACKAGES = [
 	"invenio_opendata.base",
     "invenio_opendata.modules.*",
     "invenio.modules.*",
-    "invenio.base"
+]
+
+PACKAGES_EXCLUDE = [
+    "invenio.modules.annotations",
+    "invenio.modules.communities",
+    "invenio.modules.pages",
 ]
 
 DEPOSIT_TYPES = [
@@ -65,3 +72,9 @@ CFG_SITE_NAME_INTL['ar'] = 'CERN Open Data Portal Demo'
 CFG_SITE_NAME_INTL['fa'] = 'CERN Open Data Portal Demo'
 
 CFG_WEBCOMMENT_ALLOW_REVIEWS = 0
+
+
+try:
+    from invenio_opendata.instance_config import *  # noqa
+except ImportError:
+    pass

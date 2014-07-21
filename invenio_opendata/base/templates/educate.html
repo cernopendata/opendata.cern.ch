@@ -1,0 +1,62 @@
+{%- extends 'page.html' %}
+
+
+{% block body %}
+<section class="infobar">
+	<div class="container">
+		<h3>For Education</h3>
+	</div>
+</section>
+<section class="visualise">
+		<div class="events">
+			<div class="container">
+				<div class="col-md-4 imagebox pull-left"><img src="{{ url_for('static', filename='img/data-event.jpg') }}" class="cener-block" alt=""></div>
+				<div class="col-md-8 actions">
+					<div class="details">
+						<h4>Visualise Detector Events</h4>
+						<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, sunt, voluptate neque fugit tempora harum. Repudiandae unde molestias eaque similique, consequatur consectetur expedita tenetur minus minima doloribus, ut temporibus quisquam!</span>
+					</div>
+					<ul>
+						<li>Explore Events<span class="fa fa-chevron-circle-right"></span></li>
+						<li>Guides & References<span class="fa fa-chevron-circle-right"></span></li>
+						<li>more<span class="fa fa-chevron-circle-right"></span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="histograms">
+			<div class="container">
+				<div class="col-md-4 imagebox pull-right	"><img src="{{ url_for('static', filename='img/graph_histo.png') }}" alt="" class="centr-block"></div>
+				<div class="col-md-8 actions">
+					<div class="details">
+						<h4>Visualise Data Histograms</h4>
+						<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis neque tempora illum repudiandae. Soluta quos mollitia vero, nam at odit asperiores, omnis magni et minus quia nesciunt, praesentium officia totam?</span>
+					</div>
+					<ul>
+						<li>Data Histograms<span class="fa fa-chevron-circle-right"></span></li>
+						<li>Guides & References<span class="fa fa-chevron-circle-right"></span></li>
+						<li>more<span class="fa fa-chevron-circle-right"></span></li>
+					</ul>
+				</div>
+			</div>
+		</div>	
+</section>
+<section class="learn">
+	<div class="container">
+		<div class="thumbbox">
+			<div class="col-md-4">
+				<img src="{{ url_for('static', filename='img/edu_img_1.png') }}" alt="" class="img-circle center-block">
+			</div>
+			<div class="col-md-4">
+				<img src="{{ url_for('static', filename='img/edu_img_2.jpg') }}" alt="" class="img-circle center-block">
+			</div>
+			<div class="col-md-4">
+				<img src="{{ url_for('static', filename='img/edu_img_3.png') }}" alt="" class="img-circle center-block">
+			</div>
+		</div>
+	</div>
+	<div class="slogan container">
+		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut incidunt pariatur repellat amet adipisci nostrum ex officia obcaecati illum dolorum, ipsum cumque molestiae aspernatur delectus enim numquam, tempora deleniti velit?</h3>
+	</div>
+</section>	
+{% endblock body %}

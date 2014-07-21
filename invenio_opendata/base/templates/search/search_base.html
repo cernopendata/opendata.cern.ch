@@ -21,11 +21,9 @@
 
 {% from "search/results.html" import render_search_results with context %}
 
-{% block global_css %}
+{% block global_bundles %}
   {{ super() }}
-  {%- css url_for('static', filename='css/formatter/templates_brief.css'), '00-search' -%}
-  {%- css url_for('static', filename='css/search/search.css'), '00-search' -%}
-  {%- js url_for('webtag.static', filename='js/tags/record_editor.js'), '00-search' -%}
+  {% bundles "formatter.css", "tags.js" %}
 {% endblock %}
 
 {%- set portalboxes = dict() -%}
@@ -53,62 +51,80 @@
   {%- endif -%}
 {% endblock %}
 
+
+
 {%- block inner_content -%}
   {%- block index -%}
-    {%- if not recids|length -%}
-      {%- block index_noresult -%}
-        <div class="row">
-          <div class="col-md-12">
-            <p>
-              <strong>{{ _('Your search did not match any records. Please try again.') }}</strong>
-            </p>
-            {{ create_nearest_terms_box()|safe }}
+    <section class="content">
+      
+      
+        {%- if not recids|length -%}
+        <div class="infobar">
+          <div class="container">
+            <div class="noresults">
+              <p>
+                {{ _('Your search <b>did not match</b> any records. Please try again.') }}
+              </p>
+            </div>
           </div>
         </div>
-      {%- endblock index_noresult -%}
-    {%- else -%}
-      {%- block index_results -%}
-        <div class="row">
-          {%- block facets %}
-            <div class="search-facet col-md-3 col-lg-2 visible-md visible-lg">
-              <div class="facet" id="facet_list"></div>
+        <div class="container results">
+          {%- block index_noresult -%}
+            <div class="row">
+              <div class="col-md-12">
+                <div class="nearesttermsmain">
+                  {{ create_nearest_terms_box()|safe }}
+                </div>
+              </div>
             </div>
-          {%- endblock facets %}
-          {%- block index_right -%}
-            <div class="col-md-9 col-lg-10">
-              {%- block facets_filter %}
-                <div class="row visible-md visible-lg">
-                  <div class="col-md-10">
-                    <div class="well" id="facet_filter" style="clear:both; display: none;">
-                      <input type="hidden" value="{{ request.args.get('p', '') }}" name="p" />
+          {%- endblock index_noresult -%}
+        </div>
+        {%- else -%}
+        <div class="container results">
+          {%- block index_results -%}
+            <div class="row">
+              {%- block facets %}
+                <div class="col-md-3 col-lg-2 visible-md visible-lg">
+                  <div class="facet" id="facet_list"></div>
+                </div>
+              {%- endblock facets %}
+              {%- block index_right -%}
+                <div class="col-md-9 col-lg-10">
+                  {%- block facets_filter %}
+                    <div class="row visible-md visible-lg">
+                      <div class="col-md-10">
+                        <div class="well" id="facet_filter" style="clear:both; display: none;">
+                          <input type="hidden" value="{{ request.args.get('p', '') }}" name="p" />
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  {%- endblock facets_filter %}
+                  {%- block results %}
+                    <div class="row">
+                      <div id="search_results" class="col-md-12">
+                        {%- block search_results -%}
+                          {{ render_search_results(recids, collection, pagination, format_record) }}
+                        {%- endblock search_results -%}
+                      </div>
+                    </div>
+                  {%- endblock results %}
                 </div>
-              {%- endblock facets_filter %}
-              {%- block results %}
-                <div class="row">
-                  <div id="search_results" class="col-md-12">
-                    {%- block search_results -%}
-                      {{ render_search_results(recids, collection, pagination, format_record) }}
-                    {%- endblock search_results -%}
-                  </div>
-                </div>
-              {%- endblock results %}
+              {%- endblock index_right -%}
             </div>
-          {%- endblock index_right -%}
+            {%- block filter_modal -%}
+              <div class="modal hide" id="overlay">
+                <div class="modal-body">
+                  <center>
+                  <img alt="" src="/img/loading.gif" id="img-load" />
+                  <strong>{{ _('Filtering') }} ...</strong>
+                  </center>
+                </div>
+              </div>
+            {%- endblock filter_modal -%}
+          {%- endblock index_results -%}
         </div>
-        {%- block filter_modal -%}
-          <div class="modal hide" id="overlay">
-            <div class="modal-body">
-              <center>
-              <img alt="" src="/img/loading.gif" id="img-load" />
-              <strong>{{ _('Filtering') }} ...</strong>
-              </center>
-            </div>
-          </div>
-        {%- endblock filter_modal -%}
-      {%- endblock index_results -%}
-    {%- endif -%}
+        {%- endif -%}
+    </section>
   {%- endblock index -%}
 {%- endblock -%}
 

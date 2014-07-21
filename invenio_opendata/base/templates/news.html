@@ -1,0 +1,64 @@
+{%- extends 'page.html' %}
+
+{% set news1 = ('') %}
+
+
+{% set tester = "osfp" %}
+{% set tags = [('ALICE','exp' ), ('CMS', 'exp'),  ('news', 'gen')] %}
+
+
+{% macro news_box(title, body, author, extra) %}
+	{% block news_box scoped%}
+		<div class="news-box">
+			<div class="header">
+				<div class="info pull-left">
+					<div class="title"></div>
+					<span></span>
+					<div class="details">posted by </div>
+					<a href=""></a>
+				</div>
+				<div class="more pull-right">
+					<div class="category"><a href=""><span></span></a></div>
+				</div>
+			</div>
+		</div>
+	{% endblock %}
+{% endmacro %}
+
+{% macro tag_box(name, classes) %}
+	{% block tag_box scoped%}
+		<a href="#" class="tag-box {{classes}}">
+			<span>#{{name}}</span>
+		</a>
+	{% endblock %}
+{% endmacro %}
+
+{% block body %}
+
+
+<section class="infobar">
+	<div class="container">
+		<h3>News</h3>
+	</div>
+</section>
+<section class="news-main">
+	<div class="container">
+		<div class="tag-container">
+			<div class="tag-filter">
+				
+			</div>
+			<div class="tag-boxes">
+				{% for tag in tags %}
+					{{ tag_box(tag[0], tag[1]) }}
+				{% endfor %}</div>
+			</div>
+		<div class="news-container">
+			
+		</div>
+	</div>
+</section>
+
+{% endblock body %}
+
+
+

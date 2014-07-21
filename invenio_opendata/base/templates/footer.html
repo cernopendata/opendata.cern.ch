@@ -1,218 +1,97 @@
-<style>
-.upperfoot .actions {
-	float: left;
-}
+{#
+## This file is part of Invenio.
+## Copyright (C) 2014 CERN.
+##
+## Invenio is free software; you can redistribute it and/or
+## modify it under the terms of the GNU General Public License as
+## published by the Free Software Foundation; either version 2 of the
+## License, or (at your option) any later version.
+##
+## Invenio is distributed in the hope that it will be useful, but
+## WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+## General Public License for more details.
+##
+## You should have received a copy of the GNU General Public License
+## along with Invenio; if not, write to the Free Software Foundation, Inc.,
+## 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+#}
 
-.middlefoot .pull-right img{
-	margin-top: 20px;
-	width: 80px;
-	margin-right: 40px;
-}
+{%- extends "footer_base.html" -%}
 
-.middlefoot .pull-left img {
-	margin-top: 35px;
-	width: 170px;
-}
+{%- block footer %}
+  <div class="upperfoot">
+    <div class="container">
+      <div class=" col-md-6 col-sm-12 no-padding">
+        <ul class="ppull-left">
+          <li><span class="fa fa-facebook"></span></li>
+          <li><span class="fa fa-twitter"></span></li>
+          <li><span class="fa fa-youtube-play"></span></li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-12 no-padding">
+        <ul class="ppull-right actions ">
+          <!-- <li><span class="icon-pencil2"></span>REGISTER</li> -->
+          <li style="color:#666;"><span class="fa fa-paper-plane"></span>CONTACT + SUGGESTIONS ?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="middlefoot">
+    <div class="container">
+      <div class="pull-left">
+        <div class="col-xs-12 no-padding">
+          <img src="{{ url_for('static', filename='/img/opendata/cern-logo-large.png') }}" style="width:80px;" alt="">
+          <img src="{{ url_for('static', filename='/img/opendata/invenio.png') }}" alt="">
+        </div>
+      </div>
+      <div class="pull-right-xs">
+          <img src="{{ url_for('static', filename='/img/logo-atlas.jpg') }}" style="width:100px;" alt="">
+          <img src="{{ url_for('static', filename='/img/logo-alice.gif') }}" alt="">
+          <img src="{{ url_for('static', filename='/img/cms-logo.gif') }}" alt="">
+          <img src="{{ url_for('static', filename='/img/lhcb-logo.jpg') }}" alt=""> 
 
-.lastfoot ul li{
-	width: 100%;
-	color: #899AA5;
-	font-size: 15px;
-}
-
-.lastfoot ul li.title {
-	font-weight: bold;
-	color: #fff;
-	margin-bottom: 10px;
-}
-
-.lastfoot ul li.col-md-4.title {
-	/*width: 33.33333333%;*/
-	text-align: center;
-}
-
-.lastfoot .actions {
-	padding-top: 30px;
-}
-
-@media (min-width: 768px) {
-.upperfoot{
-	height: 85px;
-}
-
-.upperfoot .actions {
-	float: right;
-}
-
-.upperfoot .actions span {
-	margin-bottom: 0;
-}
-
-
-.upperfoot ul {
-	height: 100%;
-	padding: 30px 10px;
-}
-
-.lastfoot .actions {
-	padding-top: 0;
-
-}.lastfoot .actions li {
-	float: left;
-	width: auto;
-}
-}
-
-
-
-@media (min-width: 768px) and (max-width: 992px) {
-}
-
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: 992px) and (max-width: 1200px) {
-.upperfoot .actions {
-	float: right;
-}
-}
-
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-
-}
-
-.upperfoot ul {
-	display: inline-block;
-	height: inherit;
-	/*margin-bottom: 20px;*/
-	padding: 20px 0;
-}
-
-.upperfoot  {
-	height: auto;
-	background-color: #fff;
-	font-size: 20px;
-	padding: 10px 0;
-}
-
-.upperfoot .actions span{
-	/*margin-bottom: 5px;*/
-	margin-right: 5px;
-
-}
-
-	footer {
-		padding: 0;
-		margin: 0;
-	}
-	
-
-	.middlefoot{
-		background-color: #f5f5f5;
-		height: 120px;
-	}
-
-	.lastfoot{
-		background-color: #606D75;
-		padding: 20px 0;
-	}
-
-	.upperfoot span {
-		background-color: #666;
-		color: #fff;
-		border-radius: 50%;
-		font-size: 25px;
-		padding: 10px;
-		margin-right: 15px;
-		display: inline-block;
-		width: 45px;
-		height: 45px;
-		text-align: center;
-	}
-
-
-
-	.upperfoot ul.pull-right-xs  span {
-		margin-right: 10px
-	}
-
-	.middlefoot .pull-right-xs img {
-		margin-left: 40px;
-		width: 70px;
-		margin-top: 23px;
-	}
-</style>
-
-	<div class="upperfoot">
-		<div class="container">
-			<div class=" col-md-6 col-sm-12 no-padding">
-				<ul class="ppull-left">
-					<li><span class="fa fa-facebook"></span></li>
-					<li><span class="fa fa-twitter"></span></li>
-					<li><span class="fa fa-youtube-play"></span></li>
-				</ul>
-			</div>
-			<div class="col-md-6 col-sm-12 no-padding">
-				<ul class="ppull-right actions ">
-					<!-- <li><span class="icon-pencil2"></span>REGISTER</li> -->
-					<li style="color:#666;"><span class="fa fa-paper-plane"></span>CONTACT + SUGGESTIONS ?</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="middlefoot">
-		<div class="container">
-			<div class="pull-left">
-				<div class="col-xs-12 no-padding">
-					<img src="{{ url_for('static', filename='/img/opendata/cern-logo-large.png') }}" style="width:80px;" alt="">
-					<img src="{{ url_for('static', filename='/img/opendata/invenio.png') }}" alt="">
-				</div>
-			</div>
-			<div class="pull-right-xs">
-					<img src="{{ url_for('static', filename='/img/logo-atlas.jpg') }}" style="width:100px;" alt="">
-					<img src="{{ url_for('static', filename='/img/logo-alice.gif') }}" alt="">
-					<img src="{{ url_for('static', filename='/img/cms-logo.gif') }}" alt="">
-					<img src="{{ url_for('static', filename='/img/lhcb-logo.jpg') }}" alt="">	
-
-			</div>
-		</div>
-	</div>
-	<div class="lastfoot">
-		<div class="container no-padding">
-			<div class="col-md-8 col-xs-12 pull-left no-padding">
-				<ul class="col-md-3 col-xs-3">
-					<li class="title">MENU1</li>
-					<li>Submenu1</li>
-					<li>Submenu2</li>
-					<li>Submenu3</li>
-					<li>Submenu4</li>
-				</ul>
-				<ul class="col-md-3 col-xs-3">
-					<li class="title">MENU2</li>
-					<li>Submenu1</li>
-					<li>Submenu2</li>
-					<li>Submenu3</li>
-					<li>Submenu4</li>
-					<li>Submenu5</li>
-					<li>Submenu6</li>
-				</ul>
-				<ul class="col-md-3 col-xs-3">
-					<li class="title">INFO</li>
-					<li>Info1</li>
-					<li>Info2</li>
-					<li>Info3</li>
-				</ul>
-				<ul class="col-md-3 col-xs-3">
-					<li class="title">MORE</li>
-					<li>More Things 1</li>
-					<li>More Things 2</li>
-				</ul>
-			</div>
-			<div class="actions col-md-4 col-xs-12 pull-right">
-				<ul>
-					<li class="title col-md-4 col-xs-12">ACTION1</li>
-					<li class="title col-md-4 col-xs-12">ACTION2</li>
-					<li class="title col-md-4 col-xs-12">ACTION3</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+      </div>
+    </div>
+  </div>
+  <div class="lastfoot">
+    <div class="container no-padding">
+      <div class="col-md-8 col-xs-12 pull-left no-padding">
+        <ul class="col-md-3 col-xs-3">
+          <li class="title">MENU1</li>
+          <li>Submenu1</li>
+          <li>Submenu2</li>
+          <li>Submenu3</li>
+          <li>Submenu4</li>
+        </ul>
+        <ul class="col-md-3 col-xs-3">
+          <li class="title">MENU2</li>
+          <li>Submenu1</li>
+          <li>Submenu2</li>
+          <li>Submenu3</li>
+          <li>Submenu4</li>
+          <li>Submenu5</li>
+          <li>Submenu6</li>
+        </ul>
+        <ul class="col-md-3 col-xs-3">
+          <li class="title">INFO</li>
+          <li>Info1</li>
+          <li>Info2</li>
+          <li>Info3</li>
+        </ul>
+        <ul class="col-md-3 col-xs-3">
+          <li class="title">MORE</li>
+          <li>More Things 1</li>
+          <li>More Things 2</li>
+        </ul>
+      </div>
+      <div class="actions col-md-4 col-xs-12 pull-right">
+        <ul>
+          <li class="title col-md-4 col-xs-12">ACTION1</li>
+          <li class="title col-md-4 col-xs-12">ACTION2</li>
+          <li class="title col-md-4 col-xs-12">ACTION3</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+{%- endblock footer %}

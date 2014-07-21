@@ -18,88 +18,31 @@
 #}
 
 
-  {%- block search_form -%}
-  {%- block search_form_body -%}  
-  
-    <style>
-  #search-box-main {
-    background-color: #899AA5;
-    color: #fff;
-    padding-top: 8px;
-  }
+{%- block search_form -%}
+{%- block search_form_body -%}  
 
-  #searchform-input-group input {
-    border-radius: 0;
-    border: 0;
-
-  }
-  #searchform-input-group button[name=action_search]{
-    background-color: #606D75;
-    border-color: #606D75;
-  } 
-
-  #searchform-input-group .invenio-collapsable-tabs button, #searchform-input-group .invenio-collapsable-tabs button:hover, #searchform-input-group .invenio-collapsable-tabs button:focus {
-    border: 1px #fff solid;
-    outline: 0;
-  }
-
-  #search_content{
-    background-color: #B9CEDD;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
-  .search-facet {
-    background-color: #f4f4f4;
-    border-radius: 3px;
-    padding: 10px;
-  }
-
-  form.form-inline {
-    background-color: #f4f4f4;
-    padding: 15px;
-    border-radius: 3px;
-  }
-
-  form.form-inline .row.record:nth-child(2n+1) {
-    background-color: #fff;
-  }
-
-  .facet.affix-top > div >ul {
-    width: 100%;
-    display: inline-block;
-  }
-
-  ul.nav-pills {
-    margin: 0!important;
-    background-color: #eee;
-  }
-  </style>
-
-
-  <div id="search-box-main" class="rw">
-    <div class="container">
-      <div class="navbar">
-        {% include "search/form/text.html" %}
-        {%- block search_form_form -%}
-        <div class="navbar-collapse">
-          {% include "search/form/form.html" %}
-          {% include "search/form/settings.html" %}
-        </div>
-        {%- endblock search_form_form -%}
+<div id="search-box-main" class="rw">
+  <div class="container">
+    <div class="navbar">
+      {%- block search_form_form -%}
+      <div class=" col-md-12 navbar-collapse no-padding">
+        {% include "search/form/form.html" %}
+        {% include "search/form/settings.html" %}
       </div>
+      {%- endblock search_form_form -%}
     </div>
   </div>
-  {%- block search_form_flashed_messages -%}
-  {%- for category, msg in get_flashed_messages(with_categories=True,
-                                               category_filter=['websearch-after-search-form']) %}
-  <div class="row">
-    <div class="col-md-12">
-      {{ msg|safe }}
-    </div>
+</div>
+{%- block search_form_flashed_messages -%}
+{%- for category, msg in get_flashed_messages(with_categories=True,
+                                             category_filter=['websearch-after-search-form']) %}
+<div class="row">
+  <div class="col-md-12">
+    {{ msg|safe }}
   </div>
-    {%- endfor %}
-  {%- endblock search_form_flashed_messages -%}
-  
-  {%- endblock search_form_body -%}
-  {%- endblock search_form -%}
+</div>
+  {%- endfor %}
+{%- endblock search_form_flashed_messages -%}
+
+{%- endblock search_form_body -%}
+{%- endblock search_form -%}
