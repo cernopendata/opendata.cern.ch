@@ -1,23 +1,57 @@
 .news-box {
-    background-color: #fff;
     min-height: 100px;
     -moz-box-shadow:    0 0 2px 0 #ccc;
     -webkit-box-shadow: 0 0 2px 0 #ccc;
     box-shadow: 0 0 2px 0 #ccc;
     margin-bottom: 20px;
+    border-radius: 3px ;
+}
+
+.news-box .header {
+    padding: 5px 10px;
+    width: 100%;
+    background-color: #A2B4C0;
+    display: inline-block;
+    border-radius: 3px 3px 0 0;
+} 
+
+.news-box .body {
     padding: 10px;
 }
 
 .tag-container {
     margin-top: 20px;
-    padding: 10px;
-    background-color: #A2B4C0;
     border-radius: 3px;
+    margin-bottom: 20px;
+    background-color: #A2B4C0;
+    height: auto;
 }
 
 
+.tag-filter {
+    background-color: #fff;
+    float: left;
+    height: auto;
+    vertical-align: middle;
+    border-radius: 3px   0 0 3px;
+    color: #606D75;
+    padding: 10px;
+    width: 10%;
+    margin-top: 20px;
+}
+
 .tag-container h1 {
     font-weight: 300;
+    background-color: #A2B4C0;
+}
+
+.tag-boxes {
+    padding: 10px;
+    border-radius: 0 3px 3px 0;
+    width: 90%;
+    background-color: #A2B4C0;
+    float: left;
+    margin-top: 20px;
 }
 
 .tag-box {
@@ -26,24 +60,31 @@
 }
 
 .tag-box span {
-    background-color: #091B26;
+    background-color: #606D75;
     color: #fff;
-    padding: 4px;
+    padding: 2px 5px;
     border-radius: 2px;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
-    font-size: 13px;
+    font-size: 12px;
     display: inline-block;
+    height: 20px;
 }
 
-.news-box .title {
+.news-container {
+    margin-top: 30px;
+}
+
+.news-box .title, .news-box .title a, 
+.news-box .title a:hover, .news-box .title a:focus {
     font-weight: 600;
-    font-size: 15px;
-    color: #666;
+    font-size: 16px;
+    color: #fff ;
+    text-decoration: none;
 }
 
 .news-box .title span {
-    background-color: #5cb85c;
+    background-color: #606D75;
     padding: 2px 5px;
     font-size: 11px;
     color: #fff;
@@ -55,16 +96,24 @@
 
 .news-box .details {
     font-size: 11px;
-    color: #999;
+    color: #fff;
 }
+.news-box .details a {
+    color: #fff;
+    text-decoration: underline;
+}
+
 .news-box .details a, .news-box .details a:hover, .news-box .details a:focus{
     font-weight: bold;
     background-color:
 }
 
 .news-box .body {
-    padding: 10px 0;
+    width: 100%;
+    display: inline-block;
+    padding: 10px;
     font-size: 13px;
+    background-color: #fff;
 }
 
 .news-box .category {
@@ -75,19 +124,96 @@
     font-size: 10px;
 }
 
-.news-box .category .tag-box {
-    background-color: #8a8a8a;
-    color: #666;
-    padding: 2px;
+.news-box .category a.tag-box {
+    background-color: #fff;
+    border-radius: 3px;
+    
 }
 
 .news-box .category .tag-box span {
-    color: #fff;
     padding: 0;
-    font-size: 9px;
+    background-color: #fff;
+    color: #666;
+    border-radius: 3px;
+    font-size: 11px;
+    padding: 2px 5px;
+    margin-top: 1px;
+
 }
 
 .centered {
     margin: 0 auto;
     float: none;
+}
+
+
+.news-preview .title {
+    background-color: #6F8796;
+    color: #fff;
+}
+
+.news-preview .info, .news-preview .more {
+    padding: 5px 0;
+}
+.news-preview .more .category {
+    margin-top: 5px;
+}
+.news-preview .category .tag-box span {
+    background-color: #fff;
+    color: #606D75;
+}
+.news-preview .inner-title {
+    clear: both;
+    height: auto;
+}
+.news-preview .inner-title > div {
+    float: left;
+    font-size: 21px;
+    font-weight: 700;
+}
+.news-preview .inner-title span {
+    float: left;
+    background-color: #fff;
+    color: #606D75!important;
+    padding: 2px 5px;
+    font-size: 11px;
+    color: #fff;
+    margin-left: 7px;
+    margin-top: 5px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+}
+
+.news-preview .details {
+    float: left;
+    font-size: 13px;
+}
+.news-preview .details a {
+    color: #fff;
+}
+
+.news-preview .body {
+    background-color: #f5f5f5;
+    padding: 40px 10px;
+    min-height: 500px;  
+}
+
+@media (max-width: 992px) {
+    .tag-container .tag-filter{
+        height: 60px;
+    }
+    .tag-container .tag-boxes{
+        height: 60px;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1200px) {
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
 }

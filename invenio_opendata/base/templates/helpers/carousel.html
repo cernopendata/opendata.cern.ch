@@ -64,9 +64,9 @@
 </div>
 <div class="col-md-6 pull-right">
 	<div class="news">
-		<h5>Latest News</h5>
+		<a href="{{ url_for('news') }}"><h5>Latest News</h5></a>
 		<ul>
-			<a href="#">
+			<a href="{{ url_for('news/1') }}">
 				<li>
 					<ul class="nbox">
 						<li class="ntitle">CMS open data release</li>
@@ -75,7 +75,7 @@
 					</ul>
 				</li>
 			</a>
-			<a href="#">
+			<a href="{{ url_for('news/2') }}">
 				<li>
 					<ul class="nbox">
 						<li class="ntitle">Some more news</li>
@@ -84,7 +84,7 @@
 					</ul>
 				</li>
 			</a>
-			<a href="#">
+			<a href="{{ url_for('news/3') }}">
 				<li>
 					<ul class="nbox">
 						<li class="ntitle">Some more news news news</li>
@@ -92,7 +92,7 @@
 						<li class="nbody"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></li>
 					</ul>
 				</li></a>
-			<a href="#">
+			<a href="{{ url_for('news/4') }}">
 				<li>
 					<ul class="nbox">
 						<li class="ntitle">News news</li>

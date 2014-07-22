@@ -57,10 +57,17 @@ def research():
 	except TemplateNotFound:
 		return abort(404)
 
-@blueprint.route('news')
-def news():
-	try:
-		return render_template('news.html')
-	except TemplateNotFound:
-		return abort(404)
+@blueprint.route('news', defaults={ 'newsid': None })
+@blueprint.route('news/<int:newsid>')
+def news(newsid):
+	if newsid == None:
+		try:
+			return render_template('news.html')
+		except TemplateNotFound:
+			return abort(404)
+	else:
+		try:
+			return render_template('news_page.html', news_id=newsid)
+		except TemplateNotFound:
+			return abort(404)
 
