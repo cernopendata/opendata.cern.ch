@@ -44,6 +44,21 @@ class CollectionData(DataSet):
         name = 'CMS Reduced Dataset'
         dbquery = '980__a:"CMSREDUCEDDATASET"'
 
+    class ALICE(siteCollection):
+        id = 5
+        name = 'ALICE'
+        dbquery = None
+
+    class ALICESimplifiedDataset(siteCollection):
+        id = 6
+        name = 'ALICE Simplified Dataset'
+        dbquery = '980__a:"ALICESIMPLIFIEDDATASET"'
+
+    class ALICEAnalysis(siteCollection):
+        id = 7
+        name = 'ALICE Analysis'
+        dbquery = '980__a:"ALICEANALYSIS"'
+
 
 class CollectionCollectionData(DataSet):
 
@@ -62,6 +77,24 @@ class CollectionCollectionData(DataSet):
     class CMS_CMSReducedDataset:
         dad = CollectionData.CMS
         son = CollectionData.CMSReducedDataset
+        score = 1
+        type = 'r'
+
+    class siteCollection_ALICE:
+        dad = CollectionData.siteCollection
+        son = CollectionData.ALICE
+        score = 1
+        type = 'r'
+
+    class ALICE_ALICESimplifiedDataset:
+        dad = CollectionData.ALICE
+        son = CollectionData.ALICESimplifiedDataset
+        score = 0
+        type = 'r'
+
+    class ALICE_ALICEAnalysis:
+        dad = CollectionData.ALICE
+        son = CollectionData.ALICEAnalysis
         score = 1
         type = 'r'
 
