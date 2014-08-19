@@ -15,36 +15,44 @@
 ## along with Invenio; if not, write to the Free Software Foundation, Inc.,
 ## 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
 
-"""CDS demosite repository."""
+"""Example demosite repository."""
 
-from setuptools import setup, find_packages
 import os
+from setuptools import setup, find_packages
 
 
-# loads __version__
+# Load __version__, should not be done using import.
+# http://python-packaging-user-guide.readthedocs.org/en/latest/tutorial.html
 g = {}
-with open(os.path.join("invenio_opendata", "version.py"), "rt") as fp:
+with open(os.path.join('invenio_opendata', 'version.py'), 'rt') as fp:
     exec(fp.read(), g)
-version = g["__version__"]
+version = g['__version__']
+
 
 setup(
-    name='CERN Open Data',
+    name='Invenio-Demosite',
     version=version,
-    url='http://open-data-demo.cern.ch/',
-    license='GPLv3',
+    url='https://github.com/inveniosoftware/invenio-demosite',
+    license='GPLv2',
     author='CERN',
     author_email='info@invenio-software.org',
-    description='Digital library software',
-    long_description=__doc__,
+    description=__doc__,
+    long_description=open('README.rst', 'rt').read(),
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
     platforms='any',
     install_requires=[
-        "Invenio>=1.9999"
+        'Invenio>=1.9999.2,<1.9999.3',
     ],
+    extras_require={
+        'development': [
+            'Flask-DebugToolbar>=0.9',
+            'setuptools-bower>=0.2'
+        ],
+    },
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: GPLv2 License',
@@ -54,7 +62,12 @@ setup(
     ],
     entry_points={
         'invenio.config': [
-            "invenio_opendata = invenio_opendata.config"
+            'demosite = invenio_opendata.config'
         ]
-    }
+    },
+    test_suite='nose.collector',
+    tests_require=[
+        'nose',
+        'Flask-Testing'
+    ]
 )
