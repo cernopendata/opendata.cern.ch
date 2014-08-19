@@ -1,0 +1,74 @@
+{% extends "page.html" %}
+
+{#
+{% set title = title %}
+#}
+{% block title %}
+{% endblock title %}
+
+{% block metaheader %}
+  {% if recid != -1 and config.CFG_WEBSEARCH_DETAILED_META_FORMAT %}
+  {{ format_record(recid, of=config.CFG_WEBSEARCH_DETAILED_META_FORMAT, ln = g.ln)|safe }}
+  {% endif %}
+{% endblock metaheader %}
+
+{% block global_bundles %}
+  {{ super() }}
+  {% bundles "records.js", "formatter.css" %}
+{% endblock %}
+
+
+{% block body %}
+  {{ super() }}
+<style>
+	#record-links {
+		border: 0;
+	}
+	
+	#record-links.nav-tabs>li>a {
+		border-radius: 4px;
+		padding: 10px;
+	}
+
+	#record-links li.active {
+		
+	}
+</style>
+  {% block record_restriction_flag %}
+  {% if g.bibrec.is_restricted %}
+  <div class="alert alert-danger"><b>{{ _('Restricted') }}</b>
+    {%- if g.bibrec.is_processed %} {{ _('Processed Record') }}
+    {%- endif -%}</div>
+  {% endif %}
+  {% endblock %}
+
+{% block record_tabs %}
+<div class="infobar rcd-actions">
+	<div class="container">
+		<ul id="record-links" class="nav nav-tabs">
+		{%- for tab in tabs|sort(attribute='order') -%}
+		{%- if tab.visible -%}
+		<li class="{{ 'active' if tab.key == request.endpoint }} {{ 'disabled' if not tab.enabled }}">
+		  <a href="{{ url_for(tab.key, recid=recid) if tab.enabled else '#' }}">
+		    {{ tab.label }}
+		    {% if tab.count and tab.count > -1 %}
+		      &nbsp;<small class="text-muted">({{ tab.count }})</small>
+		    {% endif %}
+		  </a>
+		</li>
+		{%- endif -%}
+		{%- endfor -%}
+		</ul>
+	</div>
+</div>
+{% endblock %}
+
+<div class="container">
+	<div id="record_content">
+	{% block record_content %}
+	  <!-- record content -->
+	{% endblock %}
+	</div>
+</div>
+<div style="clear: both;"></div>
+{% endblock %}

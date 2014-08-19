@@ -1,0 +1,243 @@
+.intro.middle .box {
+	height: 100%;
+	overflow: hidden;
+	background: inherit;
+	border: 0;
+}
+
+.intro.middle {
+	height: auto;
+}
+
+.intro.middle.middle a,
+.intro.middle.middle a:hover,
+.intro.middle.middle a:focus {
+	text-decoration: none;
+}
+
+.collections .nav .pull-right li {
+	/*background-color: #B9CEDD;*/
+	font-weight: 300;
+}
+
+.intro.middle .entries {
+	position: relative;
+}
+
+.intro.middle .entries .middle{
+	text-align: center;
+	position: absolute;
+	top: 0;
+	z-index: 100;
+	right: 50%;
+	margin-right: -100px;
+	margin-top: -100px
+}
+.intro.middle .entries .middle img {
+	width: 90px;
+}
+.intro.middle .entries .research .entrypoints  a {
+/*	background-color: #606D75;
+	color: #fff;*/
+}
+.intro.middle .entries .entrypoints a:hover {
+	background-color: #A2CAE2;// #606D75;
+	color: #fff;
+}
+
+.intro.middle .entries .entrypoints a{
+    padding: 15px 0;
+    background-color: #fff;
+    color: #606D75;
+    font-size: 20px;
+    font-weight: 200;
+	text-align: center;
+	width: 400px;
+	display: inline-block;
+}
+
+
+.intro.middle .entries .entrypoints.pull-right a {
+    border-radius: 50px 0 0 50px;
+
+}
+.intro.middle .entries .entrypoints.pull-left a {
+	border-radius: 0 50px 50px 0;
+
+}
+
+.intro.middle .upper{
+	height: 360px;
+    background-color: #899AA5;
+	
+}
+
+.intro.middle .bottom {
+	height: 200px;
+    background-color: #3E5A6D;
+}
+
+.navbar{
+	border: 0;
+}
+
+.intro.middle .entries .education {
+	width: 50%;
+	float: left;
+	margin-top: -55px;
+}
+
+.intro.middle .entries .research {
+	width: 50%;
+	float: right;
+	margin-top: -55px;
+}
+
+.intro.middle .entries .entryactions {
+	width: 100%;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 300;
+
+}
+.intro.middle .entryactions li {
+	width: 100%;
+
+}
+.intro.middle .entryactions ul li {
+	padding: 2px;
+	font-size: 15px;
+	font-weight: 100;
+}
+
+.intro.middle .research .entryactions ul {
+	margin-left: 100px;
+	margin-top: 25px;
+}
+.intro.middle .education .entryactions ul {
+	margin-right: 100px;
+	margin-top: 25px;
+}
+
+.intro.middle .education .entryactions li span{
+	padding-left: 5px;
+	width: 20px;
+	margin-right: 0;
+	margin-left: 10px;
+}
+.intro.middle .research .entryactions li span{
+	padding-right: 5px;
+	width: 20px;
+}
+.intro.middle .middle {
+	border-radius: 50%;
+	background-color: rgba(9, 27, 38, 0.55);
+	/* padding: 30px; */
+	width: 200px;
+	height: 200px;
+	/* border: 1px solid #333;*/
+}
+
+.intro.middle .middle .circle {
+    width: 150px;
+    height: 150px;
+    /*background: #091B26;*/
+    border-radius: 50%;
+    margin: 25px;
+    /* border: 1px solid #ccc; */
+    background: url('/img/middle.jpeg');
+	opacity: 0.5;
+	background-size: 210px;
+	background-repeat: no-repeat;
+	background-position: -34px 2px;
+}
+
+.intro.middle .upper>.container {
+	height: 100%;
+	padding-bottom: 100px;
+	padding-top: 50px;
+}
+.intro.middle .upper>.container>.col-md-6.pull-left{
+	height: 100%;
+}
+.intro.middle .upper>.container>.col-md-6.pull-right{
+	height: 50%;	
+}
+.intro.middle .box h5{
+    color: #fff;
+    font-size: 30px;
+    font-weight: 200;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 10px;
+}
+.intro.middle .box li{
+    width: 100%;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: italic;
+    padding: 1px 0;
+}
+ .intro.middle .news .details li {
+    float: left;
+    width: auto;
+    font-size: 11px;
+    padding-right: 5px;
+    color: #e8e8e8;
+ }
+
+.intro.middle .news .ntitle {
+    display: inline-block;
+}
+
+.intro.middle .news .ntitle  {
+    float: left;
+    width: auto;
+    height: 25px;
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+}
+.intro.middle .news .ndate {
+    width: auto;
+    font-size: 10px;
+    float: left;
+    height: 25px;
+    position: relative;
+}
+.intro.middle .news .nbody {
+    float: left;
+    width: 100%;
+}
+.intro.middle .news .ndate span {
+    bottom: 0;
+    display: inline-block;
+    margin: 10px 5px;
+}
+.intro.middle .news .nbody span {
+    background-color: #606D75;
+    font-size: 16px;
+}
+
+
+.intro.middle .news .nbody {
+    font-size: 14px;
+}
+
+.intro.middle .box h5 {
+	color: #fff;
+	font-size: 30px;
+	font-weight: 200;
+	padding: 0;
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+.middle .circle {
+	background: url("{{ url_for('static', filename='/img/middle.jpeg') }}");
+	opacity: 0.5;
+	background-size: 210px;
+	background-repeat: no-repeat;
+	background-position: -34px 2px;
+}

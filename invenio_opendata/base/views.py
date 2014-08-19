@@ -43,6 +43,13 @@ def index2():
 	except TemplateNotFound:
 		return abort(405)
 
+@blueprint.route('middle')
+def middle():
+	try:
+		return render_template('index_middle.html')
+	except TemplateNotFound:
+		return abort(405)
+
 @blueprint.route('educate')
 def educate():
 	try:

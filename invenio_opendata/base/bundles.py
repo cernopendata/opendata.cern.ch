@@ -23,10 +23,6 @@ from invenio.ext.assets import Bundle
 
 from invenio.base.bundles import styles as _styles
 
-_styles.contents.remove("less/base.less")
-_styles.contents += ("less/cds.less",)
-
-
 css = Bundle(
     "css/style.css",
     "css/carousel.css",
@@ -35,20 +31,9 @@ css = Bundle(
     "css/search.css",
     "css/educate.css",
     "css/news.css",
+    "css/middle.css",
     output="opendata.css",
     weight=1,
 )
 
-js = Bundle(
-    "js/main.js",
-    output="cds.js",
-    weight=91,
-    filters="requirejs",
-    bower={
-        "backbone": "latest",
-        "backbone.localstorage": "latest",
-        "jsx-requirejs-plugin": "latest",
-        "requirejs-plugins": "latest",
-        "es5-shim": "latest"
-    }
-)
+

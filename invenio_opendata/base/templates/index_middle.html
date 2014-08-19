@@ -1,0 +1,17 @@
+{%- extends 'page.html' %}
+
+{% block body %}
+	<section class="intro middle">
+	{% include "middle.html" %}
+	</section>
+	<section class="collections">
+	{% with show_searchbar = true %}
+		{% include 'helpers/collections_list.html' %}
+	{% endwith %}
+	</section>
+	<section class="info">
+		<div class="container">
+		{% include "helpers/testimonials.html" %}	
+		</div>
+	</section>
+{% endblock body %}

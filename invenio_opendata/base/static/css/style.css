@@ -16,6 +16,7 @@
 
 }
 
+
 header, footer, header .navbar {
     padding-top: 0;
     padding-bottom: 0;
@@ -70,6 +71,11 @@ section {
 header, footer {
     color: #fff;
 }
+#od-header .innernav a {
+    float: left;
+    display: block;
+}
+
 .navbar {
     margin: 0;
 }
@@ -112,7 +118,7 @@ header, footer {
 }
 
 .logoimg>div {
-    font-size: 18px;
+    font-size: 17px;
     float: left;    
     padding: 3px 5px;
     font-weight: 300;
@@ -138,13 +144,14 @@ header, footer {
 }
 
 .midnav {
-    height: 100px;
+    height: 80px;
     background-color: #f5f5f5;
-    padding: 30px 0;
+    padding: 20px 0;
 }
 
 .midnav .logo{
     float: left;
+    padding-top: 5px;
 }
 
 .midnav .innernav {
@@ -157,7 +164,7 @@ header, footer {
 
 .innernav ul li {
     float: left;
-    font-size: 21px;
+    font-size: 19px;
     margin-left: 15px;
     color: #091B26;
     border-radius: 2px;
@@ -216,6 +223,10 @@ header, footer {
 
 
 
+#search-box-main .nav {
+    margin-left: -15px;
+    margin-right: -15px;
+}
 /*-------- Footer CSS code ----------*/
 
 .upperfoot .actions {

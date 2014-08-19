@@ -19,27 +19,183 @@
 
 {%- extends "search/collection_base.html" -%}
 
+{% block extra_style %}
+  <style>
+    .coltitle {
+      color: #fff;
+
+    }
+    .infobar p {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    .main-content {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+    
+    .main-content.main-content a, 
+    .main-content.main-content a:hover
+    .main-content.main-content a:focus {
+      color: #666;
+      text-decoration: none;
+    }
+
+    .websearch.clearfix {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    .main-content.collections .collection.clearfix {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 3px;
+      font-size: 20px;
+    }
+    .main-content.collections .collection.clearfix h4 {
+      font-weight: 300;
+    }
+
+    .main-content.collections .collection .nav {
+      background-color: #fff;
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+
+    .main-content.collections .collection .nav li {
+      width: 100%;
+      float: left;
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-top: 5px;
+    }
+
+    .main-content.collections .collection .nav li a {
+      float: left;
+      padding: 0;
+      padding-right: 5px;
+      color: #666;
+      font-weight: 600;
+
+    }
+
+    .main-content.collections .collection-res {
+      background-color: #f4f4f4;
+      border-radius: 3px;
+      font-size: 20px;
+      font-weight: 100;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .main-content.collections .collection-res .nav {
+      background-color: inherit;
+    }
+    .main-content.collections .collection-res > .row:nth-child(2n+1) {
+      background-color: #fff;
+    }
+
+    .main-content.collections .collection-res > .row:nth-child(2n) a.dropdown-toggle {
+      background-color: #fff;
+    }    
+
+    .main-content.collections .collection-res > .row:nth-child(2n+1) a.dropdown-toggle {
+      background-color: #eee;
+    }
+  
+    .main-content.collections .record-brief .record-header {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .main-content.collections .record-brief .record-header a{
+      text-decoration: none;
+    }
+
+    .main-content.collections .record-brief p{ 
+      font-size: 14px;
+    }
+    .main-content.collections .record-brief a {
+      text-decoration: underline;
+    }
+    
+  </style>
+  {{super()}}
+{% endblock %}
+
 {%- block index -%}
-  {%- block index_title %}
-    {%- if collection.collection_children_r %}
-  <div class="row">
-    <div class="col-md-12">
-      <div class="page-header">
-        <h3>
-          {{ collection.name  }}:
-          <a href="#" class="btn btn-default pull-right" onclick="$(event.target).hide().next('a').show(); return false">
-            <i class="glyphicon glyphicon-bookmark"></i>
-            Add to favorites
-          </a>
-          <a href="#" class="btn btn-warning pull-right" onclick="$(event.target).hide().prev('a').show(); return false" style="display:none">
-            <i class="glyphicon glyphicon-bookmark"></i>
-            Favorite collection
-          </a>
-        </h3>
+
+
+{%- block index_title %}
+
+<div class="infobar">
+  <div class="container">
+  {%- if collection.collection_children_r %}
+    <div class="row">
+      <div class="coltitle col-md-12">
+        <p>
+          {{ collection.name  }}
+        </p>
       </div>
     </div>
+  {% else %}
+    <div class="row">
+      <div class="coltitle col-md-12">
+        <p>
+        {% if collection.is_restricted %}
+          {{ _('Restricted Collection')  }}
+        {% else %}
+          {{ collection.name  }}
+        {% endif %}
+        </p>
+      </div>
+    </div>
+  {%- endif %}
   </div>
-    {%- endif %}
-  {%- endblock %}
-  {{- super() }}
+</div>
+
+{%- endblock index_title %}
+
+
+<div class="main-content collections">
+  {%- block portalbox_lt -%}{{ portalbox_sidebar(portalboxes.lt, class="col-md-2") }}{%- endblock -%}
+  <div class="container">
+  {%- block index_right -%}
+  {% if collection.collection_children_r %}
+    <div class="col-md-{{ '4' if collection.collection_children_v else '8' }} collection clearfix">
+      <h4>{{ collection.get_collectionbox_name(box_type='r') }}</h4>
+      {{ collection_tree(collection.collection_children_r, limit=2, class="nav nav-list clearfix") }}
+    </div>
+  {% else %}
+    <div class="col-md-{{ '4' if collection.collection_children_v else '8' }} collection-res">
+      {% if collection.is_restricted %}
+        <strong>{{ _('This collection is restricted. If you are authorized to access it, please click on the Search button.') }}</strong>
+      {% else %}
+        {% if collection.reclist %}
+          {% for recid in collection.reclist[-10:]|reverse %}
+          <div class="row">
+            <div class="col-md-12">
+              {{ format_record(recid, of, ln=g.ln)|safe }}
+              {{ '<hr/>'|safe if not loop.last }}
+            </div>
+          </div>
+          {% endfor %}
+          {% if collection.reclist|length > 10 %}
+          
+            <a href="{{ url_for('search.search', cc=collection.name, ln=g.ln, jrec=11)|safe }}"
+            class="pull-right text-muted">[&gt;&gt; {{ _('more')}}]</a>
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {%- endblock index_right -%}
+  </div>
+  
+
+</div>
+  
+
 {%- endblock -%}

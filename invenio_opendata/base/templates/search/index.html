@@ -19,11 +19,6 @@
 
 {% extends "search/index_base.html" %}
 
-{%- block global_bundles -%}
-  {{ super() }}
-  {%- bundle "cds.js" -%}
-{%- endblock -%}
-
 {%- block _bottom_assets -%}
   <!--[if lt IE 9]>
     <script src="{{ url_for("base.static", filename="/vendors/es5-shim/es5-shim.min.js") }}"></script>
