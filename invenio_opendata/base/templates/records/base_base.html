@@ -21,29 +21,132 @@
 {% block body %}
   {{ super() }}
 <style>
+	.rcd-actions {
+		/*background-color: #606D75;*/
+
+	}
+	.infobar p {
+		font-size: 20px;
+		font-weight: 600;
+
+	}
 	#record-links {
+		border: 0;
+		height: 60px;
+		padding: 15px;
+		background-color: #f4f4f4;
+		margin-top: 20px;
+		border-radius: 3px;
+	}
+
+	#record-links a,
+	#record-links a:focus {
+		color: #fff;
+		background: #606D75;
 		border: 0;
 	}
 	
+
+	#record-links.nav-tabs > li {
+		margin-right: 7px;
+	}
 	#record-links.nav-tabs>li>a {
-		border-radius: 4px;
-		padding: 10px;
+		border-radius: 3px;
+		padding: 5px 10px;
 	}
 
-	#record-links li.active {
-		
+	#record-links li.active a{
+		/*padding:4px;*/
+		/*border: 1px solid #606D75;*/
+		color: #606D75;
+		background: #fff;
 	}
+	
+	#record-links.nav-tabs>li.active>a, 
+	#record-links.nav-tabs>li.active>a:focus, 
+	#record-links.nav-tabs>li.active>a:hover {
+	}
+
+	#record_content {
+		background-color: #f4f4f4;
+		margin-top: 20px;
+		margin-bottom: 30px;
+		border-radius: 3px;
+		padding:15px;
+		overflow: auto;
+	}
+
+	.rec_doi {
+		float: right;
+		margin-top: 5px;
+	}
+	.rec_doi .t{ 
+		color: #fff;
+		float: left;
+		padding: 5px 5px;
+		border-bottom-left-radius: 3px;
+		border-top-left-radius: 3px;
+		background-color: #606D75;
+ 	}
+ 	.rec_doi .n {
+ 		background-color: #fff;
+ 		color: #606D75;
+ 		float: left;
+ 		padding: 4px 8px;
+ 		border-top-right-radius: 3px;
+ 		border-bottom-right-radius: 3px;
+ 		border: 1px solid  #606D75;
+ 	}
+
+ 	.rec_header {
+ 		padding-top: 20px;
+ 		padding-bottom: 20px;
+ 		overflow: auto;
+ 	}
+ 	.rec_header .title {
+ 		font-size: 24px;
+ 		font-weight: 400;
+ 	}
+ 	.rec_header .rec_details {
+ 		font-size: 20px;
+ 		font-weight: 400;
+ 		color: inherit;
+ 	}
+ 	.rec_header .rec_authors a{
+ 		color: #929292;
+ 	}
+
+ 	.record-detailed {
+ 		padding-top: 20px;
+ 		padding-bottom: 20px;
+ 		background-color: #fff;
+ 	}
 </style>
-  {% block record_restriction_flag %}
-  {% if g.bibrec.is_restricted %}
-  <div class="alert alert-danger"><b>{{ _('Restricted') }}</b>
-    {%- if g.bibrec.is_processed %} {{ _('Processed Record') }}
-    {%- endif -%}</div>
-  {% endif %}
-  {% endblock %}
+
+{% include 'search/form/index.html' %}
+
+
+{% block record_restriction_flag %}
+	{% if g.bibrec.is_restricted %}
+	<div class="alert alert-danger">
+		<b>{{ _('Restricted') }}</b>
+		{%- if g.bibrec.is_processed %} 
+		{{ _('Processed Record') }}
+		{%- endif -%}
+	</div>
+	{% endif %}
+{% endblock %}
+
+{% block record_toptitle %}
+<div class="infobar">
+	<div class="container">
+	<p>{{ record.get('title')['title'] }}</p>
+	</div>
+</div>
+{% endblock %}
 
 {% block record_tabs %}
-<div class="infobar rcd-actions">
+<div class="rcd-actions">
 	<div class="container">
 		<ul id="record-links" class="nav nav-tabs">
 		{%- for tab in tabs|sort(attribute='order') -%}
@@ -58,17 +161,37 @@
 		</li>
 		{%- endif -%}
 		{%- endfor -%}
-		</ul>
+		</ul>		
 	</div>
 </div>
 {% endblock %}
 
 <div class="container">
 	<div id="record_content">
+		<div class="rec_header">
+			<div class="col-md-8 pull-left">
+				<div class="title">{{ record['title']['title'] }}</div>
+				<div class="rec_details">
+					<span class="rec_authors">
+						{% for auth in record['authors'] %}
+							<a href="#">{{ auth['full_name'] }}</a>
+						{% endfor %}
+					</span>
+				</div>
+					
+			</div>
+			<div class="col-md-4 pull-right">
+				<div class="rec_doi">
+					<div class="t">DOI</div>
+					<div class="n">{{ record['doi'] }}</div>
+				</div>
+			</div>
+		</div>
 	{% block record_content %}
 	  <!-- record content -->
 	{% endblock %}
 	</div>
+	
 </div>
 <div style="clear: both;"></div>
 {% endblock %}
