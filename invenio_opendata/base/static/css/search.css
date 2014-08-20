@@ -32,6 +32,7 @@
   padding-bottom: 20px;
 }
 
+
 .search-facet {
   background-color: #f4f4f4;
   border-radius: 3px;
@@ -111,4 +112,50 @@ ul.nav-pills {
   background-color: #fff;
   padding: 10px;
 }
+
+
+
+/*======= Facet Styling  ========*/
+
+
+#facet_list {
+  background-color: #f4f4f4;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 3px;
+  color: #666;
+}
+
+#facet_list > div {
+  background-color: #fff;
+  padding: 5px 10px ;
+  overflow: overlay;
+  max-width: 100%;
+}
+
+#facet_list > div li {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+#facet_list .author {
+  background-color: #f4f4f4;
+}
+
+#facet_list a,
+#facet_list a:hover,
+#facet_list a:focus {
+  color: #666;
+}
+
+#facet_list  li a,
+#facet_list  li a:hover,
+#facet_list  li a:focus {
+  color: #b0b0b0;
+}
+
+#facet_list.affix.affix {
+  top: 90px;
+}
+
 
