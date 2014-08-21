@@ -49,7 +49,7 @@ form.form-inline .row.record:nth-child(2n+1) {
   background-color: #fff;
 }
 
-.facet.affix-top > div >ul {
+.facet > div >ul {
   width: 100%;
   display: inline-block;
 }
@@ -118,24 +118,31 @@ ul.nav-pills {
 /*======= Facet Styling  ========*/
 
 
+@media (max-width: 1200px) {
+  #facet_list {
+  width: 210px!important;
+
+  }
+}
+
 #facet_list {
   background-color: #f4f4f4;
   padding-top: 15px;
   padding-bottom: 15px;
   border-radius: 3px;
   color: #666;
+  width: 260px;
 }
 
 #facet_list > div {
   background-color: #fff;
   padding: 5px 10px ;
-  overflow: overlay;
-  max-width: 100%;
 }
 
 #facet_list > div li {
   padding-top: 3px;
   padding-bottom: 3px;
+  width: 100%;
 }
 
 #facet_list .author {
@@ -151,11 +158,28 @@ ul.nav-pills {
 #facet_list  li a,
 #facet_list  li a:hover,
 #facet_list  li a:focus {
-  color: #b0b0b0;
+  color: #828282;
 }
 
+
 #facet_list.affix.affix {
-  top: 90px;
+  top: auto;
+}
+
+#facet_list.affix-top {
+  top: auto;
+}
+
+#facet_list.affix-bottom.affix-bottom {
+  bottom: auto;
+}
+
+#facet_list > div >a {
+  margin: -5px -10px;
+  margin-bottom: 5px;
+  display: block;
+  background-color: #e7e7e7;
+  padding: 5px 10px;
 }
 
 
