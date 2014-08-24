@@ -33,9 +33,7 @@ body {
     border: 0;
 }
 
-body #wrap {
-    min-height: 200px;
-}
+
 a, a:hover, a:focus {
     color: #091B26;
     text-decoration: none;
@@ -113,34 +111,41 @@ header, footer {
     margin-bottom: 0;
 }
 
-.logoimg {
-    float: left;
-}
-
-.logoimg>div {
-    font-size: 17px;
-    float: left;    
-    padding: 3px 5px;
-    font-weight: 300;
-}
-
 .logoimg .sp1 {
     color: #091B26;
-    margin-right: 0;
-    padding-left: 7px;
-    padding-right: 7px;
-    border-radius: 6px 0 0 0;
-    border: 1px solid #091B26;
-    padding-bottom: 1px; 
+    border: 0;
+    font-weight: 300;
+    font-size: 35px;
 }
 
 .logoimg .sp2 {
-    background-color: #091B26;
-    color: #fff;
-    margin-left: 0;
-    padding-left: 9px;
-    padding-right: 16px;
-    border-radius: 0 0 6px 0;
+    color: #091B26;
+    font-size: 35px;
+    font-weight: 900;
+    border: 0;
+    background-color: inherit;
+}
+
+.logoimg .sp3 {
+    color: #091B26;
+    font-size: 12px;
+    margin-top: 23px;
+}
+
+.logoimg.logoimg > div {
+    float: left;
+    padding: 0; 
+}
+.logo.logo {
+    padding: 0;
+    margin-top: -10px;
+
+}
+
+
+.logoimg {
+float: left;
+/*font-family: 'letter gothic std';*/
 }
 
 .midnav {
@@ -151,7 +156,6 @@ header, footer {
 
 .midnav .logo{
     float: left;
-    padding-top: 5px;
 }
 
 .midnav .innernav {
@@ -228,19 +232,31 @@ header, footer {
 }
 /*-------- Footer CSS code ----------*/
 
+
+.middlefoot.middlefoot{
+    height: 90px;
+}
+.middlefoot .pull-left img {
+margin-top: 15px;
+width: 130px;
+margin-right: 10px;
+}
+.middlefoot .pull-right-xs img {
+margin-left: 20px;
+width: 54px;
+margin-top: 15px;
+}
+
+
+
+
+
+
+
+
+
 .upperfoot .actions {
     float: left;
-}
-
-.middlefoot .pull-right img{
-    margin-top: 20px;
-    width: 80px;
-    margin-right: 40px;
-}
-
-.middlefoot .pull-left img {
-    margin-top: 35px;
-    width: 170px;
 }
 
 .lastfoot ul li{
@@ -292,9 +308,36 @@ header, footer {
     width: auto;
 }
 }
+.lastfoot .legal{
+    height: 20px;
+}
+.lastfoot .legal ul {
+    margin-left: 35%;
+}
+.legal {
+    color: #606D75;
+    position: relative;
+    height: 90px;
+}
+
+.legal ul {
+    position: absolute;
+    bottom: 0;
+    font-size: 10px;
+    margin-left: 25%;
+
+}
+.legal ul li {
+    padding-right: 5px;
+    padding-left: 5px;
+    float: left;
+    width: auto;
+    font-size: 11px;
+}
 
 .content {
     background-color: #B9CEDD;
+    height: 100%;
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
@@ -340,12 +383,12 @@ header, footer {
 
     .middlefoot{
         background-color: #f5f5f5;
-        height: 120px;
     }
 
     .lastfoot{
         background-color: #606D75;
         padding: 20px 0;
+        padding-bottom: 0;
     }
 
     .upperfoot span {
@@ -365,12 +408,6 @@ header, footer {
 
     .upperfoot ul.pull-right-xs  span {
         margin-right: 10px
-    }
-
-    .middlefoot .pull-right-xs img {
-        margin-left: 40px;
-        width: 70px;
-        margin-top: 23px;
     }
 
 .infobar {
