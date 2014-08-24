@@ -31,6 +31,7 @@ css = Bundle(
     "css/search.css",
     "css/educate.css",
     "css/news.css",
+    "css/records.css",
     "css/middle.css",
     output="opendata.css",
     weight=1,

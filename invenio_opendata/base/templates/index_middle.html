@@ -1,17 +1,77 @@
 {%- extends 'page.html' %}
 
 {% block body %}
+
+<style>
+#od-header {
+	position: absolute;
+	height: 80px;
+	width: 100%;
+}
+
+.content {
+	position: absolute;
+	top: 80px;
+	bottom: 90px;
+	width: 100%;
+	height: auto;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	height: 90px;
+	width: 100%;
+}
+
+.middlefoot.middlefoot{
+	height: 90px;
+}
+.middlefoot.middlefoot .pull-left img {
+margin-top: 15px;
+width: 130px;
+margin-right: 10px;
+}
+.middlefoot.middlefoot .pull-right-xs img {
+margin-left: 20px;
+width: 54px;
+margin-top: 15px;
+}
+</style>
+
 	<section class="intro middle">
 	{% include "middle.html" %}
 	</section>
-	<section class="collections">
-	{% with show_searchbar = true %}
-		{% include 'helpers/collections_list.html' %}
-	{% endwith %}
-	</section>
-	<section class="info">
-		<div class="container">
-		{% include "helpers/testimonials.html" %}	
-		</div>
-	</section>
+
 {% endblock body %}
+
+{% block page_footer %}
+	    <div id="push"></div>
+	</div> {# end wrap #}
+	<footer class="middlefoot">
+		<div class="container">
+			<div class="row">
+				<div class="pull-left col-md-3">
+					<div class="col-xs-12 no-padding">
+						<img src="{{ url_for('static', filename='/img/opendata/cern-logo-large.png') }}" style="width:60px;" alt="">
+						<img src="{{ url_for('static', filename='/img/opendata/invenio.png') }}" alt="">
+					</div>
+				</div>
+				<div class="center-block col-md-6">
+					<div class="legal">
+						<ul>
+							<li>© 2014 OpenData</li>
+							<li>Terms of Use</li>
+							<li>Privacy Policy</li>
+							<li>Help</li>
+						</ul>
+					</div>
+				</div>
+				<div class="pull-right-xs col-md-3">
+					<img style="float:right;" src="{{ url_for('static', filename='/img/logo-alice.gif') }}" alt="">
+					<img style="float:right;" src="{{ url_for('static', filename='/img/cms-logo.gif') }}" alt="">
+				</div>
+			</div>
+		</div>
+	</footer>
+{% endblock %}
