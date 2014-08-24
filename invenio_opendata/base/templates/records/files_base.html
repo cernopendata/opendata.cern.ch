@@ -1,0 +1,183 @@
+{#
+## This file is part of Invenio.
+## Copyright (C) 2012, 2014 CERN.
+##
+## Invenio is free software; you can redistribute it and/or
+## modify it under the terms of the GNU General Public License as
+## published by the Free Software Foundation; either version 2 of the
+## License, or (at your option) any later version.
+##
+## Invenio is distributed in the hope that it will be useful, but
+## WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+## General Public License for more details.
+##
+## You should have received a copy of the GNU General Public License
+## along with Invenio; if not, write to the Free Software Foundation, Inc.,
+## 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+#}
+{%- if not request.is_xhr -%}
+{% extends "records/base.html" %}
+{%- endif -%}
+
+{% block record_content %}
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
+<div id="record_content">
+	<div class="rec_header">
+		<div class="row">
+			<div class="rec_details col-md-8">
+				<div class="title">{{ record['title']['title'] }}<span>{{ record['imprint']['date']}}</span></div>
+				<span class="rec_authors">
+					{% for auth in record['authors'] %}
+					<a href="#">{{ auth['full_name'] }}</a>
+					{% endfor %}
+				</span>
+			</div>
+			<div class="col-md-4 pull-right">
+				{% if record['doi'] %}
+				<div class="rec_doi">
+					<div class="t">DOI</div>
+					<div class="n">{{ record['doi'] }}</div>
+				</div>
+				{% endif %}
+				<div class="rec_export">
+					{{ format_record(recid, of='HDACT', ln=g.ln)|safe }}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="rec_metadata rec_files">
+		<div class="row">
+      		<div class="col-md-12">
+        		<div class="rec_title title pull-left">Files</div>
+        		<div class="pull-right">
+					<div class="ch_display">
+						<button type="button" class="btn fa fa-th-large for-boxes"></button>
+						<button type="button" class="btn fa fa-th-list for-list"></button>
+					</div>
+				</div>
+        	</div>
+        	<div id="rec_files_boxes" class="rec_file_box col-md-12">
+        		<ul class="row">
+        			{% for file in record['files'] %}
+        			<li class="col-md-4">
+        				<div class="content_box col-md-12">
+        					<div class="row">
+        						<div class="recdet pull-left col-md-8 ">
+        							<ul>
+        								<li class="rectitle"><a href="{{file['full_path']}}">{{file['full_name']}}</a></li>
+        								<li class="recsize"><b>Size:</b> {{ file['size'] | filesizeformat }}</li>
+        								<li class="recdesc"><b>Description:</b> {{ 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat omnis laborum provident eveniet distinctio incidunt cupiditate'| truncate(50) }}</li>
+        							</ul>
+        						</div>
+        						<div class="recbut pull-right col-md-4">
+        							<button class="btn">Download</button>
+        							<button class="btn">Preview</button>
+        						</div>
+        					</div>
+        				</div>
+        			</li>
+        			{% endfor %}
+        		</ul>
+        	</div>
+        </div>
+        
+<!-- 			<div id="rec_files_boxes" class="display_list col-md-12">
+				<ul class="row">
+					{% for file in record['files'] %}
+					<li class="col-md-12">
+						<div class="rec_files_box">
+							<div class="pull-left col-md-10 no-padding">
+								<div class="row">
+									<ul>
+										<li id="rectitle" class="col-md-3"><a href="{{file['full_path']}}">{{file['full_name']}}</a></li>
+										<li id="recsize" class="col-md-2"><b>Size: </b>{{ file['size'] | filesizeformat }}</li>
+										<li id="recdesc" class="col-md-7"><b>Description:</b>{{ 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat omnis laborum provident eveniet distinctio incidunt cupiditate'| truncate(100) }}</li>
+									</ul>
+								</div>
+							</div>
+							<div class="pull-right col-md-2 no-padding">
+								<button class="btn">Download</button>
+								<button class="btn">Preview</button>
+							</div>
+						</div>
+					</li>
+					{% endfor %}
+				</ul>
+			</div> -->
+	</div>
+	<div class="rec_metadata rec_preview">
+		<div class="row">
+			<div class="col-md-12">
+        		<div class="rec_title title pull-left">Preview</div>
+        		<div class="pull-right">
+					<div class="ch_display">
+						<button type="button" class="btn fa fa-search-minus"></button>
+						<button type="button" class="btn fa fa-search-plus"></button>
+						<button type="button" class="btn fa fa-gear"></button>
+						<button type="button" class="btn fa fa-question"></button>
+					</div>
+				</div>
+        	</div>
+        	<div class="col-md-12">
+        		<div class="rec_preview_box">
+        			<iframe id="evd" width="100%" height="675" src="http://cern.ch/ispy-online"></iframe>
+        		</div>
+        	</div>
+		</div>
+	</div>
+		
+</div>
+
+ <script type="text/javascript">
+
+$(function(){		
+	var forboxes = $(".for-boxes"),
+		forlist = $(".for-list"),
+		container = $("#rec_files_boxes"),
+		list_item = $("#rec_files_boxes > ul > li"),
+		div1 = $(".recdet"),
+		div2 = $(".recbut"),
+		ul = $(".recdet ul"),
+		li1 = $(".rectitle"),
+		li2 = $(".recsize"), 
+		li3 = $(".recdesc");
+
+	forboxes.on("click", function(){
+		if (container.hasClass("display_list")){
+			container.removeClass("display_list");
+			list_item.removeClass("col-md-12");
+			list_item.addClass("col-md-4");
+			div1.addClass("col-md-8");
+			div2.addClass("col-md-4");
+			div1.removeClass("col-md-9");
+			div2.removeClass("col-md-3");
+			ul.removeClass("row");
+			li1.removeClass("col-md-3");
+			li2.removeClass("col-md-2");
+			li3.removeClass("col-md-7");
+		}
+	});
+
+	forlist.on("click", function(){
+		if (!container.hasClass("display_list") ){
+			container.addClass(" display_list");
+			list_item.removeClass("col-md-4");			
+			list_item.addClass("col-md-12");
+			div1.removeClass("col-md-8");
+			div2.removeClass("col-md-4");
+			div1.addClass("col-md-9");
+			div2.addClass("col-md-3");
+			ul.addClass("row");
+			li1.addClass("col-md-3");
+			li2.addClass("col-md-2");
+			li3.addClass("col-md-7");
+		}
+	});
+})
+ </script>
+{% endblock %}
+
+
+

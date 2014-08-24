@@ -1,0 +1,14 @@
+<name>Actions HTML detailed</name>
+<description>Output the various actions available on a record</description>
+
+<ul class=" export-box detailedrecordactionss">
+        <li><div class="t">_(Export as)_   </div>
+            <div class="a">
+            	<span class="fa fa-icon-upload-alt"></span>
+                <a style="text-decoration:underline;font-weight:normal" href="<BFE_SERVER_INFO var='CFG_BASEfa fa-_URL'/><BFE_S></span>ERVER_INFO var='CFG_SITE_RECORD'/>/<BFE_RECORD_ID/>/export/hx?ln=<BFE_CLIENT_INFO var='ln'/>">BibTeX</a>
+            </div>
+        <BFE_EDIT_RECORD prefix="<li>" suffix="</li>" />
+        <BFE_EDIT_FILES prefix="<li>" suffix="</li>" />
+        <BFE_SWORD_PUSH prefix="<li>" suffix="</li>" />
+</ul>
+<BFE_BOOKMARK prefix="<div style='padding-left: 13px;'>" suffix="</div>" />
