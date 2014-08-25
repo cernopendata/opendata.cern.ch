@@ -21,7 +21,6 @@
 {%- endif -%}
 
 {% block record_content %}
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
 <div id="record_content">
 	<div class="rec_header">
@@ -66,9 +65,9 @@
         					<div class="row">
         						<div class="recdet pull-left col-md-8 ">
         							<ul>
-        								<li class="rectitle"><a href="{{file['full_path']}}">{{file['full_name']}}</a></li>
-        								<li class="recsize"><b>Size:</b> {{ file['size'] | filesizeformat }}</li>
-        								<li class="recdesc"><b>Description:</b> {{ 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat omnis laborum provident eveniet distinctio incidunt cupiditate'| truncate(50) }}</li>
+        								<li class="rectitle col-md-12"><a href="{{file['full_path']}}">{{file['full_name']}}</a></li>
+        								<li class="recsize col-md-12"><b>Size:</b> {{ file['size'] | filesizeformat }}</li>
+        								<li class="recdesc col-md-12"><b>Description:</b> {{ 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat omnis laborum provident eveniet distinctio incidunt cupiditate'| truncate(50) }}</li>
         							</ul>
         						</div>
         						<div class="recbut pull-right col-md-4">
@@ -82,30 +81,6 @@
         		</ul>
         	</div>
         </div>
-        
-<!-- 			<div id="rec_files_boxes" class="display_list col-md-12">
-				<ul class="row">
-					{% for file in record['files'] %}
-					<li class="col-md-12">
-						<div class="rec_files_box">
-							<div class="pull-left col-md-10 no-padding">
-								<div class="row">
-									<ul>
-										<li id="rectitle" class="col-md-3"><a href="{{file['full_path']}}">{{file['full_name']}}</a></li>
-										<li id="recsize" class="col-md-2"><b>Size: </b>{{ file['size'] | filesizeformat }}</li>
-										<li id="recdesc" class="col-md-7"><b>Description:</b>{{ 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat omnis laborum provident eveniet distinctio incidunt cupiditate'| truncate(100) }}</li>
-									</ul>
-								</div>
-							</div>
-							<div class="pull-right col-md-2 no-padding">
-								<button class="btn">Download</button>
-								<button class="btn">Preview</button>
-							</div>
-						</div>
-					</li>
-					{% endfor %}
-				</ul>
-			</div> -->
 	</div>
 	<div class="rec_metadata rec_preview">
 		<div class="row">
@@ -127,13 +102,13 @@
         	</div>
 		</div>
 	</div>
-		
 </div>
 
- <script type="text/javascript">
-
-$(function(){		
-	var forboxes = $(".for-boxes"),
+{% endblock %}
+{%- block javascript %}
+	<script type="text/javascript">
+	$(function(){		
+		var forboxes = $(".for-boxes"),
 		forlist = $(".for-list"),
 		container = $("#rec_files_boxes"),
 		list_item = $("#rec_files_boxes > ul > li"),
@@ -143,41 +118,39 @@ $(function(){
 		li1 = $(".rectitle"),
 		li2 = $(".recsize"), 
 		li3 = $(".recdesc");
+	
+		forboxes.on("click", function(){
+			if (container.hasClass("display_list")){
+				container.removeClass("display_list");
+				list_item.removeClass("col-md-12");
+				list_item.addClass("col-md-4");
+				div1.addClass("col-md-8");
+				div2.addClass("col-md-4");
+				div1.removeClass("col-md-9");
+				div2.removeClass("col-md-3");
+				ul.addClass("row");
+				li1.removeClass("col-md-3").addClass("col-md-12");
+				li2.removeClass("col-md-2").addClass("col-md-12");
+				li3.removeClass("col-md-7").addClass("col-md-12");
 
-	forboxes.on("click", function(){
-		if (container.hasClass("display_list")){
-			container.removeClass("display_list");
-			list_item.removeClass("col-md-12");
-			list_item.addClass("col-md-4");
-			div1.addClass("col-md-8");
-			div2.addClass("col-md-4");
-			div1.removeClass("col-md-9");
-			div2.removeClass("col-md-3");
-			ul.removeClass("row");
-			li1.removeClass("col-md-3");
-			li2.removeClass("col-md-2");
-			li3.removeClass("col-md-7");
-		}
+			}
+		});
+	
+		forlist.on("click", function(){
+			if (!container.hasClass("display_list") ){
+				container.addClass(" display_list");
+				list_item.removeClass("col-md-4");			
+				list_item.addClass("col-md-12");
+				div1.removeClass("col-md-8");
+				div2.removeClass("col-md-4");
+				div1.addClass("col-md-9");
+				div2.addClass("col-md-3");
+				ul.removeClass("row");
+				li1.removeClass("col-md-12").addClass("col-md-3");
+				li2.removeClass("col-md-12").addClass("col-md-2");
+				li3.removeClass("col-md-12").addClass("col-md-7");
+			}
+		});
 	});
-
-	forlist.on("click", function(){
-		if (!container.hasClass("display_list") ){
-			container.addClass(" display_list");
-			list_item.removeClass("col-md-4");			
-			list_item.addClass("col-md-12");
-			div1.removeClass("col-md-8");
-			div2.removeClass("col-md-4");
-			div1.addClass("col-md-9");
-			div2.addClass("col-md-3");
-			ul.addClass("row");
-			li1.addClass("col-md-3");
-			li2.addClass("col-md-2");
-			li3.addClass("col-md-7");
-		}
-	});
-})
- </script>
+	</script>
 {% endblock %}
-
-
-
