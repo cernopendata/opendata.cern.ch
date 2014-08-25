@@ -1,10 +1,17 @@
 {%- extends 'page.html' %}
 
 {% block body %}
+{% with collection = 0 %}
+{% include 'search/form/index.html' %}
+{% endwith %}
+
 <section class="infobar">
 	<div class="container">
 		<h3>For Research</h3>
 	</div>
+</section>
+<section class="entrypoint_collections">
+{% include "helpers/collections_list.html" %}
 </section>
 <section class="research-main">
 		<div class="virtual">

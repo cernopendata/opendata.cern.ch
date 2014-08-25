@@ -1,5 +1,4 @@
 .visualise {
-	padding: 40px 0;
 	color: #fff;
 }
 
@@ -20,9 +19,12 @@
 .visualise >div {
 	padding: 50px 0;
 }
-
+.visualise .events {
+	background-color: #899AA5;
+}
 .visualise .histograms {
-	background-color: #90ABBE;
+	background-color: #f5f5f5;
+	color: #606D75;
 }
 
 .visualise > div ul {
@@ -87,8 +89,13 @@
 	padding: 50px 0;
 }
 
+
+.research-main .virtual {
+	background-color: #899AA5;
+}
 .research-main .xroot {
-	background-color: #90ABBE;
+	background-color: #f5f5f5;
+	color: #606D75;
 }
 
 .research-main > div ul {
@@ -96,8 +103,10 @@
 	margin: 0;
 }
 
-.research-main >div ul a {
-	color: #fff;
+.research-main >div ul a,
+.research-main >div ul a:hover,
+.research-main >div ul a:focus {
+	color: inherit;
 }
 
 .research-main >div  ul li {
@@ -106,12 +115,15 @@
 	margin-right: 20px;
 	font-size: 18px;
 	/*text-decoration: underline;*/
-	border-bottom: 2px dashed #fff;
 	padding-bottom: 1px;
 }
 
 .research-main > div li span {
 	padding-left: 5px;
 }
+
+
+
+
 
 

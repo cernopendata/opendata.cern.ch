@@ -46,7 +46,7 @@
 
 {% macro search_form() %}
 	{% block searchform %}
-	<div class="pull-right searchForm col-md-5">
+	<div class="pull-right searchForm col-md-12">
 		<form action="{{ url_for('search') }}" method="get" name="searchForm" role="form" class="pull-right" id="searchForm">
 				<input type="text" name="p" placeholder="Looking for ..." class="form-control">
 				<button class="btn btn-search fa fa-search"></button>
@@ -59,25 +59,28 @@
 
 <div class="nav collections-nav">
 	<div class="container">
-	{% block leftside_actions %}
-		<ul class="pull-left col-md-7">
-			<li class="active"><span class="fa fa-tag"></span>LATEST</li>
-			<a href="/search?cc=CMS"><li><!-- <span class="fa fa-dot-circle-o"> --></span>CMS</li></a>
-			<a href="/search?cc=ALICE"><li><!-- <span class="fa fa-circle-o"> --></span>ALICE</li></a>
-			<!-- <a href="/search?cc=LHCb"><li><span class="fa fa-circle"></span>LHCb</li></a>
-			<a href="/search?cc=ATLAS"><li><span class="fa fa-circle-o-notch"></span>ATLAS</li></a> -->
-		</ul>
-	{% endblock leftside_actions %}
-	{% block rightside_actions %}
-		{% if show_searchbar is sameas true %}
-			{{ search_form() }}
-		{% endif %}
-	{% endblock rightside_actions %}
+	<div class="row">
+		{% block leftside_actions %}
+			<ul class="pull-left col-md-7">
+				<a href="/search?cc=CMS"><li class="active"><!-- <span class="fa fa-dot-circle-o"> --></span>CMS</li></a>
+				<a href="/search?cc=ALICE"><li><!-- <span class="fa fa-circle-o"> --></span>ALICE</li></a>
+			</ul>
+		{% endblock leftside_actions %}
+		{% block rightside_actions %}
+			<div class="col-md-5">
+			<div class="row">
+			{% if show_searchbar is sameas true %}
+				{{ search_form() }}
+			{% endif %}
+			</div>
+			</div>
+			
+		{% endblock rightside_actions %}</div>
 	</div>
 </div>
 <div class="collRecords">
 	<div class="container">
-		<ul>
+		<ul class="row">
 			{{ record_samples() }}
 		</ul>
 	</div>
