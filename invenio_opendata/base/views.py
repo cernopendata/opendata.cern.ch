@@ -17,7 +17,7 @@
 ## along with Invenio; if not, write to the Free Software Foundation, Inc.,
 ## 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
 
-"""CDS Demosite interface."""
+"""Opendata Demosite interface."""
 
 from invenio.base.i18n import _
 
@@ -25,11 +25,19 @@ from flask import Blueprint, render_template, redirect, url_for, abort
 from jinja2 import TemplateNotFound
 
 
-blueprint = Blueprint('cds', __name__, url_prefix='/',
+blueprint = Blueprint('invenio_opendata', __name__, url_prefix='/',
                       template_folder='templates', static_folder='static')
 
 
-@blueprint.route('/')
+@blueprint.route('')
+@blueprint.route('middle')
+def middle():
+	try:
+		return render_template('index_middle.html')
+	except TemplateNotFound:
+		return abort(404)
+
+@blueprint.route('index')
 def index():
 	try:
 		return render_template('index.html')
@@ -41,14 +49,9 @@ def index2():
 	try:
 		return render_template('index2.html')
 	except TemplateNotFound:
-		return abort(405)
+		return abort(404)
 
-@blueprint.route('middle')
-def middle():
-	try:
-		return render_template('index_middle.html')
-	except TemplateNotFound:
-		return abort(405)
+
 
 @blueprint.route('educate')
 def educate():
