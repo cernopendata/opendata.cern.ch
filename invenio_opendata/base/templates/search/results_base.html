@@ -117,7 +117,7 @@
           <p class="help-block hidden-xs">
             {%- set r_from = (pagination.page-1)*pagination.per_page+1 -%}
             {%- set r_to = pagination.page*pagination.per_page -%}
-            {%- set r_of = recids|length -%}
+            {%- set r_of = pagination.total_count -%}
             {%- set r_to = r_to if r_to < r_of else r_of -%}
             {{ _('Showing records %(x_from)d to %(x_to)d out of %(x_total)d results.', x_from=r_from, x_to=r_to, x_total=r_of) }}
           </p>
@@ -199,7 +199,7 @@
         <hr/>
         {%- endblock search_results_header %}
         {%- block search_results scoped -%}
-        {%- for recid in recids[(pagination.page-1)*rg:pagination.page*rg] -%}{% set recordloop = loop %}{%- block search_result scoped -%}
+        {%- for recid in recids -%}{% set recordloop = loop %}{%- block search_result scoped -%}
           {%- if of[0] == 'h' -%}
             <div class="row record">
               {%- block search_result_prefix scoped -%}
