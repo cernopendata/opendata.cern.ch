@@ -37,4 +37,7 @@ css = Bundle(
     weight=1,
 )
 
-
+od_records_js = Bundle(
+    "vendors/readmore/readmore.min.js",
+    output = "od_records.js",
+)

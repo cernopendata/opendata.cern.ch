@@ -106,7 +106,7 @@
 }
 .rec_header .rec_authors a{
 	color: rgba(113, 153, 177, 1);
-	font-size: 14px;
+	font-size: 12px;
 }
 
 .record-detailed {
@@ -208,6 +208,7 @@
 
 #record_content #record_content {
 	margin-left: -15px;
+	margin-right: -15px;
 	padding-top: 0;
 }
 
@@ -322,4 +323,73 @@
 }
 body.black.black {
 	background-color: #606D75!!important;
+}
+
+#rec_files_boxes > ul > li {
+	width: 33.33333333%;
+}
+#rec_files_boxes.display_list > ul > li {
+	width: 100%
+}
+
+#rec_files_boxes.display_list .rec_det {
+	width: 75%;
+}
+#rec_files_boxes.display_list .recbut {
+	width: 25%;
+}
+#rec_files_boxes .recdet{
+	width: 66.66666667%;
+}
+#rec_files_boxes .recbut{
+	width: 33.33333333%;
+}
+
+#rec_files_boxes .recdet ul {
+	margin-left: -15px;
+	margin-right: -15px;
+}
+#rec_files_boxes.display_list .recdet ul {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+#rec_files_boxes .rectitle {
+	width: 100%;
+}
+#rec_files_boxes.display_list .rectitle {
+	width: 25%;
+}
+#rec_files_boxes .recsize {
+	width: 100%;
+}
+#rec_files_boxes.display_list .recsize {
+	width: 16.66666667%;
+}
+#rec_files_boxes .recdesc {
+	width: 100%;
+}
+#rec_files_boxes.display_list .recdesc {
+	width: 58.33333333%;
+}
+
+
+#rec_authors_rdmore {
+	padding-left: 15px;
+	padding-right: 10px;
+	max-width: 83.33333333%;
+	display: inline-block;
+	float: left;
+	max-height: 20px;
+	overflow: hidden;
+}
+.rec_details .readmore-js-toggle {
+	display: inline-block;
+	float: left;
+	width: auto;
+}
+.rec_details .readmore-js-toggle a {
+	color: rgba(113, 153, 177, 1);
+	font-size: 12px;
+	margin-top: 5px;
 }
