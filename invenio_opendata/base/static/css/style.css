@@ -142,9 +142,7 @@ header, footer {
     padding: 0; 
 }
 .logo.logo {
-    padding: 0;
     margin-top: -10px;
-
 }
 
 
@@ -172,6 +170,10 @@ width: 160px;
     float: right;
 }
 
+.innernav ul a {
+    width: auto;
+}
+
 .innernav ul li {
     float: left;
     font-size: 19px;
@@ -179,14 +181,40 @@ width: 160px;
     color: #091B26;
     border-radius: 2px;
     padding: 4px 6px;
-
 }
+@media (max-width: 767px) {
+    .midnav {
+        height: auto;
+        padding-bottom: 8px;
+
+    }
+    .midnav .navbar-toggle {
+        margin-right: 0;
+    }
+    .innernav {
+        width: 100%;
+        float: none;
+        background-color: #fff;
+        margin-top: 5px;
+        min-height: 0!important;
+    }
+    .innernav div, .innernav ul {
+        width: 100%;
+        float: none!important;
+    }
+}
+
 
 .innernav ul li:hover {
     background-color: #899AA5;
     color: #fff;
 }
 
+.innernav .navbar-toggle {
+    margin-top: 0;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
 .midnav ul {
     list-style: none;
     float: left;
@@ -231,6 +259,16 @@ width: 160px;
     padding: 5px;
 }
 
+.middlefoot.middlefoot .middle_l img {
+margin-top: 15px;
+width: 130px;
+margin-right: 10px;
+}
+.middlefoot.middlefoot .middle_r img {
+margin-left: 20px;
+width: 54px;
+margin-top: 15px;
+}
 
 
 #search-box-main .nav {
@@ -238,10 +276,6 @@ width: 160px;
 }
 /*-------- Footer CSS code ----------*/
 
-
-.middlefoot.middlefoot{
-    height: 90px;
-}
 .middlefoot .pull-left img {
 margin-top: 15px;
 width: 130px;
@@ -253,7 +287,15 @@ width: 54px;
 margin-top: 15px;
 }
 
+.middlefoot.middlefoot {
+    padding-bottom: 15px;
+}
 
+@media (max-width: 768px) {
+.middlefoot.middlefoot .row > div {
+    text-align: center;
+    }   
+}
 
 
 
@@ -305,6 +347,12 @@ margin-top: 15px;
     height: 100%;
     padding: 30px 10px;
 }
+.middlefoot.middlefoot .middle_l {
+    text-align: left;
+}
+.middlefoot.middlefoot .middle_r {
+    text-align: right;
+}
 
 .lastfoot .actions {
     padding-top: 0;
@@ -322,16 +370,11 @@ margin-top: 15px;
 }
 .legal {
     color: #606D75;
-    position: relative;
-    height: 90px;
+    width: 300px;
 }
 
 .legal ul {
-    position: absolute;
-    bottom: 0;
     font-size: 10px;
-    margin-left: 25%;
-
 }
 .legal ul li {
     padding-right: 5px;
@@ -339,6 +382,7 @@ margin-top: 15px;
     float: left;
     width: auto;
     font-size: 11px;
+    margin-top: 10px;
 }
 
 .content {

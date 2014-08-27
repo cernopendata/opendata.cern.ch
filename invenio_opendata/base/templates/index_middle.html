@@ -12,7 +12,7 @@
 .content {
 	position: absolute;
 	top: 80px;
-	bottom: 90px;
+	bottom: 100px;
 	width: 100%;
 	height: auto;
 }
@@ -20,23 +20,31 @@
 footer {
 	position: absolute;
 	bottom: 0;
-	height: 90px;
+	height: 100px;
 	width: 100%;
 }
 
-.middlefoot.middlefoot{
-	height: 90px;
+@media (max-width: 768px)  {
+	footer.middlefoot.middlefoot {
+		height : 175px;
+	}
+	.content {
+		bottom: 175px;
+	}
 }
-.middlefoot.middlefoot .pull-left img {
+
+.middlefoot.middlefoot .middle_l img {
 margin-top: 15px;
 width: 130px;
 margin-right: 10px;
 }
-.middlefoot.middlefoot .pull-right-xs img {
+.middlefoot.middlefoot .middle_r img {
 margin-left: 20px;
 width: 54px;
 margin-top: 15px;
 }
+
+
 </style>
 
 	<section class="intro middle">
@@ -51,25 +59,21 @@ margin-top: 15px;
 	<footer class="middlefoot">
 		<div class="container">
 			<div class="row">
-				<div class="pull-left col-md-3">
-					<div class="col-xs-12 no-padding">
+				<div class="middle_l col-xs-12 col-sm-6">
 						<img src="{{ url_for('static', filename='/img/opendata/cern-logo-large.png') }}" style="width:60px;" alt="">
 						<img src="{{ url_for('static', filename='/img/opendata/invenio.png') }}" alt="">
-					</div>
 				</div>
-				<div class="center-block col-md-6">
-					<div class="legal">
-						<ul>
-							<li>© 2014 OpenData</li>
-							<li>Terms of Use</li>
-							<li>Privacy Policy</li>
-							<li>Help</li>
-						</ul>
-					</div>
+				<div class="middle_r col-xs-12 col-sm-6">
+					<img src="{{ url_for('static', filename='/img/logo-alice.gif') }}" alt="">
+					<img src="{{ url_for('static', filename='/img/cms-logo.gif') }}" alt="">
 				</div>
-				<div class="pull-right-xs col-md-3">
-					<img style="float:right;" src="{{ url_for('static', filename='/img/logo-alice.gif') }}" alt="">
-					<img style="float:right;" src="{{ url_for('static', filename='/img/cms-logo.gif') }}" alt="">
+				<div class="center-block legal">
+					<ul class="">
+						<li>© 2014 OpenData</li>
+						<li>Terms of Use</li>
+						<li>Privacy Policy</li>
+						<li>Help</li>
+					</ul>
 				</div>
 			</div>
 		</div>

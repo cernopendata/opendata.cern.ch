@@ -24,31 +24,34 @@
 		</div> -->
 		<div class="midnav">
 			<div class="container">
-				<div class="logo col-xs-6 col-sm-4 no-padding">
-					<a href="{{ url_for('invenio_opendata.middle') }}"><div class="logoimg">
-							<div class="sp1">open</div>
-							<div class="sp2">data</div>
-							<div class="sp3">CERN</div>
+				<div class="row">
+					<div class="logo col-xs-12 col-sm-4  col-md-5">
+						<a href="{{ url_for('invenio_opendata.middle') }}"><div class="logoimg">
+								<div class="sp1">open</div>
+								<div class="sp2">data</div>
+								<div class="sp3">CERN</div>
+							</div>
+						</a>
+						<div id="st-trigger-effects" class="pull-right mob-toggle visible-xs visible-sm">
+							<button  type="button" class="navbar-toggle" data-effect="st-effect-3" data-toggle="collapse" data-target="[id*='navbarCollapse']">
+							    <span class="icon-bar"></span>
+							    <span class="icon-bar"></span>
+							    <span class="icon-bar"></span>
+							    <span class="icon-bar"></span>
+						  	</button>
+						</div>  
+					</div>
+					<div  class="innernav col-md-7">
+						
+						<!-- Collection of nav links and other content for toggling -->
+						<div id="navbarCollapse" class="collapse navbar-collapse">
+							<ul class="nav navbar-nav pull-right">
+								<a href="{{ url_for('search') }}"><li>SEARCH</li></a>
+								<a href="{{ url_for('news') }}"><li>NEWS</li></a>
+								<a href="#"><li>INFO</li></a>				
+								<a href="#"><li>MORE</li></a>
+							</ul>
 						</div>
-					</a>
-				</div>
-				<div  class="innernav">
-					<div id="st-trigger-effects" class="pull-right mob-toggle visible-xs visible-sm">
-					<button  type="button" class="navbar-toggle" data-effect="st-effect-3" data-toggle="collapse" data-target="[id*='collapse-toggle-nav']">
-					    <span class="icon-bar"></span>
-					    <span class="icon-bar"></span>
-					    <span class="icon-bar"></span>
-					    <span class="icon-bar"></span>
-					  </button>
-					</div>  
-					<!-- Collection of nav links and other content for toggling -->
-					<div id="navbarCollapse" class="collapse navbar-collapse">
-						<ul class="nav navbar-nav">
-							<a href="{{ url_for('search') }}"><li>SEARCH</li></a>
-							<a href="{{ url_for('news') }}"><li>NEWS</li></a>
-							<a href="#"><li>INFO</li></a>				
-							<a href="#"><li>MORE</li></a>
-						</ul>
 					</div>
 				</div>
 			</div>
