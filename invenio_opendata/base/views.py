@@ -23,6 +23,10 @@ from invenio.base.i18n import _
 
 from flask import Blueprint, render_template, redirect, url_for, abort
 from jinja2 import TemplateNotFound
+from invenio.modules.search.models import Collection
+from invenio.modules.records.models import Record
+from invenio.modules.records.api import get_record
+from random import sample as randomise
 
 
 blueprint = Blueprint('invenio_opendata', __name__, url_prefix='/',
@@ -51,12 +55,21 @@ def index2():
 	except TemplateNotFound:
 		return abort(404)
 
-
-
 @blueprint.route('educate')
 def educate():
+	cms_reclist = randomise(Collection.query.filter(Collection.name == 'CMS').first_or_404().reclist, 6)
+	cms = []
+	for rec in cms_reclist:
+		cms.append(get_record(rec))
+
+	print "here"
+	alice_reclist = randomise(Collection.query.filter(Collection.name == 'ALICE').first_or_404().reclist, 6)
+	alice = []
+	for rec in alice_reclist:
+		alice.append(get_record(rec))
+
 	try:
-		return render_template('educate.html')
+		return render_template('educate.html', cms = cms, alice = alice)
 	except TemplateNotFound:
 		return abort(404)
 
@@ -81,3 +94,44 @@ def news(newsid):
 		except TemplateNotFound:
 			return abort(404)
 
+@blueprint.route('visualise/events')
+def visualise_events():
+	try:
+		return render_template('visualise_events.html')
+	except TemplateNotFound:
+		return abort(404)
+
+@blueprint.route('visualise/histograms')
+def visualise_histo():
+	try:
+		return render_template('visualise_histograms.html')
+	except TemplateNotFound:
+		return abort(404)
+
+@blueprint.route('visualise')
+def visualise():
+	try:
+		return render_template('visualise.html')
+	except TemplateNotFound:
+		return abort(404)
+
+@blueprint.route('data/VMs')
+def data_vms():
+	try:
+		return render_template('data_vms.html')
+	except TemplateNotFound:
+		return abort(404)
+
+@blueprint.route('data/xrootd')
+def data_xrootd():
+	try:
+		return render_template('data_xrootd.html')
+	except TemplateNotFound:
+		return abort(404)
+
+@blueprint.route('data')
+def data():
+	try:
+		return render_template('data.html')
+	except TemplateNotFound:
+		return abort(404)

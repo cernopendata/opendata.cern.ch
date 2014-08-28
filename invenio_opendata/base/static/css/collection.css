@@ -19,7 +19,8 @@
 	background-color: #606D75;
 	color: #fff;
 	margin: 0;
-	padding: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .recordbox .top span {
@@ -38,7 +39,9 @@
 	text-align: center;
 	line-height: 1;
 }
-
+.recordbox .top .col-md-10 {
+	margin-left: -15px;
+}
 .recordbox .thumb {
 	float: right;
 	width: 60%;
@@ -132,9 +135,44 @@
 	margin-right: 10px;
 }
 
-.collections .collRecords {
-	background-color: #f5f5f5;
+.entrypoint_collections .collRecords {
+	background-color: #f4f4f4;
 	padding: 40px 0;
+}
+
+.entrypoint_collections .collections-nav {
+    background-color: rgba(156, 174, 186, 1);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 45px;
+}
+
+.entrypoint_collections .collections-nav ul {
+    margin-bottom: 0;
+    padding-left: 15px;
+}
+.entrypoint_collections .collections-nav ul.pull-left li{
+    border-radius: 3px 3px 0 0;
+    padding: 6px 15px;
+    margin-right: 5px;
+}
+.entrypoint_collections .collections-nav ul.pull-left li a {
+	padding: 0;
+	background-color: transparent;
+	border: 0;
+}
+
+.entrypoint_collections .collections-nav ul.pull-left li.active{
+    background-color: #f4f4f4;
+    color: #606D75;
+}
+
+.entrypoint_collections .collections-nav a,
+.entrypoint_collections .collections-nav a:hover,
+.entrypoint_collections .collections-nav a:focus {
+    color: #fff;
+    font-weight: 400;
+    font-size: 17px;
 }
 .recordbox .details span{
 	font-weight: 100;
@@ -170,12 +208,11 @@
 .collRecords .seeall {
 	text-align: center;
 	height: 60px;
-	margin-top: 15px;
 }
 
 .collRecords .seeall a {
 	padding: 10px 40px;
-	background-color: #091B26;
+	background-color: #606D75;
 	border-radius: 5px;
 	color: #fff;
 	font-size: 18px;
@@ -225,8 +262,7 @@
 }
 
 .recordbox .top span {
-	font-size: 22px;
-	margin-top: 2px;
+	font-size: 20px;
 	width: auto;
 	margin: 0;
 }

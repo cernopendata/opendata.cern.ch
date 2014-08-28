@@ -1,9 +1,14 @@
 {% macro document_recbox(title, id, link=false, img_type='fa-file') %}
-	<li class="col-md-3 col-xs-12 col-sm-6">
-		<a href="{{ url_for('record/'+id) if not link else link|safe}}"><div class="recordbox">
-				<div class="top">
-					<span class="fa fa-file"></span>
-					<h5>{{ title |safe }}</h5>
+	<li class="col-md-4 col-xs-12 col-sm-6">
+		<a href="{{ url_for('record/'+id) if not link else link|safe}}">
+			<div class="recordbox">
+				<div class="top row">
+					<div class="col-md-2">
+						<span class="fa fa-cubes"></span>
+					</div>
+					<div class="col-md-10">
+						<h5>{{ title |safe }}</h5>
+					</div>
 				</div>
 				<div class="thumb iconed">
 					<div class="fa {{img_type}}"></div>
@@ -11,16 +16,21 @@
 				<div class="details">
 					<span>Read more</span>
 				</div>	
-			</div></a>
+			</div>
+		</a>
 	</li>
 {% endmacro %}
 {% macro datasample_recbox(title, id, link=false, image='default.jpg') %}
-	<li class="col-md-3 col-xs-12 col-sm-6">
+	<li class="col-md-4 col-xs-12 col-sm-6">
 		<a href="{{ url_for('record/'+id) if not link else link|safe}}">					
 			<div class="recordbox">
-				<div class="top">
-					<span class="fa fa-bar-chart-o"></span>
-					<h5>{{title|safe}}</h5>
+				<div class="top row">
+					<div class="col-md-2">
+						<span class="fa fa-database"></span>
+					</div>
+					<div class="col-md-10">
+						<h5>{{ title |safe }}</h5>
+					</div>
 				</div>
 				<div class="thumb">
 					<img src="{{ url_for('static', filename=image ) }}" alt="">
@@ -33,15 +43,37 @@
 	</li>
 {% endmacro %}
 
-{% macro record_samples() %}
-	{{ document_recbox('Testing Document', '1') }}
-	{{ datasample_recbox('Testing Data Sample', '1', image='img/opendata/dielectron2-scaled.png') }}
-	{{ document_recbox('CMS Document 1', '1') }}
-	{{ datasample_recbox('Testign Data Sample 2', '1', image='img/opendata/HtoGammaGamma-scaled.png') }}
-	{{ document_recbox('CMS Document 2', '1') }}
-	{{ datasample_recbox('Dimuon events with invariant mass range 2-5 GeV', '15', image='img/opendata/Jpsimumu-scaled.png')  }}
-	{{ datasample_recbox('Testing Data Sample 3', '1', image='img/opendata/ttbar-scaled.png' )  }}
-	{{ document_recbox('CMS Document 3', '11') }}
+{% macro record_samples(cms, alice) %}
+	 <div class="tab-content">
+	 	<div class="tab-pane fade in active" id="CMS">
+	 		<ul class="row">
+	 			{% for r in cms %}	 				
+	 				{% if r['collections'][0]['primary'] == 'CMSREDUCEDDATASET' %}
+	 					{{ document_recbox(r['title']['title'], r['recid']|string) }}
+	 				{% elif r['collections'][0]['primary'] == 'CMSPRIMARYDATASET' %}
+						{{ datasample_recbox(r['title']['title'], r['recid']|string, image='img/opendata/ttbar-scaled.png' )  }}
+	 				{% endif %}
+	 			{% endfor %}
+	 		</ul>
+	 		<div class="seeall">
+	 			<a href="{{ url_for('collection/CMS') }}" class="col-md-12">SEE ALL</a>
+	 		</div>
+	 	</div>
+	 	<div class="tab-pane fade" id="ALICE">
+	 		<ul class="row">
+	 			{% for r in alice %}
+	 				{% if r['collections'][0]['primary'] == 'ALICEANALYSIS' %}
+	 					{{ document_recbox(r['title']['title'], r['recid']|string) }}
+	 				{% elif r['collections'][0]['primary'] == 'ALICESIMPLIFIEDDATASET' %}
+						{{ datasample_recbox(r['title']['title'], r['recid']|string, image='img/opendata/ttbar-scaled.png' )  }}
+	 				{% endif %}
+	 			{% endfor %}
+	 		</ul>
+	 		<div class="seeall">
+	 			<a href="{{ url_for('collection/ALICE') }}" class="col-md-12">SEE ALL</a>
+	 		</div>
+	 	</div>
+	 </div>
 {% endmacro %}
 
 {% macro search_form() %}
@@ -61,9 +93,9 @@
 	<div class="container">
 	<div class="row">
 		{% block leftside_actions %}
-			<ul class="pull-left col-md-7">
-				<a href="/search?cc=CMS"><li class="active"><!-- <span class="fa fa-dot-circle-o"> --></span>CMS</li></a>
-				<a href="/search?cc=ALICE"><li><!-- <span class="fa fa-circle-o"> --></span>ALICE</li></a>
+			<ul class="pull-left col-md-7 nav nav-tabs" role="tablist">
+				<li class="active"><a href="#CMS" role="tab" data-toggle="tab"></span>CMS</a></li>
+				<li><a href="#ALICE" role="tab" data-toggle="tab"></span>ALICE</a></li>
 			</ul>
 		{% endblock leftside_actions %}
 		{% block rightside_actions %}
@@ -74,18 +106,13 @@
 			{% endif %}
 			</div>
 			</div>
-			
 		{% endblock rightside_actions %}</div>
 	</div>
 </div>
-<div class="collRecords">
+
+<div class="collRecords">	
 	<div class="container">
-		<ul class="row">
-			{{ record_samples() }}
-		</ul>
-	</div>
-	<div class="container seeall">
-		<a href="{{ url_for('search') }}">SEE ALL</a>
+			{{ record_samples(cms, alice) }}
 	</div>
 </div>
 
