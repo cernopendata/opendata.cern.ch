@@ -67,26 +67,56 @@
 
 .rec_doi {
 	float: right;
-	margin-top: 3px;
+	margin-bottom: 10px;
 }
 .rec_doi .t{ 
-	color: #fff;
+	color: #606D75;
 	float: left;
 	padding: 5px 8px;
-	border-bottom-left-radius: 3px;
-	border-top-left-radius: 3px;
-	background-color: #606D75;
+	border-bottom-left-radius: 2px;
+	border-top-left-radius: 2px;
+	background-color: #f4f4f4;
 	font-weight: 600;
+	margin: -5px;
+	margin-right: 5px;
 }
 .rec_doi .n {
 	background-color: #fff;
 	color: #606D75;
 	float: left;
-	padding: 4px 8px;
-	border-top-right-radius: 3px;
-	border-bottom-right-radius: 3px;
-	border: 1px solid  #606D75;
+	padding: 5px 5px;
+	border-radius: 2px;
+	font-size: 100%;
+	width: 100%;
 }
+
+.rec_parentcol {
+	float: left;
+	margin-bottom: 10px;
+}
+.rec_parentcol .t{ 
+	color: #606D75;
+	float: left;
+	padding: 5px 8px;
+	border-bottom-left-radius: 2px;
+	border-top-left-radius: 2px;
+	background-color: #f4f4f4;
+	font-weight: 600;
+	text-align: left;
+	margin: -5px;
+	margin-right: 10px;
+}
+.rec_parentcol .n {
+	background-color: #fff;
+	color: #606D75;
+	float: left;
+	padding: 5px 5px;
+	border-radius: 2px;
+	font-size: 100%;
+	text-align: left;
+	width: 100%;
+}
+
 
 .rec_header {
 }
@@ -115,9 +145,85 @@
 	background-color: #fff;
 }
 
+.rec_dedicatedbox {
+	background-color: #fff;	
+	height: 100%;
+	margin-left: -15px;
+	margin-bottom: 20px;
+}
 
+.rec_dedicated_top {
+	background-color: #93A3AE;
+	padding-top: 15px;
+}
 
+.rec_dedicated_details {
+}
 
+.panel-group .rec_dedicated_details_in.panel {
+	padding-top: 15px;
+	margin-right: -15px;
+	margin-left: -15px;
+	border-radius: 0;
+	margin-bottom: 0;
+	margin-top: 0!important;
+	border: 0;
+}
+
+.rec_dedicated_details_in .title {
+	text-align: left;
+	width: 100%;
+	font-size: 16px;
+	padding-right: 15px;
+	padding-left: 15px;
+	color: #fff;
+	font-weight: 900;
+	padding-bottom: 15px;
+}
+.rec_dedicated_details_in .info {
+	background-color: #fff;
+/*	padding-top: 10px;
+	padding-bottom: 10px;*/
+	text-align: left;
+	padding-left: 15px;
+	padding-right: 15px;
+	overflow: overlay;
+}
+.rec_dedicated_details_in.rdd-sel {
+	background-color: #A2B2BD;
+}
+.rec_dedicated_details_in.rdd-val {
+	background-color: #B5C5D1;
+}
+.rec_dedicated_details_in.rdd-reuse {
+	background-color: #A2B2BD;
+}
+.rec_dedicated_details_in.rdd-limits {
+	background-color: #B5C5D1;
+}
+
+.rec_dedicated_details_in .info >div {
+	padding-top: 10px;
+}
+.rec_dedicated_details_in .info .body {
+	padding-bottom: 5px;
+}
+.rec_dedicated_details_in .info .links {
+	padding-bottom: 5px;
+}
+.rec_dedicated_details_in .info .links ul {
+	display: inline-block;
+}
+.rec_dedicated_details_in .info .links li {
+	width: 100%;
+}
+.rec_dedicated_details_in .info .links a {
+	width: 100%;
+	display: inline-block;
+	float: left;
+	text-align: left;
+	color: #7199B1;
+}
 
 
 /*======= Records file tab styling ========*/
@@ -185,25 +291,28 @@
 
 .rec_export {
 	float: right;
-	margin-top: 5px;
+	margin-bottom: 10px;
 }
+
+.rec_export .export-box {
+}
+
 .rec_export .t{ 
-	color: #fff;
+	color: #606D75;
 	float: left;
 	padding: 5px 8px;
-	border-bottom-left-radius: 3px;
-	border-top-left-radius: 3px;
-	background-color: #606D75;
+	border-bottom-left-radius: 2px;
+	border-top-left-radius: 2px;
+	background-color: #f4f4f4;
 	font-weight: 600;
 }
 .rec_export .a {
 	background-color: #fff;
 	color: #606D75;
 	float: left;
-	padding: 4px 8px;
-	border-top-right-radius: 3px;
-	border-bottom-right-radius: 3px;
-	border: 1px solid  #606D75;
+	padding: 5px 8px;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
 }
 
 #record_content #record_content {
@@ -269,9 +378,10 @@
 	font-weight: 900;
 }
 .rec_file_box button {
-	color: #606D75;
+	color: #fff;
 	margin-bottom: 5px;
-	font-size: 12px;
+	font-size: 10px;
+	background-color: #9BB1BD;
 }
 .rec_metadata.rec_files li {
 	font-size: 12px;
@@ -339,10 +449,10 @@ body.black.black {
 	width: 25%;
 }
 #rec_files_boxes .recdet{
-	width: 66.66666667%;
+	width: 58.33333333%;
 }
 #rec_files_boxes .recbut{
-	width: 33.33333333%;
+	width: 41.66666667%;
 }
 
 #rec_files_boxes .recdet ul {
@@ -393,3 +503,4 @@ body.black.black {
 	font-size: 12px;
 	margin-top: 5px;
 }
+
