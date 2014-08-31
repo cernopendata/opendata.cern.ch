@@ -1,0 +1,127 @@
+{% extends "page.html" %}
+
+{% block body %}
+
+<style>
+	
+.howto_step .heading {
+	width: 100%;
+	background-color: #f4f4f4;
+	font-size: 18px;
+	font-weight: 600;
+	color: #606D75;
+	padding: 15px 10px;
+	/*border-right: 5px solid #606D75;*/
+	border-left: 5px solid #606D75;
+}
+.howto_step .body {
+	padding: 15px;
+	background-color: #e6e6e6;
+	font-size: 16px;
+	
+}
+
+.howto_step .body p {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 16px;
+	color: #606D75;
+
+}
+
+#create.howto_step  .body .row:nth-child(2n) {
+	background-color: #fff;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+#vm_howto_nav  {
+	background-color: #e6e6e6;
+}
+#vm_howto_nav ul li {
+	padding: 10px;
+}
+
+.title.info_title h5 {
+	margin-top: 30px;
+	margin-bottom: 20px;
+	color: #f5f5f5;
+	font-size: 24px;
+	font-weight: 600;
+
+}
+</style>
+
+
+<section class="infobar">
+	<div class="container">
+		<a href="{{ url_for('news') }}"><h3>CERN Virtual Machines</h3></a>
+	</div>
+</section>
+
+<section class="content">
+	
+
+	<div class="container">	
+		<div class="row">
+			<div class="title info_title col-md-12"><h5>How to install a CERN Virtual Machine</h5></div>
+		</div>
+		<div class="row" data-spy="scroll" data-target="#vm_howto_nav">	
+			<div id="vbox" class="howto_step col-md-12">
+				<div class="heading">Step 1: Installing VirtualBox</div>
+				<div class="body">
+					<p>VirtualBox is a free, open source and multiplatform application to run virtual machines: you can <a href="#">download</a> the package for your platform from the Downloads page.</p>
+					<p>You will need administrative privileges ("root" privileges) on every platform to perform the installation of VirtualBox.</p>
+					<p>Note: the latest tested version of VirtualBox working with CernVM is 4.3.14. If you have troubles with the latest verion of VirtualBox, pick that one: the full history of VirtualBox versions is available <a href="#">on a different page.</a></p></div>
+			</div>
+			<div id="create" class="howto_step col-md-12">
+				<div class="heading">Step 2: Creating a Virtual Machine</div>
+				<div class="body">
+					<div class="row">
+						<p class="col-md-8">Go on the <a href="#">CernVM downloads page</a> and download the appropriate version: you must pick the OVA x86_64 for VirtualBox.</p>
+						<div class="col-md-4"><img src="{{url_for('static', filename='img/alice/1.png')}}" width="100%;"></div>
+					</div>
+					<div class="row">
+						<p class="col-md-12">Now open VirtualBox. Select Import Appliance... from the File menu.</p>
+						<div class="col-md-12">
+							<img src="{{url_for('static', filename='img/alice/2.png')}}" alt="">
+						</div>
+						<p class="col-md-12">
+							From the import dialog, select the OVA file you have just downloaded.
+						</p>
+						<div class="col-md-12"><img src="{{ url_for('static', filename='img/alice/3.png')}}" alt=""></div>
+					</div>
+					<div class="row">
+						<p class="col-md-12">
+							In the Appliance settings dialog, change the following values:<br/><br/>
+								* change the name to whatever you want in order to recognize your VM in the future</br>
+								* increase the RAM to 2048 MB</br>
+								* check "Reinitialize the MAC address of all network cards</br>
+							You can compare your settings with the picture below.
+						</p>
+						<div class="col-md-12">
+							<img src="{{ url_for('static', filename='img/alice/4.png')}}" alt="">
+						</div>
+					</div>
+					<div class="row">
+						<p class="col-md-12">Click Import. You will have now the CernVM virtual machine available in the list of virtual machines. Select it, then press the Start button to boot it</p>
+						<div class="col-md-12">
+							<img src="{{url_for('static', filename='img/alice/5.png')}}" alt="">
+						</div>
+						<p class="col-md-12">Let CernVM finish the boot process. As you might have noticed, the OVA file you have downloaded is less than 20 MB in size: in fact, it does not contain the operating system's components, which are downloaded on demand as soon as you access them.</p>
+						<p class="col-md-12">For this reason, the first boot might take longer. Afterwards, the main components will be accessed from the cache.</p>
+						<p class="col-md-12">Note: CernVM needs Internet connectivity to run. You cannot run CernVM when you are offline.</p>
+					</div>
+				</div>
+			</div>
+			<div id="configure" class="howto_step col-md-12">
+				<div class="heading">Step 3: Configureing a Virtual Machine</div>
+				<div class="body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos tempora facilis perferendis esse eaque, ipsum quas minima ipsam modi at vel vitae minus earum labore amet dicta dolores sapiente aliquid.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet voluptatum at natus quasi atque eius ex enim odio? Nisi veniam, ducimus perferendis ex culpa vero aliquid, maxime velit at qui?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi doloribus, rerum quis eveniet, dignissimos impedit quas quae quam officiis itaque non reprehenderit nobis sapiente asperiores sint consequuntur voluptatem quo culpa.</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+
+{% endblock %}
