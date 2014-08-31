@@ -95,18 +95,18 @@
     font-size: 27px;
 }
 
-.collections {
+.entrypoints_collections {
 
 }
 
-.collections .nav {
+.entrypoints_collections .nav {
     background-color: #091B26;
 }
 
-.collections .nav ul {
+.entrypoints_collections .nav ul {
     float: left;
 }
-.collections .nav li{
+.entrypoints_collections .nav li{
     color: #fff;
     font-size: 18px;
     padding: 5px 10px;
@@ -114,16 +114,22 @@
     float: left;
 }
 
-.collections .nav li.active {
+.entrypoints_collections .nav li.active {
     background-color: #f5f5f5;
     color: #091B26;
 }
-
-.collections .nav li span {
-    margin-right: 10px;
+.entrypoints_collections .nav li a {
+    margin: 0;
+    background-color: transparent;
 }
 
-.collections .collRecords {
+.entrypoints_collections .nav li span {
+    margin-right: 10px;
+}
+.entrypoints_collections .nav.nav-tabs {
+    padding-left: 15px;
+}
+.entrypoints_collections .collRecords {
     background-color: #f5f5f5;
     padding: 40px 0;
 }
@@ -190,16 +196,16 @@
 }
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-.collections {
+.entrypoints_collections {
 
 }
-.collections .nav {
+.entrypoints_collections .nav {
     background-color: #091B26;
 }
-.collections .nav ul {
+.entrypoints_collections .nav ul {
     float: left;
 }
-.collections .nav li{
+.entrypoints_collections .nav li{
     color: #fff;
     font-size: 20px;
     padding: 5px 20px;

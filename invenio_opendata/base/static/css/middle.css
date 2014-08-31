@@ -44,6 +44,19 @@
 /*	background-color: #606D75;
 	color: #fff;*/
 }
+
+
+.intro .entrypoints  {
+	color: #fff!important;
+	font-size: 50px;
+	font-weight: 200;
+	padding: 0;
+	margin: 10px 0;
+	text-align: left;
+	width: 80%;
+	max-width: 385px;
+}
+
 .intro.middle .entries .entrypoints a:hover {
 	background-color: #A2CAE2;// #606D75;
 	color: #fff;
@@ -56,7 +69,7 @@
     font-size: 20px;
     font-weight: 200;
 	text-align: center;
-	width: 400px;
+	width: 100%;
 	display: inline-block;
 }
 
@@ -153,6 +166,32 @@
 	background-repeat: no-repeat;
 	background-position: -34px 2px;
 }
+.intro.middle .upper.circledes .middle {
+    background: url('/img/home/glass.svg');
+	background-size: 50%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-position-y: 30px;
+}
+.intro.middle .circledes {
+    background: url('/img/home/home_net.svg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+}	
+@media (min-width: 992px ) {
+	.intro.middle .upper.circledes {
+		background: none;
+	}
+}
+
+
+@media (max-width: 992px) {
+	.intro.middle .container.circledes {
+		background: none;
+	}
+}
+
 
 .intro.middle .upper>.container {
 	height: 100%;

@@ -1,0 +1,81 @@
+{%- extends 'page.html' %}
+
+{% block body %}
+
+<style>
+#od-header {
+	position: absolute;
+	height: 80px;
+	width: 100%;
+}
+
+.content {
+	position: absolute;
+	top: 80px;
+	bottom: 100px;
+	width: 100%;
+	height: auto;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	height: 100px;
+	width: 100%;
+}
+
+@media (max-width: 768px)  {
+	footer.middlefoot.middlefoot {
+		height : 175px;
+	}
+	.content {
+		bottom: 175px;
+	}
+}
+
+.middlefoot.middlefoot .middle_l img {
+	margin-top: 15px;
+	width: 130px;
+	margin-right: 10px;
+}
+.middlefoot.middlefoot .middle_r img {
+	margin-left: 20px;
+	width: 54px;
+	margin-top: 15px;
+}
+
+
+</style>
+
+	<section class="intro middle">
+	{% include "middle_with_design.html" %}
+	</section>
+
+{% endblock body %}
+
+{% block page_footer %}
+	    <div id="push"></div>
+	</div> {# end wrap #}
+	<footer class="middlefoot">
+		<div class="container">
+			<div class="row">
+				<div class="middle_l col-xs-12 col-sm-6">
+						<img src="{{ url_for('static', filename='/img/opendata/cern-logo-large.png') }}" style="width:60px;" alt="">
+						<img src="{{ url_for('static', filename='/img/opendata/invenio.png') }}" alt="">
+				</div>
+				<div class="middle_r col-xs-12 col-sm-6">
+					<img src="{{ url_for('static', filename='/img/logo-alice.gif') }}" alt="">
+					<img src="{{ url_for('static', filename='/img/cms-logo.gif') }}" alt="">
+				</div>
+				<div class="center-block legal">
+					<ul class="">
+						<li>© 2014 OpenData</li>
+						<li>Terms of Use</li>
+						<li>Privacy Policy</li>
+						<li>Help</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+{% endblock %}
