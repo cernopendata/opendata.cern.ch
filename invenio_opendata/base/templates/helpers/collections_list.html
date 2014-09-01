@@ -48,7 +48,7 @@
 	 	<div class="tab-pane fade in active" id="CMS">
 	 		<ul class="row">
 	 			{% for r in cms %}	 				
-	 				{% if r['collections'][0]['primary'] == 'CMSREDUCEDDATASET' %}
+	 				{% if r['collections'][0]['primary'] in ['CMSREDUCEDDATASET','CMS'] %}
 	 					{{ document_recbox(r['title']['title'], r['recid']|string) }}
 	 				{% elif r['collections'][0]['primary'] == 'CMSPRIMARYDATASET' %}
 						{{ datasample_recbox(r['title']['title'], r['recid']|string, image='img/opendata/ttbar-scaled.png' )  }}

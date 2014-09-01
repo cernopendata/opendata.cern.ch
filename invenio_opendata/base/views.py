@@ -34,10 +34,16 @@ blueprint = Blueprint('invenio_opendata', __name__, url_prefix='/',
 
 
 @blueprint.route('')
-@blueprint.route('middle')
 def middle():
 	try:
 		return render_template('index_middle.html')
+	except TemplateNotFound:
+		return abort(404)
+
+@blueprint.route('middle')
+def middle_des():
+	try:
+		return render_template('index_middle_with_design.html')
 	except TemplateNotFound:
 		return abort(404)
 
@@ -75,8 +81,19 @@ def educate():
 
 @blueprint.route('research')
 def research():
+	cms_reclist = randomise(Collection.query.filter(Collection.name == 'CMS').first_or_404().reclist, 6)
+	cms = []
+	for rec in cms_reclist:
+		cms.append(get_record(rec))
+
+	print "here"
+	alice_reclist = randomise(Collection.query.filter(Collection.name == 'ALICE').first_or_404().reclist, 6)
+	alice = []
+	for rec in alice_reclist:
+		alice.append(get_record(rec))
+
 	try:
-		return render_template('research.html')
+		return render_template('research.html', cms = cms, alice = alice)
 	except TemplateNotFound:
 		return abort(404)
 
