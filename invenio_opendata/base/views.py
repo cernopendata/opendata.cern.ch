@@ -36,14 +36,14 @@ blueprint = Blueprint('invenio_opendata', __name__, url_prefix='/',
 @blueprint.route('')
 def middle():
 	try:
-		return render_template('index_middle.html')
+		return render_template('index_middle_with_design.html')
 	except TemplateNotFound:
 		return abort(404)
 
 @blueprint.route('middle')
 def middle_des():
 	try:
-		return render_template('index_middle_with_design.html')
+		return render_template('index_middle.html')
 	except TemplateNotFound:
 		return abort(404)
 
