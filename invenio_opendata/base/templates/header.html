@@ -41,6 +41,7 @@
 						  	</button>
 						</div>  
 					</div>
+					<img src="{{ url_for('static', filename='img/demo.png') }}" alt="" style="position:absolute;top:0;width:200px;">
 					<div  class="innernav col-md-7">
 						
 						<!-- Collection of nav links and other content for toggling -->
@@ -50,6 +51,10 @@
 								<a href="{{ url_for('news') }}"><li>NEWS</li></a>
 								<a href="#"><li>INFO</li></a>				
 								<a href="#"><li>MORE</li></a>
+								<li class="btn-group" data-toggle="buttons">
+									<label class="btn active"><input type="radio" name="experiment" id="CMS" >CMS</input></label>
+									<label class="btn"><input type="radio" name="experiment" id="ALICE" >ALICE</input></label>
+								</li>
 							</ul>
 						</div>
 					</div>

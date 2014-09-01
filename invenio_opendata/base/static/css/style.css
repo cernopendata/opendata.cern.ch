@@ -182,6 +182,26 @@ width: 160px;
     border-radius: 2px;
     padding: 4px 6px;
 }
+
+.innernav ul li.btn-group {
+    background-color: #899AA5;
+    height: 30px;
+    padding: 0;
+    border-radius: 2px;
+    margin-top: 2px;
+}
+.innernav ul li .btn {
+    height: 30px;
+    background-color: transparent;
+    color: #fff;
+    font-size: 13px;
+    padding: 6px;
+    border-radius: 2px;
+}
+.innernav ul li .btn.active {
+    background-color: #091B26;
+}
+
 @media (max-width: 767px) {
     .midnav {
         height: auto;
