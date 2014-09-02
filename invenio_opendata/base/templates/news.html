@@ -42,7 +42,9 @@
 
 {% block body %}
 
-
+{% with collection = 0 %}
+{% include 'search/form/index.html' %}
+{% endwith %}
 <section class="infobar">
 	<div class="container">
 		<a href="{{ url_for('news') }}"><h3>News</h3></a>
