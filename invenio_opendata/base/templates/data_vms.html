@@ -110,50 +110,63 @@ span.circleme {
 
 <section class="infobar">
 	<div class="container">
-		<a href="{{ url_for('news') }}"><h3>CERN Virtual Machines</h3></a>
+		<div class="pull-left">
+			<a href="{{ url_for('news') }}"><h3>CERN Virtual Machines</h3></a>
+		</div>
+		<div class="pull-right">
+			<ul class="exp-switch nav nav-tabs" role="tablist">
+				<li class="active"><a href="#CMS" role="tab" data-toggle="tab">CMS</a></li>
+				<li><a href="#ALICE" role="tab" data-toggle="tab">ALICE</a></li>
+			</ul>
+		</div>
 	</div>
 </section>
 
 <section class="content">
-	<div class="container">	
-		<div class="about">
-			<h4>{{ text.about_msg()}}</h4>
+	<div class="container">
+		<div class="tab-pane fade in active" id="CMS">
+			<div class="about">
+				<h4>{{ text.about_msg()}}</h4>
+			</div>
+			<div class="row">
+				<nav id="vm_howto_nav" class="navbar col-md-12" role="navigation">
+					<ul class="nav navbar-nav col-md-12">
+						<li><a href="#install"><span class="circleme">1</span> How to install a CERN VM</a></li>
+						<li><a href="#validate"><span class="circleme">2</span>Testing & Validation Process</a></li>
+						<li><a href="#limitation"><span class="circleme">3</span>Issues & Limitations</a></li>
+					</ul>
+				</nav>
+			</div>
+			
+			<div id="vm_howto_content" data-spy="scroll" data-target="#vm_howto_nav" data-offset="300">
+				<div id="install" class="row">	
+					<div class="title info_title col-md-12"><h5>How to install a CERN Virtual Machine</h5></div>
+					<div id="vbox" class="howto_step col-md-12">
+						{{ text.install_s1() }}
+					</div>
+					<div id="create" class="howto_step col-md-12">
+						{{ text.install_s2() }}
+					</div>
+				</div>
+				<div id="validate" class="row">
+					<div class="title info_title col-md-12"><h5>How to Test & Validate?</h5></div>
+					<div class="howto_step col-md-12">
+						{{ text.validate_s1() }} 
+					</div>
+					<div class="howto_step col-md-12">
+						{{ text.validate_s2() }} 
+					</div>
+				</div>
+				<div id="limitation" class="row">
+					<div class="title info_title col-md-12"><h5>Known Issues & Limitations</h5></div>
+					<div class="howto_step col-md-12">
+						{{ text.limitation_s1() }}
+					</div>		
+				</div>
+			</div>
 		</div>
-		<div class="row">
-			<nav id="vm_howto_nav" class="navbar col-md-12" role="navigation">
-				<ul class="nav navbar-nav col-md-12">
-					<li><a href="#install"><span class="circleme">1</span> How to install a CERN VM</a></li>
-					<li><a href="#validate"><span class="circleme">2</span>Testing & Validation Process</a></li>
-					<li><a href="#limitation"><span class="circleme">3</span>Issues & Limitations</a></li>
-				</ul>
-			</nav>
-		</div>
-		
-		<div id="vm_howto_content" data-spy="scroll" data-target="#vm_howto_nav" data-offset="300">
-			<div id="install" class="row">	
-				<div class="title info_title col-md-12"><h5>How to install a CERN Virtual Machine</h5></div>
-				<div id="vbox" class="howto_step col-md-12">
-					{{ text.install_s1() }}
-				</div>
-				<div id="create" class="howto_step col-md-12">
-					{{ text.install_s2() }}
-				</div>
-			</div>
-			<div id="validate" class="row">
-				<div class="title info_title col-md-12"><h5>How to Test & Validate?</h5></div>
-				<div class="howto_step col-md-12">
-					{{ text.validate_s1() }} 
-				</div>
-				<div class="howto_step col-md-12">
-					{{ text.validate_s2() }} 
-				</div>
-			</div>
-			<div id="limitation" class="row">
-				<div class="title info_title col-md-12"><h5>Known Issues & Limitations</h5></div>
-				<div class="howto_step col-md-12">
-					{{ text.limitation_s1() }}
-				</div>		
-			</div>
+		<div class="tab-pane fade" id="ALICE">
+			<div class="row"></div>
 		</div>
 	</div>
 

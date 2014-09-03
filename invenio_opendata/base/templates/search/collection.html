@@ -19,6 +19,65 @@
 
 {%- extends "search/collection_base.html" -%}
 
+{%- macro od_collection_tree(collections, limit=None) %}
+{%- set macrokwargs = kwargs %}
+{%- block collection_tree scoped %}
+{%- set idxs = [0] -%}
+<ul {{ macrokwargs|xmlattr }}>
+{% for collection in collections recursive %}
+  {% set portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+  {% for pb in collection.portalboxes %}
+    {% if (pb.portalbox.title == 'description') %}
+      {% if portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+    {% elif (pb.portalbox.title == 'image') %}
+      {% if portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+    {% endif %} 
+  {% endfor %}
+  <li class="col-md-{{ '6' if collections|length == 2 else '4' }}">
+    <div class="coll-box col-md-12">
+      <a href="{{ url_for('collection/'+collection.name|safe) }}">
+        <div class="row">
+          <div class="top col-md-12">
+            <div class="row">
+              <div class="thumb col-md-4"><img class="img-circle" src="{{ url_for('static', filename='img/'+portalboxes['image']) }}" alt=""></div>
+              <div class="details col-md-8">
+                <div class="title col-md-12">{{ collection.name }}</div>
+                <div class="desc col-md-12"><span>{{ portalboxes['desc']*8 }}</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom col-md-12">
+            <div class="row">
+              <div class="subcollection col-md-6">
+                {% if collection.collection_children == [] %}
+                <div class="totalrecs col-md-12">
+                  <div class="col-md-12"><b>Total records:</b></div><div class="col-md-12 coll-rec-num">{{collection.nbrecs}}</div>
+                {% else %}
+                <div class="title col-md-12"><span><b>Collections items:</b></span></div>
+                <ul>
+                  {% for r in collection.reclist %}
+                  <li class="col-md-6">
+                    <a href="{{ url_for('record/'+r.id) }}">{{ r.name }}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+                </div>
+              </div>
+              <div class="related col-md-6">
+                <div class="title col-md-12"><span><b>Related Pages:</b></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </li>
+{% endfor %}
+</ul>
+{% endblock collection_tree %}
+{% endmacro %}
+
 {% block extra_style %}
   <style>
     .coltitle {
@@ -31,14 +90,14 @@
       font-weight: 400;
     }
 
-    .main-content {
+    #subcollection {
       padding-top: 30px;
       padding-bottom: 30px;
     }
     
-    .main-content.main-content a, 
-    .main-content.main-content a:hover
-    .main-content.main-content a:focus {
+    #subcollection a, 
+    #subcollection a:hover
+    #subcollection a:focus {
       color: #666;
       text-decoration: none;
     }
@@ -48,23 +107,23 @@
       padding-bottom: 30px;
     }
 
-    .main-content.collections .collection.clearfix {
+    #subcollection .collection.clearfix {
       background-color: #f4f4f4;
       padding: 10px;
       border-radius: 3px;
       font-size: 20px;
     }
-    .main-content.collections .collection.clearfix h4 {
+    #subcollection .collection.clearfix h4 {
       font-weight: 300;
     }
 
-    .main-content.collections .collection .nav {
+    #subcollection .collection .nav {
       background-color: #fff;
       margin-left: -10px;
       margin-right: -10px;
     }
 
-    .main-content.collections .collection .nav li {
+    #subcollection .collection .nav li {
       width: 100%;
       float: left;
       padding-left: 10px;
@@ -72,7 +131,7 @@
       margin-top: 5px;
     }
 
-    .main-content.collections .collection .nav li a {
+    #subcollection .collection .nav li a {
       float: left;
       padding: 0;
       padding-right: 5px;
@@ -81,45 +140,142 @@
 
     }
 
-    .main-content.collections .collection-res {
+    #subcollection .collection-res {
       background-color: #f4f4f4;
       border-radius: 3px;
       font-size: 20px;
       font-weight: 100;
       padding-top: 20px;
       padding-bottom: 20px;
+      display: inline-block;
     }
 
-    .main-content.collections .collection-res .nav {
+    #subcollection .collection-res .nav {
       background-color: inherit;
     }
-    .main-content.collections .collection-res > .row:nth-child(2n+1) {
+    #subcollection .collection-res > .row:nth-child(2n+1) {
       background-color: #fff;
     }
 
-    .main-content.collections .collection-res > .row:nth-child(2n) a.dropdown-toggle {
+    #subcollection .collection-res > .row:nth-child(2n) a.dropdown-toggle {
       background-color: #fff;
     }    
 
-    .main-content.collections .collection-res > .row:nth-child(2n+1) a.dropdown-toggle {
+    #subcollection .collection-res > .row:nth-child(2n+1) a.dropdown-toggle {
       background-color: #eee;
     }
   
-    .main-content.collections .record-brief .record-header {
+    #subcollection .record-brief .record-header {
       font-size: 18px;
       font-weight: 600;
     }
-    .main-content.collections .record-brief .record-header a{
+    #subcollection .record-brief .record-header a{
       text-decoration: none;
     }
 
-    .main-content.collections .record-brief p{ 
+    #subcollection .record-brief p{ 
       font-size: 14px;
     }
-    .main-content.collections .record-brief a {
+    #subcollection .record-brief a {
       text-decoration: underline;
     }
     
+    #subcollection .collection > ul li  {
+      
+    }
+
+    #subcollection .coll-overview ul.nav {
+      background-color: inherit;
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+
+    #subcollection .coll-overview ul.nav li {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+    #subcollection .coll-overview .coll-box {
+      background-color: #f4f4f4;
+      padding: 20px 30px;
+      text-align: center; 
+      height: auto;
+      display: inline-block;
+      font-weight: 100;
+      border-radius: 5px;
+      color: #657580;
+      margin-bottom: 20px;
+    }
+
+    #subcollection .coll-overview .coll-box .thumb img {
+      height: 120px;
+      padding: 5px;
+      font-size: 30px;
+      font-weight: 100px;
+    }
+    #subcollection .coll-overview .coll-box .top{
+      display: inline-block;
+      border-bottom: 1px solid #dfdfdf;
+      padding-bottom: 10px;
+    }
+    #subcollection .coll-overview .coll-box .bottom {
+      display: inline-block;
+      text-align: left;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 12px;
+      font-weight: 300;
+    }
+    #subcollection .coll-overview .coll-box .top .title {
+      margin-bottom: 10px;
+    }
+    #subcollection .coll-overview .coll-box .bottom > div {
+      text-align: center;
+    }
+    #subcollection .coll-overview .coll-box .bottom .totalrecs .coll-rec-num {
+      font-size: 26px;
+      font-weight: 600; 
+      margin-top: 5px;
+      text-align: center;
+    }
+    #subcollection .coll-overview .coll-box .top .desc {
+    }
+    #subcollection .coll-overview .coll-box .top .desc span {
+      font-size: 12px;
+      height: 100px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: block;
+    }
+    #subcollection .coll-overview .coll-box .bottom .subcollection {
+       
+    }
+    #subcollection .coll-overview .coll-box .bottom .related {
+    
+    }
+    #subcollection .collection-res > .col-md-12 {
+      background-color: #fff;
+    }
+    #subcollection .collection-res > .col-md-12:nth-child(2n) {
+      background-color: #f4f4f4;
+    }
+    #subcollection .results-title {
+      padding-top: 45px;
+      padding-bottom: 40px;
+      font-size: 40px;
+      font-weight: 100;
+      text-align: center;
+    }
+    #subcollection .collection-res .more {
+      text-align: center;
+    }
+    #subcollection .collection-res .more a {
+      background-color: #091B26;
+      padding: 12px 60px;
+      display: inline;
+      line-height: 3;
+      color: #fff;
+      border-radius: 5px;
+    }
   </style>
   {{super()}}
 {% endblock %}
@@ -128,8 +284,7 @@
 
 
 {%- block index_title %}
-
-<div class="infobar">
+<section class="infobar">
   <div class="container">
   {%- if collection.collection_children_r %}
     <div class="row">
@@ -153,49 +308,49 @@
     </div>
   {%- endif %}
   </div>
-</div>
-
+</section>
 {%- endblock index_title %}
 
 
-<div class="main-content collections">
-  {%- block portalbox_lt -%}{{ portalbox_sidebar(portalboxes.lt, class="col-md-2") }}{%- endblock -%}
+<section id="subcollection" class="collections">
   <div class="container">
   {%- block index_right -%}
   {% if collection.collection_children_r %}
-    <div class="col-md-{{ '4' if collection.collection_children_v else '8' }} collection clearfix">
-      <h4>{{ collection.get_collectionbox_name(box_type='r') }}</h4>
-      {{ collection_tree(collection.collection_children_r, limit=2, class="nav nav-list clearfix") }}
-    </div>
-  {% else %}
-    <div class="col-md-{{ '4' if collection.collection_children_v else '8' }} collection-res">
-      {% if collection.is_restricted %}
-        <strong>{{ _('This collection is restricted. If you are authorized to access it, please click on the Search button.') }}</strong>
-      {% else %}
-        {% if collection.reclist %}
-          {% for recid in collection.reclist[-10:]|reverse %}
-          <div class="row">
-            <div class="col-md-12">
-              {{ format_record(recid, of, ln=g.ln)|safe }}
-              {{ '<hr/>'|safe if not loop.last }}
-            </div>
-          </div>
-          {% endfor %}
-          {% if collection.reclist|length > 10 %}
-          
-            <a href="{{ url_for('search.search', cc=collection.name, ln=g.ln, jrec=11)|safe }}"
-            class="pull-right text-muted">[&gt;&gt; {{ _('more')}}]</a>
-          {% endif %}
-        {% endif %}
-      {% endif %}
+    <div class="row">
+      <div class="col-md-12 coll-overview">
+        {{ od_collection_tree(collection.collection_children_r, limit=2, class="nav nav-list clearfix row") }}
+      </div>
     </div>
   {% endif %}
+  <div class="row">
+    <div class="col-md-12">
+      <div class="results-title">Collection Items</div>
+      <div class="collection-res">
+        {% if collection.is_restricted %}
+          <strong>{{ _('This collection is restricted. If you are authorized to access it, please click on the Search button.') }}</strong>
+        {% else %}
+          
+          {% if collection.reclist %}
+            {% for recid in collection.reclist[-10:]|reverse %}
+              <div class="col-md-12">
+                {{ format_record(recid, of, ln=g.ln, extra_context=dict(collection=collection))|safe }}
+              </div>
+            {% endfor %}
+            {% if collection.reclist|length > 10 %}
+              <div class="more center-block">
+                <a href="{{ url_for('search.search', cc=collection.name, ln=g.ln, jrec=11)|safe }}"
+                class="text-muted">{{ _('more')}}</a>
+              </div>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
 
   {%- endblock index_right -%}
   </div>
-  
-
-</div>
+</section>
   
 
 {%- endblock -%}

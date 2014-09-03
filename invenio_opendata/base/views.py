@@ -152,3 +152,15 @@ def data():
 		return render_template('data.html')
 	except TemplateNotFound:
 		return abort(404)
+
+@blueprint.route('experiments')
+@blueprint.route('collections')
+@blueprint.route('collection')
+def collections():
+	base_collection = Collection.query.filter(Collection.id == '1').first_or_404()
+	experiments = base_collection.collection_children
+	try:
+		return render_template('collections_overview.html', experiments = experiments )
+	except TemplateNotFound:
+		return abort(404)
+
