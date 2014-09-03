@@ -147,8 +147,8 @@
 
 .rec_dedicatedbox {
 	background-color: #fff;	
-	height: 100%;
-	margin-left: -15px;
+	height: auto;
+	/*margin-left: -15px;*/
 	margin-bottom: 20px;
 }
 
@@ -157,7 +157,8 @@
 	padding-top: 15px;
 }
 
-.rec_dedicated_details {
+.rec_dedicated_details.panel-group {
+	margin-bottom: 0;
 }
 
 .panel-group .rec_dedicated_details_in.panel {
@@ -168,6 +169,8 @@
 	margin-bottom: 0;
 	margin-top: 0!important;
 	border: 0;
+	box-shadow: 0;
+	--webkit-box-shadow: 0;
 }
 
 .rec_dedicated_details_in .title {
@@ -200,6 +203,23 @@
 }
 .rec_dedicated_details_in.rdd-limits {
 	background-color: #B5C5D1;
+}
+.rec_dedicated_details_in.rdd-disclaimer {
+	background-color: #A2B2BD;
+}
+.rec_dedicated_details_in.rdd-disclaimer .body {
+	font-size: 12px;
+	text-align: justify;
+}
+.rec_dedicated_details_in.rdd-disclaimer .ccommons {
+	border: 1px solid #ccc;
+	padding: 5px;
+	margin: 7px 0;
+	float: left;
+}
+.rec_dedicated_details_in.rdd-disclaimer .ccommons img {
+	width: 35px;
+	padding: 0 5px;
 }
 
 .rec_dedicated_details_in .info >div {
