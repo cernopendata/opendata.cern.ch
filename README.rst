@@ -32,7 +32,8 @@ helper script and proceed as follows:
       config.vm.network :forwarded_port, host: 8080, guest: 8080
       config.vm.network :forwarded_port, host: 8443, guest: 8443
       config.vm.provider :virtualbox do |vb|
-        vb.customize ["modifyvm", :id, "--memory", "1024"]
+        vb.customize ["modifyvm", :id, "--memory", "2048"]
+        vb.customize ["modifyvm", :id, "--cpus", "2"]
       end
     end
     laptop> vagrant up
