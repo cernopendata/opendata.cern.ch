@@ -8,7 +8,7 @@ Note that in order to analyse CMS data collected in 2010, you need **CMSSW versi
 
 ### Visualize data with ROOT
 
-**ROOT** is the framework used by several particle-physics experiments to work with the collected data. Although analysis is not itself performed within a ROOT file, it is instructive to understand how these files are structured and what data and collections they contain. Let's take ROOT for a spin!
+**[ROOT](http://root.cern.ch)** is the framework used by several particle-physics experiments to work with the collected data. Although analysis is not itself performed within a ROOT file, it is instructive to understand how these files are structured and what data and collections they contain. Let's take ROOT for a spin!
 
 * AOD (Analysis Object Data) files contain the information that is needed for analysis:
   * all the high-level [physics objects](https://twiki.cern.ch/twiki/bin/view/CMS/DPOAPublicDataReleaseStatement#Physics_objects) (such as muons, electrons, etc.);
