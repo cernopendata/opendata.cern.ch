@@ -1,20 +1,20 @@
-===================
- open-data.cern.ch
-===================
+==================
+ opendata.cern.ch
+==================
 
 About
 -----
 
-This is `open-data.cern.ch <http://open-data-demo.cern.ch>`_ source
-code overlay that installs on top of `Invenio
+This is `opendata.cern.ch <http://opendata.cern.ch>`_ source code
+overlay that installs on top of `Invenio
 <https://github.com/inveniosoftware/invenio>`_ digital library
 platform.
 
 Installation
 ------------
 
-If you'd like to install an open-data demo site for personal
-developments, you can use `invenio2-kickstart
+If you'd like to install an opendata site for personal developments,
+you can use `invenio2-kickstart
 <https://raw.githubusercontent.com/tiborsimko/invenio-devscripts/master/invenio2-kickstart>`_
 helper script and proceed as follows:
 
@@ -39,14 +39,14 @@ helper script and proceed as follows:
     laptop> vagrant up
 
 * Secondly, connect to the VM and launch Invenio kickstarter with
-  open-data.cern.ch overlay:
+  opendata.cern.ch overlay:
 
 .. code-block:: console
 
     laptop> vagrant ssh
     vm> wget https://raw.githubusercontent.com/tiborsimko/invenio-devscripts/master/invenio2-kickstart
     vm> chmod u+x ./invenio2-kickstart
-    vm> CFG_INVENIO2_REPOSITORY_OVERLAY=git://github.com/tiborsimko/open-data.cern.ch \
+    vm> CFG_INVENIO2_REPOSITORY_OVERLAY=git://github.com/tiborsimko/opendata.cern.ch \
         CFG_INVENIO2_VIRTUAL_ENV=opendata \
         CFG_INVENIO2_DATABASE_USER=opendata \
         CFG_INVENIO2_DATABASE_NAME=opendata \

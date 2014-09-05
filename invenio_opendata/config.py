@@ -35,9 +35,9 @@ DEPOSIT_TYPES = [
 #    'invenio_opendata.modules.deposit.workflows.article.article',
 ]
 
-CFG_SITE_URL = 'http://open-data-demo.cern.ch'
-#CFG_SITE_SECURE_URL = 'https://opendata-demo.cern.ch'
-CFG_SITE_SECURE_URL = 'http://open-data-demo.cern.ch'
+CFG_SITE_URL = 'http://opendata.cern.ch'
+#CFG_SITE_SECURE_URL = 'https://opendata.cern.ch'
+CFG_SITE_SECURE_URL = 'http://opendata.cern.ch'
 
 CFG_SITE_NAME = 'CERN Open Data Portal'
 CFG_SITE_LANGS = {'en'}
