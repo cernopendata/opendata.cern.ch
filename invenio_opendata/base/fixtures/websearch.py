@@ -1,25 +1,24 @@
 # -*- coding: utf-8 -*-
 #
-## This file is part of Invenio.
-## Copyright (C) 2012, 2013, 2014 CERN.
-##
-## Invenio is free software; you can redistribute it and/or
-## modify it under the terms of the GNU General Public License as
-## published by the Free Software Foundation; either version 2 of the
-## License, or (at your option) any later version.
-##
-## Invenio is distributed in the hope that it will be useful, but
-## WITHOUT ANY WARRANTY; without even the implied warranty of
-## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-## General Public License for more details.
-##
-## You should have received a copy of the GNU General Public License
-## along with Invenio; if not, write to the Free Software Foundation, Inc.,
-## 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+# This file is part of Invenio.
+# Copyright (C) 2012, 2013, 2014 CERN.
+#
+# Invenio is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# Invenio is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Invenio; if not, write to the Free Software Foundation, Inc.,
+# 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
 
-from invenio.config import CFG_SITE_NAME
 from fixture import DataSet
-from invenio.modules.search.fixtures import FormatData
+#from invenio.modules.search.fixtures import FormatData
 from invenio.modules.search import fixtures as default
 
 class CollectionData(DataSet):
@@ -56,6 +55,11 @@ class CollectionData(DataSet):
         name = 'ALICE Analysis'
         dbquery = '980__a:"ALICEANALYSIS"'
 
+    class CMSTools(siteCollection):
+        id = 8
+        name = 'CMS Tools'
+        dbquery = '980__a:"CMSTOOL"'
+
 
 class CollectionCollectionData(DataSet):
 
@@ -75,6 +79,12 @@ class CollectionCollectionData(DataSet):
         dad = CollectionData.CMS
         son = CollectionData.CMSReducedDataset
         score = 1
+        type = 'r'
+
+    class CMS_CMSTools:
+        dad = CollectionData.CMS
+        son = CollectionData.CMSTools
+        score = 2
         type = 'r'
 
     class siteCollection_ALICE:
@@ -132,6 +142,7 @@ class CollectionFormatData(DataSet):
 
 
 class PortalboxData(DataSet):
+
     class Portalbox_1:
         body = u'The <b>CMS</b> (Compact Muon Solenoid) experiment is one of two large general-purpose particle physics detectors built on the Large Hadron Collider (LHC) at CERN in Switzerland and France. The goal of CMS experiment is to investigate a wide range of physics, including the search for the Higgs boson, extra dimensions, and particles that could make up dark matter.'
         id = 1
@@ -150,35 +161,43 @@ class PortalboxData(DataSet):
     class Portalbox_4:
         body = u'ALICE.gif'
         id = 4
-        title = u'image'     
+        title = u'image'
+
     class Portalbox_5:
         body = u'CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset'
         id = 5
         title = u'description'
+
     class Portalbox_6:
         body = u'default.png'
         id = 6
         title = u'image'
+
     class Portalbox_7:
         body = u'CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset'
         id = 7
         title = u'description'
+
     class Portalbox_8:
         body = u'default.png'
         id = 8
         title = u'image'
+
     class Portalbox_9:
         body = u'ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset'
         id = 9
         title = u'description'
+
     class Portalbox_10:
         body = u'default.png'
         id = 10
         title = u'image'
+
     class Portalbox_11:
         body = u'ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis'
         id = 11
         title = u'description'
+
     class Portalbox_12:
         body = u'default.png'
         id = 12
@@ -186,6 +205,7 @@ class PortalboxData(DataSet):
 
 
 class CollectionPortalboxData(DataSet):
+
     class CollectionPortalbox_2_1_en:
         ln = u'en'
         position = u'r'
@@ -206,14 +226,14 @@ class CollectionPortalboxData(DataSet):
         id_portalbox = PortalboxData.Portalbox_3.ref('id')
         score = 100
         id_collection = CollectionData.ALICE.ref('id')
-    
+
     class CollectionPortalbox_5_4_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_4.ref('id')
         score = 100
         id_collection = CollectionData.ALICE.ref('id')
-    
+
     class CollectionPortalbox_3_5_en:
         ln = u'en'
         position = u'r'
@@ -234,13 +254,14 @@ class CollectionPortalboxData(DataSet):
         id_portalbox = PortalboxData.Portalbox_7.ref('id')
         score = 100
         id_collection = CollectionData.CMSReducedDataset.ref('id')
-    
+
     class CollectionPortalbox_4_8_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_8.ref('id')
         score = 100
         id_collection = CollectionData.CMSReducedDataset.ref('id')
+
     class CollectionPortalbox_6_9_en:
         ln = u'en'
         position = u'r'
@@ -261,7 +282,7 @@ class CollectionPortalboxData(DataSet):
         id_portalbox = PortalboxData.Portalbox_11.ref('id')
         score = 100
         id_collection = CollectionData.ALICESimplifiedDataset.ref('id')
-    
+
     class CollectionPortalbox_7_12_en:
         ln = u'en'
         position = u'r'
@@ -278,4 +299,3 @@ __all__ = (
     'PortalboxData',
     'CollectionPortalboxData',
 )
-
