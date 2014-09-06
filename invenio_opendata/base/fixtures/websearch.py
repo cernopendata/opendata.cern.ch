@@ -20,14 +20,11 @@
 from invenio.config import CFG_SITE_NAME
 from fixture import DataSet
 from invenio.modules.search.fixtures import FormatData
-
+from invenio.modules.search import fixtures as default
 
 class CollectionData(DataSet):
 
-    class siteCollection:
-        id = 1
-        name = CFG_SITE_NAME
-        dbquery = None
+    siteCollection = default.CollectionData.siteCollection
 
     class CMS(siteCollection):
         id = 2
@@ -100,6 +97,7 @@ class CollectionCollectionData(DataSet):
 
 
 class CollectiondetailedrecordpagetabsData(DataSet):
+
     class Collectiondetailedrecordpagetabs_1:
         tabs = u'metadata;files'
         id_collection = CollectionData.siteCollection.ref('id')
@@ -109,83 +107,85 @@ class CollectionFormatData(DataSet):
 
     class CollectionFormat_1_1:
         score = 100
-        id_format = FormatData.Format_1.ref('id')
+        id_format = 1 # FormatData.Format_1.ref('id')
         id_collection = CollectionData.siteCollection.ref('id')
 
     class CollectionFormat_1_2:
         score = 90
-        id_format = FormatData.Format_2.ref('id')
+        id_format = 2 # FormatData.Format_2.ref('id')
         id_collection = CollectionData.siteCollection.ref('id')
 
     class CollectionFormat_1_3:
         score = 80
-        id_format = FormatData.Format_3.ref('id')
+        id_format = 3 # FormatData.Format_3.ref('id')
         id_collection = CollectionData.siteCollection.ref('id')
 
     class CollectionFormat_1_4:
         score = 70
-        id_format = FormatData.Format_4.ref('id')
+        id_format = 4 # FormatData.Format_4.ref('id')
         id_collection = CollectionData.siteCollection.ref('id')
 
     class CollectionFormat_1_5:
         score = 60
-        id_format = FormatData.Format_5.ref('id')
+        id_format = 5 # FormatData.Format_5.ref('id')
         id_collection = CollectionData.siteCollection.ref('id')
 
+
 class PortalboxData(DataSet):
-    class PortalBox_1:
+    class Portalbox_1:
         body = u'The <b>CMS</b> (Compact Muon Solenoid) experiment is one of two large general-purpose particle physics detectors built on the Large Hadron Collider (LHC) at CERN in Switzerland and France. The goal of CMS experiment is to investigate a wide range of physics, including the search for the Higgs boson, extra dimensions, and particles that could make up dark matter.'
         id = 1
         title = u'description'
 
-    class PortalBox_2:
+    class Portalbox_2:
         body = u'CMS.gif'
         id = 2
         title = u'image'
 
-    class PortalBox_3:
+    class Portalbox_3:
         body = u'ALICE (A Large Ion Collider Experiment) is one of seven detector experiments at the Large Hadron Collider at CERN. The other six are: ATLAS, CMS, TOTEM, LHCb, LHCf and MoEDAL. ALICE is optimized to study heavy-ion (Pb-Pb nuclei) collisions at a centre of mass energy of 2.76 TeV per nucleon pair. The resulting temperature and energy density are expected to be high enough to produce quark–gluon plasma, a state of matter wherein quarks and gluons are freed. Similar conditions are believed to existed a fraction of the second after the Big Bang before quarks and gluons bound together to form hadrons and heavier particles.'
         id = 3
         title = u'description'
 
-    class PortalBox_4:
+    class Portalbox_4:
         body = u'ALICE.gif'
         id = 4
         title = u'image'     
-    class PortalBox_5:
+    class Portalbox_5:
         body = u'CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset'
         id = 5
         title = u'description'
-    class PortalBox_6:
+    class Portalbox_6:
         body = u'default.png'
         id = 6
         title = u'image'
-    class PortalBox_7:
+    class Portalbox_7:
         body = u'CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset'
         id = 7
         title = u'description'
-    class PortalBox_8:
+    class Portalbox_8:
         body = u'default.png'
         id = 8
         title = u'image'
-    class PortalBox_9:
+    class Portalbox_9:
         body = u'ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset'
         id = 9
         title = u'description'
-    class PortalBox_10:
+    class Portalbox_10:
         body = u'default.png'
         id = 10
         title = u'image'
-    class PortalBox_11:
+    class Portalbox_11:
         body = u'ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis'
         id = 11
         title = u'description'
-    class PortalBox_12:
+    class Portalbox_12:
         body = u'default.png'
         id = 12
         title = u'image'
 
-class CollectionPortalBox(DataSet):
+
+class CollectionPortalboxData(DataSet):
     class CollectionPortalbox_2_1_en:
         ln = u'en'
         position = u'r'
@@ -268,4 +268,14 @@ class CollectionPortalBox(DataSet):
         id_portalbox = PortalboxData.Portalbox_12.ref('id')
         score = 100
         id_collection = CollectionData.ALICESimplifiedDataset.ref('id')
+
+
+__all__ = (
+    'CollectionData',
+    'CollectionCollectionData',
+    'CollectiondetailedrecordpagetabsData',
+    'CollectionFormatData',
+    'PortalboxData',
+    'CollectionPortalboxData',
+)
 
