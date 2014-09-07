@@ -35,10 +35,10 @@ class CollectionData(DataSet):
         name = 'CMS Primary Dataset'
         dbquery = '980__a:"CMSPRIMARYDATASET"'
 
-    class CMSReducedDataset(siteCollection):
+    class CMSDerivedDataset(siteCollection):
         id = 4
-        name = 'CMS Reduced Dataset'
-        dbquery = '980__a:"CMSREDUCEDDATASET"'
+        name = 'CMS Derived Dataset'
+        dbquery = '980__a:"CMSDERIVEDDATASET"'
 
     class ALICE(siteCollection):
         id = 5
@@ -75,9 +75,9 @@ class CollectionCollectionData(DataSet):
         score = 0
         type = 'r'
 
-    class CMS_CMSReducedDataset:
+    class CMS_CMSDerivedDataset:
         dad = CollectionData.CMS
-        son = CollectionData.CMSReducedDataset
+        son = CollectionData.CMSDerivedDataset
         score = 1
         type = 'r'
 
@@ -174,7 +174,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_7:
-        body = u'CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset.CMS Reduced Dataset'
+        body = u'CMS Derived Dataset.CMS Derived Dataset.CMS Derived Dataset.CMS Derived Dataset.CMS Derived Dataset.CMS Derived Dataset.CMS Derived Dataset.CMS Derived Dataset.CMS Derived Dataset.CMS Derived Dataset'
         id = 7
         title = u'description'
 
@@ -253,14 +253,14 @@ class CollectionPortalboxData(DataSet):
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_7.ref('id')
         score = 100
-        id_collection = CollectionData.CMSReducedDataset.ref('id')
+        id_collection = CollectionData.CMSDerivedDataset.ref('id')
 
     class CollectionPortalbox_4_8_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_8.ref('id')
         score = 100
-        id_collection = CollectionData.CMSReducedDataset.ref('id')
+        id_collection = CollectionData.CMSDerivedDataset.ref('id')
 
     class CollectionPortalbox_6_9_en:
         ln = u'en'
