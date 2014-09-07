@@ -21,13 +21,17 @@
 
 from invenio.base.i18n import _
 
-from flask import Blueprint, render_template, redirect, url_for, abort
+from flask import Blueprint, render_template, redirect, url_for, abort, request, current_app
+from flask.ext.login import current_user
 from jinja2 import TemplateNotFound
+
+from invenio.base.decorators import wash_arguments
+from invenio.modules.search.signals import record_viewed
 from invenio.modules.search.models import Collection
 from invenio.modules.records.models import Record
 from invenio.modules.records.api import get_record
 from random import sample as randomise
-
+from invenio.modules.records.views import request_record
 
 blueprint = Blueprint('invenio_opendata', __name__, url_prefix='/',
                       template_folder='templates', static_folder='static')
@@ -63,13 +67,13 @@ def index2():
 
 @blueprint.route('educate')
 def educate():
-	cms_reclist = randomise(Collection.query.filter(Collection.name == 'CMS').first_or_404().reclist, 6)
+	cms_reclist = randomise(Collection.query.filter(Collection.name == 'CMS Reduced Dataset').first_or_404().reclist, 6)
 	cms = []
 	for rec in cms_reclist:
 		cms.append(get_record(rec))
 
 	print "here"
-	alice_reclist = randomise(Collection.query.filter(Collection.name == 'ALICE').first_or_404().reclist, 6)
+	alice_reclist = randomise(Collection.query.filter(Collection.name == 'ALICE Simplified Dataset').first_or_404().reclist, 6)
 	alice = []
 	for rec in alice_reclist:
 		alice.append(get_record(rec))
@@ -81,13 +85,13 @@ def educate():
 
 @blueprint.route('research')
 def research():
-	cms_reclist = randomise(Collection.query.filter(Collection.name == 'CMS').first_or_404().reclist, 6)
+	cms_reclist = randomise(Collection.query.filter(Collection.name == 'CMS Primary Dataset').first_or_404().reclist, 6)
 	cms = []
 	for rec in cms_reclist:
 		cms.append(get_record(rec))
 
 	print "here"
-	alice_reclist = randomise(Collection.query.filter(Collection.name == 'ALICE').first_or_404().reclist, 6)
+	alice_reclist = Collection.query.filter(Collection.name == 'ALICE Analysis').first_or_404().reclist
 	alice = []
 	for rec in alice_reclist:
 		alice.append(get_record(rec))
@@ -125,10 +129,10 @@ def visualise_histo():
 	except TemplateNotFound:
 		return abort(404)
 
-@blueprint.route('visualise')
+@blueprint.route('resources')
 def visualise():
 	try:
-		return render_template('visualise.html')
+		return render_template('resources.html')
 	except TemplateNotFound:
 		return abort(404)
 
@@ -164,3 +168,24 @@ def collections():
 	except TemplateNotFound:
 		return abort(404)
 
+# Routing for "record" module
+
+@blueprint.route('record/<int:recid>/metadata', methods=['GET', 'POST'])
+@blueprint.route('record/<int:recid>/', methods=['GET', 'POST'])
+@blueprint.route('record/<int:recid>', methods=['GET', 'POST'])
+@blueprint.route('record/<int:recid>/export/<of>', methods=['GET', 'POST'])
+@wash_arguments({'of': (unicode, 'hd')})
+@request_record
+def metadata(recid, of='hd'):
+	# Send the signal 'document viewed'
+	record_viewed.send(
+    	current_app._get_current_object(),
+        recid=recid,
+        id_user=current_user.get_id(),
+        request=request)
+
+	record_collection = get_record(recid)['collections'][0]['primary']
+	try:
+		return render_template(['records/'+record_collection+'_record.html', 'records/metadata_base.html'])
+	except TemplateNotFound:
+		return abort(404) #FIX
