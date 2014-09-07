@@ -43,10 +43,11 @@
 	</li>
 {% endmacro %}
 
-{% macro record_samples(cms, alice) %}
+{% macro record_samples(cms, alice, purpose) %}
 	 <div class="tab-content">
 	 	<div class="tab-pane fade in active" id="CMS">
 	 		<ul class="row">
+
 	 			{% for r in cms %}	 				
 	 				{% if r['collections'][0]['primary'] in ['CMSREDUCEDDATASET','CMS'] %}
 	 					{{ document_recbox(r['title']['title'], r['recid']|string) }}
@@ -112,7 +113,7 @@
 
 <div class="collRecords">	
 	<div class="container">
-			{{ record_samples(cms, alice) }}
+			{{ record_samples(cms, alice, purpose) }}
 	</div>
 </div>
 
