@@ -64,9 +64,9 @@ def index2():
 		return render_template('index2.html')
 	except TemplateNotFound:
 		return abort(404)
-
-@blueprint.route('educate')
-def educate():
+@blueprint.route('educate', defaults={'exp':'all'})
+@blueprint.route('educate/<string:exp>')
+def educate(exp):
 	cms_reclist = randomise(Collection.query.filter(Collection.name == 'CMS Reduced Dataset').first_or_404().reclist, 6)
 	cms = []
 	for rec in cms_reclist:
@@ -79,12 +79,13 @@ def educate():
 		alice.append(get_record(rec))
 
 	try:
-		return render_template('educate.html', cms = cms, alice = alice)
+		return render_template('educate.html', cms = cms, alice = alice, exp = exp)
 	except TemplateNotFound:
 		return abort(404)
 
-@blueprint.route('research')
-def research():
+@blueprint.route('research', defaults={'exp':'all'})
+@blueprint.route('research/<string:exp>')
+def research(exp):
 	cms_reclist = randomise(Collection.query.filter(Collection.name == 'CMS Primary Dataset').first_or_404().reclist, 6)
 	cms = []
 	for rec in cms_reclist:
@@ -97,7 +98,7 @@ def research():
 		alice.append(get_record(rec))
 
 	try:
-		return render_template('research.html', cms = cms, alice = alice)
+		return render_template('research.html', cms = cms, alice = alice, exp = exp)
 	except TemplateNotFound:
 		return abort(404)
 

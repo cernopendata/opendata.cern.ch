@@ -95,8 +95,8 @@
 	<div class="row">
 		{% block leftside_actions %}
 			<ul class="pull-left col-md-7 nav nav-tabs" role="tablist">
-				<li class="active"><a href="#CMS" role="tab" data-toggle="tab"></span>CMS</a></li>
-				<li><a href="#ALICE" role="tab" data-toggle="tab"></span>ALICE</a></li>
+				<li {% if exp in ['CMS','all'] %} class="active" {% endif %}><a href="#CMS" role="tab" data-toggle="tab"></span>CMS</a></li>
+				<li {% if exp == 'ALICE' %} class="active" {% endif %}><a href="#ALICE" role="tab" data-toggle="tab"></span>ALICE</a></li>
 			</ul>
 		{% endblock leftside_actions %}
 		{% block rightside_actions %}
