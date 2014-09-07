@@ -47,7 +47,6 @@
 
 
 .intro .entrypoints  {
-	color: #fff!important;
 	font-size: 50px;
 	font-weight: 200;
 	padding: 0;
@@ -55,40 +54,83 @@
 	text-align: left;
 	width: 80%;
 	max-width: 385px;
+	height: 70px;
 }
 
-.intro.middle .entries .entrypoints a:hover {
-	background-color: #A2CAE2;// #606D75;
+.intro.middle .entries .entrypoints .upper a:hover {
+	background-color: #A2CAE2;
 	color: #fff;
 }
 
-.intro.middle .entries .entrypoints a{
-    padding: 15px 0;
-    background-color: #fff;
+.intro.middle .entries .entrypoints .upper a{
+    padding: 6px 0;
     color: #606D75;
     font-size: 20px;
     font-weight: 200;
 	text-align: center;
 	width: 100%;
 	display: inline-block;
+	background-color: #fff;
+}
+.entries .education .upper a {
+	border-top-left-radius: 35px;
+}
+.entries .research .upper a {
+	border-top-right-radius: 35px;
+}
+.entries .education .bottom a.corner {
+	border-bottom-left-radius: 35px;
+}
+.entries .research .bottom a.corner {
+	border-bottom-right-radius: 35px;
 }
 
-
-.intro.middle .entries .entrypoints.pull-right a {
+.intro.middle .entries .entrypoints.pull-right .top a {
     border-radius: 50px 0 0 50px;
 
 }
-.intro.middle .entries .entrypoints.pull-left a {
+.intro.middle .entries .entrypoints.pull-left .top a {
 	border-radius: 0 50px 50px 0;
 
 }
-
-.intro.middle .upper{
+.entries .entrypoints .upper {
+	height: 50%;
+}
+.entries .entrypoints .bottom {
+	font-size: 11px;
+	width: 100%;
+	height: 50%;
+}
+.education .entrypoints .bottom {
+	border-bottom-left-radius: 50px;
+}
+.research .entrypoints .bottom {	
+	border-bottom-right-radius: 50px;
+}
+.entries .entrypoints .bottom a {
+	width: 50%;
+	text-align: center;
+	float: left;
+	height: 100%;
+	font-size: 15px;
+	font-weight: 400;
+	padding: 10px;
+	background-color: #d5d5d5;
+}
+.education .entrypoints {
+	border-top-left-radius: 50px;
+	border-bottom-left-radius: 50px;
+}
+.research .entrypoints {
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+}
+.intro.middle .top{
     background-color: #899AA5;
 	
 }
 
-.intro.middle .bottom {
+.intro.middle .top {
     background-color: #899AA5;
 }
 
@@ -125,13 +167,11 @@
 	font-weight: 100;
 }
 
-.intro.middle .research .entryactions ul {
+.research .entryactions ul {
 	margin-left: 100px;
-	margin-top: 15px;
 }
-.intro.middle .education .entryactions ul {
+.education .entryactions ul {
 	margin-right: 100px;
-	margin-top: 15px;
 }
 
 .intro.middle .education .entryactions li span{
@@ -179,6 +219,9 @@
 	background-repeat: no-repeat;
 	background-position: center;
 }	
+.entries .entryactions .goto {
+		display: none;
+	}
 @media (min-width: 992px ) {
 	.intro.middle .upper.circledes {
 		background: none;
@@ -281,4 +324,86 @@
 	background-size: 210px;
 	background-repeat: no-repeat;
 	background-position: -34px 2px;
+}
+
+@media (max-width: 480px) {
+	.middle .circle, .middle .circledes,
+	.intro.middle .upper.circledes .middle,
+	.intro.middle {
+		background: none;
+	}
+
+	.intro.middle .entries {
+		position: relative;
+		top: 0;
+		left: 0;
+		margin: 0;
+		margin-top: 30px;
+	}
+	.entries .entrypoints .bottom a.corner{
+		border-radius: 0;
+	}
+	.entries .entrypoints .upper a {
+		border-top-right-radius: 5px;
+		border-top-left-radius: 5px;
+	}
+	.entries .entryactions ul {
+		width: 100%;
+		margin-left: 0;
+		display: inline-block;
+	}
+
+	.entries .education {
+		width: 50%;
+		padding-right: 10px;
+
+	}
+	.entries .research {
+		width: 50%;
+		padding-left: 10px;
+	}
+	.entries .entrypoints {
+		width: 100%;
+		margin-bottom: 0;
+		height: auto;
+	}
+	.entries .entrypoints .upper,
+	.entries .entrypoints .bottom {
+		height: auto;
+	}
+	.entries .entrypoints .bottom a {
+		height: auto;
+	}
+	.entries .entryactions {
+		background-color: #f4f4f4;
+		padding: 10px;
+		border-bottom-right-radius: 5px;
+		border-bottom-left-radius: 5px;
+	}
+	.intro.middle .entryactions ul a {
+		display: inline-block;
+		width: 100%;
+		text-align: left;
+		float: left;
+
+	}
+	.entries .entryactions .goto {
+		display: block;
+		text-align: center;
+		color: #606D75;
+		padding-top: 15px;
+		padding-bottom: 20px;
+	}
+	.intro.middle .entryactions ul li {
+		color: #666;
+		font-size: 11px;
+		float: left;	
+		padding: 5px;
+		background-color: #fff;
+		margin-bottom: 5px;
+	}
+	.entries .entryactions.entryactions ul a li span {
+		display: none;
+	}
+
 }
