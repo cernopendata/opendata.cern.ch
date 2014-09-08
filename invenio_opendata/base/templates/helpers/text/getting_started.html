@@ -3,7 +3,7 @@
 <h2 id="-i-have-installed-the-cern-virtual-machine-now-what-">"I have installed the CERN Virtual Machine: now what?"</h2>
 
 <p>Congratulations! You have the <a href="opendata.cern.ch/data/VMs">CERN working environment</a> up and running!</p>
-<p>Note that in order to analyse CMS data collected in 2010, you need <strong>CMSSW version 4.2.8 (patch7)</strong>, supported only on <strong>Scientific Linux 5</strong>. The CMSSW command <code>cmsrel</code> you executed in the <a href="http://open-data.cern.ch/data/VMs#validate">validation stage</a> ensures that you have the right version running. Make sure you are always in the <strong>CMSSW_4_2_8patch7/src/</strong> directory by performing the <code>cd CMSSW_4_2_8patch7/src/</code> every time you boot the VM and open the terminal.</p>
+<p>Note that in order to analyse CMS data collected in 2010, you need <strong>CMSSW version 4.2.8 (patch7)</strong>, supported only on <strong>Scientific Linux 5</strong>. The CMSSW command <code>cmsrel</code> you executed in the <a href="http://open-data.cern.ch/data/VMs#validate">validation stage</a> ensures that you have the right version running. Make sure you are always in the <strong>CMSSW_4_2_8_patch7/src/</strong> directory by performing the <code>cd CMSSW_4_2_8_patch7/src/</code> every time you boot the VM and open the terminal.</p>
 
 <h2 id="-ok-where-can-i-get-the-cms-data-">"OK! Where can I get the CMS data?"</h2>
 
@@ -11,7 +11,7 @@
 <p>The CMS data provided on the CERN Open Data Portal is in a format called "<a href="FIXME! What is AOD?">Analysis Object Data</a>" or AOD for short. These AOD files are prepared by piecing raw data collected by various sub-detectors of CMS and contain all the information that is needed for analysis. The files cannot be opened and understood as simple data tables but require ROOT in order to be read.</p>
 <p>So, let's see what an AOD file looks like and take ROOT for a spin!</p>
 <ul>
-	<li>Making sure that you are in the <strong>CMSSW_4_2_8patch7/src/</strong> folder, execute the following command in your terminal to launch the CMS analysis environment:</li>
+	<li>Making sure that you are in the <strong>CMSSW_4_2_8_patch7/src/</strong> folder, execute the following command in your terminal to launch the CMS analysis environment:</li>
 </ul>
 <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>$&nbsp;cmsenv</span></span></span></div></pre>
 <ul>
