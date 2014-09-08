@@ -1,0 +1,566 @@
+<table>
+	<tr>
+		<td colspan="2" class="titlebar-plain bordered">
+			<div id="title"></div>
+		</td>
+	</tr>
+	<tr style="height:24px;">
+		<td colspan="2" class="bordered">
+			<table id="toolbar">
+			<tr>
+				<td>
+					<a class="toolbar-button" onclick="showEventBrowser();">
+					<img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/open.png')}}" title="Open"/>
+				</a>
+				    <!--<input type="file" title="Select one or multiple files to open" id="file-selector" onchange="loadFile();" multiple />-->
+				</td>
+				<td>
+					<a class="toolbar-button disabled" id="prev-event-button" onclick="prevEvent();">
+					  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/prev-event.png')}}" title="Previous Event"/>
+					</a>
+				</td>
+				<td>
+					<a class="toolbar-button disabled" id="next-event-button" onclick="nextEvent();">
+						<img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/next-event.png')}}" title="Next Event"/>
+					</a>
+				</td>
+				<td>
+					<a class="toolbar-button" onclick="setCameraHome();">
+						<img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/home.png')}}" title="Return to Start View"/>
+					</a>
+				</td>
+				<td>
+					<a class="toolbar-button" onclick="zoom(1);">
+						<img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/zoom_in_24.png')}}" title="Zoom In"/>
+					</a>
+				</td>
+				<td>
+					<a class="toolbar-button" onclick="zoom(-1);">
+						<img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/zoom_out_24.png')}}" title="Zoom Out"/>
+					</a>
+				</td>
+				<td>
+					<a class="toolbar-button" onclick="setCameraRotation(0, 0, 0);">
+					  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/z-plane.png')}}" title="X-Y Plane"/>
+					</button>
+				</td>
+				<td>
+					<a class="toolbar-button" onclick="setCameraRotation(0, Math.PI / 2, Math.PI / 2);">
+					  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/y-plane.png')}}" title="Z-X Plane"/>
+					</a>
+				</td>
+				<td>
+					<a class="toolbar-button" onclick="setCameraRotation(0, Math.PI / 2, 0);">
+					  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/x-plane.png')}}" title="Y-Z Plane"/>
+					  </a>
+				</td>
+				<td>
+					<a class="toolbar-button" id="perspective-view" onclick="setPerspectiveProjection(true);">
+					  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/perspective-projection.png')}}" title="Perspective View"/>
+					</a>
+				</td>
+				<td>
+					<a class="toolbar-button" id="orthographic-view" onclick="setPerspectiveProjection(false);">
+					  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/orthographic-projection.png')}}" title="Orthographic View"/>
+					</a>
+				</td>
+				<!--
+				<td>
+					<a class="toolbar-button" onclick="showSettings();">
+						<img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/settings.png')}}" title="Settings"/>
+					</a>
+				</td>
+			    -->
+				<td>
+					<a class="toolbar-button" onclick="openAboutWindow();">
+					<img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/help2.png')}}" title="About"/>
+					</a>
+				</td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td width="300px" class="bordered">
+			<div id="switches-div" style="overflow: auto; height: 600px;" class="flexcroll">
+				<table id="switches" width="250px">
+				</table>
+			</div>
+		</td>
+		<td class="bordered">
+			<canvas id="canvas" width="650" height="600">
+  				Sorry, this requires a web browser which supports HTML5 canvas.
+			</canvas>
+		</td>
+	</tr>
+</table>
+
+<div id="event-browser" class="dialog-window">
+<table class="titlebar">
+	<tr>
+		<td>
+			<div class="title">Open Event</div>
+		</td>
+		<td class="buttons">
+			<a class="titlebar-button" onclick="closeEventBrowser();">
+				<img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/close.png')}}" />
+			</a>
+		</td>
+	</tr>
+</table>
+<table width="100%" id="browser-table">
+	<tr>
+		<th width="50%">Files</th><th>Events</th>
+	</tr>
+	<tr id="panels">
+		<td>
+			<div style="overflow: auto;" class="flexcroll browser-panel" id="browser-files-div">
+			<table id="browser-files"></table>
+			</div>
+		</td>
+		<td>
+			<div style="overflow: auto;" class="flexcroll browser-panel" id="browser-events-div">
+			<table id="browser-events"></table>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<div id="selected-event"></div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="right">
+			<table>
+				<tr>
+					<td>
+						<a class="button" id="browser-close" onclick="closeEventBrowser();">Close</a>
+					</td>
+					<td>
+						<a class="button" id="browser-load" onclick="loadEvent();">Load</a>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</div>
+
+<!--
+<div id="settings" class="dialog-window">
+<table class="titlebar">
+	<tr>
+		<td>
+			<div class="title">Settings</div>
+		</td>
+		<td class="buttons">
+			<a class="titlebar-button" onclick="saveAndHideSettings();">
+				<img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/close.png')}}" />
+			</a>
+		</td>
+	</tr>
+</table>
+<table width="100%" height="98%">
+	<tr>
+		<td width="100%">
+			<div class="group">Display</div>
+			<table class="settings-section">
+				<tr>
+					<td>
+						<input type="checkbox" id="setting-invert-colors" onclick="toggleBackground();" />Invert colors
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" id="setting-show-fps" onclick="toggleFPS();" />Show FPS
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a class="button" id="speed-test" onclick="showSpeedTest();">Browser speed test</a>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			<table>
+				<tr>
+					<td></td>
+					<td>
+						<a class="button" id="settings-close" onclick="saveAndHideSettings();">Close</a>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</div>
+-->
+
+<div id="about" class="dialog-window">
+<table class="titlebar">
+	<tr>
+		<td><div class="title">About</div></td>
+		<td class="buttons"><a class="titlebar-button" onclick="closeAboutWindow();">
+			<img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/close.png')}}" />
+		</td>
+	</tr>
+</table>
+<table width="100%" height="98%">
+	<tr>
+		<td width="100%">
+			<p>
+			This is a browser-based event display for the <a target="edabout" href="http://cern.ch/cms">CMS experiment</a> at the LHC.
+			</p>
+			<p>
+			This software is part of the <a target="edabout" href="http://www.i2u2.org">I2U2</a> project,
+			which is published under the <a target="edabout" href="http://fermitools.fnal.gov/about/terms.html">Fermitools License</a>.
+			</p>
+			<p>
+			The <a target="edabout" href="http://deanm.github.com/pre3d/">3D library</a> was initially developed by Dean McNamee
+			and is published under a <a target="edabout" href="http://www.opensource.org/licenses/bsd-license.php">BSD license</a>.
+			</p>
+			<p>
+			Questions/comments: <a href="mailto:thomas.mccauley@cern.ch">Tom McCauley</a>
+			</p>
+			<p>
+			Reference: <a href="http://iopscience.iop.org/1742-6596/396/2/022022/">J.Phys.Conf.Ser. 396 (2012) 022022</a>
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			<table>
+				<tr>
+					<td></td>
+					<td><a class="button" target="edabout" id="settings-close" onclick="closeAboutWindow();">Close</a></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</div>
+
+<!--
+<div id="help-detsystem-0" class="dialog-window">
+<table class="titlebar">
+	<tr>
+		<td>
+			<div class="title">Detector Model Help</div>
+		</td>
+		<td class="buttons">
+			<a class="titlebar-button" onclick="closePopup('help-detsystem-0');">
+				<img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/close.png')}}" />
+			</a>
+		</td>
+	</tr>
+</table>
+<table>
+	<tr>
+		<td class="content">
+			<dl>
+			<dt>Tracker</dt>
+			<dd>Innermost part of CMS; samples trajectories of charged particles</dd>
+
+			<dt>ECAL (Electromagnetic Calorimeter)</dt>
+			<dd>
+				<dl>
+				<dt>ECAL Barrel</dt>
+				<dd>Central electromagnetic calorimeter; measures energy of electrons and photons</dd>
+
+				<dt>ECAL Endcap</dt>
+				<dd>Electromagnetic calorimeters at either end of CMS for measurements close to the beam axis</dd>
+
+				<dt>ECAL Preshower</dt>
+				<dd>Provides an initial (before the EM shower) measurement helping to discriminate between photons and (neutral) pions</dd>
+				</dl>
+			</dd>
+
+			<dt>HCAL (Hadron Calorimeter)</dt>
+			<dd>
+				<dl>
+				<dt>HCAL Barrel</dt>
+				<dd>Central hadronic calorimeter; measures energy of hadrons</dd>
+
+				<dt>HCAL Endcap</dt>
+				<dd>Hadronic calorimeters at either end of CMS for measurements close to the beam axis</dd>
+
+				<dt>HCAL Outer</dt>
+				<dd>Final HCAL layer just outside the solenoid magnet</dd>
+
+				<dt>HCAL Forward</dt>
+				<dd>Hadronic calorimeters farther down and very close to the beam axis</dd>
+				</dl>
+			</dd>
+
+			<dt>Drift Tubes (DT)</dt>
+			<dd>Main large central muon chambers outside the solenoid and HCAL Outer using ionization of gas to record muon hits</dd>
+
+			<dt>Cathode Strip Chambers (CSC)</dt>
+			<dd>Forward muon detectors</dd>
+
+			<dt>Resistive Place Chambers (RPC)</dt>
+			<dd>Solid state muon detectors</dd>
+			</dl>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			<table>
+				<tr>
+					<td></td>
+					<td>
+						<a class="button" onclick="closePopup('help-detsystem-0');">Close</a>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</div>
+
+<div id="help-detsystem-1" class="dialog-window">
+<table class="titlebar">
+	<tr>
+		<td>
+			<div class="title">Tracking Help</div>
+		</td>
+		<td class="buttons">
+			<a class="titlebar-button" onclick="closePopup('help-detsystem-1');">
+				<img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/close.png')}}" />
+			</a>
+		</td>
+	</tr>
+</table>
+<table>
+	<tr>
+		<td class="content">
+			<dl>
+			<dt>Tracks (reco.)</dt>
+			<dd>All reconstructed particle tracks in the tracker</dd>
+
+			<dt>Clusters (Si Pixels)</dt>
+			<dd>Recorded events in the innermost part of the tracker</dd>
+
+			<dt>Clusters (Si Strips)</dt>
+			<dd>Recorded events in the tracker</dd>
+
+			<dt>Rec. Hits (Tracking)</dt>
+			<dd>All particle hits in the tracker</dd>
+			</dl>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			<table>
+				<tr>
+					<td></td>
+					<td>
+						<a class="button" onclick="closePopup('help-detsystem-1');">Close</a>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</div>
+
+<div id="help-detsystem-2" class="dialog-window">
+<table class="titlebar">
+	<tr>
+		<td>
+			<div class="title">ECAL Help</div>
+		</td>
+		<td class="buttons">
+			<a class="titlebar-button" onclick="closePopup('help-detsystem-2');">
+				<img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/close.png')}}" />
+			</a>
+		</td>
+	</tr>
+</table>
+<table>
+	<tr>
+		<td class="content">
+			<dl>
+			<dt>Barrel Rec. Hits</dt>
+			<dd>Energy in a single ECAL crystal</dd>
+
+			<dt>Endcap Rec. Hits</dt>
+			<dd>Hits in ECAL Endcap</dd>
+
+			<dt>Preshower Rec. Hits</dt>
+			<dd>Hits in ECAL Preshower</dd>
+			</dl>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			<table>
+				<tr>
+					<td></td>
+					<td>
+						<a class="button" onclick="closePopup('help-detsystem-2');">Close</a>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</div>
+
+<div id="help-detsystem-3" class="dialog-window">
+<table class="titlebar">
+	<tr>
+		<td>
+			<div class="title">HCAL Help</div>
+		</td>
+		<td class="buttons">
+			<a class="titlebar-button" onclick="closePopup('help-detsystem-3');">
+				<img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/close.png')}}" />
+			</a>
+		</td>
+	</tr>
+</table>
+<table>
+	<tr>
+		<td class="content">
+			<dl>
+			<dt>Barrel Rec. Hits</dt>
+			<dd>Energy in a single HCAL tile</dd>
+
+			<dt>Endcap Rec. Hits</dt>
+			<dd>Hits in HCAL Endcap</dd>
+
+			<dt>Forward Rec. Hits</dt>
+			<dd>Hits in HCAL Forward</dd>
+
+			<dt>Outer Rec. Hits</dt>
+			<dd>Hits in HCAL Outer</dd>
+			</dl>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			<table>
+				<tr>
+					<td></td>
+					<td>
+						<a class="button" onclick="closePopup('help-detsystem-3');">Close</a>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</div>
+
+<div id="help-detsystem-4" class="dialog-window">
+<table class="titlebar">
+	<tr>
+		<td>
+			<div class="title">Muon Help</div>
+		</td>
+		<td class="buttons">
+			<a class="titlebar-button" onclick="closePopup('help-detsystem-4');">
+				<img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/close.png')}}" />
+			</a>
+		</td>
+	</tr>
+</table>
+<table>
+	<tr>
+		<td class="content">
+			<dl>
+			<dt>DT Rec. Hits</dt>
+			<dd>Muon hits in Drift Tubes (barrel)</dd>
+
+			<dt>DT Rec. Segments</dt>
+			<dd>Muon track segments in Drift Tubes (barrel)</dd>
+
+			<dt>CSC Segments</dt>
+			<dd>Muon track segments in Cathode Strip Chambers (forward)</dd>
+
+			<dt>RPC Rec. Hits</dt>
+			<dd>Muon hits in Resistive Plate Chambers (barrel)</dd>
+
+			<dt>CSC Rec. Hits</dt>
+			<dd>Muon hits in Cathode Strip Chambers (forward)</dd>
+			</dl>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			<table>
+				<tr>
+					<td></td>
+					<td>
+						<a class="button" onclick="closePopup('help-detsystem-4');">Close</a>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</div>
+
+<div id="help-detsystem-5" class="dialog-window">
+<table class="titlebar">
+	<tr>
+		<td>
+			<div class="title">Physics Objects Help</div>
+		</td>
+		<td class="buttons">
+			<a class="titlebar-button" onclick="closePopup('help-detsystem-5');">
+				<img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/close.png')}}" />
+			</a>
+		</td>
+	</tr>
+</table>
+<table>
+	<tr>
+		<td class="content">
+            <dl>
+            <dt>Electron Tracks (GSF)</dt>
+			<dd>Reconstructed electron tracks in the tracker</dd>
+
+			<dt>Photons (Reco)</dt>
+			<dd>Inferred photon trajectories</dd>
+
+			<dt>Tracker Muons (Reco)</dt>
+			<dd>Reconstructed muon tracks in tracker</dd>
+
+			<dt>Stand-alone Muons (Reco)</dt>
+			<dd>Reconstructed muon track segments in muon chambers</dd>
+
+			<dt>Global Muons (Reco)</dt>
+			<dd>Reconstructed complete muon tracks</dd>
+
+			<dt>Calorimeter energy towers</dt>
+			<dd>Histogram "towers" to indicate energy deposits in calorimeters summed over the trajectories</dd>
+
+			<dt>Jets</dt>
+			<dd>Collimated groups of particles which come from strong force energy conversion to matter</dd>
+
+            <dt>MET</dt>
+            <dd>Missing transverse energy</dd>
+            </dl>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			<table>
+				<tr>
+					<td></td>
+					<td>
+						<a class="button" onclick="closePopup('help-detsystem-5');">Close</a>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</div>
+-->
+

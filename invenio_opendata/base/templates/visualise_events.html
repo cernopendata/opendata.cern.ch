@@ -1,5 +1,7 @@
 {% extends "page.html" %}
 
+{% bundles "previewer_ispy.js", "previewer_ispy.css" %}
+
 {% block body %}
 <style>
 	#vis-events .pg-header h3 {
@@ -14,12 +16,13 @@
 		margin-bottom: 35px;
 	}
 	#vis-events .previewer {
-		background-color: #f4f4f4;
+		background-color: #000000;
 		border-radius: 4px;
-		height: 600px;
+		height: 700px;
 		margin-bottom: 35px;
 	}
 </style>
+
 <section class="infobar">
 	<div class="container">
 		<a href="{{ url_for('news') }}"><h3>Visualise Events</h3></a>
@@ -35,7 +38,9 @@
 					Consequuntur.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit illum magni officia consequuntur dignissimos ad voluptas sint, maxime optio quis necessitatibus, laborum in velit nobis obcaecati similique, nihil delectus ipsa!
 				</div>
 			</div>
-			<div class="previewer col-md-10 col-md-offset-1"></div>
+			<div class="previewer col-md-10 col-md-offset-1">
+				{% include 'visualise_events_cms.html' %}
+			</div>
 		</div>
 	</div>
 </section>
