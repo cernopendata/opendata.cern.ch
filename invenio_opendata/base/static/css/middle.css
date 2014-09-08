@@ -332,7 +332,9 @@
 	.intro.middle {
 		background: none;
 	}
-
+	.intro.middle .circledes.circledes {
+		height: auto;
+	}
 	.intro.middle .entries {
 		position: relative;
 		top: 0;
@@ -354,18 +356,19 @@
 	}
 
 	.entries .education {
-		width: 50%;
-		padding-right: 10px;
-
+		width: 100%!important;
+		float: left;
 	}
-	.entries .research {
-		width: 50%;
-		padding-left: 10px;
+	.intro.middle .entries .research {
+		width: 100%!important;
+		float: left;
+		margin-top: 0;
 	}
 	.entries .entrypoints {
 		width: 100%;
 		margin-bottom: 0;
 		height: auto;
+		max-width: none;
 	}
 	.entries .entrypoints .upper,
 	.entries .entrypoints .bottom {
@@ -404,6 +407,10 @@
 	}
 	.entries .entryactions.entryactions ul a li span {
 		display: none;
+	}
+
+	header#od-header, footer.middlefoot, #wrap .content {
+		position: initial;
 	}
 
 }
