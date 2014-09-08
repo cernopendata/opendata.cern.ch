@@ -64,16 +64,17 @@ def index2():
 		return render_template('index2.html')
 	except TemplateNotFound:
 		return abort(404)
+
 @blueprint.route('educate', defaults={'exp':'all'})
 @blueprint.route('educate/<string:exp>')
 def educate(exp):
-	cms_reclist = randomise(Collection.query.filter(Collection.name == 'CMS Reduced Dataset').first_or_404().reclist, 6)
+	cms_reclist = randomise(Collection.query.filter(Collection.name == 'CMS Derived Dataset').first_or_404().reclist, 6)
 	cms = []
 	for rec in cms_reclist:
 		cms.append(get_record(rec))
 
-	print "here"
-	alice_reclist = randomise(Collection.query.filter(Collection.name == 'ALICE Simplified Dataset').first_or_404().reclist, 6)
+	alice_reclist = Collection.query.filter(Collection.name == 'ALICE Simplified Dataset').first_or_404().reclist
+	# alice_reclist = randomise(Collection.query.filter(Collection.name == 'ALICE Simplified Dataset').first_or_404().reclist, 6)
 	alice = []
 	for rec in alice_reclist:
 		alice.append(get_record(rec))
