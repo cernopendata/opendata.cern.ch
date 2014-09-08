@@ -8,8 +8,157 @@
 	</div>
 </section>
 
-<section class="content">
-	
+{% bundles "evd.css" %}
+
+<script src="{{url_for('base.static', filename='vendors/ispy-online/js/jszip.min.js')}}"></script>
+<script src="{{url_for('base.static', filename='vendors/ispy-online/js/elab.js')}}"></script>
+<script src="{{url_for('base.static', filename='vendors/ispy-online/js/utils.js')}}"></script>
+<script src="{{url_for('base.static', filename='vendors/ispy-online/js/flexcroll.js')}}"></script>
+<script src="{{url_for('base.static', filename='vendors/ispy-online/js/pre3d.js')}}"></script>
+<script src="{{url_for('base.static', filename='vendors/ispy-online/js/pre3d_shape_utils.js')}}"></script>
+<script src="{{url_for('base.static', filename='vendors/ispy-online/js/demo_utils.js')}}"></script>
+<script src="{{url_for('base.static', filename='vendors/ispy-online/js/object-conversion.js')}}"></script>
+<script src="{{url_for('base.static', filename='vendors/ispy-online/js/detector-model-gen.js')}}"></script>
+<script src="{{url_for('base.static', filename='vendors/ispy-online/js/detector-model-geometry.js')}}"></script>
+<script src="{{url_for('base.static', filename='vendors/ispy-online/js/data-description.js')}}"></script>
+
+<section class="content black">
+	<table>
+	<tr>
+		<td colspan="2" class="titlebar-plain bordered">
+			<div id="title"></div>
+		</td>
+	</tr>
+	<tr style="height:24px;">
+		<td colspan="2" class="bordered">
+			<table id="toolbar">
+			<tr>
+				<td>
+				    <input type="file" title="Select one or multiple files to open" id="file-selector" onchange="loadFile();" multiple />
+				</td>
+				<td class="toolbar-separator">&nbsp;</td>
+				<td>
+					<a class="disabled" id="prev-event-button" onclick="prevEvent();">
+					  <i class="fa fa-chevron-left fa-2x fa-border" title="Previous Event"></i>
+					</a>
+				</td>
+				<td>
+					<a class="disabled" id="next-event-button" onclick="nextEvent();">
+					  <i class="fa fa-chevron-right fa-2x fa-border" title="Next Event"></i>
+					</a>
+				</td>
+				<td>
+					<a class="toolbar" onclick="setCameraHome();">
+					  <i class="fa fa-home fa-2x fa-border" title="Return to Start View"></i>
+					</a>
+				</td>
+				<td>
+					<a onclick="zoom(1);">
+					  <i class="fa fa-search-plus fa-2x fa-border" title="Zoom In"></i>
+					</a>
+				</td>
+				<td>
+					<a onclick="zoom(-1);">
+					<i class="fa fa-search-minus fa-2x fa-border" title="Zoom Out"></i>
+					</a>
+				</td>
+				<td>
+					<a onclick="setCameraRotation(0, 0, 0);">
+					  <i class="fa fa-border">
+					  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/z-plane.png')}}" title="X-Y Plane"/>
+                      </i>
+					</button>
+				</td>
+				<td>
+					<a onclick="setCameraRotation(0, Math.PI / 2, Math.PI / 2);">
+					  <i class="fa fa-border">
+					  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/y-plane.png')}}" title="Z-X Plane"/>
+					  </i>
+					</a>
+				</td>
+				<td>
+					<a onclick="setCameraRotation(0, Math.PI / 2, 0);">
+					  <i class="fa fa-border">
+					  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/x-plane.png')}}" title="Y-Z Plane"/>
+					  </i>
+					  </a>
+				</td>
+				<td>
+					<a id="perspective-view" onclick="setPerspectiveProjection(true);">
+					<i class="fa fa-border">
+					  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/perspective-projection.png')}}" title="Perspective View"/>
+					</i>
+					</a>
+				</td>
+				<td>
+					<a id="orthographic-view" onclick="setPerspectiveProjection(false);">
+					<i class="fa fa-border">
+					  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/orthographic-projection.png')}}" title="Orthographic View"/>
+					</i>
+					</a>
+				</td>
+				<td>
+					<a onclick="showSettings();">
+					<i class="fa fa-cog fa-2x fa-border" title="Settings"></i>
+					</a>
+				</td>
+				<td>
+					<a onclick="openAboutWindow();">
+					<i class="fa fa-question fa-2x fa-border" title="About"></i>
+					</a>
+				</td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td width="280px" class="bordered">
+			<div id="switches-div" style="overflow: auto; height: 600px;" class="flexcroll">
+				<table id="switches" width="266px">
+				</table>
+			</div>
+		</td>
+		<td class="bordered">
+			<canvas id="canvas" width="800" height="600">
+  				Sorry, this requires a web browser which supports HTML5 canvas.
+			</canvas>
+		</td>
+	</tr>
+	<tr>
+		<td class="bordered">
+		<div class="group">Controls:</div>
+		<table>
+			<tr><td class="ctrl"><img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/mouse.png')}}" /></td><td>&rarr;</td><td>rotate</td></tr>
+			<tr><td class="ctrl"><span class="key">Ctrl</span> + <img src="{{url_for('base.static', filename='/vendors/ispy-online/graphics/mouse.png')}}" /></td><td>&rarr;</td><td>pan x/y</td></tr>
+			<tr><td class="ctrl"><span class="key">Ctrl</span> +
+			<span class="key">&#9650</span>
+			<span class="key">&#9660</span>
+			<span class="key">&#9664</span>
+			<span class="key">&#9654</span>
+			</td><td>&rarr;</td><td>pan x/y</td>
+			</tr>
+			<tr><td class="ctrl"><span class="key">Shift &#8679</span> + <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/mouse.png')}}" /></td>
+			<td>&rarr;</td><td>zoom</td>
+			</tr>
+			<tr><td class="ctrl"><span class="key">Shift &#8679</span> +
+			<span class="key">&#9650</span>
+			<span class="key">&#9660</span>
+			<td>&rarr;</td><td>zoom</td>
+			</tr>
+		</table>
+		</td>
+		<td class="bordered">
+		</td>
+	</tr>
+</table>
+
+<script src="{{url_for('base.static', filename='vendors/ispy-online/js/eventdisplay.js')}}"></script>
+<script src="{{url_for('base.static', filename='vendors/ispy-online/js/about.js')}}"></script>
+<script src="{{url_for('base.static', filename='vendors/ispy-online/js/event-browser.js')}}"></script>
+<script src="{{url_for('base.static', filename='vendors/ispy-online/js/range-selection.js')}}"></script>
+<script src="{{url_for('base.static', filename='vendors/ispy-online/js/settings.js')}}"></script>
+<script src="{{url_for('base.static', filename='vendors/ispy-online/js/speed-test.js')}}"></script>
+
 </section>
 
 
