@@ -38,6 +38,16 @@ css = Bundle(
     weight=1,
 )
 
+evd_css = Bundle(
+    "vendors/ispy-online/css/scrollbar.css",
+    "vendors/ispy-online/css/eventdisplay.css", 
+    "vendors/ispy-online/css/settings.css" 
+    "vendors/ispy-online/css/range-selection.css" 
+    "vendors/ispy-online/css/event-browser.css" 
+    "vendors/ispy-online/css/speed-test.css",
+    output="evd.css"
+)
+
 od_records_js = Bundle(
     "vendors/readmore/readmore.min.js",
     output = "od_records.js",
