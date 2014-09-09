@@ -41,9 +41,9 @@
 	</li>
 {% endmacro %}
 
-{% macro record_samples(cms, alice, cmstools, purpose) %}
+{% macro record_samples(cms, alice, cmstools, purpose, exp) %}
 	 <div class="tab-content">
-	 	<div class="tab-pane fade in active row" id="CMS">
+	 	<div class="tab-pane fade {%  if exp in ['CMS','all'] %}in active{% endif%} row" id="CMS">
 	 		<div class="col-md-8 col-sm-12">
 	 			<div class="row">
 	 				<div class="title col-md-12">CMS Items</div>
@@ -70,7 +70,7 @@
 	 			</div>
 	 		</div>
 	 	</div>
-	 	<div class="tab-pane fade" id="ALICE">
+	 	<div class="tab-pane fade {%  if exp in ['ALICE'] %}in active{% endif%}" id="ALICE">
 	 		<ul class="row">
 	 			{% for r in alice %}
  					{{ document_recbox(r['title']['title'], r['recid']|string, r['authors'][0]['full_name'], r['comment'], 'Alice Analysis', r['files']|length) }}
@@ -113,6 +113,6 @@
 
 <div class="collRecords">
 	<div class="container">
-			{{ record_samples(cms, alice, cmstools, purpose) }}
+			{{ record_samples(cms, alice, cmstools, purpose, exp) }}
 	</div>
 </div>
