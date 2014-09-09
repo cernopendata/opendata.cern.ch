@@ -1,18 +1,18 @@
 {% macro about_msg() %}
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium assumenda debitis fugit esse laborum placeat, possimus saepe aliquid nemo, necessitatibus, optio itaque quaerat hic iusto aspernatur commodi, iure ea distinctio.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam excepturi, nisi! Et, qui, deserunt! Iste minus explicabo tenetur temporibus voluptatum, laboriosam voluptas, numquam iusto placeat id sunt optio ad doloribus?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, numquam architecto dolorum, consequuntur asperiores necessitatibus sed minima, in fuga, vero inventore perspiciatis. Accusamus provident, inventore, omnis nulla doloremque delectus modi.
+	CERN Virtual Machines allow you to run Scientific Linux on any operating system and access the CERN working environments and software tools. These include the <a href="http://root.cern.ch/">ROOT framework</a> and <a href="http://cms-sw.github.io/">CMSSW</a>. Follow the instructions below to setup a CERN Virtual Machine on your computer. Then, go to <a href="FIXME!"></a>Getting Started with CMS data</a>.
 {% endmacro %}
 
 {% macro install_s1() %}
 <div class="heading">Step 1: Installing VirtualBox</div>
 <div class="body">
 	<p>VirtualBox is a free, open source and multiplatform application to run virtual machines: you can <a href="#">download</a> the package for your platform from the Downloads page.</p>
-	<p>You will need administrative privileges ("root" privileges) on every platform to perform the installation of VirtualBox.</p>
+	<p>You will need administrative ("root") privileges on every platform to perform the installation of VirtualBox.</p>
 	<p>Note: the latest tested version of VirtualBox working with CernVM is 4.3.14. If you have troubles with the latest verion of VirtualBox, pick that one: the full history of VirtualBox versions is available <a href="#">on a different page.</a></p>
 </div>
 {% endmacro %}
 
 {% macro install_s2() %}
-<div class="heading">Step 2: Downloading & Creating a Virtual Machine</div>
+<div class="heading">Step 2: Downloading and Creating a Virtual Machine</div>
 <div class="body">
 	<div class="row">
 		<p class="col-md-8">
@@ -21,12 +21,12 @@
 		<div class="col-md-4 pull-right"><img src="{{url_for('static', filename='img/alice/1.png')}}" width="100%;"></div>
 	</div>
 	<div class="row">
-		<p class="col-md-12"> 
+		<p class="col-md-12">
 			By double clicking the file, the VirtualBox imports the image automatically with ready-to-run settings. The context is such that CernVM automatically boots into graphical user interface and sets up the CMS environment.
 		</p>
-		<p class="col-md-12">In case of any issues, see <a href="#limitation">Issues & Limitations</a></p>
+		<p class="col-md-12">In case of any issues, see <a href="#limitation">Issues and Limitations</a></p>
 	</div>
-</div>	
+</div>
 {% endmacro %}
 
 
@@ -52,14 +52,14 @@
 		<pre>cd ../..<br/>cmsenv<br/>scram b<br/>cmsRun ISpy/Analyzers/Mu-Run2010A-Apr21ReReco-v1-AOD.py
 		</pre>
 	</div>
-</div>	
+</div>
 {% endmacro %}
 
 {% macro validate_s2() %}
 <div class="heading">Setting up the Event Display</div>
 <div class="body">
 	<div class="row">
-		
+
 	</div>
 </div>
 {% endmacro %}
