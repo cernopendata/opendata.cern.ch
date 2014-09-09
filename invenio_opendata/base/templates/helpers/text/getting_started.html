@@ -72,14 +72,13 @@
 		Individual subdetectors of CMS collect information about the properties of particles produced in the collisions.
 	</li>
 	<li>
-
-	</li>
 		A small fraction of the data from the collisions is stored after applying pre-defined "triggers".
 	</li>
 	<li>
 		The post-trigger data are then "reconstructed", "re-reconstructed", and then made into Analysis Object Data (AOD) files that are used for physics analyses.
 	</li>
 </ul>
+
 <p>
 	Once you have an AOD file, you must write some code in the form of an "analyzer" that reduces the dataset, either in terms of number of collisions events it contains or in terms of information carried by each event. Following this, you run your analysis code on the reduced dataset. (Note that depending on the nature of your analysis you can run your analysis on the AOD files themselves, if needed, but this can be resource-intensive and is not recommended.)
 </p>
@@ -88,22 +87,19 @@
 	We will now take you through these steps through a specially prepared example analysis.
 </p>
 
-<h3 id="cms-analyzable-data">Analyzable CMS data: AOD files</h3>
+<p>
+	<strong>NOTE</strong>: In AOD files, reconstructed <a href="FIXME! CMS Physics Objects">physics objects</a> are included without cheking their "quality", i.e. in case of our electron, without applying further selection criteria, which assure that the reconstructed object is really an electron. This is something that we need to do in the analysis step.
+</p>
 
-<ul>
-	<li>
-		CMS data are stored in a format called Analysis Object Data or AOD. The Open Data provided on this portal are in the form of these AOD files.
-	</li>
-	<li>
-		Note that in AOD files, reconstructed <a href="FIXME! CMS Physics Objects">physics objects</a> are included without cheking their "quality", i.e. in case of our electron, without applying further selection criteria, which assure that the reconstructed object is really an electron. This is something that we need to do in the analysis step.
-	</li>
-</ul>
+<h3 id="applying-cuts-and-reducing-the-data-sample">Applying selection cuts and reducing the data sample</h3>
 
-<h3 id="applying-cuts-and-reducing-the-data-sample">Applying cuts and reducing the data sample</h3>
+<p>
+	The analysis selections must be applied in a software module called an "analyzer", written in C++. If you have followed the validation step for the virtual machine setup, you have already produced and run a simple analyzer, and this is where you can further elaborate the selections and other operations needed for the analysis. To learn more about configuring analyzers, follow <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWriteFrameworkModule">these instructions in the CMSSW Workbook</a>. Make sure, though, that you replace the release version (CMSSW_nnn) with the release that you are using, i.e. one that is compatible with the CMS open data.
+</p>
 
-<p>The analysis selections can be inserted in a software module called "analyzer" written in C++. If you have followed the validation step for the virtual machine setup, you have already produced and run a simple analyzer, and this is where you can further elaborate the selections and other operations needed for the analysis. To learn more, you can follow the instructions in <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWriteFrameworkModule">https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWriteFrameworkModule</a> but make sure to replace the release version (CMSSW_nnn) with the release that you are using, which is compatible with the CMS open data.</p>
-
-<p>You can also pass the selection criteria through the configuration file. If you have followed the validation step for the virtual machine setup, you have already seen a configuration file, which is used to give the parameters to the cmsRun executable. You can see how this is done in the analysis example.</p>
+<p>
+	You can also pass the selection criteria through the configuration file. If you have followed the validation step for the virtual machine setup, you have already seen a configuration file, which is used to give the parameters to the <code>cmsRun</code> executable. You can see how this is done in the following analysis example.
+</p>
 
 <p>We have provided an analysis example in two steps. In the first step, in <a href="https://github.com/ayrodrig/pattuples2010">https://github.com/ayrodrig/pattuples2010</a> intermediate data files with only selected contents is produced. We have done this for you, as it takes nine days to process the data for this step. So you do not need to run this step, but have a look at the configuration file in <a href="https://github.com/ayrodrig/pattuples2010/blob/master/PAT_data_repo.py">https://github.com/ayrodrig/pattuples2010/blob/master/PAT_data_repo.py</a> You can see that the line <code>removeAllPATObjectsBut(process, ['Muons','Electrons'])</code> removes all other "PATObjects" but muon and electrons, which will be needed in the final analysis step, and [<strong>VALIDATIONINFO INCLUDED</strong>]. We are using here the tools in the Physics Analysis Toolkit (PAT) which perform includes tools for analysis operations, which are common to many different analysis. You can learn more in <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookPAT">https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookPAT</a> but be aware that these instructions are in use in CMS and have been updated for more recent releases. With the 2010 data, you should always use the releases in the series of CMSSW_4_2 and not higher. Take also note that more recent code does not work with this older release, so whenever you see "git cms-addpkg..." in the instruction, it is likely that added code package does not work with this release. However, the material under the pages gives you a good idea what are the tools in PAT.</p>
 
