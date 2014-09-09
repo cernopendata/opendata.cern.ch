@@ -44,6 +44,7 @@ setup(
     platforms='any',
     install_requires=[
         'Invenio>=1.9999.2,<1.9999.3',
+	'invenio-previewer-ispy'
     ],
     extras_require={
         'development': [

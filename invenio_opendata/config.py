@@ -23,6 +23,7 @@ from invenio.base.config import PACKAGES as _PACKAGES
 PACKAGES = [
     "invenio_opendata.base",
     "invenio_opendata.modules.*",
+    "invenio_previewer_ispy"
 ] + _PACKAGES
 
 PACKAGES_EXCLUDE = [
