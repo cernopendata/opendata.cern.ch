@@ -65,8 +65,8 @@ def index2():
 	except TemplateNotFound:
 		return abort(404)
 
-@blueprint.route('educate', defaults={'exp':'all'})
-@blueprint.route('educate/<string:exp>')
+@blueprint.route('education', defaults={'exp':'all'})
+@blueprint.route('education/<string:exp>')
 def educate(exp):
 	cms_reclist = Collection.query.filter(Collection.name == 'CMS Derived Dataset').first_or_404().reclist
 	cms = []
