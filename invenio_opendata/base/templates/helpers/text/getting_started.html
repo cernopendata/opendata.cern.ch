@@ -4,7 +4,7 @@
 
 <p>Congratulations! You have the <a href="opendata.cern.ch/data/VMs">CERN working environment</a> up and running!</p>
 
-<p>Note that in order to analyse CMS data collected in 2010, you need <strong>CMSSW version 4.2.8 (patch7)</strong>, supported only on <strong>Scientific Linux 5</strong>. The CMSSW command <code>cmsrel</code> you executed in the <a href="http://open-data.cern.ch/data/VMs#validate">validation stage</a> ensures that you have the right version running. Make sure you are always in the <strong>CMSSW_4_2_8_patch7/src/</strong> directory by performing the <code>cd CMSSW_4_2_8_patch7/src/</code> every time you boot the VM and open the terminal.</p>
+<p>Note that in order to analyze CMS data collected in 2010, you need <strong>CMSSW version 4.2.8 (patch7)</strong>, supported only on <strong>Scientific Linux 5</strong>. The CMSSW command <code>cmsrel</code> you executed in the <a href="http://open-data.cern.ch/data/VMs#validate">validation stage</a> ensures that you have the right version running. Make sure you are always in the <strong>CMSSW_4_2_8_patch7/src/</strong> directory by performing the <code>cd CMSSW_4_2_8_patch7/src/</code> every time you boot the VM and open the terminal.</p>
 
 <h2 id="-ok-where-can-i-get-the-cms-data-">"OK! Where can I get the CMS data?"</h2>
 
@@ -15,7 +15,7 @@
 <p>So, let's see what an AOD file looks like and take ROOT for a spin!</p>
 
 <ul>
-	<li>Making sure that you are in the <strong>CMSSW_4_2_8patch7/src/</strong> folder, execute the following command in your terminal to launch the CMS analysis environment:</li>
+	<li>Making sure that you are in the <strong>CMSSW_4_2_8_patch7/src/</strong> folder, execute the following command in your terminal to launch the CMS analysis environment:</li>
 </ul>
 
 <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>$&nbsp;cmsenv</span></span></span></div></pre>
@@ -39,7 +39,7 @@
 	<li>Let us take a peek, for example, at the following electron collection, as shown on the list of <a href="FIXME! CMS Physics Objects">physics objects</a>: <code>recoGsfElectrons_gsfElectrons__RECO</code>. Look in there by double-clicking on that line and then double-clicking on <code>recoGsfElectrons_gsfElectrons__RECO.obj</code>. Here, you can have a look at various properties of this collection, such as the plot for the transverse momentum of the electrons: <code>recoGsfElectrons_gsfElectrons__RECO.obj.pt_</code>.</li>
 </ul>
 
-<h2 id="-nice-but-how-do-i-analyse-these-data-">"Nice! But how do I analyse these data?"</h2>
+<h2 id="-nice-but-how-do-i-analyze-these-data-">"Nice! But how do I analyze these data?"</h2>
 
 <h3 id="how-is-a-cms-analysis-performed-">How is a CMS analysis performed?</h3>
 
@@ -49,7 +49,7 @@
 	<li>Run analysis code (this can be part of the analyzer stage or done afterwards: be smart about how you write your code!)</li>
 </ul>
 
-<h3 id="cms-analysable-data">CMS analysable data</h3>
+<h3 id="cms-analyzable-data">Analyzable CMS data</h3>
 
 <ul>
 	<li>AOD<ul>
