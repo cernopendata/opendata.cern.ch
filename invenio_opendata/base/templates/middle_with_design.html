@@ -37,8 +37,9 @@
 					<div>
 						<div class="goto">Go to Links:</div>
 						<ul>
-							<a href=" {{ url_for('data/VMs') }}"><li><span class="fa fa-database"></span>Installing Working Environment (<a href="{{ url_for('install/CMS/workspace') }}">CMS</a> / <a href="{{ url_for('install/ALICE/workspace') }}">ALICE</a>)</li></a>
-							<a href=" {{ url_for('data/xrootd') }}"><li><span class="fa fa-ge"></span>Access data via XROOTD</li></a>
+							<a href=" {{ url_for('getstarted') }}"><li><span class="fa fa-ge"></span>Getting started</li></a>
+							<a href=" {{ url_for('VMs') }}"><li><span class="fa fa-database"></span>Working Environments (<a href="{{ url_for('install/CMS/workspace') }}">CMS</a> / <a href="{{ url_for('install/ALICE/workspace') }}">ALICE</a>)</li></a>
+							
 							<a href=" {{ url_for('data') }}"><li><span class="fa fa-lightbulb-o"></span>more...</li></a>
 						</ul>
 					</div>

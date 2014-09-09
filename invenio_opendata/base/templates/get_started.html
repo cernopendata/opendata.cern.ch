@@ -1,0 +1,29 @@
+{% extends 'page.html' %}
+
+
+{% block body %}
+
+<section class="infobar">
+	<div class="container">
+		<div class="pull-left">
+			<h3>Getting Started</h3>
+		</div>
+		<div class="pull-right">
+			<ul class="exp-switch nav nav-tabs" role="tablist">
+				<li class="active"><a href="#CMS" role="tab" data-toggle="tab">CMS</a></li>
+				<li><a href="#ALICE" role="tab" data-toggle="tab">ALICE</a></li>
+			</ul>
+		</div>
+	</div>
+</section>	
+
+<section class="content">
+	<div class="container">
+		<div class="tab-pane fade in active" id="CMS">
+		</div>
+		<div class="tab-pane fade" id="ALICE">
+		</div>
+	</div>
+</section>
+
+{% endblock %}

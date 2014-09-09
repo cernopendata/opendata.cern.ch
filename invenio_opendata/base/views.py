@@ -140,6 +140,14 @@ def visualise_histo():
 	except TemplateNotFound:
 		return abort(404)
 
+@blueprint.route('getstarted', defaults={'exp':'all'})
+@blueprint.route('getstarted/<string:exp>')
+def get_started(exp):
+	try:
+		return render_template('get_started.html', exp = exp)
+	except TemplateNotFound:
+		return abort(404)
+
 @blueprint.route('resources')
 def visualise():
 	try:
@@ -147,17 +155,11 @@ def visualise():
 	except TemplateNotFound:
 		return abort(404)
 
-@blueprint.route('data/VMs')
+@blueprint.route('VMs')
+@blueprint.route('vms')
 def data_vms():
 	try:
 		return render_template('data_vms.html')
-	except TemplateNotFound:
-		return abort(404)
-
-@blueprint.route('data/xrootd')
-def data_xrootd():
-	try:
-		return render_template('data_xrootd.html')
 	except TemplateNotFound:
 		return abort(404)
 
@@ -165,6 +167,29 @@ def data_xrootd():
 def data():
 	try:
 		return render_template('data.html')
+	except TemplateNotFound:
+		return abort(404)
+
+@blueprint.route('about')
+def about():
+	try:
+		return render_template('about.html')
+	except TemplateNotFound:
+		return abort(404)
+
+@blueprint.route('about/CMS')
+@blueprint.route('about/cms')
+def about_cms():
+	try:
+		return render_template('about_cms.html')
+	except TemplateNotFound:
+		return abort(404)
+
+@blueprint.route('about/ALICE')
+@blueprint.route('about/alice')
+def about_alice():
+	try:
+		return render_template('about_cms.html')
 	except TemplateNotFound:
 		return abort(404)
 
