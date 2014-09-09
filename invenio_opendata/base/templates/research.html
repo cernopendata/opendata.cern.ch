@@ -32,18 +32,17 @@
 				</div>
 				<div class="col-md-8 actions">
 					<div class="details">
-						<h4>Download Virtual Machine Images</h4>
+						<h4>Working with VMs</h4>
 						<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, sunt, voluptate neque fugit tempora harum. Repudiandae unde molestias eaque similique, consequatur consectetur expedita tenetur minus minima doloribus, ut temporibus quisquam!</span>
 					</div>
 					<ul>
-						<a href="#"><li>Browse VM image collection<span class="fa fa-chevron-circle-right"></span></li></a>
-						<a href="#"><li>Software & Tools<span class="fa fa-chevron-circle-right"></span></li></a>
-						<a href="#"><li>more<span class="fa fa-chevron-circle-right"></span></li></a>
+						<li><a href="{{ url_for('VMs') }}">Working Environments</a><span class="fa fa-chevron-circle-right"></span></li>
+						<li><a href="{{ url_for('collection/CMS Tools') }}">Software & Tools</a><span class="fa fa-chevron-circle-right"></span></li>
 					</ul>
 				</div>
 			</div>
 		</div>
-		<div class="xroot">
+<!-- 		<div class="xroot">
 			<div class="container">
 				<div class="col-md-4 imagebox pull-left"><img src="{{ url_for('static', filename='img/xrootd.png') }}" alt="" class="center-block"></div>
 				<div class="col-md-8 actions">
@@ -58,7 +57,7 @@
 					</ul>
 				</div>
 			</div>
-		</div>	
+		</div>	 -->
 </section>
 <section class="learn">
 	<div class="container">
