@@ -1,15 +1,43 @@
 {% extends "page.html" %}
 
 {% block body %}
-
+<style>
+	#vis-events .pg-header h3 {
+		margin-bottom: 25px;
+		margin-top: 35px;
+	}
+	#vis-events .pg-header {
+		color: #606D75;
+		text-align: center;
+		font-weight: 100;
+		font-size: 20px;
+		margin-bottom: 35px;
+	}
+	#vis-events .previewer {
+		background-color: #f4f4f4;
+		border-radius: 4px;
+		height: 600px;
+		margin-bottom: 35px;
+	}
+</style>
 <section class="infobar">
 	<div class="container">
 		<a href="{{ url_for('news') }}"><h3>Visualise Events</h3></a>
 	</div>
 </section>
 
-<section class="content">
-	
+<section id="vis-events" class="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1 pg-header">
+				<h3>Take a tour of the experiment</h3>
+				<div>
+					Consequuntur.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit illum magni officia consequuntur dignissimos ad voluptas sint, maxime optio quis necessitatibus, laborum in velit nobis obcaecati similique, nihil delectus ipsa!
+				</div>
+			</div>
+			<div class="previewer col-md-10 col-md-offset-1"></div>
+		</div>
+	</div>
 </section>
 
 
