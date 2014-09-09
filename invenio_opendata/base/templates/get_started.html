@@ -2,7 +2,49 @@
 
 
 {% block body %}
+<style>
+	.howto_step .heading {
+	width: 100%;
+	background-color: #f4f4f4;
+	font-size: 20px;
+	font-weight: 100;
+	color: #606D75;
+	padding: 15px 10px;
+	/*border-right: 5px solid #606D75;*/
+	border-left: 5px solid #606D75;
+}
+.howto_step .body {
+	padding: 15px;
+	background-color: #e6e6e6;
+	font-size: 16px;
+	
+}
+.howto_step .body {
+	color: #606D75;
+}
+.howto_step .body p {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 16px;
+	color: #606D75;
 
+}
+
+.howto_step .it	 {
+	margin-bottom: 5px;
+}
+#gs_title {
+	font-weight: 400;
+	color: #606D75;
+	text-align: center;
+	width: 100%;
+	margin-top: 35px;
+	margin-bottom: 30px;
+}
+#get-started .howto_step {
+	margin-bottom: 25px;
+}
+</style>
 <section class="infobar">
 	<div class="container">
 		<div class="pull-left">
@@ -17,10 +59,152 @@
 	</div>
 </section>	
 
-<section class="content">
+<section id="get-started" class="content">
 	<div class="container">
 		<div class="tab-pane fade in active" id="CMS">
-		</div>
+			<h1 id="gs_title">Getting started with CMS data</h1>
+
+			<div class="howto_step">
+				<div class="heading">"I have installed the CERN Virtual Machine: now what?"</div>
+				<div class="body">
+					<p>
+						Note that in order to analyze CMS data collected in 2010, you need <strong>CMSSW version 4.2.8 </strong>, supported only on <strong>Scientific Linux 5</strong>. The CMSSW command <kbd>cmsrel</kbd> you executed in the <a href="http://open-data.cern.ch/data/VMs#validate">validation stage</a> ensures that you have the right version running. Make sure you are always in the <strong>CMSSW_4_2_8/src/</strong> directory by performing the <kbd>cd CMSSW_4_2_8/src/</kbd> every time you boot the VM and open the terminal.
+					</p>
+				</div>
+			</div>
+
+			<div class="howto_step">
+				<div class="heading">"OK! Where can I get the CMS data?"</div>
+				<div class="body">
+					<p>
+						It is best if we start off with a quick introduction to <strong><a href="http://root.cern.ch">ROOT</a></strong>. ROOT is the framework used by several particle-physics experiments to work with the collected data. Although analysis is not itself performed within the ROOT GUI, it is instructive to understand how these files are structured and what data and collections they contain.
+					</p>
+					<p>
+						The CMS data provided on the CERN Open Data Portal is in a format called "<a href="FIXME! What is AOD?">Analysis Object Data</a>" or AOD for short. These AOD files are prepared by piecing raw data collected by various sub-detectors of CMS and contain all the information that is needed for analysis. The files cannot be opened and understood as simple data tables but require ROOT in order to be read.
+					</p>
+					<p>
+						So, let's see what an AOD file looks like and take ROOT for a spin!
+					</p>
+
+					<p>
+							Making sure that you are in the <strong>CMSSW_4_2_8/src/</strong> folder, execute the following command in your terminal to launch the CMS analysis environment:
+						</p>
+
+					<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>$&nbsp;cmsenv</span></span></span></div></pre>
+
+					<p>
+							You can now open a CMS AOD file in ROOT. Let us open one of the files from the CERN Open Data Portal by entering the following command:
+						</p>
+
+					<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>$&nbsp;root&nbsp;root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/AOD/Apr21ReReco-v1/0000/00459D48-EB70-E011-AF09-90E6BA19A252.root</span></span></span></div></pre>
+
+					<p>
+						You will see the ROOT logo appear on screen. You can now open the ROOT GUI by entering:
+					</p>
+
+					<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>TBrowser&nbsp;t</span></span></span></div></pre>
+
+					<p>
+							Excellent! You have successfully opened a CMS AOD file in ROOT. If this was the first time you've done so, pat yourself on the back. Now, to see what is inside this file, let us take a closer look at some collections of <a href="FIXME! CMS Physics Objects">physics objects</a>.
+						</p>
+						<p>
+							On the left window of ROOT (see the screenshot below), double-click on the file name (<kbd>root://eospublic.cern.ch//eos/opendata/…</kbd>), followed by <kbd>Events</kbd> and then <kbd>Collections</kbd>. You should see a list of collections of physics objects.<br />
+							<img src="/Users/achintya/github/opendata.cern.ch/invenio_opendata/base/templates/helpers/images/Screenshot_001_TBrowser_t.png" alt="Screenshot: After running &quot;TBrowser t&quot;" />
+						</p>
+						<p>
+							Let us take a peek, for example, at the following electron collection, as shown on the list of <a href="FIXME! CMS Physics Objects">physics objects</a>: <kbd>recoGsfElectrons_gsfElectrons__RECO</kbd>. Look in there by double-clicking on that line and then double-clicking on <kbd>recoGsfElectrons_gsfElectrons__RECO.obj</kbd>. Here, you can have a look at various properties of this collection, such as the plot for the transverse momentum of the electrons: <kbd>recoGsfElectrons_gsfElectrons__RECO.obj.pt_</kbd>.
+						</p>
+						<p>
+							You can exit the ROOT browser through the GUI by clicking on <kbd>Browser</kbd> on the menu and then clicking on <kbd>Quit Root</kbd> or by entering <kbd>.q</kbd> in the terminal.
+						</p>
+				</div>
+			</div>
+			<div class="howto_step">
+				<div class="heading">"Nice! But how do I analyze these data?"</div>
+				<div class="body">
+					<p>
+						In AOD files, reconstructed <a href="FIXME! CMS Physics Objects">physics objects</a> are included without cheking their "quality", i.e. in case of our electron collection that you opened in ROOT, without ensuring that the reconstructed object is really an electron. In order to analyse only the "good quality" data, you must apply some selection criteria.
+					</p>
+
+					<p>
+						With these criteria, you are in effect reducing the dataset, either in terms of the number of collisions events it contains or in terms of information carried by each event. Following this, you run your analysis code on the reduced dataset.
+					</p>
+
+					<p>
+						Depending on the nature of your analysis you <em>can</em> run your analysis code directly on the AOD files themselves, if needed, performing the selections along the way, but this can be resource-intensive and is done only for very specific usecases.
+					</p>
+
+					<p>
+						We will now take you through these steps through a specially prepared example analysis.
+					</p>	
+				</div>
+			</div>
+
+
+
+			<div class="howto_step">
+				<div class="heading">Applying selection cuts and reducing the data sample</div>
+				<div class="body">
+					<p>
+						Your final analysis is done using a software module called an "analyzer". If you have followed the validation step for the virtual machine setup, you have already produced and run a simple analyzer. You can specify your initial selection criteria within the analyzer to perform your analysis directly on the AOD files, or further elaborate the selections and other operations needed for analyzing the reduced dataset. To learn more about configuring analyzers, follow <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWriteFrameworkModule">these instructions in the CMSSW WorkBook</a>. Make sure, though, that you replace the release version (CMSSW_nnn) with the release that you are using, i.e. one that is compatible with the CMS open data.
+					</p>
+
+					<p>
+						You can also pass the selection criteria through the configuration file. This file activates existing tools within CMSSW in order to perform the desired selections. If you have followed the validation step for the virtual machine setup, you have already seen a configuration file, which is used to give the parameters to the <kbd>cmsRun</kbd> executable. You can see how this is done in our analysis example.
+					</p>
+
+					<p>
+						We start by applying selection cuts via the configuration file and reduce the AOD files into a format known as PATtuple. You can find more information about this data format (which gets its name from the CMS Physics Analysis Toolkit, or PAT) on the <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookPAT">CMSSW PAT WorkBook</a>.
+					</p>
+					<p>
+							<strong>Important</strong>: Be aware that the instructions in the WorkBook are in use in CMS currently and have been updated for more recent CMSSW releases. With the 2010 data, you should always use the releases in the series of CMSSW_4_2 and not higher. Also note that more recent code does not work with older releases, so whenever you see <kbd>git cms-addpkg&hellip;</kbd> in the instruction, it is likely that code package this command adds does not work with the release you need. However, the material under the pages gives you a good introduction to PAT.
+						</p>
+
+					<p>
+						Code as well as instructions for producing PATtuples from the CMS open data can be found in <a href="https://github.com/ayrodrig/pattuples2010">this GitHub repo</a>. However, since it took a dedicated computing cluster nine days (!!!) to run this step and reduce the several TB of AOD files to a few GB of PATtuples, we have provided you with the PATtuples in that GitHub repo, saving you quite a lot of time! Although you do not need to run this step, it is worth looking at <a href="https://github.com/ayrodrig/pattuples2010/blob/master/PAT_data_repo.py">the configuration file</a>:
+					</p>
+					<p>
+							You can see that the line <kbd>removeAllPATObjectsBut(process, ['Muons','Electrons'])</kbd> removes all "PATObjects" but muon and electrons, which will be needed in the final analysis step of this example.
+						</p>
+						<p>
+							Note also that validation information included in the line:
+						</p>
+					<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>myLumis = LumiList.LumiList(filename='Cert_136033-149442_7TeV_Apr21ReReco_Collisions10_JSON_v2.txt').getCMSSWString().split(',')</span></span></span></div></pre>
+				</div>
+			</div>
+
+			<div class="howto_step">
+				<div class="heading">Analysing the reduced dataset</div>
+				<div class="body">
+					<p>
+						Now, as the intermediate PATtuple files have been produced for you, you can go directly to the next step, as described in <a href="https://github.com/ayrodrig/OutreachExercise2010">this second GitHub repo</a> and follow the instructions on that page.
+					</p>
+					<ul>
+						<p>
+							Note that even though these are derived datasets, running the analysis code over the full data can take several hours. So if you want just give it a try, you can limit the number events or read only part of the files.
+						</p>
+						<p>
+							Your analysis job is defined in <kbd>OutreachExercise2010/DecaysToLeptons/run/run.py</kbd>. The analysis code is in the files located in the <kbd>OutreachExercise2010/DecaysToLeptons/python</kbd> directory.
+						</p>
+						<p>
+							To run the example, you will need to change the path in the file names in <kbd>sources.py</kbd>. For example, replace <kbd>file:/data2/pattuples2010/Mu/Mu_PAT_data_500files_1.root</kbd> with <kbd>root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/PATtuples/Mu_PAT_data_500files_1.root</kbd>
+						</p>
+						<p>
+							This example uses IPython, which gets configured and starts the job with the following command:
+						</p>
+					</ul>
+					<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>ipython run.py</span></span></span></div></pre>
+
+					<p>
+						[<strong>Explanation needed here</strong>] That's it! You have just performed an analysis using data from CMS. Hope you enjoyed this exercise. Feel free to play around with the rest of data and write your own analyzers and analysis code.
+					</p>
+				</div>
+			</div>
+
+
+
+
+			</div>
 		<div class="tab-pane fade" id="ALICE">
 		</div>
 	</div>

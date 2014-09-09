@@ -1,68 +1,96 @@
 {% macro about_msg() %}
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium assumenda debitis fugit esse laborum placeat, possimus saepe aliquid nemo, necessitatibus, optio itaque quaerat hic iusto aspernatur commodi, iure ea distinctio.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam excepturi, nisi! Et, qui, deserunt! Iste minus explicabo tenetur temporibus voluptatum, laboriosam voluptas, numquam iusto placeat id sunt optio ad doloribus?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, numquam architecto dolorum, consequuntur asperiores necessitatibus sed minima, in fuga, vero inventore perspiciatis. Accusamus provident, inventore, omnis nulla doloremque delectus modi.
+	CERN Virtual Machines allow you to run Scientific Linux on any operating system and access the CERN working environments and software tools. The CMS-specific VM includes the <a href="http://root.cern.ch/">ROOT framework</a> and <a href="http://cms-sw.github.io/">CMSSW</a>. Follow the instructions below to setup a CERN Virtual Machine on your computer. Then, go to <a href="FIXME!"></a>Getting Started with CMS data</a>.
 {% endmacro %}
 
 {% macro install_s1() %}
 <div class="heading">Step 1: Installing VirtualBox</div>
 <div class="body">
 	<p>VirtualBox is a free, open source and multiplatform application to run virtual machines: you can <a href="#">download</a> the package for your platform from the Downloads page.</p>
-	<p>You will need administrative privileges ("root" privileges) on every platform to perform the installation of VirtualBox.</p>
+	<p>You will need administrative ("root") privileges on every platform to perform the installation of VirtualBox.</p>
 	<p>Note: the latest tested version of VirtualBox working with CernVM is 4.3.14. If you have troubles with the latest verion of VirtualBox, pick that one: the full history of VirtualBox versions is available <a href="#">on a different page.</a></p>
 </div>
 {% endmacro %}
 
 {% macro install_s2() %}
-<div class="heading">Step 2: Downloading & Creating a Virtual Machine</div>
+<div class="heading">Step 2: Downloading and Creating a Virtual Machine</div>
 <div class="body">
 	<div class="row">
 		<p class="col-md-8">
-			Next download the CERN VM image as OVA file from: <a href="http://cernvm.cern.ch/releases/CMS%20OpenData%20Latest.ova">CMS OpenData(latest)</a> <b>or</b> go on the <a href="http://cernvm.cern.ch/portal/downloads">CernVM downloads page</a> and download the appropriate version: you must pick the OVA x86_64 for VirtualBox.
+			Next download the CERN VM image as OVA file from: <a href="http://cernvm.cern.ch/releases/CMS%20OpenData%20Latest.ova">CMS OpenData (latest)</a>.
 		</p>
-		<div class="col-md-4 pull-right"><img src="{{url_for('static', filename='img/alice/1.png')}}" width="100%;"></div>
 	</div>
 	<div class="row">
 		<p class="col-md-12"> 
 			By double clicking the file, the VirtualBox imports the image automatically with ready-to-run settings. The context is such that CernVM automatically boots into graphical user interface and sets up the CMS environment.
 		</p>
-		<p class="col-md-12">In case of any issues, see <a href="#limitation">Issues & Limitations</a></p>
+		<p class="col-md-12">In case of any issues, see <a href="#limitation">Issues and Limitations</a></p>
 	</div>
 </div>	
 {% endmacro %}
 
 
 {% macro validate_s1() %}
-<div class="heading">Write out .ig files for event display</div>
+<div class="heading">Set up the CMS environment and run a demo analyzer</div>
 <div class="body">
 	<div class="row">
 		<div class="it col-md-12">Open a terminal with the X terminal emulator (an icon bottom-left of the VM screen)</div>
 		<div class="it col-md-12">Write on the command line:</div>
-		<pre>cmsrel CMSSW_4_2_8_patch7</pre>
-		<div class="it col-md-12">change to the <kbd>CMSSW_4_2_8_patch7/src/</kbd> directory:</div>
-		<pre>cd CMSSW_4_2_8_patch7/src/</pre>
-		<div class="it col-md-12">Continue by cloning the repositories:</div>
-		<pre>git clone https://github.com/cms-outreach/ispy-analyzers.git ISpy/Analyzers<br/>git clone https://github.com/cms-outreach/ispy-services.git ISpy/Services
-		</pre>
-		<div class="it col-md-12">After this change to <kbd>ISpy/Analyzers/</kbd> directory</div>
-		<pre>cd ISpy/Analyzers/</pre>
-		<div class="it col-md-12">and write there</div>
-		<pre>git checkout aod-block</pre>
-		<div class="it col-md-12">Change to <kbd>ISpy/Services/</kbd> directory and checkout a new branch</div>
-		<pre>cd ../../ISpy/Services/<br/>git checkout aod-block</pre>
-		<div class="it col-md-12">Change back to <kbd>src</kbd> directory and run the example</div>
-		<pre>cd ../..<br/>cmsenv<br/>scram b<br/>cmsRun ISpy/Analyzers/Mu-Run2010A-Apr21ReReco-v1-AOD.py
-		</pre>
+		<pre>cmsrel CMSSW_4_2_8</pre>
+		<div class="it col-md-12">Change to the <kbd>CMSSW_4_2_8/src/</kbd> directory:</div>
+		<pre>cd CMSSW_4_2_8/src/</pre>
+		<div class="it col-md-12">Then, run the following command to create the CMS runtime variables:</div>
+		<pre>cmsenv</pre>
+		<div class="it col-md-12">Create a working directory for the demo analyzer, change to that directory and create a "skeleton" for the analyzer:</div>
+		<pre>mkdir Demo
+cd Demo
+mkedanlzr DemoAnalyzer</pre>
+		<div class="it col-md-12">Compile the code:</div>
+		<pre>cd DemoAnalyzer
+scram b</pre>
+		<div class="it col-md-12">Change the file name in the configuration file <kbd>demoanalyzer_cfg.py</kbd> in the DemoAnalyzer directory:
+i.e. replace <kbd>file:myfile.root</kbd> with
+<kbd>root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/AOD/Apr21ReReco-v1/0000/00459D48-EB70-E011-AF09-90E6BA19A252.root</kbd></div>
+		<div class="it col-md-12">Change the max number of events to 10 (i.e change -1 to 10 in <kbd>process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1)</kbd>).</div>
+		<div class="it col-md-12">Move two directories back using:</div>
+		<pre>cd ../..</pre>
+		<div class="it col-md-12">And then run:</div>
+		<pre>cmsRun Demo/DemoAnalyzer/demoanalyzer_cfg.py</pre>
+		<div class="it col-md-12">Your VM is "validated" if it opens the file and gives an output like:</div>
+		<pre>140908 10:48:10 001 crypto_X509CreateProxy: EEC certificate cannot be opened (file: /home/cms-opendata/.globus/usercert.pem)
+08-Sep-2014 10:48:11 CEST Initiating request to open file root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/AOD/Apr21ReReco-v1/0000/00459D48-EB70-E011-AF09-90E6BA19A252.root
+08-Sep-2014 10:48:21 CEST Successfully opened file root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/AOD/Apr21ReReco-v1/0000/00459D48-EB70-E011-AF09-90E6BA19A252.root
+Begin processing the 1st record. Run 146436, Event 90626440, LumiSection 322 at 08-Sep-2014 10:48:25.836 CEST
+Begin processing the 2nd record. Run 146436, Event 90634848, LumiSection 322 at 08-Sep-2014 10:48:25.839 CEST
+Begin processing the 3rd record. Run 146436, Event 90649368, LumiSection 322 at 08-Sep-2014 10:48:25.839 CEST
+Begin processing the 4th record. Run 146436, Event 90668184, LumiSection 322 at 08-Sep-2014 10:48:25.840 CEST
+Begin processing the 5th record. Run 146436, Event 90703728, LumiSection 322 at 08-Sep-2014 10:48:25.842 CEST
+Begin processing the 6th record. Run 146436, Event 90716480, LumiSection 322 at 08-Sep-2014 10:48:25.843 CEST
+Begin processing the 7th record. Run 146436, Event 90735104, LumiSection 322 at 08-Sep-2014 10:48:25.844 CESTBegin processing the 8th record. Run 146436, Event 90745896, LumiSection 322 at 08-Sep-2014 10:48:25.844 CEST
+Begin processing the 9th record. Run 146436, Event 90755600, LumiSection 322 at 08-Sep-2014 10:48:25.845 CEST
+Begin processing the 10th record. Run 146436, Event 90778200, LumiSection 322 at 08-Sep-2014 10:48:25.849 CEST
+08-Sep-2014 10:48:25 CEST Closed file root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/AOD/Apr21ReReco-v1/0000/00459D48-EB70-E011-AF09-90E6BA19A252.root
+MessageLogger Summary
+type category sev module subroutine count total
+1 fileAction           -s file_close                             1        1
+2 fileAction           -s file_open                              2        2
+type category Examples: run/evt run/evt run/evt
+1 fileAction           PostEndRun
+2 fileAction           pre-events       pre-events
+Severity # Occurrences Total Occurrences
+System 3 3</pre>
 	</div>
 </div>	
 {% endmacro %}
 
 {% macro validate_s2() %}
-<div class="heading">Setting up the Event Display</div>
-<div class="body">
-	<div class="row">
-		
-	</div>
-</div>
-{% endmacro %}
+<div class="heading">Validation report</div>
+ <div class="body">
+ 	<div class="row">		
+		<div class="it col-md-12">The CMS-specific CERN Virtual Machine has been tested on several operating systems, VM softwares and hardware configurations. A full list of tested machines and configurations can be found in <a href="FIXME!">this validation report (PDF)</a>.</div>
+		<div class="it col-md-12">However, we cannot guarantee that it will work under all conditions. Problems can often be traced to a user's particular system settings. Solutions to common problems are listed below.</div>
+ 	</div>
+ </div>
+ {% endmacro %}
 
 {% macro limitation_s1() %}
 <div class="heading"><b>Q: </b>When the Virtual Machine is started, there appears an error message: "Could not start the machine CMS Open Data because the following physical network interfaces were not found: vboxnet0 (adapter 2). You can either change the machine's network settings or stop the machine."</div>
