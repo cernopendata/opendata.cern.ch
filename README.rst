@@ -22,8 +22,8 @@ helper script and proceed as follows:
 
 .. code-block:: console
 
-    laptop> mkdir -p ~/private/vm/invenio2trusty64
-    laptop> cd ~/private/vm/invenio2trusty64
+    laptop> mkdir -p ~/private/vm/opendata2trusty64
+    laptop> cd ~/private/vm/opendata2trusty64
     laptop> vim Vagrantfile # enter following content:
     Vagrant.configure("2") do |config|
       config.vm.box = "trusty64"
@@ -51,7 +51,10 @@ helper script and proceed as follows:
         CFG_INVENIO2_DATABASE_USER=opendata \
         CFG_INVENIO2_DATABASE_NAME=opendata \
         CFG_INVENIO2_DEMOSITE_POPULATE="-f invenio_opendata/testsuite/data/cms/cms-primary-datasets.xml \
-                                        -f invenio_opendata/testsuite/data/cms/cms-derived-datasets.xml \
+                                        -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana.xml \
+                                        -f invenio_opendata/testsuite/data/cms/cms-eventdisplay-files.xml \
+                                        -f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
+                                        -f invenio_opendata/testsuite/data/cms/cms-tools-vm-image.xml \
                                         -e force-recids" \
         ./invenio2-kickstart --yes-i-know --yes-i-really-know
 
