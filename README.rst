@@ -51,7 +51,8 @@ helper script and proceed as follows:
         CFG_INVENIO2_DATABASE_USER=opendata \
         CFG_INVENIO2_DATABASE_NAME=opendata \
         CFG_INVENIO2_DEMOSITE_POPULATE="-f invenio_opendata/testsuite/data/cms/cms-primary-datasets.xml \
-                                        -f invenio_opendata/testsuite/data/cms/cms-derived-datasets.xml" \
+                                        -f invenio_opendata/testsuite/data/cms/cms-derived-datasets.xml \
+                                        -e force-recids" \
         ./invenio2-kickstart --yes-i-know --yes-i-really-know
 
 * Thirdly, go brew some tee, come back in twenty minutes, enjoy!
