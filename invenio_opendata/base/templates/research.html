@@ -7,11 +7,22 @@
 
 <section class="infobar">
 	<div class="container">
-		<h3>For Research</h3>
+		<div class="pull-left">
+			<h3>For Research</h3>
+		</div>
+		<div class="pull-right">
+			<div class="hidden-xs" style="float: left; color:#fff;font-weight:100;font-size:14px;padding:5px;padding-right: 10px;">Choose your experiment:</div>
+			<ul class="exp-switch nav nav-tabs pull-right" role="tablist">
+				<li {% if exp in ['CMS','all'] %} class="active" {% endif %}><a href="#CMS" role="tab" data-toggle="tab">CMS</a></li>
+				<li {% if exp == 'ALICE' %} class="active" {% endif %}><a href="#ALICE" role="tab" data-toggle="tab">ALICE</a></li>
+			</ul>
+		</div>
 	</div>
 </section>
 <section class="entrypoint_collections">
+{% with show_navbar = 0 %}
 {% include "helpers/collections_list.html" %}
+{% endwith %}
 </section>
 <section class="research-main">
 		<div class="virtual">

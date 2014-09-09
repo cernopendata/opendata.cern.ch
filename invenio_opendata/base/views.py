@@ -68,38 +68,47 @@ def index2():
 @blueprint.route('educate', defaults={'exp':'all'})
 @blueprint.route('educate/<string:exp>')
 def educate(exp):
-	cms_reclist = randomise(Collection.query.filter(Collection.name == 'CMS Derived Dataset').first_or_404().reclist, 6)
+	cms_reclist = Collection.query.filter(Collection.name == 'CMS Derived Dataset').first_or_404().reclist
 	cms = []
-	for rec in cms_reclist:
+	for rec in cms_reclist[:6]:
 		cms.append(get_record(rec))
+
+	cmstools_reclist = Collection.query.filter(Collection.name == 'CMS Tools').first_or_404().reclist
+	cmstools = []
+	for tool in cmstools_reclist[:3]:
+		cmstools.append(get_record(tool))
 
 	alice_reclist = Collection.query.filter(Collection.name == 'ALICE Simplified Dataset').first_or_404().reclist
 	# alice_reclist = randomise(Collection.query.filter(Collection.name == 'ALICE Simplified Dataset').first_or_404().reclist, 6)
 	alice = []
-	for rec in alice_reclist:
+	for rec in alice_reclist[:6]:
 		alice.append(get_record(rec))
 
 	try:
-		return render_template('educate.html', cms = cms, alice = alice, exp = exp)
+		return render_template('educate.html', cms = cms, alice = alice, cmstools = cmstools, exp = exp)
 	except TemplateNotFound:
 		return abort(404)
 
 @blueprint.route('research', defaults={'exp':'all'})
 @blueprint.route('research/<string:exp>')
 def research(exp):
-	cms_reclist = randomise(Collection.query.filter(Collection.name == 'CMS Primary Dataset').first_or_404().reclist, 6)
+	cms_reclist = Collection.query.filter(Collection.name == 'CMS Primary Dataset').first_or_404().reclist
 	cms = []
-	for rec in cms_reclist:
+	for rec in cms_reclist[:6]:
 		cms.append(get_record(rec))
 
-	print "here"
+	cmstools_reclist = Collection.query.filter(Collection.name == 'CMS Tools').first_or_404().reclist
+	cmstools = []
+	for tool in cmstools_reclist[:3]:
+		cmstools.append(get_record(tool))
+
 	alice_reclist = Collection.query.filter(Collection.name == 'ALICE Analysis').first_or_404().reclist
 	alice = []
-	for rec in alice_reclist:
+	for rec in alice_reclist[:6]:
 		alice.append(get_record(rec))
 
 	try:
-		return render_template('research.html', cms = cms, alice = alice, exp = exp)
+		return render_template('research.html', cms = cms, alice = alice, cmstools = cmstools, exp = exp)
 	except TemplateNotFound:
 		return abort(404)
 

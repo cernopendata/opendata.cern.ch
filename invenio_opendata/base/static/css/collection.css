@@ -2,19 +2,43 @@
 	padding: 0;
 	margin: 0;
 }
+.collRecords .tab-content .title {
+	text-align: left;
+	padding-bottom: 20px;
+	font-size: 23px;
+	font-weight: 600px;
+	color: #606D75;
+}
 
+.collRecords .tab-content .cms-list {
+	border-right: 1px solid #d4d4d4;
+
+}
+.collRecords .tab-content
 .recordbox {
 	background-color: #fff;
-	height: 250px;
+	height: auto;
 	margin-bottom: 30px;
-	border-radius: 2px;
-	
+	border-radius: 3px;
+	display: inline-block;
+	font-size: 11px;
+	width: 100%;
+}
 
+#CMS.tab-pane > div > ul {
+	height: 420px;
+}
+
+.recordbox a,
+.recordbox a:hover,
+.recordbox a:focus {
+	font-size: inherit;
+	color: inherit;
+	text-decoration: none;
 }
 .recordbox .top {
 	float: left;
-	width: 40%;
-	height: 100%;
+	height: 46px;
 	border-radius: 0;
 	background-color: #606D75;
 	color: #fff;
@@ -22,29 +46,28 @@
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-
-.recordbox .top span {
-	font-size: 72px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	text-align: center;
+.recordbox .top {
 	width: 100%;
+	font-size: 16px;
+	border-radius: 2px 2px 0 0;
+	height: 46px;
 }
 
 .recordbox .top h5 {
 	float: none;
 	margin: 0;
-	font-size: 15px;
+	font-size: 13px;
 	padding: 0;
-	text-align: center;
+	text-align: left;
 	line-height: 1;
+	font-weight: 100;
 }
+
 .recordbox .top .col-md-10 {
 	margin-left: -15px;
 }
 .recordbox .thumb {
 	float: right;
-	width: 60%;
 	height: 80%;
 	text-align: center;
 
@@ -52,14 +75,34 @@
 .recordbox .thumb img {
 	max-width: 100%;
 }
+
+.recordbox .details span {
+	margin-right: 5px;
+	margin-top: 5px;
+
+}
+.recordbox .details .recbox-desc {
+	padding-top: 3px;
+	padding-bottom: 3px;
+	overflow: hidden;
+	height: 40px;
+}
+.recordbox .details .recbox-info {
+	background-color: #d4d4d4;
+	height: 25px;
+	border-radius: 0 0 3px 3px;
+	width: 100%;
+}
+.recordbox .details li {
+	display: inline-block;
+}
+.recordbox .details li >div {
+	float: left;
+	padding-right: 10px;
+}
 .recordbox .details {
-	float: right;
-	width: 60%;
-	height: 20%;
-	text-align: center;
-	padding-top: 15px;
-	background-color: #e6e6e6;
-	border-radius: 0 0 2px 2px;
+	border-radius: 0 0 3px 3px;
+	font-size: 10px;
 }
 .intro {
     height: 350px;
@@ -100,7 +143,7 @@
 
 .searchForm button {
 	height: 30px;
-	border-radius: 0 2px 2px 0;
+	border-radius: 0 3px 3px 0;
 	background-color: #B36666;
 	color: #fff;
 	font-size: 19px;
@@ -208,6 +251,9 @@
 .collRecords .seeall {
 	text-align: center;
 	height: 60px;
+	width: 100%; 
+	display: inline-block;
+
 }
 
 .collRecords .seeall a {
@@ -225,7 +271,9 @@
 
 
 @media (min-width: 768px) {
-
+	.collRecords .tab-content .cms-list {
+		border-right: 0;
+	}
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
@@ -258,7 +306,7 @@
 	width: 100%;
 	font-size: 16px;
 	border-radius: 2px 2px 0 0;
-	height: 42px;
+	height: 46px;
 }
 
 .recordbox .top span {
@@ -280,12 +328,6 @@
 	font-size: 100px;
 	margin:  0;
 }
-
-.recordbox .details {
-	height: 50px;
-	width: 100%;
-}
-
 
 }
 
