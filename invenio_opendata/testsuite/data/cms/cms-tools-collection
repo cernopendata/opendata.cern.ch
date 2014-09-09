@@ -1,0 +1,125 @@
+<collection>
+  <record>
+  <controlfield tag="001">100</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">DOI</subfield>
+      <subfield code="a">10.1234/EXAMPLE.GITHUBCODE.123</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2=" ">
+      <subfield code="a">Rodriguez Marrero, Ana</subfield>
+    </datafield>
+    <datafield tag="245" ind1=" " ind2=" ">
+      <subfield code="a">Software to preprocess the Muon and Electron datasets for the two-lepton/four-lepton analysis example</subfield>
+    </datafield>
+    <datafield tag="260" ind1=" " ind2=" ">
+      <subfield code="b">CERN Open Data Portal</subfield>
+      <subfield code="c">2014</subfield>
+    </datafield>
+    <datafield tag="516" ind1=" " ind2=" ">
+      <subfield code="a">Use this with the following data sets:</subfield>
+      <subfield code="w">4</subfield>
+      <subfield code="w">link to the VM entry in the tools collection</subfield>
+    </datafield>
+    <datafield tag="520" ind1=" " ind2=" ">
+      <subfield code="a">Software to produce the intermediate data files, derived from the primary data sets, for a simple analysis on Z decays to two leptons and the ZZ decays to four leptons. </subfield>
+    </datafield>
+    <datafield tag="538" ind1=" " ind2=" ">
+      <subfield code="a">CMSSW 4 2 8 software with the CMS open data VM environemnt</subfield>
+      <subfield code="w">link to the VM entry in the tools collection</subfield>
+    </datafield>
+    <datafield tag="556" ind1=" " ind2=" ">
+      <subfield code="a">Only muon and electron collections are kept. Processing the full primary data sets took 220 hours.</subfield>
+    </datafield>
+    <datafield tag="567" ind1=" " ind2=" ">
+      <subfield code="a">The software produces the physics object in PAT candidate format. Only muon and electron PAT candidate collections are stored. No further selection, apart accepting only the validated runs, is applied.</subfield>
+    </datafield>
+    <datafield tag="583" ind1=" " ind2=" ">
+      <subfield code="a"Only the list of validated runs have been accepted:</subfield>
+      <subfield code="w">List to THE JSON file</subfield>
+    </datafield>
+    <datafield tag="787" ind1=" " ind2=" ">
+      <subfield code="a">The files created are:</subfield>
+      <subfield code="w">pattuple rec</subfield>
+    </datafield>
+     <datafield tag="774" ind1=" " ind2=" ">
+      <subfield code="a">See the run instructions in https://github.com/ayrodrig/pattuples2010</subfield>
+    </datafield>
+    <datafield tag="980" ind1=" " ind2=" ">
+      <subfield code="a">CMSTOOLS</subfield>
+    </datafield>
+  </record>
+    <record>
+  <controlfield tag="001">101</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">DOI</subfield>
+      <subfield code="a">10.1234/EXAMPLE.GITHUBCODE.234</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2=" ">
+      <subfield code="a">Rodriguez Marrero, Ana</subfield>
+    </datafield>
+    <datafield tag="245" ind1=" " ind2=" ">
+      <subfield code="a">Two-lepton/four-lepton analysis example</subfield>
+    </datafield>
+    <datafield tag="260" ind1=" " ind2=" ">
+      <subfield code="b">CERN Open Data Portal</subfield>
+      <subfield code="c">2014</subfield>
+    </datafield>
+    <datafield tag="516" ind1=" " ind2=" ">
+      <subfield code="a">Use this with the following data sets:</subfield>
+      <subfield code="w"></subfield>
+      <subfield code="w">link to the derived data sets</subfield>
+    </datafield>
+    <datafield tag="520" ind1=" " ind2=" ">
+      <subfield code="a">Example code for a simple analysis on Z decays to two leptons and the ZZ decays to four leptons.</subfield>
+    </datafield>
+    <datafield tag="538" ind1=" " ind2=" ">
+      <subfield code="a">CMSSW 4 2 8 software with the CMS open data VM environemnt</subfield>
+      <subfield code="w">link to the VM entry in the tools collection</subfield>
+    </datafield>
+    <datafield tag="556" ind1=" " ind2=" ">
+      <subfield code="a">Only muon and electron collections are kept. Processing the full primary data sets took 220 hours.</subfield>
+    </datafield>
+    <datafield tag="567" ind1=" " ind2=" ">
+      <subfield code="a">An event selection applied in the two analysis cases: In the Z analysis at least two leptons with opposite charge, with invariant mass mll between 12 GeV and 120 GeV are required. The pair with the invariant mass closest to the Z boson mass is selected as the Z candidate. In the ZZ analysis two Z candidates are required, and for both candidates, two leptons with opposite charge are 
+required. The first Z candidate is required to have higher lepton momentum: 20 GeV for the first lepton and 10 GeV for the second lepton. The invariant mass is required to be in the range 40 GeV to 120 GeV. The second candidate is required to have an invariant mass higher then 4 GeV. The first candidate is the one with the invariant mass closest to the Z boson mass.
+
+Selection criteria for electron candidates:
+• pT > 7 GeV and |η| < 2.5;
+• Distance between the electron z-vertex and the interaction z-vertex < 0.02 cm;
+• Transverse impact parameter w.r.t. the beam spot < 0.04 cm;
+• Symmetrized impact parameter w.r.t. the beam sport < 4 cm;
+• Photon conversion rejection: number of lost hits in the tracker < 1;
+• Electron identification: eIDLoose;
+• Electron Isolation depends on the η region, 
+regions with 1.44 < η 0.09; electron.dr03EcalRecHitSumEt()/electron.pt() > 0.07; and electron.dr03HcalTowerSumEt()/electron.pt() > 0.10. 
+If η > 1.57: electron.dr03TkSumPt()/electron.pt() > 0.04; electron.dr03EcalRecHitSumEt()/electron.pt() > 0.05; and electron.dr03HcalTowerSumEt()/electron.pt() > 0.025. Each component is computed from Isodeposits in a cone of 0.3 around the electron direction.
+
+Selection criteria for muon candidates:
+• pT > 5 GeV and |η| < 2.4;
+• Distance between the muon z-vertex and the interaction z-vertex < 0.02 cm;
+• Is a GlobalMuon and TrackerMuon;
+• Number of valid hits in the inner tracker > 10;
+• χ2 /ndo f < 10 for the global muon fit;
+• Transverse impact parameter w.r.t. the beam spot < 0.02 cm;
+• Symmetrized impact parameter w.r.t. the beam sport < 4 cm;
+• Relative Muon Isolation (RMI) < 0.15, with
+RMI =
+(ChargedHadronIso + NeutralHadronIso + PhotonIso)/pT(µ)
+Each component is computed from Isodeposits in a cone of 0.3 around the muon direction.</subfield>
+    </datafield>
+    <datafield tag="583" ind1=" " ind2=" ">
+      <subfield code="a"The input files contain only the validated runs. For user validation of the analysis step, compare the result to the expected output file.</subfield>
+      <subfield code="w">List to THE JSON file</subfield>
+    </datafield>
+    <datafield tag="787" ind1=" " ind2=" ">
+      <subfield code="a">The expected output is a histogram file, to be opend with </subfield>
+      <subfield code="w">fig rec</subfield>
+    </datafield>
+     <datafield tag="774" ind1=" " ind2=" ">
+      <subfield code="a">See the run instructions in https://github.com/ayrodrig/OutreachExercise2010</subfield>
+    </datafield>
+    <datafield tag="980" ind1=" " ind2=" ">
+      <subfield code="a">CMSTOOLS</subfield>
+    </datafield>
+  </record>
+</collection>
