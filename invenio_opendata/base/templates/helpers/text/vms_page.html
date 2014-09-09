@@ -1,121 +1,122 @@
 {% macro about_msg() %}
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium assumenda debitis fugit esse laborum placeat, possimus saepe aliquid nemo, necessitatibus, optio itaque quaerat hic iusto aspernatur commodi, iure ea distinctio.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam excepturi, nisi! Et, qui, deserunt! Iste minus explicabo tenetur temporibus voluptatum, laboriosam voluptas, numquam iusto placeat id sunt optio ad doloribus?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, numquam architecto dolorum, consequuntur asperiores necessitatibus sed minima, in fuga, vero inventore perspiciatis. Accusamus provident, inventore, omnis nulla doloremque delectus modi.
+  CERN Virtual Machines allow you to run Scientific Linux on any operating system and access the CERN working environments and software tools. These include the <a href="http://root.cern.ch/">ROOT framework</a> and <a href="http://cms-sw.github.io/">CMSSW</a>.
+  Follow the instructions below to setup a CERN Virtual Machine on your computer. Then, go to <a href="FIXME!"></a>Getting Started with CMS data</a>.
 {% endmacro %}
 
 {% macro install_s1() %}
 <div class="heading">Step 1: Installing VirtualBox</div>
 <div class="body">
-	<p>VirtualBox is a free, open source and multiplatform application to run virtual machines: you can <a href="#">download</a> the package for your platform from the Downloads page.</p>
-	<p>You will need administrative privileges ("root" privileges) on every platform to perform the installation of VirtualBox.</p>
-	<p>Note: the latest tested version of VirtualBox working with CernVM is 4.3.14. If you have troubles with the latest verion of VirtualBox, pick that one: the full history of VirtualBox versions is available <a href="#">on a different page.</a></p>
+  <p>VirtualBox is a free, open source and multiplatform application to run virtual machines: you can <a href="#">download</a> the package for your platform from the Downloads page.</p>
+  <p>You will need administrative ("root") privileges on every platform to perform the installation of VirtualBox.</p>
+  <p>Note: the latest tested version of VirtualBox working with CernVM is 4.3.14. If you have troubles with the latest verion of VirtualBox, pick that one: the full history of VirtualBox versions is available <a href="#">on a different page.</a></p>
 </div>
 {% endmacro %}
 
 {% macro install_s2() %}
-<div class="heading">Step 2: Downloading & Creating a Virtual Machine</div>
+<div class="heading">Step 2: Downloading and Creating a Virtual Machine</div>
 <div class="body">
-	<div class="row">
-		<p class="col-md-8">
-			Next download the CERN VM image as OVA file from: <a href="http://cernvm.cern.ch/releases/CMS%20OpenData%20Latest.ova">CMS OpenData(latest)</a> <b>or</b> go on the <a href="http://cernvm.cern.ch/portal/downloads">CernVM downloads page</a> and download the appropriate version: you must pick the OVA x86_64 for VirtualBox.
-		</p>
-		<div class="col-md-4 pull-right"><img src="{{url_for('static', filename='img/alice/1.png')}}" width="100%;"></div>
-	</div>
-	<div class="row">
-		<p class="col-md-12"> 
-			By double clicking the file, the VirtualBox imports the image automatically with ready-to-run settings. The context is such that CernVM automatically boots into graphical user interface and sets up the CMS environment.
-		</p>
-		<p class="col-md-12">In case of any issues, see <a href="#limitation">Issues & Limitations</a></p>
-	</div>
-</div>	
+  <div class="row">
+    <p class="col-md-8">
+      Next download the CERN VM image as OVA file from: <a href="http://cernvm.cern.ch/releases/CMS%20OpenData%20Latest.ova">CMS OpenData (latest)</a> <b>or</b> go on the <a href="http://cernvm.cern.ch/portal/downloads">CernVM downloads page</a> and download the appropriate version: you must pick the OVA x86_64 for VirtualBox.
+    </p>
+    <div class="col-md-4 pull-right"><img src="{{url_for('static', filename='img/alice/1.png')}}" width="100%;"></div>
+  </div>
+  <div class="row">
+    <p class="col-md-12">
+      By double clicking the file, the VirtualBox imports the image automatically with ready-to-run settings. The context is such that CernVM automatically boots into graphical user interface and sets up the CMS environment.
+    </p>
+    <p class="col-md-12">In case of any issues, see <a href="#limitation">Issues and Limitations</a></p>
+  </div>
+</div>
 {% endmacro %}
 
 
 {% macro validate_s1() %}
-<div class="heading">Write out .ig files for event display</div>
+<div class="heading">Write out .ig files to view CMS collision events in the iSpy event display</div>
 <div class="body">
-	<div class="row">
-		<div class="it col-md-12">Open a terminal with the X terminal emulator (an icon bottom-left of the VM screen)</div>
-		<div class="it col-md-12">Write on the command line:</div>
-		<pre>cmsrel CMSSW_4_2_8_patch7</pre>
-		<div class="it col-md-12">change to the <kbd>CMSSW_4_2_8_patch7/src/</kbd> directory:</div>
-		<pre>cd CMSSW_4_2_8_patch7/src/</pre>
-		<div class="it col-md-12">Continue by cloning the repositories:</div>
-		<pre>git clone https://github.com/cms-outreach/ispy-analyzers.git ISpy/Analyzers<br/>git clone https://github.com/cms-outreach/ispy-services.git ISpy/Services
-		</pre>
-		<div class="it col-md-12">After this change to <kbd>ISpy/Analyzers/</kbd> directory</div>
-		<pre>cd ISpy/Analyzers/</pre>
-		<div class="it col-md-12">and write there</div>
-		<pre>git checkout aod-block</pre>
-		<div class="it col-md-12">Change to <kbd>ISpy/Services/</kbd> directory and checkout a new branch</div>
-		<pre>cd ../../ISpy/Services/<br/>git checkout aod-block</pre>
-		<div class="it col-md-12">Change back to <kbd>src</kbd> directory and run the example</div>
-		<pre>cd ../..<br/>cmsenv<br/>scram b<br/>cmsRun ISpy/Analyzers/Mu-Run2010A-Apr21ReReco-v1-AOD.py
-		</pre>
-	</div>
-</div>	
+  <div class="row">
+    <div class="it col-md-12">Open a terminal with the X terminal emulator (an icon bottom-left of the VM screen)</div>
+    <div class="it col-md-12">Write on the command line:</div>
+    <pre>cmsrel CMSSW_4_2_8_patch7</pre>
+    <div class="it col-md-12">change to the <kbd>CMSSW_4_2_8_patch7/src/</kbd> directory:</div>
+    <pre>cd CMSSW_4_2_8_patch7/src/</pre>
+    <div class="it col-md-12">Continue by cloning the repositories:</div>
+    <pre>git clone https://github.com/cms-outreach/ispy-analyzers.git ISpy/Analyzers<br/>git clone https://github.com/cms-outreach/ispy-services.git ISpy/Services
+    </pre>
+    <div class="it col-md-12">After this change to <kbd>ISpy/Analyzers/</kbd> directory</div>
+    <pre>cd ISpy/Analyzers/</pre>
+    <div class="it col-md-12">and write there</div>
+    <pre>git checkout aod-block</pre>
+    <div class="it col-md-12">Change to <kbd>ISpy/Services/</kbd> directory and checkout a new branch</div>
+    <pre>cd ../../ISpy/Services/<br/>git checkout aod-block</pre>
+    <div class="it col-md-12">Change back to <kbd>src</kbd> directory and run the example</div>
+    <pre>cd ../..<br/>cmsenv<br/>scram b<br/>cmsRun ISpy/Analyzers/Mu-Run2010A-Apr21ReReco-v1-AOD.py
+    </pre>
+  </div>
+</div>
 {% endmacro %}
 
 {% macro validate_s2() %}
 <div class="heading">Setting up the Event Display</div>
 <div class="body">
-	<div class="row">
-		
-	</div>
+  <div class="row">
+
+  </div>
 </div>
 {% endmacro %}
 
 {% macro limitation_s1() %}
-<div class="heading"><b>Q: </b>When the Virtual Machine is started, there appears an error message: "Could not start the machine CMS Open Data because the following physical network interfaces were not found: vboxnet0 (adapter 2). You can either change the machine's network settings or stop the machine."</div>
+<div class="heading"><b>Q: </b>When the Virtual Machine is started, an error message appears: "Could not start the machine CMS Open Data because the following physical network interfaces were not found: vboxnet0 (adapter 2). You can either change the machine's network settings or stop the machine."</div>
 <div class="body">
-	<div class="row">
-		<div class="it col-md-12"><b>A: </b>The VM starts correctly, when the Network settings for adapter 2 are changed from Host-only Adapter to NAT.</div>
-	</div>
+  <div class="row">
+    <div class="it col-md-12"><b>A: </b>The VM starts correctly, when the Network settings for adapter 2 are changed from "Host-only Adapter" to "NAT".</div>
+  </div>
 </div>
 <div class="heading"><b>Q: </b>Another issue appeared, when the VM was opened with a freshly installed Ubuntu and latest version of VirtualBox. The Virtual box is complaining about a missing path to a definition file (unfortunately I didn't realize to document this problem by taking a snapshot of the error message).</div>
 <div class="body">
-	<div class="row">
-		<div class="it col-md-12"><b>A: </b>It seems that it is necessary to open one of the official Cern VMs (3?) before using the Open Data specific VM. After running the Cern VM once, also the Open Data VM works without complaints.</div>
-	</div>
+  <div class="row">
+    <div class="it col-md-12"><b>A: </b>It seems that it is necessary to open one of the official Cern VMs (3?) before using the Open Data specific VM. After running the Cern VM once, also the Open Data VM works without complaints.</div>
+  </div>
 </div>
 <div class="heading"><b>Q: </b>An error message when starting the Open Data specific VM on Windows 7: VT-X/AMD-V hardware acceleration is not available on your system. Your 64-bit guest will fail to detect a 64-but CPU and will not be able to boot.
 I've checked from http://ark.intel.com/ that my processor should support the VT-X feature: http://ark.intel.com/products/47663/Intel-Core-i3-330M-Processor-3M-Cache-2_13-GHz (Intel® Virtualization Technology (VT-x) checked as "yes")
 </div>
 <div class="body">
-	<div class="row">
-		<div class="it col-md-12"><b>A: </b>When the host machine is booting (just after switching it on) press the function key to get to the setup (in my case F2). Go to advanced settings, and enable virtualization extensions of CPU.</div>
-	</div>
+  <div class="row">
+    <div class="it col-md-12"><b>A: </b>When the host machine is booting (just after switching it on) press the function key to get to the setup (in my case F2). Go to advanced settings, and enable virtualization extensions of CPU.</div>
+  </div>
 </div>
 <div class="heading"><b>Q: </b>The Open Data specific VM on Windows 7 does not boot (diplays "automatic boot in 1 second", but nothing happens), while the other VM in the list boots (using VirtualBox version 4.3.12)
 </div>
 <div class="body">
-	<div class="row">
-		<div class="it col-md-12"><b>A: </b>Cannot reproduce the problem with another Windows 7 with same VirtualBox and VM image.</div>
-	</div>
+  <div class="row">
+    <div class="it col-md-12"><b>A: </b>Cannot reproduce the problem with another Windows 7 with same VirtualBox and VM image.</div>
+  </div>
 </div>
 <div class="heading"><b>Q: </b>The cursor is captured to the VM screen, and the "host key" combination, which is indicated down-right of the screen and should enable the cursor to move outside of the VM machine screen, does not work (Windows 7 with a Swiss-French keyboard, VirtualBox 4.3.12)</div>
 <div class="body">
-	<div class="row">
-		<div class="it col-md-12"><b>A: </b>Cannot reproduce the problem with another Windows 7 with a Swiss-French keyboard with same VirtualBox and VM image.</div>
-	</div>
+  <div class="row">
+    <div class="it col-md-12"><b>A: </b>Cannot reproduce the problem with another Windows 7 with a Swiss-French keyboard with same VirtualBox and VM image.</div>
+  </div>
 </div>
 <div class="heading"><b>Q: </b>The VM doesn’t inherit the keyboard layout of the host machine</div>
 <div class="body">
-	<div class="row">
-		<div class="it col-md-12"><b>A: </b>The layout can be changed by using setxkbmap from a terminal. For example a user with a Swiss keyboard with French variant would type in the console: setxkbmap 'ch(fr)' and a user with a Finnish keyboard would do: setxkbmap fi.This can also be solved by using the GUI, which can be launched either from the graphical menu in the lower left corner (Preferences -> Keyboard) or by typing in the console: xfce4-keyboard-settings. In the Layout tab it’s possible to change the keyboard model and the layout. If you wish to keep these settings after reboot, you should delete all the other layouts from the menu.
-		</div>
-	</div>
+  <div class="row">
+    <div class="it col-md-12"><b>A: </b>The layout can be changed by using setxkbmap from a terminal. For example a user with a Swiss keyboard with French variant would type in the console: setxkbmap 'ch(fr)' and a user with a Finnish keyboard would do: setxkbmap fi.This can also be solved by using the GUI, which can be launched either from the graphical menu in the lower left corner (Preferences -> Keyboard) or by typing in the console: xfce4-keyboard-settings. In the Layout tab it’s possible to change the keyboard model and the layout. If you wish to keep these settings after reboot, you should delete all the other layouts from the menu.
+    </div>
+  </div>
 </div>
 <div class="heading"><b>Q: </b>The default terminal doesn’t accept (not even from clipboard) nor display certain language specific characters such as umlauts.</div>
 <div class="body">
-	<div class="row">
-		<div class="it col-md-12"><b>A: </b>Using a terminal such as xterm will allow reading and writing special characters.</div>
-	</div>
+  <div class="row">
+    <div class="it col-md-12"><b>A: </b>Using a terminal such as xterm will allow reading and writing special characters.</div>
+  </div>
 </div>
 <div class="heading"><b>Q: </b>This concerns users who use high resolutions on small displays and have set their host machines DPI manually, for example through .Xresources on Linux (X11). The problem is that everything is too small to be read efficiently due to DPI set incorrectly. This can also be helpful to users who have difficulties in reading the fonts and other visual information on the image due to the size of the graphical components.
 </div>
 <div class="body">
-	<div class="row">
-		<div class="it col-md-12"><b>A: </b>DPI can easily be adjusted from Xfce menu -> Preferences -> Appearance -> Fonts -> DPI. This enhances the readability and general usability significantly.</div>
-	</div>
+  <div class="row">
+    <div class="it col-md-12"><b>A: </b>DPI can easily be adjusted from Xfce menu -> Preferences -> Appearance -> Fonts -> DPI. This enhances the readability and general usability significantly.</div>
+  </div>
 </div>
 {% endmacro %}
