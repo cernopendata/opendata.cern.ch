@@ -55,38 +55,27 @@
     <div class="container no-padding">
       <div class="col-md-8 col-xs-12 pull-left no-padding">
         <ul class="col-md-3 col-xs-3">
-          <li class="title">MENU1</li>
-          <li>Submenu1</li>
-          <li>Submenu2</li>
-          <li>Submenu3</li>
-          <li>Submenu4</li>
+          <li class="title"><a href="{{ url_for('search')}}">SEARCH</a></li>
         </ul>
         <ul class="col-md-3 col-xs-3">
-          <li class="title">MENU2</li>
-          <li>Submenu1</li>
-          <li>Submenu2</li>
-          <li>Submenu3</li>
-          <li>Submenu4</li>
-          <li>Submenu5</li>
-          <li>Submenu6</li>
+          <li class="title"><a href="{{ url_for('experiments')}}">EXPERIMETNS</a></li>
+          <li><a href="{{ url_for('collection/CMS')}}">CMS</a></li>
+          <li><a href="{{ url_for('collection/ALICE')}}">ALICE</a></li>
         </ul>
         <ul class="col-md-3 col-xs-3">
-          <li class="title">INFO</li>
-          <li>Info1</li>
-          <li>Info2</li>
-          <li>Info3</li>
+          <li class="title"><a href="{{ url_for('news')}}">NEWS</a></li>
         </ul>
         <ul class="col-md-3 col-xs-3">
-          <li class="title">MORE</li>
-          <li>More Things 1</li>
-          <li>More Things 2</li>
+          <li class="title"><a href="{{ url_for('about')}}">ABOUT</a></li>
+          <li>Portal</li>
+          <li>CMS OpenData</li>
+          <li>ALICE OpenData</li>
         </ul>
       </div>
       <div class="actions col-md-4 col-xs-12 pull-right">
-        <ul>
-          <li class="title col-md-4 col-xs-12">ACTION1</li>
-          <li class="title col-md-4 col-xs-12">ACTION2</li>
-          <li class="title col-md-4 col-xs-12">ACTION3</li>
+        <ul class="pull-right">
+          <li class="title col-md-4 col-xs-12"><a href="{{ url_for('education') }}">EDUCATION</a></li>
+          <li class="title col-md-4 col-xs-12"><a href="{{ url_for('research') }}">RESEARCH</a></li>
         </ul>
       </div>
       <div class="center-block legal">
