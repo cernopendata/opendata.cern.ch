@@ -1,0 +1,48 @@
+<h1 id="getting-started-with-cms-data">Getting started with CMS data</h1>
+<h2 id="-i-have-installed-the-cern-virtual-machine-now-what-">"I have installed the CERN Virtual Machine: now what?"</h2>
+<p>Congratulations! You have the <a href="opendata.cern.ch/data/VMs">CERN working environment</a> up and running!</p>
+<p>Note that in order to analyse CMS data collected in 2010, you need <strong>CMSSW version 4.2.8 (patch7)</strong>, supported only on <strong>Scientific Linux 5</strong>. The CMSSW command <code>cmsrel</code> you executed in the <a href="http://open-data.cern.ch/data/VMs#validate">validation stage</a> ensures that you have the right version running. Make sure you are always in the <strong>CMSSW_4_2_8patch7/src/</strong> directory by performing the <code>cd CMSSW_4_2_8patch7/src/</code> every time you boot the VM and open the terminal.</p>
+<h2 id="-ok-where-can-i-get-the-cms-data-">"OK! Where can I get the CMS data?"</h2>
+<p>It is best if we start off with a quick introduction to <strong><a href="http://root.cern.ch">ROOT</a></strong>. ROOT is the framework used by several particle-physics experiments to work with the collected data. Although analysis is not itself performed within a ROOT file, it is instructive to understand how these files are structured and what data and collections they contain.</p>
+<p>The CMS data provided on the CERN Open Data Portal is in a format called "<a href="FIXME! What is AOD?">Analysis Object Data</a>" or AOD for short. These AOD files are prepared by piecing raw data collected by various sub-detectors of CMS and contain all the information that is needed for analysis. The files cannot be opened and understood as simple data tables but require ROOT in order to be read.</p>
+<p>So, let's see what an AOD file looks like and take ROOT for a spin!</p>
+<ul>
+<li>Making sure that you are in the <strong>CMSSW_4_2_8patch7/src/</strong> folder, execute the following command in your terminal to launch the CMS analysis environment:</li>
+</ul>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>$&nbsp;cmsenv</span></span></span></div></pre><ul>
+<li>You can now open a CMS AOD file in ROOT. Let us open one of the files by entering the following command:</li>
+</ul>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>$&nbsp;root&nbsp;root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/AOD/Apr21ReReco-v1/0000/00459D48-EB70-E011-AF09-90E6BA19A252.root</span></span></span></div></pre><ul>
+<li>You will see the ROOT logo appear on screen. You can now open the ROOT GUI by entering:</li>
+</ul>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>TBrowser&nbsp;t</span></span></span></div></pre><ul>
+<li>Excellent! You have successfully opened a CMS AOD file in ROOT. If this was the first time you've done so, pat yourself on the back. Now, to see what is inside this file, let us take a closer look at some collections of <a href="FIXME! CMS Physics Objects">physics objects</a>.</li>
+<li>On the left window of ROOT (see the screenshot below), double-click on the file name (<code>root://eospublic.cern.ch//eos/opendata/…</code>), followed by <code>Events</code> and then <code>Collections</code>. You should see a list of collections of physics objects.
+<img src="/Users/achintya/github/opendata.cern.ch/invenio_opendata/base/templates/helpers/images/Screenshot_001_TBrowser_t.png" alt="Screenshot: After running &quot;TBrowser t&quot;"></li>
+<li>Let us take a peek, for example, at the following electron collection, as shown on the list of <a href="FIXME! CMS Physics Objects">physics objects</a>: <code>recoGsfElectrons_gsfElectrons__RECO</code>. Look in there by double-clicking on that line and then double-clicking on <code>recoGsfElectrons_gsfElectrons__RECO.obj</code>.
+Here, you can have a look at various properties of this collection, such as the plot for the transverse momentum of the electrons: <code>recoGsfElectrons_gsfElectrons__RECO.obj.pt_</code>.</li>
+</ul>
+<h2 id="-nice-but-how-do-i-analyse-these-data-">"Nice! But how do I analyse these data?"</h2>
+<h2 id="how-is-a-cms-analysis-performed-">How is a CMS analysis performed?</h2>
+<ul>
+<li>Data collected by subdetectors, reconstructed, re-reconstructed, made into AOD</li>
+<li>Write analyzer that reduces the dataset, either in terms of number of events or in terms of information carried by each event.</li>
+<li>Run analysis code (this can be part of the analyzer stage or done afterwards: be smart about how you write your code!)</li>
+</ul>
+<h3 id="cms-analysable-data">CMS analysable data</h3>
+<ul>
+<li>AOD<ul>
+<li>FILENAME nomenclature</li>
+</ul>
+</li>
+</ul>
+<p>Note that in AOD files, reconstructed physics objects are included without cheking their "quality", i.e. in case of our electron, without applying further selection criteria, which assure that the reconstructed object is really an electron. This is something that we need to do in the analysis step.</p>
+<h3 id="applying-cuts-and-reducing-the-data-sample">Applying cuts and reducing the data sample</h3>
+<p>The analysis selections can be inserted in a software module called "analyzer" written in C++. If you have followed the validation step for the virtual machine setup, you have already produced and run a simple analyzer, and this is where you can further elaborate the selections and other operations needed for the analysis. To learn more, you can follow the instructions in <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWriteFrameworkModule">https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWriteFrameworkModule</a> but make sure to replace the release version (CMSSW_nnn) with the release that you are using, which is compatible with the CMS open data.</p>
+<p>You can also pass the selection criteria through the configuration file. If you have followed the validation step for the virtual machine setup, you have already seen a configuration file, which is used to give the parameters to the cmsRun executable. You can see how this is done in the analysis example.</p>
+<p>We have provided an analysis example in two steps. In the first step, in <a href="https://github.com/ayrodrig/pattuples2010">https://github.com/ayrodrig/pattuples2010</a> intermediate data files with only selected contents is produced. We have done this for you, as it takes nine days to process the data for this step. So you do not need to run this step, but have a look at the configuration file in <a href="https://github.com/ayrodrig/pattuples2010/blob/master/PAT_data_repo.py">https://github.com/ayrodrig/pattuples2010/blob/master/PAT_data_repo.py</a> You can see that the line <code>removeAllPATObjectsBut(process, ['Muons','Electrons'])</code> removes all other "PATObjects" but muon and electrons, which will be needed in the final analysis step, and [<strong>VALIDATIONINFO INCLUDED</strong>]. We are using here the tools in the Physics Analysis Toolkit (PAT) which perform includes tools for analysis operations, which are common to many different analysis. You can learn more in <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookPAT">https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookPAT</a> but be aware that these instructions are in use in CMS and have been updated for more recent releases. With the 2010 data, you should always use the releases in the series of CMSSW_4_2 and not higher. Take also note that more recent code does not work with this older release, so whenever you see "git cms-addpkg..." in the instruction, it is likely that added code package does not work with this release. However, the material under the pages gives you a good idea what are the tools in PAT.</p>
+<h3 id="analysing-data-sample">Analysing data sample</h3>
+<p>Now, as the intermediate file have been produced for you, you can go directly to the next step in <a href="https://github.com/ayrodrig/OutreachExercise2010">https://github.com/ayrodrig/OutreachExercise2010</a> Follow the instructions on that page. Note that running over the full, even if reduced, data sets take time, so if you want just give it a try, you can limit the number events or read only part of the files. You will find the configuration file in OutreachExercise2010/DecaysToLeptons/run/run.py It is a more complex configuration file than those that we have seen before and it reads additional information from files in the OutreachExercise2010/DecaysToLeptons/python directory. To run the example, you will need to change the path in the file names in sources.py. For example, replace file:/data2/pattuples2010/Mu/Mu_PAT_data_500files_1.root with root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/PATtuples/Mu_PAT_data_500files_1.root</p>
+<p>After the command
+ipython run.py
+ipython, which is used in this example, gets configured and the job starts.</p>
