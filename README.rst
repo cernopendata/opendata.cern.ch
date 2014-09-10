@@ -54,6 +54,7 @@ helper script and proceed as follows:
                                         -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana.xml \
                                         -f invenio_opendata/testsuite/data/cms/cms-eventdisplay-files.xml \
                                         -f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
+                                        -f invenio_opendata/testsuite/data/cms/cms-tools-ispy.xml \
                                         -f invenio_opendata/testsuite/data/cms/cms-tools-vm-image.xml \
                                         -e force-recids" \
         ./invenio2-kickstart --yes-i-know --yes-i-really-know
