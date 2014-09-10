@@ -68,17 +68,17 @@ def index2():
 @blueprint.route('education', defaults={'exp':'all'})
 @blueprint.route('education/<string:exp>')
 def educate(exp):
-	cms_reclist = Collection.query.filter(Collection.name == 'CMS Derived Datasets').first_or_404().reclist
+	cms_reclist = Collection.query.filter(Collection.name == 'CMSDerivedDatasets').first_or_404().reclist
 	cms = []
 	for rec in cms_reclist[:6]:
 		cms.append(get_record(rec))
 
-	cmstools_reclist = Collection.query.filter(Collection.name == 'CMS Tools').first_or_404().reclist
+	cmstools_reclist = Collection.query.filter(Collection.name == 'CMSTools').first_or_404().reclist
 	cmstools = []
 	for tool in cmstools_reclist[:3]:
 		cmstools.append(get_record(tool))
 
-	alice_reclist = Collection.query.filter(Collection.name == 'ALICE Simplified Datasets').first_or_404().reclist
+	alice_reclist = Collection.query.filter(Collection.name == 'ALICESimplifiedDatasets').first_or_404().reclist
 	# alice_reclist = randomise(Collection.query.filter(Collection.name == 'ALICE Simplified Datasets').first_or_404().reclist, 6)
 	alice = []
 	for rec in alice_reclist[:6]:
@@ -92,17 +92,17 @@ def educate(exp):
 @blueprint.route('research', defaults={'exp':'all'})
 @blueprint.route('research/<string:exp>')
 def research(exp):
-	cms_reclist = Collection.query.filter(Collection.name == 'CMS Primary Datasets').first_or_404().reclist
+	cms_reclist = Collection.query.filter(Collection.name == 'CMSPrimaryDatasets').first_or_404().reclist
 	cms = []
 	for rec in cms_reclist[:6]:
 		cms.append(get_record(rec))
 
-	cmstools_reclist = Collection.query.filter(Collection.name == 'CMS Tools').first_or_404().reclist
+	cmstools_reclist = Collection.query.filter(Collection.name == 'CMSTools').first_or_404().reclist
 	cmstools = []
 	for tool in cmstools_reclist[:3]:
 		cmstools.append(get_record(tool))
 
-	alice_reclist = Collection.query.filter(Collection.name == 'ALICE Analyses').first_or_404().reclist
+	alice_reclist = Collection.query.filter(Collection.name == 'ALICEAnalyses').first_or_404().reclist
 	alice = []
 	for rec in alice_reclist[:6]:
 		alice.append(get_record(rec))
