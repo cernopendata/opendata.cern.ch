@@ -49,9 +49,14 @@
 	 				<div class="title col-md-12">CMS Items</div>
 	 			</div>
 	 			<ul class="cms-list row">
-	 				
 	 				{% for r in cms %}
-	 					{{ document_recbox(r['title']['title'], r['recid']|string, r['authors'][0]['full_name'], r['comment'], 'CMS Derived Dataset', r['files']|length) }}
+	 					{% if 'authors' in r %}
+							{{ document_recbox(r['title']['title'], r['recid']|string, r['authors'][0]['full_name'], r['abstract']['summary'], 'CMS Derived Dataset', r['files']|length) }}
+						{% elif '_first_corporate_name' in r %}
+							{{ document_recbox(r['title']['title'], r['recid']|string, r['_first_corporate_name']['name'], r['abstract']['summary'], 'CMS Derived Dataset', r['files']|length) }}
+
+	 					{% endif %}
+	 					
 	 				{% endfor %}
 	 			</ul>
 	 			<div class="seeall center-block">
@@ -62,7 +67,12 @@
 	 			<div class="row"><div class="title col-md-12">CMS Tools</div></div>
 	 			<ul class="row">
 	 				{% for t in cmstools %}
-	 					{{ document_recbox(t['title']['title'], t['recid']|string, t['authors'][0]['full_name'], t['comment'], 'CMS Tools', t['files']|length, "col-md-12" ) }}
+	 				{% if 'comment' in t %}
+	 					{{ document_recbox(t['title']['title'], t['recid']|string, t['authors'][0]['full_name'],t['comment'] , 'CMS Tools', t['files']|length, "col-md-12" ) }}
+	 				{% else %}
+	 					{{ document_recbox(t['title']['title'], t['recid']|string, t['authors'][0]['full_name'], t['abstract']['summary'], 'CMS Tools', t['files']|length, "col-md-12" ) }}
+	 				{% endif%}
+
 	 				{% endfor %}
 	 			</ul>
 	 			<div class="seeall center-block">
