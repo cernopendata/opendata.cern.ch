@@ -56,6 +56,7 @@ helper script and proceed as follows:
                                         -f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
                                         -f invenio_opendata/testsuite/data/cms/cms-tools-ispy.xml \
                                         -f invenio_opendata/testsuite/data/cms/cms-tools-vm-image.xml \
+                                        -f invenio_opendata/testsuite/data/cms/cms-validated-runs.xml \
                                         -e force-recids" \
         ./invenio2-kickstart --yes-i-know --yes-i-really-know
 
