@@ -190,7 +190,7 @@ def about_cms():
 @blueprint.route('about/alice')
 def about_alice():
 	try:
-		return render_template('about_cms.html')
+		return render_template('about_alice.html')
 	except TemplateNotFound:
 		return abort(404)
 
