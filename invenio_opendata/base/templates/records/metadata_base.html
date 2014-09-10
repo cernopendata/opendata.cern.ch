@@ -27,7 +27,7 @@
     <div class="row">
       <div class="rec_details col-md-12">
         <div class="row">
-          <div class="title col-md-12">{{ record['title']['title'] }}<span>{{ record['imprint']['date']}}</span></div>
+          <div class="title col-md-12">{{ record.get('title',{}).get('title','') }}<span>{{ record['imprint']['date']}}</span></div>
           <div class="rec_authors {% if (record['authors']|length) < 5 %} col-md-12" {% else %} " id="rec_authors_rdmore" {% endif %} >
             {% for auth in record['authors'] %}
             <a href="#">{{ auth['full_name'] }}</a>
