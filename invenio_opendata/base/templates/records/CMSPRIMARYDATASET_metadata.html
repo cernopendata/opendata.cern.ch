@@ -4,8 +4,9 @@
 				<div class="title col-md-12">{{ record['title']['title'] }}<span>{{ record['imprint']['date']}}</span>
 				</div>
 				<div class="rec_authors {% if (record['authors']|length) < 5 %} col-md-12" {% else %} " id="rec_authors_rdmore" {% endif %} >
+					<kbd>{{ record['_first_corporate_name']['name'] }}</kbd>
 					{% for auth in record['authors'] %}
-					<a href="#">{{ auth['full_name'] }}</a>
+					<a href="{{url_for('search', p='author:'+auth['last_name']+', '+auth['first_name'])}}">{{ auth['full_name'] }}</a>
 					{% endfor %}
 				</div>
 			</div>
@@ -30,15 +31,19 @@
 			<div class="rec_title title">Description</div>
 		</div>
 		<div class="col-md-12">
-			<div class="rec_desc">{{record['comment']}}</div>
+			<div class="rec_desc">{{record['abstract']['summary']}}</div>
 		</div>
 	</div>
 </div>
 <div class="rec_metadata rec_files">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="rec_title title">Files <a href="{{ url_for('record.files', recid=recid) }}">(see all files)</a></div>
+				<div class="col-md-12">
+			<div class="rec_title title">Files <a {% if 'files' in record %}class="disabled"{%endif%} href="{{ url_for('record.files', recid=recid) }}">(see all files)</a></div>
 		</div>
+		{% if record['files'] == [] %}
+			<div class="col-md-12" style="margin-top: 20px;font-size: 16px;color: #606D75;font-weight: 100;">There are no files for this record</div>
+		{% else %}
+		
 		<div class="col-md-12">
 			<div class="rec_file_box">
 				<ul class="row">
@@ -64,5 +69,6 @@
 				</ul>
 			</div>
 		</div>
+		{% endif %}
 	</div>
 </div>

@@ -63,8 +63,8 @@
         							</ul>
         						</div>
         						<div class="recbut pull-right col-md-5">
-        							<button class="btn">Download</button>
-        							<button class="btn">Preview</button>
+        							<button class="btn" onClick="window.location.href='{{file["url"]}}'">Download</button>
+        							<button class="btn" onClick="window.location.href='#previewer'">Preview</button>
         						</div>
         					</div>
         				</div>
@@ -78,7 +78,7 @@
 	<div class="rec_metadata rec_preview">
 		<div class="row">
 			<div class="col-md-12">
-        		<div class="rec_title title pull-left">Preview</div>
+        		<div id="previewer"  class="rec_title title pull-left">Preview</div>
         		<div class="pull-right">
 					<div class="ch_display">
 						<button type="button" class="btn fa fa-search-minus"></button>
@@ -89,7 +89,7 @@
 				</div>
         	</div>
         	<div class="col-md-12">
-        		<div class="rec_preview_box">
+        		<div  class="rec_preview_box">
         			<iframe id="evd" width="100%" height="675" src="http://cern.ch/ispy-online"></iframe>
         		</div>
         	</div>

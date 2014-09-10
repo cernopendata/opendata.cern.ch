@@ -1,7 +1,7 @@
 <div class="row" style="margin: -25px -20px;">
 	<div id="rec_dedicated_box" class="rec_dedicated_details col-md-12 panel-group">
 		<div class="rec_dedicated_details_in rdd-sel panel">
-			<div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#selection">Instructions<span class="pull-right fa fa-angle-down"></span></div>
+			<div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#selection">How were these data selected?<span class="pull-right fa fa-angle-down"></span></div>
 			<div id="selection" class="info collapse">
 				<div class="body">This data was selected by lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum repudiandae reiciendis modi sapiente amet.</div>
 				<div class="links">
@@ -15,11 +15,9 @@
 		<div class="rec_dedicated_details_in rdd-val panel">
 			<div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#validation">How were these data validated?<span class="pull-right fa fa-angle-down"></span></div>
 			<div id="validation" class="info collapse">
-				<div class="body">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+				<div class="body">{{ record['action_note']['action'] }}</div>
 				<div class="links"">
 					<ul>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link2</a></li>
 					</ul>
 				</div>
 			</div>
@@ -30,8 +28,7 @@
 				<div class="body">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
 				<div class="links">
 					<ul>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link2</a></li>
+						<li><a href="{{ url_for('cms/getstarted') }}">CMS Getting Started</a></li>
 					</ul>
 				</div>
 			</div>
@@ -52,7 +49,8 @@
 			<div class="title">Disclaimer</div>
 			<div id="disclaimer" class="info">
 				<div class="row">
-					<div class="body col-md-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod mollitia expedita deleniti, voluptas atque ducimus nam perferendis aspernatur laudantium vero distinctio rem, repudiandae et, blanditiis, nihil ipsam recusandae! Quaerat, illum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto veniam officiis, distinctio soluta, nostrum ducimus, quaerat ut accusamus consequuntur, accusantium ex amet ipsam tempore illum placeat commodi reprehenderit nulla iure.</div>
+					<div class="body col-md-12">The open data are released under Creative Commons Zero (CC0). CMS or CERN do not endorse any works, scientific or otherwise, produced using these data.</br>
+					All releases will have a unique DOI that should be cited in any applications or publications.</div>
 					<div class="col-md-12">
 						<div class="ccommons">
 							<img src="{{ url_for('static', filename='img/cc.svg') }}" alt="">
