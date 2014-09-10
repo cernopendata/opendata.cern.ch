@@ -1,5 +1,5 @@
-{% macro about_msg() %}
-	CERN Virtual Machines allow you to run Scientific Linux on any operating system and access the CERN working environments and software tools. The CMS-specific VM includes the <a href="http://root.cern.ch/">ROOT framework</a> and <a href="http://cms-sw.github.io/">CMSSW</a>. Follow the instructions below to setup a CERN Virtual Machine on your computer. Then, go to <a href="FIXME!"></a>Getting Started with CMS data</a>.
+{% macro about_msg(url) %}
+	CERN Virtual Machines allow you to run Scientific Linux on any operating system and access the CERN working environments and software tools. The CMS-specific VM includes the <a href="http://root.cern.ch/">ROOT framework</a> and <a href="http://cms-sw.github.io/">CMSSW</a>. Follow the instructions below to setup a CERN Virtual Machine on your computer. Then, go to <a href="{{url}}">Getting Started with CMS data</a>.
 {% endmacro %}
 
 {% macro install_s1() %}
