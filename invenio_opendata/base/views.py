@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##
 ## This file is part of Invenio.
-## Copyright (C) 2013 CERN.
+## Copyright (C) 2013, 2014 CERN.
 ##
 ## Invenio is free software; you can redistribute it and/or
 ## modify it under the terms of the GNU General Public License as
@@ -68,7 +68,7 @@ def index2():
 @blueprint.route('education', defaults={'exp':'all'})
 @blueprint.route('education/<string:exp>')
 def educate(exp):
-	cms_reclist = Collection.query.filter(Collection.name == 'CMS Derived Dataset').first_or_404().reclist
+	cms_reclist = Collection.query.filter(Collection.name == 'CMS Derived Datasets').first_or_404().reclist
 	cms = []
 	for rec in cms_reclist[:6]:
 		cms.append(get_record(rec))
@@ -78,8 +78,8 @@ def educate(exp):
 	for tool in cmstools_reclist[:3]:
 		cmstools.append(get_record(tool))
 
-	alice_reclist = Collection.query.filter(Collection.name == 'ALICE Simplified Dataset').first_or_404().reclist
-	# alice_reclist = randomise(Collection.query.filter(Collection.name == 'ALICE Simplified Dataset').first_or_404().reclist, 6)
+	alice_reclist = Collection.query.filter(Collection.name == 'ALICE Simplified Datasets').first_or_404().reclist
+	# alice_reclist = randomise(Collection.query.filter(Collection.name == 'ALICE Simplified Datasets').first_or_404().reclist, 6)
 	alice = []
 	for rec in alice_reclist[:6]:
 		alice.append(get_record(rec))
@@ -92,7 +92,7 @@ def educate(exp):
 @blueprint.route('research', defaults={'exp':'all'})
 @blueprint.route('research/<string:exp>')
 def research(exp):
-	cms_reclist = Collection.query.filter(Collection.name == 'CMS Primary Dataset').first_or_404().reclist
+	cms_reclist = Collection.query.filter(Collection.name == 'CMS Primary Datasets').first_or_404().reclist
 	cms = []
 	for rec in cms_reclist[:6]:
 		cms.append(get_record(rec))
@@ -102,7 +102,7 @@ def research(exp):
 	for tool in cmstools_reclist[:3]:
 		cmstools.append(get_record(tool))
 
-	alice_reclist = Collection.query.filter(Collection.name == 'ALICE Analysis').first_or_404().reclist
+	alice_reclist = Collection.query.filter(Collection.name == 'ALICE Analyses').first_or_404().reclist
 	alice = []
 	for rec in alice_reclist[:6]:
 		alice.append(get_record(rec))

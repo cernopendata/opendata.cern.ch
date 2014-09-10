@@ -15,7 +15,7 @@
 					</ul>
 				</div>
 			</div>
-		
+
 	</li>
 {% endmacro %}
 {% macro datasample_recbox(title, id, link=false, image='default.jpg') %}
@@ -51,12 +51,12 @@
 	 			<ul class="cms-list row">
 	 				{% for r in cms %}
 	 					{% if 'authors' in r %}
-							{{ document_recbox(r['title']['title'], r['recid']|string, r['authors'][0]['full_name'], r['abstract']['summary'], 'CMS Derived Dataset', r['files']|length) }}
+							{{ document_recbox(r['title']['title'], r['recid']|string, r['authors'][0]['full_name'], r['abstract']['summary'], 'CMS Derived Datasets', r['files']|length) }}
 						{% elif '_first_corporate_name' in r %}
-							{{ document_recbox(r['title']['title'], r['recid']|string, r['_first_corporate_name']['name'], r['abstract']['summary'], 'CMS Derived Dataset', r['files']|length) }}
+							{{ document_recbox(r['title']['title'], r['recid']|string, r['_first_corporate_name']['name'], r['abstract']['summary'], 'CMS Derived Datasets', r['files']|length) }}
 
 	 					{% endif %}
-	 					
+
 	 				{% endfor %}
 	 			</ul>
 	 			<div class="seeall center-block">
@@ -83,7 +83,7 @@
 	 	<div class="tab-pane fade {%  if exp in ['ALICE'] %}in active{% endif%}" id="ALICE">
 	 		<ul class="row">
 	 			{% for r in alice %}
- 					{{ document_recbox(r['title']['title'], r['recid']|string, r['authors'][0]['full_name'], r['comment'], 'Alice Analysis', r['files']|length) }}
+ 					{{ document_recbox(r['title']['title'], r['recid']|string, r['authors'][0]['full_name'], r['comment'], 'ALICE Analyses', r['files']|length) }}
 	 			{% endfor %}
 	 		</ul>
 	 		<div class="seeall">
@@ -117,7 +117,7 @@
 			{% endblock leftside_actions %}
 		</div>
 	</div>
-</div>	
+</div>
 {% endif %}
 
 

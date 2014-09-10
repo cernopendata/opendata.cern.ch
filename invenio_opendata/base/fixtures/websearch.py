@@ -30,14 +30,14 @@ class CollectionData(DataSet):
         name = 'CMS'
         dbquery = None
 
-    class CMSPrimaryDataset(siteCollection):
+    class CMSPrimaryDatasets(siteCollection):
         id = 3
-        name = 'CMS Primary Dataset'
+        name = 'CMS Primary Datasets'
         dbquery = '980__a:"CMSPRIMARYDATASET"'
 
-    class CMSDerivedDataset(siteCollection):
+    class CMSDerivedDatasets(siteCollection):
         id = 4
-        name = 'CMS Derived Dataset'
+        name = 'CMS Derived Datasets'
         dbquery = '980__a:"CMSDERIVEDDATASET"'
 
     class ALICE(siteCollection):
@@ -45,14 +45,14 @@ class CollectionData(DataSet):
         name = 'ALICE'
         dbquery = None
 
-    class ALICESimplifiedDataset(siteCollection):
+    class ALICESimplifiedDatasets(siteCollection):
         id = 6
-        name = 'ALICE Simplified Dataset'
+        name = 'ALICE Simplified Datasets'
         dbquery = '980__a:"ALICESIMPLIFIEDDATASET"'
 
-    class ALICEAnalysis(siteCollection):
+    class ALICEAnalyses(siteCollection):
         id = 7
-        name = 'ALICE Analysis'
+        name = 'ALICE Analyses'
         dbquery = '980__a:"ALICEANALYSIS"'
 
     class CMSTools(siteCollection):
@@ -69,15 +69,15 @@ class CollectionCollectionData(DataSet):
         score = 0
         type = 'r'
 
-    class CMS_CMSPrimaryDataset:
+    class CMS_CMSPrimaryDatasets:
         dad = CollectionData.CMS
-        son = CollectionData.CMSPrimaryDataset
+        son = CollectionData.CMSPrimaryDatasets
         score = 0
         type = 'r'
 
-    class CMS_CMSDerivedDataset:
+    class CMS_CMSDerivedDatasets:
         dad = CollectionData.CMS
-        son = CollectionData.CMSDerivedDataset
+        son = CollectionData.CMSDerivedDatasets
         score = 1
         type = 'r'
 
@@ -93,15 +93,15 @@ class CollectionCollectionData(DataSet):
         score = 1
         type = 'r'
 
-    class ALICE_ALICESimplifiedDataset:
+    class ALICE_ALICESimplifiedDatasets:
         dad = CollectionData.ALICE
-        son = CollectionData.ALICESimplifiedDataset
+        son = CollectionData.ALICESimplifiedDatasets
         score = 0
         type = 'r'
 
-    class ALICE_ALICEAnalysis:
+    class ALICE_ALICEAnalyses:
         dad = CollectionData.ALICE
-        son = CollectionData.ALICEAnalysis
+        son = CollectionData.ALICEAnalyses
         score = 1
         type = 'r'
 
@@ -184,7 +184,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_9:
-        body = u'ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset'
+        body = u'ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets'
         id = 9
         title = u'description'
 
@@ -194,7 +194,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_11:
-        body = u'ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis'
+        body = u'ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses'
         id = 11
         title = u'description'
 
@@ -244,56 +244,56 @@ class CollectionPortalboxData(DataSet):
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_5.ref('id')
         score = 100
-        id_collection = CollectionData.CMSPrimaryDataset.ref('id')
+        id_collection = CollectionData.CMSPrimaryDatasets.ref('id')
 
     class CollectionPortalbox_3_6_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_6.ref('id')
         score = 100
-        id_collection = CollectionData.CMSPrimaryDataset.ref('id')
+        id_collection = CollectionData.CMSPrimaryDatasets.ref('id')
 
     class CollectionPortalbox_4_7_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_7.ref('id')
         score = 100
-        id_collection = CollectionData.CMSDerivedDataset.ref('id')
+        id_collection = CollectionData.CMSDerivedDatasets.ref('id')
 
     class CollectionPortalbox_4_8_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_8.ref('id')
         score = 100
-        id_collection = CollectionData.CMSDerivedDataset.ref('id')
+        id_collection = CollectionData.CMSDerivedDatasets.ref('id')
 
     class CollectionPortalbox_6_9_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_9.ref('id')
         score = 100
-        id_collection = CollectionData.ALICEAnalysis.ref('id')
+        id_collection = CollectionData.ALICEAnalyses.ref('id')
 
     class CollectionPortalbox_6_10_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_10.ref('id')
         score = 100
-        id_collection = CollectionData.ALICEAnalysis.ref('id')
+        id_collection = CollectionData.ALICEAnalyses.ref('id')
 
     class CollectionPortalbox_7_11_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_11.ref('id')
         score = 100
-        id_collection = CollectionData.ALICESimplifiedDataset.ref('id')
+        id_collection = CollectionData.ALICESimplifiedDatasets.ref('id')
 
     class CollectionPortalbox_7_12_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_12.ref('id')
         score = 100
-        id_collection = CollectionData.ALICESimplifiedDataset.ref('id')
+        id_collection = CollectionData.ALICESimplifiedDatasets.ref('id')
 
     class CollectionPortalbox_8_13_en:
         ln = u'en'
