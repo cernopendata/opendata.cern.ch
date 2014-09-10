@@ -32,7 +32,7 @@ class CollectionData(DataSet):
 
     class CMSPrimaryDatasets(siteCollection):
         id = 3
-        name = 'CMSPrimaryDatasets'
+        name = 'CMS-Primary-Datasets'
         dbquery = '980__a:"CMSPRIMARYDATASET"'
         names = {
             ('en', 'ln'): u'CMS Primary Datasets',
@@ -40,7 +40,7 @@ class CollectionData(DataSet):
 
     class CMSDerivedDatasets(siteCollection):
         id = 4
-        name = 'CMSDerivedDatasets'
+        name = 'CMS-Derived-Datasets'
         dbquery = '980__a:"CMSDERIVEDDATASET"'
         names = {
             ('en', 'ln'): u'CMS Derived Datasets',
@@ -53,7 +53,7 @@ class CollectionData(DataSet):
 
     class ALICESimplifiedDatasets(siteCollection):
         id = 6
-        name = 'ALICESimplifiedDatasets'
+        name = 'ALICE-Simplified-Datasets'
         dbquery = '980__a:"ALICESIMPLIFIEDDATASET"'
         names = {
             ('en', 'ln'): u'ALICE Simplified Datasets',
@@ -61,7 +61,7 @@ class CollectionData(DataSet):
 
     class ALICEAnalyses(siteCollection):
         id = 7
-        name = 'ALICEAnalyses'
+        name = 'ALICE-Analyses'
         dbquery = '980__a:"ALICEANALYSIS"'
         names = {
             ('en', 'ln'): u'ALICE Analyses',
@@ -69,7 +69,7 @@ class CollectionData(DataSet):
 
     class CMSTools(siteCollection):
         id = 8
-        name = 'CMSTools'
+        name = 'CMS-Tools'
         dbquery = '980__a:"CMSTOOL"'
         names = {
             ('en', 'ln'): u'CMS Tools',
@@ -77,7 +77,7 @@ class CollectionData(DataSet):
 
     class CMSValidatedRuns(siteCollection):
         id = 9
-        name = 'CMSValidatedRuns'
+        name = 'CMS-Validated-Runs'
         dbquery = '980__a:"CMSVALIDATEDRUN"'
         names = {
             ('en', 'ln'): u'CMS Validated Runs',
