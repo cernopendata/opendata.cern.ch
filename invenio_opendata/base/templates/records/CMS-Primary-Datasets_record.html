@@ -15,7 +15,7 @@
 	{% if g.bibrec.is_restricted %}
 	<div class="alert alert-danger">
 		<div class="container"><b>{{ _('Restricted') }}</b>
-		{%- if g.bibrec.is_processed %} 
+		{%- if g.bibrec.is_processed %}
 		{{ _('Processed Record') }}
 		{%- endif -%}
 		</div>
@@ -28,10 +28,10 @@
 	<div class="container">
 		<div class="record-content clearfix">
 			<div class="col-md-12 col-sm-12 main clearfix">
-				{% include 'records/CMSPRIMARYDATASET_metadata.html' %}
+				{% include 'records/CMS-Primary-Datasets_metadata.html' %}
 			</div>
 			<div class="col-md-12 col-sm-12 sidebar clearfix">
-				{% include 'records/CMSPRIMARYDATASET_dedicated.html' %}
+				{% include 'records/CMS-Primary-Datasets_dedicated.html' %}
 			</div>
 		</div>
 	</div>
