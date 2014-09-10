@@ -60,6 +60,11 @@ class CollectionData(DataSet):
         name = 'CMS Tools'
         dbquery = '980__a:"CMSTOOL"'
 
+    class CMSValidatedRuns(siteCollection):
+        id = 9
+        name = 'CMS Validated Runs'
+        dbquery = '980__a:"CMSVALIDATEDRUN"'
+
 
 class CollectionCollectionData(DataSet):
 
