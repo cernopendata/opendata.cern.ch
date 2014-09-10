@@ -23,7 +23,7 @@
 {% block record_content %}
 
 <div id="record_content">
-	
+
 	<div class="rec_header">
 		<div class="row">
 			<div class="rec_details col-md-12">
@@ -57,7 +57,7 @@
         					<div class="row">
         						<div class="recdet pull-left col-md-7 ">
         							<ul class="row">
-        								<li class="rectitle col-md-12"><a href="{{file['full_path']}}">{{file['full_name']}}</a></li>
+        								<li class="rectitle col-md-12"><a href="{{file['url']}}">{{file['full_name']}}</a></li>
         								<li class="recsize col-md-12"><b>Size:</b> {{ file['size'] | filesizeformat }}</li>
         								<li class="recdesc col-md-12"><b>Description:</b> {{ 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat omnis laborum provident eveniet distinctio incidunt cupiditate'| truncate(50) }}</li>
         							</ul>
@@ -74,7 +74,7 @@
         	</div>
         </div>
 	</div>
-	
+
 	<div class="rec_metadata rec_preview">
 		<div class="row">
 			<div class="col-md-12">

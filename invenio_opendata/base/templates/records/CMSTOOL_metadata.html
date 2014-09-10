@@ -8,7 +8,7 @@
 					<a href="#">{{ auth['full_name'] }}</a>
 					{% endfor %}
 				</div>
-			</div>				
+			</div>
 			<div class="col-md-12 ">
 				{% if record['doi'] %}
 				<div class="rec_thumb rec_doi">
@@ -31,7 +31,7 @@
 		</div>
 		<div class="col-md-12">
 			<div class="rec_desc">{{record['comment']}}</div>
-		</div>            
+		</div>
 	</div>
 </div>
 <div class="rec_metadata rec_files">
@@ -48,7 +48,7 @@
 							<div class="row">
 								<div class="pull-left col-md-7">
 									<ul class="row">
-										<li class="col-md-12"><a href="{{file['full_path']}}">{{file['full_name']}}</a></li>
+										<li class="col-md-12"><a href="{{file['url']}}">{{file['full_name']}}</a></li>
 										<li class="col-md-12"><b>Size:</b> {{ file['size'] | filesizeformat }}</li>
 										<li class="col-md-12"><b>Description:</b> {{ 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat omnis laborum provident eveniet distinctio incidunt cupiditate'| truncate(50) }}</li>
 									</ul>

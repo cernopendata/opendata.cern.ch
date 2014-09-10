@@ -16,7 +16,7 @@
 		</div>
 		<div class="col-md-12">
 			<div class="rec_desc">{{record['comment']}}</div>
-		</div>            
+		</div>
 	</div>
 </div>
 <div class="rec_metadata rec_preview">
@@ -28,7 +28,7 @@
 			<div class="rec_preview_box">
 				<iframe id="evd" width="100%" height="675" src="http://cern.ch/ispy-online"></iframe>
 			</div>
-		</div>            
+		</div>
 	</div>
 </div>
 <div class="rec_metadata rec_files">
@@ -45,7 +45,7 @@
 							<div class="row">
 								<div class="pull-left col-md-7">
 									<ul class="row">
-										<li class="col-md-12"><a href="{{file['full_path']}}">{{file['full_name']}}</a></li>
+										<li class="col-md-12"><a href="{{file['url']}}">{{file['full_name']}}</a></li>
 										<li class="col-md-12"><b>Size:</b> {{ file['size'] | filesizeformat }}</li>
 										<li class="col-md-12"><b>Description:</b> {{ 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat omnis laborum provident eveniet distinctio incidunt cupiditate'| truncate(50) }}</li>
 									</ul>
