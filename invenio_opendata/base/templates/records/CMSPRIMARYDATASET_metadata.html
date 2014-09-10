@@ -41,7 +41,7 @@
 			<div class="rec_title title">Files <a {% if 'files' in record %}class="disabled"{%endif%} href="{{ url_for('record.files', recid=recid) }}">(see all files)</a></div>
 		</div>
 		{% if record['files'] == [] %}
-			<div class="col-md-12" style="margin-top: 20px;font-size: 16px;color: #606D75;font-weight: 100;">There are no files for this record</div>
+			<div class="col-md-12" style="margin-top: 20px;font-size: 16px;color: #606D75;font-weight: 100;">The files can be accessed using the <a href="{{url_for('VMs')}}">Virtual Machine</a></div>
 		{% else %}
 		
 		<div class="col-md-12">
