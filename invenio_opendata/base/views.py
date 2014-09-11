@@ -194,6 +194,13 @@ def about_alice():
 	except TemplateNotFound:
 		return abort(404)
 
+@blueprint.route('about/CMS-Physics-Objects')
+def about_physics():
+	try:
+		return render_template('about_physics_objects.html')
+	except TemplateNotFound:
+		return abort(404)
+
 @blueprint.route('experiments')
 @blueprint.route('collections')
 @blueprint.route('collection')
