@@ -156,11 +156,11 @@ def visualise():
 	except TemplateNotFound:
 		return abort(404)
 
-@blueprint.route('VMs')
-@blueprint.route('vms')
-def data_vms():
+@blueprint.route('VM', defaults={'exp':None})
+@blueprint.route('VM/<string:exp>')
+def data_vms(exp):
 	try:
-		return render_template('data_vms.html')
+		return render_template('data_vms.html', exp = exp)
 	except TemplateNotFound:
 		return abort(404)
 
