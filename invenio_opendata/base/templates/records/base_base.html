@@ -27,7 +27,7 @@
 	{% if g.bibrec.is_restricted %}
 	<div class="alert alert-danger">
 		<b>{{ _('Restricted') }}</b>
-		{%- if g.bibrec.is_processed %} 
+		{%- if g.bibrec.is_processed %}
 		{{ _('Processed Record') }}
 		{%- endif -%}
 	</div>
@@ -41,7 +41,7 @@
 			<div class="col-md-8 pull-left">
 				<p>{{ record.get('title')['title'] }}</p>
 			</div>
-			
+
 		</div>
 	</div>
 </div>
@@ -63,7 +63,7 @@
 		</li>
 		{%- endif -%}
 		{%- endfor -%}
-		</ul>		
+		</ul>
 	</div>
 </div>
 {% endblock %}
@@ -128,18 +128,21 @@
 						</div>
 					</div>
 				</div>
+                                {% if record.get('documentation_note', '') %}
 				<div class="rec_dedicated_details_in rdd-limits panel">
 					<div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#limitations">Issues & Limitations </div>
 					<div id="limitations" class="info  ccollapse">
-						<div class="body">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+						<div class="body">{{ record.get('documentation_note', {}).get('note', '') }}</div>
 						<div class="links">
-							<ul>
-								<li><a href="#">Link 1</a></li>
-								<li><a href="#">Link2</a></li>
-							</ul>
+                                                  {% if record.get('documentation_note.recid', '') %}
+				                  <ul>
+				                    <li><a href="{{ url_for('record.metadata', recid=record.get('documentation_note.recid', '')) }}">Record {{ record.get('documentation_note.recid', '') }}</a></li>
+				                  </ul>
+                                                  {% endif %}
 						</div>
 					</div>
 				</div>
+                                {% endif %}
 				<div class="rec_dedicated_details_in rdd-disclaimer panel">
 					<div class="title">Disclaimer</div>
 					<div id="disclaimer" class="info">
@@ -158,6 +161,6 @@
 		</div>
 	</div>
 </div>
-	
+
 <div style="clear: both;"></div>
 {% endblock %}
