@@ -2,6 +2,51 @@
 
 
 {% block body %}
+<style>
+		#about-alice {
+			color: #606D75;
+			text-align: justify;
+		}
+		#about-alice h1 {
+			margin-bottom: 30px;
+		}
+		#about-alice p {
+			font-weight: 100;
+			font-size: 18px;
+		}
+		#about-alice h2 {
+			text-align: center;
+			margin-top: 25px;
+			margin-bottom: 30px;
+			padding: 10px;
+		}
+		#about-alice ul, ol {
+			display: inline-block;
+			font-weight: 100;
+			/*font-size: 16px;*/
+		}
+		#about-alice ul li, #about-alice ol li {
+			padding-bottom: 5px;
+			width: 100%;
+		}
+		#about-alice ul div>ul {
+			margin-left: 20px;
+		}
+		#about-alice ol>li>div {
+			font-weight: 400;
+		}
+		#about-alice ol>li>ul {
+			margin-left: 20px;
+			margin-top: 5px;
+		}
+
+		#about-alice .about-box {
+			background-color: #f4f4f4;
+			border-radius: 4px;
+			display: inline-block;
+			margin-bottom: 30px;
+		}
+</style>
 
 <section class="infobar">
 	<div class="container">
@@ -11,9 +56,20 @@
 	</div>
 </section>	
 
-<section class="content">
+<section id="about-alice" class="content">
 	<div class="container">
-		<div id="ALICE">
+		<div id="ALICE" class="row">
+			
+			<div class="col-md-12">
+				<h1>About ALICE</h1>
+				<p>ALICE (A Large Ion Collider Experiment) is one of seven detector experiments at the Large Hadron Collider at CERN. The other six are: ATLAS, CMS, TOTEM, LHCb, LHCf and MoEDAL.</p>
+
+				<p>ALICE is optimized to study heavy-ion (Pb-Pb nuclei) collisions at a centre of mass energy of 2.76 TeV per nucleon pair. The resulting temperature and energy density are expected to be high enough to produce quark–gluon plasma, a state of matter wherein quarks and gluons are freed. Similar conditions are believed to existed a fraction of the second after the Big Bang before quarks and gluons bound together to form hadrons and heavier particles.</p>
+			</div>
+			<div class="col-md-12">
+				<h1>About ALICE Data</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad minima veritatis repellendus placeat suscipit voluptate ea quas. Magnam impedit, nemo dignissimos assumenda fuga inventore ea, est, maxime totam enim cumque.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt dolores deserunt odit excepturi similique ut minima voluptatem eius, veritatis amet explicabo rem sit reiciendis illo atque. Hic, eius. Maxime, harum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem esse expedita non dolores. Expedita ullam incidunt adipisci blanditiis placeat facere officia, earum qui minus modi doloribus pariatur, ipsa eveniet aliquam.</p>
+			</div>
 		</div>
 	</div>
 </section>

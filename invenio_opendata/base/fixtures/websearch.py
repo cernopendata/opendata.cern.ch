@@ -30,35 +30,58 @@ class CollectionData(DataSet):
         name = 'CMS'
         dbquery = None
 
-    class CMSPrimaryDataset(siteCollection):
+    class CMSPrimaryDatasets(siteCollection):
         id = 3
-        name = 'CMS Primary Dataset'
-        dbquery = '980__a:"CMSPRIMARYDATASET"'
+        name = 'CMS-Primary-Datasets'
+        dbquery = '980__a:"CMS-Primary-Datasets"'
+        names = {
+            ('en', 'ln'): u'CMS Primary Datasets',
+        }
 
-    class CMSDerivedDataset(siteCollection):
+    class CMSDerivedDatasets(siteCollection):
         id = 4
-        name = 'CMS Derived Dataset'
-        dbquery = '980__a:"CMSDERIVEDDATASET"'
+        name = 'CMS-Derived-Datasets'
+        dbquery = '980__a:"CMS-Derived-Datasets"'
+        names = {
+            ('en', 'ln'): u'CMS Derived Datasets',
+        }
 
     class ALICE(siteCollection):
         id = 5
         name = 'ALICE'
         dbquery = None
 
-    class ALICESimplifiedDataset(siteCollection):
+    class ALICESimplifiedDatasets(siteCollection):
         id = 6
-        name = 'ALICE Simplified Dataset'
-        dbquery = '980__a:"ALICESIMPLIFIEDDATASET"'
+        name = 'ALICE-Simplified-Datasets'
+        dbquery = '980__a:"ALICE-Simplified-Datasets"'
+        names = {
+            ('en', 'ln'): u'ALICE Simplified Datasets',
+        }
 
-    class ALICEAnalysis(siteCollection):
+    class ALICEAnalyses(siteCollection):
         id = 7
-        name = 'ALICE Analysis'
-        dbquery = '980__a:"ALICEANALYSIS"'
+        name = 'ALICE-Analyses'
+        dbquery = '980__a:"ALICE-Analyses"'
+        names = {
+            ('en', 'ln'): u'ALICE Analyses',
+        }
 
     class CMSTools(siteCollection):
         id = 8
-        name = 'CMS Tools'
-        dbquery = '980__a:"CMSTOOL"'
+        name = 'CMS-Tools'
+        dbquery = '980__a:"CMS-Tools"'
+        names = {
+            ('en', 'ln'): u'CMS Tools',
+        }
+
+    class CMSValidatedRuns(siteCollection):
+        id = 9
+        name = 'CMS-Validated-Runs'
+        dbquery = '980__a:"CMS-Validated-Runs"'
+        names = {
+            ('en', 'ln'): u'CMS Validated Runs',
+        }
 
 
 class CollectionCollectionData(DataSet):
@@ -69,15 +92,15 @@ class CollectionCollectionData(DataSet):
         score = 0
         type = 'r'
 
-    class CMS_CMSPrimaryDataset:
+    class CMS_CMSPrimaryDatasets:
         dad = CollectionData.CMS
-        son = CollectionData.CMSPrimaryDataset
+        son = CollectionData.CMSPrimaryDatasets
         score = 0
         type = 'r'
 
-    class CMS_CMSDerivedDataset:
+    class CMS_CMSDerivedDatasets:
         dad = CollectionData.CMS
-        son = CollectionData.CMSDerivedDataset
+        son = CollectionData.CMSDerivedDatasets
         score = 1
         type = 'r'
 
@@ -93,15 +116,15 @@ class CollectionCollectionData(DataSet):
         score = 1
         type = 'r'
 
-    class ALICE_ALICESimplifiedDataset:
+    class ALICE_ALICESimplifiedDatasets:
         dad = CollectionData.ALICE
-        son = CollectionData.ALICESimplifiedDataset
+        son = CollectionData.ALICESimplifiedDatasets
         score = 0
         type = 'r'
 
-    class ALICE_ALICEAnalysis:
+    class ALICE_ALICEAnalyses:
         dad = CollectionData.ALICE
-        son = CollectionData.ALICEAnalysis
+        son = CollectionData.ALICEAnalyses
         score = 1
         type = 'r'
 
@@ -144,7 +167,7 @@ class CollectionFormatData(DataSet):
 class PortalboxData(DataSet):
 
     class Portalbox_1:
-        body = u'The <b>CMS</b> (Compact Muon Solenoid) experiment is one of two large general-purpose particle physics detectors built on the Large Hadron Collider (LHC) at CERN in Switzerland and France. The goal of CMS experiment is to investigate a wide range of physics, including the search for the Higgs boson, extra dimensions, and particles that could make up dark matter.'
+        body = u'The CMS (Compact Muon Solenoid) experiment is one of two large general-purpose particle physics detectors built on the Large Hadron Collider (LHC) at CERN in Switzerland and France. The goal of CMS is to investigate a wide range of physics, including properties of the recently discovered Higgs boson as well as searches for extra dimensions and particles that could make up dark matter.'
         id = 1
         title = u'description'
 
@@ -164,7 +187,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_5:
-        body = u'CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset.CMS Primary Dataset'
+        body = u'CMS primary data sets are AOD (Analysis Object Data) files, which contain the information that is needed for analysis: (1) all the high-level physcis objects(such as muons, electrons, etc.) (2) tracks with associated hits, calorimetric clusters with associated hits, vertices and (3) information about event selection (triggers), data needed for further selection and identification criteria for the physics objects.'
         id = 5
         title = u'description'
 
@@ -174,7 +197,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_7:
-        body = u'CMS Derived Dataset.CMS Derived Dataset.CMS Derived Dataset.CMS Derived Dataset.CMS Derived Dataset.CMS Derived Dataset.CMS Derived Dataset.CMS Derived Dataset.CMS Derived Dataset.CMS Derived Dataset'
+        body = u'This collection includes any data, which have been derived from the CMS primary data sets. They may be reduced in sense that only part of the information is kept, or only part of the events are selected. - It includes data sets, which may be accessed using the VM image of the CMS environment, and data sets, which are adapted to other tools and applications. The tools and instruction to use and access these data are linked to the record.'
         id = 7
         title = u'description'
 
@@ -184,7 +207,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_9:
-        body = u'ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset.ALICE Simplified Dataset'
+        body = u'ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets'
         id = 9
         title = u'description'
 
@@ -194,7 +217,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_11:
-        body = u'ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis.ALICE Analysis'
+        body = u'ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses'
         id = 11
         title = u'description'
 
@@ -202,6 +225,11 @@ class PortalboxData(DataSet):
         body = u'default.png'
         id = 12
         title = u'image'
+
+    class Portalbox_13:
+        body = u'This collection includes tools, with which the CMS open data can be accessed and used. It contains the VM image of the CMS environment through which the data sets can be read. It includes the software with which the derived data sets were produced, and analysis examples. It also contains the source code for the online applications deployed on this site.'
+        id = 13
+        title = u'description'
 
 
 class CollectionPortalboxData(DataSet):
@@ -239,56 +267,63 @@ class CollectionPortalboxData(DataSet):
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_5.ref('id')
         score = 100
-        id_collection = CollectionData.CMSPrimaryDataset.ref('id')
+        id_collection = CollectionData.CMSPrimaryDatasets.ref('id')
 
     class CollectionPortalbox_3_6_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_6.ref('id')
         score = 100
-        id_collection = CollectionData.CMSPrimaryDataset.ref('id')
+        id_collection = CollectionData.CMSPrimaryDatasets.ref('id')
 
     class CollectionPortalbox_4_7_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_7.ref('id')
         score = 100
-        id_collection = CollectionData.CMSDerivedDataset.ref('id')
+        id_collection = CollectionData.CMSDerivedDatasets.ref('id')
 
     class CollectionPortalbox_4_8_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_8.ref('id')
         score = 100
-        id_collection = CollectionData.CMSDerivedDataset.ref('id')
+        id_collection = CollectionData.CMSDerivedDatasets.ref('id')
 
     class CollectionPortalbox_6_9_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_9.ref('id')
         score = 100
-        id_collection = CollectionData.ALICEAnalysis.ref('id')
+        id_collection = CollectionData.ALICEAnalyses.ref('id')
 
     class CollectionPortalbox_6_10_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_10.ref('id')
         score = 100
-        id_collection = CollectionData.ALICEAnalysis.ref('id')
+        id_collection = CollectionData.ALICEAnalyses.ref('id')
 
     class CollectionPortalbox_7_11_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_11.ref('id')
         score = 100
-        id_collection = CollectionData.ALICESimplifiedDataset.ref('id')
+        id_collection = CollectionData.ALICESimplifiedDatasets.ref('id')
 
     class CollectionPortalbox_7_12_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_12.ref('id')
         score = 100
-        id_collection = CollectionData.ALICESimplifiedDataset.ref('id')
+        id_collection = CollectionData.ALICESimplifiedDatasets.ref('id')
+
+    class CollectionPortalbox_8_13_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_13.ref('id')
+        score = 100
+        id_collection = CollectionData.CMSTools.ref('id')
 
 
 __all__ = (

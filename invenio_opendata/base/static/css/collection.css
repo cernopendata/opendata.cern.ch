@@ -3,17 +3,18 @@
 	margin: 0;
 }
 .collRecords .tab-content .title {
-	text-align: left;
+	text-align: center;
+	padding-top: 10px;
 	padding-bottom: 20px;
 	font-size: 23px;
 	font-weight: 600px;
-	color: #606D75;
+	color: #fff;
 }
 
 .collRecords .tab-content .cms-list {
-	border-right: 1px solid #d4d4d4;
 
 }
+
 .collRecords .tab-content
 .recordbox {
 	background-color: #fff;
@@ -27,6 +28,15 @@
 
 #CMS.tab-pane > div > ul {
 	height: 420px;
+}
+
+#CMS.tab-pane > .col-md-8 {
+	background-color: #A2B0BB;
+	border-radius: 3px 0 0 3px;
+}
+#CMS.tab-pane > .col-md-4 {
+	background-color: #B6C2CA;
+	border-radius: 0 3px 3px 0;
 }
 
 .recordbox a,
@@ -86,6 +96,7 @@
 	padding-bottom: 3px;
 	overflow: hidden;
 	height: 40px;
+	background-color: #f5f5f5;
 }
 .recordbox .details .recbox-info {
 	background-color: #d4d4d4;

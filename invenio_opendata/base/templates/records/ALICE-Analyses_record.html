@@ -1,0 +1,41 @@
+{% extends 'page.html' %}
+
+{#
+{% set title = title %}
+#}
+{% block title %}
+{% endblock title %}
+
+
+{% block body %}
+
+{% include 'search/form/index.html' %}
+
+{% block record_restriction_flag %}
+	{% if g.bibrec.is_restricted %}
+	<div class="alert alert-danger">
+		<div class="container"><b>{{ _('Restricted') }}</b>
+		{%- if g.bibrec.is_processed %}
+		{{ _('Processed Record') }}
+		{%- endif -%}
+		</div>
+	</div>
+	{% endif %}
+{% endblock %}
+
+
+<section id="record_reduced" class="content record">
+	<div class="container">
+		<div class="record-content clearfix">
+			<div class="col-md-8 col-sm-12 main clearfix">
+				{% include 'records/ALICE-Analyses_metadata.html' %}
+			</div>
+			<div class="col-md-4 col-sm-12 sidebar clearfix">
+				{% include 'records/ALICE-Analyses_dedicated.html' %}
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% endblock %}

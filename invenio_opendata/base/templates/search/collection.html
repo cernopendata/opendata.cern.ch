@@ -196,7 +196,7 @@
     }
     #subcollection .coll-overview .coll-box {
       background-color: #f4f4f4;
-      padding: 20px 30px;
+      padding: 20px 15px;
       text-align: center; 
       height: auto;
       display: inline-block;
@@ -259,7 +259,7 @@
       background-color: #f4f4f4;
     }
     #subcollection .results-title {
-      padding-top: 45px;
+      padding-top: 25px;
       padding-bottom: 40px;
       font-size: 40px;
       font-weight: 100;
@@ -275,6 +275,13 @@
       line-height: 3;
       color: #fff;
       border-radius: 5px;
+    }
+    #subcollection .coll-desc {
+      text-align: center;
+      color: #899AA5;
+      font-weight: 300;
+      font-size: 20px;
+      margin-bottom: 20px;
     }
   </style>
   {{super()}}
@@ -312,9 +319,23 @@
 {%- endblock index_title %}
 
 
+
 <section id="subcollection" class="collections">
   <div class="container">
   {%- block index_right -%}
+  <div class="col-md-12">
+    {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+    {% for pb in collection.portalboxes %}
+    {% if (pb.portalbox.title == 'description') %}
+    {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+    {% elif (pb.portalbox.title == 'image') %}
+    {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+    {% endif %} 
+    {% endfor %}
+    <div class="coll-desc">
+      {{ collection.portalboxes[0].portalbox.body }}
+    </div>
+  </div>
   {% if collection.collection_children_r %}
     <div class="row">
       <div class="col-md-12 coll-overview">

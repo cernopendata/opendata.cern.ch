@@ -4,11 +4,11 @@
 			<div class="education">
 				<div class="entrypoints pull-right">
 					<div class="upper">
-						<a href="{{ url_for('educate')}}">For Education</a>
+						<a href="{{ url_for('education')}}">For Education</a>
 					</div>
 					<div class="bottom">
-						<a href="{{ url_for('educate/CMS') }}" class="corner center-block" style="border-right: 1px solid #fff;">CMS</a>
-						<a href="{{ url_for('educate/ALICE') }}" class="center-block">ALICE</a>
+						<a href="{{ url_for('education/CMS') }}" class="corner center-block" style="border-right: 1px solid #fff;">CMS</a>
+						<a href="{{ url_for('education/ALICE') }}" class="center-block">ALICE</a>
 					</div>
 				</div>
 				<div class="entryactions" style="float:right;text-align:right;">
@@ -37,9 +37,8 @@
 					<div>
 						<div class="goto">Go to Links:</div>
 						<ul>
-							<a href=" {{ url_for('getstarted') }}"><li><span class="fa fa-ge"></span>Getting started</li></a>
 							<a href=" {{ url_for('VMs') }}"><li><span class="fa fa-database"></span>Working Environments (<a href="{{ url_for('install/CMS/workspace') }}">CMS</a> / <a href="{{ url_for('install/ALICE/workspace') }}">ALICE</a>)</li></a>
-							
+							<a href=" {{ url_for('getstarted') }}"><li><span class="fa fa-ge"></span>Getting started</li></a>
 							<a href=" {{ url_for('data') }}"><li><span class="fa fa-lightbulb-o"></span>more...</li></a>
 						</ul>
 					</div>
