@@ -1,8 +1,8 @@
 <div class="row" style="margin: -25px -20px;">
   <div id="rec_dedicated_box" class="rec_dedicated_details col-md-12 panel-group">
     <div class="rec_dedicated_details_in rdd-sel panel">
-      <div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#selection">Instructions<span class="pull-right fa fa-angle-down"></span></div>
-      <div id="selection" class="info ccollapse">
+      <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#selection">Instructions<span class="pull-right fa fa-angle-up"></span></div>
+      <div id="selection" class="info collapse">
         <div class="body">This data was selected by lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum repudiandae reiciendis modi sapiente amet.</div>
         <div class="links">
           <ul>
@@ -13,8 +13,8 @@
       </div>
     </div>
     <div class="rec_dedicated_details_in rdd-val panel">
-      <div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#validation">Validation<span class="pull-right fa fa-angle-down"></span></div>
-      <div id="validation" class="info ccollapse">
+      <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#validation">Validation<span class="pull-right fa fa-angle-up"></span></div>
+      <div id="validation" class="info collapse">
         <div class="body">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
         <div class="links"">
           <ul>
@@ -26,8 +26,8 @@
     </div>
     {% if record.get('documentation_note', '') %}
       <div class="rec_dedicated_details_in rdd-limits panel">
-        <div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#limitations">Issues & Limitations<span class="pull-right fa fa-angle-down"></span></div>
-        <div id="limitations" class="info ccollapse">
+        <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#limitations">Issues & Limitations<span class="pull-right fa fa-angle-up"></span></div>
+        <div id="limitations" class="info collapse">
           <div class="body">{{ record.get('documentation_note', {}).get('note', '') }}</div>
           <div class="links">
             {% if record.get('documentation_note.recid', '') %}
