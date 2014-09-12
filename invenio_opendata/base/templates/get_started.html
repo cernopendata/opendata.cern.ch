@@ -157,8 +157,12 @@
             <div class="heading">"I have installed the CERN Virtual Machine: now what?"</div>
             <div class="body">
               <p>
-                Note that in order to analyse CMS data collected in 2010, you need <strong>CMSSW version 4.2.8 </strong>, supported only on <strong>Scientific Linux 5</strong>. The CMSSW command <kbd>cmsrel</kbd> you executed in the <a href="{{url_for('VM#validate')}}">validation stage</a> ensures that you have the right version running. Make sure you are always in the <strong>CMSSW_4_2_8/src/</strong> directory by performing the <kbd>cd CMSSW_4_2_8/src/</kbd> every time you boot the VM and open the terminal.
+                First, have you <a href="{{url_for('VM#validate')}}">validated</a> the Virtual machine after installation? This step is very important! The CMSSW command <kbd>cmsrel CMSSW_4_2_8</kbd> you executed during validation ensures that you have the right version of CMSSW running: to analyse CMS data collected in 2010, you need <strong>version 4.2.8</strong>, supported only on <strong>Scientific Linux 5</strong>.
               </p>
+              <p>
+                Then, make sure that you are always in the <strong>CMSSW_4_2_8/src/</strong> directory by entering the following command in the terminal (you must do so every time you boot the VM before you can proceed):
+              </p>
+              <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>$&nbsp;cd CMSSW_4_2_8/src/</span></span></span></div></pre>
             </div>
           </div>
 
