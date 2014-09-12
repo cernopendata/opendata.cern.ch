@@ -4,280 +4,280 @@
 
 {% block body %}
 
-<style>
-	
-.howto_step .heading {
-	width: 100%;
-	background-color: #f4f4f4;
-	font-size: 20px;
-	font-weight: 100;
-	color: #606D75;
-	padding: 15px 10px;
-	/*border-right: 5px solid #606D75;*/
-	border-left: 5px solid #606D75;
-}
-.howto_step .body {
-	padding: 15px;
-	background-color: #e6e6e6;
-	font-size: 16px;
-	
-}
-.howto_step .body {
-	color: #606D75;
-}
-.howto_step .body p {
-	padding-top: 10px;
-	padding-bottom: 10px;
-	font-size: 16px;
-	font-weight: 100;
-	color: #606D75;
+  <style>
 
-}
-.howto_step img {
-	width: 70%;
-	margin:  20px 15%;
-	padding: 15px;
-	background-color: #606D75;
-	border-radius: 4px;
-}
-.howto_step .it	 {
-	margin-bottom: 5px;
-}
+    .howto_step .heading {
+      width: 100%;
+      background-color: #f4f4f4;
+      font-size: 20px;
+      font-weight: 100;
+      color: #606D75;
+      padding: 15px 10px;
+      /*border-right: 5px solid #606D75;*/
+      border-left: 5px solid #606D75;
+    }
+    .howto_step .body {
+      padding: 15px;
+      background-color: #e6e6e6;
+      font-size: 16px;
 
-#create.howto_step  .body .row:nth-child(2n) {
-	background-color: #fff;
-	margin-top: 15px;
-	margin-bottom: 15px;
-}
+    }
+    .howto_step .body {
+      color: #606D75;
+    }
+    .howto_step .body p {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 16px;
+      font-weight: 100;
+      color: #606D75;
 
-#vm_howto_nav ul {
-	background-color: #f4f4f4;
-}
-#vm_howto_nav ul li {
-	background-color: #f4f4f4;
-}
-#vm_howto_nav ul li a,
-#vm_howto_nav ul li a:hover,
-#vm_howto_nav ul li a:focus {
-	color: #777;
-	font-weight: 100;
-	font-size: 18px;
-	height: 55px;
-}
+    }
+    .howto_step img {
+      width: 70%;
+      margin:  20px 15%;
+      padding: 15px;
+      background-color: #606D75;
+      border-radius: 4px;
+    }
+    .howto_step .it      {
+      margin-bottom: 5px;
+    }
 
-.title.info_title h5 {
-	margin-top: 30px;
-	margin-bottom: 30px;
-	font-size: 26px;
-	font-weight: 100;
-	color: #657580;	
-}
+    #create.howto_step  .body .row:nth-child(2n) {
+      background-color: #fff;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
 
-.about {
-	padding-top: 15px;
-	padding-bottom: 15px;
-	color: #657580;
-}
-.about h4 {
-	font-size: 20px;
-	text-align: justify;
-	font-weight: 100;
-}
+    #vm_howto_nav ul {
+      background-color: #f4f4f4;
+    }
+    #vm_howto_nav ul li {
+      background-color: #f4f4f4;
+    }
+    #vm_howto_nav ul li a,
+    #vm_howto_nav ul li a:hover,
+    #vm_howto_nav ul li a:focus {
+      color: #777;
+      font-weight: 100;
+      font-size: 18px;
+      height: 55px;
+    }
 
-span.circleme {
-	border-radius: 50%;
-	height: 40px;
-	background-color: #777;
-	color: #fff;
-	width: 40px;
-	display: block;
-	padding: 10px 0;
-	font-size: 20px;
-	text-align: center;
-	float: left;
-	margin-top: -8px;
-	margin-right: 10px;
-}
+    .title.info_title h5 {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      font-size: 26px;
+      font-weight: 100;
+      color: #657580;
+    }
 
-.body pre {
-	margin-left: 14px;
-	margin-right: 15px;
-	text-align: left;
-}
+    .about {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      color: #657580;
+    }
+    .about h4 {
+      font-size: 20px;
+      text-align: justify;
+      font-weight: 100;
+    }
 
-#vm_howto_content > .row {
-	margin-bottom: 20px;
-}
+    span.circleme {
+      border-radius: 50%;
+      height: 40px;
+      background-color: #777;
+      color: #fff;
+      width: 40px;
+      display: block;
+      padding: 10px 0;
+      font-size: 20px;
+      text-align: center;
+      float: left;
+      margin-top: -8px;
+      margin-right: 10px;
+    }
 
-.tab-pane .about .title {
-	text-align: center;
-	font-weight: 600;
-	font-size: 28px;
-	padding-bottom: 30px;
-}
+    .body pre {
+      margin-left: 14px;
+      margin-right: 15px;
+      text-align: left;
+    }
 
-	.coll-exp .thumb {
-		border-bottom: 1px solid #dfdfdf;
-		padding-bottom: 20px;
-	}
-	.coll-exp .thumb img {
-		height: 120px;
-		padding: 5px;
-		border-radius: 5px;
-		font-size: 30px;
-		font-weight: 100px;
-	}
-	
-	.coll-exp .title span{
-		float: left;
-		font-size: 16px;
-		font-weight: 400;
+    #vm_howto_content > .row {
+      margin-bottom: 20px;
+    }
 
-	}
-	.coll-exp .other {
-		padding-bottom: 25px;
-		height: 100%;
-		max-height: 150px;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-	.coll-exp .other span {
-		height: 120px;
-		text-overflow: ellipsis;
-		overflow: hidden;
-		display: block;
-	}
-	.coll-exp .exp-name {
-		padding: 20px;
-		font-size: 26px;
-		font-weight: 100;
-		color: #657580;
-	}
+    .tab-pane .about .title {
+      text-align: center;
+      font-weight: 600;
+      font-size: 28px;
+      padding-bottom: 30px;
+    }
 
-.coll-exp {
-		background-color: #f4f4f4;
-		padding: 30px;
-		text-align: center;	
-		height: auto;
-		display: inline-block;
-		font-weight: 100;
-		border-radius: 5px;
-		color: #657580;
-		margin-bottom: 20px;
-		width: 100%;
-	}	
+    .coll-exp .thumb {
+      border-bottom: 1px solid #dfdfdf;
+      padding-bottom: 20px;
+    }
+    .coll-exp .thumb img {
+      height: 120px;
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 30px;
+      font-weight: 100px;
+    }
 
-</style>
+    .coll-exp .title span{
+      float: left;
+      font-size: 16px;
+      font-weight: 400;
 
-{% with collection = 0 %}
-{% include 'search/form/index.html' %}
-{% endwith %}
-{% import 'helpers/text/vms_page.html' as text %}
+    }
+    .coll-exp .other {
+      padding-bottom: 25px;
+      height: 100%;
+      max-height: 150px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .coll-exp .other span {
+      height: 120px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: block;
+    }
+    .coll-exp .exp-name {
+      padding: 20px;
+      font-size: 26px;
+      font-weight: 100;
+      color: #657580;
+    }
 
-<section class="infobar">
-	<div class="container">
-		<div class="pull-left">
-			<a href="#general" role="tab" data-toggle="tab"><h3>CERN Virtual Machines</h3></a>
-		</div>
-		<div class="pull-right">
-			<ul class="exp-switch nav nav-tabs" role="tablist">
-				<li class="l {% if exp not in ['CMS', 'ALICE'] %} active	{% endif %}"><a href="#general" role="tab" data-toggle="tab">General</a></li>
-				<li class="{% if exp == 'CMS' %} active	{% endif %}"><a href="#CMS" role="tab" data-toggle="tab">CMS</a></li>
-				<li class="r {% if exp == 'ALICE' %} active	{% endif %}"><a href="#ALICE" role="tab" data-toggle="tab">ALICE</a></li>
-			</ul>
-		</div>
-	</div>
-</section>
+    .coll-exp {
+      background-color: #f4f4f4;
+      padding: 30px;
+      text-align: center;
+      height: auto;
+      display: inline-block;
+      font-weight: 100;
+      border-radius: 5px;
+      color: #657580;
+      margin-bottom: 20px;
+      width: 100%;
+    }
 
-<section class="content">
-	<div class="container">
-			<div class="about">
-				<h4 style="text-align: center;font-size: 24px;">{{ text.about_msg()}}</h4>
-			</div>
-		<div class="tab-content">
-			<div class="tab-pane fade {% if exp not in ['CMS', 'ALICE'] %} in active {% endif %}" id="general">
-				<div class="row">
-					<div class="col-md-6">
-						<a href="#CMS" role="tab" data-toggle="tab">
-							<div class="coll-exp">
-							<div class="top col-md-12">
-								<div class="col-md-6 col-md-offset-3 thumb"><img src="{{ url_for('static', filename='img/cms.gif') }}" alt="" class="img-cirle center-block"></div>
-								<div class="col-md-12 exp-name">CMS Virtual Machines</div>
-							</div>
-							</div></a>
-					</div>
-					<div class="col-md-6">
-						<a href="#ALICE" role="tab" data-toggle="tab">
-							<div class="coll-exp">
-								<div class="top col-md-12">
-									<div class="col-md-6 col-md-offset-3 thumb"><img src="{{ url_for('static', filename='img/ALICE.gif') }}" alt="" class="img-cirle center-block"></div>
-									<div class="col-md-12 exp-name">ALICE Virtual Machines</div>
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="tab-pane fade{% if exp == 'CMS' %} in active {% endif %}" id="CMS">
-				<div class="about">
-					<h4>{{ text.about_cms_msg(url_for('getstarted/CMS'))}}</h4>
-				</div>
-				<div class="row">
-					<nav id="vm_howto_nav" class="navbar col-md-12" role="navigation">
-						<ul class="nav navbar-nav col-md-12">
-							<li><a href="#install"><span class="circleme">1</span> How to install a CERN VM</a></li>
-							<li><a href="#validate"><span class="circleme">2</span>Testing & Validation Process</a></li>
-							<li><a href="#limitation"><span class="circleme">3</span>Issues & Limitations</a></li>
-						</ul>
-					</nav>
-				</div>				
-				<div id="vm_howto_content" data-spy="scroll" data-target="#vm_howto_nav" data-offset="300">
-					<div id="install" class="row">	
-						<div class="title info_title col-md-12"><h5>How to install a CERN Virtual Machine</h5></div>
-						<div id="vbox" class="howto_step col-md-12">
-							{{ text.install_s1() }}
-						</div>
-						<div id="create" class="howto_step col-md-12">
-							{{ text.install_s2() }}
-						</div>
-					</div>
-					<div id="validate" class="row">
-						<div class="title info_title col-md-12"><h5>How to Test & Validate?</h5></div>
-						<div class="howto_step col-md-12">
-							{{ text.validate_s1() }} 
-						</div>
-						<div class="howto_step col-md-12">
-							{{ text.validate_s2() }} 
-						</div>
-					</div>
-					<div id="limitation" class="row">
-						<div class="title info_title col-md-12"><h5>Known Issues & Limitations</h5></div>
-						<div class="howto_step col-md-12">
-							{{ text.limitation_s1() }}
-						</div>		
-					</div>
-				</div>
-			</div>
-			<div class="tab-pane fade{% if exp == 'ALICE' %} in active {% endif %}" id="ALICE">
-				<div class="about">
-					<h4>{{ text.about_alice_msg(url_for('getstarted/ALICE'))}}</h4>
-				</div>
-				<div class="row">
-					<nav id="vm_howto_nav" class="navbar col-md-12" role="navigation">
-						<ul class="nav navbar-nav col-md-12">
-							<li><a href="#vbox"><span class="circleme">1</span> How to install VirtualBox</a></li>
-							<li><a href="#create"><span class="circleme">2</span>Create a VM</a></li>
-							<li><a href="#configure"><span class="circleme">3</span>Configure a VM</a></li>
-						</ul>
-					</nav>
-				</div>	
-				{% include 'helpers/text/vms_alice_page.html' %}
-			</div>
-		</div>
-		
-	</div>
+  </style>
 
-</section>
+  {% with collection = 0 %}
+    {% include 'search/form/index.html' %}
+  {% endwith %}
+  {% import 'helpers/text/vms_page.html' as text %}
+
+  <section class="infobar">
+    <div class="container">
+      <div class="pull-left">
+        <a href="#general" role="tab" data-toggle="tab"><h3>CERN Virtual Machines</h3></a>
+      </div>
+      <div class="pull-right">
+        <ul class="exp-switch nav nav-tabs" role="tablist">
+          <li class="l {% if exp not in ['CMS', 'ALICE'] %} active      {% endif %}"><a href="#general" role="tab" data-toggle="tab">General</a></li>
+          <li class="{% if exp == 'CMS' %} active       {% endif %}"><a href="#CMS" role="tab" data-toggle="tab">CMS</a></li>
+          <li class="r {% if exp == 'ALICE' %} active   {% endif %}"><a href="#ALICE" role="tab" data-toggle="tab">ALICE</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="container">
+      <div class="about">
+        <h4 style="text-align: center;font-size: 24px;">{{ text.about_msg()}}</h4>
+      </div>
+      <div class="tab-content">
+        <div class="tab-pane fade {% if exp not in ['CMS', 'ALICE'] %} in active {% endif %}" id="general">
+          <div class="row">
+            <div class="col-md-6">
+              <a href="#CMS" role="tab" data-toggle="tab">
+                <div class="coll-exp">
+                  <div class="top col-md-12">
+                    <div class="col-md-6 col-md-offset-3 thumb"><img src="{{ url_for('static', filename='img/cms.gif') }}" alt="" class="img-cirle center-block"></div>
+                    <div class="col-md-12 exp-name">CMS Virtual Machines</div>
+                  </div>
+                </div></a>
+            </div>
+            <div class="col-md-6">
+              <a href="#ALICE" role="tab" data-toggle="tab">
+                <div class="coll-exp">
+                  <div class="top col-md-12">
+                    <div class="col-md-6 col-md-offset-3 thumb"><img src="{{ url_for('static', filename='img/ALICE.gif') }}" alt="" class="img-cirle center-block"></div>
+                    <div class="col-md-12 exp-name">ALICE Virtual Machines</div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade{% if exp == 'CMS' %} in active {% endif %}" id="CMS">
+          <div class="about">
+            <h4>{{ text.about_cms_msg(url_for('getstarted/CMS'))}}</h4>
+          </div>
+          <div class="row">
+            <nav id="vm_howto_nav" class="navbar col-md-12" role="navigation">
+              <ul class="nav navbar-nav col-md-12">
+                <li><a href="#install"><span class="circleme">1</span> How to install a CERN VM</a></li>
+                <li><a href="#validate"><span class="circleme">2</span>Testing & Validation Process</a></li>
+                <li><a href="#limitation"><span class="circleme">3</span>Issues & Limitations</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div id="vm_howto_content" data-spy="scroll" data-target="#vm_howto_nav" data-offset="300">
+            <div id="install" class="row">
+              <div class="title info_title col-md-12"><h5>How to install a CERN Virtual Machine</h5></div>
+              <div id="vbox" class="howto_step col-md-12">
+                {{ text.install_s1() }}
+              </div>
+              <div id="create" class="howto_step col-md-12">
+                {{ text.install_s2() }}
+              </div>
+            </div>
+            <div id="validate" class="row">
+              <div class="title info_title col-md-12"><h5>How to Test & Validate?</h5></div>
+              <div class="howto_step col-md-12">
+                {{ text.validate_s1() }}
+              </div>
+              <div class="howto_step col-md-12">
+                {{ text.validate_s2() }}
+              </div>
+            </div>
+            <div id="limitation" class="row">
+              <div class="title info_title col-md-12"><h5>Known Issues & Limitations</h5></div>
+              <div class="howto_step col-md-12">
+                {{ text.limitation_s1() }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade{% if exp == 'ALICE' %} in active {% endif %}" id="ALICE">
+          <div class="about">
+            <h4>{{ text.about_alice_msg(url_for('getstarted/ALICE'))}}</h4>
+          </div>
+          <div class="row">
+            <nav id="vm_howto_nav" class="navbar col-md-12" role="navigation">
+              <ul class="nav navbar-nav col-md-12">
+                <li><a href="#vbox"><span class="circleme">1</span> How to install VirtualBox</a></li>
+                <li><a href="#create"><span class="circleme">2</span>Create a VM</a></li>
+                <li><a href="#configure"><span class="circleme">3</span>Configure a VM</a></li>
+              </ul>
+            </nav>
+          </div>
+          {% include 'helpers/text/vms_alice_page.html' %}
+        </div>
+      </div>
+
+    </div>
+
+  </section>
 
 
 {% endblock %}

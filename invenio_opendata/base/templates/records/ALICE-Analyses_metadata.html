@@ -1,65 +1,65 @@
 <div class="rec_header">
-        <div class="rec_details row">
-                <div class="title col-md-12">{{ record.get('title',{}).get('title','') }}<span>{{ record['imprint']['date']}}</span>
-                </div>
-                <div class="rec_authors {% if (record['authors']|length) < 5 %} col-md-12" {% else %} " id="rec_authors_rdmore" {% endif %} >
-                        {% for auth in record['authors'] %}
-                        <a href="#">{{ auth['full_name'] }}</a>
-                        {% endfor %}
-                </div>
-        </div>
+  <div class="rec_details row">
+    <div class="title col-md-12">{{ record.get('title',{}).get('title','') }}<span>{{ record['imprint']['date']}}</span>
+    </div>
+    <div class="rec_authors {% if (record['authors']|length) < 5 %} col-md-12" {% else %} " id="rec_authors_rdmore" {% endif %} >
+      {% for auth in record['authors'] %}
+        <a href="#">{{ auth['full_name'] }}</a>
+      {% endfor %}
+    </div>
+  </div>
 </div>
 <div class="rec_metadata rec_description">
-        <div class="row">
-                <div class="col-md-12">
-                        <div class="rec_title title">Description</div>
-                </div>
-                <div class="col-md-12">
-                        <div class="rec_desc">{{record['comment']}}</div>
-                </div>
-        </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="rec_title title">Description</div>
+    </div>
+    <div class="col-md-12">
+      <div class="rec_desc">{{record['comment']}}</div>
+    </div>
+  </div>
 </div>
 <div class="rec_metadata rec_preview">
-        <div class="row">
-                <div class="col-md-12">
-                        <div class="rec_title title">Preview</div>
-                </div>
-                <div class="col-md-12">
-                        <div class="rec_preview_box">
-                                <iframe id="evd" width="100%" height="675" src="http://cern.ch/ispy-online"></iframe>
-                        </div>
-                </div>
-        </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="rec_title title">Preview</div>
+    </div>
+    <div class="col-md-12">
+      <div class="rec_preview_box">
+        <iframe id="evd" width="100%" height="675" src="http://cern.ch/ispy-online"></iframe>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="rec_metadata rec_files">
-        <div class="row">
-                <div class="col-md-12">
-                        <div class="rec_title title">Files <a href="{{ url_for('record.files', recid=recid) }}">(see all files)</a></div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="rec_title title">Files <a href="{{ url_for('record.files', recid=recid) }}">(see all files)</a></div>
+    </div>
+    <div class="col-md-12">
+      <div class="rec_file_box">
+        <ul class="row">
+          {% for file in record['files'] %}
+            <li class="col-md-4">
+              <div class="content_box">
+                <div class="row">
+                  <div class="pull-left col-md-7">
+                    <ul class="row">
+                      <li class="col-md-12"><a href="{{file['url']}}">{{file['full_name']}}</a></li>
+                      <li class="col-md-12"><b>Size:</b> {{ file['size'] | filesizeformat }}</li>
+                      <li class="col-md-12"><b>Description:</b> {{ 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat omnis laborum provident eveniet distinctio incidunt cupiditate'| truncate(50) }}</li>
+                    </ul>
+                  </div>
+                  <div class="pull-right col-md-5">
+                    <button class="btn">Download</button>
+                    <button class="btn">Preview</button>
+                  </div>
                 </div>
-                <div class="col-md-12">
-                        <div class="rec_file_box">
-                                <ul class="row">
-                                        {% for file in record['files'] %}
-                                        <li class="col-md-4">
-                                                <div class="content_box">
-                                                        <div class="row">
-                                                                <div class="pull-left col-md-7">
-                                                                        <ul class="row">
-                                                                                <li class="col-md-12"><a href="{{file['url']}}">{{file['full_name']}}</a></li>
-                                                                                <li class="col-md-12"><b>Size:</b> {{ file['size'] | filesizeformat }}</li>
-                                                                                <li class="col-md-12"><b>Description:</b> {{ 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat omnis laborum provident eveniet distinctio incidunt cupiditate'| truncate(50) }}</li>
-                                                                        </ul>
-                                                                </div>
-                                                                <div class="pull-right col-md-5">
-                                                                        <button class="btn">Download</button>
-                                                                        <button class="btn">Preview</button>
-                                                                </div>
-                                                        </div>
-                                                </div>
-                                        </li>
-                                        {% endfor %}
-                                </ul>
-                        </div>
-                </div>
-        </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

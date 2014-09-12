@@ -1,80 +1,80 @@
 {%- extends 'page.html' %}
 
 {% block body %}
-{% with collection = 0 %}
-{% include 'search/form/index.html' %}
-{% endwith %}
+  {% with collection = 0 %}
+    {% include 'search/form/index.html' %}
+  {% endwith %}
 
-<section class="infobar">
-	<div class="container">
-		<div class="pull-left">
-			<h3>For Research</h3>
-		</div>
-		<div class="pull-right">
-			<div class="hidden-xs" style="float: left; color:#fff;font-weight:100;font-size:14px;padding:5px;padding-right: 10px;">Choose your experiment:</div>
-			<ul class="exp-switch nav nav-tabs pull-right" role="tablist">
-				<li {% if exp in ['CMS','all'] %} class="active" {% endif %}><a href="#CMS" role="tab" data-toggle="tab">CMS</a></li>
-				<li {% if exp == 'ALICE' %} class="active" {% endif %}><a href="#ALICE" role="tab" data-toggle="tab">ALICE</a></li>
-			</ul>
-		</div>
-	</div>
-</section>
-<section class="entrypoint_collections">
-{% with show_navbar = 0 %}
-{% include "helpers/collections_list.html" %}
-{% endwith %}
-</section>
-<section class="research-main">
-		<div class="virtual">
-			<div class="container">
-				<div class="col-md-4 imagebox pull-right">
-					<img src="{{ url_for('static', filename='img/virtual.png') }}" alt="" class="center-block">
-				</div>
-				<div class="col-md-8 actions">
-					<div class="details">
-						<h4>Working with VMs</h4>
-						<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, sunt, voluptate neque fugit tempora harum. Repudiandae unde molestias eaque similique, consequatur consectetur expedita tenetur minus minima doloribus, ut temporibus quisquam!</span>
-					</div>
-					<ul>
-						<li><a href="{{ url_for('VMs') }}">Working Environments</a><span class="fa fa-chevron-circle-right"></span></li>
-						<li><a href="{{ url_for('collection/CMS-Tools') }}">Software & Tools</a><span class="fa fa-chevron-circle-right"></span></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-<!-- 		<div class="xroot">
-			<div class="container">
-				<div class="col-md-4 imagebox pull-left"><img src="{{ url_for('static', filename='img/xrootd.png') }}" alt="" class="center-block"></div>
-				<div class="col-md-8 actions">
-					<div class="details">
-						<h4>XROOTD streaming</h4>
-						<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis neque tempora illum repudiandae. Soluta quos mollitia vero, nam at odit asperiores, omnis magni et minus quia nesciunt, praesentium officia totam?</span>
-					</div>
-					<ul>
-						<a href="#"><li>Access Data<span class="fa fa-chevron-circle-right"></span></li></a>
-						<a href="#"><li>Learn about XROOTD<span class="fa fa-chevron-circle-right"></span></li></a>
-						<a href="#"><li>more<span class="fa fa-chevron-circle-right"></span></li></a>
-					</ul>
-				</div>
-			</div>
-		</div>	 -->
-</section>
-<section class="learn">
-	<div class="container">
-		<div class="thumbbox">
-			<div class="col-md-4">
-				<img src="{{ url_for('static', filename='img/edu_img_1.png') }}" alt="" class="img-circle center-block">
-			</div>
-			<div class="col-md-4">
-				<img src="{{ url_for('static', filename='img/edu_img_2.jpg') }}" alt="" class="img-circle center-block">
-			</div>
-			<div class="col-md-4">
-				<img src="{{ url_for('static', filename='img/edu_img_3.png') }}" alt="" class="img-circle center-block">
-			</div>
-		</div>
-	</div>
-	<div class="slogan container">
-		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut incidunt pariatur repellat amet adipisci nostrum ex officia obcaecati illum dolorum, ipsum cumque molestiae aspernatur delectus enim numquam, tempora deleniti velit?</h3>
-	</div>
-</section>
+  <section class="infobar">
+    <div class="container">
+      <div class="pull-left">
+        <h3>For Research</h3>
+      </div>
+      <div class="pull-right">
+        <div class="hidden-xs" style="float: left; color:#fff;font-weight:100;font-size:14px;padding:5px;padding-right: 10px;">Choose your experiment:</div>
+        <ul class="exp-switch nav nav-tabs pull-right" role="tablist">
+          <li {% if exp in ['CMS','all'] %} class="active" {% endif %}><a href="#CMS" role="tab" data-toggle="tab">CMS</a></li>
+          <li {% if exp == 'ALICE' %} class="active" {% endif %}><a href="#ALICE" role="tab" data-toggle="tab">ALICE</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="entrypoint_collections">
+    {% with show_navbar = 0 %}
+      {% include "helpers/collections_list.html" %}
+    {% endwith %}
+  </section>
+  <section class="research-main">
+    <div class="virtual">
+      <div class="container">
+        <div class="col-md-4 imagebox pull-right">
+          <img src="{{ url_for('static', filename='img/virtual.png') }}" alt="" class="center-block">
+        </div>
+        <div class="col-md-8 actions">
+          <div class="details">
+            <h4>Working with VMs</h4>
+            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, sunt, voluptate neque fugit tempora harum. Repudiandae unde molestias eaque similique, consequatur consectetur expedita tenetur minus minima doloribus, ut temporibus quisquam!</span>
+          </div>
+          <ul>
+            <li><a href="{{ url_for('VMs') }}">Working Environments</a><span class="fa fa-chevron-circle-right"></span></li>
+            <li><a href="{{ url_for('collection/CMS-Tools') }}">Software & Tools</a><span class="fa fa-chevron-circle-right"></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--                <div class="xroot">
+    <div class="container">
+    <div class="col-md-4 imagebox pull-left"><img src="{{ url_for('static', filename='img/xrootd.png') }}" alt="" class="center-block"></div>
+    <div class="col-md-8 actions">
+    <div class="details">
+    <h4>XROOTD streaming</h4>
+    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis neque tempora illum repudiandae. Soluta quos mollitia vero, nam at odit asperiores, omnis magni et minus quia nesciunt, praesentium officia totam?</span>
+    </div>
+    <ul>
+    <a href="#"><li>Access Data<span class="fa fa-chevron-circle-right"></span></li></a>
+    <a href="#"><li>Learn about XROOTD<span class="fa fa-chevron-circle-right"></span></li></a>
+    <a href="#"><li>more<span class="fa fa-chevron-circle-right"></span></li></a>
+    </ul>
+    </div>
+    </div>
+    </div>       -->
+  </section>
+  <section class="learn">
+    <div class="container">
+      <div class="thumbbox">
+        <div class="col-md-4">
+          <img src="{{ url_for('static', filename='img/edu_img_1.png') }}" alt="" class="img-circle center-block">
+        </div>
+        <div class="col-md-4">
+          <img src="{{ url_for('static', filename='img/edu_img_2.jpg') }}" alt="" class="img-circle center-block">
+        </div>
+        <div class="col-md-4">
+          <img src="{{ url_for('static', filename='img/edu_img_3.png') }}" alt="" class="img-circle center-block">
+        </div>
+      </div>
+    </div>
+    <div class="slogan container">
+      <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut incidunt pariatur repellat amet adipisci nostrum ex officia obcaecati illum dolorum, ipsum cumque molestiae aspernatur delectus enim numquam, tempora deleniti velit?</h3>
+    </div>
+  </section>
 {% endblock body %}

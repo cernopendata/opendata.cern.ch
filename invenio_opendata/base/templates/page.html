@@ -20,11 +20,11 @@
 {%- extends "page_base.html" -%}
 
 {%- block global_bundles -%}
-  {{ super() }}
-  {%- bundle "opendata.css" -%}
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+{{ super() }}
+{%- bundle "opendata.css" -%}
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:700italic,400,300,600,700' rel='stylesheet' type='text/css'>
 
-  <script type='text/javascript'>
+<script type='text/javascript'>
 
   var _ues = {
     host:'opendatademo.userecho.com',
@@ -47,30 +47,30 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(_ue, s);
   })();
 
-  </script>
+</script>
 {%- endblock -%}
 
 {%- block page_header -%}
-  <div id="wrap"> {# get closed into page_footer #}
+<div id="wrap"> {# get closed into page_footer #}
   {%- include "header.html" -%}
 
-{%- endblock page_header -%}
+  {%- endblock page_header -%}
 
-{%- block page_body -%}
+  {%- block page_body -%}
   {%- block page_body_before -%}{%- endblock -%}
-          {%- block title %}{{ body }}{% endblock -%}
-      {{ flashed_messages() }}
-      <div class="content">
-          {%- block body -%}{% endblock -%} 
-      </div>
+  {%- block title %}{{ body }}{% endblock -%}
+  {{ flashed_messages() }}
+  <div class="content">
+    {%- block body -%}{% endblock -%}
+  </div>
   {% block page_body_after %}{% endblock %}
-{%- endblock -%}
+  {%- endblock -%}
 
-{%- block page_footer -%}
-    <div id="push"></div>
-  </div> {# end wrap #}
-  <footer>
-    {%- block pagefooteradd -%}{{ pagefooteradd | safe }}{%- endblock pagefooteradd -%}
-    {%- include "footer.html" -%}
-  </footer>
+  {%- block page_footer -%}
+  <div id="push"></div>
+</div> {# end wrap #}
+<footer>
+  {%- block pagefooteradd -%}{{ pagefooteradd | safe }}{%- endblock pagefooteradd -%}
+  {%- include "footer.html" -%}
+</footer>
 {%- endblock -%}

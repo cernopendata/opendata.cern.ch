@@ -3,59 +3,56 @@
 {% import 'data/news_db.html' as n %}
 
 {% macro date_to_text(date) %}
-	<span class="date">4 days ago</span>
+  <span class="date">4 days ago</span>
 {% endmacro %}
 
 {% macro tag_box(name, classes) %}
-	{% block tag_box scoped%}
-		<a href="#" class="tag-box {{classes}}">
-			<span>#{{name}}</span>
-		</a>
-	{% endblock %}
+  {% block tag_box scoped%}
+    <a href="#" class="tag-box {{classes}}">
+      <span>#{{name}}</span>
+    </a>
+  {% endblock %}
 {% endmacro %}
 
 {% block body %}
 
 
-{% set nn = n.news[news_id-1] %}
+  {% set nn = n.news[news_id-1] %}
 
-<section class="infobar">	
-	<div class="container">
-		<a href="{{ url_for('news') }}"><h3>News</h3></a>
-	</div>
-</section>
-<section class="news-preview">
-	<div class="title">
-		<div class="container">
-			<div class="info pull-left">
-				<div class="inner-title">
-					<div>{{ nn[0] }}</div>
-					<span>+{{ nn[3][0] }}</span>
-				</div>
-				<div class="details">posted by <a href="">{{ nn[2] }}</a>, {{ date_to_text() }} </div>
-			</div>
-			<div class="more pull-right">
-				<div class="category">
-					{% for tag in nn[3][2] %}
-					<a class="tag-box" href=""><span>#{{ tag }}</span></a>
-					{% endfor %}
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<div class="body">
-			{{ nn[1] }}
-			<div class="links">
-				{% for link in nn[3][1] %}
-					<a href="{{ link }}">{{ link }}</a><br/>
-				{% endfor %}
-			</div>
-		</div>
-	</div>
-</section>
+  <section class="infobar">
+    <div class="container">
+      <a href="{{ url_for('news') }}"><h3>News</h3></a>
+    </div>
+  </section>
+  <section class="news-preview">
+    <div class="title">
+      <div class="container">
+        <div class="info pull-left">
+          <div class="inner-title">
+            <div>{{ nn[0] }}</div>
+            <span>+{{ nn[3][0] }}</span>
+          </div>
+          <div class="details">posted by <a href="">{{ nn[2] }}</a>, {{ date_to_text() }} </div>
+        </div>
+        <div class="more pull-right">
+          <div class="category">
+            {% for tag in nn[3][2] %}
+              <a class="tag-box" href=""><span>#{{ tag }}</span></a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="body">
+        {{ nn[1] }}
+        <div class="links">
+          {% for link in nn[3][1] %}
+            <a href="{{ link }}">{{ link }}</a><br/>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
 
 {% endblock body %}
-
-
-

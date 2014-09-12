@@ -24,56 +24,56 @@
 {%- block collection_tree scoped %}
 {%- set idxs = [0] -%}
 <ul {{ macrokwargs|xmlattr }}>
-{% for collection in collections recursive %}
-  {% set portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
-  {% for pb in collection.portalboxes %}
-    {% if (pb.portalbox.title == 'description') %}
-      {% if portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
-    {% elif (pb.portalbox.title == 'image') %}
-      {% if portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
-    {% endif %} 
-  {% endfor %}
-  <li class="col-md-{{ '6' if collections|length == 2 else '4' }}">
-    <div class="coll-box col-md-12">
-      <a href="{{ url_for('collection/'+collection.name|safe) }}">
-        <div class="row">
-          <div class="top col-md-12">
-            <div class="row">
-              <div class="thumb col-md-4"><img class="img-circle" src="{{ url_for('static', filename='img/'+portalboxes['image']) }}" alt=""></div>
-              <div class="details col-md-8">
-                <div class="title col-md-12">{{ collection.name }}</div>
-                <div class="desc col-md-12"><span>{{ portalboxes['desc']*8 }}</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="bottom col-md-12">
-            <div class="row">
-              <div class="subcollection col-md-6">
-                {% if collection.collection_children == [] %}
-                <div class="totalrecs col-md-12">
-                  <div class="col-md-12"><b>Total records:</b></div><div class="col-md-12 coll-rec-num">{{collection.nbrecs}}</div>
-                {% else %}
-                <div class="title col-md-12"><span><b>Collections items:</b></span></div>
-                <ul>
-                  {% for r in collection.reclist %}
-                  <li class="col-md-6">
-                    <a href="{{ url_for('record/'+r.id) }}">{{ r.name }}</a>
-                  </li>
-                  {% endfor %}
-                </ul>
-                {% endif %}
+  {% for collection in collections recursive %}
+    {% set portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+    {% for pb in collection.portalboxes %}
+      {% if (pb.portalbox.title == 'description') %}
+        {% if portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+      {% elif (pb.portalbox.title == 'image') %}
+        {% if portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+      {% endif %}
+    {% endfor %}
+    <li class="col-md-{{ '6' if collections|length == 2 else '4' }}">
+      <div class="coll-box col-md-12">
+        <a href="{{ url_for('collection/'+collection.name|safe) }}">
+          <div class="row">
+            <div class="top col-md-12">
+              <div class="row">
+                <div class="thumb col-md-4"><img class="img-circle" src="{{ url_for('static', filename='img/'+portalboxes['image']) }}" alt=""></div>
+                <div class="details col-md-8">
+                  <div class="title col-md-12">{{ collection.name }}</div>
+                  <div class="desc col-md-12"><span>{{ portalboxes['desc']*8 }}</span></div>
                 </div>
               </div>
-              <div class="related col-md-6">
-                <div class="title col-md-12"><span><b>Related Pages:</b></span></div>
+            </div>
+            <div class="bottom col-md-12">
+              <div class="row">
+                <div class="subcollection col-md-6">
+                  {% if collection.collection_children == [] %}
+                    <div class="totalrecs col-md-12">
+                      <div class="col-md-12"><b>Total records:</b></div><div class="col-md-12 coll-rec-num">{{collection.nbrecs}}</div>
+                  {% else %}
+                      <div class="title col-md-12"><span><b>Collections items:</b></span></div>
+                      <ul>
+                        {% for r in collection.reclist %}
+                          <li class="col-md-6">
+                            <a href="{{ url_for('record/'+r.id) }}">{{ r.name }}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                  {% endif %}
+                    </div>
+                </div>
+                <div class="related col-md-6">
+                  <div class="title col-md-12"><span><b>Related Pages:</b></span></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </a>
-    </div>
-  </li>
-{% endfor %}
+        </a>
+      </div>
+    </li>
+  {% endfor %}
 </ul>
 {% endblock collection_tree %}
 {% endmacro %}
@@ -94,8 +94,8 @@
       padding-top: 30px;
       padding-bottom: 30px;
     }
-    
-    #subcollection a, 
+
+    #subcollection a,
     #subcollection a:hover
     #subcollection a:focus {
       color: #666;
@@ -159,12 +159,12 @@
 
     #subcollection .collection-res > .row:nth-child(2n) a.dropdown-toggle {
       background-color: #fff;
-    }    
+    }
 
     #subcollection .collection-res > .row:nth-child(2n+1) a.dropdown-toggle {
       background-color: #eee;
     }
-  
+
     #subcollection .record-brief .record-header {
       font-size: 18px;
       font-weight: 600;
@@ -173,15 +173,15 @@
       text-decoration: none;
     }
 
-    #subcollection .record-brief p{ 
+    #subcollection .record-brief p{
       font-size: 14px;
     }
     #subcollection .record-brief a {
       text-decoration: underline;
     }
-    
+
     #subcollection .collection > ul li  {
-      
+
     }
 
     #subcollection .coll-overview ul.nav {
@@ -197,7 +197,7 @@
     #subcollection .coll-overview .coll-box {
       background-color: #f4f4f4;
       padding: 20px 15px;
-      text-align: center; 
+      text-align: center;
       height: auto;
       display: inline-block;
       font-weight: 100;
@@ -233,7 +233,7 @@
     }
     #subcollection .coll-overview .coll-box .bottom .totalrecs .coll-rec-num {
       font-size: 26px;
-      font-weight: 600; 
+      font-weight: 600;
       margin-top: 5px;
       text-align: center;
     }
@@ -247,10 +247,10 @@
       display: block;
     }
     #subcollection .coll-overview .coll-box .bottom .subcollection {
-       
+
     }
     #subcollection .coll-overview .coll-box .bottom .related {
-    
+
     }
     #subcollection .collection-res > .col-md-12 {
       background-color: #fff;
@@ -293,7 +293,7 @@
 {%- block index_title %}
 <section class="infobar">
   <div class="container">
-  {%- if collection.collection_children_r %}
+    {%- if collection.collection_children_r %}
     <div class="row">
       <div class="coltitle col-md-12">
         <p>
@@ -301,19 +301,19 @@
         </p>
       </div>
     </div>
-  {% else %}
+    {% else %}
     <div class="row">
       <div class="coltitle col-md-12">
         <p>
-        {% if collection.is_restricted %}
-          {{ _('Restricted Collection')  }}
-        {% else %}
-          {{ collection.name  }}
-        {% endif %}
+          {% if collection.is_restricted %}
+            {{ _('Restricted Collection')  }}
+          {% else %}
+            {{ collection.name  }}
+          {% endif %}
         </p>
       </div>
     </div>
-  {%- endif %}
+    {%- endif %}
   </div>
 </section>
 {%- endblock index_title %}
@@ -322,56 +322,56 @@
 
 <section id="subcollection" class="collections">
   <div class="container">
-  {%- block index_right -%}
-  <div class="col-md-12">
-    {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
-    {% for pb in collection.portalboxes %}
-    {% if (pb.portalbox.title == 'description') %}
-    {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
-    {% elif (pb.portalbox.title == 'image') %}
-    {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
-    {% endif %} 
-    {% endfor %}
-    <div class="coll-desc">
-      {{ collection.portalboxes[0].portalbox.body }}
-    </div>
-  </div>
-  {% if collection.collection_children_r %}
-    <div class="row">
-      <div class="col-md-12 coll-overview">
-        {{ od_collection_tree(collection.collection_children_r, limit=2, class="nav nav-list clearfix row") }}
+    {%- block index_right -%}
+    <div class="col-md-12">
+      {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+      {% for pb in collection.portalboxes %}
+        {% if (pb.portalbox.title == 'description') %}
+          {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+        {% elif (pb.portalbox.title == 'image') %}
+          {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+        {% endif %}
+      {% endfor %}
+      <div class="coll-desc">
+        {{ collection.portalboxes[0].portalbox.body }}
       </div>
     </div>
-  {% endif %}
-  <div class="row">
-    <div class="col-md-12">
-      <div class="results-title">Collection Items</div>
-      <div class="collection-res">
-        {% if collection.is_restricted %}
-          <strong>{{ _('This collection is restricted. If you are authorized to access it, please click on the Search button.') }}</strong>
-        {% else %}
-          
-          {% if collection.reclist %}
-            {% for recid in collection.reclist[-10:]|reverse %}
-              <div class="col-md-12">
-                {{ format_record(recid, of, ln=g.ln, extra_context=dict(collection=collection))|safe }}
-              </div>
-            {% endfor %}
-            {% if collection.reclist|length > 10 %}
-              <div class="more center-block">
-                <a href="{{ url_for('search.search', cc=collection.name, ln=g.ln, jrec=11)|safe }}"
-                class="text-muted">{{ _('more')}}</a>
-              </div>
+    {% if collection.collection_children_r %}
+      <div class="row">
+        <div class="col-md-12 coll-overview">
+          {{ od_collection_tree(collection.collection_children_r, limit=2, class="nav nav-list clearfix row") }}
+        </div>
+      </div>
+    {% endif %}
+    <div class="row">
+      <div class="col-md-12">
+        <div class="results-title">Collection Items</div>
+        <div class="collection-res">
+          {% if collection.is_restricted %}
+            <strong>{{ _('This collection is restricted. If you are authorized to access it, please click on the Search button.') }}</strong>
+          {% else %}
+
+            {% if collection.reclist %}
+              {% for recid in collection.reclist[-10:]|reverse %}
+                <div class="col-md-12">
+                  {{ format_record(recid, of, ln=g.ln, extra_context=dict(collection=collection))|safe }}
+                </div>
+              {% endfor %}
+              {% if collection.reclist|length > 10 %}
+                <div class="more center-block">
+                  <a href="{{ url_for('search.search', cc=collection.name, ln=g.ln, jrec=11)|safe }}"
+                     class="text-muted">{{ _('more')}}</a>
+                </div>
+              {% endif %}
             {% endif %}
           {% endif %}
-        {% endif %}
+        </div>
       </div>
     </div>
-  </div>
 
-  {%- endblock index_right -%}
+    {%- endblock index_right -%}
   </div>
 </section>
-  
+
 
 {%- endblock -%}

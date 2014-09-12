@@ -21,19 +21,19 @@
 
 
 {%- block page_header -%}
-  <div id="wrap"> {# get closed into page_footer #}
+<div id="wrap"> {# get closed into page_footer #}
   {#
-   # The CERN header shouldn't be part of the Invenio application as it's
-   # added automagically by the apache server (I guess) and the login goes to
-   # sibboleth.
-   #}
+  # The CERN header shouldn't be part of the Invenio application as it's
+  # added automagically by the apache server (I guess) and the login goes to
+  # sibboleth.
+  #}
   {%- include "cern_header.html" -%}
   <div id="heading">
     <div id="mainmenu" class="container">
       <div class="row">
         <div class="col-md-6">
           <h1><a href="{{ url_for("search.index") }}">
-              {{- config.CFG_SITE_NAME_INTL.get(g.ln, config.CFG_SITE_NAME) -}}
+            {{- config.CFG_SITE_NAME_INTL.get(g.ln, config.CFG_SITE_NAME) -}}
           </a></h1>
           <p>
             {{- config.CFG_SITE_MISSION_INTL.get(g.ln, config.CFG_SITE_MISSION) -}}
@@ -42,18 +42,18 @@
         <div class="col-md-6">
           <nav>
             <ul>
-  {%- for item in current_menu.submenu("main").children if item.visible and item.name not in ("admin", "search") -%}
+              {%- for item in current_menu.submenu("main").children if item.visible and item.name not in ("admin", "search") -%}
               <li><a href="{{ item.url }}">{{ item.text | safe }}</a></li>
-  {%- endfor -%}
+              {%- endfor -%}
             </ul>
           </nav>
         </div>
       </div>
     </div>
   </div>
-{%- endblock -%}
+  {%- endblock -%}
 
-{%- block page_body -%}
+  {%- block page_body -%}
   {%- block page_body_before -%}{%- endblock -%}
   <div id="body">
     <div class="container">
@@ -61,15 +61,15 @@
       {{ flashed_messages() }}
       {%- block body -%}{{ body }}{% endblock -%}
     </div>
-  {% block page_body_after %}{% endblock %}
+    {% block page_body_after %}{% endblock %}
   </div>
-{%- endblock -%}
+  {%- endblock -%}
 
-{%- block page_footer -%}
-    <div id=push></div>
-  </div> {# end wrap #}
-  <footer id="footer">
-    {%- block pagefooteradd -%}{{ pagefooteradd | safe }}{%- endblock pagefooteradd -%}
-    {%- include "footer.html" -%}
-  </footer>
+  {%- block page_footer -%}
+  <div id=push></div>
+</div> {# end wrap #}
+<footer id="footer">
+  {%- block pagefooteradd -%}{{ pagefooteradd | safe }}{%- endblock pagefooteradd -%}
+  {%- include "footer.html" -%}
+</footer>
 {%- endblock -%}

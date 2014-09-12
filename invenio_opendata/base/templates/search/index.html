@@ -20,11 +20,11 @@
 {% extends "search/index_base.html" %}
 
 {%- block _bottom_assets -%}
-  <!--[if lt IE 9]>
-    <script src="{{ url_for("base.static", filename="/vendors/es5-shim/es5-shim.min.js") }}"></script>
-    <script src="{{ url_for("base.static", filename="/vendors/es5-shim/es5-sham.min.js") }}"></script>
-  <![endif]-->
-  {{- super() -}}
+<!--[if lt IE 9]>
+<script src="{{ url_for("base.static", filename="/vendors/es5-shim/es5-shim.min.js") }}"></script>
+<script src="{{ url_for("base.static", filename="/vendors/es5-shim/es5-sham.min.js") }}"></script>
+<![endif]-->
+{{- super() -}}
 {%- endblock -%}
 
 {%- block index_title -%}{%- endblock -%}

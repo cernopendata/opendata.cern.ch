@@ -1,56 +1,56 @@
 <div class="row" style="margin: -25px -20px;">
-	<div id="rec_dedicated_box" class="rec_dedicated_details col-md-12 panel-group">
-		<div class="rec_dedicated_details_in rdd-sel panel">
-			<div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#selection">Instructions<span class="pull-right fa fa-angle-down"></span></div>
-			<div id="selection" class="info ccollapse">
-				<div class="body">This data was selected by lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum repudiandae reiciendis modi sapiente amet.</div>
-				<div class="links">
-					<ul>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link2</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="rec_dedicated_details_in rdd-val panel">
-			<div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#validation">Validation<span class="pull-right fa fa-angle-down"></span></div>
-			<div id="validation" class="info ccollapse">
-				<div class="body">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
-				<div class="links"">
-					<ul>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link2</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-                {% if record.get('documentation_note', '') %}
-		<div class="rec_dedicated_details_in rdd-limits panel">
-			<div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#limitations">Issues & Limitations<span class="pull-right fa fa-angle-down"></span></div>
-			<div id="limitations" class="info ccollapse">
-				<div class="body">{{ record.get('documentation_note', {}).get('note', '') }}</div>
-				<div class="links">
-                                  {% if record.get('documentation_note.recid', '') %}
-				  <ul>
-				    <li><a href="{{ url_for('record.metadata', recid=record.get('documentation_note.recid', '')) }}">Record {{ record.get('documentation_note.recid', '') }}</a></li>
-				  </ul>
-                                  {% endif %}
-				</div>
-			</div>
-		</div>
-                {% endif %}
-		<div class="rec_dedicated_details_in rdd-disclaimer panel">
-			<div class="title">Disclaimer</div>
-			<div id="disclaimer" class="info">
-				<div class="row">
-					<div class="body col-md-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod mollitia expedita deleniti, voluptas atque ducimus nam perferendis aspernatur laudantium vero distinctio rem, repudiandae et, blanditiis, nihil ipsam recusandae! Quaerat, illum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto veniam officiis, distinctio soluta, nostrum ducimus, quaerat ut accusamus consequuntur, accusantium ex amet ipsam tempore illum placeat commodi reprehenderit nulla iure.</div>
-					<div class="col-md-12">
-						<div class="ccommons">
-							<img src="{{ url_for('static', filename='img/cc.svg') }}" alt="">
-							<img src="{{ url_for('static', filename='img/zero.svg') }}" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div id="rec_dedicated_box" class="rec_dedicated_details col-md-12 panel-group">
+    <div class="rec_dedicated_details_in rdd-sel panel">
+      <div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#selection">Instructions<span class="pull-right fa fa-angle-down"></span></div>
+      <div id="selection" class="info ccollapse">
+        <div class="body">This data was selected by lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum repudiandae reiciendis modi sapiente amet.</div>
+        <div class="links">
+          <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link2</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="rec_dedicated_details_in rdd-val panel">
+      <div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#validation">Validation<span class="pull-right fa fa-angle-down"></span></div>
+      <div id="validation" class="info ccollapse">
+        <div class="body">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+        <div class="links"">
+          <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link2</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% if record.get('documentation_note', '') %}
+      <div class="rec_dedicated_details_in rdd-limits panel">
+        <div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#limitations">Issues & Limitations<span class="pull-right fa fa-angle-down"></span></div>
+        <div id="limitations" class="info ccollapse">
+          <div class="body">{{ record.get('documentation_note', {}).get('note', '') }}</div>
+          <div class="links">
+            {% if record.get('documentation_note.recid', '') %}
+              <ul>
+                <li><a href="{{ url_for('record.metadata', recid=record.get('documentation_note.recid', '')) }}">Record {{ record.get('documentation_note.recid', '') }}</a></li>
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    <div class="rec_dedicated_details_in rdd-disclaimer panel">
+      <div class="title">Disclaimer</div>
+      <div id="disclaimer" class="info">
+        <div class="row">
+          <div class="body col-md-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod mollitia expedita deleniti, voluptas atque ducimus nam perferendis aspernatur laudantium vero distinctio rem, repudiandae et, blanditiis, nihil ipsam recusandae! Quaerat, illum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto veniam officiis, distinctio soluta, nostrum ducimus, quaerat ut accusamus consequuntur, accusantium ex amet ipsam tempore illum placeat commodi reprehenderit nulla iure.</div>
+          <div class="col-md-12">
+            <div class="ccommons">
+              <img src="{{ url_for('static', filename='img/cc.svg') }}" alt="">
+              <img src="{{ url_for('static', filename='img/zero.svg') }}" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

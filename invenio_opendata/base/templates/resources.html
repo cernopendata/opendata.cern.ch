@@ -2,79 +2,79 @@
 
 
 {% block body %}
-<style>
-#learnmore {
-	padding-top: 30px;
-	padding-bottom: 30px;
-}
-#learnmore img {
-	max-width: 100%;
+  <style>
+    #learnmore {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+    #learnmore img {
+      max-width: 100%;
 
-}
-#learnmore {
-	color: #606D75;
-	text-align: justify;
-}
-#learnmore h1 {
-	margin-bottom: 30px;
-	margin-top: 40px;
-	padding-right: 15px;
-	padding-left: 15px;
-	display: inline-block;
-	width: 100%;
-}
-#learnmore p {
-	font-weight: 100;
-	font-size: 18px;
-}
-#learnmore a {
-	text-align: left;
-}
-#learnmore h2 {
-	padding-top: 30px;
-	font-weight: 400;
-	padding-right: 15px;
-	padding-left: 15px;
-	display: inline-block;
-	width: 100%;
-}
-#learnmore .learn-img {
-	padding: 15px;
-	background-color: #606D75;
-	color: #fff;
-	border-radius: 4px;
-	margin-top: 15px;
-}
-#learnmore h6 {
-	width: 100%;
-	text-align: center;
-}
-</style>
+    }
+    #learnmore {
+      color: #606D75;
+      text-align: justify;
+    }
+    #learnmore h1 {
+      margin-bottom: 30px;
+      margin-top: 40px;
+      padding-right: 15px;
+      padding-left: 15px;
+      display: inline-block;
+      width: 100%;
+    }
+    #learnmore p {
+      font-weight: 100;
+      font-size: 18px;
+    }
+    #learnmore a {
+      text-align: left;
+    }
+    #learnmore h2 {
+      padding-top: 30px;
+      font-weight: 400;
+      padding-right: 15px;
+      padding-left: 15px;
+      display: inline-block;
+      width: 100%;
+    }
+    #learnmore .learn-img {
+      padding: 15px;
+      background-color: #606D75;
+      color: #fff;
+      border-radius: 4px;
+      margin-top: 15px;
+    }
+    #learnmore h6 {
+      width: 100%;
+      text-align: center;
+    }
+  </style>
 
-<section class="infobar">
-	<div class="container">
-		<div class="pull-left">
-			<h3>External Resources</h3>
-		</div>
-		<div class="pull-right">
-			<ul class="exp-switch nav nav-tabs" role="tablist">
-				<li class="active"><a href="#CMS" role="tab" data-toggle="tab">CMS</a></li>
-				<li><a href="#ALICE" role="tab" data-toggle="tab">ALICE</a></li>
-			</ul>
-		</div>
-	</div>
-</section>	
+  <section class="infobar">
+    <div class="container">
+      <div class="pull-left">
+        <h3>External Resources</h3>
+      </div>
+      <div class="pull-right">
+        <ul class="exp-switch nav nav-tabs" role="tablist">
+          <li class="active"><a href="#CMS" role="tab" data-toggle="tab">CMS</a></li>
+          <li><a href="#ALICE" role="tab" data-toggle="tab">ALICE</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-<section id="learnmore" class="content">
-	<div class="container">
-		<div class="tab-pane fade in active" id="CMS">
-			<div class="row">
-				{% include 'helpers/text/learn_more_txt.html' %}
-			</div>
-		</div>
-		<div class="tab-pane fade" id="ALICE">
-		</div>
-	</div>
-</section>
+  <section id="learnmore" class="content">
+    <div class="container">
+      <div class="tab-pane fade in active" id="CMS">
+        <div class="row">
+          {% include 'helpers/text/learn_more_txt.html' %}
+        </div>
+      </div>
+      <div class="tab-pane fade" id="ALICE">
+      </div>
+    </div>
+  </section>
 
 {% endblock %}

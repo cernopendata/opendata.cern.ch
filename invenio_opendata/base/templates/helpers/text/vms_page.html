@@ -1,71 +1,71 @@
 {% macro about_msg() %}
-	CERN Virtual Machines allow you to run Scientific Linux on any operating system and access the CERN working environments and software tools.
+  CERN Virtual Machines allow you to run Scientific Linux on any operating system and access the CERN working environments and software tools.
 {% endmacro %}
 
 {% macro about_cms_msg(url) %}
-	<div class="title">CMS Virtual Machines: How to install</div>
-	The CMS-specific VM includes the <a href="http://root.cern.ch/">ROOT framework</a> and <a href="http://cms-sw.github.io/">CMSSW</a>. Follow the instructions below to setup a CERN Virtual Machine on your computer. Then, go to <a href="{{url}}">Getting Started with CMS data</a>.
+  <div class="title">CMS Virtual Machines: How to install</div>
+  The CMS-specific VM includes the <a href="http://root.cern.ch/">ROOT framework</a> and <a href="http://cms-sw.github.io/">CMSSW</a>. Follow the instructions below to setup a CERN Virtual Machine on your computer. Then, go to <a href="{{url}}">Getting Started with CMS data</a>.
 {% endmacro %}
 
 {% macro about_alice_msg(url) %}
-	<div class="title">ALICE Virtual Machines: How to install</div>
+  <div class="title">ALICE Virtual Machines: How to install</div>
 {% endmacro %}
 
 {% macro install_s1() %}
-<div class="heading">Step 1: Installing VirtualBox</div>
-<div class="body">
-	<p>VirtualBox is a free, open source and multiplatform application to run virtual machines: you can <a href="https://www.virtualbox.org/wiki/Downloads">download</a> the package for your platform from the Downloads page.</p>
-	<p>You will need administrative ("root") privileges on every platform to perform the installation of VirtualBox.</p>
-	<p>Note: the latest tested version of VirtualBox working with CernVM is 4.3.14. If you have troubles with the latest verion of VirtualBox, pick that one: the full history of VirtualBox versions is available <a href="https://www.virtualbox.org/wiki/Download_Old_Builds">on a different page.</a></p>
-</div>
+  <div class="heading">Step 1: Installing VirtualBox</div>
+  <div class="body">
+    <p>VirtualBox is a free, open source and multiplatform application to run virtual machines: you can <a href="https://www.virtualbox.org/wiki/Downloads">download</a> the package for your platform from the Downloads page.</p>
+    <p>You will need administrative ("root") privileges on every platform to perform the installation of VirtualBox.</p>
+    <p>Note: the latest tested version of VirtualBox working with CernVM is 4.3.14. If you have troubles with the latest verion of VirtualBox, pick that one: the full history of VirtualBox versions is available <a href="https://www.virtualbox.org/wiki/Download_Old_Builds">on a different page.</a></p>
+  </div>
 {% endmacro %}
 
 {% macro install_s2() %}
-<div class="heading">Step 2: Downloading and Creating a Virtual Machine</div>
-<div class="body">
-	<div class="row">
-		<p class="col-md-8">
-			Next download the CERN VM image as OVA file from: <a href="http://cernvm.cern.ch/releases/CMS%20OpenData%20Latest.ova">CMS OpenData (latest)</a>.
-		</p>
-	</div>
-	<div class="row">
-		<p class="col-md-12">
-			By double clicking the file, the VirtualBox imports the image automatically with ready-to-run settings. The context is such that CernVM automatically boots into graphical user interface and sets up the CMS environment.
-		</p>
-		<p class="col-md-12">In case of any issues, see <a href="#limitation">Issues and Limitations</a></p>
-	</div>
-</div>
+  <div class="heading">Step 2: Downloading and Creating a Virtual Machine</div>
+  <div class="body">
+    <div class="row">
+      <p class="col-md-8">
+        Next download the CERN VM image as OVA file from: <a href="http://cernvm.cern.ch/releases/CMS%20OpenData%20Latest.ova">CMS OpenData (latest)</a>.
+      </p>
+    </div>
+    <div class="row">
+      <p class="col-md-12">
+        By double clicking the file, the VirtualBox imports the image automatically with ready-to-run settings. The context is such that CernVM automatically boots into graphical user interface and sets up the CMS environment.
+      </p>
+      <p class="col-md-12">In case of any issues, see <a href="#limitation">Issues and Limitations</a></p>
+    </div>
+  </div>
 {% endmacro %}
 
 
 {% macro validate_s1() %}
-<div class="heading">Set up the CMS environment and run a demo analyzer</div>
-<div class="body">
-	<div class="row">
-		<div class="it col-md-12">Open a terminal with the X terminal emulator (an icon bottom-left of the VM screen)</div>
-		<div class="it col-md-12">Write on the command line:</div>
-		<pre>cmsrel CMSSW_4_2_8</pre>
-		<div class="it col-md-12">Change to the <kbd>CMSSW_4_2_8/src/</kbd> directory:</div>
-		<pre>cd CMSSW_4_2_8/src/</pre>
-		<div class="it col-md-12">Then, run the following command to create the CMS runtime variables:</div>
-		<pre>cmsenv</pre>
-		<div class="it col-md-12">Create a working directory for the demo analyzer, change to that directory and create a "skeleton" for the analyzer:</div>
-		<pre>mkdir Demo
+  <div class="heading">Set up the CMS environment and run a demo analyzer</div>
+  <div class="body">
+    <div class="row">
+      <div class="it col-md-12">Open a terminal with the X terminal emulator (an icon bottom-left of the VM screen)</div>
+      <div class="it col-md-12">Write on the command line:</div>
+      <pre>cmsrel CMSSW_4_2_8</pre>
+      <div class="it col-md-12">Change to the <kbd>CMSSW_4_2_8/src/</kbd> directory:</div>
+      <pre>cd CMSSW_4_2_8/src/</pre>
+      <div class="it col-md-12">Then, run the following command to create the CMS runtime variables:</div>
+      <pre>cmsenv</pre>
+      <div class="it col-md-12">Create a working directory for the demo analyzer, change to that directory and create a "skeleton" for the analyzer:</div>
+      <pre>mkdir Demo
 cd Demo
 mkedanlzr DemoAnalyzer</pre>
-		<div class="it col-md-12">Compile the code:</div>
-		<pre>cd DemoAnalyzer
+      <div class="it col-md-12">Compile the code:</div>
+      <pre>cd DemoAnalyzer
 scram b</pre>
-		<div class="it col-md-12">Change the file name in the configuration file <kbd>demoanalyzer_cfg.py</kbd> in the DemoAnalyzer directory:
-i.e. replace <kbd>file:myfile.root</kbd> with
-<kbd>root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/AOD/Apr21ReReco-v1/0000/00459D48-EB70-E011-AF09-90E6BA19A252.root</kbd></div>
-		<div class="it col-md-12">Change the max number of events to 10 (i.e change -1 to 10 in <kbd>process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1)</kbd>).</div>
-		<div class="it col-md-12">Move two directories back using:</div>
-		<pre>cd ../..</pre>
-		<div class="it col-md-12">And then run:</div>
-		<pre>cmsRun Demo/DemoAnalyzer/demoanalyzer_cfg.py</pre>
-		<div class="it col-md-12">Your VM is "validated" if it opens the file and gives an output like:</div>
-		<pre>140908 10:48:10 001 crypto_X509CreateProxy: EEC certificate cannot be opened (file: /home/cms-opendata/.globus/usercert.pem)
+      <div class="it col-md-12">Change the file name in the configuration file <kbd>demoanalyzer_cfg.py</kbd> in the DemoAnalyzer directory:
+        i.e. replace <kbd>file:myfile.root</kbd> with
+        <kbd>root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/AOD/Apr21ReReco-v1/0000/00459D48-EB70-E011-AF09-90E6BA19A252.root</kbd></div>
+      <div class="it col-md-12">Change the max number of events to 10 (i.e change -1 to 10 in <kbd>process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1)</kbd>).</div>
+      <div class="it col-md-12">Move two directories back using:</div>
+      <pre>cd ../..</pre>
+      <div class="it col-md-12">And then run:</div>
+      <pre>cmsRun Demo/DemoAnalyzer/demoanalyzer_cfg.py</pre>
+      <div class="it col-md-12">Your VM is "validated" if it opens the file and gives an output like:</div>
+      <pre>140908 10:48:10 001 crypto_X509CreateProxy: EEC certificate cannot be opened (file: /home/cms-opendata/.globus/usercert.pem)
 08-Sep-2014 10:48:11 CEST Initiating request to open file root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/AOD/Apr21ReReco-v1/0000/00459D48-EB70-E011-AF09-90E6BA19A252.root
 08-Sep-2014 10:48:21 CEST Successfully opened file root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/AOD/Apr21ReReco-v1/0000/00459D48-EB70-E011-AF09-90E6BA19A252.root
 Begin processing the 1st record. Run 146436, Event 90626440, LumiSection 322 at 08-Sep-2014 10:48:25.836 CEST
@@ -87,71 +87,71 @@ type category Examples: run/evt run/evt run/evt
 2 fileAction           pre-events       pre-events
 Severity # Occurrences Total Occurrences
 System 3 3</pre>
-	</div>
-</div>
+    </div>
+  </div>
 {% endmacro %}
 
 {% macro validate_s2() %}
-<div class="heading">Validation report</div>
- <div class="body">
- 	<div class="row">
-		<div class="it col-md-12">The CMS-specific CERN Virtual Machine has been tested on several operating systems, VM softwares and hardware configurations. A full list of tested machines and configurations can be found in <a href="FIXME!">this validation report (PDF)</a>.</div>
-		<div class="it col-md-12">However, we cannot guarantee that it will work under all conditions. Problems can often be traced to a user's particular system settings. Solutions to common problems are listed below.</div>
- 	</div>
- </div>
- {% endmacro %}
+  <div class="heading">Validation report</div>
+  <div class="body">
+    <div class="row">
+      <div class="it col-md-12">The CMS-specific CERN Virtual Machine has been tested on several operating systems, VM softwares and hardware configurations. A full list of tested machines and configurations can be found in <a href="FIXME!">this validation report (PDF)</a>.</div>
+      <div class="it col-md-12">However, we cannot guarantee that it will work under all conditions. Problems can often be traced to a user's particular system settings. Solutions to common problems are listed below.</div>
+    </div>
+  </div>
+{% endmacro %}
 
 {% macro limitation_s1() %}
-<div class="heading"><b>Q: </b>The following error message appears when the Virtual Machine is started: "Could not start the machine CMS Open Data because the following physical network interfaces were not found: vboxnet0 (adapter 2). You can either change the machine's network settings or stop the machine."</div>
-<div class="body">
-	<div class="row">
-		<div class="it col-md-12"><b>A: </b>Change the Network settings for adapter 2 from "Host-only Adapter" to "NAT". The VM should then start correctly.</div>
-	</div>
-</div>
-<div class="heading"><b>Q: </b>On Ubuntu running the latest version of VirtualBox, an error appears when opening the CMS-specific virtual machine: the message is about a missing path to a definition file.</div>
-<div class="body">
-	<div class="row">
-		<div class="it col-md-12"><b>A: </b>To fix this, open one of the (non-CMS-specific) CERN VMs first, after which the CMS-specific one should load without the error message.</div>
-	</div>
-</div>
-<div class="heading"><b>Q: </b>On Windows 7, this error message appears: "VT-X/AMD-V hardware acceleration is not available on your system. Your 64-bit guest will fail to detect a 64-but CPU and will not be able to boot."
-</div>
-<div class="body">
-	<div class="row">
-		<div class="it col-md-12"><b>A: </b>Check whether your processor supports the VT-X feature by going to <a href="http://ark.intel.com/">http://ark.intel.com/</a>: Intel® Virtualization Technology (VT-x) should be checked as "yes". Then, when the host machine is booting (just after switching it on) press the appropriate function key to get to the setup, go to advanced settings, and enable the virtualisation extensions of the CPU.</div>
-	</div>
-</div>
-<div class="heading"><b>Q: </b>The CMS-specific VM does not boot on Windows 7: it diplays "automatic boot in 1 second", but nothing happens.
-</div>
-<div class="body">
-	<div class="row">
-		<div class="it col-md-12"><b>A: </b>This problem could not be reproduced on a different Windows 7 machine, running the same version of VirtualBox with the same VM image. No solution is offered at the moment. Please check your VirtualBox and host-machine settings.</div>
-	</div>
-</div>
-<div class="heading"><b>Q: </b>The cursor is captured to the VM screen, and the "host key" combination, which is indicated down-right of the screen and should enable the cursor to move outside of the VM machine screen, does not work (Windows 7 with a Swiss-French keyboard, VirtualBox 4.3.12).</div>
-<div class="body">
-	<div class="row">
-		<div class="it col-md-12"><b>A: </b>This problem could not be reproduced on a different Windows 7 machine with a Swiss-French keyboard, running the same version of VirtualBox with the same VM image. No solution is offered at the moment. Please check your VirtualBox and host-machine settings.</div>
-	</div>
-</div>
-<div class="heading"><b>Q: </b>The VM does not inherit the keyboard layout of the host machine.</div>
-<div class="body">
-	<div class="row">
-		<div class="it col-md-12"><b>A: </b>The layout can be changed by using setxkbmap from a terminal inside the Virtual Machine. For example a user with a Swiss keyboard with French variant would type <kbd>setxkbmap 'ch(fr)'</kbd> in the terminal and a user with a Finnish keyboard would type <kbd>setxkbmap fi</kbd>. This can also be solved by using the GUI, which can be launched either from the graphical menu in the lower left corner (Preferences &rarr; Keyboard) or by typing in the console: xfce4-keyboard-settings. In the Layout tab it is possible to change the keyboard model and the layout. If you wish to keep these settings after reboot, you should delete all the other layouts from the menu.
-		</div>
-	</div>
-</div>
-<div class="heading"><b>Q: </b>The default terminal does not accept (not even from the clipboard) nor display certain language-specific characters such as <a href="http://en.wikipedia.org/wiki/Diaeresis_%28diacritic%29">umlauts</a>.</div>
-<div class="body">
-	<div class="row">
-		<div class="it col-md-12"><b>A: </b>Using a terminal such as xterm will allow reading and writing special characters.</div>
-	</div>
-</div>
-<div class="heading"><b>Q: </b>Users who use high resolutions on small displays and have set their host machines DPI manually, for example through <kbd>.Xresources</kbd> on Linux (X11), may find that everything is too small to be read efficiently. (Also helpful to users who have difficulties in reading the fonts and other visual information on the image due to the size of the graphical components.)
-</div>
-<div class="body">
-	<div class="row">
-		<div class="it col-md-12"><b>A: </b>The DPI can easily be adjusted from Xfce menu &rarr; Preferences &rarr; Appearance &rarr; Fonts &rarr; DPI. This enhances the readability and general usability significantly.</div>
-	</div>
-</div>
+  <div class="heading"><b>Q: </b>The following error message appears when the Virtual Machine is started: "Could not start the machine CMS Open Data because the following physical network interfaces were not found: vboxnet0 (adapter 2). You can either change the machine's network settings or stop the machine."</div>
+  <div class="body">
+    <div class="row">
+      <div class="it col-md-12"><b>A: </b>Change the Network settings for adapter 2 from "Host-only Adapter" to "NAT". The VM should then start correctly.</div>
+    </div>
+  </div>
+  <div class="heading"><b>Q: </b>On Ubuntu running the latest version of VirtualBox, an error appears when opening the CMS-specific virtual machine: the message is about a missing path to a definition file.</div>
+  <div class="body">
+    <div class="row">
+      <div class="it col-md-12"><b>A: </b>To fix this, open one of the (non-CMS-specific) CERN VMs first, after which the CMS-specific one should load without the error message.</div>
+    </div>
+  </div>
+  <div class="heading"><b>Q: </b>On Windows 7, this error message appears: "VT-X/AMD-V hardware acceleration is not available on your system. Your 64-bit guest will fail to detect a 64-but CPU and will not be able to boot."
+  </div>
+  <div class="body">
+    <div class="row">
+      <div class="it col-md-12"><b>A: </b>Check whether your processor supports the VT-X feature by going to <a href="http://ark.intel.com/">http://ark.intel.com/</a>: Intel® Virtualization Technology (VT-x) should be checked as "yes". Then, when the host machine is booting (just after switching it on) press the appropriate function key to get to the setup, go to advanced settings, and enable the virtualisation extensions of the CPU.</div>
+    </div>
+  </div>
+  <div class="heading"><b>Q: </b>The CMS-specific VM does not boot on Windows 7: it diplays "automatic boot in 1 second", but nothing happens.
+  </div>
+  <div class="body">
+    <div class="row">
+      <div class="it col-md-12"><b>A: </b>This problem could not be reproduced on a different Windows 7 machine, running the same version of VirtualBox with the same VM image. No solution is offered at the moment. Please check your VirtualBox and host-machine settings.</div>
+    </div>
+  </div>
+  <div class="heading"><b>Q: </b>The cursor is captured to the VM screen, and the "host key" combination, which is indicated down-right of the screen and should enable the cursor to move outside of the VM machine screen, does not work (Windows 7 with a Swiss-French keyboard, VirtualBox 4.3.12).</div>
+  <div class="body">
+    <div class="row">
+      <div class="it col-md-12"><b>A: </b>This problem could not be reproduced on a different Windows 7 machine with a Swiss-French keyboard, running the same version of VirtualBox with the same VM image. No solution is offered at the moment. Please check your VirtualBox and host-machine settings.</div>
+    </div>
+  </div>
+  <div class="heading"><b>Q: </b>The VM does not inherit the keyboard layout of the host machine.</div>
+  <div class="body">
+    <div class="row">
+      <div class="it col-md-12"><b>A: </b>The layout can be changed by using setxkbmap from a terminal inside the Virtual Machine. For example a user with a Swiss keyboard with French variant would type <kbd>setxkbmap 'ch(fr)'</kbd> in the terminal and a user with a Finnish keyboard would type <kbd>setxkbmap fi</kbd>. This can also be solved by using the GUI, which can be launched either from the graphical menu in the lower left corner (Preferences &rarr; Keyboard) or by typing in the console: xfce4-keyboard-settings. In the Layout tab it is possible to change the keyboard model and the layout. If you wish to keep these settings after reboot, you should delete all the other layouts from the menu.
+      </div>
+    </div>
+  </div>
+  <div class="heading"><b>Q: </b>The default terminal does not accept (not even from the clipboard) nor display certain language-specific characters such as <a href="http://en.wikipedia.org/wiki/Diaeresis_%28diacritic%29">umlauts</a>.</div>
+  <div class="body">
+    <div class="row">
+      <div class="it col-md-12"><b>A: </b>Using a terminal such as xterm will allow reading and writing special characters.</div>
+    </div>
+  </div>
+  <div class="heading"><b>Q: </b>Users who use high resolutions on small displays and have set their host machines DPI manually, for example through <kbd>.Xresources</kbd> on Linux (X11), may find that everything is too small to be read efficiently. (Also helpful to users who have difficulties in reading the fonts and other visual information on the image due to the size of the graphical components.)
+  </div>
+  <div class="body">
+    <div class="row">
+      <div class="it col-md-12"><b>A: </b>The DPI can easily be adjusted from Xfce menu &rarr; Preferences &rarr; Appearance &rarr; Fonts &rarr; DPI. This enhances the readability and general usability significantly.</div>
+    </div>
+  </div>
 {% endmacro %}

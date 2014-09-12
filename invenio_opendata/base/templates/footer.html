@@ -21,72 +21,72 @@
 
 {%- block footer %}
 <!--   <div class="upperfoot">
-    <div class="container">
-      <div class=" col-md-6 col-sm-12 no-padding">
-        <ul class="ppull-left">
-          <li><span class="fa fa-facebook"></span></li>
-          <li><span class="fa fa-twitter"></span></li>
-          <li><span class="fa fa-youtube-play"></span></li>
-        </ul>
-      </div>
-      <div class="col-md-6 col-sm-12 no-padding">
-        <ul class="ppull-right actions ">
-          <li style="color:#666;"><span class="fa fa-paper-plane"></span>CONTACT + SUGGESTIONS ?</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class=" col-md-6 col-sm-12 no-padding">
+<ul class="ppull-left">
+<li><span class="fa fa-facebook"></span></li>
+<li><span class="fa fa-twitter"></span></li>
+<li><span class="fa fa-youtube-play"></span></li>
+</ul>
+</div>
+<div class="col-md-6 col-sm-12 no-padding">
+<ul class="ppull-right actions ">
+<li style="color:#666;"><span class="fa fa-paper-plane"></span>CONTACT + SUGGESTIONS ?</li>
+</ul>
+</div>
+</div>
+</div>
 -->
-  <div class="middlefoot">
-    <div class="container">
-      <div class="row">
-        <div class="middle_l col-xs-12 col-sm-6">
-            <img src="{{ url_for('static', filename='/img/opendata/cern-logo-large.png') }}" style="width:60px;" alt="">
-            <img src="{{ url_for('static', filename='/img/opendata/invenio.png') }}" alt="">
-        </div>
-        <div class="middle_r col-xs-12 col-sm-6">
-          <img src="{{ url_for('static', filename='/img/ALICE.gif') }}" alt="">
-          <img src="{{ url_for('static', filename='/img/CMS.gif') }}" alt="">
-        </div>
+<div class="middlefoot">
+  <div class="container">
+    <div class="row">
+      <div class="middle_l col-xs-12 col-sm-6">
+        <img src="{{ url_for('static', filename='/img/opendata/cern-logo-large.png') }}" style="width:60px;" alt="">
+        <img src="{{ url_for('static', filename='/img/opendata/invenio.png') }}" alt="">
+      </div>
+      <div class="middle_r col-xs-12 col-sm-6">
+        <img src="{{ url_for('static', filename='/img/ALICE.gif') }}" alt="">
+        <img src="{{ url_for('static', filename='/img/CMS.gif') }}" alt="">
       </div>
     </div>
   </div>
-  <div class="lastfoot">
-    <div class="container no-padding">
-      <div class="col-md-8 col-xs-12 pull-left no-padding">
-        <ul class="col-md-3 col-xs-3">
-          <li class="title"><a href="{{ url_for('search')}}">SEARCH</a></li>
-        </ul>
-        <ul class="col-md-3 col-xs-3">
-          <li class="title"><a href="{{ url_for('experiments')}}">EXPERIMENTS</a></li>
-          <li><a href="{{ url_for('collection/CMS')}}">CMS</a></li>
-          <li><a href="{{ url_for('collection/ALICE')}}">ALICE</a></li>
-        </ul>
-        <ul class="col-md-3 col-xs-3">
-          <li class="title"><a href="{{ url_for('news')}}">NEWS</a></li>
-        </ul>
-        <ul class="col-md-3 col-xs-3">
-          <li class="title"><a href="{{ url_for('about')}}">ABOUT</a></li>
-          <li>Portal</li>
-          <li>CMS OpenData</li>
-          <li>ALICE OpenData</li>
-        </ul>
-      </div>
-      <div class="actions col-md-4 col-xs-12 pull-right">
-        <ul class="pull-right">
-          <li class="title col-md-4 col-xs-12"><a href="{{ url_for('education') }}">EDUCATION</a></li>
-          <li class="title col-md-4 col-xs-12"><a href="{{ url_for('research') }}">RESEARCH</a></li>
-        </ul>
-      </div>
-      <div class="center-block legal">
-          <ul class="">
-            <li>© 2014 OpenData</li>
-            <li>Terms of Use</li>
-            <li>Privacy Policy</li>
-            <li>Help</li>
-          </ul>
-      </div>
+</div>
+<div class="lastfoot">
+  <div class="container no-padding">
+    <div class="col-md-8 col-xs-12 pull-left no-padding">
+      <ul class="col-md-3 col-xs-3">
+        <li class="title"><a href="{{ url_for('search')}}">SEARCH</a></li>
+      </ul>
+      <ul class="col-md-3 col-xs-3">
+        <li class="title"><a href="{{ url_for('experiments')}}">EXPERIMENTS</a></li>
+        <li><a href="{{ url_for('collection/CMS')}}">CMS</a></li>
+        <li><a href="{{ url_for('collection/ALICE')}}">ALICE</a></li>
+      </ul>
+      <ul class="col-md-3 col-xs-3">
+        <li class="title"><a href="{{ url_for('news')}}">NEWS</a></li>
+      </ul>
+      <ul class="col-md-3 col-xs-3">
+        <li class="title"><a href="{{ url_for('about')}}">ABOUT</a></li>
+        <li>Portal</li>
+        <li>CMS OpenData</li>
+        <li>ALICE OpenData</li>
+      </ul>
     </div>
+    <div class="actions col-md-4 col-xs-12 pull-right">
+      <ul class="pull-right">
+        <li class="title col-md-4 col-xs-12"><a href="{{ url_for('education') }}">EDUCATION</a></li>
+        <li class="title col-md-4 col-xs-12"><a href="{{ url_for('research') }}">RESEARCH</a></li>
+      </ul>
+    </div>
+    <div class="center-block legal">
+      <ul class="">
+        <li>© 2014 OpenData</li>
+        <li>Terms of Use</li>
+        <li>Privacy Policy</li>
+        <li>Help</li>
+      </ul>
+    </div>
+  </div>
 
-  </div>
+</div>
 {%- endblock footer %}
