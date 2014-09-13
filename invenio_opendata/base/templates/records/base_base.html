@@ -129,18 +129,21 @@
               </div>
             </div>
           {% endif %}
-          <div class="rec_dedicated_details_in rdd-reuse panel">
-            <div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#reusability">How to reuse?</div>
-            <div id="reusability" class="info ccollapse">
-              <div class="body">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
-              <div class="links">
-                <ul>
-                  <li><a href="#">Link 1</a></li>
-                  <li><a href="#">Link2</a></li>
-                </ul>
+          {% if record.get('constituent_unit_entry', '') %}
+            <div class="rec_dedicated_details_in rdd-reuse panel">
+              <div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#reusability">How to reuse?</div>
+              <div id="reusability" class="info ccollapse">
+                <div class="body">{{ record.get('constituent_unit_entry', {}).get('heading', '') }}</div>
+                <div class="links">
+                  {% if record.get('constituent_unit_entry.recid', '') %}
+                    <ul>
+                      <li><a href="{{ url_for('record.metadata', recid=record.get('constituent_unit_entry.recid', '')) }}">Record {{ record.get('constituent_unit_entry.recid', '') }}</a></li>
+                    </ul>
+                  {% endif %}
+                </div>
               </div>
             </div>
-          </div>
+          {% endif %}
           {% if record.get('documentation_note', '') %}
             <div class="rec_dedicated_details_in rdd-limits panel">
               <div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#limitations">Issues & Limitations </div>
