@@ -233,3 +233,19 @@ def metadata(recid, of='hd'):
 		return render_template(['records/'+record_collection+'_record.html', 'records/metadata_base.html'])
 	except TemplateNotFound:
 		return abort(404) #FIX
+
+
+@blueprint.route('youraccount/login', methods=['GET', 'POST'])
+@blueprint.route('youraccount/register', methods=['GET', 'POST'])
+@blueprint.route('youraccount/logout', methods=['GET', 'POST'])
+@blueprint.route('youraccount/', methods=['GET', 'POST'])
+@blueprint.route('youraccount/display', methods=['GET', 'POST'])
+@blueprint.route('youraccount/edit/<name>', methods=['GET', 'POST'])
+@blueprint.route('youraccount/view', methods=['GET','POST'])
+@blueprint.route('youraccount/lost', methods=['GET', 'POST'])
+@blueprint.route('youraccount/access', methods=['GET', 'POST'])
+def no_accounts():
+	try:
+		return render_template('404.html')
+	except TemplateNotFound:
+		return abort('404')
