@@ -38,31 +38,37 @@
 <div class="rec_metadata rec_files">
   <div class="row">
     <div class="col-md-12">
-      <div class="rec_title title">Files <a {% if 'files' in record %}class="disabled"{%endif%} href="{{ url_for('record.files', recid=recid) }}">(see all files)</a></div>
+      <div class="rec_title title">Files</div>
     </div>
     {% if record['files'] == [] %}
       <div class="col-md-12" style="margin-top: 20px;font-size: 16px;color: #606D75;font-weight: 100;">The files can be accessed using the <a href="{{url_for('VM/CMS')}}">Virtual Machine</a></div>
-    {% else %}
+    {% else %}"
 
       <div class="col-md-12">
         <div class="rec_file_box">
           <ul class="row">
             {% for file in record['files'] %}
-              <li class="col-md-4">
-                <div class="content_box">
+              <li class="col-md-12 panel-group">
+                <div class="content_box panel-title">
                   <div class="row">
                     <div class="pull-left col-md-7">
                       <ul class="row">
                         <li class="col-md-12"><a href="{{file['url']}}">{{file['full_name']}}</a></li>
-                        <li class="col-md-12"><b>Size:</b> {{ file['size'] | filesizeformat }}</li>
-                        <li class="col-md-12"><b>Description:</b> {{ 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat omnis laborum provident eveniet distinctio incidunt cupiditate'| truncate(50) }}</li>
+                        <li class="col-md-3"><b>Size:</b> {{ file['size'] | filesizeformat }}</li>
+                        <li class="col-md-9"><b>Description:</b> {{ 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat omnis laborum provident eveniet distinctio incidunt cupiditate'| truncate(50) }}</li>
                       </ul>
                     </div>
                     <div class="pull-right col-md-5">
-                      <button class="btn">Download</button>
-                      <button class="btn">Preview</button>
+                      <a href="{{file['url']}}" class="btn">Download</a>
+                      <a data-toggle="collapse" href="#previewer-{{loop.index}}" class="btn">Preview</a>
                     </div>
                   </div>
+                </div>
+                <div id="previewer-{{loop.index}}" class="collapse">
+                  {% if file['url'][-3:] == 'txt' %}
+                  <iframe src="http://docs.google.com/viewer?url={{file['url']|safe}}&embedded=true" width="100%" height="400" style="border: none;"></iframe> 
+                  {% endif %}
+                  
                 </div>
               </li>
             {% endfor %}
