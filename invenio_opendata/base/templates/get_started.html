@@ -198,14 +198,14 @@
               <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>TBrowser&nbsp;t</span></span></span></div></pre>
 
               <p>
-                Excellent! You have successfully opened a CMS AOD file in ROOT. If this was the first time you've done so, pat yourself on the back. Now, to see what is inside this file, let us take a closer look at some collections of <a href="{{url_for('/about/CMS-Physics-Object')}}">physics objects</a>.
+                Excellent! You have successfully opened a CMS AOD file in ROOT. If this was the first time you've done so, pat yourself on the back. Now, to see what is inside this file, let us take a closer look at some collections of <a href="{{url_for('/about/CMS-Physics-Objects')}}">physics objects</a>.
               </p>
               <p>
                 On the left window of ROOT (see the screenshot below), double-click on the file name (<kbd>root://eospublic.cern.ch//eos/opendata/…</kbd>), followed by <kbd>Events</kbd> and then <kbd>Collections</kbd>. You should see a list of collections of physics objects.<br />
                 <img src="{{ url_for('static', filename='img/docs/Screenshot_001_TBrowser_t.png') }}" alt="Screenshot: After running 'TBrowser t'" style="width:70%; padding: 20px;"/>
               </p>
               <p>
-                Let us take a peek, for example, at the following electron collection, as shown on the list of <a href="{{url_for('/about/CMS-Physics-Object')}}">physics objects</a>: <kbd>recoGsfElectrons_gsfElectrons__RECO</kbd>. Look in there by double-clicking on that line and then double-clicking on <kbd>recoGsfElectrons_gsfElectrons__RECO.obj</kbd>. Here, you can have a look at various properties of this collection, such as the plot for the transverse momentum of the electrons: <kbd>recoGsfElectrons_gsfElectrons__RECO.obj.pt_</kbd>.
+                Let us take a peek, for example, at the following electron collection, as shown on the list of <a href="{{url_for('/about/CMS-Physics-Objects')}}">physics objects</a>: <kbd>recoGsfElectrons_gsfElectrons__RECO</kbd>. Look in there by double-clicking on that line and then double-clicking on <kbd>recoGsfElectrons_gsfElectrons__RECO.obj</kbd>. Here, you can have a look at various properties of this collection, such as the plot for the transverse momentum of the electrons: <kbd>recoGsfElectrons_gsfElectrons__RECO.obj.pt_</kbd>.
               </p>
               <p>
                 You can exit the ROOT browser through the GUI by clicking on <kbd>Browser</kbd> on the menu and then clicking on <kbd>Quit Root</kbd> or by entering <kbd>.q</kbd> in the terminal.
@@ -216,7 +216,7 @@
             <div class="heading">"Nice! But how do I analyse these data?"</div>
             <div class="body">
               <p>
-                In AOD files, reconstructed <a href="{{url_for('/about/CMS-Physics-Object')}}">physics objects</a> are included without cheking their "quality", i.e. in case of our electron collection that you opened in ROOT, without ensuring that the reconstructed object is really an electron. In order to analyse only the "good quality" data, you must apply some selection criteria.
+                In AOD files, reconstructed <a href="{{url_for('/about/CMS-Physics-Objects')}}">physics objects</a> are included without cheking their "quality", i.e. in case of our electron collection that you opened in ROOT, without ensuring that the reconstructed object is really an electron. In order to analyse only the "good quality" data, you must apply some selection criteria.
               </p>
 
               <p>
@@ -280,16 +280,13 @@
                   Your analysis job is defined in <kbd>OutreachExercise2010/DecaysToLeptons/run/run.py</kbd>. The analysis code is in the files located in the <kbd>OutreachExercise2010/DecaysToLeptons/python</kbd> directory.
                 </p>
                 <p>
-                  To run the example, you will need to change the path in the file names in <kbd>sources.py</kbd>. For example, replace <kbd>file:/data2/pattuples2010/Mu/Mu_PAT_data_500files_1.root</kbd> with <kbd>root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/PATtuples/Mu_PAT_data_500files_1.root</kbd>
-                </p>
-                <p>
                   This example uses IPython, which gets configured and starts the job with the following command:
                 </p>
               </ul>
               <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>ipython run.py</span></span></span></div></pre>
 
               <p>
-                [<strong>Explanation needed here</strong>] That's it! You have just performed an analysis using data from CMS. Hope you enjoyed this exercise. Feel free to play around with the rest of data and write your own analyzers and analysis code.
+                That's it! Follow the rest of the instructions on the README and you have performed an analysis using data from CMS. Hope you enjoyed this exercise. Feel free to play around with the rest of data and write your own analyzers and analysis code.
               </p>
             </div>
           </div>
