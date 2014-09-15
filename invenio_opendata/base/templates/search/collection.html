@@ -41,7 +41,7 @@
               <div class="row">
                 <div class="thumb col-md-4"><img class="img-circle" src="{{ url_for('static', filename='img/'+portalboxes['image']) }}" alt=""></div>
                 <div class="details col-md-8">
-                  <div class="title col-md-12">{{ collection.name }}</div>
+                  <div class="title col-md-12">{{ collection.names[g.ln,'ln'] }}</div>
                   <div class="desc col-md-12"><span>{{ portalboxes['desc']*8 }}</span></div>
                 </div>
               </div>
@@ -297,7 +297,7 @@
     <div class="row">
       <div class="coltitle col-md-12">
         <p>
-          {{ collection.name  }}
+          {{ collection.names[g.ln,'ln'] }}
         </p>
       </div>
     </div>
@@ -308,7 +308,7 @@
           {% if collection.is_restricted %}
             {{ _('Restricted Collection')  }}
           {% else %}
-            {{ collection.name  }}
+            {{ collection.names[g.ln,'ln'] }}
           {% endif %}
         </p>
       </div>
