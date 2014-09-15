@@ -52,9 +52,9 @@
                   <div class="row">
                     <div class="pull-left col-md-7">
                       <ul class="row">
-                        <li class="col-md-12"><a href="{{file['url']}}">{{file['full_name']}}</a></li>
-                        <li class="col-md-12"><b>Size:</b> {{ file['size'] | filesizeformat }}</li>
-                        <li class="col-md-12"><b>Description:</b> {{ 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat omnis laborum provident eveniet distinctio incidunt cupiditate'| truncate(50) }}</li>
+                        <li class="col-md-12"><a href="{{ file.get('url','') }}">{{ file.get('full_name','') }}</a></li>
+                        <li class="col-md-12"><b>Size:</b> {{ file.get('size','') | filesizeformat }}</li>
+                        <li class="col-md-12"><b>Description:</b> {{ (file.get('description')|truncate(50)) if (file.get('description', '') != '')  else '-' }}</li>
                       </ul>
                     </div>
                     <div class="pull-right col-md-5">

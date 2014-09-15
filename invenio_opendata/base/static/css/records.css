@@ -273,6 +273,8 @@
   padding: 10px;
   border-radius: 3px;
   overflow: overlay;
+  display: inline-block;
+  width: 100%;
 }
 .rec_files_list .rec_files_box > div>ul>li {
   width: 100%;
@@ -364,6 +366,10 @@
   padding-left: 10px;
 }
 
+.rec_file_box > .row > .col-md-12 {
+  width: 100%;
+}
+
 .rec_description .rec_desc {
   margin-top: 20px;
   font-size: 16px;
@@ -381,13 +387,16 @@
 }
 .rec_metadata.rec_files .rec_file_box {
   margin-top: 20px;
+  display: inline-block;
+  width: 100%;
 }
 
 .rec_metadata.rec_files li .content_box {
   background-color: #606D75;
   border-radius: 3px;
   display: inline-block;
-  padding: 15px;
+  padding: 10px;
+  width: 100%;
 }
 .rec_metadata.rec_files li a,
 .rec_metadata.rec_files li a:hover,
