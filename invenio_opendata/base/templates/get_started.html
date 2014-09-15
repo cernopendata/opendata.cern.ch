@@ -157,7 +157,7 @@
             <div class="heading">"I have installed the CERN Virtual Machine: now what?"</div>
             <div class="body">
               <p>
-                First, have you <a href="{{url_for('VM#validate')}}">validated</a> the Virtual machine after installation? This step is very important! The CMSSW command <kbd>cmsrel CMSSW_4_2_8</kbd> you executed during validation ensures that you have the right version of CMSSW running: to analyse CMS data collected in 2010, you need <strong>version 4.2.8</strong>, supported only on <strong>Scientific Linux 5</strong>.
+                First, have you <a href="{{ url_for('VM#validate') }}">validated</a> the Virtual machine after installation? This step is very important! The CMSSW command <kbd>cmsrel CMSSW_4_2_8</kbd> you executed during validation ensures that you have the right version of CMSSW running: to analyse CMS data collected in 2010, you need <strong>version 4.2.8</strong>, supported only on <strong>Scientific Linux 5</strong>.
               </p>
               <p>
                 Then, make sure that you are always in the <strong>CMSSW_4_2_8/src/</strong> directory by entering the following command in the terminal (you must do so every time you boot the VM before you can proceed):
@@ -173,7 +173,7 @@
                 It is best if we start off with a quick introduction to <strong><a href="http://root.cern.ch">ROOT</a></strong>. ROOT is the framework used by several particle-physics experiments to work with the collected data. Although analysis is not itself performed within the ROOT GUI, it is instructive to understand how these files are structured and what data and collections they contain.
               </p>
               <p>
-                The CMS data provided on the CERN Open Data Portal is in a format called "<a href="{{url_for('about/CMS#what-data')}}">Analysis Object Data</a>" or AOD for short. These AOD files are prepared by piecing raw data collected by various sub-detectors of CMS and contain all the information that is needed for analysis. The files cannot be opened and understood as simple data tables but require ROOT in order to be read.
+                The CMS data provided on the CERN Open Data Portal is in a format called "<a href="{{ url_for('about/CMS#what-data') }}">Analysis Object Data</a>" or AOD for short. These AOD files are prepared by piecing raw data collected by various sub-detectors of CMS and contain all the information that is needed for analysis. The files cannot be opened and understood as simple data tables but require ROOT in order to be read.
               </p>
               <p>
                 So, let's see what an AOD file looks like and take ROOT for a spin!
@@ -198,14 +198,14 @@
               <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>TBrowser&nbsp;t</span></span></span></div></pre>
 
               <p>
-                Excellent! You have successfully opened a CMS AOD file in ROOT. If this was the first time you've done so, pat yourself on the back. Now, to see what is inside this file, let us take a closer look at some collections of <a href="{{url_for('/about/CMS-Physics-Objects')}}">physics objects</a>.
+                Excellent! You have successfully opened a CMS AOD file in ROOT. If this was the first time you've done so, pat yourself on the back. Now, to see what is inside this file, let us take a closer look at some collections of <a href="{{ url_for('about/CMS-Physics-Objects') }}">physics objects</a>.
               </p>
               <p>
                 On the left window of ROOT (see the screenshot below), double-click on the file name (<kbd>root://eospublic.cern.ch//eos/opendata/…</kbd>), followed by <kbd>Events</kbd> and then <kbd>Collections</kbd>. You should see a list of collections of physics objects.<br />
                 <img src="{{ url_for('static', filename='img/docs/Screenshot_001_Tbrowser_t.png') }}" alt="Screenshot: After running 'TBrowser t'" style="width:70%; padding: 20px;"/>
               </p>
               <p>
-                Let us take a peek, for example, at the following electron collection, as shown on the list of <a href="{{url_for('/about/CMS-Physics-Objects')}}">physics objects</a>: <kbd>recoGsfElectrons_gsfElectrons__RECO</kbd>. Look in there by double-clicking on that line and then double-clicking on <kbd>recoGsfElectrons_gsfElectrons__RECO.obj</kbd>. Here, you can have a look at various properties of this collection, such as the plot for the transverse momentum of the electrons: <kbd>recoGsfElectrons_gsfElectrons__RECO.obj.pt_</kbd>.
+                Let us take a peek, for example, at the following electron collection, as shown on the list of <a href="{{ url_for('about/CMS-Physics-Objects') }}">physics objects</a>: <kbd>recoGsfElectrons_gsfElectrons__RECO</kbd>. Look in there by double-clicking on that line and then double-clicking on <kbd>recoGsfElectrons_gsfElectrons__RECO.obj</kbd>. Here, you can have a look at various properties of this collection, such as the plot for the transverse momentum of the electrons: <kbd>recoGsfElectrons_gsfElectrons__RECO.obj.pt_</kbd>.
               </p>
               <p>
                 You can exit the ROOT browser through the GUI by clicking on <kbd>Browser</kbd> on the menu and then clicking on <kbd>Quit Root</kbd> or by entering <kbd>.q</kbd> in the terminal.
@@ -216,7 +216,7 @@
             <div class="heading">"Nice! But how do I analyse these data?"</div>
             <div class="body">
               <p>
-                In AOD files, reconstructed <a href="{{url_for('/about/CMS-Physics-Objects')}}">physics objects</a> are included without cheking their "quality", i.e. in case of our electron collection that you opened in ROOT, without ensuring that the reconstructed object is really an electron. In order to analyse only the "good quality" data, you must apply some selection criteria.
+                In AOD files, reconstructed <a href="{{ url_for('about/CMS-Physics-Objects') }}">physics objects</a> are included without cheking their "quality", i.e. in case of our electron collection that you opened in ROOT, without ensuring that the reconstructed object is really an electron. In order to analyse only the "good quality" data, you must apply some selection criteria.
               </p>
 
               <p>
