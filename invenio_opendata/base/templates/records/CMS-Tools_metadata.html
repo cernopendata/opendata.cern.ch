@@ -34,40 +34,57 @@
     </div>
   </div>
 </div>
+{% if record.get('url',[]) != [] %}
+<div class="rec_metadata rec_urls">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="rec_title title">URLs</div>
+    </div>
+    <div class="col-md-12" style="margin-top: 20px;font-size: 16px;color: #606D75;font-weight: 100;">
+      <div class="row">
+      {% if record.get('url').get('url') is not string %}
+        {% for u in record.get('url').get('url') %}
+        <a class="col-md-12" href="{{ u }}">{{ u }}</a> 
+        {% endfor %} 
+      {% else %}
+        <a class="col-md-12" href="{{ record.get('url','').get('url','') }}">{{ record.get('url','').get('url','') }}</a> 
+      {% endif %}
+      </div>
+    </div>
+  </div>
+</div>  
+{% endif %}
+{% if record['files'] != [] %}
 <div class="rec_metadata rec_files">
   <div class="row">
     <div class="col-md-12">
       <div class="rec_title title">Files <a {% if 'files' in record %}class="disabled"{%endif%} href="{{ url_for('record.files', recid=recid) }}">(see all files)</a></div>
     </div>
-    {% if record['files'] == [] %}
-      <div class="col-md-12" style="margin-top: 20px;font-size: 16px;color: #606D75;font-weight: 100;">There are no files for this record</div>
-    {% else %}
-
-      <div class="col-md-12">
-        <div class="rec_file_box">
-          <ul class="row">
-            {% for file in record['files'] %}
-              <li class="col-md-4">
-                <div class="content_box">
-                  <div class="row">
-                    <div class="pull-left col-md-7">
-                      <ul class="row">
-                        <li class="col-md-12"><a href="{{ file.get('url','') }}">{{ file.get('full_name','') }}</a></li>
-                        <li class="col-md-12"><b>Size:</b> {{ file.get('size','') | filesizeformat }}</li>
-                        <li class="col-md-12"><b>Description:</b> {{ (file.get('description')|truncate(50)) if (file.get('description', '') != '')  else '-' }}</li>
-                      </ul>
-                    </div>
-                    <div class="pull-right col-md-5">
-                      <button class="btn">Download</button>
-                      <button class="btn">Preview</button>
-                    </div>
+    <div class="col-md-12">
+      <div class="rec_file_box">
+        <ul class="row">
+          {% for file in record['files'] %}
+            <li class="col-md-4">
+              <div class="content_box">
+                <div class="row">
+                  <div class="pull-left col-md-7">
+                    <ul class="row">
+                      <li class="col-md-12"><a href="{{ file.get('url','') }}">{{ file.get('full_name','') }}</a></li>
+                      <li class="col-md-12"><b>Size:</b> {{ file.get('size','') | filesizeformat }}</li>
+                      <li class="col-md-12"><b>Description:</b> {{ (file.get('description')|truncate(50)) if (file.get('description', '') != '')  else '-' }}</li>
+                    </ul>
+                  </div>
+                  <div class="pull-right col-md-5">
+                    <button class="btn">Download</button>
+                    <button class="btn">Preview</button>
                   </div>
                 </div>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
       </div>
-    {% endif %}
+    </div>
   </div>
 </div>
+{% endif %}
