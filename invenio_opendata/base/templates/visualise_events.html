@@ -1,7 +1,5 @@
 {% extends "page.html" %}
 
-{% bundles "previewer_ispy.js", "previewer_ispy.css" %}
-
 {% block body %}
   <style>
     #vis-events .pg-header h3 {
@@ -20,67 +18,6 @@
       margin-bottom: 70px;
       color: #fff;
     }
-    #ispy-previewer table,#ispy-previewer tbody {
-      display: inline-block;
-      width: 100%;
-      color: #fff;
-      font-weight: 100;
-      line-height: 1;
-    }
-    #ispy-previewer > tr {
-
-    }
-    #ispy-previewer .toolbar-container.toolbar-container > td {
-      padding-right: 10px;
-      padding: 0;
-    }
-    #ispy-previewer .toolbar-actions {
-      background-color: #606D75;
-      border-radius: 3px;
-      padding: 5px;
-    }
-    #ispy-previewer#ispy-previewer td{
-      padding: 0;
-    }
-    #ispy-previewer#ispy-previewer .canvas-container td {
-      padding: 10px;
-    }
-    #ispy-previewer#ispy-previewer a.disabled {
-      background-color: #fff;
-    }
-    #ispy-previewer#ispy-previewer #toolbar {
-      width: 100%;
-    }
-    #ispy-previewer#ispy-previewer .toolbar-container{
-      width: 100%;
-      text-align: center;
-      background-color: #f4f4f4;
-      margin-top: -15px;
-      border-top-left-radius: 3px;
-      border-top-right-radius: 3px;
-    }
-
-    #ispy-previewer .toolbar-actions a, #ispy-previewer .toolbar-button {
-      color: #fff;
-      padding: 10px;
-      background-color: #7C8A92;
-      margin: 5px;
-      text-align: center;
-      width: 50px;
-    }
-    #ispy-previewer .toolbar-container {
-      display: inline-block;
-      padding: 5px 10px;
-    }
-    #ispy-previewer .canvas-container {
-      padding: 10px;
-      background-color: #606D75;
-    }
-    #ispy-previewer#ispy-previewer .toolbar-button.selected {
-      background-color: #7C8A92;
-      background-image: none;
-      border: 0;
-    }
   </style>
 
   <section class="infobar">
@@ -92,14 +29,8 @@
   <section id="vis-events" class="content">
     <div class="container">
       <div class="row">
-        <div class="col-md-10 col-md-offset-1 pg-header">
-          <h3>Take a tour of the experiment</h3>
-          <div>
-            Consequuntur.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit illum magni officia consequuntur dignissimos ad voluptas sint, maxime optio quis necessitatibus, laborum in velit nobis obcaecati similique, nihil delectus ipsa!
-          </div>
-        </div>
-        <div class="previewer col-md-10 col-md-offset-1">
-          {% include 'visualise_events_cms.html' %}
+        <div class="previewer col-md-12 col-md-offset-1">
+	  {% include "visualise_events_cms.html" %}
         </div>
       </div>
     </div>
