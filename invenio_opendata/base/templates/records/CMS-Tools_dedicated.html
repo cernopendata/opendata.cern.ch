@@ -39,8 +39,8 @@
     {% endif %}
     {% if record.get('constituent_unit_entry', '') %}
       <div class="rec_dedicated_details_in rdd-reuse panel">
-        <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#reusability">Usage</div>
-        <div id="reusability" class="info ccollapse">
+        <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#reusability">Usage<span class="pull-right fa fa-angle-up"></span></div>
+        <div id="reusability" class="info collapse">
           <div class="body">{{ record.get('constituent_unit_entry', {}).get('heading', '') }}</div>
           <div class="links">
             {% if record.get('constituent_unit_entry.recid', '') %}
