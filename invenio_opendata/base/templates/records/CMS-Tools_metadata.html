@@ -71,7 +71,7 @@
                     <ul class="row">
                       <li class="col-md-12"><a href="{{ file.get('url','') }}">{{ file.get('full_name','') }}</a></li>
                       <li class="col-md-12"><b>Size:</b> {{ file.get('size','') | filesizeformat }}</li>
-                      <li class="col-md-12"><b>Description:</b> {{ (file.get('description')|truncate(50)) if (file.get('description', '') != '')  else '-' }}</li>
+                      {{ '<li class="col-md-12"><b>Description:</b>'+(file.get('description')|truncate(50))+'</li>' if (file.get('description', '') != '') }}
                     </ul>
                   </div>
                   <div class="pull-right col-md-5">
