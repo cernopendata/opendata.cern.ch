@@ -68,11 +68,12 @@ def index2():
 @blueprint.route('education', defaults={'exp':'all'})
 @blueprint.route('education/<string:exp>')
 def educate(exp):
+	experiments = Collection.query.filter(Collection.id == '1' ).first_or_404()
 	cms_collection = Collection.query.filter(Collection.name == 'CMS').first_or_404()
 	alice_collection = Collection.query.filter(Collection.name == 'ALICE').first_or_404()
 
 	try:
-		return render_template('educate.html', exp = exp, cms_collection = cms_collection, alice_collection=alice_collection)
+		return render_template('educate.html', experiments = experiments, exp = exp, cms_collection = cms_collection, alice_collection=alice_collection)
 	except TemplateNotFound:
 		return abort(404)
 

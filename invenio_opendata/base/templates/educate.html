@@ -2,6 +2,238 @@
 
 
 {% block body %}
+
+<style>
+
+.coltitle {
+  color: #fff;
+}
+.infobar p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#subcollection {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#subcollection a,
+#subcollection a:hover
+#subcollection a:focus {
+  color: #666;
+  text-decoration: none;
+}
+
+.websearch.clearfix {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#subcollection .collection.clearfix {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 20px;
+}
+#subcollection .collection.clearfix h4 {
+  font-weight: 300;
+}
+
+#subcollection .collection .nav {
+  background-color: #fff;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+#subcollection .collection .nav li {
+  width: 100%;
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 5px;
+}
+
+#subcollection .collection .nav li a {
+  float: left;
+  padding: 0;
+  padding-right: 5px;
+  color: #666;
+  font-weight: 600;
+
+}
+
+#subcollection .collection-res {
+  background-color: #f4f4f4;
+  border-radius: 3px;
+  font-size: 20px;
+  font-weight: 100;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: inline-block;
+}
+
+#subcollection .collection-res .nav {
+  background-color: inherit;
+}
+#subcollection .collection-res > .row:nth-child(2n+1) {
+  background-color: #fff;
+}
+
+#subcollection .collection-res > .row:nth-child(2n) a.dropdown-toggle {
+  background-color: #fff;
+}
+
+#subcollection .collection-res > .row:nth-child(2n+1) a.dropdown-toggle {
+  background-color: #eee;
+}
+
+#subcollection .record-brief .record-header {
+  font-size: 18px;
+  font-weight: 600;
+}
+#subcollection .record-brief .record-header a{
+  text-decoration: none;
+}
+
+#subcollection .record-brief p{
+  font-size: 14px;
+}
+#subcollection .record-brief a {
+  text-decoration: underline;
+}
+
+#subcollection .collection > ul li  {
+
+}
+
+#subcollection .coll-overview ul.nav {
+  background-color: inherit;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+#subcollection .coll-overview ul.nav li {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+#subcollection .coll-overview .coll-box {
+  background-color: #f4f4f4;
+  padding: 20px 15px;
+  text-align: center;
+  height: auto;
+  display: inline-block;
+  font-weight: 100;
+  border-radius: 5px;
+  color: #657580;
+  margin-bottom: 20px;
+}
+
+#subcollection .coll-overview .coll-box .thumb img {
+  height: 120px;
+  padding: 5px;
+  font-size: 30px;
+  font-weight: 100px;
+}
+#subcollection .coll-overview .coll-box .top{
+  display: inline-block;
+  border-bottom: 1px solid #dfdfdf;
+  padding-bottom: 10px;
+}
+#subcollection .coll-overview .coll-box .bottom {
+  display: inline-block;
+  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 12px;
+  font-weight: 300;
+}
+#subcollection .coll-overview .coll-box .top .title {
+  margin-bottom: 10px;
+}
+#subcollection .coll-overview .coll-box .bottom > div {
+  text-align: center;
+}
+#subcollection .coll-overview .coll-box .bottom .totalrecs .coll-rec-num {
+  font-size: 26px;
+  font-weight: 600;
+  margin-top: 5px;
+  text-align: center;
+}
+#subcollection .coll-overview .coll-box .top .desc {
+}
+#subcollection .coll-overview .coll-box .top .desc span {
+  font-size: 12px;
+  height: 100px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: block;
+}
+#subcollection .coll-overview .coll-box .bottom .subcollection {
+
+}
+#subcollection .coll-overview .coll-box .bottom .related {
+
+}
+#subcollection .collection-res > .col-md-12 {
+  background-color: #fff;
+}
+#subcollection .collection-res > .col-md-12:nth-child(2n) {
+  background-color: #f4f4f4;
+}
+#subcollection .results-title {
+  padding-top: 25px;
+  padding-bottom: 40px;
+  font-size: 40px;
+  font-weight: 100;
+  text-align: center;
+}
+#subcollection .collection-res .more {
+  text-align: center;
+}
+#subcollection .collection-res .more a {
+  background-color: #091B26;
+  padding: 12px 60px;
+  display: inline;
+  line-height: 3;
+  color: #fff;
+  border-radius: 5px;
+}
+#subcollection .coll-desc {
+  text-align: center;
+  color: #5E6970;
+  font-weight: 300;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.subcollection_desc {
+  padding: 20px 0;
+  font-weight: 100;
+  font-size: 15px;
+  background-color: #f4f4f4;
+}
+.coll-thumb {
+  float: left;
+
+}
+.coll-thumb {
+  border-right: 1px solid #ccc;
+}
+.coll-thumb img {
+  height: 100px;      
+}
+
+.subcollection_desc.experiments {
+  padding-top: 70px;
+  padding-bottom: 40px;
+}
+li.subcollection_exp {
+  margin-bottom: 50px;
+}
+</style>
+
   {% with collection = 0 %}
     {% include 'search/form/index.html' %}
   {% endwith %}
@@ -9,7 +241,7 @@
   <section class="infobar">
     <div class="container">
       <h3>For Education</h3>
-      <div style="width:100%;padding:20px 0;font-size:15px;font-weight:100;text-align:center;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus minima odio odit reiciendis eum ipsam iste in voluptate culpa sed. Suscipit minus, reprehenderit hic fugit quae eligendi quia provident id?</div>
+      <div style="width:100%;padding:10px 0;font-size:15px;font-weight:100;text-align:left;">For education purposes, the complex primary data need to be processe into a format (examples below) that is good for simple applications. Get in touch if you wish to build your own applications similar to those shown here.</div>
     </div>
   </section>
 
@@ -20,7 +252,8 @@
         <div class="row">
           {% block leftside_actions %}
             <ul class="pull-left col-md-7 nav nav-tabs" role="tablist">
-              <li {% if exp in ['CMS','all'] %} class="active" {% endif %}><a href="#CMS" role="tab" data-toggle="tab"></span>CMS</a></li>
+              <li {% if exp not in ['CMS','ALICE'] %} class="active" {% endif %}><a href="#general" role="tab" data-toggle="tab"></span>Introduction</a></li>
+              <li {% if exp == 'CMS' %} class="active" {% endif %}><a href="#CMS" role="tab" data-toggle="tab"></span>CMS</a></li>
               <li {% if exp == 'ALICE' %} class="active" {% endif %}><a href="#ALICE" role="tab" data-toggle="tab"></span>ALICE</a></li>
             </ul>
           {% endblock leftside_actions %}
@@ -28,26 +261,51 @@
       </div>
     </div>
     <div class="tab-content">
-      <div class="tab-pane fade {%  if exp in ['CMS','all'] %}in active{% endif%}" id="CMS">
+      <div class="tab-pane fade {%  if exp not in ['CMS','ALICE'] %}in active{% endif%}" id="general">
+        <section class="subcollection_desc experiments">
+          <div class="container">
+            <ul class="row">
+              {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+              {% for cols in experiments.collection_children_r %}
+                {% for pb in cols.portalboxes %}
+                {% if (pb.portalbox.title == 'description') %}
+                {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+                {% elif (pb.portalbox.title == 'image') %}
+                {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+                {% endif %}
+                {% endfor %}
+                <li class="subcollection_exp">
+                  <div class="coll-thumb col-md-2">
+                    <img src="{{ url_for('static', filename='img/'+coll_portalboxes['image']) }}" alt="">
+                  </div>
+                  <div class="coll-desc col-md-10">
+                    {{ coll_portalboxes['desc'] }}
+                  </div>
+                </li>
+              {% endfor %}
+              
+            </ul>
+          </div>
+        </section>
+      </div>
+      <div class="tab-pane fade {%  if exp == 'CMS' %}in active{% endif%}" id="CMS">
         <section class="subcollection_desc">
           <div class="container">
             <div class="row">
-              <div class="col-md-12">
-                <div class="col-md-12">
-                  {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
-                  {% for pb in cms_collection.portalboxes %}
-                  {% if (pb.portalbox.title == 'description') %}
-                  {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
-                  {% elif (pb.portalbox.title == 'image') %}
-                  {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
-                  {% endif %}
-                  {% endfor %}
-                  <div class="coll-thumb">
-                    <img src="{{ url_for('static', filename='img/'+coll_portalboxes['image']) }}" alt="">
-                  </div>
-                  <div class="coll-desc">
-                    {{ cms_collection.portalboxes[0].portalbox.body }}
-                  </div>
+              <div>
+                {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+                {% for pb in cms_collection.portalboxes %}
+                {% if (pb.portalbox.title == 'description') %}
+                {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+                {% elif (pb.portalbox.title == 'image') %}
+                {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+                {% endif %}
+                {% endfor %}
+                <div class="coll-thumb col-md-2">
+                  <img src="{{ url_for('static', filename='img/'+coll_portalboxes['image']) }}" alt="">
+                </div>
+                <div class="coll-desc col-md-10">
+                  {{ coll_portalboxes['desc'] }}
                 </div>
               </div>
             </div>
@@ -61,22 +319,20 @@
         <section class="subcollection_desc">
           <div class="container">
             <div class="row">
-              <div class="col-md-12">
-                <div class="col-md-12">
-                  {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
-                  {% for pb in alice_collection.portalboxes %}
-                  {% if (pb.portalbox.title == 'description') %}
-                  {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
-                  {% elif (pb.portalbox.title == 'image') %}
-                  {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
-                  {% endif %}
-                  {% endfor %}
-                  <div class="coll-thumb">
-                    <img src="{{ url_for('static', filename='img/'+coll_portalboxes['image']) }}" alt="">
-                  </div>
-                  <div class="coll-desc">
-                    {{ alice_collection.portalboxes[0].portalbox.body }}
-                  </div>
+              <div>
+                {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+                {% for pb in alice_collection.portalboxes %}
+                {% if (pb.portalbox.title == 'description') %}
+                {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+                {% elif (pb.portalbox.title == 'image') %}
+                {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+                {% endif %}
+                {% endfor %}
+                <div class="coll-thumb col-md-2">
+                  <img src="{{ url_for('static', filename='img/'+coll_portalboxes['image']) }}" alt="">
+                </div>
+                <div class="coll-desc col-md-10">
+                  {{ coll_portalboxes['desc'] }}
                 </div>
               </div>
             </div>
