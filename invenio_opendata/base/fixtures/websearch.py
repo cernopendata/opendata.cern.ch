@@ -110,6 +110,12 @@ class CollectionCollectionData(DataSet):
         score = 2
         type = 'r'
 
+    class CMS_CMSValidatedRuns:
+        dad = CollectionData.CMS
+        son = CollectionData.CMSValidatedRuns
+        score = 3
+        type = 'r'
+
     class siteCollection_ALICE:
         dad = CollectionData.siteCollection
         son = CollectionData.ALICE
@@ -231,6 +237,10 @@ class PortalboxData(DataSet):
         id = 13
         title = u'description'
 
+    class Portalbox_14:
+        body = u'This collection includes CMS Validated Runs'
+        id = 14
+        title = u'description'
 
 class CollectionPortalboxData(DataSet):
 
@@ -324,6 +334,13 @@ class CollectionPortalboxData(DataSet):
         id_portalbox = PortalboxData.Portalbox_13.ref('id')
         score = 100
         id_collection = CollectionData.CMSTools.ref('id')
+
+    class CollectionPortalbox_9_14_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_14.ref('id')
+        score = 100
+        id_collection = CollectionData.CMSValidatedRuns.ref('id')
 
 
 __all__ = (
