@@ -44,7 +44,7 @@
           <div class="body">{{ record.get('constituent_unit_entry', {}).get('heading', '') }}</div>
           <div class="links">
             <ul>
-              <li><a href="{{ url_for('cms/getstarted') }}">CMS Getting Started</a></li>
+              <li><a href="{{ url_for('getting-started/CMS') }}">CMS Getting Started</a></li>
             </ul>
             {% if record.get('constituent_unit_entry.recid', '') %}
               <ul>

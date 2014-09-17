@@ -129,8 +129,10 @@ def visualise_histo():
 		return abort(404)
 
 @blueprint.route('getstarted', defaults={'exp':'all'})
-@blueprint.route('cms/getstarted', defaults={'exp':'CMS'})
+@blueprint.route('<string:exp>/getstarted')
 @blueprint.route('getstarted/<string:exp>')
+@blueprint.route('getting-started', defaults={'exp':'all'})
+@blueprint.route('getting-started/<string:exp>')
 def get_started(exp):
 	try:
 		return render_template('get_started.html', exp = exp)
