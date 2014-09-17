@@ -32,6 +32,21 @@
   padding-bottom: 20px;
 }
 
+#search_results a,
+#search_results a:hover,
+#search_results a:focus{
+  color: #899AA5;
+}
+
+#search_results .pagination>.active>a,
+#search_results .pagination>.active>a:focus,
+#search_results .pagination>.active>a:hover,
+#search_results .pagination>.active>span, 
+#search_results .pagination>.active>span:focus, 
+#search_results .pagination>.active>span:hover{
+  background-color: #899AA5;
+  color: #fff;
+}
 
 .search-facet {
   background-color: #f4f4f4;
@@ -56,7 +71,6 @@ form.form-inline .row.record:nth-child(2n+1) {
 
 ul.nav-pills {
   margin: 0!important;
-  background-color: #eee;
 }
 #search-box-main .navbar {
   margin-bottom: 8px;
