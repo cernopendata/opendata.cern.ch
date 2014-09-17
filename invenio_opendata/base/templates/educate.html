@@ -9,12 +9,85 @@
   <section class="infobar">
     <div class="container">
       <h3>For Education</h3>
+      <div style="width:100%;padding:20px 0;font-size:15px;font-weight:100;text-align:center;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus minima odio odit reiciendis eum ipsam iste in voluptate culpa sed. Suscipit minus, reprehenderit hic fugit quae eligendi quia provident id?</div>
     </div>
   </section>
+
+
   <section class="entrypoint_collections">
-    {% with show_navbar = true %}
-      {% include "helpers/collections_list.html" %}
-    {% endwith %}
+    <div class="nav collections-nav">
+      <div class="container">
+        <div class="row">
+          {% block leftside_actions %}
+            <ul class="pull-left col-md-7 nav nav-tabs" role="tablist">
+              <li {% if exp in ['CMS','all'] %} class="active" {% endif %}><a href="#CMS" role="tab" data-toggle="tab"></span>CMS</a></li>
+              <li {% if exp == 'ALICE' %} class="active" {% endif %}><a href="#ALICE" role="tab" data-toggle="tab"></span>ALICE</a></li>
+            </ul>
+          {% endblock leftside_actions %}
+        </div>
+      </div>
+    </div>
+    <div class="tab-content">
+      <div class="tab-pane fade {%  if exp in ['CMS','all'] %}in active{% endif%}" id="CMS">
+        <section class="subcollection_desc">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-md-12">
+                  {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+                  {% for pb in cms_collection.portalboxes %}
+                  {% if (pb.portalbox.title == 'description') %}
+                  {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+                  {% elif (pb.portalbox.title == 'image') %}
+                  {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+                  {% endif %}
+                  {% endfor %}
+                  <div class="coll-thumb">
+                    <img src="{{ url_for('static', filename='img/'+coll_portalboxes['image']) }}" alt="">
+                  </div>
+                  <div class="coll-desc">
+                    {{ cms_collection.portalboxes[0].portalbox.body }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {% with exp_collection = cms_collection %}
+          {% include "helpers/collections_educate.html" %}
+        {% endwith %}
+      </div>
+      <div class="tab-pane fade {%  if exp in ['ALICE'] %}in active{% endif%}" id="ALICE">
+        <section class="subcollection_desc">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-md-12">
+                  {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+                  {% for pb in alice_collection.portalboxes %}
+                  {% if (pb.portalbox.title == 'description') %}
+                  {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+                  {% elif (pb.portalbox.title == 'image') %}
+                  {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+                  {% endif %}
+                  {% endfor %}
+                  <div class="coll-thumb">
+                    <img src="{{ url_for('static', filename='img/'+coll_portalboxes['image']) }}" alt="">
+                  </div>
+                  <div class="coll-desc">
+                    {{ alice_collection.portalboxes[0].portalbox.body }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {% with exp_collection = alice_collection %}
+          {% include "helpers/collections_educate.html" %}
+        {% endwith %}
+      </div>
+    </div> 
+
   </section>
 
   <section class="visualise">

@@ -48,21 +48,15 @@
             <div id="navbarCollapse" class="collapse navbar-collapse">
               <ul class="nav navbar-nav pull-right">
                 <li><a href="{{ url_for('search') }}">SEARCH</a></li>
+                <li><a href="{{ url_for('news') }}">NEWS</a></li>
                 <li class="dropdown">
-                  <a href="{{ url_for('experiments') }}" data-target="#" data-toggle="dropdown" class="disabled">EXPERIMENTS</a>
+                  <a href="{{ url_for('about') }}" data-target="#" data-toggle="dropdown" class="disabled">ABOUT</a>
                   <ul class="dropdown-menu" role="menu">
-                    <li class="col-md-12" role="presentation"><a href="{{ url_for('collection/CMS')}}">CMS</a></li>
-                    <li class="col-md-12" role="presentation"><a href="{{ url_for('collection/ALICE') }}">ALICE</a></li>
+                    <li class="col-md-12" role="presentation"><a href="{{ url_for('about') }}">Portal?</a></li>
+                    <li class="col-md-12" role="presentation"><a href="{{ url_for('about/CMS') }}">CMS OpenData</a></li>
+                    <li class="col-md-12" role="presentation"><a href="{{ url_for('about/ALICE') }}">ALICE OpenData</a></li>
                   </ul>
-                  <li><a href="{{ url_for('news') }}">NEWS</a></li>
-                  <li class="dropdown">
-                    <a href="{{ url_for('about') }}" data-target="#" data-toggle="dropdown" class="disabled">ABOUT</a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li class="col-md-12" role="presentation"><a href="{{ url_for('about') }}">Portal?</a></li>
-                      <li class="col-md-12" role="presentation"><a href="{{ url_for('about/CMS') }}">CMS OpenData</a></li>
-                      <li class="col-md-12" role="presentation"><a href="{{ url_for('about/ALICE') }}">ALICE OpenData</a></li>
-                    </ul>
-                  </li>
+                </li>
               </ul>
             </div>
           </div>

@@ -68,24 +68,11 @@ def index2():
 @blueprint.route('education', defaults={'exp':'all'})
 @blueprint.route('education/<string:exp>')
 def educate(exp):
-	cms_reclist = Collection.query.filter(Collection.name == 'CMS-Derived-Datasets').first_or_404().reclist
-	cms = []
-	for rec in cms_reclist[:6]:
-		cms.append(get_record(rec))
-
-	cmstools_reclist = Collection.query.filter(Collection.name == 'CMS-Tools').first_or_404().reclist
-	cmstools = []
-	for tool in cmstools_reclist[:3]:
-		cmstools.append(get_record(tool))
-
-	alice_reclist = Collection.query.filter(Collection.name == 'ALICE-Simplified-Datasets').first_or_404().reclist
-	# alice_reclist = randomise(Collection.query.filter(Collection.name == 'ALICE-Simplified-Datasets').first_or_404().reclist, 6)
-	alice = []
-	for rec in alice_reclist[:6]:
-		alice.append(get_record(rec))
+	cms_collection = Collection.query.filter(Collection.name == 'CMS').first_or_404()
+	alice_collection = Collection.query.filter(Collection.name == 'ALICE').first_or_404()
 
 	try:
-		return render_template('educate.html', cms = cms, alice = alice, cmstools = cmstools, exp = exp)
+		return render_template('educate.html', exp = exp, cms_collection = cms_collection, alice_collection=alice_collection)
 	except TemplateNotFound:
 		return abort(404)
 
