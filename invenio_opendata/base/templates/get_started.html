@@ -157,8 +157,9 @@
             <div class="heading">"I have installed the CERN Virtual Machine: now what?"</div>
             <div class="body">
               <p>
-                First, have you <a href="{{ url_for('VM#validate') }}">validated</a> the Virtual machine after installation? This step is very important! The CMSSW command <kbd>cmsrel CMSSW_4_2_8</kbd> you executed during validation ensures that you have the right version of CMSSW running: to analyse CMS data collected in 2010, you need <strong>version 4.2.8</strong>, supported only on <strong>Scientific Linux 5</strong>.
+                To analyse CMS data collected in 2010, you need <strong>version 4.2.8</strong> of CMSSW, supported only on <strong>Scientific Linux 5</strong>. Execute the following command to ensure that you have this version of CMSSW running:
               </p>
+              <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>$&nbsp;cmsrel CMSSW_4_2_8</span></span></span></div></pre>
               <p>
                 Then, make sure that you are always in the <strong>CMSSW_4_2_8/src/</strong> directory by entering the following command in the terminal (you must do so every time you boot the VM before you can proceed):
               </p>
@@ -274,7 +275,7 @@
               </p>
               <ul>
                 <p>
-                  Note that even though these are derived datasets, running the analysis code over the full data can take several hours. So if you want just give it a try, you can limit the number events or read only part of the files.
+                  Note that even though these are derived datasets, running the analysis code over the full data can take several hours. So if you want just give it a try, you can limit the number events or read only part of the files. Bear in mind that running on a low number of files will not give you a meaningful plot.
                 </p>
                 <p>
                   Your analysis job is defined in <kbd>OutreachExercise2010/DecaysToLeptons/run/run.py</kbd>. The analysis code is in the files located in the <kbd>OutreachExercise2010/DecaysToLeptons/python</kbd> directory.
@@ -286,7 +287,7 @@
               <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>ipython run.py</span></span></span></div></pre>
 
               <p>
-                That's it! Follow the rest of the instructions on the README and you have performed an analysis using data from CMS. Hope you enjoyed this exercise. Feel free to play around with the rest of data and write your own analyzers and analysis code.
+                That's it! Follow the rest of the instructions on the README and you have performed an analysis using data from CMS. Hope you enjoyed this exercise. Feel free to play around with the rest of data and write your own analyzers and analysis code. (To exit IPython, enter <kbd>exit()</kbd>.)
               </p>
             </div>
           </div>
