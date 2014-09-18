@@ -210,7 +210,9 @@
   padding: 6px 15px;
   margin-right: 5px;
 }
-.entrypoint_collections .collections-nav ul.pull-left li a {
+.entrypoint_collections .collections-nav ul.pull-left li a,
+.entrypoint_collections .collections-nav ul.pull-left li a:hover,
+.entrypoint_collections .collections-nav ul.pull-left li a:focus {
   padding: 0;
   background-color: transparent;
   border: 0;
@@ -227,6 +229,7 @@
   color: #fff;
   font-weight: 400;
   font-size: 17px;
+
 }
 .recordbox .details span{
   font-weight: 100;

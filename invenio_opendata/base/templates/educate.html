@@ -1,6 +1,5 @@
 {%- extends 'page.html' %}
 
-
 {% block body %}
 
 <style>
@@ -237,16 +236,18 @@ li.subcollection_exp {
   color: inherit;
 }
 </style>
-
   {% with collection = 0 %}
     {% include 'search/form/index.html' %}
   {% endwith %}
+
 
   <section class="infobar">
     <div class="container">
       <h3>For Education</h3>
       <div style="width:100%;padding:10px 0;font-size:15px;font-weight:100;text-align:left;">For education purposes, the complex primary data need to be processed into a format (examples below) that is good for simple applications. Get in touch if you wish to build your own applications similar to those shown here.</div>
     </div>
+    
+
   </section>
 
 
@@ -255,15 +256,16 @@ li.subcollection_exp {
       <div class="container">
         <div class="row">
           {% block leftside_actions %}
-            <ul class="pull-left col-md-7 nav nav-tabs" role="tablist">
-              <li {% if exp not in ['CMS','ALICE'] %} class="active" {% endif %}><a href="#general" role="tab" data-toggle="tab"></span>Introduction</a></li>
-              <li {% if exp == 'CMS' %} class="active" {% endif %}><a href="#CMS" role="tab" data-toggle="tab"></span>CMS</a></li>
-              <li {% if exp == 'ALICE' %} class="active" {% endif %}><a href="#ALICE" role="tab" data-toggle="tab"></span>ALICE</a></li>
+            <ul class="pull-left col-md-7 nav nav-tabs nav-justified" role="tablist">
+              <li {% if exp not in ['CMS','ALICE'] %} class="active" {% endif %}><a href="{{url_for((request.path|splitthem)[1])}}" data-target="#general" role="tab" data-toggle="tab"></span>Introduction</a></li>
+              <li {% if exp == 'CMS' %} class="active" {% endif %}><a href="{{url_for((request.path|splitthem)[1]+'/CMS')}}" data-target="#CMS" role="tab" data-toggle="tab"></span>CMS</a></li>
+              <li {% if exp == 'ALICE' %} class="active" {% endif %}><a href="{{url_for((request.path|splitthem)[1]+'/ALICE')}}" data-target="#ALICE" role="tab" data-toggle="tab"></span>ALICE</a></li>
             </ul>
           {% endblock leftside_actions %}
         </div>
       </div>
     </div>
+    
     <div class="tab-content">
       <div class="tab-pane fade {%  if exp not in ['CMS','ALICE'] %}in active{% endif%}" id="general">
         <section class="subcollection_desc experiments">
@@ -279,7 +281,7 @@ li.subcollection_exp {
                 {% endif %}
                 {% endfor %}
                 <li class="subcollection_exp">
-                  <a href="#{{cols['name']}}" role="tab" data-toggle="tab"><div class="coll-thumb col-md-2">
+                  <a href="{{ url_for((request.path|splitthem)[1]+'/'+cols['name']) }}"><div class="coll-thumb col-md-2">
                       <img src="{{ url_for('static', filename='img/'+coll_portalboxes['image']) }}" alt="">
                     </div>
                     <div class="coll-desc col-md-10">
@@ -371,7 +373,7 @@ li.subcollection_exp {
     <div class="histograms">
       <div class="container">
         <div class="row">
-          <div class="col-md-4 imagebox pull-right      "><img src="{{ url_for('static', filename='img/graph_histo.png') }}" alt="" class="centr-block"></div>
+          <div class="col-md-4 imagebox pull-right"><img src="{{ url_for('static', filename='img/graph_histo.png') }}" alt="" class="centr-block"></div>
           <div class="col-md-8 actions">
             <div class="details">
               <h4>Visualise Data Histograms</h4>
@@ -405,3 +407,24 @@ li.subcollection_exp {
     </div>
   </section>
 {% endblock body %}
+
+{%- block javascript %}
+{{super()}}
+<script>
+$(document).ready(function() { 
+  // add a hash to the URL when the user clicks on a tab
+  $('a[data-toggle="tab"]').on('click', function(e) {
+    history.pushState(null, null, $(this).attr('href'));
+  });
+  // navigate to a tab when the history changes
+  window.addEventListener("popstate", function(e) {
+    var activeTab = $('[href="' + location.pathname + '"]');
+    if (activeTab.length) {
+      activeTab.tab('show');
+    } else {
+      $('.nav-tabs a:first').tab('show');
+    }
+  });
+});   
+</script>
+{% endblock %}

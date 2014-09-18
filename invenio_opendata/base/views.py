@@ -71,7 +71,10 @@ def educate(exp):
 	experiments = Collection.query.filter(Collection.id == '1' ).first_or_404()
 	cms_collection = Collection.query.filter(Collection.name == 'CMS').first_or_404()
 	alice_collection = Collection.query.filter(Collection.name == 'ALICE').first_or_404()
+	def splitting(value, delimiter='/'):
+		return value.split(delimiter)
 
+	current_app.jinja_env.filters['splitthem'] = splitting
 	try:
 		return render_template('educate.html', experiments = experiments, exp = exp, cms_collection = cms_collection, alice_collection=alice_collection)
 	except TemplateNotFound:
@@ -149,6 +152,11 @@ def visualise():
 @blueprint.route('VM', defaults={'exp':None})
 @blueprint.route('VM/<string:exp>')
 def data_vms(exp):
+	def splitting(value, delimiter='/'):
+		return value.split(delimiter)
+
+	current_app.jinja_env.filters['splitthem'] = splitting
+
 	try:
 		return render_template('data_vms.html', exp = exp)
 	except TemplateNotFound:
@@ -204,6 +212,7 @@ def collections():
 
 # Routing for "record" module
 
+@blueprint.route('record/<int:recid>/files', methods=['GET','POST'])
 @blueprint.route('record/<int:recid>/metadata', methods=['GET', 'POST'])
 @blueprint.route('record/<int:recid>/', methods=['GET', 'POST'])
 @blueprint.route('record/<int:recid>', methods=['GET', 'POST'])
