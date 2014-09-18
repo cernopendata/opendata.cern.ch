@@ -343,6 +343,15 @@ class CollectionPortalboxData(DataSet):
         id_collection = CollectionData.CMSValidatedRuns.ref('id')
 
 
+class FacetCollectionData(DataSet):
+
+    class FacetCollection_1:
+        id = 1
+        id_collection = CollectionData.siteCollection.ref('id')
+        order = 1
+        facet_name = 'collection'
+
+
 __all__ = (
     'CollectionData',
     'CollectionCollectionData',
@@ -350,4 +359,5 @@ __all__ = (
     'CollectionFormatData',
     'PortalboxData',
     'CollectionPortalboxData',
+    'FacetCollectionData',
 )
