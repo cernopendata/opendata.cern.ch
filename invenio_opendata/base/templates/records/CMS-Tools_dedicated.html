@@ -2,7 +2,7 @@
   <div id="rec_dedicated_box" class="rec_dedicated_details col-md-12 panel-group">
     {% if record.get('methodology_note', '') %}
       <div class="rec_dedicated_details_in rdd-sel panel">
-        <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#selection">Instructions<span class="pull-right fa fa-angle-up"></span></div>
+        <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#selection">Data Selection<span class="pull-right fa fa-angle-up"></span></div>
         <div id="selection" class="info collapse">
           <div class="body">{{ record.get('methodology_note', {}).get('note', '') }}</div>
           <div class="links">

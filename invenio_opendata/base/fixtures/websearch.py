@@ -193,7 +193,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_5:
-        body = u'CMS primary data sets are AOD (Analysis Object Data) files, which contain the information that is needed for analysis: (1) all the high-level physcis objects(such as muons, electrons, etc.) (2) tracks with associated hits, calorimetric clusters with associated hits, vertices and (3) information about event selection (triggers), data needed for further selection and identification criteria for the physics objects.'
+        body = u'CMS primary datasets are AOD (Analysis Object Data) files, which contain the information that is needed for analysis: (1) all the high-level physics objects (such as muons, electrons, etc.) (2) tracks with associated hits, calorimetric clusters with associated hits, vertices and (3) information about event selection (triggers), data needed for further selection and identification criteria for the physics objects.'
         id = 5
         title = u'description'
 
@@ -203,7 +203,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_7:
-        body = u'This collection includes any data, which have been derived from the CMS primary data sets. They may be reduced in sense that only part of the information is kept, or only part of the events are selected. - It includes data sets, which may be accessed using the VM image of the CMS environment, and data sets, which are adapted to other tools and applications. The tools and instruction to use and access these data are linked to the record.'
+        body = u'This collection includes any data, which have been derived from the CMS primary datasets. They may be reduced in sense that only part of the information is kept, or only part of the events are selected. - It includes datasets, which may be accessed using the VM image of the CMS environment, and datasets, which are adapted to other tools and applications. The tools and instruction to use and access these data are linked to the record.'
         id = 7
         title = u'description'
 
@@ -233,7 +233,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_13:
-        body = u'This collection includes tools, with which the CMS open data can be accessed and used. It contains the VM image of the CMS environment through which the data sets can be read. It includes the software with which the derived data sets were produced, and analysis examples. It also contains the source code for the online applications deployed on this site.'
+        body = u'This collection includes tools, with which the CMS open data can be accessed and used. It contains the VM image of the CMS environment through which the datasets can be read. It includes the software with which the derived datasets were produced, and analysis examples. It also contains the source code for the online applications deployed on this site.'
         id = 13
         title = u'description'
 
