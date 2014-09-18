@@ -42,6 +42,11 @@
   </div>
 {% endmacro %}
 
+{% macro validate_intro() %}
+  <div class="body">
+      <div class="it col-md-12">The validation procedure tests that the CMS environment is installed and operational on your virtual machine, and that you have access to the ROOT files. You may skip this step if you want, and head straight to <a href="{{url}}">Getting Started with CMS data</a>. However, these steps give you a quick introduction to the CMS environment.</div>
+  </div>
+{% endmacro %}
 
 {% macro validate_s1() %}
   <div class="heading">Set up the CMS environment and run a demo analyzer</div>
