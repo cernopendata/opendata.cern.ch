@@ -1,0 +1,80 @@
+<div class="rec_header">
+  <div class="row rec_details">
+    <div>
+      <div class="title col-md-12">{{ record.get('title',{}).get('title','') }}<span>{{ record['imprint']['date']}}</span>
+      </div>
+      <div class="rec_authors {% if (record['authors']|length) < 5 %} col-md-12" {% else %} " id="rec_authors_rdmore" {% endif %} >
+        <kbd>{{ record['_first_corporate_name']['name'] }}</kbd>
+        {% for auth in record['authors'] %}
+          <a href="{{url_for('search', p='author:'+auth['last_name']+', '+auth['first_name'])}}">{{ auth['full_name'] }}</a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-md-12 ">
+      {% if record['doi'] %}
+        <div class="rec_thumb rec_doi">
+          <div class="n"><div class="t">DOI</div>{{ record['doi'] }}</div>
+        </div>
+      {% endif %}
+      <div class="rec_thumb rec_parentcol">
+        <div class="n"><div class="t">Parent Collection</div><a href="{{ url_for('collection/'+collection.name) }}">{{ collection.names[g.ln,'ln'] }}</a></div>
+      </div>
+      <div class="rec_thumb rec_export">
+        {{ format_record(recid, of='HDACT', ln=g.ln)|safe }}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="rec_metadata rec_description">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="rec_title title">Description</div>
+    </div>
+    <div class="col-md-12">
+      <div class="rec_desc">{{record.get('abstract',{}).get('summary','')}}</div>
+    </div>
+  </div>
+</div>
+<div class="rec_metadata rec_files">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="rec_title title">Files</div>
+    </div>
+    {% if record['files'] == [] %}
+      <div class="col-md-12" style="margin-top: 20px;font-size: 16px;color: #606D75;font-weight: 100;">The files can be accessed using the <a href="{{url_for('VM/CMS')}}">Virtual Machine</a></div>
+    {% else %}"
+
+      <div class="col-md-12">
+        <div class="rec_file_box">
+          <ul class="row">
+            {% for file in record['files'] %}
+              <li class="col-md-12 panel-group">
+                <div class="content_box panel-title">
+                  <div class="row">
+                    <div class="pull-left col-md-7">
+                      <ul class="row">
+                        <li class="col-md-12"><a href="{{ file.get('url','') }}">{{ file.get('full_name','') }}</a></li>
+                        <li class="col-md-12"><b>Size:</b> {{ file.get('size','') | filesizeformat }}</li>
+                        {{ '<li class="col-md-12"><b>Description:</b>'+(file.get('description')|truncate(50))+'</li>' if (file.get('description', '') != '') }}
+                      </ul>
+                    </div>
+                    <div class="pull-right col-md-5">
+                      <a href="{{file['url']}}" class="btn">Download</a>
+                      <a data-toggle="collapse" href="#previewer-{{loop.index}}" class="btn">Preview</a>
+                    </div>
+                  </div>
+                </div>
+                <div id="previewer-{{loop.index}}" class="collapse">
+                  {% if file['url'][-3:] == 'txt' %}
+                  <iframe src="http://docs.google.com/viewer?url={{file['url']|safe}}&embedded=true" width="100%" height="400" style="border: none;"></iframe> 
+                  {% endif %}
+                  
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
