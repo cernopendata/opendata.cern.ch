@@ -232,6 +232,10 @@
 li.subcollection_exp {
   margin-bottom: 50px;
 }
+
+.subcollection_desc a {
+  color: inherit;
+}
 </style>
 
   {% with collection = 0 %}
@@ -275,12 +279,12 @@ li.subcollection_exp {
                 {% endif %}
                 {% endfor %}
                 <li class="subcollection_exp">
-                  <div class="coll-thumb col-md-2">
-                    <img src="{{ url_for('static', filename='img/'+coll_portalboxes['image']) }}" alt="">
-                  </div>
-                  <div class="coll-desc col-md-10">
-                    {{ coll_portalboxes['desc'] }}
-                  </div>
+                  <a href="#{{cols['name']}}" role="tab" data-toggle="tab"><div class="coll-thumb col-md-2">
+                      <img src="{{ url_for('static', filename='img/'+coll_portalboxes['image']) }}" alt="">
+                    </div>
+                    <div class="coll-desc col-md-10">
+                      {{ coll_portalboxes['desc'] }}
+                    </div></a>
                 </li>
               {% endfor %}
               
