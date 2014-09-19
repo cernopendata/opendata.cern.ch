@@ -12,7 +12,7 @@
     .content {
       position: absolute;
       top: 80px;
-      bottom: 100px;
+      bottom: 105px;
       width: 100%;
       height: auto;
     }
@@ -20,16 +20,16 @@
     footer {
       position: absolute;
       bottom: 0;
-      height: 100px;
+      height: 105px;
       width: 100%;
     }
 
     @media (max-width: 768px)  {
       footer.middlefoot.middlefoot {
-        height : 175px;
+        height : 180px;
       }
       .content {
-        bottom: 175px;
+        bottom: 180px;
       }
     }
 
@@ -59,20 +59,22 @@
   <footer class="middlefoot">
     <div class="container">
       <div class="row">
-        <div class="middle_l col-xs-12 col-sm-6">
+        <div class="middle_l col-md-6 col-xs-12 col-sm-6">
           <img src="{{ url_for('static', filename='/img/opendata/cern-logo-large.png') }}" style="width:60px;" alt="">
           <img src="{{ url_for('static', filename='/img/opendata/invenio.png') }}" alt="">
         </div>
-        <div class="middle_r col-xs-12 col-sm-6">
+        <div class="middle_r col-md-6 col-xs-12 col-sm-6">
           <img src="{{ url_for('static', filename='/img/ALICE.gif') }}" alt="">
           <img src="{{ url_for('static', filename='/img/CMS.gif') }}" alt="">
         </div>
+      </div>
+      <div class="row">
         <div class="center-block legal">
           <ul class="">
-            <li>© 2014 OpenData</li>
-            <li>Terms of Use</li>
-            <li>Privacy Policy</li>
-            <li>Help</li>
+            <li>© 2014 CERN OpenData</li>
+            <li><a href="{{ url_for('terms-of-use') }}">Terms of Use</a></li>
+            <li><a href="{{ url_for('privacy-policy') }}">Privacy Policy</a></li>
+            <li><a href="mailto:opendata-support@cern.ch">Contact</a></li>
           </ul>
         </div>
       </div>

@@ -53,38 +53,42 @@
 </div>
 <div class="lastfoot">
   <div class="container no-padding">
-    <div class="col-md-8 col-xs-12 pull-left no-padding">
-      <ul class="col-md-3 col-xs-3">
-        <li class="title"><a href="{{ url_for('search')}}">SEARCH</a></li>
-      </ul>
-      <ul class="col-md-3 col-xs-3">
-        <li class="title"><a href="{{ url_for('experiments')}}">EXPERIMENTS</a></li>
-        <li><a href="{{ url_for('collection/CMS')}}">CMS</a></li>
-        <li><a href="{{ url_for('collection/ALICE')}}">ALICE</a></li>
-      </ul>
-      <ul class="col-md-3 col-xs-3">
-        <li class="title"><a href="{{ url_for('news')}}">NEWS</a></li>
-      </ul>
-      <ul class="col-md-3 col-xs-3">
-        <li class="title"><a href="{{ url_for('about')}}">ABOUT</a></li>
-        <li>Portal</li>
-        <li>CMS OpenData</li>
-        <li>ALICE OpenData</li>
-      </ul>
+    <div class="row">
+      <div class="col-md-8 col-xs-12">
+        <ul class="col-md-3 col-xs-3">
+          <li class="title"><a href="{{ url_for('search')}}">SEARCH</a></li>
+        </ul>
+        <ul class="col-md-3 col-xs-3">
+          <li class="title"><a href="{{ url_for('experiments')}}">EXPERIMENTS</a></li>
+          <li><a href="{{ url_for('collection/CMS')}}">CMS</a></li>
+          <li><a href="{{ url_for('collection/ALICE')}}">ALICE</a></li>
+        </ul>
+        <ul class="col-md-3 col-xs-3">
+          <li class="title"><a href="{{ url_for('news')}}">NEWS</a></li>
+        </ul>
+        <ul class="col-md-3 col-xs-3">
+          <li class="title"><a href="{{ url_for('about')}}">ABOUT</a></li>
+          <li>Portal</li>
+          <li>CMS OpenData</li>
+          <li>ALICE OpenData</li>
+        </ul>
+      </div>
+      <div class="actions col-md-4 col-xs-12">
+        <ul class="pull-right">
+          <li class="title col-md-4 col-xs-12"><a href="{{ url_for('education') }}">EDUCATION</a></li>
+          <li class="title col-md-4 col-xs-12"><a href="{{ url_for('research') }}">RESEARCH</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="actions col-md-4 col-xs-12 pull-right">
-      <ul class="pull-right">
-        <li class="title col-md-4 col-xs-12"><a href="{{ url_for('education') }}">EDUCATION</a></li>
-        <li class="title col-md-4 col-xs-12"><a href="{{ url_for('research') }}">RESEARCH</a></li>
-      </ul>
-    </div>
-    <div class="center-block legal">
-      <ul class="">
-        <li>© 2014 OpenData</li>
-        <li>Terms of Use</li>
-        <li>Privacy Policy</li>
-        <li>Help</li>
-      </ul>
+    <div class="row">
+      <div class="center-block legal">
+        <ul>
+          <li>© 2014 CERN OpenData</li>
+          <li><a href="{{ url_for('terms-of-use') }}">Terms of Use</a></li>
+          <li><a href="{{ url_for('privacy-policy') }}">Privacy Policy</a></li>
+          <li><a href="mailto:opendata-support@cern.ch">Contact</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 

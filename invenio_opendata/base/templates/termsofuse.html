@@ -1,0 +1,69 @@
+{% extends 'page.html' %}
+
+{% block body %}
+{% with collection = 0 %}
+{% include 'search/form/index.html' %}
+{% endwith %}
+
+<style>
+	#termsofuse {
+		padding-top: 40px;
+		padding-bottom: 40px;
+		color: #091B26;
+	}
+
+	#termsofuse .header {
+		text-align: center;
+		width: 100%;
+		font-size: 20px;
+		font-weight: 100;
+		margin-bottom: 30px;
+	}
+	#termsofuse .body {
+		font-weight: 100;
+		font-size: 16px;
+	}
+	#termsofuse .body h4 {
+		font-size: 18px;
+		font-weight: 400;
+	}
+	#termsofuse .body ol {
+		list-style-type: decimal;
+	}
+	#termsofuse .body li {
+		width: 100%;
+		padding-bottom: 10px;
+		float: none;
+		font-size: 16px;
+		font-weight: 100;
+	}
+</style>
+
+<section class="infobar">
+<div class="container">
+  <h3>Terms of Use</h3>
+</div>
+</section>
+<section id="termsofuse" class="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="header">CERN OpenData Terms of Use</div>
+				<div class="body">
+					<h4>Use of the CERN OpenData Portal service (hereafter “CERN OpenData”) denotes agreement with the following terms:</h4>
+					<ol>
+						<li>CERN OpenData is provided free of charge for educational and informational use.</li>
+						<li>The contents of CERN OpenData will be updated or otherwise modified on a regular basis. CERN OpenData reserves the right to alter or delete information without notice.</li>
+						<li>All information is provided “as-is” and the user shall hold CERN and the information providers supplying data to CERN OpenData free and harmless in connection with the use of such information.</li> 
+						<li>Users shall respect copyright and applicable license conditions. In particular, reconstructing the fulltexts of articles from snippets is not allowed. Download and use of information from CERN OpenData does not amount to a transfer of intellectual property.</li>
+						<li>Information obtained from the metadata of the CERN OpenData collection specified here may be freely reused under the CC0 license unless explicitly specified otherwise. With the exception of email addresses whose bulk download is not allowed all metadata of the other CERN OpenData collections are available under the CC0 license.</li>
+						<li>Any use of CERN OpenData that interferes with its regular operations or violates these terms of use or applicable laws may, at the sole discretion of CERN, result in restriction or removal of user access.</li>
+					</ol>
+					<div>Please contact <a href="mailto:opendata-support@cern.ch">opendata-support@cern.ch</a> if you have any questions or comments with respect to CERN OpenData ; if you are unsure whether your intended use meets these terms; or, if you seek permission for use that does not fall within these terms.</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</section>
+
+{% endblock %}

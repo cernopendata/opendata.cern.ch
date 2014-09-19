@@ -199,6 +199,20 @@ def about_physics():
 	except TemplateNotFound:
 		return abort(404)
 
+@blueprint.route('terms-of-use')
+def terms():
+	try:
+		return render_template('termsofuse.html')
+	except TemplateNotFound:
+		return abort(404)
+
+@blueprint.route('privacy-policy')
+def privacy():
+	try:
+		return render_template('privacy.html')
+	except TemplateNotFound:
+		return abort(404)
+
 @blueprint.route('experiments')
 @blueprint.route('collections')
 @blueprint.route('collection')
