@@ -137,6 +137,11 @@ def visualise_histo():
 @blueprint.route('getting-started', defaults={'exp':'all'})
 @blueprint.route('getting-started/<string:exp>')
 def get_started(exp):
+	def splitting(value, delimiter='/'):
+		return value.split(delimiter)
+
+	current_app.jinja_env.filters['splitthem'] = splitting
+	
 	try:
 		return render_template('get_started.html', exp = exp)
 	except TemplateNotFound:
