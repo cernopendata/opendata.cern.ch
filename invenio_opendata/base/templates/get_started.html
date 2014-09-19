@@ -109,13 +109,13 @@
   <section class="infobar">
     <div class="container">
       <div class="pull-left">
-        <a href="#general" role="tab" data-toggle="tab"><h3>Getting Started</h3></a>
+        <a href="{{url_for((request.path|splitthem)[1])}}"><h3>Getting Started</h3></a>
       </div>
       <div class="pull-right">
         <ul class="exp-switch nav nav-tabs" role="tablist">
-          <li class="l {% if exp not in ['CMS', 'ALICE'] %} active {% endif %}"><a href="#general" role="tab" data-toggle="tab">General</a></li>
-          <li class="{% if exp == 'CMS' %} active {% endif %}"><a href="#CMS" role="tab" data-toggle="tab">CMS</a></li>
-          <li class="r {% if exp == 'ALICE' %} active {% endif %}"><a href="#ALICE" role="tab" data-toggle="tab">ALICE</a></li>
+          <li class="l {% if exp not in ['CMS','ALICE'] %} active {% endif %}"><a href="{{url_for((request.path|splitthem)[1])}}" data-target="#general" role="tab" data-toggle="tab"></span>Experiments</a></li>
+          <li class="{% if exp == 'CMS' %} active {% endif %}"><a href="{{url_for((request.path|splitthem)[1]+'/CMS')}}" data-target="#CMS" role="tab" data-toggle="tab"></span>CMS</a></li>
+          <li class="r {% if exp == 'ALICE' %} active {% endif %}"><a href="{{url_for((request.path|splitthem)[1]+'/ALICE')}}" data-target="#ALICE" role="tab" data-toggle="tab"></span>ALICE</a></li>
         </ul>
       </div>
     </div>
@@ -130,20 +130,20 @@
         <div class="tab-pane fade {% if exp not in ['CMS', 'ALICE'] %} in active {% endif %}" id="general">
           <div class="row">
             <div class="col-md-6">
-              <a href="#CMS" role="tab" data-toggle="tab">
+              <a href="{{ url_for((request.path|splitthem)[1]+'/CMS') }}">
                 <div class="coll-exp">
                   <div class="top col-md-12">
                     <div class="col-md-6 col-md-offset-3 thumb"><img src="{{ url_for('static', filename='img/CMS.gif') }}" alt="" class="img-cirle center-block"></div>
-                    <div class="col-md-12 exp-name">CMS Getting Started</div>
+                    <div class="col-md-12 exp-name">CMS Virtual Machines</div>
                   </div>
                 </div></a>
             </div>
             <div class="col-md-6">
-              <a href="#ALICE" role="tab" data-toggle="tab">
+              <a href="{{ url_for((request.path|splitthem)[1]+'/ALICE') }}">
                 <div class="coll-exp">
                   <div class="top col-md-12">
                     <div class="col-md-6 col-md-offset-3 thumb"><img src="{{ url_for('static', filename='img/ALICE.gif') }}" alt="" class="img-cirle center-block"></div>
-                    <div class="col-md-12 exp-name">ALICE Getting Started</div>
+                    <div class="col-md-12 exp-name">ALICE Virtual Machines</div>
                   </div>
                 </div>
               </a>
@@ -302,4 +302,25 @@
     </div>
   </section>
 
+{% endblock %}
+
+{%- block javascript %}
+{{super()}}
+<script>
+$(document).ready(function() { 
+  // add a hash to the URL when the user clicks on a tab
+  $('a[data-toggle="tab"]').on('click', function(e) {
+    history.pushState(null, null, $(this).attr('href'));
+  });
+  // navigate to a tab when the history changes
+  window.addEventListener("popstate", function(e) {
+    var activeTab = $('[href="' + location.pathname + '"]');
+    if (activeTab.length) {
+      activeTab.tab('show');
+    } else {
+      $('.nav-tabs a:first').tab('show');
+    }
+  });
+});   
+</script>
 {% endblock %}

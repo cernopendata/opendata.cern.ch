@@ -177,7 +177,7 @@
   <section class="infobar">
     <div class="container">
       <div class="pull-left">
-        <a href="#general" role="tab" data-toggle="tab"><h3>CERN Virtual Machines</h3></a>
+        <a href="{{url_for((request.path|splitthem)[1])}}"><h3>CERN Virtual Machines</h3></a>
       </div>
       <div class="pull-right">
         <ul class="exp-switch nav nav-tabs" role="tablist">
@@ -280,4 +280,25 @@
   </section>
 
 
+{% endblock %}
+
+{%- block javascript %}
+{{super()}}
+<script>
+$(document).ready(function() { 
+  // add a hash to the URL when the user clicks on a tab
+  $('a[data-toggle="tab"]').on('click', function(e) {
+    history.pushState(null, null, $(this).attr('href'));
+  });
+  // navigate to a tab when the history changes
+  window.addEventListener("popstate", function(e) {
+    var activeTab = $('[href="' + location.pathname + '"]');
+    if (activeTab.length) {
+      activeTab.tab('show');
+    } else {
+      $('.nav-tabs a:first').tab('show');
+    }
+  });
+});   
+</script>
 {% endblock %}
