@@ -8,10 +8,10 @@
 
 {% macro news_box(title, body, author, extra, n_id) %}
   {% block news_box scoped%}
-    <div class="news-box col-md-6">
+    <div class="news-box col-md-12">
       <div class="header">
         <div class="info pull-left">
-          <div class="title"><a href="{{ url_for('news/'+n_id) }}">{{ title }}</a><span>+{{ extra[0] }}</span></div>
+          <div class="title"><a href="{{ url_for('news/'+n_id) }}">{{ title }}</a></div>
           <div class="details">posted by <a href="">{{author}}</a>, {{ date_to_text() }} </div>
         </div>
         <div class="more pull-right">
@@ -52,7 +52,7 @@
   </section>
   <section class="news-main">
     <div class="container">
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-md-12">
           <div class="tag-container">
             <div class="tag-filter col-sm-2">
@@ -67,7 +67,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="row">
         <div class="news-container col-sm-12">
           <div class="row">
