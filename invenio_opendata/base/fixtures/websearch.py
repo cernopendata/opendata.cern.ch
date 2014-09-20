@@ -83,6 +83,14 @@ class CollectionData(DataSet):
             ('en', 'ln'): u'CMS Validated Runs',
         }
 
+    class CMSExternalResources(siteCollection):
+        id = 10
+        name = 'CMS-External-Resources'
+        dbquery = '980__a:"CMS-External-Resources"'
+        names = {
+            ('en', 'ln'): u'CMS External Resources',
+        }
+
 
 class CollectionCollectionData(DataSet):
 
@@ -114,6 +122,12 @@ class CollectionCollectionData(DataSet):
         dad = CollectionData.CMS
         son = CollectionData.CMSValidatedRuns
         score = 3
+        type = 'r'
+
+    class CMS_CMSExternalResources:
+        dad = CollectionData.CMS
+        son = CollectionData.CMSExternalResources
+        score = 4
         type = 'r'
 
     class siteCollection_ALICE:
@@ -242,6 +256,11 @@ class PortalboxData(DataSet):
         id = 14
         title = u'description'
 
+    class Portalbox_15:
+        body = u'This collection includes CMS External Resources'
+        id = 15
+        title = u'description'
+
 class CollectionPortalboxData(DataSet):
 
     class CollectionPortalbox_2_1_en:
@@ -341,6 +360,13 @@ class CollectionPortalboxData(DataSet):
         id_portalbox = PortalboxData.Portalbox_14.ref('id')
         score = 100
         id_collection = CollectionData.CMSValidatedRuns.ref('id')
+
+    class CollectionPortalbox_10_15_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_15.ref('id')
+        score = 100
+        id_collection = CollectionData.CMSExternalResources.ref('id')
 
 
 class FacetCollectionData(DataSet):
