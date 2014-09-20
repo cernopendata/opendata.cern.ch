@@ -1,7 +1,7 @@
 <div class="rec_header">
   <div class="row rec_details">
     <div>
-      <div class="title col-md-12">{{ record.get('title',{}).get('title','') }}<span>{{ record['imprint']['date']}}</span>
+      <div class="title col-md-12">{{ record.get('title',{}).get('title','') }}<span>{{ record.get('imprint', {}).get('date', '') }}</span>
       </div>
       <div class="rec_authors {% if (record['authors']|length) < 5 %} col-md-12" {% else %} " id="rec_authors_rdmore" {% endif %} >
         {% for auth in record['authors'] %}
@@ -44,15 +44,15 @@
       <div class="row">
       {% if record.get('url').get('url') is not string %}
         {% for u in record.get('url').get('url') %}
-        <a class="col-md-12" href="{{ u }}">{{ u }}</a> 
-        {% endfor %} 
+        <a class="col-md-12" href="{{ u }}">{{ u }}</a>
+        {% endfor %}
       {% else %}
-        <a class="col-md-12" href="{{ record.get('url','').get('url','') }}">{{ record.get('url','').get('url','') }}</a> 
+        <a class="col-md-12" href="{{ record.get('url','').get('url','') }}">{{ record.get('url','').get('url','') }}</a>
       {% endif %}
       </div>
     </div>
   </div>
-</div>  
+</div>
 {% endif %}
 {% if record['files'] != [] %}
 <div class="rec_metadata rec_files">
