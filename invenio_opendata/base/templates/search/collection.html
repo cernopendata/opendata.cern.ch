@@ -324,6 +324,7 @@
   <div class="container">
     {%- block index_right -%}
     <div class="col-md-12">
+      <div class="results-title">{{ collection.names[g.ln,'ln'] }}</div>
       {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
       {% for pb in collection.portalboxes %}
         {% if (pb.portalbox.title == 'description') %}
@@ -345,7 +346,6 @@
     {% endif %}
     <div class="row">
       <div class="col-md-12">
-        <div class="results-title">Collection Items</div>
         <div class="collection-res">
           {% if collection.is_restricted %}
             <strong>{{ _('This collection is restricted. If you are authorized to access it, please click on the Search button.') }}</strong>
