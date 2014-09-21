@@ -221,7 +221,7 @@
   border-right: 1px solid #ccc;
 }
 .coll-thumb img {
-  height: 100px;      
+  height: 100px;
 }
 
 .subcollection_desc.experiments {
@@ -246,7 +246,7 @@ li.subcollection_exp {
       <h3>For Education</h3>
       <div style="width:100%;padding:10px 0;font-size:15px;font-weight:100;text-align:left;">For education purposes, the complex primary data need to be processed into a format (examples below) that is good for simple applications. Get in touch if you wish to build your own applications similar to those shown here.</div>
     </div>
-    
+
 
   </section>
 
@@ -265,14 +265,14 @@ li.subcollection_exp {
         </div>
       </div>
     </div>
-    
+
     <div class="tab-content">
       <div class="tab-pane fade {%  if exp not in ['CMS','ALICE'] %}in active{% endif%}" id="general">
         <section class="subcollection_desc experiments">
           <div class="container">
             <ul class="row">
               {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
-              {% for cols in experiments.collection_children_r %}
+              {% for cols in experiments.collection_children_v %}
                 {% for pb in cols.portalboxes %}
                 {% if (pb.portalbox.title == 'description') %}
                 {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
@@ -289,7 +289,7 @@ li.subcollection_exp {
                     </div></a>
                 </li>
               {% endfor %}
-              
+
             </ul>
           </div>
         </section>
@@ -348,7 +348,7 @@ li.subcollection_exp {
           {% include "helpers/collections_educate.html" %}
         {% endwith %}
       </div>
-    </div> 
+    </div>
 
   </section>
 
@@ -411,7 +411,7 @@ li.subcollection_exp {
 {%- block javascript %}
 {{super()}}
 <script>
-$(document).ready(function() { 
+$(document).ready(function() {
   // add a hash to the URL when the user clicks on a tab
   $('a[data-toggle="tab"]').on('click', function(e) {
     history.pushState(null, null, $(this).attr('href'));
@@ -425,6 +425,6 @@ $(document).ready(function() {
       $('.nav-tabs a:first').tab('show');
     }
   });
-});   
+});
 </script>
 {% endblock %}

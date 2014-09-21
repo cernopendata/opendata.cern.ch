@@ -243,7 +243,7 @@ def privacy():
 @blueprint.route('collection')
 def collections():
     base_collection = Collection.query.filter(Collection.id == '1').first_or_404()
-    experiments = base_collection.collection_children
+    experiments = base_collection.collection_children_v
     try:
         return render_template('collections_overview.html',
                                experiments=experiments)

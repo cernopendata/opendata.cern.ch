@@ -98,7 +98,7 @@ class CollectionCollectionData(DataSet):
         dad = CollectionData.siteCollection
         son = CollectionData.CMS
         score = 0
-        type = 'r'
+        type = 'v'
 
     class CMS_CMSPrimaryDatasets:
         dad = CollectionData.CMS
@@ -130,11 +130,41 @@ class CollectionCollectionData(DataSet):
         score = 4
         type = 'r'
 
+    class siteCollection_CMSPrimaryDatasets:
+        dad = CollectionData.siteCollection
+        son = CollectionData.CMSPrimaryDatasets
+        score = 0
+        type = 'r'
+
+    class siteCollection_CMSDerivedDatasets:
+        dad = CollectionData.siteCollection
+        son = CollectionData.CMSDerivedDatasets
+        score = 1
+        type = 'r'
+
+    class siteCollection_CMSTools:
+        dad = CollectionData.siteCollection
+        son = CollectionData.CMSTools
+        score = 2
+        type = 'r'
+
+    class siteCollection_CMSValidatedRuns:
+        dad = CollectionData.siteCollection
+        son = CollectionData.CMSValidatedRuns
+        score = 3
+        type = 'r'
+
+    class siteCollection_CMSExternalResources:
+        dad = CollectionData.siteCollection
+        son = CollectionData.CMSExternalResources
+        score = 4
+        type = 'r'
+
     class siteCollection_ALICE:
         dad = CollectionData.siteCollection
         son = CollectionData.ALICE
         score = 1
-        type = 'r'
+        type = 'v'
 
     class ALICE_ALICESimplifiedDatasets:
         dad = CollectionData.ALICE
@@ -257,7 +287,7 @@ class PortalboxData(DataSet):
         title = u'description'
 
     class Portalbox_15:
-        body = u'This collection includes CMS External Resources'
+        body = u'This collection includes CMS external resources'
         id = 15
         title = u'description'
 
