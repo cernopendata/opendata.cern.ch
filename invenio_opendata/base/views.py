@@ -36,12 +36,10 @@ blueprint = Blueprint('invenio_opendata', __name__, url_prefix='/',
 
 @blueprint.route('')
 def middle():
-    import json
-    from os import path,listdir
-    file = '../invenio_opendata/invenio_opendata/base/templates/helpers/text/testimonials.json'
-    testi_file = open(file, 'r')
-    testimonials = json.load(testi_file)
-    testi_file.close()
+    import json, pkg_resources
+    filepath = pkg_resources.resource_filename('invenio_opendata.base', 'templates/helpers/text/testimonials.json')
+    with open(filepath,'r') as f:
+        testimonials = json.load(f)
 
     try:
         return render_template('index_middle_with_design.html', testimonials = testimonials)
@@ -119,11 +117,11 @@ def news(newsid):
             return render_template('news.html')
         except TemplateNotFound:
             return abort(404)
-        else:
-            try:
-                return render_template('news_page.html', news_id=newsid)
-            except TemplateNotFound:
-                return abort(404)
+    else:
+        try:
+            return render_template('news_page.html', news_id=newsid)
+        except TemplateNotFound:
+            return abort(404)
 
 
 @blueprint.route('visualise/events')
