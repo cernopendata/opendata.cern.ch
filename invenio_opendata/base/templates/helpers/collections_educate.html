@@ -4,7 +4,7 @@
       <div class="section-title col-md-12">Collections:</div>
       <ul>
         {% for collection in exp_collection.collection_children_r recursive %}
-          {% if collection.name not in ['CMS-Primary-Datasets'] %}
+          {% if collection.name not in ['CMS-Primary-Datasets','CMS-Validated-Runs'] %}
             {% set portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
             {% for pb in collection.portalboxes %}
             {% if (pb.portalbox.title == 'description') %}

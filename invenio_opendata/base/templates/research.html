@@ -302,7 +302,7 @@ li.subcollection_exp {
         <div class="row">
           {% block leftside_actions %}
             <ul class="pull-left col-md-7 nav nav-tabs nav-justified" role="tablist">
-              <li {% if exp not in ['CMS','ALICE'] %} class="active" {% endif %}><a href="{{url_for((request.path|splitthem)[1])}}" data-target="#general" role="tab" data-toggle="tab"></span>Introduction</a></li>
+              <li {% if exp not in ['CMS','ALICE'] %} class="active" {% endif %}><a href="{{url_for((request.path|splitthem)[1])}}" data-target="#general" role="tab" data-toggle="tab"></span>Experiments</a></li>
               <li {% if exp == 'CMS' %} class="active" {% endif %}><a href="{{url_for((request.path|splitthem)[1]+'/CMS')}}" data-target="#CMS" role="tab" data-toggle="tab"></span>CMS</a></li>
               <li {% if exp == 'ALICE' %} class="active" {% endif %}><a href="{{url_for((request.path|splitthem)[1]+'/ALICE')}}" data-target="#ALICE" role="tab" data-toggle="tab"></span>ALICE</a></li>
             </ul>
