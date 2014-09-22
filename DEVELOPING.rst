@@ -257,3 +257,30 @@ update your pull request:
 .. code-block:: console
 
    $ git push origin fix-event-display-icons -f
+
+Finishing pull requests
+-----------------------
+
+If your pull request has been merged upstream, you should update your
+local sources:
+
+.. code-block:: console
+
+   $ git checkout pu
+   $ git fetch upstream
+   $ git merge upstream/pu --ff-only
+
+You can now delete your topical branch locally:
+
+.. code-block:: console
+
+   $ git branch -d fix-event-display-icons
+
+and remove it from your repository as well:
+
+.. code-block:: console
+
+   $ git push origin pu
+   $ git push origin :fix-event-display-icons
+
+This would conclude your work on ``fix-event-display-icons``.
