@@ -1,0 +1,489 @@
+{#
+## This file is part of Invenio.
+## Copyright (C) 2014 CERN.
+##
+## Invenio is free software; you can redistribute it and/or
+## modify it under the terms of the GNU General Public License as
+## published by the Free Software Foundation; either version 2 of the
+## License, or (at your option) any later version.
+##
+## Invenio is distributed in the hope that it will be useful, but
+## WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+## General Public License for more details.
+##
+## You should have received a copy of the GNU General Public License
+## along with Invenio; if not, write to the Free Software Foundation, Inc.,
+## 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+#}
+
+{%- extends "search/collection_base.html" -%}
+
+{%- macro od_collection_tree(collections, limit=None) %}
+{%- set macrokwargs = kwargs %}
+{%- block collection_tree scoped %}
+{%- set idxs = [0] -%}
+<ul {{ macrokwargs|xmlattr }}>
+  {% for collection in collections recursive %}
+    {% set portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+    {% for pb in collection.portalboxes %}
+      {% if (pb.portalbox.title == 'description') %}
+        {% if portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+      {% elif (pb.portalbox.title == 'image') %}
+        {% if portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+      {% endif %}
+    {% endfor %}
+    <li class="col-md-{{ '6' if collections|length == 2 else '4' }}">
+      <div class="coll-box col-md-12">
+        <a href="{{ url_for('collection/'+collection.name|safe) }}">
+          <div class="row">
+            <div class="top col-md-12">
+              <div class="row">
+                <div class="thumb col-md-4"><img class="img-circle" src="{{ url_for('static', filename='img/'+portalboxes['image']) }}" alt=""></div>
+                <div class="details col-md-8">
+                  <div class="title col-md-12">{{ collection.names[g.ln,'ln'] }}</div>
+                  <div class="desc col-md-12"><span>{{ portalboxes['desc']*8 }}</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="bottom col-md-12">
+              <div class="row">
+                <div class="subcollection col-md-6">
+                  {% if collection.collection_children == [] %}
+                    <div class="totalrecs col-md-12">
+                      <div class="col-md-12"><b>Total records:</b></div><div class="col-md-12 coll-rec-num">{{collection.nbrecs}}</div>
+                  {% else %}
+                      <div class="title col-md-12"><span><b>Collections items:</b></span></div>
+                      <ul>
+                        {% for r in collection.reclist %}
+                          <li class="col-md-6">
+                            <a href="{{ url_for('record/'+r.id) }}">{{ r.name }}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                  {% endif %}
+                    </div>
+                </div>
+                <div class="related col-md-6">
+                  <div class="title col-md-12"><span><b>Related Pages:</b></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock collection_tree %}
+{% endmacro %}
+
+{% block extra_style %}
+  <style>
+    .coltitle {
+      color: #fff;
+
+    }
+    .infobar p {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    #subcollection {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    #subcollection a,
+    #subcollection a:hover
+    #subcollection a:focus {
+      color: #899AA5;
+      text-decoration: none;
+    }
+
+    .websearch.clearfix {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    #subcollection .collection.clearfix {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 3px;
+      font-size: 20px;
+    }
+    #subcollection .collection.clearfix h4 {
+      font-weight: 300;
+    }
+
+    #subcollection .collection .nav {
+      background-color: #fff;
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+
+    #subcollection .collection .nav li {
+      width: 100%;
+      float: left;
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-top: 5px;
+    }
+
+    #subcollection .collection .nav li a {
+      float: left;
+      padding: 0;
+      padding-right: 5px;
+      color: #666;
+      font-weight: 600;
+
+    }
+
+    #subcollection .collection-res {
+      background-color: #f4f4f4;
+      border-radius: 3px;
+      font-size: 20px;
+      font-weight: 100;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      display: inline-block;
+    }
+
+    #subcollection .collection-res .nav {
+      background-color: inherit;
+    }
+    #subcollection .collection-res > .row:nth-child(2n+1) {
+      background-color: #fff;
+    }
+
+    #subcollection .collection-res > .row:nth-child(2n) a.dropdown-toggle {
+      background-color: #fff;
+    }
+
+    #subcollection .collection-res > .row:nth-child(2n+1) a.dropdown-toggle {
+      background-color: #eee;
+    }
+
+    #subcollection .record-brief .record-header {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    #subcollection .record-brief .record-header a{
+      text-decoration: none;
+    }
+
+    #subcollection .record-brief p{
+      font-size: 14px;
+    }
+    #subcollection .record-brief a {
+      text-decoration: underline;
+    }
+
+    #subcollection .collection > ul li  {
+
+    }
+
+    #subcollection .coll-overview ul.nav {
+      background-color: inherit;
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+
+    #subcollection .coll-overview ul.nav li {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+    #subcollection .coll-overview .coll-box {
+      background-color: #f4f4f4;
+      padding: 20px 15px;
+      text-align: center;
+      height: auto;
+      display: inline-block;
+      font-weight: 100;
+      border-radius: 5px;
+      color: #657580;
+      margin-bottom: 20px;
+    }
+
+    #subcollection .coll-overview .coll-box .thumb img {
+      height: 120px;
+      padding: 5px;
+      font-size: 30px;
+      font-weight: 100px;
+    }
+    #subcollection .coll-overview .coll-box .top{
+      display: inline-block;
+      border-bottom: 1px solid #dfdfdf;
+      padding-bottom: 10px;
+    }
+    #subcollection .coll-overview .coll-box .bottom {
+      display: inline-block;
+      text-align: left;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 12px;
+      font-weight: 300;
+    }
+    #subcollection .coll-overview .coll-box .top .title {
+      margin-bottom: 10px;
+    }
+    #subcollection .coll-overview .coll-box .bottom > div {
+      text-align: center;
+    }
+    #subcollection .coll-overview .coll-box .bottom .totalrecs .coll-rec-num {
+      font-size: 26px;
+      font-weight: 600;
+      margin-top: 5px;
+      text-align: center;
+    }
+    #subcollection .coll-overview .coll-box .top .desc {
+    }
+    #subcollection .coll-overview .coll-box .top .desc span {
+      font-size: 12px;
+      height: 100px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: block;
+    }
+    #subcollection .coll-overview .coll-box .bottom .subcollection {
+
+    }
+    #subcollection .coll-overview .coll-box .bottom .related {
+
+    }
+    #subcollection .collection-res > .col-md-12 {
+      background-color: #fff;
+    }
+    #subcollection .collection-res > .col-md-12:nth-child(2n) {
+      background-color: #f4f4f4;
+    }
+    #subcollection .results-title {
+      padding-top: 25px;
+      padding-bottom: 40px;
+      font-size: 40px;
+      font-weight: 100;
+      text-align: center;
+    }
+    #subcollection .collection-res .more {
+      text-align: center;
+    }
+    #subcollection .collection-res .more a {
+      background-color: #091B26;
+      padding: 12px 60px;
+      display: inline;
+      line-height: 3;
+      color: #fff;
+      border-radius: 5px;
+    }
+    #subcollection .coll-desc {
+      text-align: center;
+      color: #5E6970;
+      font-weight: 300;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+     #subcollection #external-sources.collection-res{
+      background-color: transparent;
+    }
+    #external-sources .extsrc-box{
+      background-color: #f4f4f4;
+      font-size: 14px;
+      font-weight: 100;
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 30px;
+    }
+    #external-sources .extsrc-box .title {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      height: 40px;
+    }
+    #external-sources .extsrc-box .title .t {
+      font-size: 18px;
+      font-weight: 400;
+    }
+    #external-sources .extsrc-box .d {
+      width: 100%;
+    }
+
+    #external-sources .extsrc-box .d kbd {
+      font-size: 10px;  
+    }
+    #external-sources .extsrc-box .d .a {
+      width: 100%;
+      font-size: 12px;
+      padding-top: 5px;
+    } 
+    #external-sources .extsrc-box .desc {
+      height: 300px;
+      font-size: 12px;    
+    }
+    #external-sources .extsrc-box .desc .b {
+      height: 80%;
+    }
+    #external-sources .extsrc-box .desc .go {
+      height: 20%;
+      background-color: rgb(37, 133, 91);
+      margin: 0 -15px;
+      padding: 10px 15px;
+      color: #fff;
+      font-weight: 100;
+      font-size: 15px;
+      display: block;
+      overflow: hidden;
+    }
+    #external-sources .extsrc-box .desc .go a {
+      color: #fff;
+      font-weight: 400; 
+      font-size: 15px;
+      padding-left: 5px;
+    }
+    #external-sources .extsrc-box .disclaimer {
+      height: 70px;
+      background-color: #fff;
+      font-size: 10px;
+      margin: -15px;
+      margin-top: 0;
+      padding: 6px 15px;
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+    #external-sources .extsrc-box .disclaimer {
+      /*background-color: inherit;*/
+    }
+  </style>
+  {{super()}}
+{% endblock %}
+
+{%- block index scoped-%}
+
+
+{%- block index_title %}
+<section class="infobar">
+  <div class="container">
+    {%- if collection.collection_children_r %}
+    <div class="row">
+      <div class="coltitle col-md-12">
+        <p>
+          {{ collection.names[g.ln,'ln'] }}
+        </p>
+      </div>
+    </div>
+    {% else %}
+    <div class="row">
+      <div class="coltitle col-md-12">
+        <p>
+          {% if collection.is_restricted %}
+            {{ _('Restricted Collection')  }}
+          {% else %}
+            {{ collection.names[g.ln,'ln'] }}
+          {% endif %}
+        </p>
+      </div>
+    </div>
+    {%- endif %}
+  </div>
+</section>
+{%- endblock index_title %}
+
+
+
+<section id="subcollection" class="collections">
+  <div class="container">
+    {%- block index_right scoped-%}
+    <div class="col-md-12">
+      <div class="results-title">{{ collection.names[g.ln,'ln'] }}</div>
+      {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+      {% for pb in collection.portalboxes %}
+        {% if (pb.portalbox.title == 'description') %}
+          {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+        {% elif (pb.portalbox.title == 'image') %}
+          {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+        {% endif %}
+      {% endfor %}
+      <div class="coll-desc">
+        {{ collection.portalboxes[0].portalbox.body }}
+      </div>
+    </div>
+    {% if collection.collection_children_r %}
+      <div class="row">
+        <div class="col-md-12 coll-overview">
+          {{ od_collection_tree(collection.collection_children_r, limit=2, class="nav nav-list clearfix row") }}
+        </div>
+      </div>
+    {% endif %}
+    <div class="row">
+      <div class="col-md-12">
+        <div id="external-sources" class="collection-res">
+          {% if collection.is_restricted %}
+            <strong>{{ _('This collection is restricted. If you are authorized to access it, please click on the Search button.') }}</strong>
+          {% else %}
+
+            {% if collection.reclist %}
+              {% for r in coll_records %}
+                <div class="col-md-4">
+                  <div class="extsrc-box">
+                    <div class="title">
+                      <div class="t">{{r.get('title','').get('title','')}}</div>
+                    </div>
+                    <div class="desc">
+                      <div class="b">
+                        {% if r.get('imprint','')['publisher_name'] %}
+                          <kbd>{{ r.get('imprint','')['publisher_name'] }}</kbd>
+                          {% for a in r.get('authors','') %} <b>{{a.get('last_name','')+' '+a.get('first_name','')}}</b> {{ ', ' if not loop.last }} {% endfor %}
+                          {% endif %}{{ r.get('abstract','').get('summary','') }}
+                      </div>
+                      <a href="{{ r.get('url','').get('url','')}}">
+                        <div class="go">
+                            <div style="width: 92%;float: left;margin-left: -15px;padding: 0 15px;display: inline-block;">{{ r.get('url','').get('description','')}}</div>
+                            <div style="width: 8%;float: left;margin-right: -15px;padding: 0 15px;display: inline-block;" class="fa fa-chevron-right"></div>                        
+                        </div>
+                      </a>
+                    </div>
+                    <div class="disclaimer {{ 'none' if not r.get('computer_file_type','')['note'] }}">{{ r.get('computer_file_type','')['note'] }}</div>
+                  </div>
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    {%- endblock index_right -%}
+  </div>
+</section>
+
+
+{%- endblock -%}
+
+{% block javascript %}
+<script type="text/javascript">
+$(function(){
+  $("#rec_authors_rdmore").readmore({
+    maxHeight: 20,
+    moreLink: '<div class="pull-left"><a href="" class="fa fa-caret-square-o-down"></a></div>',
+    lessLink: '<div class="pull-left"><a href="" class="fa fa-caret-square-o-up"></a></div>',
+  });
+  var forboxes = $(".for-boxes"),
+  forlist = $(".for-list"),
+  container = $("#rec_files_boxes");
+
+  forboxes.on("click", function(){
+    if (container.hasClass("display_list")){
+      container.removeClass("display_list")
+    }
+  });
+
+  forlist.on("click", function(){
+    if (!container.hasClass("display_list") ){
+      container.addClass(" display_list");
+    }
+  });
+});
+</script>
+{% endblock %}  
+

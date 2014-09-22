@@ -20,7 +20,7 @@
 """Opendata Demosite interface."""
 
 from flask import Blueprint, render_template, \
-    abort, request, current_app
+    abort, request, current_app, g
 from flask.ext.login import current_user
 from jinja2 import TemplateNotFound
 
@@ -249,6 +249,45 @@ def collections():
                                experiments=experiments)
     except TemplateNotFound:
         return abort(404)
+
+
+@blueprint.route('collection/<name>', methods=['GET', 'POST'])
+def collection(name):
+    """
+    Render the collection page.
+
+    It renders it either with a collection specific template (aka
+    collection_{collection_name}.html) or with the default collection
+    template (collection.html)
+    """
+    from invenio.utils.text import slugify
+    from invenio.modules.formatter import format_record
+    from invenio.modules.search.forms import EasySearchForm
+    from invenio.ext.template.context_processor import \
+    register_template_context_processor
+    from flask.ext.breadcrumbs import current_breadcrumbs
+
+    collection = Collection.query.filter(Collection.name == name) \
+                                 .first_or_404()
+    coll_reclist = collection.reclist
+    coll_records = []
+    for rec in coll_reclist:
+        coll_records.append(get_record(rec))
+
+    @register_template_context_processor
+    def index_context():
+        breadcrumbs = current_breadcrumbs + collection.breadcrumbs(ln=g.ln)[1:]
+        return dict(
+            of=request.values.get('of', collection.formatoptions[0]['code']),
+            format_record=format_record,
+            easy_search_form=EasySearchForm(csrf_enabled=False),
+            breadcrumbs=breadcrumbs)
+
+    return render_template(['search/collection_{0}.html'.format(collection.id),
+                            'search/collection_{0}.html'.format(slugify(name,
+                                                                        '_')),
+                            'search/collection.html'],
+                           collection=collection, coll_records=coll_records)
 
 
 # Routing for "record" module
