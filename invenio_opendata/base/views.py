@@ -20,7 +20,7 @@
 """Opendata Demosite interface."""
 
 from flask import Blueprint, render_template, \
-    abort, request, current_app, g
+    abort, request, current_app, g, url_for
 from flask.ext.login import current_user
 from jinja2 import TemplateNotFound
 
@@ -36,8 +36,15 @@ blueprint = Blueprint('invenio_opendata', __name__, url_prefix='/',
 
 @blueprint.route('')
 def middle():
+    import json
+    from os import path,listdir
+    file = '../invenio_opendata/invenio_opendata/base/templates/helpers/text/testimonials.json'
+    testi_file = open(file, 'r')
+    testimonials = json.load(testi_file)
+    testi_file.close()
+
     try:
-        return render_template('index_middle_with_design.html')
+        return render_template('index_middle_with_design.html', testimonials = testimonials)
     except TemplateNotFound:
         return abort(404)
 

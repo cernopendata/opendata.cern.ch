@@ -1,5 +1,7 @@
 {%- extends 'page.html' %}
 
+{% import 'helpers/text/testimonials.json' as t %}
+
 {% block body %}
 
   <style>
@@ -12,7 +14,7 @@
     .content {
       position: absolute;
       top: 80px;
-      bottom: 205px;
+      bottom: 175px;
       width: 100%;
       height: auto;
     }
@@ -20,10 +22,19 @@
     footer {
       position: absolute;
       bottom: 0;
-      height: 205px;
+      height: 175px;
       width: 100%;
     }
 
+    footer .quotes {
+      color: #606D75;
+      padding: 25px;
+      overflow: hidden;
+      text-align: center;
+      font-style: italic;
+      font-weight: 100; 
+      font-size: 12px;
+    }
     @media (max-width: 768px)  {
       footer.middlefoot.middlefoot {
         height : 280px;
@@ -59,7 +70,12 @@
   <footer class="middlefoot">
     <div class="container">
       <div class="row">
-        <div class="quotes" style="height:100px;"></div>
+        <div class="quotes" style="height:70px;">
+          <div style="width:600px;" class="center-block">
+            <div class="col-md-6">{{testimonials[0].get('quote','')}} - {{testimonials[0].get('firstName','')}} {{testimonials[0].get('lastName','')}}</div>
+            <div class="col-md-6">{{testimonials[1].get('quote','')}} - {{testimonials[1].get('firstName','')}} {{testimonials[1].get('lastName','')}}</div>
+          </div>
+        </div>
       </div>
       <div class="row">
         <div class="middle_l col-md-6 col-xs-12 col-sm-6">
