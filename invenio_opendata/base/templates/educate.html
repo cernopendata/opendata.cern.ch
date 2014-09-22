@@ -235,6 +235,51 @@ li.subcollection_exp {
 .subcollection_desc a {
   color: inherit;
 }
+
+.subcollection_apps {
+    background-color: #A1BECF;
+    color: #fff;
+    font-weight: 100;
+    font-size: 16px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.section-title {
+  padding-bottom: 20px;
+  color: #fff;
+  font-weight: 100;
+  font-size: 16px;
+}
+.subcollection_apps .app-box {
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  padding: 5px;
+  color: #657580;
+}
+
+.subcollection_apps .app-box .img {
+  height: 100px;
+  overflow: hidden;
+}
+.subcollection_apps .app-box .img img {
+  width: 100%;
+}
+.subcollection_apps .app-box .go {
+  width: 100%;
+  display: inline-block;
+  padding-top: 5px;
+}
+.subcollection_apps .app-box .go span{
+  padding-left: 5px;
+}
+.subcollection_apps .app-box .go a,
+.subcollection_apps .app-box .go a:hover,
+.subcollection_apps .app-box .go a:focus {
+  font-size: 12px;
+  float: right;
+  color: #657580;
+}
 </style>
   {% with collection = 0 %}
     {% include 'search/form/index.html' %}
@@ -246,8 +291,6 @@ li.subcollection_exp {
       <h3>For Education</h3>
       <div style="width:100%;padding:10px 0;font-size:15px;font-weight:100;text-align:left;">For education purposes, the complex primary data need to be processed into a format (examples below) that is good for simple applications. Get in touch if you wish to build your own applications similar to those shown here.</div>
     </div>
-
-
   </section>
 
 
@@ -293,6 +336,24 @@ li.subcollection_exp {
             </ul>
           </div>
         </section>
+        <section class="learn">
+          <div class="container">
+            <div class="thumbbox">
+              <div class="col-md-4">
+                <img src="{{ url_for('static', filename='img/edu_img_1.png') }}" alt="" class="img-circle center-block">
+              </div>
+              <div class="col-md-4">
+                <img src="{{ url_for('static', filename='img/edu_img_2.jpg') }}" alt="" class="img-circle center-block">
+              </div>
+              <div class="col-md-4">
+                <img src="{{ url_for('static', filename='img/edu_img_3.png') }}" alt="" class="img-circle center-block">
+              </div>
+            </div>
+          </div>
+          <div class="slogan container">
+            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut incidunt pariatur repellat amet adipisci nostrum ex officia obcaecati illum dolorum, ipsum cumque molestiae aspernatur delectus enim numquam, tempora deleniti velit?</h3>
+          </div>
+        </section>
       </div>
       <div class="tab-pane fade {%  if exp == 'CMS' %}in active{% endif%}" id="CMS">
         <section class="subcollection_desc">
@@ -312,6 +373,29 @@ li.subcollection_exp {
                 </div>
                 <div class="coll-desc col-md-10">
                   {{ coll_portalboxes['desc'] }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="subcollection_apps">
+          <div class="container">
+            <div class="row">
+              <div class="section-title col-md-12">Online Apps:</div>
+              <div class="center-block">
+                <div class="col-md-4">
+                  <div class="app-box">
+                    <div class="title">Visualisation</div>
+                    <div class="img"><img src="{{ url_for('static', filename='img/data-event.jpg') }}" alt=""></div>
+                    <div class="go"><a href="{{ url_for('visualise/events') }}">Visualise Events<span class="fa fa-chevron-right"></span></a></div>  
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="app-box">
+                    <div class="title">Histograms</div>
+                    <div class="img"><img src="{{ url_for('static', filename='img/graph_histo.png') }}" alt=""></div>
+                    <div class="go"><a href="{{ url_for('visualise/histograms') }}">Visualise Histograms<span class="fa fa-chevron-right"></span></a></div>   
+                  </div>
                 </div>
               </div>
             </div>
@@ -350,61 +434,6 @@ li.subcollection_exp {
       </div>
     </div>
 
-  </section>
-
-  <section class="visualise">
-    <div class="events">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 imagebox pull-left"><img src="{{ url_for('static', filename='img/data-event.jpg') }}" class="cener-block" alt=""></div>
-          <div class="col-md-8 actions">
-            <div class="details">
-              <h4>Visualise Detector Events</h4>
-              <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, sunt, voluptate neque fugit tempora harum. Repudiandae unde molestias eaque similique, consequatur consectetur expedita tenetur minus minima doloribus, ut temporibus quisquam!</span>
-            </div>
-            <ul>
-              <li><a href="{{ url_for('visualise/events') }}">Visualise Events<span class="fa fa-chevron-circle-right"></span></a></li>
-              <li><a href="{{ url_for('getting-started')}}">Guides & References</a><span class="fa fa-chevron-circle-right"></span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="histograms">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 imagebox pull-right"><img src="{{ url_for('static', filename='img/graph_histo.png') }}" alt="" class="centr-block"></div>
-          <div class="col-md-8 actions">
-            <div class="details">
-              <h4>Visualise Data Histograms</h4>
-              <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis neque tempora illum repudiandae. Soluta quos mollitia vero, nam at odit asperiores, omnis magni et minus quia nesciunt, praesentium officia totam?</span>
-            </div>
-            <ul>
-              <li><a href="{{ url_for('visualise/histograms')}}">Visualise Histograms</a><span class="fa fa-chevron-circle-right"></span></li>
-              <li><a href="{{ url_for('getting-started')}}">Guides & References</a><span class="fa fa-chevron-circle-right"></span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="learn">
-    <div class="container">
-      <div class="thumbbox">
-        <div class="col-md-4">
-          <img src="{{ url_for('static', filename='img/edu_img_1.png') }}" alt="" class="img-circle center-block">
-        </div>
-        <div class="col-md-4">
-          <img src="{{ url_for('static', filename='img/edu_img_2.jpg') }}" alt="" class="img-circle center-block">
-        </div>
-        <div class="col-md-4">
-          <img src="{{ url_for('static', filename='img/edu_img_3.png') }}" alt="" class="img-circle center-block">
-        </div>
-      </div>
-    </div>
-    <div class="slogan container">
-      <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut incidunt pariatur repellat amet adipisci nostrum ex officia obcaecati illum dolorum, ipsum cumque molestiae aspernatur delectus enim numquam, tempora deleniti velit?</h3>
-    </div>
   </section>
 {% endblock body %}
 

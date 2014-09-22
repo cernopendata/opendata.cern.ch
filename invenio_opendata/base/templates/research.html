@@ -1,81 +1,463 @@
 {%- extends 'page.html' %}
 
 {% block body %}
-  {% with collection = 0 %}
+
+<style>
+
+.coltitle {
+  color: #fff;
+}
+.infobar p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#subcollection {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#subcollection a,
+#subcollection a:hover
+#subcollection a:focus {
+  color: #666;
+  text-decoration: none;
+}
+
+.websearch.clearfix {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#subcollection .collection.clearfix {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 20px;
+}
+#subcollection .collection.clearfix h4 {
+  font-weight: 300;
+}
+
+#subcollection .collection .nav {
+  background-color: #fff;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+#subcollection .collection .nav li {
+  width: 100%;
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 5px;
+}
+
+#subcollection .collection .nav li a {
+  float: left;
+  padding: 0;
+  padding-right: 5px;
+  color: #666;
+  font-weight: 600;
+
+}
+
+#subcollection .collection-res {
+  background-color: #f4f4f4;
+  border-radius: 3px;
+  font-size: 20px;
+  font-weight: 100;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: inline-block;
+}
+
+#subcollection .collection-res .nav {
+  background-color: inherit;
+}
+#subcollection .collection-res > .row:nth-child(2n+1) {
+  background-color: #fff;
+}
+
+#subcollection .collection-res > .row:nth-child(2n) a.dropdown-toggle {
+  background-color: #fff;
+}
+
+#subcollection .collection-res > .row:nth-child(2n+1) a.dropdown-toggle {
+  background-color: #eee;
+}
+
+#subcollection .record-brief .record-header {
+  font-size: 18px;
+  font-weight: 600;
+}
+#subcollection .record-brief .record-header a{
+  text-decoration: none;
+}
+
+#subcollection .record-brief p{
+  font-size: 14px;
+}
+#subcollection .record-brief a {
+  text-decoration: underline;
+}
+
+#subcollection .collection > ul li  {
+
+}
+
+#subcollection .coll-overview ul.nav {
+  background-color: inherit;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+#subcollection .coll-overview ul.nav li {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+#subcollection .coll-overview .coll-box {
+  background-color: #f4f4f4;
+  padding: 20px 15px;
+  text-align: center;
+  height: auto;
+  display: inline-block;
+  font-weight: 100;
+  border-radius: 5px;
+  color: #657580;
+  margin-bottom: 20px;
+}
+
+#subcollection .coll-overview .coll-box .thumb img {
+  height: 120px;
+  padding: 5px;
+  font-size: 30px;
+  font-weight: 100px;
+}
+#subcollection .coll-overview .coll-box .top{
+  display: inline-block;
+  border-bottom: 1px solid #dfdfdf;
+  padding-bottom: 10px;
+}
+#subcollection .coll-overview .coll-box .bottom {
+  display: inline-block;
+  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 12px;
+  font-weight: 300;
+}
+#subcollection .coll-overview .coll-box .top .title {
+  margin-bottom: 10px;
+}
+#subcollection .coll-overview .coll-box .bottom > div {
+  text-align: center;
+}
+#subcollection .coll-overview .coll-box .bottom .totalrecs .coll-rec-num {
+  font-size: 26px;
+  font-weight: 600;
+  margin-top: 5px;
+  text-align: center;
+}
+#subcollection .coll-overview .coll-box .top .desc {
+}
+#subcollection .coll-overview .coll-box .top .desc span {
+  font-size: 12px;
+  height: 100px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: block;
+}
+#subcollection .coll-overview .coll-box .bottom .subcollection {
+
+}
+#subcollection .coll-overview .coll-box .bottom .related {
+
+}
+#subcollection .collection-res > .col-md-12 {
+  background-color: #fff;
+}
+#subcollection .collection-res > .col-md-12:nth-child(2n) {
+  background-color: #f4f4f4;
+}
+#subcollection .results-title {
+  padding-top: 25px;
+  padding-bottom: 40px;
+  font-size: 40px;
+  font-weight: 100;
+  text-align: center;
+}
+#subcollection .collection-res .more {
+  text-align: center;
+}
+#subcollection .collection-res .more a {
+  background-color: #091B26;
+  padding: 12px 60px;
+  display: inline;
+  line-height: 3;
+  color: #fff;
+  border-radius: 5px;
+}
+#subcollection .coll-desc {
+  text-align: center;
+  color: #5E6970;
+  font-weight: 300;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.subcollection_desc {
+  padding: 20px 0;
+  font-weight: 100;
+  font-size: 15px;
+  background-color: #f4f4f4;
+}
+.coll-thumb {
+  float: left;
+
+}
+.coll-thumb {
+  border-right: 1px solid #ccc;
+}
+.coll-thumb img {
+  height: 100px;
+}
+
+.subcollection_desc.experiments {
+  padding-top: 70px;
+  padding-bottom: 40px;
+}
+li.subcollection_exp {
+  margin-bottom: 50px;
+}
+
+.subcollection_desc a {
+  color: inherit;
+}
+
+.subcollection_apps {
+    background-color: #A1BECF;
+    color: #fff;
+    font-weight: 100;
+    font-size: 16px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.section-title {
+  padding-bottom: 20px;
+  color: #fff;
+  font-weight: 100;
+  font-size: 16px;
+}
+.subcollection_apps .app-box {
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  padding: 5px;
+  color: #657580;
+}
+
+.subcollection_apps .app-box .img {
+  height: 100px;
+  overflow: hidden;
+}
+.subcollection_apps .app-box .img img {
+  width: 100%;
+}
+.subcollection_apps .app-box .go {
+  width: 100%;
+  display: inline-block;
+  padding-top: 5px;
+}
+.subcollection_apps .app-box .go span{
+  padding-left: 5px;
+}
+.subcollection_apps .app-box .go a,
+.subcollection_apps .app-box .go a:hover,
+.subcollection_apps .app-box .go a:focus {
+  font-size: 12px;
+  float: left;
+  color: #657580;
+  width: 50%;
+}
+
+</style>
+ {% with collection = 0 %}
     {% include 'search/form/index.html' %}
   {% endwith %}
 
+
   <section class="infobar">
     <div class="container">
-      <div class="pull-left">
-        <h3>For Research</h3>
-        <div style="width:100%;padding:10px 0;font-size:15px;font-weight:100;text-align:left;">For research purposes, specific software environments and tools need to be deployed to analyse these complex primary data. In addition to the data below, you will find instructions for setting up your working environments here.</div>
-      </div>
-      <div class="pull-right">
-        <div class="hidden-xs" style="float: left; color:#fff;font-weight:100;font-size:14px;padding:5px;padding-right: 10px;">Choose your experiment:</div>
-        <ul class="exp-switch nav nav-tabs pull-right" role="tablist">
-          <li {% if exp in ['CMS','all'] %} class="active" {% endif %}><a href="#CMS" role="tab" data-toggle="tab">CMS</a></li>
-          <li {% if exp == 'ALICE' %} class="active" {% endif %}><a href="#ALICE" role="tab" data-toggle="tab">ALICE</a></li>
-        </ul>
-      </div>
+      <h3>For Research</h3>
+      <div style="width:100%;padding:10px 0;font-size:15px;font-weight:100;text-align:left;">For research purposes, specific software environments and tools need to be deployed to analyse these complex primary data. In addition to the data below, you will find instructions for setting up your working environments here.</div>
     </div>
   </section>
+
+
   <section class="entrypoint_collections">
-    {% with show_navbar = 0 %}
-      {% include "helpers/collections_list.html" %}
-    {% endwith %}
-  </section>
-  <section class="research-main">
-    <div class="virtual">
+    <div class="nav collections-nav">
       <div class="container">
-        <div class="col-md-4 imagebox pull-right">
-          <img src="{{ url_for('static', filename='img/virtual.png') }}" alt="" class="center-block">
+        <div class="row">
+          {% block leftside_actions %}
+            <ul class="pull-left col-md-7 nav nav-tabs nav-justified" role="tablist">
+              <li {% if exp not in ['CMS','ALICE'] %} class="active" {% endif %}><a href="{{url_for((request.path|splitthem)[1])}}" data-target="#general" role="tab" data-toggle="tab"></span>Introduction</a></li>
+              <li {% if exp == 'CMS' %} class="active" {% endif %}><a href="{{url_for((request.path|splitthem)[1]+'/CMS')}}" data-target="#CMS" role="tab" data-toggle="tab"></span>CMS</a></li>
+              <li {% if exp == 'ALICE' %} class="active" {% endif %}><a href="{{url_for((request.path|splitthem)[1]+'/ALICE')}}" data-target="#ALICE" role="tab" data-toggle="tab"></span>ALICE</a></li>
+            </ul>
+          {% endblock leftside_actions %}
         </div>
-        <div class="col-md-8 actions">
-          <div class="details">
-            <h4>Working with VMs</h4>
-            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, sunt, voluptate neque fugit tempora harum. Repudiandae unde molestias eaque similique, consequatur consectetur expedita tenetur minus minima doloribus, ut temporibus quisquam!</span>
+      </div>
+    </div>
+
+    <div class="tab-content">
+      <div class="tab-pane fade {%  if exp not in ['CMS','ALICE'] %}in active{% endif%}" id="general">
+        <section class="subcollection_desc experiments">
+          <div class="container">
+            <ul class="row">
+              {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+              {% for cols in experiments.collection_children_v %}
+                {% for pb in cols.portalboxes %}
+                {% if (pb.portalbox.title == 'description') %}
+                {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+                {% elif (pb.portalbox.title == 'image') %}
+                {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+                {% endif %}
+                {% endfor %}
+                <li class="subcollection_exp">
+                  <a href="{{ url_for((request.path|splitthem)[1]+'/'+cols['name']) }}"><div class="coll-thumb col-md-2">
+                      <img src="{{ url_for('static', filename='img/'+coll_portalboxes['image']) }}" alt="">
+                    </div>
+                    <div class="coll-desc col-md-10">
+                      {{ coll_portalboxes['desc'] }}
+                    </div></a>
+                </li>
+              {% endfor %}
+
+            </ul>
           </div>
-          <ul>
-            <li><a href="{{ url_for('VM') }}">Working Environments</a><span class="fa fa-chevron-circle-right"></span></li>
-            <li><a href="{{ url_for('collection/CMS-Tools') }}">Software & Tools</a><span class="fa fa-chevron-circle-right"></span></li>
-          </ul>
-        </div>
+        </section>
+        <section class="learn">
+          <div class="container">
+            <div class="thumbbox">
+              <div class="col-md-4">
+                <img src="{{ url_for('static', filename='img/edu_img_1.png') }}" alt="" class="img-circle center-block">
+              </div>
+              <div class="col-md-4">
+                <img src="{{ url_for('static', filename='img/edu_img_2.jpg') }}" alt="" class="img-circle center-block">
+              </div>
+              <div class="col-md-4">
+                <img src="{{ url_for('static', filename='img/edu_img_3.png') }}" alt="" class="img-circle center-block">
+              </div>
+            </div>
+          </div>
+          <div class="slogan container">
+            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut incidunt pariatur repellat amet adipisci nostrum ex officia obcaecati illum dolorum, ipsum cumque molestiae aspernatur delectus enim numquam, tempora deleniti velit?</h3>
+          </div>
+        </section>
+      </div>
+      <div class="tab-pane fade {%  if exp == 'CMS' %}in active{% endif%}" id="CMS">
+        <section class="subcollection_desc">
+          <div class="container">
+            <div class="row">
+              <div>
+                {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+                {% for pb in cms_collection.portalboxes %}
+                {% if (pb.portalbox.title == 'description') %}
+                {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+                {% elif (pb.portalbox.title == 'image') %}
+                {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+                {% endif %}
+                {% endfor %}
+                <div class="coll-thumb col-md-2">
+                  <img src="{{ url_for('static', filename='img/'+coll_portalboxes['image']) }}" alt="">
+                </div>
+                <div class="coll-desc col-md-10">
+                  {{ coll_portalboxes['desc'] }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="subcollection_apps">
+          <div class="container">
+            <div class="row">
+              <div class="section-title col-md-12">Resources:</div>
+              <div class="center-block">
+                <div class="col-md-4">
+                  <div class="app-box">
+                    <div class="title">Virtual Machines</div>
+                    <div class="img"><img src="{{ url_for('static', filename='img/virtual.png') }}" alt=""></div>
+                    <div class="go">
+                      <a href="{{ url_for('VM/CMS') }}">Working Environments<span class="fa fa-chevron-right"></span></a>
+                      <a href="{{ url_for('collection/CMS-Tools') }}">Software and Tools<span class="fa fa-chevron-right"></span></a></div>  
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="app-box">
+                    <div class="title">Getting Started!</div>
+                    <div class="img"><img src="{{ url_for('static', filename='img/edu_img_2.jpg') }}" alt=""></div>
+                    <div class="go"><a href="{{ url_for('getting-started/CMS') }}">Getting Started Guide<span class="fa fa-chevron-right"></span></a></div>   
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {% with exp_collection = cms_collection %}
+          {% include "helpers/collections_research.html" %}
+        {% endwith %}
+      </div>
+      <div class="tab-pane fade {%  if exp in ['ALICE'] %}in active{% endif%}" id="ALICE">
+        <section class="subcollection_desc">
+          <div class="container">
+            <div class="row">
+              <div>
+                {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+                {% for pb in alice_collection.portalboxes %}
+                {% if (pb.portalbox.title == 'description') %}
+                {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+                {% elif (pb.portalbox.title == 'image') %}
+                {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+                {% endif %}
+                {% endfor %}
+                <div class="coll-thumb col-md-2">
+                  <img src="{{ url_for('static', filename='img/'+coll_portalboxes['image']) }}" alt="">
+                </div>
+                <div class="coll-desc col-md-10">
+                  {{ coll_portalboxes['desc'] }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {% with exp_collection = alice_collection %}
+          {% include "helpers/collections_research.html" %}
+        {% endwith %}
       </div>
     </div>
-    <!--                <div class="xroot">
-    <div class="container">
-    <div class="col-md-4 imagebox pull-left"><img src="{{ url_for('static', filename='img/xrootd.png') }}" alt="" class="center-block"></div>
-    <div class="col-md-8 actions">
-    <div class="details">
-    <h4>XROOTD streaming</h4>
-    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis neque tempora illum repudiandae. Soluta quos mollitia vero, nam at odit asperiores, omnis magni et minus quia nesciunt, praesentium officia totam?</span>
-    </div>
-    <ul>
-    <a href="#"><li>Access Data<span class="fa fa-chevron-circle-right"></span></li></a>
-    <a href="#"><li>Learn about XROOTD<span class="fa fa-chevron-circle-right"></span></li></a>
-    <a href="#"><li>more<span class="fa fa-chevron-circle-right"></span></li></a>
-    </ul>
-    </div>
-    </div>
-    </div>       -->
-  </section>
-  <section class="learn">
-    <div class="container">
-      <div class="thumbbox">
-        <div class="col-md-4">
-          <img src="{{ url_for('static', filename='img/edu_img_1.png') }}" alt="" class="img-circle center-block">
-        </div>
-        <div class="col-md-4">
-          <img src="{{ url_for('static', filename='img/edu_img_2.jpg') }}" alt="" class="img-circle center-block">
-        </div>
-        <div class="col-md-4">
-          <img src="{{ url_for('static', filename='img/edu_img_3.png') }}" alt="" class="img-circle center-block">
-        </div>
-      </div>
-    </div>
-    <div class="slogan container">
-      <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut incidunt pariatur repellat amet adipisci nostrum ex officia obcaecati illum dolorum, ipsum cumque molestiae aspernatur delectus enim numquam, tempora deleniti velit?</h3>
-    </div>
+
   </section>
 {% endblock body %}
+
+{%- block javascript %}
+{{super()}}
+<script>
+$(document).ready(function() {
+  // add a hash to the URL when the user clicks on a tab
+  $('a[data-toggle="tab"]').on('click', function(e) {
+    history.pushState(null, null, $(this).attr('href'));
+  });
+  // navigate to a tab when the history changes
+  window.addEventListener("popstate", function(e) {
+    var activeTab = $('[href="' + location.pathname + '"]');
+    if (activeTab.length) {
+      activeTab.tab('show');
+    } else {
+      $('.nav-tabs a:first').tab('show');
+    }
+  });
+});
+</script>
+{% endblock %}

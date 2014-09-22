@@ -6,18 +6,14 @@
           <div class="upper">
             <a href="{{ url_for('education')}}">For Education</a>
           </div>
-          <div class="bottom">
-            <a href="{{ url_for('education/CMS') }}" class="corner center-block" style="border-right: 1px solid #fff;">CMS</a>
-            <a href="{{ url_for('education/ALICE') }}" class="center-block">ALICE</a>
-          </div>
         </div>
         <div class="entryactions" style="float:right;text-align:right;">
           <div >
             <div class="goto">Go to Links:</div>
             <ul>
-              <a href=" {{ url_for('visualise/events') }}"><li>Visualise detector events<span class="fa fa-play-circle-o"></span></li></a>
-              <a href=" {{ url_for('visualise/histograms') }}"><li>Visualise data histograms<span class="fa fa-flash"></span></li></a>
-              <a href=" {{ url_for('resources') }}"><li>more...<span class="fa fa-lightbulb-o"></span></li></a>
+              <li><a href=" {{ url_for('visualise/events') }}">Visualise detector events<span class="fa fa-play-circle-o"></span></a></li>
+              <li><a href=" {{ url_for('visualise/histograms') }}">Visualise data histograms<span class="fa fa-flash"></span></a></li>
+              <li><a href=" {{ url_for('resources') }}">more...<span class="fa fa-lightbulb-o"></span></a></li>
             </ul>
           </div>
         </div>
@@ -28,18 +24,14 @@
           <div class="upper">
             <a href="{{ url_for('research')}}">For Research</a>
           </div>
-          <div class="bottom">
-            <a href="{{ url_for('research/CMS') }}" class="center-block" style="border-right: 1px solid #fff;">CMS</a>
-            <a href="{{ url_for('research/ALICE') }}" class="corner center-block">ALICE</a>
-          </div>
         </div>
         <div class="entryactions" style="float:left;text-align:left;">
           <div>
             <div class="goto">Go to Links:</div>
             <ul>
-              <a href=" {{ url_for('VM') }}"><li><span class="fa fa-database"></span>Working Environments (<a href="{{ url_for('VM/CMS') }}">CMS</a> / <a href="{{ url_for('VM/ALICE') }}">ALICE</a>)</li></a>
-              <a href=" {{ url_for('getting-started') }}"><li><span class="fa fa-ge"></span>Getting started</li></a>
-              <a href=" {{ url_for('data') }}"><li><span class="fa fa-lightbulb-o"></span>more...</li></a>
+              <li><a href=" {{ url_for('VM') }}"><span class="fa fa-database"></span>Working Environments (<a href="{{ url_for('VM/CMS') }}">CMS</a> / <a href="{{ url_for('VM/ALICE') }}">ALICE</a>)</a></li>
+              <li><a href=" {{ url_for('getting-started') }}"><span class="fa fa-ge"></span>Getting started</a></li>
+              <li><a href=" {{ url_for('data') }}"><span class="fa fa-lightbulb-o"></span>more...</a></li>
             </ul>
           </div>
         </div>

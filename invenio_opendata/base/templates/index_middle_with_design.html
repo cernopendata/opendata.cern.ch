@@ -12,7 +12,7 @@
     .content {
       position: absolute;
       top: 80px;
-      bottom: 105px;
+      bottom: 205px;
       width: 100%;
       height: auto;
     }
@@ -20,16 +20,16 @@
     footer {
       position: absolute;
       bottom: 0;
-      height: 105px;
+      height: 205px;
       width: 100%;
     }
 
     @media (max-width: 768px)  {
       footer.middlefoot.middlefoot {
-        height : 180px;
+        height : 280px;
       }
       .content {
-        bottom: 180px;
+        bottom: 280px;
       }
     }
 
@@ -58,6 +58,9 @@
   </div> {# end wrap #}
   <footer class="middlefoot">
     <div class="container">
+      <div class="row">
+        <div class="quotes" style="height:100px;"></div>
+      </div>
       <div class="row">
         <div class="middle_l col-md-6 col-xs-12 col-sm-6">
           <img src="{{ url_for('static', filename='/img/opendata/cern-logo-large.png') }}" style="width:60px;" alt="">

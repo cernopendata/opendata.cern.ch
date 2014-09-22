@@ -88,24 +88,18 @@ def educate(exp):
 @blueprint.route('research', defaults={'exp': 'all'})
 @blueprint.route('research/<string:exp>')
 def research(exp):
-    cms_reclist = Collection.query.filter(Collection.name == 'CMS-Primary-Datasets').first_or_404().reclist
-    cms = []
-    for rec in cms_reclist[:6]:
-        cms.append(get_record(rec))
+    experiments = Collection.query.filter(Collection.id == '1').first_or_404()
+    cms_collection = Collection.query.filter(Collection.name == 'CMS').first_or_404()
+    alice_collection = Collection.query.filter(Collection.name == 'ALICE').first_or_404()
 
-    cmstools_reclist = Collection.query.filter(Collection.name == 'CMS-Tools').first_or_404().reclist
-    cmstools = []
-    for tool in cmstools_reclist[:3]:
-        cmstools.append(get_record(tool))
+    def splitting(value, delimiter='/'):
+        return value.split(delimiter)
 
-    alice_reclist = Collection.query.filter(Collection.name == 'ALICE-Analyses').first_or_404().reclist
-    alice = []
-    for rec in alice_reclist[:6]:
-        alice.append(get_record(rec))
-
+    current_app.jinja_env.filters['splitthem'] = splitting
     try:
-        return render_template('research.html', cms=cms, alice=alice,
-                               cmstools=cmstools, exp=exp)
+        return render_template('research.html', experiments=experiments,
+                               exp=exp, cms_collection=cms_collection,
+                               alice_collection=alice_collection)
     except TemplateNotFound:
         return abort(404)
 

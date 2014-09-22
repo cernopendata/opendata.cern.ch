@@ -1,0 +1,59 @@
+<section id="subcollection">
+  <div class="container">
+    <div class="coll-overview row">
+      <div class="section-title col-md-12">Collections:</div>
+      <ul>
+        {% for collection in exp_collection.collection_children_r recursive %}
+          {% set portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+          {% for pb in collection.portalboxes %}
+          {% if (pb.portalbox.title == 'description') %}
+          {% if portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+          {% elif (pb.portalbox.title == 'image') %}
+          {% if portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+          {% endif %}
+          {% endfor %}
+          <li class="col-md-{{ '6' if collections|length == 2 else '4' }}">
+            <div class="coll-box col-md-12">
+              <a href="{{ url_for('collection/'+collection.name|safe) }}">
+                <div class="row">
+                  <div class="top col-md-12">
+                    <div class="row">
+                      <div class="thumb col-md-4"><img class="img-circle" src="{{ url_for('static', filename='img/'+portalboxes['image']) }}" alt=""></div>
+                      <div class="details col-md-8">
+                        <div class="title col-md-12">{{ collection.names[g.ln,'ln'] }}</div>
+                        <div class="desc col-md-12"><span>{{ portalboxes['desc']*8 }}</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bottom col-md-12">
+                    <div class="row">
+                      <div class="subcollection col-md-6">
+                        {% if collection.collection_children == [] %}
+                        <div class="totalrecs col-md-12">
+                          <div class="col-md-12"><b>Total records:</b></div><div class="col-md-12 coll-rec-num">{{collection.nbrecs}}</div>
+                          {% else %}
+                          <div class="title col-md-12"><span><b>Collections items:</b></span></div>
+                          <ul>
+                            {% for r in collection.reclist %}
+                            <li class="col-md-6">
+                              <a href="{{ url_for('record/'+r.id) }}">{{ r.name }}</a>
+                            </li>
+                            {% endfor %}
+                          </ul>
+                          {% endif %}
+                        </div>
+                      </div>
+                      <div class="related col-md-6">
+                        <div class="title col-md-12"><span><b>Related Pages:</b></span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>
+        {% endfor %}  
+      </ul>
+    </div>
+  </div>
+</section>

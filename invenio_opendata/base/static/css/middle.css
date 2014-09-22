@@ -14,6 +14,7 @@
 .intro.middle.middle a:focus {
   text-decoration: none;
   color: #fff;
+  border-bottom: 1px solid #fff;
 }
 
 .collections .nav .pull-right li {
@@ -54,8 +55,8 @@
   text-align: left;
   width: 80%;
   max-width: 385px;
-  height: 70px;
-  background-color: #d5d5d5;
+  height: 60px;
+  background-color: #fff;
   overflow: hidden;
 }
 
@@ -65,7 +66,7 @@
 }
 
 .intro.middle .entries .entrypoints .upper a{
-  padding: 6px 0;
+  padding: 15px 0;
   color: #606D75;
   font-size: 20px;
   font-weight: 200;
@@ -73,12 +74,16 @@
   width: 100%;
   display: inline-block;
   background-color: #fff;
+  height: 100%;
+  border: 0;
 }
 .entries .education .upper a {
-  border-top-left-radius: 35px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px
 }
 .entries .research .upper a {
-  border-top-right-radius: 35px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 .entries .education .bottom a.corner {
   border-bottom-left-radius: 35px;
@@ -96,7 +101,6 @@
 
 }
 .entries .entrypoints .upper {
-  height: 50%;
 }
 .entries .entrypoints .bottom {
   font-size: 11px;
