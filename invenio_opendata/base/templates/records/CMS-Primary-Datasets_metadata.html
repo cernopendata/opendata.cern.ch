@@ -60,15 +60,8 @@
                     </div>
                     <div class="pull-right col-md-5">
                       <a href="{{file['url']}}" class="btn">Download</a>
-                      <a data-toggle="collapse" href="#previewer-{{loop.index}}" class="btn">Preview</a>
                     </div>
                   </div>
-                </div>
-                <div id="previewer-{{loop.index}}" class="collapse">
-                  {% if file['url'][-3:] == 'txt' %}
-                  <iframe src="http://docs.google.com/viewer?url={{file['url']|safe}}&embedded=true" width="100%" height="400" style="border: none;"></iframe>
-                  {% endif %}
-
                 </div>
               </li>
             {% endfor %}
