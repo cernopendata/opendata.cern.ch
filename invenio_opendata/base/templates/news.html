@@ -12,7 +12,7 @@
       <div class="header">
         <div class="info pull-left">
           <div class="title"><a href="{{ url_for('news/'+n_id) }}">{{ title }}</a></div>
-          <div class="details">posted by <a href="">{{author}}</a>, {{ date_to_text() }} </div>
+          <div class="details">posted by {{author}}, {{ date_to_text() }} </div>
         </div>
         <div class="more pull-right">
           <div class="category">
