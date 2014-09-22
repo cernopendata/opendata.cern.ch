@@ -54,6 +54,7 @@ opendata.cern.ch overlay:
                                         -f invenio_opendata/testsuite/data/cms/cms-tools-vm-image.xml \
                                         -f invenio_opendata/testsuite/data/cms/cms-validated-runs.xml \
                                         -f invenio_opendata/testsuite/data/cms/cms-external-resources.xml \
+                                        -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
                                         -e force-recids" \
         ./invenio2-kickstart --yes-i-know --yes-i-really-know
 
@@ -120,6 +121,7 @@ re-populate your site anew to have your updated records, you can do:
          -f invenio_opendata/testsuite/data/cms/cms-tools-vm-image.xml \
          -f invenio_opendata/testsuite/data/cms/cms-validated-runs.xml \
          -f invenio_opendata/testsuite/data/cms/cms-external-resources.xml \
+         -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
          -e force-recids
 
 JS/CSS Assets
