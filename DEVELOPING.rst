@@ -1,3 +1,10 @@
+============
+ Developing
+============
+
+.. contents::
+   :backlinks: none
+
 Installation
 ============
 
@@ -132,3 +139,121 @@ See also
 ========
 
 * http://invenio.readthedocs.org/en/latest/getting-started/overlay.html
+
+
+Appendix: Git workflow
+======================
+
+Here is detailed example of our `GitHub flow
+<https://guides.github.com/introduction/flow/index.html>`_.
+
+Setting up repository
+---------------------
+
+Let's assume your GitHub account name is ``johndoe``.
+
+Firstly, fork `opendata.cern.ch repository
+<https://github.com/cernopendata/opendata.cern.ch/>`_ by using the
+"Fork" button on the top right.  This will give you your personal
+repository:
+
+.. code-block:: console
+
+   http://github.com/johndoe/opendata.cern.ch
+
+Secondly, clone this repository onto your laptop and set up remotes so
+that ``origin`` would point to your repository and ``upstream`` would
+point to the canonical location:
+
+.. code-block:: console
+
+   $ cd ~/private/src
+   $ git clone git@github.com:johndoe/opendata.cern.ch
+   $ cd opendata.cern.ch
+   $ git remote add upstream git@github.com:cernopendata/opendata.cern.ch
+
+Optionally, if you are also going to integrate work of others, you may
+want to set up `special PR branches
+<http://simko.home.cern.ch/simko/github-local-handling-of-pull-requests.html>`_
+like this:
+
+.. code-block:: console
+
+   $ vim .git/config
+   $ cat .git/config
+   [remote "upstream"]
+       url = git@github.com:cernopendata/opendata.cern.ch
+       fetch = +refs/heads/*:refs/remotes/upstream/*
+       fetch = +refs/pull/*/head:refs/remotes/upstream/pr/*
+
+Working on topical branches
+---------------------------
+
+You are now ready to work on something.  You should always create
+separate topical branches for separate issues:
+
+.. code-block:: console
+
+   $ git checkout pu
+   $ git checkout -b fix-event-display-icons
+   $ emacsclient some_file.py
+   $ git commit -a -m 'some fix'
+   $ emacsclient some_other_file.py
+   $ git commit -a -m 'some other fix'
+
+When everything is ready, you may want to rebase your topical branch
+to get rid of unnecessary commits:
+
+.. code-block:: console
+
+   $ git checkout fix-event-display-icons
+   $ git rebase pu -i # squash commits here
+
+Making pull requests
+--------------------
+
+You are now ready to issue a pull request: just push your branch in
+your personal repository:
+
+.. code-block:: console
+
+   $ git push origin fix-event-display-icons
+
+and use GitHub's "Pull request" button to make the pull request.
+
+Updating pull requests
+----------------------
+
+Consider the integrator had some remarks about your branch and you
+have to update your pull request.
+
+Firstly, update to latest upstream "pu" branch, in case it may have
+changed in the meantime:
+
+.. code-block:: console
+
+   $ git checkout pu
+   $ git fetch upstream
+   $ git merge upstream/pu --ff-only
+
+Secondly, make any required changes on your topical branch:
+
+.. code-block:: console
+
+   $ git checkout fix-event-display-icons
+   $ emacsclient some_file.py
+   $ git commit -a -m 'amends something'
+
+Thirdly, when done, interactively rebase your topical branch into
+nicely organised commits:
+
+.. code-block:: console
+
+   $ git rebase pu -i # squash commits here
+
+Finally, re-push your topical branch with a force option in order to
+update your pull request:
+
+.. code-block:: console
+
+   $ git push origin fix-event-display-icons -f

@@ -1,5 +1,6 @@
-Contributing
-============
+==============
+ Contributing
+==============
 
 Bug reports, feature requests, and code contributions are encouraged
 and welcome!
@@ -18,7 +19,6 @@ portal developments, you can `watch ongoing discussions
 `become part of the team
 <https://github.com/orgs/cernopendata/teams>`_.
 
-
 Code contributions
 ------------------
 
@@ -27,7 +27,7 @@ We follow typical `GitHub flow
 
 1. Fork this repository into your personal space.
 2. Start a new topical branch for any contribution.  Name it sensibly,
-   say `fix-event-display-icons`.
+   say ``fix-event-display-icons``.
 3. Test your branch on a local site.  If everything works as expected,
    please `sign your commits
    <http://invenio-software.org/wiki/Tools/Git/Workflow#R2.Remarksoncommitlogmessages>`_
@@ -36,10 +36,13 @@ We follow typical `GitHub flow
    <http://invenio-software.org/wiki/Tools/Git/Workflow#R1.Remarksoncommithistory>`_.
    Check out our usual `development practices
    <http://invenio-software.org/wiki/Development/Contributing>`_.
-5. Please add any `(closes #123)` directives in your commit log
+5. Please add any ``(closes #123)`` directives in your commit log
    message if your pull request closes an open issue.
 6. Issue a pull request.  If the branch is not quite ready yet, please
-   indicate `WIP` (=work in progress) in the pull request title.
+   indicate ``WIP`` (=work in progress) in the pull request title.
+
+For more information on how we work with branches, see our `developing
+guide <DEVELOPING.rst>`_.
 
 Chatroom
 --------
