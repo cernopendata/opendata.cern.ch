@@ -157,7 +157,7 @@
             <div class="heading">"I have installed the CERN Virtual Machine: now what?"</div>
             <div class="body">
               <p>
-                To analyse CMS data collected in 2010, you need <strong>version 4.2.8</strong> of CMSSW, supported only on <strong>Scientific Linux 5</strong>. Execute the following command to ensure that you have this version of CMSSW running:
+                To analyse CMS data collected in 2010, you need <strong>version 4.2.8</strong> of CMSSW, supported only on <strong>Scientific Linux 5</strong>. Once you have installed the <a href="{{ url_for('VM/CMS') }}">CMS-specific CERN Virtual Machine</a>, execute the following command in the terminal to ensure that you have this version of CMSSW running:
               </p>
               <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>$&nbsp;cmsrel CMSSW_4_2_8</span></span></span></div></pre>
               <p>
@@ -307,7 +307,7 @@
 {%- block javascript %}
 {{super()}}
 <script>
-$(document).ready(function() { 
+$(document).ready(function() {
   // add a hash to the URL when the user clicks on a tab
   $('a[data-toggle="tab"]').on('click', function(e) {
     history.pushState(null, null, $(this).attr('href'));
@@ -321,6 +321,6 @@ $(document).ready(function() {
       $('.nav-tabs a:first').tab('show');
     }
   });
-});   
+});
 </script>
 {% endblock %}
