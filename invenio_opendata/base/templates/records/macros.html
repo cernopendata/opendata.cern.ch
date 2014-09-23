@@ -1,0 +1,70 @@
+{% macro list_record_attributes(record, exclude=[]) %}
+<ul class="row">
+	{% for el in record|sort %}
+	<li class="col-md-12">
+		<ul class="col-md-12" style="padding-bottom: 5px;margin-bottom: 5px;border-bottom: 1px solid #d4d4d4;">
+			<kbd>{{el}}</kbd>: 
+			{% if el in exclude %}
+			-<br>
+			{% elif record[el] is sequence and record[el] is not string %}
+			<br>
+			{% for i in record[el] %}
+			<li class="col-md-12">
+				<ul class="row">
+					{%  if i is not string %}
+					<ul>
+						{% for f in i %}
+						<li class="col-md-12">
+							<b>{{f}}</b>:{{i[f]}}<br>
+						</li>
+						{% endfor %}
+					</ul>
+					{% else %}
+					<b>{{i}}</b>: {{record[el][i]}}<br>
+					{%endif%}
+				</ul>
+			</li>
+			{% endfor %}
+			{% else %}
+			{{record[el]}}<br>
+			{% endif %}
+		</ul>
+	</li>
+	{% endfor %}
+</ul>
+{% endmacro %}
+
+{% macro create_export_modal(name, record, exclude=[]) %}
+<style>.modal .modal-body .tab-pane{padding-top: 15px;}.modal{color:#666;}</style>
+<div class="rec_thumb rec_export" style="float:left;">
+	<div class="t">Export</div>
+	<div class="a"><a href="#" data-toggle="modal" data-target="#{{name}}">here</a></div>
+</div>
+<div class="modal fade" id="{{name}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="myModalLabel">{{record.get('title',{}).get('title','')}}</h4>
+			</div>
+			<div class="modal-body">
+				<ul class="nav nav-tabs" role="tablist">
+					<li class="active"><a href="#overview" role="tab" data-toggle="tab">Overview</a></li>
+					<li><a href="#bidtex" role="tab" data-toggle="tab">BibTex</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane fade in active" id="overview">
+						{{ list_record_attributes(record, exclude ) }}
+					</div>
+					<div class="tab-pane fade" id="bidtex">
+						Upcoming Feature
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+{% endmacro %}

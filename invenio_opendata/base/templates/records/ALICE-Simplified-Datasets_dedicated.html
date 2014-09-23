@@ -1,3 +1,4 @@
+{% from "records/macros.html" import create_export_modal with context %}
 <div class="row" style="margin: -25px -20px;">
   <div class="rec_dedicated_top col-md-12">
     <div class="row">
@@ -6,8 +7,8 @@
           <div class="n"><div class="t col-md-2">DOI</div>{{ record['doi'] }}</div>
         </div>
       {% endif %}
-      <div class="rec_export col-md-12">
-        {{ format_record(recid, of='HDACT', ln=g.ln)|safe }}
+      <div class="col-md-12">
+        {{ create_export_modal("exportModal", record, ['__meta_metadata__', 'restriction']) }}
       </div>
       <div class="col-md-12 rec_parentcol">
         <div class="n"><div class="t col-md-4">Parent Collection</div><a href="{{ url_for('collection/'+collection.name) }}">{{ collection.names[g.ln, 'ln'] }}</a></div>

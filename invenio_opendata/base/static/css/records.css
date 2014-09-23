@@ -327,14 +327,20 @@
   font-weight: 600;
 }
 .rec_export .a {
-  background-color: #fff;
-  color: #606D75;
+  background-color: #428bca;
+  color: #fff;
+  font-weight: 600;
   float: left;
   padding: 5px 8px;
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
 }
-
+.rec_export .a a,
+.rec_export .a a:hover,
+.rec_export .a a:focus {
+  color: inherit;
+  text-decoration: inherit;
+}
 #record_content #record_content {
   margin-left: -15px;
   margin-right: -15px;
