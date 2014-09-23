@@ -2,6 +2,13 @@
  opendata.cern.ch
 ==================
 
+.. image:: http://issuestats.com/github/cernopendata/opendata.cern.ch/badge/pr?style=flat
+   :target: http://issuestats.com/github/cernopendata/opendata.cern.ch
+.. image:: http://issuestats.com/github/cernopendata/opendata.cern.ch/badge/issue?style=flat
+   :target: http://issuestats.com/github/cernopendata/opendata.cern.ch
+.. image:: https://img.shields.io/badge/license-GPL_2-green.svg?style=flat-square
+   :target: https://github.com/cernopendata/opendata.cern.ch/COPYING
+
 About
 -----
 
