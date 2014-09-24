@@ -29,7 +29,7 @@
           <div>
             <div class="goto">Go to Links:</div>
             <ul>
-              <li><a href=" {{ url_for('VM') }}"><span class="fa fa-database"></span>Working Environments (<a href="{{ url_for('VM/CMS') }}">CMS</a> / <a href="{{ url_for('VM/ALICE') }}">ALICE</a>)</a></li>
+              <li><a href=" {{ url_for('VM') }}"><span class="fa fa-database"></span>Working Environments</a><a href="{{ url_for('VM/CMS') }}"><img class="exp-xs-img" src="{{url_for('static', filename='img/CMS.gif')}}" alt=""></a><a href="{{ url_for('VM/ALICE') }}"><img src="{{url_for('static', filename='img/ALICE.gif')}}" class="exp-xs-img" alt=""></a></li>
               <li><a href=" {{ url_for('getting-started') }}"><span class="fa fa-ge"></span>Getting started</a></li>
               <li><a href=" {{ url_for('data') }}"><span class="fa fa-lightbulb-o"></span>more...</a></li>
             </ul>
