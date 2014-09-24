@@ -168,6 +168,9 @@ header, footer {
   padding: 20px 0;
 }
 
+.midnav .navbar-toggle {
+  padding: 8px 0;
+}
 .midnav .logo{
   float: left;
 }
@@ -421,6 +424,12 @@ footer a:focus{
 
 .content {
   background-color: #B9CEDD;
+}
+
+@media (max-width: 480px;) {
+  .innernav ul {
+    display: none!important;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
