@@ -50,8 +50,17 @@
 
   <section class="infobar">
     <div class="container">
-      <div class="pull-left">
-        <h3>ALICE OpenData</h3>
+      <div class="breadcrumbs">
+        {% for b in breadcrumbs[1:] %}
+          {% if loop.index is divisibleby 2 %}
+            <a href="{{url_for(b[0].url)}}"><h4 class="active">{{b[1].text}}</h4></a>
+          {% else %}
+            <a href="{{url_for(b[0].url)}}"><h4>{{b[1].text}}</h4></a>
+          {% endif %}
+          {% if loop.last and exp %}
+            <h4 style="margin-left:7px;" class="{{ ' active' if (loop.index+1 is not divisibleby 2) }}">{{exp}}</h4>
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
   </section>

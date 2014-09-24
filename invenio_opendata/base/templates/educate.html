@@ -288,7 +288,18 @@ li.subcollection_exp {
 
   <section class="infobar">
     <div class="container">
-      <h3>For Education</h3>
+      <div class="breadcrumbs">
+        {% for b in breadcrumbs[1:] %}
+          {% if loop.index is divisibleby 2 %}
+            <a href="{{b.url}}"><h4 class="active">{{b.text}}</h4></a>
+          {% else %}
+            <a href="{{b.url}}"><h4>{{b.text}}</h4></a>
+          {% endif %}
+          {% if loop.last and exp %}
+            <h4 style="margin-left:7px;" class="{{ ' active' if (loop.index+1 is not divisibleby 2) }}">{{exp}}</h4>
+          {% endif %}
+        {% endfor %}
+      </div>
       <div style="width:100%;padding:10px 0;font-size:15px;font-weight:100;text-align:left;">For education purposes, the complex primary data need to be processed into a format (examples below) that is good for simple applications. Get in touch if you wish to build your own applications similar to those shown here.</div>
     </div>
   </section>

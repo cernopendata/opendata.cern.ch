@@ -18,8 +18,14 @@
   </style>
   <section class="infobar">
     <div class="container">
-      <div class="pull-left">
-        <h3>About</h3>
+      <div class="breadcrumbs">
+        {% for b in breadcrumbs[1:] %}
+          {% if loop.index is divisibleby 2 %}
+            <a href="{{b.url}}"><h4 class="active">{{b.text}}</h4></a>
+          {% else %}
+            <a href="{{b.url}}"><h4>{{b.text}}</h4></a>
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
   </section>
