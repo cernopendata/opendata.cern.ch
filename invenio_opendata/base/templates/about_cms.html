@@ -43,6 +43,7 @@
       background-color: #f4f4f4;
       border-radius: 4px;
       display: inline-block;
+      min-height: 180px;
     }
 
     #about-cms .about-box {
@@ -160,16 +161,16 @@
                 <li>The open data are released under Creative Commons Zero (CC0). CMS or CERN do not endorse any works, scientific or otherwise, produced using these data.</li>
                 <li>All releases will have a unique DOI that should be cited in any applications or publications.</li>
                 <li>The data being made available are referred to as "reconstructed data": fragmented data from various sub-detectors are processed or "reconstructed" to provide coherent information about individual <a href="{{ url_for('about/CMS-Physics-Objects') }}">physics objects</a> such as electrons or particle jets.
-                  <div>
-                    <ul>
-                      <li>Despite being processed, these high-level data remain complex and selection criteria need to be applied in order to analyse them, requiring some understanding of particle physics and detector functioning.</li>
-                      <li>The data cannot be viewed in simple data tables for spreadsheet-based analyses. More information below, under <a href="#what-data">What data?</a></li>
-                    </ul>
-                  </div>
+                <div>
+                  <ul class="with-circles">
+                    <li>Despite being processed, these high-level data remain complex and selection criteria need to be applied in order to analyse them, requiring some understanding of particle physics and detector functioning.</li>
+                    <li>The data cannot be viewed in simple data tables for spreadsheet-based analyses. More information below, under <a href="#what-data">What data?</a></li>
+                  </ul>
+                </div>
                 </li>
                 <li>Neither the data released nor the software version needed to analyse them are maintained or in active use.
                   <div>
-                    <ul>
+                    <ul class="with-circles">
                       <li>CMS had just started data taking in 2010 and the methods have evolved since those early days, in particular to respond to the evolving beam conditions of the LHC.</li>
                       <li>More advanced techniques are used with recent data but the software is not compatible out-of-the-box with older data samples.</li>
                       <li>This may change in the future, with later releases better documented as part of the collaboration's data-preservation efforts.</li>
@@ -186,36 +187,42 @@
               <h2 id="tools">Accessing the data and analysis tools</h2>
               <p class="col-md-12 no-padding">The CMS data are available at different levels:</p>
               <ul class="col-md-12 no-padding">
-                <li class="row">
-                  <div class="col-md-12">1. Downloadable datasets</div>
-                  <ul class="col-md-12">
-                    <li>Primary (full reconstructed data)</li>
-                    <li>Derived, simplified datasets</li>
-                  </ul>
+                <li>
+                  <div class="col-md-12 no-padding">1. Downloadable datasets</div>
+                  <div>
+                    <ul class="with-circles col-md-12">
+                      <li>Primary (full reconstructed data)</li>
+                      <li>Derived, simplified datasets</li>
+                    </ul>
+                  </div>
                 </li>
-                <li class="row">
-                  <div class="col-md-12">2. Ready-to-use online applications</div>
-                  <ul class="col-md-12">
-                    <li>Event display</li>
-                    <li>Simple histogramming</li>
-                  </ul>
+                <li>
+                  <div class="col-md-12 no-padding">2. Ready-to-use online applications</div>
+                  <div>
+                    <ul class="with-circles col-md-12">
+                      <li>Event display</li>
+                      <li>Simple histogramming</li>
+                    </ul>
+                  </div>
                 </li>
-                <li class="row">
-                  <div class="col-md-12">3. Virtual Machine (VM) image</div>
-                  <ul class="col-md-12">
-                    <li>Downloadable</li>
-                    <li>With simplified analysis examples</li>
-                    <li>Contains all necessary CMS software with link to instructions:
-                      <div class="col-md-row">
-                        <ul>
-                          <li>How to extract data for event displays</li>
-                          <li>How to extract data for histograms</li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li>Requires a host computer + VM software</li>
-                    <li>Can access remote data or downloaded local primary datasets</li>
-                  </ul>
+                <li>
+                  <div class="col-md-12 no-padding">3. Virtual Machine (VM) image</div>
+                  <div>
+                    <ul class="with-circles col-md-12">
+                      <li>Downloadable</li>
+                      <li>With simplified analysis examples</li>
+                      <li>Contains all necessary CMS software with link to instructions:
+                        <div class="col-md-row">
+                          <ul style="list-style-type:disc;">
+                            <li>How to extract data for event displays</li>
+                            <li>How to extract data for histograms</li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li>Requires a host computer + VM software</li>
+                      <li>Can access remote data or downloaded local primary datasets</li>
+                    </ul>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -224,9 +231,9 @@
             <div class="about-box">
               <h2 id="what-data">What data?</h2>
               <ul class="col-md-12 no-padding">
-                <li>AOD (Analysis Object Data) files contain the information that is needed for analysis:
+                <li><b>AOD (Analysis Object Data)</b> files contain the information that is needed for analysis:
                   <div>
-                    <ul>
+                    <ul class="with-circles col-md-12">
                       <li>all the high-level <a href="{{ url_for('about/CMS-Physics-Objects') }}">physics objects</a> (such as muons, electrons, etc.);</li>
                       <li>tracks with associated hits, calorimetric clusters with associated hits, vertices; and</li>
                       <li>information about event selection (triggers), data needed for further selection and identification criteria for the physics objects.</li>
@@ -235,7 +242,7 @@
                 </li>
                 <li>It is not the final event interpretation with a simple list of particles.
                   <div>
-                    <ul>
+                    <ul class="with-circles col-md-12">
                       <li>It contains several instances of the same physics object (i.e. a jet reconstructed with different algorithms).</li>
                       <li>It may have double-counting (i.e. a physics object may appear as a single object of its own type, but it may also be part of a jet).</li>
                       <li>Additional knowledge is needed to define a "good" physics object.</li>
@@ -248,7 +255,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-md-12">
+          <div class="col-md-6">
             <div class="about-box">
               <h2 id="policies">Other CMS open data</h2>
               <ul class="col-md-12 no-padding">
@@ -257,7 +264,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-md-12">
+          <div class="col-md-6">
             <div class="about-box">
               <h2 id="policies">Policies</h2>
               <ul class="col-md-12 no-padding">
