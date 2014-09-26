@@ -339,7 +339,7 @@ li.subcollection_exp {
                       <img src="{{ url_for('static', filename='img/'+coll_portalboxes['image']) }}" alt="">
                     </div>
                     <div class="coll-desc col-md-10">
-                      {{ coll_portalboxes['desc'] }}
+                      {% for d in (coll_portalboxes['desc']|splitthem('#$#$#')) %}{{d}}{% endfor %}
                     </div></a>
                 </li>
               {% endfor %}
@@ -383,7 +383,7 @@ li.subcollection_exp {
                   <img src="{{ url_for('static', filename='img/'+coll_portalboxes['image']) }}" alt="">
                 </div>
                 <div class="coll-desc col-md-10">
-                  {{ coll_portalboxes['desc'] }}
+                  {% for d in (coll_portalboxes['desc']|splitthem('#$#$#')) %}{{d}}{% endfor %}
                 </div>
               </div>
             </div>
@@ -433,7 +433,7 @@ li.subcollection_exp {
                   <img src="{{ url_for('static', filename='img/'+coll_portalboxes['image']) }}" alt="">
                 </div>
                 <div class="coll-desc col-md-10">
-                  {{ coll_portalboxes['desc'] }}
+                  {% for d in (coll_portalboxes['desc']|splitthem('#$#$#')) %}{{d}}{% endfor %}
                 </div>
               </div>
             </div>

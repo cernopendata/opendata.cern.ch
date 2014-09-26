@@ -42,7 +42,7 @@
                 <div class="thumb col-md-4"><img class="img-circle" src="{{ url_for('static', filename='img/'+portalboxes['image']) }}" alt=""></div>
                 <div class="details col-md-8">
                   <div class="title col-md-12">{{ collection.names[g.ln,'ln'] }}</div>
-                  <div class="desc col-md-12"><span>{{ portalboxes['desc']*8 }}</span></div>
+                  <div class="desc col-md-12"><span>{{ (portalboxes['desc']|splitthem('#$#$#'))[0]|truncate(125) }}</span></div>
                 </div>
               </div>
             </div>
@@ -334,7 +334,7 @@
         {% endif %}
       {% endfor %}
       <div class="coll-desc">
-        {{ collection.portalboxes[0].portalbox.body }}
+        <span>{% for d in (collection.portalboxes[0].portalbox.body|splitthem('#$#$#')) %}{{d}}{% endfor %}</span>
       </div>
     </div>
     {% if collection.collection_children_r %}
