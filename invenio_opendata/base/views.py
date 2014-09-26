@@ -307,7 +307,11 @@ def collection(name):
     coll_records = []
     for rec in coll_reclist:
         coll_records.append(get_record(rec))
+    def splitting(value, delimiter='/'):
+        return value.split(delimiter)
 
+    current_app.jinja_env.filters['splitthem'] = splitting
+    
     @register_template_context_processor
     def index_context():
         breadcrumbs = current_breadcrumbs + collection.breadcrumbs(ln=g.ln)[1:]

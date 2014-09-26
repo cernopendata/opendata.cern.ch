@@ -33,11 +33,6 @@
       {% block record_content %}
       {% endblock %}
     </p>
-
-    <p class="record-info">
-      {% block record_info %}
-      {% endblock %}
-    </p>
   </div>
 
   {% block fulltext_snippets %}
