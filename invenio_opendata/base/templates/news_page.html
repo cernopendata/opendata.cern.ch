@@ -45,7 +45,7 @@
     </div>
     <div class="container">
       <div class="body">
-        {{ nn[1] }}
+        {{ nn[1]|safe }}
         <div class="links">
           {% for link in nn[3][1] %}
             <a href="{{ link }}">{{ link }}</a><br/>
