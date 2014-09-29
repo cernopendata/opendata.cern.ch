@@ -107,17 +107,31 @@ $(function () {
       input_data = data;
   });
 
+  var makeLog = function(v) {return v > 0 ? Math.log(v) : 0;};
+  var makeExp = function(v) {return Math.log(v);}
+
   $(document).on('click', '.parameter', function() { 
     var parameter = $(this).html();
+    var parId = '#'+parameter;
     var active = $(this).hasClass('active');
 
     if ( active ) {
-      $('#flot-plots').append("<div class='col-md-6' id='"+parameter+"'></div>");
-      $('#'+parameter).css({"height":"300px"});
+      $('#flot-plots').append("<div id='"+parameter+"' class='col-md-6'></div>");
+      $(parId).css({"border":"1px dotted"});										
 
-      var histogram = buildHistogram(input_data.map(function(d) {return d[parameter];}), 0.1);
-      var data = [{data:histogram, label:parameter}];
+      $(parId).append("<div class='plot-control'></div>");
+      $(parId).append("<div class='plot-container'></div>");
+      $(parId + ' div.plot-control').css({"height":"30px"});								     
+      $(parId + ' div.plot-container').css({"height":"300px"});
 
+      // This screams "template!"
+      var controls = "<table><tr>";
+      controls += "<td><button type='button' class='btn logx "+ parameter + "' data-toggle='button'>Log X</button>";
+      controls += "<button type='button' class='btn logy "+ parameter + "' data-toggle='button'>Log Y</button></td>";
+      controls += "</tr></table>"; 
+
+      $(parId + ' div.plot-control').append(controls);
+      
       var options = {
         label: parameter,
         lines: { show: true, fill: false, lineWidth: 1.2 },
@@ -127,8 +141,30 @@ $(function () {
         crosshair: { mode: "x" },
         selection: { mode: "x", color: "yellow" }
       };
+            
+      var histogram = buildHistogram(input_data.map(function(d) {return d[parameter];}), 0.1);
+      var data = [{data:histogram, label:parameter}];
 
-      $.plot($('#'+parameter), data, options);								     
+      $('button.logx.'+parameter).on('click', function() { 
+         if ( ! $(this).hasClass('active')  ) {
+            $.extend(true, options, {xaxis:{transform:makeLog,inverseTransform:makeExp}});
+         } else {
+            $.extend(true, options, {xaxis:{transform:null,inverseTransform:null}});
+         }   
+         $.plot($(parId + ' .plot-container'), data, options);
+      });
+
+      $('button.logy.'+parameter).on('click', function() {
+        if ( ! $(this).hasClass('active') ) {
+           $.extend(true, options, {yaxis: {transform: makeLog, inverseTransform: makeExp}});
+	} else {
+           $.extend(true, options, {yaxis: {transform:null, inverseTransform:null}});
+        }
+        $.plot($(parId + ' .plot-container'), data, options);
+      });
+
+      $.plot($(parId + ' .plot-container'), data, options);								     
+
     } else {
      $('#'+parameter).remove();
     }
