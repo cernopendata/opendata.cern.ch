@@ -1,10 +1,10 @@
 {% from "records/macros.html" import create_export_modal with context %}
 <div class="rec_header">
   <div class="row rec_details">
-    <div>
+    <div class="rec_title_info">
       <div class="title col-md-12">{{ record.get('title',{}).get('title','') }}<span>{{ record.get('imprint', {}).get('date', '') }}</span>
       </div>
-      <div class="rec_authors {% if (record['authors']|length) < 5 %} col-md-12" {% else %} " id="rec_authors_rdmore" {% endif %} >
+      <div class="rec_authors {% if (record['authors']|length) < 5 %} col-md-12" {% else %} " id="rec_authors_rdmore" {% endif %}>
         <kbd>{{ record['_first_corporate_name']['name'] }}</kbd>
         {% for auth in record['authors'] %}
           <a href="{{url_for('search', p='author:'+auth['last_name']+', '+auth['first_name'])}}">{{ auth['full_name'] }}</a>
@@ -20,6 +20,14 @@
       <div class="rec_thumb rec_parentcol">
         <div class="n"><div class="t">Parent Collection</div><a href="{{ url_for('collection/'+collection.name) }}">{{ collection.names[g.ln,'ln'] }}</a></div>
       </div>
+      {% if record.get('computer_file_characteristics','') %}
+      <div class="rec_thumb rec_files_info">
+        <div class="n">
+          <div class="t">{{ (record.get('computer_file_characteristics','')|splitthem(' ',1))[0] }}</div>
+          {{ ((record.get('computer_file_characteristics','')|splitthem(' ',1))[1]) }}
+        </div>
+      </div>
+      {% endif %}
       {{ create_export_modal("exportModal", record, ['__meta_metadata__', 'restriction']) }}
     </div>
   </div>

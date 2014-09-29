@@ -11,6 +11,16 @@
       <div class="col-md-12 rec_parentcol">
         <div class="n"><div class="t col-md-4">Parent Collection</div><a href="{{ url_for('collection/'+collection.name) }}">{{ collection.names[g.ln,'ln'] }}</a></div>
       </div>
+      {% if record.get('computer_file_characteristics','') %}
+      <div class="col-md-12 pull-left">
+        <div class="rec_files_info" style="float: left;">
+          <div class="n">
+            <div class="t col-md-3">{{ (record.get('computer_file_characteristics','')|splitthem(' ',1))[0] }}</div>
+            <div class="col-md-offset-3 col-md-9">{{ ((record.get('computer_file_characteristics','')|splitthem(' ',1))[1])|trim }}</div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
     </div>
   </div>
   <div id="rec_dedicated_box" class="rec_dedicated_details col-md-12 panel-group">
