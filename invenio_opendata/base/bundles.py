@@ -42,3 +42,11 @@ od_records_js = Bundle(
     "vendors/readmore/readmore.min.js",
     output = "od_records.js",
 )
+
+od_d3_js = Bundle(
+     "vendors/d3/d3.min.js",
+    output = "d3.js",
+    bower = {
+       "d3": "3.3.13"
+    }
+)
