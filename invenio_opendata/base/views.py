@@ -38,6 +38,17 @@ blueprint = Blueprint('invenio_opendata', __name__, url_prefix='/',
 default_breadcrumb_root(blueprint, '.')
 
 
+def get_collections():
+    experiments = Collection.query.filter(Collection.id == '1').first_or_404()
+    exp_colls = []
+    exp_names = []
+    for exp in experiments.collection_children_v:
+        exp_names.append(exp.name)
+        exp_colls.append(Collection.query.filter(Collection.name == exp.name).first())
+        
+    return exp_colls, exp_names
+
+
 @blueprint.route('')
 def middle():
     import json, pkg_resources
@@ -79,18 +90,16 @@ def index2():
 @blueprint.route('education/<string:exp>')
 @register_breadcrumb(blueprint, '.educate', 'For Education')
 def educate(exp):
-    experiments = Collection.query.filter(Collection.id == '1').first_or_404()
-    cms_collection = Collection.query.filter(Collection.name == 'CMS').first_or_404()
-    alice_collection = Collection.query.filter(Collection.name == 'ALICE').first_or_404()
+    exp_colls, exp_names = get_collections()
 
     def splitting(value, delimiter='/'):
         return value.split(delimiter)
 
     current_app.jinja_env.filters['splitthem'] = splitting
+
     try:
-        return render_template('educate.html', experiments=experiments,
-                               exp=exp, cms_collection=cms_collection,
-                               alice_collection=alice_collection)
+        return render_template('educate.html',
+                               exp=exp, exp_colls = exp_colls, exp_names = exp_names)
     except TemplateNotFound:
         return abort(404)
 
@@ -99,18 +108,15 @@ def educate(exp):
 @blueprint.route('research/<string:exp>')
 @register_breadcrumb(blueprint, '.research', 'For Research')
 def research(exp):
-    experiments = Collection.query.filter(Collection.id == '1').first_or_404()
-    cms_collection = Collection.query.filter(Collection.name == 'CMS').first_or_404()
-    alice_collection = Collection.query.filter(Collection.name == 'ALICE').first_or_404()
+    exp_colls, exp_names = get_collections()
 
     def splitting(value, delimiter='/'):
         return value.split(delimiter)
-
     current_app.jinja_env.filters['splitthem'] = splitting
+
     try:
-        return render_template('research.html', experiments=experiments,
-                               exp=exp, cms_collection=cms_collection,
-                               alice_collection=alice_collection)
+        return render_template('research.html',
+                               exp=exp, exp_colls = exp_colls, exp_names = exp_names)
     except TemplateNotFound:
         return abort(404)
 
