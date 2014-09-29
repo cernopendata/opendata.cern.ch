@@ -297,9 +297,10 @@
     }
     #external-sources .extsrc-box .title {
       border-bottom: 1px solid #ccc;
-      padding-bottom: 10px;
       margin-bottom: 10px;
-      height: 40px;
+      margin-top: -5px;
+      height: 50px;
+      line-height: 1.3;
     }
     #external-sources .extsrc-box .title .t {
       font-size: 18px;
@@ -459,31 +460,4 @@
 
 
 {%- endblock -%}
-
-{% block javascript %}
-<script type="text/javascript">
-$(function(){
-  $("#rec_authors_rdmore").readmore({
-    maxHeight: 20,
-    moreLink: '<div class="pull-left"><a href="" class="fa fa-caret-square-o-down"></a></div>',
-    lessLink: '<div class="pull-left"><a href="" class="fa fa-caret-square-o-up"></a></div>',
-  });
-  var forboxes = $(".for-boxes"),
-  forlist = $(".for-list"),
-  container = $("#rec_files_boxes");
-
-  forboxes.on("click", function(){
-    if (container.hasClass("display_list")){
-      container.removeClass("display_list")
-    }
-  });
-
-  forlist.on("click", function(){
-    if (!container.hasClass("display_list") ){
-      container.addClass(" display_list");
-    }
-  });
-});
-</script>
-{% endblock %}  
 
