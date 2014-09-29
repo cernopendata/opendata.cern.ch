@@ -16,24 +16,20 @@
     #vis-histograms .previewer {
       background-color: #f4f4f4;
       border-radius: 4px;
-      height: 600px;
+      height: 800px;
       margin-bottom: 35px;
+      overflow: scroll;
+    }
+    .btn.active {
+      background-color: #A8B6CA;
+    }
+    .btn:hover {
+      background-color: #e6e6e6;
     }
   </style>
   <section class="infobar">
     <div class="container">
-      <div class="breadcrumbs">
-        {% for b in breadcrumbs[1:] %}
-        {% if loop.index is divisibleby 2 %}
-        <a href="{{url_for(b[0].url)}}"><h4 class="active">{{b[1].text}}</h4></a>
-        {% else %}
-        <a href="{{url_for(b[0].url)}}"><h4>{{b[1].text}}</h4></a>
-        {% endif %}
-        {% if loop.last and exp %}
-        <h4 style="margin-left:7px;" class="{{ ' active' if (loop.index+1 is not divisibleby 2) }}">{{exp}}</h4>
-        {% endif %}
-        {% endfor %}
-      </div>
+      <h3>Visualise Histograms</h3>
     </div>
   </section>
 
@@ -42,14 +38,101 @@
       <div class="row">
         <div class="col-md-10 col-md-offset-1 pg-header">
           <h3>Explore and Play with the histograms</h3>
-          <div>
-            Consequuntur.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit illum magni officia consequuntur dignissimos ad voluptas sint, maxime optio quis necessitatibus, laborum in velit nobis obcaecati similique, nihil delectus ipsa!
-          </div>
         </div>
-        <div class="previewer col-md-10 col-md-offset-1"></div>
+        <div class="previewer col-md-12 col-md-offset-1" id="histogram">
+	  <h3>Select one or more parameters from <span id="filename"></span> :</h3>
+	  <table><tr id="parameter-button-row"></tr></table>
+	  <div id="flot-plots"></div>
+	</div>
       </div>
     </div>
   </section>
+{% endblock %}
 
+{%- block javascript %}
+<script type="text/javascript" src="{{url_for('base.static', filename='vendors/d3/d3.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('base.static', filename='vendors/flot/jquery.flot.js')}}"></script>
 
+<script type="text/javascript">
+$(function () {
+  var input_data;
+  var input_file = "/record/700/files/MuRun2010B_0.csv";
+  $('#filename').html(input_file.split('/').pop());
+
+  // Some fields aren't numbers or it doesn't make sense to plot them.
+  // Therefore exclude them.
+  function is_excluded(key) {
+    var excluded = ["Run","Event","Type1","Type2","Type"];      
+    if ( excluded.indexOf(key) === -1 ) {
+      return false;
+    }
+    return true;
+  }
+
+  function populateValues(data) {
+    for (var key in data) {
+         $('#parameter-button-row').append("<td><button type='button' data-toggle='button' class='btn btn-large parameter'>"+ key +"</button></td");       
+    }        
+  }
+
+  function buildHistogram(data, bw) {
+    var minx = d3.min(data),
+    maxx = d3.max(data),
+    nbins = Math.floor((maxx-minx) / bw);
+
+    var histogram = d3.layout.histogram();
+    histogram.bins(nbins);
+    data = histogram(data);
+
+    var output = [];
+    for ( var i = 0; i < data.length; i++ ) {
+      output.push([data[i].x, data[i].y]);
+      output.push([data[i].x + data[i].dx, data[i].y]);
+    }
+    return output;
+  };
+
+  d3.csv(input_file, 
+    function(d) { // leading and trailing spaces in csv aren't ignored so we strip them out (if there) in the accessor
+      var newd = {};
+      for ( key in d ) {
+        if ( ! is_excluded(key.trim()) ) { 
+          newd[key.trim()] = +d[key];
+        }
+      }
+      return newd;
+    },
+    function(data) {
+      populateValues(data[0]);
+      input_data = data;
+  });
+
+  $(document).on('click', '.parameter', function() { 
+    var parameter = $(this).html();
+    var active = $(this).hasClass('active');
+
+    if ( active ) {
+      $('#flot-plots').append("<div class='col-md-6' id='"+parameter+"'></div>");
+      $('#'+parameter).css({"height":"300px"});
+
+      var histogram = buildHistogram(input_data.map(function(d) {return d[parameter];}), 0.1);
+      var data = [{data:histogram, label:parameter}];
+
+      var options = {
+        label: parameter,
+        lines: { show: true, fill: false, lineWidth: 1.2 },
+        grid: { hoverable: true, autoHighlight: false },
+        xaxis: { tickDecimals: 0 },
+        yaxis: { autoscaleMargin: 0.1 },
+        crosshair: { mode: "x" },
+        selection: { mode: "x", color: "yellow" }
+      };
+
+      $.plot($('#'+parameter), data, options);								     
+    } else {
+     $('#'+parameter).remove();
+    }
+  });
+});
+</script>
 {% endblock %}
