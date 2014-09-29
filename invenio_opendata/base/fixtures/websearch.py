@@ -247,7 +247,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_7:
-        body = u'This collection includes any data, which have been derived from the CMS primary datasets#&#&#. They may be reduced in sense that only part of the information is kept, or only part of the events are selected. - It includes datasets, which may be accessed using the VM image of the CMS environment, and datasets, which are adapted to other tools and applications. The tools and instruction to use and access these data are linked to the record.'
+        body = u'This collection includes data that have been derived from the CMS primary datasets#&#&#. The data may be reduced in the sense that (a) only part of the information is kept or (b) only part of the events are selected. Datasets include those which may be accessed using the VM image of the CMS environment or those which are adapted for other tools and applications. The tools and instructions to access and use these data are linked to each record.'
         id = 7
         title = u'description'
 
@@ -287,7 +287,7 @@ class PortalboxData(DataSet):
         title = u'description'
 
     class Portalbox_15:
-        body = u'This collection includes CMS external resources'
+        body = u'This collection includes external resources that use CMS public data#&#&#. The items in this collection are suitable for education purposes.'
         id = 15
         title = u'description'
 
