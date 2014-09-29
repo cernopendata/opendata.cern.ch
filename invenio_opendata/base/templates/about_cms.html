@@ -156,93 +156,43 @@
         <h1 class="col-md-12">About CMS data</h1>
           <div class="col-md-12">
             <div class="about-box">
-              <h2 id="specifics">Specifics</h2>
-              <ul class="col-md-12 no-padding">
-                <li>The open data are released under Creative Commons Zero (CC0). CMS or CERN do not endorse any works, scientific or otherwise, produced using these data.</li>
-                <li>All releases will have a unique DOI that should be cited in any applications or publications.</li>
-                <li>The data being made available are referred to as "reconstructed data": fragmented data from various sub-detectors are processed or "reconstructed" to provide coherent information about individual <a href="{{ url_for('about/CMS-Physics-Objects') }}">physics objects</a> such as electrons or particle jets.
-                <div>
-                  <ul class="with-circles">
-                    <li>Despite being processed, these high-level data remain complex and selection criteria need to be applied in order to analyse them, requiring some understanding of particle physics and detector functioning.</li>
-                    <li>The data cannot be viewed in simple data tables for spreadsheet-based analyses. More information below, under <a href="#what-data">What data?</a></li>
+              <h2 id="tools">Data and analysis tools</h2>
+              <p class="col-md-12 no-padding">The following are provided through this portal:</p>
+              <ol class="col-md-12 no-padding">
+                <li class="col-md-12">Downloadable datasets
+                  <ul class="col-md-12">
+                    <li><a href="{{ url_for('collection/CMS-Primary-Datasets') }}">Primary datasets</a>: full reconstructed data with no other selections. The data here are referred to as "reconstructed data": fragmented data from various sub-detectors are processed or "reconstructed" to provide coherent information about individual <a href="{{ url_for('about/CMS-Physics-Objects') }}">physics objects</a> such as electrons or particle jets</li>
+                    <li>Examples of <a href="{{ url_for('collection/CMS-Derived-Datasets') }}">simplified datasets</a> derived from the primary ones for use in different applications and analyses</li>
                   </ul>
-                </div>
                 </li>
-                <li>Neither the data released nor the software version needed to analyse them are maintained or in active use.
-                  <div>
-                    <ul class="with-circles">
-                      <li>CMS had just started data taking in 2010 and the methods have evolved since those early days, in particular to respond to the evolving beam conditions of the LHC.</li>
-                      <li>More advanced techniques are used with recent data but the software is not compatible out-of-the-box with older data samples.</li>
-                      <li>This may change in the future, with later releases better documented as part of the collaboration's data-preservation efforts.</li>
-                    </ul>
-                  </div>
+                <li class="col-md-12">Tools
+                  <ul class="col-md-12">
+                    <li>A <a href="{{ url_for('VM/CMS') }}">downloadable Virtual Machine (VM) image with the CMS software environment</a> through which the primary datasets can be accessed</li>
+                    <li>An <a href="{{ url_for('getting-started/CMS') }}">analysis example chain</a>, reading primary dataset and producing intermediate derived data for the final analysis</li>
+                    <li>Ready-to-use online applications, such as <a href="{{ url_for('visualise/events') }}">an event display</a> and <a href="{{ url_for('visualise/histograms') }}">simple histogramming software</a></li>
+                    <li>Source code for the various examples and applications</li>
+                  </ul>
                 </li>
-                <li>The release of 2010 data is not accompanied by any Monte Carlo data. Future releases may include this information.</li>
-                <li>If you are interested in more, please contact nearest <a href="http://cms.web.cern.ch/content/cms-collaboration">CMS university/institute</a>.</li>
-              </ul>
+              </ol>
             </div>
           </div>
           <div class="col-md-12">
             <div class="about-box">
-              <h2 id="tools">Accessing the data and analysis tools</h2>
-              <p class="col-md-12 no-padding">The CMS data are available at different levels:</p>
+              <h2 id="primary-datasets">Primary Datasets</h2>
               <ul class="col-md-12 no-padding">
-                <li>
-                  <div class="col-md-12 no-padding">1. Downloadable datasets</div>
+                <li>Data in the primary datasets are in a format known as AOD or Analysis Object Data.</li>
+                <li>AOD files contain the information that is needed for analysis:
                   <div>
-                    <ul class="with-circles col-md-12">
-                      <li>Primary (full reconstructed data)</li>
-                      <li>Derived, simplified datasets</li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <div class="col-md-12 no-padding">2. Ready-to-use online applications</div>
-                  <div>
-                    <ul class="with-circles col-md-12">
-                      <li>Event display</li>
-                      <li>Simple histogramming</li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <div class="col-md-12 no-padding">3. Virtual Machine (VM) image</div>
-                  <div>
-                    <ul class="with-circles col-md-12">
-                      <li>Downloadable</li>
-                      <li>With simplified analysis examples</li>
-                      <li>Contains all necessary CMS software with link to instructions:
-                        <div class="col-md-row">
-                          <ul style="list-style-type:disc;">
-                            <li>How to extract data for event displays</li>
-                            <li>How to extract data for histograms</li>
-                          </ul>
-                        </div>
-                      </li>
-                      <li>Requires a host computer + VM software</li>
-                      <li>Can access remote data or downloaded local primary datasets</li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="about-box">
-              <h2 id="what-data">What data?</h2>
-              <ul class="col-md-12 no-padding">
-                <li><b>AOD (Analysis Object Data)</b> files contain the information that is needed for analysis:
-                  <div>
-                    <ul class="with-circles col-md-12">
+                    <ul>
                       <li>all the high-level <a href="{{ url_for('about/CMS-Physics-Objects') }}">physics objects</a> (such as muons, electrons, etc.);</li>
                       <li>tracks with associated hits, calorimetric clusters with associated hits, vertices; and</li>
                       <li>information about event selection (triggers), data needed for further selection and identification criteria for the physics objects.</li>
                     </ul>
                   </div>
                 </li>
-                <li>It is not the final event interpretation with a simple list of particles.
+                <li>An AOD file is not the final event interpretation with a simple list of particles.
                   <div>
-                    <ul class="with-circles col-md-12">
+                    <ul>
                       <li>It contains several instances of the same physics object (i.e. a jet reconstructed with different algorithms).</li>
                       <li>It may have double-counting (i.e. a physics object may appear as a single object of its own type, but it may also be part of a jet).</li>
                       <li>Additional knowledge is needed to define a "good" physics object.</li>
@@ -251,7 +201,28 @@
                   </div>
                 </li>
                 <li>AOD files can be read in <a href="http://root.cern.ch/">ROOT</a>, but they cannot be opened (and understood) as simple data tables.</li>
-                <li>Only the runs that are validated by data quality monitoring should be used in any analysis. The list of the validated runs is provided as a <a href="http://json.org/">JSON</a> file.</li>
+                <li>Only the runs that are validated by data quality monitoring should be used in any analysis. The <a href="{{ url_for('collection/CMS-Validated-Runs') }}">list of the validated runs</a> is provided as a <a href="http://json.org/">JSON</a> file.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="about-box">
+              <h2 id="disclaimer">Disclaimer</h2>
+              <ul class="col-md-12 no-padding">
+                <li>The open data are released under <a href="http://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero (CC0)</a>. Neither CMS or nor CERN endorse any works, scientific or otherwise, produced using these data.</li>
+                <li>All releases will have a unique DOI that you are requested to cite in any applications or publications.</li>
+                <li>Despite being processed, the high-level primary datasets remain complex and selection criteria need to be applied in order to analyse them, requiring some understanding of particle physics and detector functioning. The data cannot be viewed in simple data tables for spreadsheet-based analyses.
+                </li>
+                <li>Neither the data released nor the software version needed to analyse them are maintained or in active use.
+                  <div>
+                    <ul>
+                      <li>CMS had just started data taking in 2010 and the methods have evolved since those early days, in particular to respond to the evolving beam conditions of the LHC.</li>
+                      <li>More advanced techniques are used with recent data but the software is not compatible out-of-the-box with older data samples.</li>
+                    </ul>
+                  </div>
+                </li>
+                <li>The release of 2010 data is not accompanied by any Monte Carlo data. Future releases may include this information.</li>
+                <li>If you are interested in more, please contact nearest <a href="http://cms.web.cern.ch/content/cms-collaboration">CMS university/institute</a>.</li>
               </ul>
             </div>
           </div>
