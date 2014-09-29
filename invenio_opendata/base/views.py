@@ -350,6 +350,10 @@ def metadata(recid, of='hd'):
         id_user=current_user.get_id(),
         request=request)
 
+    def splitting(value, delimiter='/', maxsplit=0):
+        return value.split(delimiter, maxsplit)
+
+    current_app.jinja_env.filters['splitthem'] = splitting
     record_collection = get_record(recid)['collections'][0]['primary']
     try:
         return render_template(['records/'+record_collection+'_record.html',
