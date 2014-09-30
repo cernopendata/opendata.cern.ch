@@ -3,6 +3,11 @@
 {% block body %}
 
   <style>
+
+    #wrap {
+      margin: 0;
+      padding: 0;
+    }
     #od-header {
       position: absolute;
       height: 80px;
@@ -10,17 +15,13 @@
     }
 
     .content {
-      position: absolute;
-      top: 80px;
-      bottom: 175px;
       width: 100%;
-      height: auto;
     }
 
     footer {
       position: absolute;
       bottom: 0;
-      height: 175px;
+      height: 130px;
       width: 100%;
     }
 
@@ -29,18 +30,38 @@
       padding: 25px;
       overflow: hidden;
       text-align: center;
-      font-weight: 100; 
-      font-size: 12px;
+      font-weight: 400; 
+      font-style: italic;
+      font-size: 13px;
+      height: 75px;
+      margin-bottom: -15px;
+    }
+    .middlefoot.middlefoot {
+      background-color: transparent;
+    }
+    footer .quotes span {
+      font-style: normal;
+      font-weight: 100;
     }
     @media (max-width: 768px)  {
       footer.middlefoot.middlefoot {
         height : 280px;
+        background-color: transparent;
+        padding-top: 15pc;
+        margin-bottom: -60px; 
       }
       .content {
         bottom: 280px;
       }
     }
 
+    .middlefoot.middlefoot {
+      padding-bottom: 0;
+    }
+    .middlefoot .middle_l,
+    .middlefoot .middle_r {
+      margin-top: -10px;
+    }
     .middlefoot.middlefoot .middle_l img {
       margin-top: 15px;
       width: 130px;
@@ -52,27 +73,41 @@
       margin-top: 15px;
     }
 
+    .legal {
+      margin-top: -24px;
+    }
+    .legal a {
+      z-index: 1000;
+      position: relative;
+      border-radius: 2px;
+      padding: 1px;
+    }
+    .legal a:hover,
+    .legal a:focus {
+      color: #fff;
+      background-color: #606D75;
+    }
 
+    .quotes b {
+      padding: 0 2px;
+      display: inline-block;
+    }
   </style>
 
   <section class="intro middle">
     {% include "middle_with_design.html" %}
   </section>
 
-
-{% endblock body %}
-
-{% block page_footer %}
   <div id="push"></div>
   </div> {# end wrap #}
   <footer class="middlefoot">
     <div class="container">
       <div class="row">
-        <div class="quotes" style="height:70px;">
-          <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <div class="quotes">
+          <div class="col-xs-12 col-md-8 col-md-offset-2">
             <div class="row">
-              <div class="col-md-6">{{testimonials[0].get('quote','')}} - {{testimonials[0].get('firstName','')}} {{testimonials[0].get('lastName','')}}</div>
-              <div class="col-md-6">{{testimonials[1].get('quote','')}} - {{testimonials[1].get('firstName','')}} {{testimonials[1].get('lastName','')}}</div>
+              <div class="col-md-6"><b>"</b>{{testimonials[0].get('quote','')}}<b>"</b><br/><span>- {{testimonials[0].get('firstName','')}} {{testimonials[0].get('lastName','')}}</span></div>
+              <div class="col-md-6"><b>"</b>{{testimonials[1].get('quote','')}}<b>"</b><br/><span>- {{testimonials[1].get('firstName','')}} {{testimonials[1].get('lastName','')}}</span></div>
             </div>
           </div>
         </div>
@@ -99,4 +134,8 @@
       </div>
     </div>
   </footer>
+{% endblock body %}
+
+{% block page_footer %}
+
 {% endblock %}

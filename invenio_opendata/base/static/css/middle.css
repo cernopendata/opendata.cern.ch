@@ -13,9 +13,25 @@
 .intro.middle.middle a:hover,
 .intro.middle.middle a:focus {
   text-decoration: none;
-  color: #fff;
+  color: #606D75;
+}
+.intro.middle.middle a .action-title {
+  font-weight: 400;
+  border-radius: 3px;
+  padding: 0 4px;
 }
 
+.intro.middle.middle a:hover .action-title,
+.intro.middle.middle a:focus .action-title {
+  font-weight: 400;
+  background-color: #606D75;
+  color: #fff;
+}
+.intro.middle.middle a span.fa,
+.intro.middle.middle a:hover span.fa,
+.intro.middle.middle a:focus span.fa {
+  
+}
 .collections .nav .pull-right li {
   /*background-color: #B9CEDD;*/
   font-weight: 300;
@@ -49,7 +65,6 @@
     display: none;
   }
 }
-
 .intro .entrypoints  {
   font-size: 50px;
   font-weight: 200;
@@ -59,25 +74,32 @@
   width: 80%;
   max-width: 385px;
   height: 60px;
-  overflow: hidden;
 }
 
 .intro.middle .entries .entrypoints .upper a:hover {
-  background-color: #A2CAE2;
+  background-color: #606D75;
   color: #fff;
 }
 
 .intro.middle .entries .entrypoints .upper a{
-  padding: 15px 0;
+  padding: 18px 0;
   color: #606D75;
   font-size: 20px;
-  font-weight: 200;
+  font-weight: 600;
   text-align: center;
   width: 100%;
   display: inline-block;
   background-color: #fff;
-  border: 0;
+  border: 1px solid #606D75;
 }
+
+.intro.middle .entries .education .entrypoints .upper a{
+  border-right: 0;
+}
+.intro.middle .entries .research .entrypoints .upper a{
+  border-left: 0;
+}
+
 .entries .education .upper a {
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px
@@ -163,6 +185,7 @@
   border-bottom-right-radius: 0; 
   border-bottom-left-radius: 0; 
   border-top-right-radius: 4px;
+  border-right: 1px!important;
 }  
 }
 
@@ -217,13 +240,9 @@
 }
 
 .intro.middle .education .entryactions li span{
-  padding-left: 5px;
   width: 20px;
-  margin-right: 0;
-  margin-left: 10px;
 }
 .intro.middle .research .entryactions li span{
-  padding-right: 5px;
   width: 20px;
 }
 .intro.middle .middle {
@@ -235,31 +254,12 @@
   /* border: 1px solid #333;*/
 }
 
-.intro.middle .middle .circle {
-  width: 150px;
-  height: 150px;
-  /*background: #091B26;*/
-  border-radius: 50%;
-  margin: 25px;
-  /* border: 1px solid #ccc; */
-  background: url('/img/middle.jpeg');
-  opacity: 0.5;
-  background-size: 210px;
-  background-repeat: no-repeat;
-  background-position: -34px 2px;
-}
 .intro.middle .upper.circledes .middle {
   background: url('/img/home/glass.svg');
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 30px;
-}
-.intro.middle .circledes {
-  background: url('/img/home/home_net.svg');
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 .entries .entryactions .goto {
   display: none;
@@ -368,12 +368,12 @@
   background-position: -34px 2px;
 }
 .exp-xs-img {
-  height: 18px;
-  padding: 1px;
+  height: 20px;
   background-color: #f4f4f4;
   border-radius: 5px;
   margin-left: 5px;
   margin-top: -3px;
+  border: 1px solid #606D75;
 }
 
 @media (max-width: 480px) {

@@ -31,7 +31,7 @@ body {
   font-family: 'Open Sans', sans-serif!important;
   color: #091B26;
   border: 0;
-  background-color: #B9CEDD!important;
+  background-color: rgb(208,225,237)!important;
 }
 
 
@@ -87,9 +87,11 @@ header, footer {
 }
 
 #od-header .innernav li:hover,
+#od-header .innernav li.open,
 #od-header .innernav a:hover,
 #od-header .innernav a:focus {
   color: #fff;
+  background-color: #606D75;
 }
 .navbar {
   margin: 0;
@@ -339,6 +341,7 @@ footer a:focus{
 
 .middlefoot.middlefoot {
   padding-bottom: 15px;
+  background-color: #f4f4f4;
 }
 
 @media (max-width: 768px) {
@@ -430,7 +433,7 @@ footer a:focus{
 }
 
 .content {
-  background-color: #B9CEDD;
+  background-color: transparent;
 }
 
 @media (max-width: 480px;) {
@@ -477,11 +480,6 @@ footer a:focus{
 footer {
   padding: 0;
   margin: 0;
-}
-
-
-.middlefoot{
-  background-color: #f5f5f5;
 }
 
 .lastfoot{
