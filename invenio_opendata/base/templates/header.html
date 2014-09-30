@@ -44,8 +44,6 @@
             <!-- Collection of nav links and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse">
               <ul class="nav navbar-nav pull-right">
-                <li><a href="{{ url_for('education') }}">EDUCATION</a></li>
-                <li><a href="{{ url_for('research') }}">RESEARCH</a></li>
                 <li class="dropdown">
                   <a href="{{ url_for('about') }}" data-target="#" data-toggle="dropdown" class="disabled">ABOUT</a>
                   <ul class="dropdown-menu" role="menu">
@@ -56,6 +54,8 @@
                   </ul>
                 </li>
                 <li><a href="{{ url_for('search') }}">SEARCH</a></li>
+                <li><a href="{{ url_for('education') }}">EDUCATION</a></li>
+                <li><a href="{{ url_for('research') }}">RESEARCH</a></li>
               </ul>
             </div>
           </div>
