@@ -1,52 +1,91 @@
 {% extends "page.html" %}
 
 {% block body %}
-  <style>
-    #vis-histograms .pg-header h3 {
-      margin-bottom: 25px;
-      margin-top: 35px;
-    }
-    #vis-histograms .pg-header {
-      color: #606D75;
-      text-align: center;
-      font-weight: 100;
-      font-size: 20px;
-      margin-bottom: 35px;
-    }
-    #vis-histograms .previewer {
-      background-color: #f4f4f4;
-      border-radius: 4px;
-      height: 800px;
-      margin-bottom: 35px;
-      overflow: scroll;
-    }
-    .btn.active {
-      background-color: #A8B6CA;
-    }
-    .btn:hover {
-      background-color: #e6e6e6;
-    }
-  </style>
-  <section class="infobar">
-    <div class="container">
-      <h3>Visualise Histograms</h3>
-    </div>
-  </section>
+<style>
+#vis-histograms .pg-header h3 {
+  margin-bottom: 25px;
+  margin-top: 35px;
+}
+#vis-histograms .pg-header {
+  color: #606D75;
+  text-align: center;
+  font-weight: 100;
+  font-size: 20px;
+  margin-bottom: 35px;
+}
+#vis-histograms .previewer {
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  margin-bottom: 35px;
+  color: #606D75;
+  overflow: scroll;
+  margin-bottom: 20px;
+}
 
-  <section id="vis-histograms" class="content">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1 pg-header">
-          <h3>Explore and Play with the histograms</h3>
-        </div>
-        <div class="previewer col-md-12 col-md-offset-1" id="histogram">
-	  <h3>Select one or more parameters from <span id="filename"></span> :</h3>
-	  <table><tr id="parameter-button-row"></tr></table>
-	  <div id="flot-plots"></div>
-	</div>
-      </div>
+#vis-histograms #flot-plots {
+  background-color: #fff;
+  margin-bottom: 15px;
+  min-height: 300px;
+  height: auto;
+  margin-right: 0;
+  margin-left: 0;
+}
+#vis-histograms #flot-plots >div {
+  display: inline-block;
+  float: left;
+}
+
+#vis-histograms ul#parameter-button-row  {
+  display: inline-block;
+}
+#vis-histograms #parameter-button-row li {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.btn.active {
+  background-color: #A8B6CA;
+}
+.btn:hover {
+  background-color: #e6e6e6;
+}
+</style>
+<section class="infobar">
+  <div class="container">
+    <div class="breadcrumbs">
+      {% for b in breadcrumbs[1:] %}
+      {% if loop.index is divisibleby 2 %}
+      <a href="{{url_for(b[0].url)}}"><h4 class="active">{{b[1].text}}</h4></a>
+      {% else %}
+      <a href="{{url_for(b[0].url)}}"><h4>{{b[1].text}}</h4></a>
+      {% endif %}
+      {% if loop.last and exp %}
+      <h4 style="margin-left:7px;" class="{{ ' active' if (loop.index+1 is not divisibleby 2) }}">{{exp}}</h4>
+      {% endif %}
+      {% endfor %}
     </div>
-  </section>
+  </div>
+</section>
+
+<section id="vis-histograms" class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 pg-header">
+        <h3>Explore and Play with the histograms</h3>
+      </div>
+      <div class="col-md-12" >
+       <div class="previewer" id="histogram">
+         <div>
+           <h3 class="col-md-12">Select one or more parameters from <span id="filename"></span> :</h3>
+           <div class="col-md-12"><ul id="parameter-button-row"></ul></div>
+           <div class="col-md-12">
+             <div class="row" id="flot-plots"></div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</section>
 {% endblock %}
 
 {%- block javascript %}
@@ -71,58 +110,58 @@ $(function () {
 
   function populateValues(data) {
     for (var key in data) {
-         $('#parameter-button-row').append("<td><button type='button' data-toggle='button' class='btn btn-large parameter'>"+ key +"</button></td");       
-    }        
+     $('ul#parameter-button-row').append("<li><button type='button' data-toggle='button' class='btn btn-large parameter'>"+ key +"</button></li>");       
+   }        
+ }
+
+ function buildHistogram(data, bw) {
+  var minx = d3.min(data),
+  maxx = d3.max(data),
+  nbins = Math.floor((maxx-minx) / bw);
+
+  var histogram = d3.layout.histogram();
+  histogram.bins(nbins);
+  data = histogram(data);
+
+  var output = [];
+  for ( var i = 0; i < data.length; i++ ) {
+    output.push([data[i].x, data[i].y]);
+    output.push([data[i].x + data[i].dx, data[i].y]);
   }
+  return output;
+};
 
-  function buildHistogram(data, bw) {
-    var minx = d3.min(data),
-    maxx = d3.max(data),
-    nbins = Math.floor((maxx-minx) / bw);
-
-    var histogram = d3.layout.histogram();
-    histogram.bins(nbins);
-    data = histogram(data);
-
-    var output = [];
-    for ( var i = 0; i < data.length; i++ ) {
-      output.push([data[i].x, data[i].y]);
-      output.push([data[i].x + data[i].dx, data[i].y]);
-    }
-    return output;
-  };
-
-  d3.csv(input_file, 
+d3.csv(input_file, 
     function(d) { // leading and trailing spaces in csv aren't ignored so we strip them out (if there) in the accessor
-      var newd = {};
-      for ( key in d ) {
-        if ( ! is_excluded(key.trim()) ) { 
-          newd[key.trim()] = +d[key];
-        }
+    var newd = {};
+    for ( key in d ) {
+      if ( ! is_excluded(key.trim()) ) { 
+        newd[key.trim()] = +d[key];
       }
-      return newd;
-    },
-    function(data) {
-      populateValues(data[0]);
-      input_data = data;
+    }
+    return newd;
+  },
+  function(data) {
+    populateValues(data[0]);
+    input_data = data;
   });
 
-  var makeLog = function(v) {return v > 0 ? Math.log(v) : 0;};
-  var makeExp = function(v) {return Math.log(v);}
+var makeLog = function(v) {return v > 0 ? Math.log(v) : 0;};
+var makeExp = function(v) {return Math.log(v);}
 
-  $(document).on('click', '.parameter', function() { 
-    var parameter = $(this).html();
-    var parId = '#'+parameter;
-    var active = $(this).hasClass('active');
+$(document).on('click', '.parameter', function() { 
+  var parameter = $(this).html();
+  var parId = '#'+parameter;
+  var active = $(this).hasClass('active');
 
-    if ( active ) {
-      $('#flot-plots').append("<div id='"+parameter+"' class='col-md-6'></div>");
-      $(parId).css({"border":"1px dotted"});										
+  if ( active ) {
+    $('#flot-plots').append("<div id='"+parameter+"' class='col-md-6'></div>");
+    $(parId).css({"border":"1px dotted"});										
 
-      $(parId).append("<div class='plot-control'></div>");
-      $(parId).append("<div class='plot-container'></div>");
-      $(parId + ' div.plot-control').css({"height":"30px"});								     
-      $(parId + ' div.plot-container').css({"height":"300px"});
+    $(parId).append("<div class='plot-control'></div>");
+    $(parId).append("<div class='plot-container'></div>");
+    $(parId + ' div.plot-control').css({"height":"30px"});								     
+    $(parId + ' div.plot-container').css({"height":"300px"});
 
       // This screams "template!"
       var controls = "<table><tr>";
@@ -141,34 +180,34 @@ $(function () {
         crosshair: { mode: "x" },
         selection: { mode: "x", color: "yellow" }
       };
-            
+
       var histogram = buildHistogram(input_data.map(function(d) {return d[parameter];}), 0.1);
       var data = [{data:histogram, label:parameter}];
 
       $('button.logx.'+parameter).on('click', function() { 
-         if ( ! $(this).hasClass('active')  ) {
-            $.extend(true, options, {xaxis:{transform:makeLog,inverseTransform:makeExp}});
-         } else {
-            $.extend(true, options, {xaxis:{transform:null,inverseTransform:null}});
-         }   
-         $.plot($(parId + ' .plot-container'), data, options);
-      });
+       if ( ! $(this).hasClass('active')  ) {
+        $.extend(true, options, {xaxis:{transform:makeLog,inverseTransform:makeExp}});
+      } else {
+        $.extend(true, options, {xaxis:{transform:null,inverseTransform:null}});
+      }   
+      $.plot($(parId + ' .plot-container'), data, options);
+    });
 
       $('button.logy.'+parameter).on('click', function() {
         if ( ! $(this).hasClass('active') ) {
-           $.extend(true, options, {yaxis: {transform: makeLog, inverseTransform: makeExp}});
-	} else {
-           $.extend(true, options, {yaxis: {transform:null, inverseTransform:null}});
-        }
-        $.plot($(parId + ' .plot-container'), data, options);
-      });
+         $.extend(true, options, {yaxis: {transform: makeLog, inverseTransform: makeExp}});
+       } else {
+         $.extend(true, options, {yaxis: {transform:null, inverseTransform:null}});
+       }
+       $.plot($(parId + ' .plot-container'), data, options);
+     });
 
       $.plot($(parId + ' .plot-container'), data, options);								     
 
     } else {
      $('#'+parameter).remove();
-    }
-  });
+   }
+ });
 });
 </script>
 {% endblock %}
