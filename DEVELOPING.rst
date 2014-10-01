@@ -45,7 +45,7 @@ opendata.cern.ch overlay:
         CFG_INVENIO2_VIRTUAL_ENV=opendata \
         CFG_INVENIO2_DATABASE_USER=opendata \
         CFG_INVENIO2_DATABASE_NAME=opendata \
-        CFG_INVENIO2_DEMOSITE_POPULATE_BEFORE="rsync -a invenio_opendata/testsuite/data/cms/eos-file-indexes /tmp/" \
+        CFG_INVENIO2_DEMOSITE_POPULATE_BEFORE="rsync -a invenio_opendata/testsuite/data/*/eos-file-indexes /tmp/" \
         CFG_INVENIO2_DEMOSITE_POPULATE="-f invenio_opendata/testsuite/data/cms/cms-primary-datasets.xml \
                                         -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana.xml \
                                         -f invenio_opendata/testsuite/data/cms/cms-eventdisplay-files.xml \
@@ -56,6 +56,8 @@ opendata.cern.ch overlay:
                                         -f invenio_opendata/testsuite/data/cms/cms-external-resources.xml \
                                         -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
                                         -f invenio_opendata/testsuite/data/cms/cms-csv-files.xml \
+                                        -f invenio_opendata/testsuite/data/alice/alice-derived-datasets.xml \
+                                        -f invenio_opendata/testsuite/data/alice/alice-analysis-modules.xml \
                                         -e force-recids" \
         ./invenio2-kickstart --yes-i-know --yes-i-really-know
 
@@ -124,6 +126,8 @@ re-populate your site anew to have your updated records, you can do:
          -f invenio_opendata/testsuite/data/cms/cms-external-resources.xml \
          -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
          -f invenio_opendata/testsuite/data/cms/cms-csv-files.xml \
+         -f invenio_opendata/testsuite/data/alice/alice-derived-datasets.xml \
+         -f invenio_opendata/testsuite/data/alice/alice-analysis-modules.xml \
          -e force-recids
 
 JS/CSS Assets

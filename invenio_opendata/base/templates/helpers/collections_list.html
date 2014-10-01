@@ -83,7 +83,7 @@
     <div class="tab-pane fade {%  if exp in ['ALICE'] %}in active{% endif%}" id="ALICE">
       <ul class="row">
         {% for r in alice %}
-          {{ document_recbox(r.get('title',{}).get('title',''), r['recid']|string, r.get('authors',[{}])[0].get('full_name',''), r['comment'], 'ALICE Analyses', r['files']|length) }}
+          {{ document_recbox(r.get('title',{}).get('title',''), r['recid']|string, r.get('authors',[{}])[0].get('full_name',''), r['comment'], 'ALICE Tools', r['files']|length) }}
         {% endfor %}
       </ul>
       <div class="seeall">

@@ -51,20 +51,20 @@ class CollectionData(DataSet):
         name = 'ALICE'
         dbquery = None
 
-    class ALICESimplifiedDatasets(siteCollection):
+    class ALICEDerivedDatasets(siteCollection):
         id = 6
-        name = 'ALICE-Simplified-Datasets'
-        dbquery = '980__a:"ALICE-Simplified-Datasets"'
+        name = 'ALICE-Derived-Datasets'
+        dbquery = '980__a:"ALICE-Derived-Datasets"'
         names = {
-            ('en', 'ln'): u'ALICE Simplified Datasets',
+            ('en', 'ln'): u'ALICE Derived Datasets',
         }
 
-    class ALICEAnalyses(siteCollection):
+    class ALICETools(siteCollection):
         id = 7
-        name = 'ALICE-Analyses'
-        dbquery = '980__a:"ALICE-Analyses"'
+        name = 'ALICE-Tools'
+        dbquery = '980__a:"ALICE-Tools"'
         names = {
-            ('en', 'ln'): u'ALICE Analyses',
+            ('en', 'ln'): u'ALICE Tools',
         }
 
     class CMSTools(siteCollection):
@@ -166,16 +166,28 @@ class CollectionCollectionData(DataSet):
         score = 1
         type = 'v'
 
-    class ALICE_ALICESimplifiedDatasets:
+    class ALICE_ALICEDerivedDatasets:
         dad = CollectionData.ALICE
-        son = CollectionData.ALICESimplifiedDatasets
+        son = CollectionData.ALICEDerivedDatasets
         score = 0
         type = 'r'
 
-    class ALICE_ALICEAnalyses:
+    class ALICE_ALICETools:
         dad = CollectionData.ALICE
-        son = CollectionData.ALICEAnalyses
+        son = CollectionData.ALICETools
         score = 1
+        type = 'r'
+
+    class siteCollection_ALICEDerivedDatasets:
+        dad = CollectionData.siteCollection
+        son = CollectionData.ALICEDerivedDatasets
+        score = 5
+        type = 'r'
+
+    class siteCollection_ALICETools:
+        dad = CollectionData.siteCollection
+        son = CollectionData.ALICETools
+        score = 6
         type = 'r'
 
 
@@ -257,7 +269,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_9:
-        body = u'ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets.ALICE Simplified Datasets'
+        body = u'This collection includes ALICE analysis modules.'
         id = 9
         title = u'description'
 
@@ -267,7 +279,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_11:
-        body = u'ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses.ALICE Analyses'
+        body = u'This collection includes ALICE simplified datasets.'
         id = 11
         title = u'description'
 
@@ -354,28 +366,28 @@ class CollectionPortalboxData(DataSet):
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_9.ref('id')
         score = 100
-        id_collection = CollectionData.ALICEAnalyses.ref('id')
+        id_collection = CollectionData.ALICETools.ref('id')
 
     class CollectionPortalbox_6_10_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_10.ref('id')
         score = 100
-        id_collection = CollectionData.ALICEAnalyses.ref('id')
+        id_collection = CollectionData.ALICETools.ref('id')
 
     class CollectionPortalbox_7_11_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_11.ref('id')
         score = 100
-        id_collection = CollectionData.ALICESimplifiedDatasets.ref('id')
+        id_collection = CollectionData.ALICEDerivedDatasets.ref('id')
 
     class CollectionPortalbox_7_12_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_12.ref('id')
         score = 100
-        id_collection = CollectionData.ALICESimplifiedDatasets.ref('id')
+        id_collection = CollectionData.ALICEDerivedDatasets.ref('id')
 
     class CollectionPortalbox_8_13_en:
         ln = u'en'
