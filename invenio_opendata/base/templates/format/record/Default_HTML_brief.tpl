@@ -36,7 +36,7 @@
     border-top-left-radius: 2px;
     background-color: #f4f4f4;
     font-weight: 400;
-    font-size: 12px;  
+    font-size: 12px;
     text-align: left;
     margin-right: 10px;
   }
@@ -51,7 +51,7 @@
     font-size: 12px;
     font-weight:400;
   }
-  .collection-res .rec_thumb, 
+  .collection-res .rec_thumb,
   .collection-res .rec_title {
     float: left;
     margin-right: 10px;
@@ -70,7 +70,7 @@
     {{- record.get('title.subtitle', '')|prefix(': ') }}
     {% if record.get('edition_statement','')  %}
     <div class="rec_thumb rec_release">
-      <div class="n"><div class="t">Release</div>{{ (record.get('edition_statement')|splitthem(':'))[1] }}</div>
+      <div class="n"><div class="t">Release</div>{{ (record.get('edition_statement', '').replace('Release: ', '')) }}</div>
     </div>
     {% endif %}
   </a>
