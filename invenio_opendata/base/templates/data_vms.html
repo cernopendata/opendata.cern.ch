@@ -110,7 +110,6 @@
     }
 
     .tab-pane .about .title {
-      text-align: center;
       font-weight: 600;
       font-size: 28px;
       padding-bottom: 30px;
@@ -201,7 +200,7 @@
   <section class="content">
     <div class="container">
       <div class="about">
-        <h4 style="text-align: center;font-size: 24px;">{{ text.about_msg()}}</h4>
+        <h4 style="font-size: 24px;">{{ text.about_msg()}}</h4>
       </div>
       <div class="tab-content">
         <div class="tab-pane fade {% if exp not in ['CMS', 'ALICE'] %} in active {% endif %}" id="general">
