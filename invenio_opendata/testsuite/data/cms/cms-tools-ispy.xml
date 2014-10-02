@@ -1,10 +1,6 @@
 <collection>
   <record>
     <controlfield tag="001">550</controlfield>
-    <datafield tag="024" ind1="7" ind2=" ">
-      <subfield code="2">DOI</subfield>
-      <subfield code="a">10.1234/EXAMPLE.Eventdisplay.123</subfield>
-    </datafield>
     <datafield tag="100" ind1=" " ind2=" ">
       <subfield code="a">McCauley, Thomas</subfield>
     </datafield>
@@ -26,7 +22,7 @@
       <subfield code="w">250</subfield>
     </datafield>
     <datafield tag="567" ind1=" " ind2=" ">
-      <subfield code="a">The software produces the objects to be displayed. The configuration file https://github.com/cms-outreach/ispy-analyzers/blob/Run2010B/python/ISpy_AOD_Producer_cff.py defines the objects to write out, which is done in the corresponding cc files in the src directory. No event selection, apart accepting only the validated runs, is applied..</subfield>
+      <subfield code="a">The software produces the objects to be displayed. The configuration file https://github.com/cms-outreach/ispy-analyzers/blob/Run2010B/python/ISpy_AOD_Producer_cff.py defines the objects to write out, which is done in the corresponding cc files in the src directory. No event selection, apart accepting only the validated runs, is applied.</subfield>
     </datafield>
     <datafield tag="583" ind1=" " ind2=" ">
       <subfield code="a">Only the list of validated runs have been accepted:</subfield>
@@ -36,8 +32,10 @@
       <subfield code="a">CERN-LHC</subfield>
       <subfield code="e">CMS</subfield>
     </datafield>
-    <datafield tag="774" ind1=" " ind2=" ">
-      <subfield code="a">See the run instructions in https://github.com/cms-outreach/ispy-analyzers/blob/Run2010B/README.md</subfield>
+    <datafield tag="581" ind1=" " ind2=" ">
+      <subfield code="a">See the run instructions in</subfield>
+      <subfield code="u">https://github.com/cms-outreach/ispy-analyzers/blob/Run2010B/README.md</subfield>
+      <subfield code="y">GitHub</subfield>
     </datafield>
     <datafield tag="787" ind1=" " ind2=" ">
       <subfield code="a">The output are files in json format</subfield>
@@ -55,10 +53,6 @@
   </record>
   <record>
     <controlfield tag="001">555</controlfield>
-    <datafield tag="024" ind1="7" ind2=" ">
-      <subfield code="2">DOI</subfield>
-      <subfield code="a">10.1234/EXAMPLE.iSpy.123</subfield>
-    </datafield>
     <datafield tag="100" ind1=" " ind2=" ">
       <subfield code="a">McCauley, Thomas</subfield>
     </datafield>
@@ -78,6 +72,11 @@
     <datafield tag="538" ind1=" " ind2=" ">
       <subfield code="a">The application is written using JavaScript, HTML, and CSS. It reads a JSON event format and uses the JavaScript 3D rendering engine pre3d. The only requirement is a modern browser using HTML5 canvas.</subfield>
     </datafield>
+    <datafield tag="581" ind1=" " ind2=" ">
+      <subfield code="a">Download from</subfield>
+      <subfield code="u">https://github.com/cms-outreach/ispy-online</subfield>
+      <subfield code="y">GitHub</subfield>
+    </datafield>
     <datafield tag="693" ind1=" " ind2=" ">
       <subfield code="a">CERN-LHC</subfield>
       <subfield code="e">CMS</subfield>
@@ -85,9 +84,6 @@
     <datafield tag="700" ind1=" " ind2=" ">
       <subfield code="a">Hategan, Mihael</subfield>
       <subfield code="a">Nguyen, Phong</subfield>
-    </datafield>
-    <datafield tag="774" ind1=" " ind2=" ">
-      <subfield code="a">Download from https://github.com/cms-outreach/ispy-online</subfield>
     </datafield>
     <datafield tag="980" ind1=" " ind2=" ">
       <subfield code="a">CMS-Tools</subfield>
