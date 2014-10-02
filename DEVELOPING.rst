@@ -57,6 +57,7 @@ opendata.cern.ch overlay:
                                         -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
                                         -f invenio_opendata/testsuite/data/cms/cms-csv-files.xml \
                                         -f invenio_opendata/testsuite/data/alice/alice-derived-datasets.xml \
+                                        -f invenio_opendata/testsuite/data/alice/alice-reconstructed-data.xml \
                                         -f invenio_opendata/testsuite/data/alice/alice-analysis-modules.xml \
                                         -e force-recids" \
         ./invenio2-kickstart --yes-i-know --yes-i-really-know
@@ -127,6 +128,7 @@ re-populate your site anew to have your updated records, you can do:
          -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
          -f invenio_opendata/testsuite/data/cms/cms-csv-files.xml \
          -f invenio_opendata/testsuite/data/alice/alice-derived-datasets.xml \
+         -f invenio_opendata/testsuite/data/alice/alice-reconstructed-data.xml \
          -f invenio_opendata/testsuite/data/alice/alice-analysis-modules.xml \
          -e force-recids
 

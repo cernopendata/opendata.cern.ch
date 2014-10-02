@@ -91,6 +91,14 @@ class CollectionData(DataSet):
             ('en', 'ln'): u'CMS External Resources',
         }
 
+    class ALICEReconstructedData(siteCollection):
+        id = 11
+        name = 'ALICE-Reconstructed-Data'
+        dbquery = '980__a:"ALICE-Reconstructed-Data"'
+        names = {
+            ('en', 'ln'): u'ALICE Reconstructed Data',
+        }
+
 
 class CollectionCollectionData(DataSet):
 
@@ -172,10 +180,16 @@ class CollectionCollectionData(DataSet):
         score = 0
         type = 'r'
 
+    class ALICE_ALICEReconstructedData:
+        dad = CollectionData.ALICE
+        son = CollectionData.ALICEReconstructedData
+        score = 1
+        type = 'r'
+
     class ALICE_ALICETools:
         dad = CollectionData.ALICE
         son = CollectionData.ALICETools
-        score = 1
+        score = 2
         type = 'r'
 
     class siteCollection_ALICEDerivedDatasets:
@@ -184,10 +198,16 @@ class CollectionCollectionData(DataSet):
         score = 5
         type = 'r'
 
+    class siteCollection_ALICEReconstructedData:
+        dad = CollectionData.siteCollection
+        son = CollectionData.ALICEReconstructedData
+        score = 6
+        type = 'r'
+
     class siteCollection_ALICETools:
         dad = CollectionData.siteCollection
         son = CollectionData.ALICETools
-        score = 6
+        score = 7
         type = 'r'
 
 
@@ -303,6 +323,12 @@ class PortalboxData(DataSet):
         id = 15
         title = u'description'
 
+    class Portalbox_16:
+        body = u'This collection includes ALICE reconstructed data.'
+        id = 16
+        title = u'description'
+
+
 class CollectionPortalboxData(DataSet):
 
     class CollectionPortalbox_2_1_en:
@@ -409,6 +435,13 @@ class CollectionPortalboxData(DataSet):
         id_portalbox = PortalboxData.Portalbox_15.ref('id')
         score = 100
         id_collection = CollectionData.CMSExternalResources.ref('id')
+
+    class CollectionPortalbox_11_16_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_16.ref('id')
+        score = 100
+        id_collection = CollectionData.ALICEReconstructedData.ref('id')
 
 
 class FacetCollectionData(DataSet):
