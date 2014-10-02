@@ -1,21 +1,23 @@
 <section class="subcollection_apps">
   <div class="container">
     <div class="row">
-      <div class="section-title col-md-12">Online Apps:</div>
+      <div class="section-title col-md-12">Online apps:</div>
       <div class="center-block">
-        <div class="col-md-4">
-          <div class="app-box">
-            <div class="title">Visualisation</div>
-            <div class="img"><img src="{{ url_for('static', filename='img/data-event.jpg') }}" alt=""></div>
-            <div class="go"><a href="{{ url_for('visualise/events') }}">Visualise Events<span class="fa fa-chevron-right"></span></a></div>  
-          </div>
+        <div class="col-md-3">
+          <a href="{{ url_for('visualise/events') }}">
+            <div class="app-box">
+              <div class="title">Visualise Events</div>
+              <div class="img"><img src="{{ url_for('static', filename='img/data-event.jpg') }}" alt=""></div>
+            </div>
+          </a>
         </div>
-        <div class="col-md-4">
-          <div class="app-box">
-            <div class="title">Histograms</div>
-            <div class="img"><img src="{{ url_for('static', filename='img/edu_histogram.png') }}" alt=""></div>
-            <div class="go"><a href="{{ url_for('visualise/histograms') }}">Visualise Histograms<span class="fa fa-chevron-right"></span></a></div>   
-          </div>
+        <div class="col-md-3">
+          <a href="{{ url_for('visualise/histograms') }}">
+            <div class="app-box">
+              <div class="title">Visualise histograms</div>
+              <div class="img" style="background-color:#fff;"><img src="{{ url_for('static', filename='img/edu_histogram.png') }}" alt=""></div>
+            </div>
+          </a>
         </div>
       </div>
     </div>

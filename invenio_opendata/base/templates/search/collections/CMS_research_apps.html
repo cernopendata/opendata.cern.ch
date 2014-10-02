@@ -3,24 +3,23 @@
     <div class="row">
       <div class="section-title col-md-12">Resources:</div>
       <div class="center-block">
-        <div class="col-md-4">
-          <div class="app-box">
-            <div class="title">Virtual Machines</div>
-            <div class="img"><img src="{{ url_for('static', filename='img/virtual.png') }}" alt=""></div>
-            <div class="go">
-              <a href="{{ url_for('VM/CMS') }}">Working Environments<span class="fa fa-chevron-right"></span></a>
-              <a href="{{ url_for('collection/CMS-Tools') }}">Software and Tools<span class="fa fa-chevron-right"></span></a>
-            </div>  
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="app-box">
-            <div class="title">Getting Started!</div>
+        <div class="col-md-3">
+          <a href="{{ url_for('getting-started/CMS') }}"><div class="app-box">
+            <div class="title">Getting started!</div>
             <div class="img"><img src="{{ url_for('static', filename='img/edu_img_2.jpg') }}" alt=""></div>
-            <div class="go">
-              <a href="{{ url_for('getting-started/CMS') }}">Getting Started Guide<span class="fa fa-chevron-right"></span></a>
-            </div>   
-          </div>
+          </div></a>
+        </div>
+        <div class="col-md-3">
+          <a href="{{ url_for('VM/CMS') }}"><div class="app-box">
+            <div class="title">VM working environments</div>
+            <div class="img"><img src="{{ url_for('static', filename='img/virtual.png') }}" alt=""></div>
+          </div></a>
+        </div>
+        <div class="col-md-3">
+          <a href="{{ url_for('collection/CMS-Tools') }}"><div class="app-box">
+            <div class="title">Software and tools</div>
+            <div class="img"><img src="{{ url_for('static', filename='img/default.png') }}" alt=""></div>
+          </div></a>
         </div>
       </div>
     </div>
