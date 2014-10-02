@@ -1,10 +1,6 @@
 <collection>
   <record>
   <controlfield tag="001">200</controlfield>
-    <datafield tag="024" ind1="7" ind2=" ">
-      <subfield code="2">DOI</subfield>
-      <subfield code="a">10.1234/EXAMPLE.GITHUBCODE.123</subfield>
-    </datafield>
     <datafield tag="100" ind1=" " ind2=" ">
       <subfield code="a">Rodriguez Marrero, Ana</subfield>
     </datafield>
@@ -46,8 +42,10 @@
       <subfield code="w">201</subfield>
       <subfield code="w">202</subfield>
     </datafield>
-    <datafield tag="774" ind1=" " ind2=" ">
-      <subfield code="a">See the run instructions in https://github.com/ayrodrig/pattuples2010</subfield>
+    <datafield tag="581" ind1=" " ind2=" ">
+      <subfield code="a">See the run instructions in</subfield>
+      <subfield code="u">https://github.com/ayrodrig/pattuples2010</subfield>
+      <subfield code="y">GitHub</subfield>
     </datafield>
     <datafield tag="856" ind1="4" ind2=" ">
       <subfield code="u">https://github.com/ayrodrig/pattuples2010</subfield>
@@ -61,10 +59,6 @@
   </record>
     <record>
   <controlfield tag="001">101</controlfield>
-    <datafield tag="024" ind1="7" ind2=" ">
-      <subfield code="2">DOI</subfield>
-      <subfield code="a">10.1234/EXAMPLE.GITHUBCODE.234</subfield>
-    </datafield>
     <datafield tag="100" ind1=" " ind2=" ">
       <subfield code="a">Rodriguez Marrero, Ana</subfield>
     </datafield>
@@ -91,32 +85,42 @@
       <subfield code="a">Only muon and electron collections are kept. Processing the full primary data sets took 220 hours.</subfield>
     </datafield>
     <datafield tag="567" ind1=" " ind2=" ">
-      <subfield code="a">An event selection applied in the two analysis cases: In the Z analysis at least two leptons with opposite charge, with invariant mass mll between 12 GeV and 120 GeV are required. The pair with the invariant mass closest to the Z boson mass is selected as the Z candidate. In the ZZ analysis two Z candidates are required, and for both candidates, two leptons with opposite charge are
-required. The first Z candidate is required to have higher lepton momentum: 20 GeV for the first lepton and 10 GeV for the second lepton. The invariant mass is required to be in the range 40 GeV to 120 GeV. The second candidate is required to have an invariant mass higher then 4 GeV. The first candidate is the one with the invariant mass closest to the Z boson mass.
-
-Selection criteria for electron candidates:
-• pT > 7 GeV and |η| &lt; 2.5;
-• Distance between the electron z-vertex and the interaction z-vertex &lt; 0.02 cm;
-• Transverse impact parameter w.r.t. the beam spot &lt; 0.04 cm;
-• Symmetrized impact parameter w.r.t. the beam sport &lt; 4 cm;
-• Photon conversion rejection: number of lost hits in the tracker &lt; 1;
-• Electron identification: eIDLoose;
-• Electron Isolation depends on the η region,
-regions with 1.44 &lt; η 0.09; electron.dr03EcalRecHitSumEt()/electron.pt() > 0.07; and electron.dr03HcalTowerSumEt()/electron.pt() > 0.10.
-If η > 1.57: electron.dr03TkSumPt()/electron.pt() > 0.04; electron.dr03EcalRecHitSumEt()/electron.pt() > 0.05; and electron.dr03HcalTowerSumEt()/electron.pt() > 0.025. Each component is computed from Isodeposits in a cone of 0.3 around the electron direction.
-
-Selection criteria for muon candidates:
-• pT > 5 GeV and |η| &lt; 2.4;
-• Distance between the muon z-vertex and the interaction z-vertex &lt; 0.02 cm;
-• Is a GlobalMuon and TrackerMuon;
-• Number of valid hits in the inner tracker > 10;
-• χ2 /ndo f &lt; 10 for the global muon fit;
-• Transverse impact parameter w.r.t. the beam spot &lt; 0.02 cm;
-• Symmetrized impact parameter w.r.t. the beam sport &lt; 4 cm;
-• Relative Muon Isolation (RMI) &lt; 0.15, with
-RMI =
-(ChargedHadronIso + NeutralHadronIso + PhotonIso)/pT(µ)
-Each component is computed from Isodeposits in a cone of 0.3 around the muon direction.</subfield>
+      <subfield code="a">\subsection{Analysis description}
+      The Z decay to two leptons and the ZZ decay to four leptons are considered. 
+      \\* An event selection applied to distinguish the signal from the background. 
+      \\* In the Z analysis, at least two leptons with opposite charge are required, with invariant mass $\rm m_{ll}$ between 12 GeV and 120 GeV. The pair with the invariant mass closest to the Z boson mass is select as the Z candidate. 
+      \\* In the ZZ analysis, two Z candidates are required, in both cases with two leptons with opposite charge. 
+      \\* The first candidate is required to have higher lepton momentum: 20 GeV the first lepton and 10 GeV the second lepton. 
+      \\*The invariant mass in the range 40 GeV to 120 GeV. The second candidate is required to have an invariant mass higher then 4 GeV. The first candidate is the one with the invariant mass closest to the Z boson mass.
+      \\* 
+      \\* The selection of leptons is as follows for both analysis:
+      \subsubsection{Selection of electrons}
+      \label{subsubsec:electrons}
+      The selection criteria for PAT electron candidates are:
+      \begin{itemize}
+      \item $p_T > 7$ GeV and $|\eta| \item Distance between the electron z-vertex and the interaction z-vertex $ \item Transverse impact parameter w.r.t. the beam spot $ \item Symmetrized impact parameter w.r.t. the beam sport $ \item Photon conversion rejection: number of lost hits in the tracker $ \item Electron identification: eIDLoose; \\ 
+      \item Electron Isolation depends on the $\eta$ region, regions with 1.44 $ \\
+      If $\eta$ $ 0.09$; \
+      $electron.dr03EcalRecHitSumEt() / electron.pt() > 0.07$; \ 
+      and $electron.dr03HcalTowerSumEt() / electron.pt() > 0.10$. \
+      If $\eta$ $>$ 1.57: $electron.dr03TkSumPt() / electron.pt() > 0.04$; \ 
+      $electron.dr03EcalRecHitSumEt() / electron.pt() > 0.05$; \
+      and $electron.dr03HcalTowerSumEt() / electron.pt() > 0.025$. \
+      Each component is computed from Isodeposits in a cone of 0.3 around the electron direction.
+      \end{itemize}
+      \subsubsection{Selection of muons}
+      \label{subsubsec:muons}
+      The selection criteria for PAT muon candidates are:\
+      \begin{itemize}
+      \item $p_T > 5$ GeV and $|\eta| \item Distance between the muon z-vertex and the interaction z-vertex $ \item Is a GlobalMuon and TrackerMuon; \\
+      \item Number of valid hits in the inner tracker $> 10$;\
+      \item $\chi^2/ndof <10$ for the global muon fit;\
+      \item Transverse impact parameter w.r.t. the beam spot $< 0.02$ cm;\
+      \item Symmetrized impact parameter w.r.t. the beam sport $< 4$ cm; \
+      \item Relative Muon Isolation ($RMI$) $<0.15$, with \
+      $$RMI = \frac{(ChargedHadronIso+NeutralHadronIso+PhotonIso)}{p_T(\mu)}$$ \
+      Each component is computed from Isodeposits in a cone of 0.3 around the muon direction.
+      \end{itemize}</subfield>
     </datafield>
     <datafield tag="583" ind1=" " ind2=" ">
       <subfield code="a">The input files contain only the validated runs. For user validation of the analysis step, compare the result to the expected output file.</subfield>
@@ -130,8 +134,10 @@ Each component is computed from Isodeposits in a cone of 0.3 around the muon dir
       <subfield code="a">The expected output is a histogram file</subfield>
       <subfield code="w">500</subfield>
     </datafield>
-     <datafield tag="774" ind1=" " ind2=" ">
-      <subfield code="a">See the run instructions in https://github.com/ayrodrig/OutreachExercise2010</subfield>
+     <datafield tag="581" ind1=" " ind2=" ">
+      <subfield code="a">See the run instructions in</subfield>
+      <subfield code="u">https://github.com/ayrodrig/OutreachExercise2010</subfield>
+      <subfield code="y">GitHub</subfield>
     </datafield>
     <datafield tag="856" ind1="4" ind2=" ">
       <subfield code="u">https://github.com/ayrodrig/OutreachExercise2010</subfield>
