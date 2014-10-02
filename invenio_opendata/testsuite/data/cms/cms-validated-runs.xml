@@ -1,10 +1,6 @@
 <collection>
   <record>
     <controlfield tag="001">1000</controlfield>
-    <datafield tag="024" ind1="7" ind2=" ">
-      <subfield code="2">DOI</subfield>
-      <subfield code="a">10.1234/EXAMPLE.Validated.Run</subfield>
-    </datafield>
     <datafield tag="110" ind1=" " ind2=" ">
       <subfield code="a">CMS Collaboration</subfield>
     </datafield>
@@ -15,8 +11,28 @@
       <subfield code="b">CERN Open Data Portal</subfield>
       <subfield code="c">2014</subfield>
     </datafield>
-    <datafield tag="710" ind1=" " ind2=" ">
-      <subfield code="g">CMS Collaboration</subfield>
+    <datafield tag="520" ind1=" " ind2=" ">
+      <subfield code="a">This file describes which luminosity sections in which runs are considered good and should be processed.</subfield>
+    </datafield>
+    <datafield tag="581" ind1=" " ind2=" ">
+      <subfield code="a">Add the following lines in the configuration file for a cmsRun job: \\* import FWCore.ParameterSet.Config as cms \\* import FWCore.PythonUtilities.LumiList as LumiList \\* goodJSON = 'Cert_136033-149442_7TeV_Apr21ReReco_Collisions10_JSON_v2.txt' \\* myLumis = LumiList.LumiList(filename = goodJSON).getCMSSWString().split(',') \\* process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange() \\* process.source.lumisToProcess.extend(myLumis)</subfield>
+    </datafield>
+    <datafield tag="583" ind1=" " ind2=" ">
+      <subfield code="a">During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, gamma, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:</subfield>
+      <subfield code="u">http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf</subfield>
+      <subfield code="y">CMS data quality monitoring: Systems and experiences</subfield>
+    </datafield>
+    <datafield tag="583" ind1=" " ind2=" ">
+      <subfield code="u">https://cds.cern.ch/record/1631039/files/CR2013_418.pdf</subfield>
+      <subfield code="y">The CMS Data Quality Monitoring software experience and future improvements</subfield>
+    </datafield>
+    <datafield tag="583" ind1=" " ind2=" ">
+      <subfield code="u">http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf</subfield>
+      <subfield code="y">The CMS data quality monitoring software: experience and future prospects</subfield>
+    </datafield>
+    <datafield tag="693" ind1=" " ind2=" ">
+      <subfield code="a">CERN-LHC</subfield>
+      <subfield code="e">CMS</subfield>
     </datafield>
     <datafield tag="980" ind1=" " ind2=" ">
       <subfield code="a">CMS-Validated-Runs</subfield>
