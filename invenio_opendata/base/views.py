@@ -216,6 +216,17 @@ def data():
     except TemplateNotFound:
         return abort(404)
 
+@blueprint.route('VM/<exp>/validation/report')
+@register_breadcrumb(blueprint, '.val_report', 'VM', \
+                        dynamic_list_constructor = (lambda :\
+                        [({"url":"VM"},{"text":"Virtual Machines"}),\
+                        ({"url":"val_report"},{"text":"Validation Report"})]) )
+def val_report(exp):
+    try:
+        return render_template([exp+'_VM_validation.html'], exp=exp)
+    except TemplateNotFound:
+        return abort(404)
+
 
 @blueprint.route('about')
 @register_breadcrumb(blueprint, '.about', 'About')

@@ -101,11 +101,11 @@ System 3 3</pre>
   </div>
 {% endmacro %}
 
-{% macro validate_s2() %}
+{% macro validate_s2(url) %}
   <div class="heading">Validation report</div>
   <div class="body">
     <div class="row">
-      <div class="it col-md-12">The CMS-specific CERN Virtual Machine has been tested on several operating systems, VM softwares and hardware configurations. A full list of tested machines and configurations can be found in <a href="FIXME!">this validation report (PDF)</a>.</div>
+      <div class="it col-md-12">The CMS-specific CERN Virtual Machine has been tested on several operating systems, VM softwares and hardware configurations. A full list of tested machines and configurations can be found <a href="{{url}}">here</a>.</div>
       <div class="it col-md-12">However, we cannot guarantee that it will work under all conditions. Problems can often be traced to a user's particular system settings. Solutions to common problems are listed below.</div>
     </div>
   </div>
