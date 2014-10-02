@@ -18,11 +18,19 @@
       width: 100%;
     }
 
-    .intro.middle .upper.circledes {
+    .intro.middle.circledes::after {
+      content: "";
       background: url('/img/home/home_net.svg');
       background-size: 100%;
       background-repeat: no-repeat;
       background-position: center;
+      opacity: 0.3;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;   
     }
 
     footer {
@@ -63,6 +71,12 @@
       }
       .content {
         bottom: 280px;
+      }
+      .entryactions ul li a {
+        background-color: transparent;
+        padding: 0;
+        width: 100%;
+        display: inline-block;
       }
     }
 
@@ -105,7 +119,7 @@
     }
   </style>
 
-  <section class="intro middle">
+  <section class="intro middle circledes">
     {% include "middle_with_design.html" %}
   </section>
 
