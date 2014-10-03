@@ -166,7 +166,7 @@
             <div class="heading">"I have installed the CERN Virtual Machine: now what?"</div>
             <div class="body">
               <p>
-                To analyse CMS data collected in 2010, you need <strong>version 4.2.8</strong> of CMSSW, supported only on <strong>Scientific Linux 5</strong>. Once you have installed the <a href="{{ url_for('VM/CMS') }}">CMS-specific CERN Virtual Machine</a>, execute the following command in the terminal to ensure that you have this version of CMSSW running:
+                To analyse CMS data collected in 2010, you need <strong>version 4.2.8</strong> of CMSSW, supported only on <strong>Scientific Linux 5</strong>. If you are unfamiliar with Linux, take a look at <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookBasicLinux">this short introduction to Linux</a>. Once you have installed the <a href="{{ url_for('VM/CMS') }}">CMS-specific CERN Virtual Machine</a>, execute the following command in the terminal if you haven't done so before; it ensures that you have this version of CMSSW running:
               </p>
               <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>$&nbsp;cmsrel CMSSW_4_2_8</span></span></span></div></pre>
               <p>
@@ -270,9 +270,16 @@
                 You can see that the line <kbd>removeAllPATObjectsBut(process, ['Muons','Electrons'])</kbd> removes all "PATObjects" but muon and electrons, which will be needed in the final analysis step of this example.
               </p>
               <p>
-                Note also that validation information included in the line:
+                Note also how only the validated runs are selected on lines:
               </p>
-              <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>myLumis = LumiList.LumiList(filename='Cert_136033-149442_7TeV_Apr21ReReco_Collisions10_JSON_v2.txt').getCMSSWString().split(',')</span></span></span></div></pre>
+              <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>import FWCore.ParameterSet.Config as cms
+import PhysicsTools.PythonAnalysis.LumiList as LumiList
+myLumis = LumiList.LumiList(filename='Cert_136033-149442_7TeV_Apr21ReReco_Collisions10_JSON_v2.txt').getCMSSWString().split(',')
+process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange()
+process.source.lumisToProcess.extend(myLumis)</span></span></span></div></pre>
+              <p>
+                This selection must always be applied to any analysis on CMS open data, and to do so you must have the validation file downloaded to your local area.
+              </p>
             </div>
           </div>
 
