@@ -45,7 +45,7 @@ opendata.cern.ch overlay:
         CFG_INVENIO2_VIRTUAL_ENV=opendata \
         CFG_INVENIO2_DATABASE_USER=opendata \
         CFG_INVENIO2_DATABASE_NAME=opendata \
-        CFG_INVENIO2_DEMOSITE_POPULATE_BEFORE="rsync -a invenio_opendata/testsuite/data/*/eos-file-indexes /tmp/" \
+        CFG_INVENIO2_DEMOSITE_POPULATE_BEFORE="populate-fft-file-cache.sh" \
         CFG_INVENIO2_DEMOSITE_POPULATE="-f invenio_opendata/testsuite/data/cms/cms-primary-datasets.xml \
                                         -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana.xml \
                                         -f invenio_opendata/testsuite/data/cms/cms-eventdisplay-files.xml \
