@@ -33,7 +33,10 @@ body {
   border: 0;
   background-color: rgb(208,225,237)!important;
 }
-
+body #wrap {
+  margin: 0;
+  padding: 0;
+}
 
 a, a:hover, a:focus {
   color: #091B26;
@@ -340,7 +343,6 @@ footer a:focus{
 }
 
 .middlefoot.middlefoot {
-  padding-bottom: 15px;
   background-color: #f4f4f4;
 }
 
@@ -415,6 +417,7 @@ footer a:focus{
 .legal {
   color: #606D75;
   width: 350px;
+  margin-top: -25px;
 }
 
 .legal ul {
@@ -433,7 +436,7 @@ footer a:focus{
 }
 
 .content {
-  background-color: transparent;
+  background-color: inherit;
 }
 
 @media (max-width: 480px;) {
@@ -506,6 +509,7 @@ footer {
 .upperfoot ul.pull-right-xs  span {
   margin-right: 10px
 }
+
 
 .infobar {
   background-color: #A2B4C0;

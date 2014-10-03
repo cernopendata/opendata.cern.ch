@@ -40,13 +40,13 @@
     }
 
     footer .quotes {
-      color: #606D75;
-      padding: 25px;
+      color: #fff;
+      padding: 15px;
       text-align: center;
       font-weight: 400; 
       font-style: italic;
       font-size: 13px;
-      height: 75px;
+      height: 90px;
       margin-bottom: -15px;
     }
     .middlefoot.middlefoot {
@@ -97,9 +97,6 @@
       margin-top: 15px;
     }
 
-    .legal {
-      margin-top: -24px;
-    }
     .legal a {
       z-index: 1000;
       position: relative;
@@ -116,6 +113,21 @@
       padding: 0 2px;
       display: inline-block;
     }
+
+    .a::after {
+      content: "";
+      background-color: #606D75;
+      opacity: 0.3;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;   
+    }
+    .b {
+      background-color: #f4f4f4;
+    }
   </style>
 
   <section class="intro middle circledes">
@@ -125,36 +137,42 @@
   <div id="push"></div>
   </div> {# end wrap #}
   <footer class="middlefoot">
-    <div class="container">
-      <div class="row">
-        <div class="quotes">
-          <div class="col-xs-12 col-md-8 col-md-offset-2">
-            <div class="row">
-              <div class="col-md-6"><b>"</b>{{testimonials[0].get('quote','')}}<b>"</b><br/><span>- {{testimonials[0].get('firstName','')}} {{testimonials[0].get('lastName','')}}</span></div>
-              <div class="col-md-6"><b>"</b>{{testimonials[1].get('quote','')}}<b>"</b><br/><span>- {{testimonials[1].get('firstName','')}} {{testimonials[1].get('lastName','')}}</span></div>
+    <div class="a">
+      <div class="container">
+        <div class="row">
+          <div class="quotes">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
+              <div class="row">
+                <div class="col-md-6"><b>"</b>{{testimonials[0].get('quote','')}}<b>"</b><br/><span>- {{testimonials[0].get('firstName','')}} {{testimonials[0].get('lastName','')}}</span></div>
+                <div class="col-md-6"><b>"</b>{{testimonials[1].get('quote','')}}<b>"</b><br/><span>- {{testimonials[1].get('firstName','')}} {{testimonials[1].get('lastName','')}}</span></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="middle_l col-md-6 col-xs-12 col-sm-6">
-          <img src="{{ url_for('static', filename='/img/opendata/cern-logo-large.png') }}" style="width:60px;" alt="">
-          <img src="{{ url_for('static', filename='/img/opendata/invenio.png') }}" alt="">
+    </div>
+    <div class="b">
+      <div class="container">
+        <div class="row">
+          <div class="middle_l col-md-6 col-xs-12 col-sm-6">
+            <img src="{{ url_for('static', filename='/img/opendata/cern-logo-large.png') }}" style="width:60px;" alt="">
+            <img src="{{ url_for('static', filename='/img/opendata/invenio.png') }}" alt="">
+          </div>
+          <div class="middle_r col-md-6 col-xs-12 col-sm-6">
+            <img src="{{ url_for('static', filename='/img/ALICE.gif') }}" alt="">
+            <img src="{{ url_for('static', filename='/img/CMS.gif') }}" alt="">
+          </div>
         </div>
-        <div class="middle_r col-md-6 col-xs-12 col-sm-6">
-          <img src="{{ url_for('static', filename='/img/ALICE.gif') }}" alt="">
-          <img src="{{ url_for('static', filename='/img/CMS.gif') }}" alt="">
-        </div>
-      </div>
-      <div class="row">
-        <div class="center-block legal">
-          <ul class="">
-            <li>© 2014 CERN OpenData</li>
-            <li><a href="{{ url_for('terms-of-use') }}">Terms of Use</a></li>
-            <li><a href="{{ url_for('privacy-policy') }}">Privacy Policy</a></li>
-            <li><a href="mailto:opendata-support@cern.ch">Contact</a></li>
-          </ul>
-        </div>
+        <div class="row">
+          <div class="center-block legal">
+            <ul class="">
+              <li>© 2014 CERN OpenData</li>
+              <li><a href="{{ url_for('terms-of-use') }}">Terms of Use</a></li>
+              <li><a href="{{ url_for('privacy-policy') }}">Privacy Policy</a></li>
+              <li><a href="mailto:opendata-support@cern.ch">Contact</a></li>
+            </ul>
+          </div>
+        </div>        
       </div>
     </div>
   </footer>

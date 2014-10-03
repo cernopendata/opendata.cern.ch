@@ -37,60 +37,28 @@
 </div>
 </div>
 -->
-<div class="middlefoot">
-  <div class="container">
-    <div class="row">
-      <div class="middle_l col-xs-12 col-sm-6">
-        <img src="{{ url_for('static', filename='/img/opendata/cern-logo-large.png') }}" style="width:60px;" alt="">
-        <img src="{{ url_for('static', filename='/img/opendata/invenio.png') }}" alt="">
-      </div>
-      <div class="middle_r col-xs-12 col-sm-6">
-        <img src="{{ url_for('static', filename='/img/ALICE.gif') }}" alt="">
-        <img src="{{ url_for('static', filename='/img/CMS.gif') }}" alt="">
-      </div>
-    </div>
-  </div>
-</div>
-<div class="lastfoot">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-xs-12">
-        <ul class="col-md-3 col-xs-3">
-          <li class="title"><a href="{{ url_for('search')}}">SEARCH</a></li>
-        </ul>
-        <ul class="col-md-3 col-xs-3">
-          <li class="title"><a href="{{ url_for('experiments')}}">EXPERIMENTS</a></li>
-          <li><a href="{{ url_for('collection/CMS')}}">CMS</a></li>
-          <li><a href="{{ url_for('collection/ALICE')}}">ALICE</a></li>
-        </ul>
-        <ul class="col-md-3 col-xs-3">
-          <li class="title"><a href="{{ url_for('news')}}">NEWS</a></li>
-        </ul>
-        <ul class="col-md-3 col-xs-3">
-          <li class="title"><a href="{{ url_for('about')}}">ABOUT</a></li>
-          <li>Portal</li>
-          <li>CMS OpenData</li>
-          <li>ALICE OpenData</li>
-        </ul>
-      </div>
-      <div class="actions col-md-4 col-xs-12">
-        <ul class="pull-right">
-          <li class="title col-md-4 col-xs-12"><a href="{{ url_for('education') }}">EDUCATION</a></li>
-          <li class="title col-md-4 col-xs-12"><a href="{{ url_for('research') }}">RESEARCH</a></li>
-        </ul>
+    <div class="b">
+      <div class="container">
+        <div class="row">
+          <div class="middle_l col-md-6 col-xs-12 col-sm-6">
+            <img src="{{ url_for('static', filename='/img/opendata/cern-logo-large.png') }}" style="width:60px;" alt="">
+            <img src="{{ url_for('static', filename='/img/opendata/invenio.png') }}" alt="">
+          </div>
+          <div class="middle_r col-md-6 col-xs-12 col-sm-6">
+            <img src="{{ url_for('static', filename='/img/ALICE.gif') }}" alt="">
+            <img src="{{ url_for('static', filename='/img/CMS.gif') }}" alt="">
+          </div>
+        </div>
+        <div class="row">
+          <div class="center-block legal">
+            <ul class="">
+              <li>© 2014 CERN OpenData</li>
+              <li><a href="{{ url_for('terms-of-use') }}">Terms of Use</a></li>
+              <li><a href="{{ url_for('privacy-policy') }}">Privacy Policy</a></li>
+              <li><a href="mailto:opendata-support@cern.ch">Contact</a></li>
+            </ul>
+          </div>
+        </div>        
       </div>
     </div>
-    <div class="row">
-      <div class="center-block legal">
-        <ul>
-          <li>© 2014 CERN OpenData</li>
-          <li><a href="{{ url_for('terms-of-use') }}">Terms of Use</a></li>
-          <li><a href="{{ url_for('privacy-policy') }}">Privacy Policy</a></li>
-          <li><a href="mailto:opendata-support@cern.ch">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-</div>
 {%- endblock footer %}
