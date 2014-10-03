@@ -12,7 +12,7 @@
 </div>
 <div class="col-md-12">
   <div class="phys-item">
-    <h2 id="electrons">Electrons</h2>
+    <h2 id="electrons"><a name="electron">Electrons</a></h2>
     <p>The collection most commonly used in 2010 data was <code>recoGsfElectrons_gsfElectrons__RECO</code> (collection of objects type <code>reco::GsfElectron</code>).</p>
     <p>[<strong>TOBEFIXED</strong>]</p>
     <p>Energy and momentum were "ready-to-use". However an additional selection was needed for identification. The cuts can be found in this twiki: <!-- <a href="https://twiki.cern.ch/twiki/bin/viewauth/CMS/SimpleCutBasedEleID">https://twiki.cern.ch/twiki/bin/viewauth/CMS/SimpleCutBasedEleID</a> --> <a href="#">Link 1</a>
@@ -25,7 +25,7 @@
 
 <div class="col-md-12">
   <div class="phys-item">
-    <h2 id="photons">Photons</h2>
+    <h2 id="photons"><a name="photon">Photons</a></h2>
     <p>The collection most commonly used in 2010 data was <code>recoPhotons_photons__RECO</code> (collection of objects type <code>reco::Photon</code>).</p>
     <p>The energy and momentum were ready to use. However for photon identification additional selection needs to be applied. These cuts are listed in <a href="http://cms-physics.web.cern.ch/cms-physics/public/EGM-10-006-pas.pdf">Table 1 here [PDF]</a>.</p>
     <p>Converted photons are included in the above mentioned collection. The conversion seeded by the ECAL clusters were already attached to the photon collection and can be accessed with this information.</p>
@@ -36,7 +36,7 @@
 
 <div class="col-md-12">
   <div class="phys-item">
-    <h2 id="muons">Muons</h2>
+    <h2 id="muons"><a name="muon">Muons</a></h2>
     <p>The muons most commonly used in 2010 data analysis are contained in the collection <code>recoMuons_muon__RECO</code>.</p>
     <p>Muons reconstructed by the particle-flow algorithm were also used: <code>recoPFCandidates_particleFlow_CleanedTrackeAndGlobalMuons_RECO</code>.</p>
     <p>Most of the muon properties (e.g. momentum and isolation variables) are available in the <code>reco::Muon</code> object collection, ready to use. Some precaution in the choice of the momentum or isolation definition may be needed, depending on the analysis (see next point.) Some additional corrections to the muon momentum (in general very small, &lt; 1%) can be applied, and are especially recommended for precision measurements. These are provided centrally by the muon POG and are to be applied on top of the momentum stored in the <code>reco::Muon object</code>. In general, the objects in the <code>reco::Muon</code> collection cannot be used "out of the box", but some further selections are necessary. Performance of muon selections and isolation, momentum resolution and scale corrections, fake rates, muon triggers, etc, can be found in <a href="iopscience.iop.org/1748-0221/7/10/P10002">JINST 7 (2012) P10002</a>.</p>
@@ -59,7 +59,7 @@
 
 <div class="col-md-12">
   <div class="phys-item">
-    <h2>Jets (except b-jets; see below) and missing transverse energy (MET)</h2>
+    <h2 id="jetmet"><a name="jetmet">Jets (except b-jets; see below) and missing transverse energy (MET)</a></h2>
     <p>The most commonly used variants of jets and missing E<sub>T</sub> are:
       <ul>
         <li><code>recoPFJets_ak5PFJets__RECO</code> (collection of objects of type <code>reco::PFJet</code>)</li>
@@ -93,19 +93,19 @@
 
 <div class="col-md-12">
   <div class="phys-item">
-    <h2 id="b-jets">b-jets</h2>
+    <h2 id="bjets"><a name="bjet">b-jets</a></h2>
     <p>The most commonly used tags in 2010 analyses were the Track Counting High Purity (collection: <code>trackCountingHighPurBJetTags</code>) and Track Counting High Efficiency (collection: <code>trackCountingHighEffBJetTags</code>).</p>
     <p>Also in use were the Simple Secondary Vertex High Efficiency (collection: <code>simpleSecondaryVertexHighEffBJetTags</code>) and Simple Secondary Vertex High Purity (collection: <code>simpleSecondaryVertexHighEffBJetTags</code>).</p>
     <p>Finally, later analyses on 2010 data have used the Combined Secondary Vertex (collection: <code>combinedSecondaryVertexBJetTags</code>) and maybe the Jet Probability (collection: <code>jetProbabilityBJetTags</code>) algorithms.</p>
     <p>The collections contain the discriminator values for each jets, for the respective b-tagging algorithm. In order to decide if a jet is tagged, one has to ask the discriminator value to be greater of a specific threshold.<p>We define three possible thresholds (working points) for each algorithm, which correspond to the cuts on the discriminator that allow to reduce the rate of mis-identification of light jets as b-jets to 10% (loose working point), 1% (medium working point) and 0.1% (tight working point), respectively.</p>
-      <p>The thresholds for the different b-tagging algorithms and working points can be found <!-- <a href="https://twiki.cern.ch/twiki/bin/viewauth/CMS/BTagPerformanceOP#B_tagging_Operating_Points_for_3">here (INTERNAL LINK: TOBEFIXED)</a> --> <a href="#">here</a>.</p>
+      <p>The thresholds for the different b-tagging algorithms and working points can be found <!-- <a href="https://twiki.cern.ch/twiki/bin/viewauth/CMS/BTagPerformanceOP#B_tagging_Operating_Points_for_3">here (INTERNAL LINK: TOBEFIXED)</a> --> <a href="#">[<strong>TOBEFIXED</strong>]</a>.</p>
       <p>Monte Carlo simulation does not reproduce correctly the distributions of the b-tag discriminator observed in data. As a consequence, the efficiencies for a b-jet to be tagged (as well as the probability for a light jet to be mis-tagged) when applying a certain working point requirement is not well reproduced in MC. The BTV POG provides data-to-MC scale factors to correct the efficiencies of b-tagging (and the mis-tagging rates) predicted by the simulation.</p>
       <div class="remember">
         <p class="title">Things to remember</p>
         <ul>
           <li>1. The values of the discriminator threshold defining each working point for the different b-tagging algorithm: this information can be found at the link provided above.</li>
-          <li>2. The values of the data-to-MC scale factors: for 2010 data, we recommend to use <!-- <a href="https://twiki.cern.ch/twiki/bin/viewauth/CMS/BtagPOG#2011_Data_and_MC">2011 scale factors with 10% uncertainty (INTERNAL LINK: TOBEFIXED)</a> --> <a href="#">2011 scale factors with 10% uncertainty</a>.</li>
-          <li>3. How to apply the scale factors to the simulated events: we provide some examples <!-- <a href="https://twiki.cern.ch/twiki/bin/viewauth/CMS/BTagSFMethods">here (INTERNAL LINK: TOBEFIXED)</a> --> <a href="#">here</a>.</li>
+          <li>2. The values of the data-to-MC scale factors: for 2010 data, we recommend to use <!-- <a href="https://twiki.cern.ch/twiki/bin/viewauth/CMS/BtagPOG#2011_Data_and_MC">2011 scale factors with 10% uncertainty (INTERNAL LINK: TOBEFIXED)</a> --> <a href="#">[<strong>TOBEFIXED</strong>] 2011 scale factors with 10% uncertainty</a>.</li>
+          <li>3. How to apply the scale factors to the simulated events: we provide some examples <!-- <a href="https://twiki.cern.ch/twiki/bin/viewauth/CMS/BTagSFMethods">here (INTERNAL LINK: TOBEFIXED)</a> --> <a href="#">[<strong>TOBEFIXED</strong>] here</a>.</li>
         </ul>
       </div>
   </div>
