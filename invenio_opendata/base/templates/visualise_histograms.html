@@ -177,9 +177,9 @@ $(document).on('click', '.parameter', function() {
       $(parId + ' div.plot-control').append(logbtns);
 
       var bininput = "<div class='input-group input-group-sm binwidth'>";
-      bininput += "<input type='text' placeholder='Set bin width' class='form-control'>";
+      bininput += "<input type='text' name='binwidth' placeholder='Set bin width' class='form-control'>";
       bininput += "<span class='input-group-btn'>";
-      bininput += "<button class='btn btn' type='button'>Set</button>";
+      bininput += "<button class='btn binw "+ parameter +"' type='button'>Set</button>";
       bininput += "</span>";
       bininput += "</div>";
 
@@ -199,24 +199,31 @@ $(document).on('click', '.parameter', function() {
       var data = [{data:histogram, label:parameter}];
 
       $('button.logx.'+parameter).on('click', function() { 
-       if ( ! $(this).hasClass('active')  ) {
-        $.extend(true, options, {xaxis:{transform:makeLog,inverseTransform:makeExp}});
-      } else {
-        $.extend(true, options, {xaxis:{transform:null,inverseTransform:null}});
-      }   
-      $.plot($(parId + ' .plot-container'), data, options);
-    });
+        if ( ! $(this).hasClass('active')  ) {
+           $.extend(true, options, {xaxis:{transform:makeLog,inverseTransform:makeExp}});
+        } else {
+           $.extend(true, options, {xaxis:{transform:null,inverseTransform:null}});
+        }   
+        $.plot($(parId + ' .plot-container'), data, options);
+      });
 
       $('button.logy.'+parameter).on('click', function() {
         if ( ! $(this).hasClass('active') ) {
-         $.extend(true, options, {yaxis: {transform: makeLog, inverseTransform: makeExp}});
-       } else {
-         $.extend(true, options, {yaxis: {transform:null, inverseTransform:null}});
-       }
+           $.extend(true, options, {yaxis: {transform: makeLog, inverseTransform: makeExp}});
+        } else {
+           $.extend(true, options, {yaxis: {transform:null, inverseTransform:null}});
+        }
+        $.plot($(parId + ' .plot-container'), data, options);
+      });
+
+     $('button.binw.'+parameter).on('click', function() {
+       var value = $('input[name=binwidth]').val();
+       histogram = buildHistogram(input_data.map(function(d) {return d[parameter];}), value);
+       data = [{data:histogram, label:parameter}];
        $.plot($(parId + ' .plot-container'), data, options);
      });
 
-      $.plot($(parId + ' .plot-container'), data, options);								     
+     $.plot($(parId + ' .plot-container'), data, options);								     
 
     } else {
      $('#'+parameter).remove();
