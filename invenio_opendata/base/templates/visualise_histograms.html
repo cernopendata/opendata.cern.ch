@@ -18,8 +18,8 @@
   border-radius: 4px;
   margin-bottom: 35px;
   color: #606D75;
-  overflow: scroll;
   margin-bottom: 20px;
+  overflow: scroll;
 }
 
 #vis-histograms #flot-plots {
@@ -42,6 +42,11 @@
   margin-right: 5px;
   margin-bottom: 5px;
 }
+
+.binwidth {
+  width: 150px;
+}
+
 .btn.active {
   background-color: #A8B6CA;
 }
@@ -158,19 +163,28 @@ $(document).on('click', '.parameter', function() {
     $('#flot-plots').append("<div id='"+parameter+"' class='col-md-6'></div>");
     $(parId).css({"border":"1px dotted"});										
 
-    $(parId).append("<div class='plot-control'></div>");
+    $(parId).append("<div class='plot-control btn-toolbar'></div>");
     $(parId).append("<div class='plot-container'></div>");
     $(parId + ' div.plot-control').css({"height":"30px"});								     
     $(parId + ' div.plot-container').css({"height":"300px"});
 
       // This screams "template!"
-      var controls = "<table><tr>";
-      controls += "<td><button type='button' class='btn logx "+ parameter + "' data-toggle='button'>Log X</button>";
-      controls += "<button type='button' class='btn logy "+ parameter + "' data-toggle='button'>Log Y</button></td>";
-      controls += "</tr></table>"; 
+      var logbtns = "<div class='btn-group btn-group-sm'>"; 
+      logbtns += "<button type='button' class='btn logx "+ parameter + "' data-toggle='button'>Log X</button>";
+      logbtns += "<button type='button' class='btn logy "+ parameter + "' data-toggle='button'>Log Y</button>";
+      logbtns += "</div>";
 
-      $(parId + ' div.plot-control').append(controls);
-      
+      $(parId + ' div.plot-control').append(logbtns);
+
+      var bininput = "<div class='input-group input-group-sm binwidth'>";
+      bininput += "<input type='text' placeholder='Set bin width' class='form-control'>";
+      bininput += "<span class='input-group-btn'>";
+      bininput += "<button class='btn btn' type='button'>Set</button>";
+      bininput += "</span>";
+      bininput += "</div>";
+
+      $(parId + ' div.plot-control').append(bininput);
+
       var options = {
         label: parameter,
         lines: { show: true, fill: false, lineWidth: 1.2 },
