@@ -147,7 +147,14 @@ $(function () {
     );
   }
 
+  // Load a file automatically...
   loadFile(input_files[0].file);
+
+  //...and activate the first histogram
+  // Q: do we want to do this on every file load?
+  $(window).load(function() {
+    $('#parameter-button-row li button').first().trigger('click');
+  });
 
   $.each(input_files, function(f) {
     $('#fileul').append("<li role='presentation'><a id='"+input_files[f].id+"'>"+input_files[f].name+"</a></li>");
@@ -165,9 +172,9 @@ $(function () {
 
   function populateValues(data) {
     for (var key in data) {
-     $('#parameter-button-row').append("<li><button type='button' data-toggle='button' class='btn btn-default btn-large parameter'>"+ key +"</button></li>");
-   }
- }
+      $('#parameter-button-row').append("<li><button type='button' data-toggle='button' class='btn btn-default btn-large parameter'>"+ key +"</button></li>");
+    }
+  }
 
  function buildHistogram(data, bw) {
   var minx = d3.min(data),
