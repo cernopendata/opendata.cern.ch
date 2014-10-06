@@ -110,7 +110,7 @@
 {%- block javascript %}
 <script type="text/javascript" src="{{url_for('base.static', filename='vendors/d3/d3.min.js')}}"></script>
 <script type="text/javascript" src="{{url_for('base.static', filename='vendors/flot/jquery.flot.js')}}"></script>
-
+<script type="text/javascript" src="{{url_for('base.static', filename='vendors/flot/jquery.flot.selection.js')}}"></script>
 <script type="text/javascript">
 $(function () {
   var input_data;
@@ -237,6 +237,12 @@ $(document).on('click', '.parameter', function() {
 
       $(parId + ' div.plot-control').append(bininput);
 
+      var selectbtn = "<div class='btn-group btn-group-sm'>";
+      selectbtn += "<button type='button' class='btn btn-default undoselect "+ parameter + "'>Undo selection(s)</button>";
+      selectbtn += "</div>";
+
+      $(parId + ' div.plot-control').append(selectbtn);
+
       var options = {
         label: parameter,
         lines: { show: true, fill: false, lineWidth: 1.2 },
@@ -249,6 +255,11 @@ $(document).on('click', '.parameter', function() {
 
       var histogram = buildHistogram(input_data.map(function(d) {return d[parameter];}), 0.1);
       var data = [{data:histogram, label:parameter}];
+      var plot = $.plot($(parId + ' .plot-container'), data, options);
+      plot.draw();
+
+      var xmin = plot.getAxes().xaxis.min;
+      var xmax = plot.getAxes().xaxis.max;
 
       $('button.logx.'+parameter).on('click', function() {
         if ( ! $(this).hasClass('active')  ) {
@@ -272,10 +283,20 @@ $(document).on('click', '.parameter', function() {
        var value = $('input[name=binwidth]').val();
        histogram = buildHistogram(input_data.map(function(d) {return d[parameter];}), value);
        data = [{data:histogram, label:parameter}];
-       $.plot($(parId + ' .plot-container'), data, options);
+       plot.setData(data);
+       plot.draw();
      });
 
-     $.plot($(parId + ' .plot-container'), data, options);
+     $('button.undoselect.'+parameter).on('click', function() {
+        $.extend(true, options, {xaxis:{min: xmin, max: xmax}});
+        $.plot($(parId + ' .plot-container'), data, options);
+     });
+
+     $(parId + ' .plot-container').bind("plotselected", function(event, ranges) {
+        //console.log("You selected " + ranges.xaxis.from.toFixed(1) + " to " + ranges.xaxis.to.toFixed(1));
+        $.extend(true, options, {xaxis:{min: ranges.xaxis.from, max: ranges.xaxis.to}});
+        $.plot($(parId + ' .plot-container'), data, options);
+     });
 
     } else {
      $('#'+parameter).remove();
