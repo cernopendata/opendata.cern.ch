@@ -91,9 +91,6 @@ opendata.cern.ch overlay.  There are two options:
 
   .. code-block:: console
 
-      laptop> vagrant ssh
-      vm> wget https://raw.githubusercontent.com/tiborsimko/invenio-devscripts/master/invenio2-kickstart
-      vm> chmod u+x ./invenio2-kickstart
       vm> CFG_INVENIO2_REPOSITORY_OVERLAY=git://github.com/tiborsimko/opendata.cern.ch \
           CFG_INVENIO2_VIRTUAL_ENV=opendata \
           CFG_INVENIO2_DATABASE_USER=opendata \
