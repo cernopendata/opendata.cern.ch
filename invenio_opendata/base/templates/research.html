@@ -383,7 +383,7 @@ li.subcollection_exp {
             <div>
               {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
               {% for pb in e.portalboxes %}
-                {% if (pb.portalbox.title == 'description') %}
+                {% if (pb.portalbox.title == 'research_description') %}
                   {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
                 {% elif (pb.portalbox.title == 'image') %}
                   {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
@@ -393,7 +393,7 @@ li.subcollection_exp {
                 <img src="{{ url_for('static', filename='img/'+coll_portalboxes['image']) }}" alt="">
               </div>
               <div class="coll-desc col-md-10">
-                {% for d in (coll_portalboxes['desc']|splitthem('#$#$#')) %}{{d}}{% endfor %}
+                {% for d in (coll_portalboxes['desc']|splitthem('#$#$#')) %}{{d|safe}}{% endfor %}
               </div>
             </div>
           </div>

@@ -328,6 +328,15 @@ class PortalboxData(DataSet):
         id = 16
         title = u'description'
 
+    class Portalbox_17:
+        body = u'CMS is releasing data in the same format as used in data analysis by CMS physicists. A CMS-specific analysis framework is needed, and it is provided as a Virtual Machine image with the CMS analysis environment. The data can be downloaded (be aware of the large size of the datasets) or accessed directly through the VM image. Basic information of the data contents is provided in http://opendata.cern.ch/about/CMS and in http://opendata.cern.ch/about/CMS-Physics-Objects. The original data are in primary datasets, i.e. no selection nor identification criteria have been applied (apart from the trigger decision), and these have to be applied in the subsequent analysis step. For the first release, no simulated Monte Carlo datasets are provided'
+        id = 17
+        title = u'research_description'
+
+    class Portalbox_18:
+        body = u'These ALICE datasets contain a sample of events from the p-p an PbPb LHC runs in 2010, in the ESD (event summary data) format of the ALICE reconstruction program. The events are unbiased and are not a result of event selections and this format is directly usable by the analysis done by ALICE physicists. The data can be downloaded and used from a specific ALICE virtual machine image which can be installed using this procedure (link) and which demonstrates some ALICE analysis and event display examples. A single dataset is exposed in the form of a custom VSD (V0 summary data) format which is not usable in normal analysis but just by a set of masterclasses available also from the ALICE VM. For the first release, no simulated Monte Carlo datasets are provided.'
+        id = 18
+        title = u'research_description'
 
 class CollectionPortalboxData(DataSet):
 
@@ -443,6 +452,19 @@ class CollectionPortalboxData(DataSet):
         score = 100
         id_collection = CollectionData.ALICEReconstructedData.ref('id')
 
+    class CollectionPortalbox_2_17_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_17.ref('id')
+        score = 100
+        id_collection = CollectionData.CMS.ref('id')
+
+    class CollectionPortalbox_5_18_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_18.ref('id')
+        score = 100
+        id_collection = CollectionData.ALICE.ref('id')
 
 class FacetCollectionData(DataSet):
 
