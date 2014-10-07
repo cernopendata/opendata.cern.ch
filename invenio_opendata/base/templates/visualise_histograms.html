@@ -18,7 +18,6 @@
   border-radius: 4px;
   margin-bottom: 35px;
   color: #606D75;
-  overflow: scroll;
   margin-bottom: 20px;
 }
 
@@ -41,6 +40,14 @@
 #vis-histograms #parameter-button-row li {
   margin-right: 5px;
   margin-bottom: 5px;
+}
+
+.binwidth {
+  width: 150px;
+}
+
+.btn {
+  background-color: #eeeeee;
 }
 .btn.active {
   background-color: #A8B6CA;
@@ -67,36 +74,99 @@
 </section>
 
 <section id="vis-histograms" class="content">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1 pg-header">
-        <h3>Explore and Play with the histograms</h3>
+<div class="container">
+<div class="row">
+  <div class="col-md-10 col-md-offset-1 pg-header">
+    <h3>Explore and Play with the histograms</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12" >
+    <div class="previewer" id="histogram">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="filedropdown" data-toggle="dropdown">
+             Select a file <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" id="fileul" aria-labelledby="filedropdown"></ul>
+          </div>
+        </div>
       </div>
-      <div class="col-md-12" >
-       <div class="previewer" id="histogram">
-         <div>
-           <h3 class="col-md-12">Select one or more parameters from <span id="filename"></span> :</h3>
-           <div class="col-md-12"><ul id="parameter-button-row"></ul></div>
-           <div class="col-md-12">
-             <div class="row" id="flot-plots"></div>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
- </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Select one or more parameters from <span id="filename"></span> :</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <ul id="parameter-button-row"></ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row" id="flot-plots"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 </section>
 {% endblock %}
 
 {%- block javascript %}
 <script type="text/javascript" src="{{url_for('base.static', filename='vendors/d3/d3.min.js')}}"></script>
 <script type="text/javascript" src="{{url_for('base.static', filename='vendors/flot/jquery.flot.js')}}"></script>
-
+<script type="text/javascript" src="{{url_for('base.static', filename='vendors/flot/jquery.flot.selection.js')}}"></script>
 <script type="text/javascript">
 $(function () {
   var input_data;
-  var input_file = "/record/700/files/MuRun2010B_0.csv";
-  $('#filename').html(input_file.split('/').pop());
+
+  var input_files = [
+     {id:"dimuon0",name:"dimuon events with invariant mass between 2-110 GeV [0]",file:"/record/700/files/MuRun2010B_0.csv"},
+     {id:"dimuon1",name:"dimuon events with invariant mass between 2-110 GeV [1]",file:"/record/700/files/MuRun2010B_1.csv"},
+     {id:"Jpismumu",name:"dimuon events with invariant mass between 2-5 GeV",file:"/record/301/files/dimuon-Jpsi.csv"},
+     {id:"Jpsiee",name:"dielectron events with invariant mass between 2-5 GeV",file:"/record/302/files/dielectron-Jspi.csv"},
+     {id:"Yee",name:"dielectron events with invariant mass between 8-12 GeV",file:"/record/305/files/dielectron-Upsilon.csv"},
+     {id:"Zee",name:"dielectron events around the Z boson mass",file:"/record/306/files/Zee.csv"},
+     {id:"Zmumu",name:"dimuon events around the Z boson mass",file:"/record/307/files/Zmumu.csv"},
+     {id:"Wenu",name:"W bosons decaying to an electron and a neutrino",file:"/record/308/files/Wenu.csv"},
+     {id:"Wmuu",name:"W bosons decaying to a muon and a neutrino",file:"/record/309/files/Wmunu.csv"}
+  ];
+
+  function loadFile(filename) {
+    $('#filename').html(filename.split('/').pop());
+       
+    d3.csv(filename, 
+      function(d) { // leading and trailing spaces in csv aren't ignored so we strip them out (if there) in the accessor
+        var newd = {};
+        for ( key in d ) {
+          if ( ! is_excluded(key.trim()) ) { 
+            newd[key.trim()] = +d[key];
+          }
+        }
+        return newd;
+      },
+      function(data) {
+        populateValues(data[0]);
+        input_data = data;
+      }
+    );
+  }
+ 
+  // Load a file automatically...
+  loadFile(input_files[0].file);
+
+  //...and activate the first histogram
+  // Q: do we want to do this on every file load?
+  $(window).load(function() {
+    $('#parameter-button-row li button').first().trigger('click');
+  });        
+  
+  $.each(input_files, function(f) {
+    $('#fileul').append("<li role='presentation'><a id='"+input_files[f].id+"'>"+input_files[f].name+"</a></li>");
+  });
 
   // Some fields aren't numbers or it doesn't make sense to plot them.
   // Therefore exclude them.
@@ -110,9 +180,9 @@ $(function () {
 
   function populateValues(data) {
     for (var key in data) {
-     $('ul#parameter-button-row').append("<li><button type='button' data-toggle='button' class='btn btn-large parameter'>"+ key +"</button></li>");       
-   }        
- }
+      $('#parameter-button-row').append("<li><button type='button' data-toggle='button' class='btn btn-default btn-large parameter'>"+ key +"</button></li>");       
+    }
+  }
 
  function buildHistogram(data, bw) {
   var minx = d3.min(data),
@@ -131,23 +201,18 @@ $(function () {
   return output;
 };
 
-d3.csv(input_file, 
-    function(d) { // leading and trailing spaces in csv aren't ignored so we strip them out (if there) in the accessor
-    var newd = {};
-    for ( key in d ) {
-      if ( ! is_excluded(key.trim()) ) { 
-        newd[key.trim()] = +d[key];
-      }
-    }
-    return newd;
-  },
-  function(data) {
-    populateValues(data[0]);
-    input_data = data;
-  });
-
 var makeLog = function(v) {return v > 0 ? Math.log(v) : 0;};
 var makeExp = function(v) {return Math.log(v);}
+
+$(document).on('click', '#fileul li a', function() {
+  var id = $(this).attr("id");
+  var input_file = $.grep(input_files, function(i) {
+    return i.id == id;
+  });
+  $('#parameter-button-row').empty();
+  $('#flot-plots').empty();
+  loadFile(input_file[0].file);
+});
 
 $(document).on('click', '.parameter', function() { 
   var parameter = $(this).html();
@@ -158,18 +223,33 @@ $(document).on('click', '.parameter', function() {
     $('#flot-plots').append("<div id='"+parameter+"' class='col-md-6'></div>");
     $(parId).css({"border":"1px dotted"});										
 
-    $(parId).append("<div class='plot-control'></div>");
+    $(parId).append("<div class='plot-control btn-toolbar'></div>");
     $(parId).append("<div class='plot-container'></div>");
     $(parId + ' div.plot-control').css({"height":"30px"});								     
     $(parId + ' div.plot-container').css({"height":"300px"});
 
       // This screams "template!"
-      var controls = "<table><tr>";
-      controls += "<td><button type='button' class='btn logx "+ parameter + "' data-toggle='button'>Log X</button>";
-      controls += "<button type='button' class='btn logy "+ parameter + "' data-toggle='button'>Log Y</button></td>";
-      controls += "</tr></table>"; 
+      var logbtns = "<div class='btn-group btn-group-sm'>"; 
+      logbtns += "<button type='button' class='btn btn-default logx "+ parameter + "' data-toggle='button'>Log X</button>";
+      logbtns += "<button type='button' class='btn btn-default logy "+ parameter + "' data-toggle='button'>Log Y</button>";
+      logbtns += "</div>";
 
-      $(parId + ' div.plot-control').append(controls);
+      $(parId + ' div.plot-control').append(logbtns);
+
+      var bininput = "<div class='input-group input-group-sm binwidth'>";
+      bininput += "<input type='text' name='binwidth' placeholder='Set bin width' class='form-control'>";
+      bininput += "<span class='input-group-btn'>";
+      bininput += "<button class='btn btn-default binw "+ parameter +"' type='button'>Set</button>";
+      bininput += "</span>";
+      bininput += "</div>";
+
+      $(parId + ' div.plot-control').append(bininput);
+      
+      var selectbtn = "<div class='btn-group btn-group-sm'>";
+      selectbtn += "<button type='button' class='btn btn-default undoselect "+ parameter + "'>Undo selection(s)</button>";
+      selectbtn += "</div>";
+
+      $(parId + ' div.plot-control').append(selectbtn);
       
       var options = {
         label: parameter,
@@ -183,26 +263,48 @@ $(document).on('click', '.parameter', function() {
 
       var histogram = buildHistogram(input_data.map(function(d) {return d[parameter];}), 0.1);
       var data = [{data:histogram, label:parameter}];
+      var plot = $.plot($(parId + ' .plot-container'), data, options);
+      plot.draw();
 
+      var xmin = plot.getAxes().xaxis.min;
+      var xmax = plot.getAxes().xaxis.max;
+      
       $('button.logx.'+parameter).on('click', function() { 
-       if ( ! $(this).hasClass('active')  ) {
-        $.extend(true, options, {xaxis:{transform:makeLog,inverseTransform:makeExp}});
-      } else {
-        $.extend(true, options, {xaxis:{transform:null,inverseTransform:null}});
-      }   
-      $.plot($(parId + ' .plot-container'), data, options);
-    });
+        if ( ! $(this).hasClass('active')  ) {
+           $.extend(true, options, {xaxis:{transform:makeLog,inverseTransform:makeExp}});
+        } else {
+           $.extend(true, options, {xaxis:{transform:null,inverseTransform:null}});
+        }   
+        $.plot($(parId + ' .plot-container'), data, options);
+      });
 
       $('button.logy.'+parameter).on('click', function() {
         if ( ! $(this).hasClass('active') ) {
-         $.extend(true, options, {yaxis: {transform: makeLog, inverseTransform: makeExp}});
-       } else {
-         $.extend(true, options, {yaxis: {transform:null, inverseTransform:null}});
-       }
-       $.plot($(parId + ' .plot-container'), data, options);
+           $.extend(true, options, {yaxis: {transform: makeLog, inverseTransform: makeExp}});
+        } else {
+           $.extend(true, options, {yaxis: {transform:null, inverseTransform:null}});
+        }
+        $.plot($(parId + ' .plot-container'), data, options);
+      });
+
+     $('button.binw.'+parameter).on('click', function() {
+       var value = $('input[name=binwidth]').val();
+       histogram = buildHistogram(input_data.map(function(d) {return d[parameter];}), value);
+       data = [{data:histogram, label:parameter}];
+       plot.setData(data);
+       plot.draw();
      });
 
-      $.plot($(parId + ' .plot-container'), data, options);								     
+     $('button.undoselect.'+parameter).on('click', function() {
+        $.extend(true, options, {xaxis:{min: xmin, max: xmax}});
+        $.plot($(parId + ' .plot-container'), data, options);
+     });
+
+     $(parId + ' .plot-container').bind("plotselected", function(event, ranges) {
+        //console.log("You selected " + ranges.xaxis.from.toFixed(1) + " to " + ranges.xaxis.to.toFixed(1));
+        $.extend(true, options, {xaxis:{min: ranges.xaxis.from, max: ranges.xaxis.to}});
+        $.plot($(parId + ' .plot-container'), data, options);
+     });
 
     } else {
      $('#'+parameter).remove();
