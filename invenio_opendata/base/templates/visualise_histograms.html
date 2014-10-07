@@ -55,6 +55,21 @@
 .btn:hover {
   background-color: #e6e6e6;
 }
+
+div.row.buttons {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+div.dropdown {
+  padding-top: 15px;
+}
+
+div.plot-control {
+  padding-top: 4px;
+  padding-left: 24px;
+}
+
 </style>
 <section class="infobar">
   <div class="container">
@@ -83,7 +98,7 @@
 <div class="row">
   <div class="col-md-12" >
     <div class="previewer" id="histogram">
-      <div class="row">
+      <div class="row buttons top">
         <div class="col-md-6">
           <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="filedropdown" data-toggle="dropdown">
@@ -93,12 +108,12 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row buttons">
         <div class="col-md-12">
           <h4>Select one or more parameters from <span id="filename"></span> :</h4>
         </div>
       </div>
-      <div class="row">
+      <div class="row buttons">
         <div class="col-md-12">
           <ul id="parameter-button-row"></ul>
         </div>
