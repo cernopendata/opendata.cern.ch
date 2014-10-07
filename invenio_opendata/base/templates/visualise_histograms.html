@@ -279,6 +279,7 @@ $(document).on('click', '.parameter', function() {
       var histogram = buildHistogram(input_data.map(function(d) {return d[parameter];}), 0.1);
       var data = [{data:histogram, label:parameter}];
       var plot = $.plot($(parId + ' .plot-container'), data, options);
+      plot.setupGrid();
       plot.draw();
 
       var xmin = plot.getAxes().xaxis.min;
@@ -306,8 +307,7 @@ $(document).on('click', '.parameter', function() {
        var value = $('input[name=binwidth]').val();
        histogram = buildHistogram(input_data.map(function(d) {return d[parameter];}), value);
        data = [{data:histogram, label:parameter}];
-       plot.setData(data);
-       plot.draw();
+       $.plot($(parId + ' .plot-container'), data, options);
      });
 
      $('button.undoselect.'+parameter).on('click', function() {
