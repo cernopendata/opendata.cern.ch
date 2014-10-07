@@ -14,11 +14,11 @@
   <div class="phys-item">
     <h2 id="electrons"><a name="electron">Electrons</a></h2>
     <p>The collection most commonly used in 2010 data was <code>recoGsfElectrons_gsfElectrons__RECO</code> (collection of objects type <code>reco::GsfElectron</code>).</p>
-    <p>[<strong>TOBEFIXED</strong>]</p>
+    <p>[<strong>FIXME</strong>]</p>
     <p>Energy and momentum were "ready-to-use". However an additional selection was needed for identification. The cuts can be found in this twiki: <!-- <a href="https://twiki.cern.ch/twiki/bin/viewauth/CMS/SimpleCutBasedEleID">https://twiki.cern.ch/twiki/bin/viewauth/CMS/SimpleCutBasedEleID</a> --> <a href="#">Link 1</a>
       <p>The best for external user would be to provide how to access the variables for this collection: <!-- <a href="https://twiki.cern.ch/twiki/bin/viewauth/CMS/SimpleCutBasedEleID#Isolations_Calculation">https://twiki.cern.ch/twiki/bin/viewauth/CMS/SimpleCutBasedEleID#Isolations_Calculation</a> --> <a href="#">Link 2</a>, <!-- <a href="https://twiki.cern.ch/twiki/bin/viewauth/CMS/SimpleCutBasedEleID#ID_and_Conversion_Rejection">https://twiki.cern.ch/twiki/bin/viewauth/CMS/SimpleCutBasedEleID#ID_and_Conversion_Rejection</a> --> <a href="#">Link 3</a> and the value to be applied for the different selections: <!-- <a href="https://twiki.cern.ch/twiki/bin/viewauth/CMS/SimpleCutBasedEleID#Cuts_for_use_on_2010_data">https://twiki.cern.ch/twiki/bin/viewauth/CMS/SimpleCutBasedEleID#Cuts_for_use_on_2010_data</a> --> <a href="#">Link 4</a></p>
     </p>
-    <p>[<strong>/TOBEFIXED</strong>]</p>
+    <p>[<strong>/FIXME</strong>]</p>
     <p>It is important to apply identification and isolation selection to avoid large background contamination.</p>
   </div>
 </div>
@@ -82,7 +82,7 @@
     <ul>
       <li>1. Quality flags: MET should be cleaned for detector problems; there should be several flags for these</li>
       <li>2. Type-I: whether or not JEC is propagated to MET, the JEC is an important systematic</li>
-      <li>3. JER+unclustered: the JER systematics (10% ± 10% compared to MC) also propagate to MET, and unclustered energy should be considered as an extra systematic by scaling it up and down by 20% ([<strong>TBC</strong>]or 50%? MET conveners could clarify here[<strong>/TBC</strong>])</li>
+      <li>3. Important uncertainties are JER, JES and unclustered energy: the JER resmearing (uncertainty on JER per jet 5–20%) and JES systematics should be propagated to MET, and unclustered energy should be considered as an extra systematic by scaling it up and down by 10%.</li>
       <li>4. For SUSY-type analysis, MET tails often come from jets (ECAL holes, heavy flavour, JER), so analyses typically apply cuts on Δφ(jet, MET) to ensure MET is not aligned with one of the jets</li>
     </ul>
   </div>
@@ -98,14 +98,14 @@
     <p>Also in use were the Simple Secondary Vertex High Efficiency (collection: <code>simpleSecondaryVertexHighEffBJetTags</code>) and Simple Secondary Vertex High Purity (collection: <code>simpleSecondaryVertexHighEffBJetTags</code>).</p>
     <p>Finally, later analyses on 2010 data have used the Combined Secondary Vertex (collection: <code>combinedSecondaryVertexBJetTags</code>) and maybe the Jet Probability (collection: <code>jetProbabilityBJetTags</code>) algorithms.</p>
     <p>The collections contain the discriminator values for each jets, for the respective b-tagging algorithm. In order to decide if a jet is tagged, one has to ask the discriminator value to be greater of a specific threshold.<p>We define three possible thresholds (working points) for each algorithm, which correspond to the cuts on the discriminator that allow to reduce the rate of mis-identification of light jets as b-jets to 10% (loose working point), 1% (medium working point) and 0.1% (tight working point), respectively.</p>
-      <p>The thresholds for the different b-tagging algorithms and working points can be found <!-- <a href="https://twiki.cern.ch/twiki/bin/viewauth/CMS/BTagPerformanceOP#B_tagging_Operating_Points_for_3">here (INTERNAL LINK: TOBEFIXED)</a> --> <a href="#">[<strong>TOBEFIXED</strong>]</a>.</p>
+      <p>The thresholds for the different b-tagging algorithms and working points can be found <!-- <a href="https://twiki.cern.ch/twiki/bin/viewauth/CMS/BTagPerformanceOP#B_tagging_Operating_Points_for_3">here (INTERNAL LINK: FIXME)</a> --> <a href="#">[<strong>FIXME</strong>]</a>.</p>
       <p>Monte Carlo simulation does not reproduce correctly the distributions of the b-tag discriminator observed in data. As a consequence, the efficiencies for a b-jet to be tagged (as well as the probability for a light jet to be mis-tagged) when applying a certain working point requirement is not well reproduced in MC. The BTV POG provides data-to-MC scale factors to correct the efficiencies of b-tagging (and the mis-tagging rates) predicted by the simulation.</p>
       <div class="remember">
         <p class="title">Things to remember</p>
         <ul>
           <li>1. The values of the discriminator threshold defining each working point for the different b-tagging algorithm: this information can be found at the link provided above.</li>
-          <li>2. The values of the data-to-MC scale factors: for 2010 data, we recommend to use <!-- <a href="https://twiki.cern.ch/twiki/bin/viewauth/CMS/BtagPOG#2011_Data_and_MC">2011 scale factors with 10% uncertainty (INTERNAL LINK: TOBEFIXED)</a> --> <a href="#">[<strong>TOBEFIXED</strong>] 2011 scale factors with 10% uncertainty</a>.</li>
-          <li>3. How to apply the scale factors to the simulated events: we provide some examples <!-- <a href="https://twiki.cern.ch/twiki/bin/viewauth/CMS/BTagSFMethods">here (INTERNAL LINK: TOBEFIXED)</a> --> <a href="#">[<strong>TOBEFIXED</strong>] here</a>.</li>
+          <li>2. The values of the data-to-MC scale factors: for 2010 data, we recommend to use <!-- <a href="https://twiki.cern.ch/twiki/bin/viewauth/CMS/BtagPOG#2011_Data_and_MC">2011 scale factors with 10% uncertainty (INTERNAL LINK: FIXME)</a> --> <a href="#">[<strong>FIXME</strong>] 2011 scale factors with 10% uncertainty</a>.</li>
+          <li>3. How to apply the scale factors to the simulated events: we provide some examples <!-- <a href="https://twiki.cern.ch/twiki/bin/viewauth/CMS/BTagSFMethods">here (INTERNAL LINK: FIXME)</a> --> <a href="#">[<strong>FIXME</strong>] here</a>.</li>
         </ul>
       </div>
   </div>
