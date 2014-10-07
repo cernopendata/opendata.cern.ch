@@ -2,6 +2,8 @@
  opendata.cern.ch
 ==================
 
+.. image:: https://travis-ci.org/cernopendata/opendata.cern.ch.png?branch=pu
+   :target: https://travis-ci.org/cernopendata/opendata.cern.ch
 .. image:: http://issuestats.com/github/cernopendata/opendata.cern.ch/badge/pr?style=flat
    :target: http://issuestats.com/github/cernopendata/opendata.cern.ch
 .. image:: http://issuestats.com/github/cernopendata/opendata.cern.ch/badge/issue?style=flat
