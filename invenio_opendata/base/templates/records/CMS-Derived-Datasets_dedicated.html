@@ -14,8 +14,8 @@
       {% if record.get('computer_file_characteristics','') %}
         <div class="col-md-12 rec_files_info" style="float: left;">
           <div class="n">
-            <div class="t col-md-3">{{ (record.get('computer_file_characteristics','')|splitthem(' ',1))[0] }}</div>
-            <div class="col-md-offset-3 col-md-9">{{ ((record.get('computer_file_characteristics','')|splitthem(' ',1))[1])[1:-1] }}</div>
+            <div class="t col-md-3">{{ record.get('computer_file_characteristics','') }}</div>
+            <div class="col-md-offset-3 col-md-9">{{ record.get('computer_file_characteristics','') }}</div>
           </div>
         </div>
       {% endif %}
