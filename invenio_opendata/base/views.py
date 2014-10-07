@@ -88,7 +88,9 @@ def index2():
 
 @blueprint.route('education', defaults={'exp': None})
 @blueprint.route('education/<string:exp>')
-@register_breadcrumb(blueprint, '.educate', 'For Education')
+@register_breadcrumb(blueprint, '.educate', 'For Education', \
+                        dynamic_list_constructor = (lambda :\
+                        [{"url":".educate","text":"Education"}]))
 def educate(exp):
     exp_colls, exp_names = get_collections()
 
@@ -106,7 +108,9 @@ def educate(exp):
 
 @blueprint.route('research', defaults={'exp': None})
 @blueprint.route('research/<string:exp>')
-@register_breadcrumb(blueprint, '.research', 'For Research')
+@register_breadcrumb(blueprint, '.research', 'For Research', \
+                        dynamic_list_constructor = (lambda :\
+                        [{"url":".research","text":"Research"}]))
 def research(exp):
     exp_colls, exp_names = get_collections()
 
@@ -122,9 +126,12 @@ def research(exp):
 
 
 @blueprint.route('news', defaults={'newsid': None})
+@blueprint.route('news/', defaults={'newsid': None})
 @blueprint.route('news/<int:newsid>')
-@register_breadcrumb(blueprint,'.news','News')
-def news(newsid):
+@register_breadcrumb(blueprint,'.news','News', \
+                        dynamic_list_constructor = (lambda :\
+                        [{"url":".news","text":"News"}]))
+def news(newsid=None):
     if newsid is None:
         try:
             return render_template('news.html')
@@ -138,11 +145,11 @@ def news(newsid):
 
 
 @blueprint.route('visualise/events')
-@register_breadcrumb(blueprint, '.visualise_events', 'Visualise Histograms', \
+@register_breadcrumb(blueprint, '.visualise_events', 'Visualise Events', \
                         dynamic_list_constructor = (lambda :\
-                        [({"url":"education"},{"text":"For Education"}),\
-                        ({"url":"education/CMS"},{"text":"CMS"}),\
-                        ({"url":".visualise_events"},{"text":"Visualise Events"})]) )
+                        [{"url":".educate","text":"For Education"},\
+                        {"url":".educate","text":"CMS"},\
+                        {"url":".visualise_events","text":"Visualise Events"}]) )
 def visualise_events():
     try:
         return render_template('visualise_events.html')
@@ -153,9 +160,9 @@ def visualise_events():
 @blueprint.route('visualise/histograms')
 @register_breadcrumb(blueprint, '.visualise_histo', 'Visualise Histograms', \
                         dynamic_list_constructor = (lambda :\
-                        [({"url":"education"},{"text":"For Education"}),\
-                        ({"url":"education/CMS"},{"text":"CMS"}),\
-                        ({"url":".visualise_histo"},{"text":"Visualise Histograms"})]) )
+                        [{"url":".educate","text":"For Education"},\
+                        {"url":".educate","text":"CMS"},\
+                        {"url":".visualise_histo","text":"Visualise Histograms"}]) )
 def visualise_histo():
     try:
         return render_template('visualise_histograms.html')
@@ -168,7 +175,9 @@ def visualise_histo():
 @blueprint.route('getstarted/<string:exp>')
 @blueprint.route('getting-started', defaults={'exp': 'all'})
 @blueprint.route('getting-started/<string:exp>')
-@register_breadcrumb(blueprint, '.get_started', 'Get Started')
+@register_breadcrumb(blueprint, '.get_started', 'Get Started', \
+                        dynamic_list_constructor = (lambda :\
+                        [{"url":".get_started","text":"Getting started"}]))
 def get_started(exp):
     def splitting(value, delimiter='/'):
         return value.split(delimiter)
@@ -184,9 +193,9 @@ def get_started(exp):
 @blueprint.route('resources')
 @register_breadcrumb(blueprint, '.resources', 'External Resources', \
                         dynamic_list_constructor = (lambda :\
-                        [({"url":"education"},{"text":"For Education"}),\
-                        ({"url":"education/CMS"},{"text":"CMS"}),\
-                        ({"url":"resources"},{"text":"External Resources"})]) )
+                        [{"url":".educate","text":"For Education"},\
+                        {"url":".educate","text":"CMS"},\
+                        {"url":".resources","text":"External Resources"}]) )
 def resources():
     try:
         return render_template('resources.html')
@@ -196,7 +205,9 @@ def resources():
 
 @blueprint.route('VM', defaults={'exp': None})
 @blueprint.route('VM/<string:exp>')
-@register_breadcrumb(blueprint, '.data_vms', 'Virtual Machines' )
+@register_breadcrumb(blueprint, '.data_vms', 'Virtual Machines' , \
+                        dynamic_list_constructor = (lambda :\
+                        [{"url":".data_vms","text":"Virtual Machines"}]) )
 def data_vms(exp):
     def splitting(value, delimiter='/'):
         return value.split(delimiter)
@@ -219,8 +230,8 @@ def data():
 @blueprint.route('VM/<exp>/validation/report')
 @register_breadcrumb(blueprint, '.val_report', 'VM', \
                         dynamic_list_constructor = (lambda :\
-                        [({"url":"VM"},{"text":"Virtual Machines"}),\
-                        ({"url":"val_report"},{"text":"Validation Report"})]) )
+                        [{"url":".data_vms","text":"Virtual Machines"},\
+                        {"url":".data_vms","text":"Validation Report"}]) )
 def val_report(exp):
     try:
         return render_template([exp+'_VM_validation.html'], exp=exp)
@@ -229,7 +240,9 @@ def val_report(exp):
 
 
 @blueprint.route('about')
-@register_breadcrumb(blueprint, '.about', 'About')
+@register_breadcrumb(blueprint, '.about', 'About', \
+                        dynamic_list_constructor = (lambda :\
+                        [{"url":".about","text":"About"}]))
 def about():
     try:    
         return render_template('about.html')
@@ -241,23 +254,20 @@ def about():
 @blueprint.route('about/CMS')
 @register_breadcrumb(blueprint, '.about_cms', 'CMS', \
                         dynamic_list_constructor = (lambda :\
-                        [({"url":".about"},{"text":"About"}),\
-                        ({"url":".about_cms"},{"text":"CMS OpenData"})]) )
+                        [{"url":".about", "text":"About"},\
+                        {"url":".about_cms","text":"CMS OpenData"}]) )
 def about_cms():
     try:
         return render_template('about_cms.html')
     except TemplateNotFound:
         return abort(404)
 
-def about_cms_bread():
-    return ()
-
 @blueprint.route('about/alice')
 @blueprint.route('about/ALICE')
 @register_breadcrumb(blueprint, '.about_alice', 'ALICE', \
                         dynamic_list_constructor = (lambda :\
-                        [({"url":".about"},{"text":"About"}),\
-                        ({"url":".about_alice"},{"text":"ALICE OpenData"})]) )
+                        [{"url":".about", "text":"About"},\
+                        {"url":".about_alice","text":"ALICE OpenData"}]) )
 def about_alice():
     try:
         return render_template('about_alice.html')
@@ -266,6 +276,11 @@ def about_alice():
 
 
 @blueprint.route('about/CMS-Physics-Objects')
+@register_breadcrumb(blueprint, '.about_physics', 'ALICE', \
+                        dynamic_list_constructor = (lambda :\
+                        [{"url":".about", "text":"About"},\
+                        {"url":".about_cms", "text":"CMS"},\
+                        {"url":".about_physics","text":"Physics Objects"}]) )
 def about_physics():
     try:
         return render_template('about_physics_objects.html')
