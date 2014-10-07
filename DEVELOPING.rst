@@ -33,36 +33,79 @@ Firstly, fire up new VM:
     end
     laptop> vagrant up
 
-Secondly, connect to the VM and launch Invenio kickstarter with
-opendata.cern.ch overlay:
+Secondly, if you have already a pre-populated local FFT file cache
+archive (``opendata.cern.ch-fft-file-cache``) somewhere, say under
+``/vagrant/``, then you can reuse it by creating a symbolic link on
+the VM:
+
+.. code-block:: console
+
+    laptop> vagrant ssh
+    vm> ln -s /vagrant/opendata.cern.ch-fft-file-cache .
+
+If you don't have any such FFT file cache archive, then you can simply
+continue; the files will be downloaded during first installation.
+
+Thirdly, connect to the VM and download Invenio kickstarter:
 
 .. code-block:: console
 
     laptop> vagrant ssh
     vm> wget https://raw.githubusercontent.com/tiborsimko/invenio-devscripts/master/invenio2-kickstart
     vm> chmod u+x ./invenio2-kickstart
-    vm> CFG_INVENIO2_REPOSITORY_OVERLAY=git://github.com/tiborsimko/opendata.cern.ch \
-        CFG_INVENIO2_VIRTUAL_ENV=opendata \
-        CFG_INVENIO2_DATABASE_USER=opendata \
-        CFG_INVENIO2_DATABASE_NAME=opendata \
-        CFG_INVENIO2_DEMOSITE_POPULATE_BEFORE="populate-fft-file-cache.sh" \
-        CFG_INVENIO2_DEMOSITE_POPULATE="-f invenio_opendata/testsuite/data/cms/cms-primary-datasets.xml \
-                                        -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana.xml \
-                                        -f invenio_opendata/testsuite/data/cms/cms-eventdisplay-files.xml \
-                                        -f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
-                                        -f invenio_opendata/testsuite/data/cms/cms-tools-ispy.xml \
-                                        -f invenio_opendata/testsuite/data/cms/cms-tools-vm-image.xml \
-                                        -f invenio_opendata/testsuite/data/cms/cms-validated-runs.xml \
-                                        -f invenio_opendata/testsuite/data/cms/cms-external-resources.xml \
-                                        -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
-                                        -f invenio_opendata/testsuite/data/cms/cms-csv-files.xml \
-                                        -f invenio_opendata/testsuite/data/alice/alice-derived-datasets.xml \
-                                        -f invenio_opendata/testsuite/data/alice/alice-reconstructed-data.xml \
-                                        -f invenio_opendata/testsuite/data/alice/alice-analysis-modules.xml \
-                                        -e force-recids" \
-        ./invenio2-kickstart --yes-i-know --yes-i-really-know
 
-Thirdly, go brew some tee, come back in twenty minutes, enjoy!
+Now you can actually launch the Invenio kickstarter with the
+opendata.cern.ch overlay.  There are two options:
+
+- option 1, complete-but-slow-and-big installation, downloading 6 GB
+  of files from CMS DocDB; so please beware and please plan ahead your
+  free disk space and your free time accordingly:
+
+  .. code-block:: console
+
+      vm> CFG_INVENIO2_REPOSITORY_OVERLAY=git://github.com/tiborsimko/opendata.cern.ch \
+          CFG_INVENIO2_VIRTUAL_ENV=opendata \
+          CFG_INVENIO2_DATABASE_USER=opendata \
+          CFG_INVENIO2_DATABASE_NAME=opendata \
+          CFG_INVENIO2_DEMOSITE_POPULATE_BEFORE="./populate-fft-file-cache.sh" \
+          CFG_INVENIO2_DEMOSITE_POPULATE="-f invenio_opendata/testsuite/data/cms/cms-primary-datasets.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-eventdisplay-files.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-tools-ispy.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-tools-vm-image.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-validated-runs.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-external-resources.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-csv-files.xml \
+                                          -f invenio_opendata/testsuite/data/alice/alice-derived-datasets.xml \
+                                          -f invenio_opendata/testsuite/data/alice/alice-reconstructed-data.xml \
+                                          -f invenio_opendata/testsuite/data/alice/alice-analysis-modules.xml \
+                                          -e force-recids" \
+          ./invenio2-kickstart --yes-i-know --yes-i-really-know
+
+- option 2, incomplete-but-fast-and-tiny installation, no big download
+  of CMS files at all; however this will make the site largely desert;
+  so this option is useful notably for testing collection setup or
+  testing templates only:
+
+  .. code-block:: console
+
+      laptop> vagrant ssh
+      vm> wget https://raw.githubusercontent.com/tiborsimko/invenio-devscripts/master/invenio2-kickstart
+      vm> chmod u+x ./invenio2-kickstart
+      vm> CFG_INVENIO2_REPOSITORY_OVERLAY=git://github.com/tiborsimko/opendata.cern.ch \
+          CFG_INVENIO2_VIRTUAL_ENV=opendata \
+          CFG_INVENIO2_DATABASE_USER=opendata \
+          CFG_INVENIO2_DATABASE_NAME=opendata \
+          CFG_INVENIO2_DEMOSITE_POPULATE="-f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-tools-ispy.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-external-resources.xml \
+                                          -f invenio_opendata/testsuite/data/alice/alice-analysis-modules.xml \
+                                          -e force-recids" \
+          ./invenio2-kickstart --yes-i-know --yes-i-really-know
+
+Finally, go brew some tee, come back in twenty minutes, enjoy!
 
 .. code-block:: console
 
