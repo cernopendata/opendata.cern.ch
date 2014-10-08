@@ -20,14 +20,6 @@
       <div class="rec_thumb rec_parentcol">
         <div class="n"><div class="t">Parent Collection</div><a href="{{ url_for('collection/'+collection.name) }}">{{ collection.names[g.ln,'ln'] }}</a></div>
       </div>
-      {% if record.get('computer_file_characteristics','') %}
-      <div class="rec_thumb rec_files_info">
-        <div class="n">
-          <div class="t">{{ record.get('computer_file_characteristics','') }}</div>
-          {{ record.get('computer_file_characteristics','') }}
-        </div>
-      </div>
-      {% endif %}
       {{ create_export_modal("exportModal", record, ['__meta_metadata__', 'restriction']) }}
     </div>
   </div>
@@ -42,6 +34,32 @@
     </div>
   </div>
 </div>
+{% if record.get('computer_file_characteristics', '') %}
+  <div class="rec_metadata rec_dataset_info">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="rec_title title">Dataset</div>
+      </div>
+      <div class="col-md-12">
+        <div class="rec_desc">
+          {% if record.get('computer_file_characteristics')['text'] %}
+            ------
+          {% else %}
+            {% for i in record.get('computer_file_characteristics') %}
+              <span>
+              {% if i['files'] %}{{ i['files'] }}
+              {% elif i['events'] %}{{i['events']}}
+              {% elif i['bytes'] %}{{(i['bytes']|float)|filesizeformat}}
+              {% elif i['characteristics'] %}{{i['characteristics']}}
+              {% endif %}
+              <b>{{ i.get('text','') }}</b></span>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
 <div class="rec_metadata rec_files">
   <div class="row">
     <div class="col-md-12">

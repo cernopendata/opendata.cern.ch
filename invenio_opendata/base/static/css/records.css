@@ -115,7 +115,6 @@
   padding: 5px 5px;
   border-radius: 2px;
   font-size: 100%;
-  width: 100%;
 }
 
 .rec_parentcol {
@@ -142,7 +141,6 @@
   border-radius: 2px;
   font-size: 100%;
   text-align: left;
-  width: 100%;
 }
 
 
@@ -400,11 +398,17 @@
   width: 100%;
 }
 
-.rec_description .rec_desc {
+.rec_desc {
   margin-top: 20px;
   font-size: 16px;
   color: #606D75;
   font-weight: 100;
+}
+.rec_desc span {
+  margin-right: 5px;
+}
+.rec_desc span b {
+  margin-left: 3px;
 }
 
 .rec_preview .rec_preview_box {

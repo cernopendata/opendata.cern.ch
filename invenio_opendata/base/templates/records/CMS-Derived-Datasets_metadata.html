@@ -21,7 +21,39 @@
     </div>
   </div>
 </div>
-
+{% if record.get('computer_file_characteristics', '') %}
+  <div class="rec_metadata rec_dataset_info">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="rec_title title">Dataset</div>
+      </div>
+      <div class="col-md-12">
+        <div class="rec_desc">
+          {% if record.get('computer_file_characteristics')['text'] %}
+          <span>
+          {% for k,v in record.get('computer_file_characteristics').items() %}
+            {% if k != 'text' %}
+              {{v}}
+            {% endif %}
+          {% endfor %}
+            <b>{{record.get('computer_file_characteristics')['text']}}</b>
+          </span>
+          {% else %}
+            {% for i in record.get('computer_file_characteristics') %}
+              <span>
+              {% if i['files'] %}{{ i['files'] }}
+              {% elif i['events'] %}{{i['events']}}
+              {% elif i['bytes'] %}{{(i['bytes']|float)|filesizeformat}}
+              {% elif i['characteristics'] %}{{i['characteristics']}}
+              {% endif %}
+              <b>{{ i.get('text','') }}</b></span>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
 <div class="rec_metadata rec_files">
   <div class="row">
     <div class="col-md-12">

@@ -11,13 +11,10 @@
       <div class="col-md-12 rec_parentcol">
         <div class="n"><div class="t col-md-4">Parent Collection</div><a href="{{ url_for('collection/'+collection.name) }}">{{ collection.names[g.ln,'ln'] }}</a></div>
       </div>
-      {% if record.get('computer_file_characteristics','') %}
-        <div class="col-md-12 rec_files_info" style="float: left;">
-          <div class="n">
-            <div class="t col-md-3">{{ record.get('computer_file_characteristics','') }}</div>
-            <div class="col-md-offset-3 col-md-9">{{ record.get('computer_file_characteristics','') }}</div>
-          </div>
-        </div>
+      {% if record.get('accelerator_experiment','') %}
+      <div class=" col-md-12 rec_thumb rec_parentcol">
+        <div class="n"><div class="t">Accelerator</div>{% for k,v in record.get('accelerator_experiment','').items()%}{{v}}{{ '/' if not loop.last }}{% endfor %}</div>
+      </div>
       {% endif %}
     </div>
   </div>
@@ -59,15 +56,15 @@
         </div>
       </div>
     {% endif %}
-    {% if record.get('constituent_unit_entry', '') %}
+    {% if record.get('material_publication_note', '') %}
       <div class="rec_dedicated_details_in rdd-reuse panel">
         <div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#reusability">How can you use these data?</div>
         <div id="reusability" class="info ccollapse">
-          <div class="body">{{ record.get('constituent_unit_entry', {}).get('heading', '') }}</div>
+          <div class="body">{{ record.get('material_publication_note', {}).get('note', '') }}</div>
           <div class="links">
-            {% if record.get('constituent_unit_entry.recid', '') %}
+            {% if record.get('material_publication_note.recid', {}) %}
               <ul>
-                <li><a href="{{ url_for('record.metadata', recid=record.get('constituent_unit_entry.recid', '')) }}">Record {{ record.get('constituent_unit_entry.recid', '') }}</a></li>
+                <li><a href="{{ url_for('record.metadata', recid=record.get('material_publication_note.recid', '')) }}">Record {{ record.get('material_publication_note.recid', '') }}</a></li>
               </ul>
             {% endif %}
           </div>

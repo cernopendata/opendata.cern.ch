@@ -15,40 +15,38 @@
         </div>
       </div>
     {% endif %}
-    {% if False and record.get('action_note', '') %} {# FIXME #}
+    {% if record.get('action_note', '') %}
       <div class="rec_dedicated_details_in rdd-val panel">
         <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#validation">How were these data validated?<span class="pull-right fa fa-angle-up"></span></div>
         <div id="validation" class="info collapse">
-          <div class="body">{{ record.get('action_note', {}).get('action', '') }}</div>
+          <div class="body">{{ record.get('action_note', {})[0]['action'] }}</div>
           <div class="links"">
-            {% if record.get('action_note.recid', '') %}
-              <ul>
-                <li><a href="{{ url_for('record.metadata', recid=record.get('action_note.recid', '')) }}">Record {{ record.get('action_note.recid', '') }}</a></li>
-              </ul>
+            <ul>
+            {% if record.get('action_note', {})[0]['recid'] %}
+              <li><a href="{{ url_for('record.metadata', recid=record.get('action_note.recid', '')) }}">Record {{ record.get('action_note.recid', '') }}</a></li>
             {% endif %}
-            {% if record.get('action_note.url', '') %}
-              <ul>
-                {% for u in record.get('action_note').get('url', []) %}
-                  <li><a href="{{ u }}">{{ u }}</a></li>
-                {% endfor %}
-              </ul>
+            {% if record.get('action_note', {})[0]['url'] %}
+              {% for u in record.get('action_note') %}
+                <li><a href="{{ u.url }}">{{ u.description }}</a></li>
+              {% endfor %}
             {% endif %}
+            </ul>
           </div>
         </div>
       </div>
     {% endif %}
-    {% if record.get('constituent_unit_entry', '') %}
+    {% if record.get('material_publication_note', '') %}
       <div class="rec_dedicated_details_in rdd-reuse panel">
         <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#reusability">How can you use these data?<span class="pull-right fa fa-angle-up"></span></div>
         <div id="reusability" class="info collapse">
-          <div class="body">{{ record.get('constituent_unit_entry', {}).get('heading', '') }}</div>
+          <div class="body">{{ record.get('material_publication_note', {}).get('note', '') }}</div>
           <div class="links">
             <ul>
-              <li><a href="{{ url_for('getting-started/CMS') }}">CMS Getting Started</a></li>
+              <li><a href="{{ record.get('material_publication_note.url', '') }}">{{record.get('material_publication_note.description', '')}}</a></li>
             </ul>
-            {% if record.get('constituent_unit_entry.recid', '') %}
+            {% if record.get('material_publication_note.recid', '') %}
               <ul>
-                <li><a href="{{ url_for('record.metadata', recid=record.get('constituent_unit_entry.recid', '')) }}">Record {{ record.get('constituent_unit_entry.recid', '') }}</a></li>
+                <li><a href="{{ url_for('record.metadata', recid=record.get('material_publication_note.recid', '')) }}">Record {{ record.get('material_publication_note.recid', '') }}</a></li>
               </ul>
             {% endif %}
           </div>
