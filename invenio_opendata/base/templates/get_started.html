@@ -149,6 +149,16 @@
                 </div>
               </a>
             </div>
+			<div class="col-md-6">
+				  <a href="{{ url_for((request.path|splitthem)[1]+'/ALICE') }}">
+				    <div class="coll-exp">
+				      <div class="top col-md-12">
+				        <div class="col-md-6 col-md-offset-3 thumb"><img src="{{ url_for('static', filename='img/ATLAS.gif') }}" alt="" class="img-cirle center-block"></div>
+				        <div class="col-md-12 exp-name">ATLAS Virtual Machines</div>
+			      </div>
+			    </div>
+			  </a>
+    		</div>
           </div>
         </div>
         <div class="tab-pane fade{% if exp == 'CMS' %} in active {% endif %}" id="CMS">

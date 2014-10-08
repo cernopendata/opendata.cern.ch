@@ -274,6 +274,18 @@ def about_alice():
     except TemplateNotFound:
         return abort(404)
 
+@blueprint.route('about/atlas')
+@blueprint.route('about/ATLAS')
+@register_breadcrumb(blueprint, '.about_atlas', 'ATLAS', \
+                        dynamic_list_constructor = (lambda :\
+                        [{"url":".about", "text":"About"},\
+                        {"url":".about_atlas","text":"ATLAS OpenData"}]) )
+def about_atlas():
+    try:
+        return render_template('about_atlas.html')
+    except TemplateNotFound:
+        return abort(404)
+
 
 @blueprint.route('about/CMS-Physics-Objects')
 @register_breadcrumb(blueprint, '.about_physics', 'ALICE', \

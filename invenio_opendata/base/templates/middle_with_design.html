@@ -29,7 +29,10 @@
           <div>
             <div class="goto">Go to links:</div>
             <ul>
-              <li><a href=" {{ url_for('VM') }}"><span class="fa fa-chevron-right"></span><span class="action-title">Working environments</span></a><a href="{{ url_for('VM/CMS') }}"><img class="exp-xs-img" src="{{url_for('static', filename='img/CMS.gif')}}" alt=""></a><a href="{{ url_for('VM/ALICE') }}"><img src="{{url_for('static', filename='img/ALICE.gif')}}" class="exp-xs-img" alt=""></a></li>
+              <li><a href=" {{ url_for('VM') }}"><span class="fa fa-chevron-right"></span><span class="action-title">Working environments</span></a>
+				  <a href="{{ url_for('VM/CMS') }}"><img class="exp-xs-img" src="{{url_for('static', filename='img/CMS.gif')}}" alt=""></a>
+				  <a href="{{ url_for('VM/ALICE') }}"><img src="{{url_for('static', filename='img/ALICE.gif')}}" class="exp-xs-img" alt=""></a>
+				  <a href="{{ url_for('VM/ATLAS') }}"><img src="{{url_for('static', filename='img/ATLAS.gif')}}" class="exp-xs-img" alt=""></a></li>
               <li><a href=" {{ url_for('getting-started') }}"><span class="fa fa-chevron-right"></span><span class="action-title">Getting started</span></a></li>
               <li><a href=" {{ url_for('data') }}"><span class="fa fa-chevron-right"></span><span class="action-title">More...</span></a></li>
             </ul>
