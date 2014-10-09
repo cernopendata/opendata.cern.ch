@@ -4,7 +4,7 @@
       <div class="rec_dedicated_details_in rdd-sel panel">
         <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#selection">Data Selection<span class="pull-right fa fa-angle-up"></span></div>
         <div id="selection" class="info collapse">
-          <div class="body">{{ record.get('methodology_note', {}).get('note', '') }}</div>
+          <div class="body">{{ record.get('methodology_note', {}).get('note', '')|safe }}</div>
           <div class="links">
             {% if record.get('methodology_note.recid', '') %}
               <ul>
@@ -19,7 +19,7 @@
       <div class="rec_dedicated_details_in rdd-val panel">
         <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#validation">Validation<span class="pull-right fa fa-angle-up"></span></div>
         <div id="validation" class="info collapse">
-          <div class="body">{{ record.get('action_note', {}).get('action', '') }}</div>
+          <div class="body">{{ record.get('action_note', {}).get('action', '')|safe }}</div>
           <div class="links"">
             {% if record.get('action_note.recid', '') %}
               <ul>
@@ -28,9 +28,27 @@
             {% endif %}
             {% if record.get('action_note.url', '') %}
               <ul>
-                {% for u in record.get('action_note').get('url', []) %}
-                  <li><a href="{{ u }}">{{ u }}</a></li>
-                {% endfor %}
+                <li><a href="{{record.get('action_note.url', '')}}">{{record.get('action_note.description', '')}}</a></li>
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    {% if record.get('material_publication_note', '') %}
+      <div class="rec_dedicated_details_in rdd-reuse panel">
+        <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#reusability">How can you use these data?<span class="pull-right fa fa-angle-up"></span></div>
+        <div id="reusability" class="info collapse">
+          <div class="body">{{ record.get('material_publication_note', {}).get('note', '') }}</div>
+          <div class="links">
+            {% if record.get('material_publication_note.url', {}) %}
+              <ul>
+                <li><a href="{{ record.get('material_publication_note.url', '') }}">{{ record.get('material_publication_note.description', '') }}</a></li>
+              </ul>
+            {% endif %}
+            {% if record.get('material_publication_note.recid', {}) %}
+              <ul>
+                <li><a href="{{ url_for('record.metadata', recid=record.get('material_publication_note.recid', '')) }}">Record {{ record.get('material_publication_note.recid', '') }}</a></li>
               </ul>
             {% endif %}
           </div>
@@ -48,6 +66,11 @@
                 <li><a href="{{ url_for('record.metadata', recid=record.get('constituent_unit_entry.recid', '')) }}">Record {{ record.get('constituent_unit_entry.recid', '') }}</a></li>
               </ul>
             {% endif %}
+            {% if record.get('constituent_unit_entry.url', '') %}
+              <ul>
+                <li><a href="{{ record.get('constituent_unit_entry.url', '') }}">{{ record.get('constituent_unit_entry.description', '') }}</a></li>
+              </ul>
+            {% endif %}
           </div>
         </div>
       </div>
@@ -61,6 +84,11 @@
             {% if record.get('documentation_note.recid', '') %}
               <ul>
                 <li><a href="{{ url_for('record.metadata', recid=record.get('documentation_note.recid', '')) }}">Record {{ record.get('documentation_note.recid', '') }}</a></li>
+              </ul>
+            {% endif %}
+            {% if record.get('documentation_note.url', '') %}
+              <ul>
+                <li><a href="{{ record.get('documentation_note.url', '') }}">{{ record.get('documentation_note.description', '') }}</a></li>
               </ul>
             {% endif %}
           </div>
