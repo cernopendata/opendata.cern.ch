@@ -41,7 +41,7 @@
               <div class="row">
                 <div class="thumb col-md-4"><img class="img-circle" src="{{ url_for('static', filename='img/'+portalboxes['image']) }}" alt=""></div>
                 <div class="details col-md-8">
-                  <div class="title col-md-12">{{ collection.names[g.ln,'ln'] }}</div>
+                  <div class="title col-md-12">{{ collection.name_ln }}</div>
                   <div class="desc col-md-12"><span>{% for d in (portalboxes['desc']|splitthem('#$#$#')) %}{{d}}{% endfor %}</span></div>
                 </div>
               </div>
@@ -369,7 +369,7 @@
     <div class="row">
       <div class="coltitle col-md-12">
         <p>
-          {{ collection.names[g.ln,'ln'] }}
+          {{ collection.name_ln }}
         </p>
       </div>
     </div>
@@ -380,7 +380,7 @@
           {% if collection.is_restricted %}
             {{ _('Restricted Collection')  }}
           {% else %}
-            {{ collection.names[g.ln,'ln'] }}
+            {{ collection.name_ln }}
           {% endif %}
         </p>
       </div>
@@ -396,7 +396,7 @@
   <div class="container">
     {%- block index_right scoped-%}
     <div class="col-md-12">
-      <div class="results-title">{{ collection.names[g.ln,'ln'] }}</div>
+      <div class="results-title">{{ collection.name_ln }}</div>
       {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
       {% for pb in collection.portalboxes %}
         {% if (pb.portalbox.title == 'description') %}

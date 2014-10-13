@@ -19,7 +19,7 @@
         </div>
       {% endif %}
       <div class="rec_thumb rec_parentcol">
-        <div class="n"><div class="t">Parent Collection</div><a href="{{ url_for('collection/'+collection.name) }}">{{ collection.names[g.ln,'ln'] }}</a></div>
+        <div class="n"><div class="t">Parent Collection</div><a href="{{ url_for('collection/'+collection.name) }}">{{ collection.name_ln }}</a></div>
       </div>
       {{ create_export_modal("exportModal", record, ['__meta_metadata__', 'restriction']) }}
     </div>

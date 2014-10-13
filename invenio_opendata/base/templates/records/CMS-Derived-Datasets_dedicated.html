@@ -9,7 +9,7 @@
       {% endif %}
       <div class="col-md-12 pull-left">{{ create_export_modal("exportModal", record, ['__meta_metadata__', 'restriction']) }}</div>
       <div class="col-md-12 rec_parentcol">
-        <div class="n"><div class="t col-md-4">Parent Collection</div><a href="{{ url_for('collection/'+collection.name) }}">{{ collection.names[g.ln,'ln'] }}</a></div>
+        <div class="n"><div class="t col-md-4">Parent Collection</div><a href="{{ url_for('collection/'+collection.name) }}">{{ collection.name_ln }}</a></div>
       </div>
       {% if record.get('accelerator_experiment','') %}
       <div class=" col-md-12 rec_thumb rec_parentcol">

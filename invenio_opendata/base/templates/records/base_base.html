@@ -87,7 +87,7 @@
               {{ format_record(recid, of='HDACT', ln=g.ln)|safe }}
             </div>
             <div class="col-md-12 rec_parentcol">
-              <div class="n"><div class="t col-md-4">Parent Collection</div><a href="{{ url_for('collection/'+collection.name) }}">{{ collection.names[g.ln, 'ln'] }}</a></div>
+              <div class="n"><div class="t col-md-4">Parent Collection</div><a href="{{ url_for('collection/'+collection.name) }}">{{ collection.name_ln }}</a></div>
             </div>
           </div>
         </div>
