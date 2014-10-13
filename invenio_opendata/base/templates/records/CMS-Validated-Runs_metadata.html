@@ -1,4 +1,5 @@
-{% from "records/macros.html" import create_export_modal with context %}
+{% from "records/macros.html" import create_export_modal, record_files_display with context %}
+
 <div class="rec_header">
   <div class="row rec_details">
     <div>
@@ -34,39 +35,5 @@
     </div>
   </div>
 </div>
-<div class="rec_metadata rec_files">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="rec_title title">Files</div>
-    </div>
-    {% if record['files'] == [] %}
-      <div class="col-md-12" style="margin-top: 20px;font-size: 16px;color: #606D75;font-weight: 100;">The files can be accessed using the <a href="{{url_for('VM/CMS')}}">Virtual Machine</a></div>
-    {% else %}"
+{{ record_files_display(record.get('files',''), False ) }}
 
-      <div class="col-md-12">
-        <div class="rec_file_box">
-          <ul class="row">
-            {% for file in record['files'] %}
-              <li class="col-md-12 panel-group">
-                <div class="content_box panel-title">
-                  <div class="row">
-                    <div class="pull-left col-md-7">
-                      <ul class="row">
-                        <li class="col-md-12"><a href="{{ file.get('url','') }}">{{ file.get('full_name','') }}</a></li>
-                        <li class="col-md-12"><b>Size:</b> {{ file.get('size','') | filesizeformat }}</li>
-                        {{ '<li class="col-md-12"><b>Description:</b>'+(file.get('description')|truncate(50))+'</li>' if (file.get('description', '') != '') }}
-                      </ul>
-                    </div>
-                    <div class="pull-right col-md-5">
-                      <a href="{{file['url']}}" class="btn">Download</a>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-    {% endif %}
-  </div>
-</div>

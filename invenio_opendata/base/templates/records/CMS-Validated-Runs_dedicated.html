@@ -18,8 +18,8 @@
     {% if record.get('action_note', '') %}
       <div class="rec_dedicated_details_in rdd-val panel">
         <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#validation">How were these data validated?<span class="pull-right fa fa-angle-up"></span></div>
-        <div id="validation" class="info collapse">
-          <div class="body">{{ record.get('action_note', {}).get('action', '') }}</div>
+        <div id="validation" class="info collaspse">
+          <div class="body">{{ record.get('action_note', '')[0]['action'] }}</div>
           <div class="links"">
             {% if record.get('action_note.recid', '') %}
               <ul>
@@ -28,8 +28,8 @@
             {% endif %}
             {% if record.get('action_note.url', '') %}
               <ul>
-                {% for u in record.get('action_note').get('url', []) %}
-                  <li><a href="{{ u }}">{{ u }}</a></li>
+                {% for u in record.get('action_note')  %}
+                  <li><a href="{{ u.url }}">{{ u.description}}</a></li>
                 {% endfor %}
               </ul>
             {% endif %}

@@ -1,71 +1,61 @@
+{% from "records/macros.html" import create_export_modal, record_files_display with context %}
+
 <div class="rec_header">
-  <div class="rec_details row">
-    <div class="title col-md-12">{{ record.get('title',{}).get('title','') }}<span>{{ record.get('imprint', {}).get('date', '') }}</span>
+  <div class="row rec_details">
+    <div>
+      <div class="title col-md-12">{{ record.get('title',{}).get('title','') }}<span>{{ record.get('imprint', {}).get('date', '') }}</span>
+      </div>
+      <div class="rec_authors {% if (record['authors']|length) < 5 %} col-md-12" {% else %} " id="rec_authors_rdmore" {% endif %} >
+        {% for auth in record['authors'] %}
+          <a href="#">{{ auth['full_name'] }}</a>
+        {% endfor %}
+      </div>
     </div>
-    <div class="rec_authors {% if (record['authors']|length) < 5 %} col-md-12" {% else %} " id="rec_authors_rdmore" {% endif %} >
-      {% for auth in record['authors'] %}
-        <a href="#">{{ auth['full_name'] }}</a>
-      {% endfor %}
+    <div class="col-md-12 ">
+      {% if record['doi'] %}
+        <div class="rec_thumb rec_doi">
+          <div class="n"><div class="t">DOI</div>{{ record['doi'] }}</div>
+        </div>
+      {% endif %}
+      <div class="rec_thumb rec_parentcol">
+        <div class="n"><div class="t">Parent Collection</div><a href="{{ url_for('collection/'+collection.name) }}">{{ collection.names[g.ln,'ln'] }}</a></div>
+      </div>
+      {{ create_export_modal("exportModal", record, ['__meta_metadata__', 'restriction']) }}
     </div>
   </div>
 </div>
+
 <div class="rec_metadata rec_description">
   <div class="row">
     <div class="col-md-12">
       <div class="rec_title title">Description</div>
     </div>
     <div class="col-md-12">
-      <div class="rec_desc">{{ record.get('abstract',{}).get('summary','') }}</div>
+      <div class="rec_desc">{{record.get('abstract', {}).get('summary', '')}}</div>
     </div>
   </div>
 </div>
+
 {% if record.get('url',[]) != [] %}
-  <div class="rec_metadata rec_urls">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="rec_title title">URLs</div>
-      </div>
-      <div class="col-md-12" style="margin-top: 20px;font-size: 16px;color: #606D75;font-weight: 100;">
-        <div class="row">
-          {% if record.get('url').get('url') is not string %}
-            {% for u in record.get('url').get('url') %}
-              {{ u }}
-            {% endfor %}
-          {% else %}
-            {{ record.get('url','').get('url','') }}
-          {% endif %}
-        </div>
+<div class="rec_metadata rec_urls">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="rec_title title">URLs</div>
+    </div>
+    <div class="col-md-12" style="margin-top: 20px;font-size: 16px;color: #606D75;font-weight: 100;">
+      <div class="row">
+      {% if record.get('url').get('url') is not string %}
+        {% for u in record.get('url').get('url') %}
+        <a class="col-md-12" href="{{ u }}">{{ u }}</a>
+        {% endfor %}
+      {% else %}
+        <a class="col-md-12" href="{{ record.get('url','').get('url','') }}">{{ record.get('url','').get('url','') }}</a>
+      {% endif %}
       </div>
     </div>
   </div>
+</div>
 {% endif %}
-{% if record['files'] != [] %}
-  <div class="rec_metadata rec_files">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="rec_title title">Files <a {% if 'files' in record %}class="disabled"{%endif%} href="{{ url_for('record.files', recid=recid) }}">(see all files)</a></div>
-      </div>
-      <div class="col-md-12">
-        <div class="rec_file_box">
-          <ul class="row">
-            {% for file in record['files'] %}
-              <li class="col-md-4">
-                <div class="content_box">
-                  <div class="row">
-                    <div class="pull-left col-md-7">
-                      <ul class="row">
-                        <li class="col-md-12"><a href="{{ file.get('url','') }}">{{ file.get('full_name','') }}</a></li>
-                        <li class="col-md-12"><b>Size:</b> {{ file.get('size','') | filesizeformat }}</li>
-                        {{ '<li class="col-md-12"><b>Description:</b>'+(file.get('description')|truncate(50))+'</li>' if (file.get('description', '') != '') }}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-{% endif %}
+
+{{ record_files_display(record.get('files',''), False ) }}
+

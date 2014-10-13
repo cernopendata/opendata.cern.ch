@@ -1,4 +1,5 @@
 {% set show_previewer={'show':false} %}
+{% from "records/macros.html" import record_files_display with context %}
 
 <div class="rec_header">
   <div class="rec_details row">
@@ -54,41 +55,12 @@
     </div>
   </div>
 {% endif %}
-<div class="rec_metadata rec_files">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="rec_title title">Files <a href="{{ url_for('record.files', recid=recid) }}">(see all files)</a></div>
-    </div>
-    <div class="col-md-12">
-      <div class="rec_file_box">
-        <ul class="row">
-          {% for file in record['files'] %}
-            {% if (file.get('url','')[-3:] == '.ig') and (show_previewer['show'] == false) %}
-              {% do show_previewer.update({'show':true}) %}
-            {% endif %}
-            <li class="col-md-12">
-              <div class="content_box">
-                <div class="row">
-                  <div class="pull-left col-md-7">
-                    <ul class="row">
-                      <li class="col-md-12"><a href="{{ file.get('url','') }}">{{ file.get('full_name','') }}</a></li>
-                      <li class="col-md-12"><b>Size:</b> {{ file.get('size','') | filesizeformat }}</li>
-                      {{ '<li class="col-md-12"><b>Description:</b>'+(file.get('description')|truncate(50))+'</li>' if (file.get('description', '') != '') }}
-                    </ul>
-                  </div>
-                  <div class="pull-right col-md-5">
-                    <button class="btn" onClick="window.location.href='{{file["url"]}}'">Download</button>
-                    <button class="btn" onClick="window.location.href='#previewer'">Preview</button>
-                  </div>
-                </div>
-              </div>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+
+{% for file in record['files'] if not with_preview %}
+  {% if (file.get('url','')[-3:] == '.ig') and (show_previewer['show'] == false) %}
+    {% do show_previewer.update({'show':true}) %}
+  {% endif %}
+{% endfor %}
 
 {% if show_previewer['show'] == true %}
 <div class="rec_metadata rec_preview">
@@ -104,3 +76,5 @@
   </div>
 </div>
 {% endif %}
+
+{{ record_files_display(record.get('files',''), show_previewer['show'] ) }}

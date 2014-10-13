@@ -1,4 +1,5 @@
-{% from "records/macros.html" import create_export_modal with context %}
+{% from "records/macros.html" import create_export_modal, record_files_display with context %}
+
 <div class="rec_header">
   <div class="row rec_details">
     <div>
@@ -53,37 +54,5 @@
   </div>
 </div>
 {% endif %}
-{% if record['files'] != [] %}
-<div class="rec_metadata rec_files">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="rec_title title">Files <a {% if 'files' in record %}class="disabled"{%endif%} href="{{ url_for('record.files', recid=recid) }}">(see all files)</a></div>
-    </div>
-    <div class="col-md-12">
-      <div class="rec_file_box">
-        <ul class="row">
-          {% for file in record['files'] %}
-            <li class="col-md-4">
-              <div class="content_box">
-                <div class="row">
-                  <div class="pull-left col-md-7">
-                    <ul class="row">
-                      <li class="col-md-12"><a href="{{ file.get('url','') }}">{{ file.get('full_name','') }}</a></li>
-                      <li class="col-md-12"><b>Size:</b> {{ file.get('size','') | filesizeformat }}</li>
-                      {{ '<li class="col-md-12"><b>Description:</b>'+(file.get('description')|truncate(50))+'</li>' if (file.get('description', '') != '') }}
-                    </ul>
-                  </div>
-                  <div class="pull-right col-md-5">
-                    <button class="btn">Download</button>
-                    <button class="btn">Preview</button>
-                  </div>
-                </div>
-              </div>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-{% endif %}
+
+{{ record_files_display(record.get('files',''), False ) }}

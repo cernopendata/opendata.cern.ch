@@ -1,3 +1,44 @@
+{% macro record_files_display(files, with_preview) %}
+	{% if record.get('files', []) %}
+	<div class="rec_metadata rec_files">
+	  <div class="row">
+	    <div class="col-md-12">
+	      <div class="rec_title title">Files <a href="{{ url_for('record.files', recid=recid) }}">(see all files)</a></div>
+	    </div>
+	    <div class="col-md-12">
+	      <div class="rec_file_box">
+	        <ul class="row">
+	        	{% for file in record['files'] %}
+	          <li class="col-md-12">
+	            <div class="content_box">
+	              <div class="row">
+	                <div class="col-xs-6 col-sm-8">
+	                  <div class="leftside">
+	                    <ul>
+	                      <li class="col-xs-12 col-sm-8 no-padding"><a href="{{ file.get('url','') }}">{{ file.get('full_name','') }}</a></li>
+	                      <li class="col-xs-12 col-sm-4 no-padding"><b>Size:</b> {{ file.get('size','') | filesizeformat }}</li>
+	                    </ul>
+	                    {{ ('<ul><li class="col-xs-12 no-padding"><b>Description:</b>'+(file.get('comment')|truncate(100))+'</li></ul>')|safe if (file.get('comment', '') != '') }}
+	                  </div>
+	                </div>
+	                <div class="col-xs-6 col-sm-4">
+	                  <div class="rightside">
+	                    <button class="col-xs-12  {{ 'col-sm-6'if with_preview else 'col-sm-12'}} btn" onClick="window.location.href='{{file["url"]}}'">Download</button>
+	                    {% if with_preview %}<button class="col-xs-12 col-sm-6 btn" onClick="window.location.href='#previewer'">Preview</button>{%endif%}
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+	          </li>
+	        	{% endfor %}
+	        </ul>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	{% endif %}
+{% endmacro %}
+
 {% macro list_record_attributes(record, exclude=[]) %}
 <ul class="row">
 	{% for el in record|sort %}
