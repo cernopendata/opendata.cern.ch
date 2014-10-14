@@ -147,6 +147,8 @@
       font-weight: 100;
       display: inline-block;
       padding-top: 10px;
+      padding-bottom: 5px;
+      width: 100%;
     }
 
     #subcollection .collection-res .nav {
@@ -249,7 +251,9 @@
       padding-bottom: 10px;
       border-bottom: 1px dotted #606D75;
     }
-
+    #subcollection .collection-res > .col-md-12.last {
+      border: 0;
+    }
     #subcollection .results-title {
       padding-top: 25px;
       padding-bottom: 40px;
@@ -257,6 +261,12 @@
       font-weight: 100;
       text-align: center;
     }
+    #subcollection .collection-res .more-block {
+      display: inline-block;
+      width: 100%;
+      border-top: 1px dotted #606D75;
+    }
+
     #subcollection .collection-res .more {
       text-align: center;
       margin: 10px 15px;
@@ -346,14 +356,16 @@
 
             {% if collection.reclist %}
               {% for recid in collection.reclist[-10:]|reverse %}
-                <div class="col-md-12">
+                <div class="col-md-12 {{ 'last' if loop.last }}">
                   {{ format_record(recid, of, ln=g.ln, extra_context=dict(collection=collection))|safe }}
                 </div>
               {% endfor %}
               {% if collection.reclist|length > 10 %}
-                <div class="more pull-right">
-                  <a href="{{ url_for('search.search', cc=collection.name, ln=g.ln, jrec=11)|safe }}"
-                     class="text-muted">{{ _('more')}} <div class="fa fa-chevron-right"></div> </a>
+                <div class="more-block">
+                  <div class="more pull-right">
+                    <a href="{{ url_for('search.search', cc=collection.name, ln=g.ln, jrec=11)|safe }}"
+                       class="text-muted">{{ _('more')}} <div class="fa fa-chevron-right"></div> </a>
+                  </div>
                 </div>
               {% endif %}
             {% endif %}
