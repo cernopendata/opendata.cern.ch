@@ -103,17 +103,25 @@ class CollectionData(DataSet):
         id = 12
         name = 'ATLAS'
         dbquery = None
-        
-    class ATLASExternalResources(siteCollection):
+
+    class ATLASDerivedDatasets(siteCollection):
         id = 13
+        name = 'ATLAS-Derived-Datasets'
+        dbquery = '980__a:"ATLAS-Derived-Datasets"'
+        names = {
+            ('en', 'ln'): u'ATLAS Derived Datasets',
+        }
+
+    class ATLASExternalResources(siteCollection):
+        id = 14
         name = 'ATLAS-External-Resources'
         dbquery = '980__a:"ATLAS-External-Resources"'
         names = {
             ('en', 'ln'): u'ATLAS External Resources',
         }
-    
+
     class ATLASTools(siteCollection):
-        id = 14
+        id = 15
         name = 'ATLAS-Tools'
         dbquery = '980__a:"ATLAS-Tools"'
         names = {
@@ -234,21 +242,44 @@ class CollectionCollectionData(DataSet):
     class siteCollection_ATLAS:
         dad = CollectionData.siteCollection
         son = CollectionData.ATLAS
-        score = 0
+        score = 2
         type = 'v'
+
+    class siteCollection_ATLASDerivedDatasets:
+        dad = CollectionData.siteCollection
+        son = CollectionData.ATLASDerivedDatasets
+        score = 8
+        type = 'r'
+
+    class siteCollection_ATLASExternalResources:
+        dad = CollectionData.siteCollection
+        son = CollectionData.ATLASExternalResources
+        score = 9
+        type = 'r'
+
+    class siteCollection_ATLASTools:
+        dad = CollectionData.siteCollection
+        son = CollectionData.ATLASTools
+        score = 10
+        type = 'r'
+
+    class ATLAS_ATLASDerivedDatasets:
+        dad = CollectionData.ATLAS
+        son = CollectionData.ATLASDerivedDatasets
+        score = 0
+        type = 'r'
 
     class ATLAS_ATLASExternalResources:
         dad = CollectionData.ATLAS
         son = CollectionData.ATLASExternalResources
-        score = 0
+        score = 1
         type = 'r'
 
     class ATLAS_ATLASTools:
         dad = CollectionData.ATLAS
         son = CollectionData.ATLASTools
-        score = 0
+        score = 2
         type = 'r'
-
 
 
 class CollectiondetailedrecordpagetabsData(DataSet):
@@ -382,7 +413,7 @@ class PortalboxData(DataSet):
         body = u'ATLAS.gif'
         id = 19
         title = u'image'
-        
+
     class Portalbox_20:
         body = u'The ATLAS (A Toroidal LHC ApparatuS) experiment is the other general-purpose particle physics detector at the LHC. It covers a wide range of physics exploring topics like the properties of the Higgs-like particle whose discovery was announced in July 2012.'
         id = 20
@@ -397,12 +428,16 @@ class PortalboxData(DataSet):
         body = u'This collection includes tools, with which the ATLAS open data can be accessed and used#$#$#.'
         id = 22
         title = u'description'
-    
+
     class Portalbox_23:
         body = u'ATLAS is releasing data in an XML format. '
         id = 23
         title = u'research_description'
-    
+
+    class Portalbox_24:
+        body = u'This collection includes ATLAS masterclass datasets.'
+        id = 24
+        title = u'description'
 
 
 class CollectionPortalboxData(DataSet):
@@ -547,35 +582,33 @@ class CollectionPortalboxData(DataSet):
         score = 100
         id_collection = CollectionData.ATLAS.ref('id')
 
-    class CollectionPortalbox_13_21_en:
+    class CollectionPortalbox_14_21_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_21.ref('id')
         score = 100
         id_collection = CollectionData.ATLASExternalResources.ref('id')
 
-    class CollectionPortalbox_13_21_en:
-        ln = u'en'
-        position = u'r'
-        id_portalbox = PortalboxData.Portalbox_21.ref('id')
-        score = 100
-        id_collection = CollectionData.ATLASExternalResources.ref('id')
-
-
-    class CollectionPortalbox_14_22_en:
+    class CollectionPortalbox_15_22_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_22.ref('id')
         score = 100
         id_collection = CollectionData.ATLASTools.ref('id')
 
-    class CollectionPortalbox_2_23_en:
+    class CollectionPortalbox_12_23_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_23.ref('id')
         score = 100
         id_collection = CollectionData.ATLAS.ref('id')
 
+    class CollectionPortalbox_13_24_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_24.ref('id')
+        score = 100
+        id_collection = CollectionData.ATLASDerivedDatasets.ref('id')
 
 
 class FacetCollectionData(DataSet):
