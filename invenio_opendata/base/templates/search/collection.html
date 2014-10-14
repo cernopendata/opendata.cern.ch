@@ -143,28 +143,15 @@
     #subcollection .collection-res {
       background-color: #f4f4f4;
       border-radius: 3px;
-      font-size: 20px;
+      font-size: 16px;
       font-weight: 100;
-      padding-top: 20px;
-      padding-bottom: 20px;
       display: inline-block;
+      padding-top: 10px;
     }
 
     #subcollection .collection-res .nav {
       background-color: inherit;
     }
-    #subcollection .collection-res > .row:nth-child(2n+1) {
-      background-color: #fff;
-    }
-
-    #subcollection .collection-res > .row:nth-child(2n) a.dropdown-toggle {
-      background-color: #fff;
-    }
-
-    #subcollection .collection-res > .row:nth-child(2n+1) a.dropdown-toggle {
-      background-color: #eee;
-    }
-
     #subcollection .record-brief .record-header {
       font-size: 18px;
       font-weight: 600;
@@ -257,11 +244,12 @@
 
     }
     #subcollection .collection-res > .col-md-12 {
-      background-color: #fff;
-    }
-    #subcollection .collection-res > .col-md-12:nth-child(2n) {
       background-color: #f4f4f4;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px dotted #606D75;
     }
+
     #subcollection .results-title {
       padding-top: 25px;
       padding-bottom: 40px;
@@ -271,12 +259,13 @@
     }
     #subcollection .collection-res .more {
       text-align: center;
+      margin: 10px 15px;
     }
     #subcollection .collection-res .more a {
       background-color: #899AA5;
-      padding: 12px 60px;
-      display: inline;
-      line-height: 3;
+      padding: 2px 20px;
+      display: inline-block;
+      line-height: 2;
       color: #fff;
       border-radius: 5px;
     }
@@ -362,9 +351,9 @@
                 </div>
               {% endfor %}
               {% if collection.reclist|length > 10 %}
-                <div class="more center-block">
+                <div class="more pull-right">
                   <a href="{{ url_for('search.search', cc=collection.name, ln=g.ln, jrec=11)|safe }}"
-                     class="text-muted">{{ _('more')}}</a>
+                     class="text-muted">{{ _('more')}} <div class="fa fa-chevron-right"></div> </a>
                 </div>
               {% endif %}
             {% endif %}
