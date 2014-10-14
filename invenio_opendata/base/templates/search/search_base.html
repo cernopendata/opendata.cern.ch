@@ -84,12 +84,12 @@
     {%- block index_results -%}
     <div class="row">
       {%- block facets %}
-      <div class="col-md-3 col-lg-3 visible-md visible-lg">
+      <div class="col-md-2 col-lg-2 visible-md visible-lg">
         <div class="facet" id="facet_list"></div>
       </div>
       {%- endblock facets %}
       {%- block index_right -%}
-      <div class="col-md-9 col-lg-9">
+      <div class="col-md-10 col-lg-10">
         {%- block facets_filter %}
         <div class="row visible-md visible-lg">
           <div class="col-md-10">
@@ -172,8 +172,8 @@
                       'data-facet-action="+" '+
                           'data-facet-key="' + name + '" '+
                           'data-facet-value="' + data[0] + '">' +
-                      title +
-                      '</a> <small class="text-muted">('+counter+')</small>' +
+                      title + '<small class="text-muted">('+counter+')</small>' +
+                      '</a> ' +
                       '</li>'
           },
           box_builder: function(name, title) {

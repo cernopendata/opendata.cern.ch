@@ -26,58 +26,21 @@
 {% endblock %}
 
 {% block record_header %}
-  <style>
-  .collection-res .rec_release .t{
-    color: #606D75;
-    float: left;
-    margin: -3px;
-    padding: 3px;
-    border-bottom-left-radius: 2px;
-    border-top-left-radius: 2px;
-    background-color: #f4f4f4;
-    font-weight: 400;
-    font-size: 12px;
-    text-align: left;
-    margin-right: 10px;
-  }
-  .collection-res .rec_release .n {
-    background-color: #fff;
-    color: #606D75;
-    float: left;
-    padding: 3px;
-    border-radius: 2px;
-    text-align: left;
-    border: 1px solid #899AA5;
-    font-size: 12px;
-    font-weight:400;
-  }
-  .collection-res .rec_thumb,
-  .collection-res .rec_title {
-    float: left;
-    margin-right: 10px;
-  }
-  .record-header, .record-content,
-  .record-info {
-    display: inline-block;
-    width: 100%;
-  }
-  </style>
-
-
   <a href="{{ url_for('record.metadata', recid=record['recid']) }}">
     <div class="rec_title">{{ record.get('title.title', '') }}</div>
     {{- record.get('title.volume', '')|prefix(', ') }}
     {{- record.get('title.subtitle', '')|prefix(': ') }}
-    {% if record.get('edition_statement','')  %}
-    <div class="rec_thumb rec_release">
-      <div class="n"><div class="t">Release</div>{{ (record.get('edition_statement', '').replace('Release: ', '')) }}</div>
-    </div>
-    {% endif %}
+    
   </a>
 {% endblock %}
 
 {% block record_content %}
-  {{ record.get('abstract.summary', '')|sentences(3) }}
+  {% if record.get('abstract.summary', '') %}
+    {{ record.get('abstract.summary', '')|sentences(3) }}
+  {% else %}
+    {{ _('Description is not provided') }}
+  {% endif %}
+  
 {% endblock %}
 
 {% block fulltext_snippets %}
@@ -85,5 +48,20 @@
 {% endblock %}
 
 {% block record_footer %}
-  {{ render_record_footer(4) }}
+  <div class="record-footer">
+    {{ render_record_footer(4) }}
+  </div>
+{% endblock %}  
+
+{% block record_details %}
+  {% if record.get('doi','') %}
+  <div class="rec_thumb_brief pull-right">
+    <div class="n"><div class="t">DOI</div>{{ record.get('doi', '') }}</div>
+  </div>
+  {% endif %}
+  {% if record.get('edition_statement','')  %}
+  <div class="rec_thumb_brief rec_release pull-right">
+    <div class="n"><div class="t">Release</div>{{ (record.get('edition_statement', '').replace('Release: ', '')) }}</div>
+  </div>
+  {% endif %}
 {% endblock %}

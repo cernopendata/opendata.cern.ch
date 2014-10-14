@@ -108,115 +108,83 @@
           text-align: left;
         }
       </style>
-      <form class="form-inline" name="" action="{{ url_for('search.dispatch') }}" method="post">
-        <div class="row">
-          {%- block search_results_header scoped %}
-          {{ results_actions() }}
+
+        {%- block search_results_header scoped %}
+        <div id="search_header">
           {% block search_result_nb_recs scoped %}
-            <div class="form-group hidden-xs col-sm-7">
-              <p class="help-block hidden-xs">
-                {%- set r_from = (pagination.page-1)*pagination.per_page+1 -%}
-                {%- set r_to = pagination.page*pagination.per_page -%}
-                {%- set r_of = pagination.total_count -%}
-                {%- set r_to = r_to if r_to < r_of else r_of -%}
-                {{ _('Showing records %(x_from)d to %(x_to)d out of %(x_total)d results.', x_from=r_from, x_to=r_to, x_total=r_of) }}
-              </p>
-            </div>
+          <div class="form-group hidden-xs col-sm-8">
+            <p class="help-block hidden-xs">
+              {%- set r_from = (pagination.page-1)*pagination.per_page+1 -%}
+              {%- set r_to = pagination.page*pagination.per_page -%}
+              {%- set r_of = pagination.total_count -%}
+              {%- set r_to = r_to if r_to < r_of else r_of -%}
+              {{ _('Showing records %(x_from)d to %(x_to)d out of %(x_total)d results.', x_from=r_from, x_to=r_to, x_total=r_of) }}
+            </p>
+          </div>
           {% endblock search_result_nb_recs %}
           {% block search_result_settings scoped %}
-            <div class="form-group col-xs-8 col-sm-4">
-              <div class="pull-right">
-                {%- set args = request.values.copy().to_dict() -%}
-                {%- set form_args = request.form.copy().to_dict() -%}
-                {%- if form_args|length() and 'filter' in form_args -%}
-                {%- do form_args.pop('filter') -%}
-                {%- do args.update(form_args) -%}
+          <div class="form-group col-xs-8 col-sm-4">
+            <div class="pull-right">
+              {%- set args = request.values.copy().to_dict() -%}
+              {%- set form_args = request.form.copy().to_dict() -%}
+              {%- if form_args|length() and 'filter' in form_args -%}
+              {%- do form_args.pop('filter') -%}
+              {%- do args.update(form_args) -%}
+              {%- endif -%}
+              {%- set new_args = args.copy() -%}
+
+              {% block search_result_settings_sort scoped %}
+              <div class="btn-group">
+                <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+                  <i class="glyphicon glyphicon-random hidden-sm"></i> {{ _('Sort by') }}
+                  <span class="caret"></span>
+                </a>
+
+                {%- if 'so' in new_args -%}
+                {%- do new_args.pop('so') -%}
                 {%- endif -%}
-                {%- set new_args = args.copy() -%}
+                {%- if 'rm' in new_args -%}
+                {%- do new_args.pop('rm') -%}
+                {%- endif -%}
 
-                {% block search_result_settings_sort scoped %}
-                  <div class="btn-group">
-                    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
-                      <i class="glyphicon glyphicon-random hidden-sm"></i> {{ _('Sort by') }}
-                      <span class="caret"></span>
-                    </a>
-
-                    {%- if 'so' in new_args -%}
-                    {%- do new_args.pop('so') -%}
-                    {%- endif -%}
-                    {%- if 'rm' in new_args -%}
-                    {%- do new_args.pop('rm') -%}
-                    {%- endif -%}
-
-                    <ul class="dropdown-menu">
-                      {%- for (k,v,vv) in [('Most recent', 'rm', ''), ('Most cited', 'rm', 'citation'), ('Most relevant', 'rm', 'wrd')] -%}
-                      {%- set active = request.values.get(v,'') == vv -%}
-                      {%- set used_args = new_args.copy() -%}
-                      {%- do used_args.update({v:vv}) -%}
-                      <li>
-                        <a href="{{ url_for('search.search', **used_args) }}{{ '#'+request.form.get('filter','')|default('', true) }}"
-                           class="{{ 'active' if active }}">
-                          <i class="pull-right icon {{ ' glyphicon glyphicon-ok' if active }}"></i>
-                          {{ _(k) }}
-                        </a>
-                      </li>
-                      {%- endfor -%}
-                      {% if collection.rnkMETHODs|length %}
-                        <li class="divider"></li>
-                        {% for rnk_method in collection.rnkMETHODs %}
-                          {%- set used_args = new_args.copy() -%}
-                          {%- do used_args.update({'rm': rnk_method.rnkMETHOD.name }) -%}
-                          <li><a href="{{ url_for('search.search', **used_args) }}">
-                            {{ rnk_method.rnkMETHOD.get_name_ln() }}
-                          </a></li>
-                        {% endfor %}
-                      {% endif %}
-                    </ul>
-                  </div>
-                  {%- endblock search_result_settings_sort %}
-                  {%- block search_result_settings_display scoped %}
-                  <div class="btn-group">
-                    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
-                      <i class="glyphicon glyphicon-th hidden-sm"></i> {{ _('Display') }}
-                      <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                      {%- for i in collection.formatoptions if i.content_type == 'text/html' and i.visibility == 1 -%}
-                      {%- set used_args = new_args and new_args.copy() or dict() -%}
-                      {%- do used_args.update({'of':i.code}) -%}
-                      <li><a
-                        href="{{ url_for('search.search', **used_args) }}{{ '#'+request.form.get('filter','')|default('', true) }}"
-                        class="{{ ' active' if active }}">
-                        <i class="pull-right icon {{ ' glyphicon glyphicon-ok' if of==i.code }}"></i>
-                        {{ i.name }}
-                      </a></li>
-                      {%- endfor -%}
-                      <!-- dropdown menu links -->
-                    </ul>
-                  </div>
-                  {%- endblock search_result_settings_display %}
-              </div>
+                <ul class="dropdown-menu">
+                  {%- for (k,v,vv) in [('Most recent', 'rm', ''), ('Most cited', 'rm', 'citation'), ('Most relevant', 'rm', 'wrd')] -%}
+                  {%- set active = request.values.get(v,'') == vv -%}
+                  {%- set used_args = new_args.copy() -%}
+                  {%- do used_args.update({v:vv}) -%}
+                  <li>
+                    <a href="{{ url_for('search.search', **used_args) }}{{ '#'+request.form.get('filter','')|default('', true) }}"
+                    class="{{ 'active' if active }}">
+                    <i class="pull-right icon {{ ' glyphicon glyphicon-ok' if active }}"></i>
+                    {{ _(k) }}
+                  </a>
+                </li>
+                {%- endfor -%}
+                {% if collection.rnkMETHODs|length %}
+                <li class="divider"></li>
+                {% for rnk_method in collection.rnkMETHODs %}
+                {%- set used_args = new_args.copy() -%}
+                {%- do used_args.update({'rm': rnk_method.rnkMETHOD.name }) -%}
+                <li><a href="{{ url_for('search.search', **used_args) }}">
+                  {{ rnk_method.rnkMETHOD.get_name_ln() }}
+                </a></li>
+                {% endfor %}
+                {% endif %}
+              </ul>
             </div>
+            {%- endblock search_result_settings_sort %}
+          </div>
         </div>
-        {%- endblock search_result_settings %}
-
-        <hr/>
+      </div>
+      {%- endblock search_result_settings %}
+      <form class="form-inline" name="" action="{{ url_for('search.dispatch') }}" method="post">
         {%- endblock search_results_header %}
         {%- block search_results scoped -%}
         {%- for recid in recids -%}{% set recordloop = loop %}{%- block search_result scoped -%}
         {%- if of[0] == 'h' -%}
         <div class="row record">
-          {%- block search_result_prefix scoped -%}
-          <div class="col-sm-1 col-xs-1">
-            <label class="checkbox">
-              <input name="recid" type="checkbox" value="{{ recid }}" />
-              <abbr class="unapi-id" title="{{ recid }}"></abbr>
-              {{ recordloop.index+(pagination.page-1)*rg }}
-            </label>
-          </div>
-          {%- endblock search_result_prefix -%}
           {%- block search_result_record scoped -%}
-          <div class="col-sm-11 col-xs-11">
+          <div class="col-sm-12 col-xs-12">
             {{ format_record(recid, of, ln=g.ln, qid=qid, extra_context=dict(collection=collection))|safe }}
           </div>
           {%- endblock search_result_record -%}
@@ -231,30 +199,10 @@
         {%- endblock search_results -%}
 
         {%- block search_results_footer scoped %}
-        <hr/>
         <div class="row clearfix">
           <div class="col-md-12">
-            {{ results_actions() }}
-            {%- block search_results_export scoped -%}
-            <div class="form-group">
-              <select name="of" class="col-md-2 form-control">
-                {%- for i in export_formats -%}
-                <option value="{{ i.code }}"{{ ' selected' if request.args.get('of','hb')==i.code }}>{{ i.name }}</option>
-                {%- endfor -%}
-              </select>
-            </div>
-            <div class="form-group">
-              <button name="action" value="export" class="btn btn-default">
-                <i class="glyphicon glyphicon-download-alt"
-                   rel="tooltip"
-                   title="{{ _('Export') }}">
-                </i>
-                {{ _('Export') }}
-              </button>
-            </div>
-            {%- endblock search_results_export -%}
             {%- block search_results_pagination scoped -%}
-            <div class="form-group pull-right">
+            <div class="search-pagination form-group pull-right">
               {{ render_search_pagination(pagination) }}
             </div>
             {%- endblock search_results_pagination -%}

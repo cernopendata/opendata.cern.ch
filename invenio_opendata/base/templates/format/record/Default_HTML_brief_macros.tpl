@@ -17,27 +17,34 @@
 ## 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
 #}
 
-{% macro render_record_footer(number_of_displayed_authors) %}
-    <p>
+{% macro render_record_footer(number_of_displayed_authors) %} 
+      <a href="{{url_for('search.collection', name=record['collections'][0]['primary'] )}}">
+        <div class="rec_thumb_brief rec_footer_thumb rec_collection pull-ight">
+          <div class="n"><div class="t"><span class="glyphicon glyphicon-folder-close"></span>{{ record['collections'][0]['primary'] }}</div></div>
+        </div>
+      </a>
       {% if record.get('number_of_authors', 0) > 0 %}
-      <i class="glyphicon glyphicon-user"></i>
         {% set authors = record.get('authors[:].full_name', []) %}
-        {% set sep = joiner("; ") %}
-        {% for full_name in authors[0:number_of_displayed_authors] %} {{ sep() }}
-          <a href="{{ url_for('search.search', p='author:"' + full_name + '"') }}">{{ full_name }}</a>
-        {% endfor %}
-        {% if record.get('number_of_authors', 0) > number_of_displayed_authors %}
-        {{ sep() }}
-        <a href="#authors_{{ record['recid'] }}"
-           class="text-muted" data-toggle="modal"
-           data-target="#authors_{{ record['recid'] }}">
+        {% set sep = joiner('<i style="float:left;"> ; </i>') %}
+        <div class="rec_thumb_brief rec_footer_thumb">
+          <div class="n">
+            <div class="t">
+              <span class="glyphicon glyphicon-user"></span>
+            </div>
+            {% for full_name in authors[0:number_of_displayed_authors] %} {{ sep() }}
+              <a href="{{ url_for('search.search', p='author:"' + full_name + '"') }}">{{ full_name }}</a>
+            {% endfor %}
+            {% if record.get('number_of_authors', 0) > number_of_displayed_authors %}
+            {{ sep() }}
+            <a href="#authors_{{ record['recid'] }}"
+            class="text-muted" data-toggle="modal"
+            data-target="#authors_{{ record['recid'] }}">
             <em>{{ _(' et al') }}</em>
-        </a>
-        {% endif %}
-
+            </a>
+            {% endif %}    
+          </div>
+        </div>
       {% endif %}
-
-      &nbsp;<i class="glyphicon glyphicon-calendar"></i> {{ record['creation_date']|invenio_format_date() }}
 {% endmacro %}
 
 {% macro render_fulltext_snippets() %}

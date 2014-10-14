@@ -17,10 +17,12 @@
 ## 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
 #}
 
+<div class="record-brief-main col-md-8 no-padding">
+{% block record_main %}
 <div class="record-brief">  
   <h4 class="record-header">
     {% block record_header %}
-    {% endblock %}
+    {% endblock %} 
   </h4>
   <div class="record-content">
 
@@ -39,5 +41,11 @@
   {% endblock %}
 
   {% block record_footer %}
+  {% endblock %}
+</div>
+{% endblock %}
+</div>
+<div class="record-brief-details col-md-4 no-padding">
+  {% block record_details %}
   {% endblock %}
 </div>
