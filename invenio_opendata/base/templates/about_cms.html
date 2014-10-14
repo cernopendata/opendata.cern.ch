@@ -5,128 +5,7 @@
 {% import 'helpers/general.html' as gen_utils %}
 
   <style>
-    #about-cms {
-      color: #606D75;
-      text-align: justify;
-    }
-    #about-cms h1 {
-      margin-bottom: 30px;
-    }
-    #about-cms p {
-      font-weight: 100;
-    }
-    #about-cms h2 {
-      margin-top: 25px;
-      margin-bottom: 30px;
-      padding: 10px;
-    }
-    #about-cms ul, ol {
-      display: inline-block;
-      font-weight: 100;
-      /*font-size: 16px;*/
-    }
-    #about-cms ul li, #about-cms ol li {
-      padding-bottom: 5px;
-      width: 100%;
-    }
-    #about-cms ul div>ul {
-      margin-left: 20px;
-    }
-    #about-cms ol>li>div {
-      font-weight: 400;
-    }
-    #about-cms ol>li>ul {
-      margin-left: 20px;
-      margin-top: 5px;
-    }
 
-    #about-cms .about-box {
-      background-color: #f4f4f4;
-      border-radius: 4px;
-      display: inline-block;
-      min-height: 180px;
-    }
-
-    #about-cms .about-box {
-      background-color: #f4f4f4;
-      padding: 15px;
-      border-radius: 4px;
-      display: inline-block;
-      text-align: left;
-      width: 100%;
-      margin-bottom: 40px;
-    }
-    #about-cms .about-box h2 {
-      background-color: #A2B4C0;
-      color: #fff;
-      width: auto;
-      padding: 10px;
-      margin-left: -15px;
-      margin-right: -15px;
-      margin-bottom: 15px;
-      margin-top: -15px;
-      border-top-left-radius: 4px;
-      border-top-right-radius: 4px;
-      font-size: 25px;
-      font-weight: 100;
-    }
-    #about-cms .about-box .remember {
-      padding-top: 20px;
-      border-top: 1px solid #606D75;
-      display: inline-block;
-      margin-top: 20px;
-    }
-    #about-cms .about-box .remember p {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-    #about-cms .about-box .remember ul li {
-      padding: 5px 15px;
-      font-weight: 100;
-      font-size: 16px;
-      float: left;
-      width: 100%;
-      list-style: decimal;
-
-    }
-    @media (min-width: 922px) {
-      #block-grid-container {
-        -moz-column-count: 2;
-        -moz-column-gap: 10px;
-        -webkit-column-count: 2;
-        -webkit-column-gap: 10px;
-        column-count: 2;
-        column-gap: 10px;
-        width: 100%;
-        display: inline-block;
-      }
-      #block-grid-container .block-grid-item {
-        display: inline-block;
-        margin-bottom: 30px;
-        width: 100%;
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-    }
-    @media (max-width: 921px) {
-      #block-grid-container {
-        -moz-column-count: 1;
-        -moz-column-gap: 10px;
-        -webkit-column-count: 1;
-        -webkit-column-gap: 10px;
-        column-count: 1;
-        column-gap: 10px;
-        width: 100%;
-        display: inline-block;
-      }
-      #block-grid-container .block-grid-item {
-        display: inline-block;
-        margin-bottom: 30px;
-        width: 100%;
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-    }
 
   </style>
   <script src="{{ url_for('static', filename='/vendors/masonry/masonry.js') }}"></script>
@@ -138,65 +17,65 @@
     </div>
   </section>
 
-  <section id="about-cms" class="content">
+  <section class="general content">
     <div class="container">
       <div id="CMS" class="row">
         <h1 class="col-md-12">About CMS</h1>
         <p class="col-md-12" style="font-size:20px;">The Compact Muon Solenoid (CMS) Experiment is one of the large particle detectors at CERN's Large Hadron Collider. The CMS Collaboration consists of more than 3000 scientists, engineers, technicians and students from 180+ institutes and universities from 40+ countries. You can find more information about the CMS <a href="http://cms.web.cern.ch/news/cms-detector-design">detector design</a> and <a href="http://cms.web.cern.ch/news/detector-overview">overview</a> on the official <a href="http://cern.ch/cms">CMS website</a>.</p>
         <h1 class="col-md-12">About CMS data</h1>
-          <div class="col-md-12">
-            <div class="about-box">
-              <h2 id="tools">Data and analysis tools</h2>
-              <p class="col-md-12 no-padding">The following are provided through this portal:</p>
-              <ol class="col-md-12">
-                <li>Downloadable datasets
-                  <ul class="col-md-12">
-                    <li><a href="{{ url_for('collection/CMS-Primary-Datasets') }}">Primary datasets</a>: full reconstructed data with no other selections. The data here are referred to as "reconstructed data": fragmented data from various sub-detectors are processed or "reconstructed" to provide coherent information about individual <a href="{{ url_for('about/CMS-Physics-Objects') }}">physics objects</a> such as electrons or particle jets</li>
-                    <li>Examples of <a href="{{ url_for('collection/CMS-Derived-Datasets') }}">simplified datasets</a> derived from the primary ones for use in different applications and analyses</li>
-                  </ul>
-                </li>
-                <li>Tools
-                  <ul class="col-md-12">
-                    <li>A <a href="{{ url_for('VM/CMS') }}">downloadable Virtual Machine (VM) image with the CMS software environment</a> through which the primary datasets can be accessed</li>
-                    <li>An <a href="{{ url_for('getting-started/CMS') }}">analysis example chain</a>, reading primary dataset and producing intermediate derived data for the final analysis</li>
-                    <li>Ready-to-use online applications, such as <a href="{{ url_for('visualise/events') }}">an event display</a> and <a href="{{ url_for('visualise/histograms') }}">simple histogramming software</a></li>
-                    <li>Source code for the various examples and applications</li>
-                  </ul>
-                </li>
-              </ol>
-            </div>
+        <div class="col-md-12">
+          <div class="gen-box">
+            <h2 id="tools">Data and analysis tools</h2>
+            <p class="col-md-12 no-padding">The following are provided through this portal:</p>
+            <ol class="col-md-12">
+              <li>Downloadable datasets
+                <ul class="col-md-12">
+                  <li><a href="{{ url_for('collection/CMS-Primary-Datasets') }}">Primary datasets</a>: full reconstructed data with no other selections. The data here are referred to as "reconstructed data": fragmented data from various sub-detectors are processed or "reconstructed" to provide coherent information about individual <a href="{{ url_for('about/CMS-Physics-Objects') }}">physics objects</a> such as electrons or particle jets</li>
+                  <li>Examples of <a href="{{ url_for('collection/CMS-Derived-Datasets') }}">simplified datasets</a> derived from the primary ones for use in different applications and analyses</li>
+                </ul>
+              </li>
+              <li>Tools
+                <ul class="col-md-12">
+                  <li>A <a href="{{ url_for('VM/CMS') }}">downloadable Virtual Machine (VM) image with the CMS software environment</a> through which the primary datasets can be accessed</li>
+                  <li>An <a href="{{ url_for('getting-started/CMS') }}">analysis example chain</a>, reading primary dataset and producing intermediate derived data for the final analysis</li>
+                  <li>Ready-to-use online applications, such as <a href="{{ url_for('visualise/events') }}">an event display</a> and <a href="{{ url_for('visualise/histograms') }}">simple histogramming software</a></li>
+                  <li>Source code for the various examples and applications</li>
+                </ul>
+              </li>
+            </ol>
           </div>
-          <div class="col-md-12">
-            <div class="about-box">
-              <h2 id="primary-datasets">Primary Datasets</h2>
-              <ul class="col-md-12 no-padding">
-                <li>Data in the primary datasets are in a format known as AOD or Analysis Object Data.</li>
-                <li>AOD files contain the information that is needed for analysis:
-                  <div>
-                    <ul>
-                      <li>all the high-level <a href="{{ url_for('about/CMS-Physics-Objects') }}">physics objects</a> (such as muons, electrons, etc.);</li>
-                      <li>tracks with associated hits, calorimetric clusters with associated hits, vertices; and</li>
-                      <li>information about event selection (triggers), data needed for further selection and identification criteria for the physics objects.</li>
-                    </ul>
-                  </div>
-                </li>
-                <li>An AOD file is not the final event interpretation with a simple list of particles.
-                  <div>
-                    <ul>
-                      <li>It contains several instances of the same physics object (i.e. a jet reconstructed with different algorithms).</li>
-                      <li>It may have double-counting (i.e. a physics object may appear as a single object of its own type, but it may also be part of a jet).</li>
-                      <li>Additional knowledge is needed to define a "good" physics object.</li>
-                      <li>Definition of same objects is different in each analysis.</li>
-                    </ul>
-                  </div>
-                </li>
-                <li>AOD files can be read in <a href="http://root.cern.ch/">ROOT</a>, but they cannot be opened (and understood) as simple data tables.</li>
-                <li>Only the runs that are validated by data quality monitoring should be used in any analysis. The <a href="{{ url_for('collection/CMS-Validated-Runs') }}">list of the validated runs</a> is provided as a <a href="http://json.org/">JSON</a> file.</li>
-              </ul>
-            </div>
+        </div>
+        <div class="col-md-12">
+          <div class="gen-box">
+            <h2 id="primary-datasets">Primary Datasets</h2>
+            <ul class="col-md-12 no-padding">
+              <li>Data in the primary datasets are in a format known as AOD or Analysis Object Data.</li>
+              <li>AOD files contain the information that is needed for analysis:
+                <div>
+                  <ul>
+                    <li>all the high-level <a href="{{ url_for('about/CMS-Physics-Objects') }}">physics objects</a> (such as muons, electrons, etc.);</li>
+                    <li>tracks with associated hits, calorimetric clusters with associated hits, vertices; and</li>
+                    <li>information about event selection (triggers), data needed for further selection and identification criteria for the physics objects.</li>
+                  </ul>
+                </div>
+              </li>
+              <li>An AOD file is not the final event interpretation with a simple list of particles.
+                <div>
+                  <ul>
+                    <li>It contains several instances of the same physics object (i.e. a jet reconstructed with different algorithms).</li>
+                    <li>It may have double-counting (i.e. a physics object may appear as a single object of its own type, but it may also be part of a jet).</li>
+                    <li>Additional knowledge is needed to define a "good" physics object.</li>
+                    <li>Definition of same objects is different in each analysis.</li>
+                  </ul>
+                </div>
+              </li>
+              <li>AOD files can be read in <a href="http://root.cern.ch/">ROOT</a>, but they cannot be opened (and understood) as simple data tables.</li>
+              <li>Only the runs that are validated by data quality monitoring should be used in any analysis. The <a href="{{ url_for('collection/CMS-Validated-Runs') }}">list of the validated runs</a> is provided as a <a href="http://json.org/">JSON</a> file.</li>
+            </ul>
           </div>
+        </div>
           <div class="col-md-12">
-            <div class="about-box">
+            <div class="gen-box">
               <h2 id="disclaimer">Disclaimer</h2>
               <ul class="col-md-12 no-padding">
                 <li>The open data are released under <a href="http://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero (CC0)</a>. Neither CMS or nor CERN endorse any works, scientific or otherwise, produced using these data.</li>
@@ -217,7 +96,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <div class="about-box">
+            <div class="gen-box">
               <h2 id="policies">Other CMS open data</h2>
               <ul class="col-md-12 no-padding">
                 <li>All <a href="https://inspirehep.net/search?p=collaboration:' CMS'">CMS publications</a> are open access.</li>
@@ -226,7 +105,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <div class="about-box">
+            <div class="gen-box">
               <h2 id="policies">Policies</h2>
               <ul class="col-md-12 no-padding">
                 <li><a href="https://cms-docdb.cern.ch/cgi-bin/PublicDocDB/ShowDocument?docid=6032">Data preservation and open access policy</a></li>

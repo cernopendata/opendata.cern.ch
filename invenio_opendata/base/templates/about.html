@@ -3,42 +3,30 @@
 {% block body %}
 
 {% import 'helpers/general.html' as gen_utils %}
-  <style>
-    #about {
-      color: #606D75;
-      text-align: justify;
-    }
-    #about h1 {
-      margin-bottom: 30px;
-    }
-    #about p {
-      font-weight: 100;
-      font-size: 18px;
-    }
 
-  </style>
-  <section class="infobar">
-    <div class="container">
-      {{gen_utils.get_breadcrumbs(breadcrumbs)}}
-    </div>
-  </section>
+<section class="infobar">
+  <div class="container">
+    {{gen_utils.get_breadcrumbs(breadcrumbs)}}
+  </div>
+</section>
 
-  <section id="about" class="content">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1>CERN Open Data Portal</h1>
-          <p>This CERN Open Data portal is the access point to a
+<section id="about" class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>CERN Open Data Portal</h1>
+        <p>This CERN Open Data portal is the access point to a
           growing range of data produced in the research performed at
           CERN. Data not already made available directly with the
           associated publications is minted with persistent
           identifiers, published and preserved here. Such data
           includes simplified formats as well as fully reconstructed
           events, together with associated software and documentation
-          needed to access and use the data.</p>
-        </div>
+          needed to access and use the data.
+        </p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 {% endblock %}

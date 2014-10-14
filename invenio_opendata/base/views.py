@@ -173,7 +173,7 @@ def visualise_histo():
 @blueprint.route('getstarted', defaults={'exp': None})
 @blueprint.route('<string:exp>/getstarted')
 @blueprint.route('getstarted/<string:exp>')
-@blueprint.route('getting-started', defaults={'exp': 'all'})
+@blueprint.route('getting-started', defaults={'exp': None})
 @blueprint.route('getting-started/<string:exp>')
 @register_breadcrumb(blueprint, '.get_started', 'Get Started', \
                         dynamic_list_constructor = (lambda :\
