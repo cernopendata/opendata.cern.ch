@@ -48,6 +48,13 @@ def get_collections():
         
     return exp_colls, exp_names
 
+def get_collection_names():
+    experiments = Collection.query.filter(Collection.id == '1').first_or_404()
+    exp_names = []
+    for exp in experiments.collection_children_v:
+        exp_names.append(exp.name)
+        
+    return exp_names
 
 @blueprint.route('')
 def middle():
@@ -181,11 +188,11 @@ def visualise_histo():
 def get_started(exp):
     def splitting(value, delimiter='/'):
         return value.split(delimiter)
-
+    exp_names = get_collection_names()
     current_app.jinja_env.filters['splitthem'] = splitting
 
     try:
-        return render_template('get_started.html', exp=exp)
+        return render_template('get_started.html', exp=exp,exp_names=exp_names)
     except TemplateNotFound:
         return abort(404)
 
@@ -211,11 +218,12 @@ def resources():
 def data_vms(exp):
     def splitting(value, delimiter='/'):
         return value.split(delimiter)
+    exp_names = get_collection_names()
 
     current_app.jinja_env.filters['splitthem'] = splitting
 
     try:
-        return render_template('data_vms.html', exp=exp)
+        return render_template('data_vms.html', exp=exp, exp_names=exp_names)
     except TemplateNotFound:
         return abort(404)
 
@@ -233,8 +241,10 @@ def data():
                         [{"url":".data_vms","text":"Virtual Machines"},\
                         {"url":".data_vms","text":"Validation Report"}]) )
 def val_report(exp):
+    exp_names = get_collection_names()
+    
     try:
-        return render_template([exp+'_VM_validation.html'], exp=exp)
+        return render_template([exp+'_VM_validation.html', 'data_vms.html'], exp=exp,exp_names=exp_names)
     except TemplateNotFound:
         return abort(404)
 
@@ -288,7 +298,7 @@ def about_atlas():
 
 
 @blueprint.route('about/CMS-Physics-Objects')
-@register_breadcrumb(blueprint, '.about_physics', 'ALICE', \
+@register_breadcrumb(blueprint, '.about_physics', 'CMSS', \
                         dynamic_list_constructor = (lambda :\
                         [{"url":".about", "text":"About"},\
                         {"url":".about_cms", "text":"CMS"},\

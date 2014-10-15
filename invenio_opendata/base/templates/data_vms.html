@@ -176,14 +176,7 @@
 
   <section class="infobar">
     <div class="container">
-      {{ gen_utils.get_breadcrumbs(breadcrumbs, exp) }}
-      <div class="pull-right">
-        <ul class="exp-switch nav nav-tabs" role="tablist">
-          <li class="l {% if exp not in ['CMS','ALICE'] %} active {% endif %}"><a href="{{url_for((request.path|splitthem)[1])}}" data-target="#general" role="tab" data-toggle="tab"></span>Experiments</a></li>
-          <li class="{% if exp == 'CMS' %} active {% endif %}"><a href="{{url_for((request.path|splitthem)[1]+'/CMS')}}" data-target="#CMS" role="tab" data-toggle="tab"></span>CMS</a></li>
-          <li class="r {% if exp == 'ALICE' %} active {% endif %}"><a href="{{url_for((request.path|splitthem)[1]+'/ALICE')}}" data-target="#ALICE" role="tab" data-toggle="tab"></span>ALICE</a></li>
-        </ul>
-      </div>
+      {{ gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names) }}
     </div>
   </section>
 

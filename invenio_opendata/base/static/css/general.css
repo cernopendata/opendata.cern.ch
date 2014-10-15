@@ -32,6 +32,7 @@
   border-top-right-radius: 4px;
   font-size: 18px;
   font-weight: 100;
+  overflow-y: hidden; 
 }
 
 .gen-box img {
@@ -45,18 +46,23 @@
   border-top: 1px solid #606D75;
   display: inline-block;
   margin-top: 20px;
-}
-.gen-box .remember p {
-  padding-left: 15px;
-  padding-right: 15px;
+  font-weight: 400;
 }
 .gen-box .remember ul li {
   padding: 5px 15px;
   font-weight: 100;
-  font-size: 16px;
   float: left;
   width: 100%;
-  list-style: decimal;
+  list-style-type: none;
+}
+.gen-box .phys-item-illust {
+  float: right;
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+.gen-box .phys-item-illust img {
+  height: 40px;
+  width: auto;
 }
 .general {
   color: #606D75;
