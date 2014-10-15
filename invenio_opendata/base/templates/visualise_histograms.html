@@ -94,7 +94,6 @@ div.plot-control {
         <div class="col-md-6">
           <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="filedropdown" data-toggle="dropdown">
-             Select a file <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu" id="fileul" aria-labelledby="filedropdown"></ul>
           </div>
@@ -102,7 +101,7 @@ div.plot-control {
       </div>
       <div class="row buttons">
         <div class="col-md-12">
-          <h4>Select one or more parameters from <span id="filename"></span> :</h4>
+          <h4>Select one or more parameters:</h4>
         </div>
       </div>
       <div class="row buttons">
@@ -141,10 +140,12 @@ $(function () {
      {id:"Wmuu",name:"W bosons decaying to a muon and a neutrino",file:"/record/309/files/Wmunu.csv"}
   ];
 
-  function loadFile(filename) {
-    $('#filename').html(filename.split('/').pop());
-
-    d3.csv(filename,
+  function loadFile(input) {
+    //$('#filename').html(input.file.split('/').pop());
+    $('#filedropdown').text(input.name+'  ');
+    $('#filedropdown').append('<span class="caret"></span>');
+ 
+    d3.csv(input.file,
       function(d) { // leading and trailing spaces in csv aren't ignored so we strip them out (if there) in the accessor
         var newd = {};
         for ( key in d ) {
@@ -162,7 +163,7 @@ $(function () {
   }
 
   // Load a file automatically...
-  loadFile(input_files[0].file);
+  loadFile(input_files[0]);
 
   //...and activate the first histogram
   // Q: do we want to do this on every file load?
@@ -217,7 +218,7 @@ $(document).on('click', '#fileul li a', function() {
   });
   $('#parameter-button-row').empty();
   $('#flot-plots').empty();
-  loadFile(input_file[0].file);
+  loadFile(input_file[0]);
 });
 
 $(document).on('click', '.parameter', function() {
