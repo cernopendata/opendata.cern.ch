@@ -82,35 +82,18 @@
             <h4 style="text-align: left;font-size: 24px;">Familiarise yourself with the working environments and tools needed to analyse the data provided on this portal.</h4>
           </div>
           <div class="row">
+            {% for e in exp_names %}
             <div class="col-md-6">
               <a href="{{ url_for((request.path|splitthem)[1]+'/CMS') }}">
                 <div class="coll-exp">
                   <div class="top col-md-12">
-                    <div class="col-md-6 col-md-offset-3 thumb"><img src="{{ url_for('static', filename='img/CMS.gif') }}" alt="" class="img-cirle center-block"></div>
-                    <div class="col-md-12 exp-name">CMS Getting Started</div>
-                  </div>
-                </div></a>
-            </div>
-            <div class="col-md-6">
-              <a href="{{ url_for((request.path|splitthem)[1]+'/ALICE') }}">
-                <div class="coll-exp">
-                  <div class="top col-md-12">
-                    <div class="col-md-6 col-md-offset-3 thumb"><img src="{{ url_for('static', filename='img/ALICE.gif') }}" alt="" class="img-cirle center-block"></div>
-                    <div class="col-md-12 exp-name">ALICE Getting Started</div>
+                    <div class="col-md-6 col-md-offset-3 thumb"><img src="{{ url_for('static', filename='img/'+e+'.gif') }}" alt="" class="img-cirle center-block"></div>
+                    <div class="col-md-12 exp-name">{{e}} Getting Started</div>
                   </div>
                 </div>
               </a>
-            </div>
-			<div class="col-md-6">
-				  <a href="{{ url_for((request.path|splitthem)[1]+'/ALICE') }}">
-				    <div class="coll-exp">
-				      <div class="top col-md-12">
-				        <div class="col-md-6 col-md-offset-3 thumb"><img src="{{ url_for('static', filename='img/ATLAS.gif') }}" alt="" class="img-cirle center-block"></div>
-				        <div class="col-md-12 exp-name">ATLAS Virtual Machines</div>
-			      </div>
-			    </div>
-			  </a>
-    		</div>
+            </div> 
+            {% endfor %}
           </div>
         </div>
         <div class="tab-pane fade{% if exp == 'CMS' %} in active {% endif %}" id="CMS">
