@@ -36,6 +36,50 @@
   </div>
 </div>
 
+{% if record.get('computer_file_characteristics', '') %}
+  <div class="rec_metadata rec_dataset_info">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="rec_title title">{{record.get('computer_file_characteristics', '')['characteristics'] if record.get('computer_file_characteristics', '')['characteristics'] else 'Dataset'}}</div>
+      </div>
+      <div class="col-md-12">
+        <div class="rec_desc">
+          {% if record.get('computer_file_characteristics')['text'] %}
+          <span>
+          {% for k,v in record.get('computer_file_characteristics').items() %}
+            {% if k != 'text' %}
+              {{v}}
+            {% endif %}
+          {% endfor %}
+            <b>{{record.get('computer_file_characteristics')['text']}}</b>
+          </span>
+          {% else %}
+            {% if record.get('computer_file_characteristics')[0]['text'] %}
+              {% for c in record.get('computer_file_characteristics') %}
+                {% for i in c %}
+                  <span>
+                  {% if i == 'files' %}{{c['files']}}<b>{{ c.get('text','') }}</b></span>
+                  {% elif i == 'events' %}{{c['events']}}<b>{{ c.get('text','') }}</b></span>
+                  {% elif i == 'bytes' %}{{(c['bytes']|float)|filesizeformat}}<b>{{ c.get('text','') }}</b></span>
+                  {% endif %}
+                {% endfor%}
+              {% endfor %}              
+            {% else %}
+              {% for i in record.get('computer_file_characteristics') %}
+                <span>
+                {% if i == 'files' %}{{record.get('computer_file_characteristics')['files'] }}<b>{{ i.get('text','') }}</b></span>
+                {% elif i == 'events' %}{{record.get('computer_file_characteristics')['events']}}<b>{{ i.get('text','') }}</b></span>
+                {% elif i == 'bytes' %}{{(record.get('computer_file_characteristics')['bytes']|float)|filesizeformat}}<b>{{ i.get('text','') }}</b></span>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+            {% endif%}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
 {% if record.get('url',[]) != [] %}
 <div class="rec_metadata rec_urls">
   <div class="row">

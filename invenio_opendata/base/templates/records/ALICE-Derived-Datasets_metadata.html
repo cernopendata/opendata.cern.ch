@@ -40,15 +40,28 @@
             <b>{{record.get('computer_file_characteristics')['text']}}</b>
           </span>
           {% else %}
-            {% for i in record.get('computer_file_characteristics') %}
-              <span>
-              {% if i == 'files' %}{{record.get('computer_file_characteristics')['files'] }}
-              {% elif i == 'events' %}{{record.get('computer_file_characteristics')['events']}}
-              {% elif i == 'bytes' %}{{(record.get('computer_file_characteristics')['bytes']|float)|filesizeformat}}
-              {% elif i=='characteristics' %}{{record.get('computer_file_characteristics')['characteristics']}}
-              {% endif %}
-            {% endfor %}
-          {% endif %}
+            {% if record.get('computer_file_characteristics')[0] %}
+            {% if record.get('computer_file_characteristics')[0]['text'] %}
+              {% for c in record.get('computer_file_characteristics') %}
+                {% for i in c %}
+                  <span>
+                  {% if i == 'files' %}{{c['files']}}<b>{{ c.get('text','') }}</b></span>
+                  {% elif i == 'events' %}{{c['events']}}<b>{{ c.get('text','') }}</b></span>
+                  {% elif i == 'bytes' %}{{(c['bytes']|float)|filesizeformat}}<b>{{ c.get('text','') }}</b></span>
+                  {% endif %}
+                {% endfor%}
+              {% endfor %}              
+            {% else %}
+              {% for i in record.get('computer_file_characteristics') %}
+                <span>
+                {% if i == 'files' %}{{record.get('computer_file_characteristics')['files'] }}<b>{{ i.get('text','') }}</b></span>
+                {% elif i == 'events' %}{{record.get('computer_file_characteristics')['events']}}<b>{{ i.get('text','') }}</b></span>
+                {% elif i == 'bytes' %}{{(record.get('computer_file_characteristics')['bytes']|float)|filesizeformat}}<b>{{ i.get('text','') }}</b></span>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+            {% endif %}
+            {% endif %}
         </div>
       </div>
     </div>

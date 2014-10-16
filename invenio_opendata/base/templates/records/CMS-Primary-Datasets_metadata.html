@@ -51,7 +51,6 @@
               {% if i['files'] %}{{ i['files'] }}
               {% elif i['events'] %}{{i['events']}}
               {% elif i['bytes'] %}{{(i['bytes']|float)|filesizeformat}}
-              {% elif i['characteristics'] %}{{i['characteristics']}}
               {% endif %}
               <b>{{ i.get('text','') }}</b></span>
             {% endfor %}
