@@ -103,7 +103,6 @@ class CollectionData(DataSet):
         id = 12
         name = 'ATLAS'
         dbquery = None
-
     class ATLASDerivedDatasets(siteCollection):
         id = 13
         name = 'ATLAS-Derived-Datasets'
@@ -281,7 +280,6 @@ class CollectionCollectionData(DataSet):
         score = 2
         type = 'r'
 
-
 class CollectiondetailedrecordpagetabsData(DataSet):
 
     class Collectiondetailedrecordpagetabs_1:
@@ -438,7 +436,6 @@ class PortalboxData(DataSet):
         body = u'This collection includes ATLAS masterclass datasets.'
         id = 24
         title = u'description'
-
 
 class CollectionPortalboxData(DataSet):
 
