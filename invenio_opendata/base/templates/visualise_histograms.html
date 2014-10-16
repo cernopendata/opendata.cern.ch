@@ -130,15 +130,43 @@ $(function () {
   var input_data;
 
   var input_files = [
-     {id:"dimuon0",name:"dimuon events with invariant mass between 2-110 GeV",file:"/record/700/files/MuRun2010B_0.csv"},
-     {id:"Jpismumu",name:"dimuon events with invariant mass between 2-5 GeV",file:"/record/301/files/dimuon-Jpsi.csv"},
-     {id:"Jpsiee",name:"dielectron events with invariant mass between 2-5 GeV",file:"/record/302/files/dielectron-Jpsi.csv"},
-     {id:"Yee",name:"dielectron events with invariant mass between 8-12 GeV",file:"/record/305/files/dielectron-Upsilon.csv"},
-     {id:"Zee",name:"dielectron events around the Z boson mass",file:"/record/306/files/Zee.csv"},
-     {id:"Zmumu",name:"dimuon events around the Z boson mass",file:"/record/307/files/Zmumu.csv"},
-     {id:"Wenu",name:"W bosons decaying to an electron and a neutrino",file:"/record/308/files/Wenu.csv"},
-     {id:"Wmuu",name:"W bosons decaying to a muon and a neutrino",file:"/record/309/files/Wmunu.csv"}
+     {id:"dimuon0",name:"dimuon events with invariant mass between 2-110 GeV",file:"/record/700/files/MuRun2010B_0.csv",type:"two_lepton"},
+     {id:"Jpismumu",name:"dimuon events with invariant mass between 2-5 GeV",file:"/record/301/files/dimuon-Jpsi.csv",type:"two_lepton"},
+     {id:"Jpsiee",name:"dielectron events with invariant mass between 2-5 GeV",file:"/record/302/files/dielectron-Jpsi.csv",type:"two_lepton"},
+     {id:"Yee",name:"dielectron events with invariant mass between 8-12 GeV",file:"/record/305/files/dielectron-Upsilon.csv",type:"two_lepton"},
+     {id:"Zee",name:"dielectron events around the Z boson mass",file:"/record/306/files/Zee.csv",type:"two_lepton"},
+     {id:"Zmumu",name:"dimuon events around the Z boson mass",file:"/record/307/files/Zmumu.csv",type:"two_lepton"},
+     {id:"Wenu",name:"W bosons decaying to an electron and a neutrino",file:"/record/308/files/Wenu.csv",type:"lepton_neutrino"},
+     {id:"Wmuu",name:"W bosons decaying to a muon and a neutrino",file:"/record/309/files/Wmunu.csv",type:"lepton_neutrino"}
   ];
+  
+  // We know the names of the parameters that we have produced in the csv files.
+  // We also have only two event types in the csv: lepton_neutrino and two_lepton.
+  // We therefore provide some information on the parameters. 
+  var event_types = {
+     "two_lepton":    
+     [{name:"E1", unit:"GeV", description:"The total energy of the first lepton"},
+      {name:"pt1", unit:"GeV", description:"The transverse momentum of the first lepton"},
+      {name:"eta1", unit:null, description:"The pseudorapidity of the first muon"},
+      {name:"phi1", unit:"radians", description:"The phi angle of the first lepton direction"},
+      {name:"Q1", unit:null, description:"The charge of the first lepton"},
+      {name:"E2", unit:"GeV", description:"The total energy of the second lepton"},
+      {name:"pt2", unit:"GeV", description:"The transverse momentum of the second lepton"},
+      {name:"eta2", unit:null, description:"The pseudorapidity of the second lepton"},
+      {name:"phi2", unit:"radians", description:"The phi angle of the second muon lepton"},
+      {name:"Q2", unit:null, description:"The charge of the second lepton"},
+      {name:"M", unit:"GeV", description:"The invariant mass of the two leptons"}
+     ],
+     "lepton_neutrino":
+     [{name:"E", unit:"GeV", description:"The total energy of the lepton"},
+      {name:"MET", unit:"GeV", description:"The missing transverse energy due to the neutrino"},
+      {name:"Q", unit:null, description:"The charge of the lepton"},
+      {name:"phiMET", unit:"radians", description:"The phi angle of the missing transverse energy"},
+      {name:"eta", unit:null, description:"The pseudorapidity of the lepton"},
+      {name:"phi", unit:"radians", description:"The phi angle of the lepton direction"},
+      {name:"pt", unit:"GeV", description:"The transverse momentum of the lepton"}
+     ]
+  };
 
   function loadFile(input) {
     //$('#filename').html(input.file.split('/').pop());
@@ -156,7 +184,7 @@ $(function () {
         return newd;
       },
       function(data) {
-        populateValues(data[0]);
+        populateValues(data[0], input.type);
         input_data = data;
       }
     );
@@ -175,65 +203,78 @@ $(function () {
     $('#fileul').append("<li role='presentation'><a id='"+input_files[f].id+"'>"+input_files[f].name+"</a></li>");
   });
 
-  // Some fields aren't numbers or it doesn't make sense to plot them.
+  // Some fields aren't numbers, or it doesn't make sense to plot them, or they are redundant.
   // Therefore exclude them.
+  var excluded = ["Run","Event","Type","Type1","Type2","px1","py1","pz1","px2","py2","pz2","px","py","pz"];
   function is_excluded(key) {
-    var excluded = ["Run","Event","Type1","Type2","Type"];
     if ( excluded.indexOf(key) === -1 ) {
       return false;
     }
     return true;
   }
 
-  function populateValues(data) {
+  function get_parameter_info(name, type) {
+    for ( var i = 0; i < type.length; i++ ) {
+      if ( name === type[i].name ) {
+        if ( type[i].unit !== null ) {
+          return type[i].description + ' ['+ type[i].unit +']';
+        } else {
+          return type[i].description;
+        }
+      }
+    }
+  }
+
+  function populateValues(data, type) {
     for (var key in data) {
-      $('#parameter-button-row').append("<li><button type='button' data-toggle='button' class='btn btn-default btn-large parameter'>"+ key +"</button></li>");
+      var parameter_info = get_parameter_info(key, event_types[type]);
+      $('#parameter-button-row').append("<li><button type='button' data-toggle='button' title='"+parameter_info+"' class='btn btn-default btn-large parameter'>"+ key +"</button></li>");
     }
   }
 
  function buildHistogram(data, bw) {
-  var minx = d3.min(data),
-  maxx = d3.max(data),
-  nbins = Math.floor((maxx-minx) / bw);
+   var minx = d3.min(data),
+   maxx = d3.max(data),
+   nbins = Math.floor((maxx-minx) / bw);
 
-  var histogram = d3.layout.histogram();
-  histogram.bins(nbins);
-  data = histogram(data);
+   var histogram = d3.layout.histogram();
+   histogram.bins(nbins);
+   data = histogram(data);
 
-  var output = [];
-  for ( var i = 0; i < data.length; i++ ) {
-    output.push([data[i].x, data[i].y]);
-    output.push([data[i].x + data[i].dx, data[i].y]);
-  }
-  return output;
-};
+   var output = [];
+   for ( var i = 0; i < data.length; i++ ) {
+     output.push([data[i].x, data[i].y]);
+     output.push([data[i].x + data[i].dx, data[i].y]);
+   }
+   return output;
+ }
 
-var makeLog = function(v) {return v > 0 ? Math.log(v) : 0;};
-var makeExp = function(v) {return Math.log(v);}
+ var makeLog = function(v) {return v > 0 ? Math.log(v) : 0;};
+ var makeExp = function(v) {return Math.log(v);}
 
-$(document).on('click', '#fileul li a', function() {
-  var id = $(this).attr("id");
-  var input_file = $.grep(input_files, function(i) {
-    return i.id == id;
-  });
-  $('#parameter-button-row').empty();
-  $('#flot-plots').empty();
-  loadFile(input_file[0]);
-});
+ $(document).on('click', '#fileul li a', function() {
+   var id = $(this).attr("id");
+   var input_file = $.grep(input_files, function(i) {
+     return i.id == id;
+   });
+   $('#parameter-button-row').empty();
+   $('#flot-plots').empty();
+   loadFile(input_file[0]);
+ });
 
-$(document).on('click', '.parameter', function() {
-  var parameter = $(this).html();
-  var parId = '#'+parameter;
-  var active = $(this).hasClass('active');
+ $(document).on('click', '.parameter', function() {
+   var parameter = $(this).html();
+   var parId = '#'+parameter;
+   var active = $(this).hasClass('active');
 
-  if ( active ) {
-    $('#flot-plots').append("<div id='"+parameter+"' class='col-md-6'></div>");
-    $(parId).css({"border":"1px dotted"});
+   if ( active ) {
+      $('#flot-plots').append("<div id='"+parameter+"' class='col-md-6'></div>");
+      $(parId).css({"border":"1px dotted"});
 
-    $(parId).append("<div class='plot-control btn-toolbar'></div>");
-    $(parId).append("<div class='plot-container'></div>");
-    $(parId + ' div.plot-control').css({"height":"30px"});
-    $(parId + ' div.plot-container').css({"height":"300px"});
+      $(parId).append("<div class='plot-control btn-toolbar'></div>");
+      $(parId).append("<div class='plot-container'></div>");
+      $(parId + ' div.plot-control').css({"height":"30px"});
+      $(parId + ' div.plot-container').css({"height":"300px"});
 
       // This screams "template!"
       var logbtns = "<div class='btn-group btn-group-sm'>";
@@ -295,23 +336,23 @@ $(document).on('click', '.parameter', function() {
         $.plot($(parId + ' .plot-container'), data, options);
       });
 
-     $('button.binw.'+parameter).on('click', function() {
-       var value = $('input[name=binwidth]').val();
-       histogram = buildHistogram(input_data.map(function(d) {return d[parameter];}), value);
-       data = [{data:histogram, label:parameter}];
-       $.plot($(parId + ' .plot-container'), data, options);
-     });
-
-     $('button.undoselect.'+parameter).on('click', function() {
-        $.extend(true, options, {xaxis:{min: xmin, max: xmax}});
+      $('button.binw.'+parameter).on('click', function() {
+        var value = $('input[name=binwidth]').val();
+        histogram = buildHistogram(input_data.map(function(d) {return d[parameter];}), value);
+        data = [{data:histogram, label:parameter}];
         $.plot($(parId + ' .plot-container'), data, options);
-     });
+      });
 
-     $(parId + ' .plot-container').bind("plotselected", function(event, ranges) {
-        //console.log("You selected " + ranges.xaxis.from.toFixed(1) + " to " + ranges.xaxis.to.toFixed(1));
-        $.extend(true, options, {xaxis:{min: ranges.xaxis.from, max: ranges.xaxis.to}});
-        $.plot($(parId + ' .plot-container'), data, options);
-     });
+      $('button.undoselect.'+parameter).on('click', function() {
+         $.extend(true, options, {xaxis:{min: xmin, max: xmax}});
+         $.plot($(parId + ' .plot-container'), data, options);
+      });
+
+      $(parId + ' .plot-container').bind("plotselected", function(event, ranges) {
+         //console.log("You selected " + ranges.xaxis.from.toFixed(1) + " to " + ranges.xaxis.to.toFixed(1));
+         $.extend(true, options, {xaxis:{min: ranges.xaxis.from, max: ranges.xaxis.to}});
+         $.plot($(parId + ' .plot-container'), data, options);
+      });
 
     } else {
      $('#'+parameter).remove();
