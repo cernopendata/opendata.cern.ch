@@ -96,12 +96,11 @@
             {% endfor %}
           </div>
         </div>
-        <div class="tab-pane fade{% if exp == 'CMS' %} in active {% endif %}" id="CMS">
-        {% include 'get_started_CMS.html' %}
-        </div>
-        <div class="tab-pane fade{% if exp == 'ALICE' %} in active {% endif %}" id="ALICE">
-        {% include 'get_started_ALICE.html' %}
-        </div>
+        {% for e in exp_names %}
+        <div class="tab-pane fade{% if exp == e %} in active {% endif %}" id="{{e}}">
+        {% include 'get_started_'+e+'.html' ignore missing %}
+        </div> 
+        {% endfor %}
       </div>
     </div>
   </section>
