@@ -84,7 +84,7 @@
           <div class="row">
             {% for e in exp_names %}
             <div class="col-md-6">
-              <a href="{{ url_for((request.path|splitthem)[1]+'/CMS') }}">
+              <a href="{{ url_for((request.path|splitthem)[1]+'/'+e) }}">
                 <div class="coll-exp">
                   <div class="top col-md-12">
                     <div class="col-md-6 col-md-offset-3 thumb"><img src="{{ url_for('static', filename='img/'+e+'.gif') }}" alt="" class="img-cirle center-block"></div>
