@@ -53,16 +53,15 @@
 {% block javascript %}
   {{ super() }}
     <script>
+
   (function($) {
+    $('.infobar a[data-toggle="tab"]').on('click', function(e) {
+      $(this).parent().siblings().removeClass("active");
+    });
     $(".infobar .dropdown-menu li a").click(function(){
-      var selText = $(this).text();
+      selText = $(this).text();
       $(this).parents('.dropdown').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
     });
-    // $('.infobar .dropdown-menu li a').each(function() {
-    //     if($(location).attr('href').indexOf($(this).attr('href')) > 0) {
-    //          $('.infobar .dropdown-menu').show();
-    //     } 
-    // });
   })(jQuery);
   </script>
 {% endblock %}
