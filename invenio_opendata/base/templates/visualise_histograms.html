@@ -45,6 +45,32 @@
   margin-bottom: 5px;
 }
 
+#vis-histograms .nav {
+  float: right;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+    
+#vis-histograms .nav li {
+  background-color: inherit;
+}
+
+#vis-histograms .nav li a,
+#vis-histogram .nav li a:hover,
+#vis-histograms .nav li a:focus {
+  background-color: inherit;
+  color: inherit;
+}
+
+#vis-histograms .nav li.active{
+  display: none;
+}
+
+#vis-histograms #howto > div{
+  background-color: #f4f4f4;
+  border-radius: 4px;
+}
+
 .binwidth {
   width: 150px;
 }
@@ -87,6 +113,16 @@ div.plot-control {
     <h3>Explore and Play with the histograms</h3>
   </div>
 </div>
+
+<div class="col-md-12">
+  <ul class="nav" role="tablist">
+    <li class="active"><a href="#histograms" role="tab" data-toggle="tab"><span class="fa fa-long-arrow-left"></span>back to histograms</a></li>
+    <li><a href="#howto" role="tab" data-toggle="tab">Need HELP?</a></li>
+  </ul>
+</div>
+
+<div class="tab-content">
+<div class="tab-pane fade in active" id="histograms">
 <div class="row">
   <div class="col-md-12" >
     <div class="previewer" id="histogram">
@@ -118,6 +154,14 @@ div.plot-control {
     </div>
   </div>
 </div>
+</div>
+<div class="tab-pane fade" id="howto">
+HOW! TO?
+</div>
+</div>
+
+
+
 </div>
 </section>
 {% endblock %}
