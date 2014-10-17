@@ -70,17 +70,12 @@
 
   <section class="infobar">
     <div class="container">
-      {{gen_utils.get_breadcrumbs(breadcrumbs)}}
-      <div class="pull-right">
-        <ul class="exp-switch nav nav-tabs" role="tablist">
-          <li class="active"><a href="#CMS" role="tab" data-toggle="tab">CMS</a></li>
-          <li><a href="#ALICE" role="tab" data-toggle="tab">ALICE</a></li>
-        </ul>
-      </div>
+      {{gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names)}}
     </div>
   </section>
 
   <section id="learnmore" class="content">
+
     <div class="container">
       <div class="tab-pane fade in active" id="CMS">
         <div class="row">

@@ -197,15 +197,17 @@ def get_started(exp):
         return abort(404)
 
 
-@blueprint.route('resources')
+@blueprint.route('resources/<string:exp>')
+@blueprint.route('resources', defaults={'exp': None})
 @register_breadcrumb(blueprint, '.resources', 'External Resources', \
                         dynamic_list_constructor = (lambda :\
                         [{"url":".educate","text":"For Education"},\
-                        {"url":".educate","text":"CMS"},\
                         {"url":".resources","text":"External Resources"}]) )
-def resources():
+def resources(exp):
+    exp_names = get_collection_names()
+    
     try:
-        return render_template('resources.html')
+        return render_template('resources.html', exp=exp, exp_names=exp_names)
     except TemplateNotFound:
         return abort(404)
 
