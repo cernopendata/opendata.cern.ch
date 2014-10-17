@@ -25,11 +25,12 @@ header, footer, header .navbar {
   border: 0;
 }
 
-body {
+html body {
   padding: 0;
   margin: 0;
   font-family: 'Open Sans', sans-serif!important;
-  color: #091B26;
+  /*color: #091B26;*/
+  color:#657580;
   border: 0;
   background-color: rgb(214, 223, 230)!important;
 }
@@ -523,7 +524,7 @@ footer {
   padding: 10px 0;
   color: #fff;
 }
-.infobar a   , .infobar a:hover, .infobar a:focus{
+.infobar a, .infobar a:hover, .infobar a:focus{
   color: #fff;
   text-decoration: none;
 }
@@ -615,9 +616,28 @@ footer {
   color: #A2B4C0;
 }
 
+.infobar .breadcrumbs .dropdown li a img {
+  width: 20px;
+  height: 20px;
+  margin-left: 4px;
+}
+.infobar .breadcrumbs .dropdown .btn:active,
+.infobar .breadcrumbs .dropdown .btn,
+.infobar .breadcrumbs .dropdown .btn.active {
+  box-shadow: 0;
+  --webkit-box-shadow: 0;
+  height: 25px;
+}
+.infobar .breadcrumbs .dropdown button img {
+  width: 19px;
+  height: 19px;
+  margin-top: -3px;
+  margin-left: 4px;
+}
 
-
-
+.infobar .breadcrumbs .dropdown span.caret {
+  margin-left: 4px;
+}
 
 /*---------- css for index2.html -------*/
 .searchsect {
