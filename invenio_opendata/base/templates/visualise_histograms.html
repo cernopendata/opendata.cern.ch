@@ -5,6 +5,10 @@
 {% import 'helpers/general.html' as gen_utils %}
 
 <style>
+#vis-histograms {
+  color: #606D75;
+}
+
 #vis-histograms .pg-header h3 {
   margin-bottom: 25px;
   margin-top: 35px;
@@ -156,7 +160,7 @@ div.plot-control {
 </div>
 </div>
 <div class="tab-pane fade" id="howto">
-HOW! TO?
+{% include "histograms_howto.html" %}
 </div>
 </div>
 
