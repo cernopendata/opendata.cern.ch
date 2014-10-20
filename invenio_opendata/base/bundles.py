@@ -39,6 +39,12 @@ css = Bundle(
     weight=1,
 )
 
+ie_bundle = Bundle(
+    "vendors/respond/src/respond.js",
+    output="respond.js", 
+    weight=200,
+)
+
 od_records_js = Bundle(
     "vendors/readmore/readmore.min.js",
     output = "od_records.js",
