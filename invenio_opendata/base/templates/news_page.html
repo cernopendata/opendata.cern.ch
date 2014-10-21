@@ -1,6 +1,7 @@
 {%- extends 'page.html' %}
 
 {% import 'data/news_db.html' as n %}
+{% import 'helpers/general.html' as gen_utils %}
 
 {% macro date_to_text(date) %}
   <span class="date">4 days ago</span>
@@ -18,10 +19,9 @@
 
 
   {% set nn = n.news[news_id-1] %}
-
   <section class="infobar">
     <div class="container">
-      <a href="{{ url_for('news') }}"><h3>News</h3></a>
+      {{gen_utils.get_breadcrumbs(breadcrumbs)}}
     </div>
   </section>
   <section class="news-preview">
