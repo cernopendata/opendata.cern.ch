@@ -69,30 +69,52 @@
   text-align: justify;
 }
 .general h1 {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 .general p {
   font-weight: 100;
 }
 
+.general .gen-header {
+  margin-bottom: 20px;
+  display: inline-block;
+}
+.general .gen-header > ul {
+  font-size: 16px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.general .gen-header > ul >li {
+  list-style-type: disc;
+}
 .general ul, ol {
   display: inline-block;
   font-weight: 100;
-  /*font-size: 16px;*/
 }
-.general ul li, .general ol li {
+.general ul li,
+.general ol li {
   padding-bottom: 5px;
   width: 100%;
 }
-.general ul div>ul {
-  margin-left: 20px;
+.general ul ul {
+  margin-left: 18px;
 }
 .general ol>li>div {
   font-weight: 400;
 }
 .general ol>li>ul {
-  margin-left: 20px;
   margin-top: 5px;
+}
+
+.general div > ul {
+  padding-left: 18px;
+  list-style-type: disc;
+}
+.general div > ul ul {
+  list-style-type: circle;
+}
+.general div ul ul ul {
+  list-style-type: square;
 }
 
 .gen-title {
