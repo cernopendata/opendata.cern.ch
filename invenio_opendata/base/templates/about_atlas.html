@@ -4,77 +4,27 @@
 
 {% import 'helpers/general.html' as gen_utils %}
 
-  <style>
-    #about-atlas {
-      color: #606D75;
-      text-align: justify;
-    }
-    #about-atlas h1 {
-      margin-bottom: 30px;
-    }
-    #about-atlas p {
-      font-weight: 100;
-      font-size: 18px;
-    }
-    #about-atlas h2 {
-      text-align: center;
-      margin-top: 25px;
-      margin-bottom: 30px;
-      padding: 10px;
-    }
-    #about-atlas ul, ol {
-      display: inline-block;
-      font-weight: 100;
-      /*font-size: 16px;*/
-    }
-    #about-atlas ul li, #about-atlas ol li {
-      padding-bottom: 5px;
-      width: 100%;
-    }
-    #about-atlas ul div>ul {
-      margin-left: 20px;
-    }
-    #about-atlas ol>li>div {
-      font-weight: 400;
-    }
-    #about-atlas ol>li>ul {
-      margin-left: 20px;
-      margin-top: 5px;
-    }
+<section class="infobar">
+  <div class="container">
+    {{gen_utils.get_breadcrumbs(breadcrumbs)}}
+  </div>
+</section>
 
-    #about-atlas .about-box {
-      background-color: #f4f4f4;
-      border-radius: 4px;
-      display: inline-block;
-      margin-bottom: 30px;
-    }
-  </style>
-
-  <section class="infobar">
-    <div class="container">
-      {{gen_utils.get_breadcrumbs(breadcrumbs)}}
-    </div>
-  </section>
-
-  <section id="about-atlas" class="content">
-    <div class="container">
-      <div id="ATLAS" class="row">
-
-        <div class="col-md-12">
-          <h1>About ATLAS</h1>
-          <p>ATLAS (A Toroidal LHC ApparatuS) is one of the two general purpose detectors at the LHC, the other being CMS.</p>
-		  <p>Both detectors are geared towards covering a large range of physics produced in proton collisions such as the search for the Higgs Boson or Vector Boson Scattering.
-        </div>
-        <div class="col-md-12">
-          <h1>About ATLAS Data</h1>
-          <p>The available data set is derived from actual data recored by ATLAS during the 2011 run. There are 6 packages of 1000 events each totalling 6000 events. These events have been preselected
-			 to provide a high amount of interesting physics events. The data is saved in XML format which can be read with the event display program MINERVA. A python based framework for the analysis
-			 of the data is in the works.
-
-		  </p>
+<section class="general content">
+  <div class="container">
+    <div id="ATLAS" class="row">
+      <div class="gen-header">
+        <h1 class="col-md-12">About ATLAS</h1>
+        <p class="col-md-12" style="font-size:20px;" >ATLAS (A Toroidal LHC ApparatuS) is one of the two general purpose detectors at the LHC, the other being CMS. Both detectors are geared towards covering a large range of physics produced in proton collisions such as the search for the Higgs Boson or Vector Boson Scattering.</p>
+      </div>
+      <div class="col-md-12">
+        <div class="gen-box">
+          <h2>About ATLAS Data</h2>
+          <p>The available data set is derived from actual data recored by ATLAS during the 2011 run. There are 6 packages of 1000 events each totalling 6000 events. These events have been preselected to provide a high amount of interesting physics events. The data is saved in XML format which can be read with the event display program MINERVA. A python based framework for the analysis of the data is in the works.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 {% endblock %}
