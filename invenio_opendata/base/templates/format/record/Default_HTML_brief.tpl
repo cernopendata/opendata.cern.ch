@@ -26,8 +26,8 @@
 {% endblock %}
 
 {% block record_header %}
-  <a href="{{ url_for('record.metadata', recid=record['recid']) }}">
-    <div class="rec_title">{{ record.get('title.title', '') }}</div>
+  <a href="{{ url_for('record.metadata', recid=record['recid']) }}" alt="{{ record.get('title.title', '') }}">
+    <div class="rec_title">{{ record.get('title.title', '')|truncate(70) }}</div>
     {{- record.get('title.volume', '')|prefix(', ') }}
     {{- record.get('title.subtitle', '')|prefix(': ') }}
 
@@ -55,13 +55,18 @@
 
 {% block record_details %}
   {% if record.get('doi','') %}
-  <div class="rec_thumb_brief pull-right">
-    <div class="n"><div class="t">DOI</div>{{ record.get('doi', '') }}</div>
-  </div>
+  <a href="{{ url_for('record.metadata', recid=record['recid']) }}">
+    <div class="rec_thumb_brief rec_footer_thumb pull-right">
+      <div class="n"><div class="t">DOI</div>{{ record.get('doi', '') }}</div>
+    </div>
+  </a>
   {% endif %}
   {% if record.get('edition_statement','')  %}
-  <div class="rec_thumb_brief rec_release pull-right">
-    <div class="n"><div class="t">Release</div>{{ (record.get('edition_statement', '').get('statement', '').replace('Release: ', '')) }}</div>
-  </div>
+    {% set pp = record.get('edition_statement', '').replace('Release: ', '') %}
+    <a href="{{ url_for('search.search', p=pp) }}">
+      <div class="rec_thumb_brief rec_footer_thumb  rec_release pull-right">
+        <div class="n"><div class="t">Release</div>{{ (record.get('edition_statement', '').get('statement', '').replace('Release: ', '')) }}</div>
+      </div>
+    </a>
   {% endif %}
 {% endblock %}

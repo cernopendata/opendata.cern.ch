@@ -18,7 +18,7 @@
 #}
 
 {% macro render_record_footer(number_of_displayed_authors) %} 
-      <a href="{{url_for('search.collection', name=record['collections'][0]['primary'] )}}">
+      <a href="{{url_for('search.search', cc=record['collections'][0]['primary'] )}}">
         <div class="rec_thumb_brief rec_footer_thumb rec_collection pull-ight">
           <div class="n"><div class="t"><span class="glyphicon glyphicon-folder-close"></span>{{ record['collections'][0]['primary'] }}</div></div>
         </div>
