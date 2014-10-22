@@ -86,16 +86,6 @@
     .middlefoot .middle_r {
       margin-top: -10px;
     }
-    .middlefoot.middlefoot .middle_l img {
-      margin-top: 15px;
-      width: 130px;
-      margin-right: 10px;
-    }
-    .middlefoot.middlefoot .middle_r img {
-      margin-left: 20px;
-      width: 54px;
-      margin-top: 15px;
-    }
 
     .legal a {
       z-index: 1000;
@@ -155,13 +145,13 @@
       <div class="container">
         <div class="row">
           <div class="middle_l col-md-6 col-xs-12 col-sm-6">
-            <img src="{{ url_for('static', filename='/img/opendata/cern-logo-large.png') }}" style="width:60px;" alt="">
+            <img src="{{ url_for('static', filename='/img/opendata/cern-logo-large.png') }}" style="width:auto;height:55px;" alt="">
             <img src="{{ url_for('static', filename='/img/opendata/invenio.png') }}" alt="">
           </div>
           <div class="middle_r col-md-6 col-xs-12 col-sm-6">
-            <img src="{{ url_for('static', filename='/img/CMS.gif') }}" alt="">
             <img src="{{ url_for('static', filename='/img/ALICE.gif') }}" alt="">
             <img src="{{ url_for('static', filename='/img/ATLAS.gif') }}" alt="">
+            <img src="{{ url_for('static', filename='/img/CMS.gif') }}" alt="">
           </div>
         </div>
         <div class="row">
