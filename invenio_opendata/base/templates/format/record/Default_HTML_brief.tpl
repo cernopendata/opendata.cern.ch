@@ -30,7 +30,7 @@
     <div class="rec_title">{{ record.get('title.title', '') }}</div>
     {{- record.get('title.volume', '')|prefix(', ') }}
     {{- record.get('title.subtitle', '')|prefix(': ') }}
-    
+
   </a>
 {% endblock %}
 
@@ -40,7 +40,7 @@
   {% else %}
     {{ _('Description is not provided') }}
   {% endif %}
-  
+
 {% endblock %}
 
 {% block fulltext_snippets %}
@@ -51,7 +51,7 @@
   <div class="record-footer">
     {{ render_record_footer(4) }}
   </div>
-{% endblock %}  
+{% endblock %}
 
 {% block record_details %}
   {% if record.get('doi','') %}
@@ -61,7 +61,7 @@
   {% endif %}
   {% if record.get('edition_statement','')  %}
   <div class="rec_thumb_brief rec_release pull-right">
-    <div class="n"><div class="t">Release</div>{{ (record.get('edition_statement', '').replace('Release: ', '')) }}</div>
+    <div class="n"><div class="t">Release</div>{{ (record.get('edition_statement', '').get('statement', '').replace('Release: ', '')) }}</div>
   </div>
   {% endif %}
 {% endblock %}
