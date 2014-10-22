@@ -22,14 +22,14 @@
           <div class="body">{{ record.get('action_note', {})[0]['action'] }}</div>
           <div class="links"">
             <ul>
-            {% if record.get('action_note', {})[0]['recid'] %}
-              <li><a href="{{ url_for('record.metadata', recid=record.get('action_note.recid', '')) }}">Record {{ record.get('action_note.recid', '') }}</a></li>
-            {% endif %}
-            {% if record.get('action_note', {})[0]['url'] %}
-              {% for u in record.get('action_note') %}
-                <li><a href="{{ u.url }}">{{ u.description }}</a></li>
-              {% endfor %}
-            {% endif %}
+              {% if record.get('action_note', {})[0]['recid'] %}
+                <li><a href="{{ url_for('record.metadata', recid=record.get('action_note.recid', '')) }}">Record {{ record.get('action_note.recid', '') }}</a></li>
+              {% endif %}
+              {% if record.get('action_note', {})[0]['url'] %}
+                {% for u in record.get('action_note') %}
+                  <li><a href="{{ u.url }}">{{ u.description }}</a></li>
+                {% endfor %}
+              {% endif %}
             </ul>
           </div>
         </div>
@@ -39,17 +39,19 @@
       <div class="rec_dedicated_details_in rdd-reuse panel">
         <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#reusability">How can you use these data?<span class="pull-right fa fa-angle-up"></span></div>
         <div id="reusability" class="info collapse">
-          <div class="body">{{ record.get('material_publication_note', {}).get('note', '') }}</div>
-          <div class="links">
-            <ul>
-              <li><a href="{{ record.get('material_publication_note.url', '') }}">{{record.get('material_publication_note.description', '')}}</a></li>
-            </ul>
-            {% if record.get('material_publication_note.recid', '') %}
+          {% for material_publication_note in record.get('material_publication_note', []) %}
+            <div class="body">{{ material_publication_note.get('note', '') }}</div>
+            <div class="links">
               <ul>
-                <li><a href="{{ url_for('record.metadata', recid=record.get('material_publication_note.recid', '')) }}">Record {{ record.get('material_publication_note.recid', '') }}</a></li>
+                <li><a href="{{ material_publication_note.get('url', '') }}"> {{ material_publication_note.get('description', '') }}</a></li>
               </ul>
-            {% endif %}
-          </div>
+              {% if material_publication_note.get('recid', '') %}
+                <ul>
+                  <li><a href="{{ url_for('record.metadata', recid=material_publication_note.get('recid', '')) }}">Record {{ material_publication_note.get('recid', '') }}</a></li>
+                </ul>
+              {% endif %}
+            </div>
+          {% endfor %}
         </div>
       </div>
     {% endif %}
@@ -73,7 +75,7 @@
       <div id="disclaimer" class="info">
         <div class="row">
           <div class="body col-md-12">The open data are released under Creative Commons Zero (CC0). Neither CMS nor CERN endorse any works, scientific or otherwise, produced using these data.<br/>
-All releases will have a unique DOI that you are requested to cite in any applications or publications.</div>
+            All releases will have a unique DOI that you are requested to cite in any applications or publications.</div>
           <div class="col-md-12">
             <div class="ccommons">
               <img src="{{ url_for('static', filename='img/cc-zero.svg') }}" alt="">

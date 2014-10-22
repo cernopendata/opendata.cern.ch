@@ -12,9 +12,9 @@
         <div class="n"><div class="t col-md-4">Parent Collection</div><a href="{{ url_for('collection/'+collection.name) }}">{{ collection.name_ln }}</a></div>
       </div>
       {% if record.get('accelerator_experiment','') %}
-      <div class=" col-md-12 rec_thumb rec_parentcol">
-        <div class="n"><div class="t">Accelerator</div>{% for k,v in record.get('accelerator_experiment','').items()%}{{v}}{{ '/' if not loop.last }}{% endfor %}</div>
-      </div>
+        <div class=" col-md-12 rec_thumb rec_parentcol">
+          <div class="n"><div class="t">Accelerator</div>{% for k,v in record.get('accelerator_experiment','').items()%}{{v}}{{ '/' if not loop.last }}{% endfor %}</div>
+        </div>
       {% endif %}
     </div>
   </div>
@@ -60,14 +60,16 @@
       <div class="rec_dedicated_details_in rdd-reuse panel">
         <div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#reusability">How can you use these data?</div>
         <div id="reusability" class="info ccollapse">
-          <div class="body">{{ record.get('material_publication_note', {}).get('note', '') }}</div>
-          <div class="links">
-            {% if record.get('material_publication_note.recid', {}) %}
-              <ul>
-                <li><a href="{{ url_for('record.metadata', recid=record.get('material_publication_note.recid', '')) }}">Record {{ record.get('material_publication_note.recid', '') }}</a></li>
-              </ul>
-            {% endif %}
-          </div>
+          {% for material_publication_note in record.get('material_publication_note', []) %}
+            <div class="body">{{ material_publication_note.get('note', '') }}</div>
+            <div class="links">
+              {% if material_publication_note.get('recid', {}) %}
+                <ul>
+                  <li><a href="{{ url_for('record.metadata', recid=material_publication_note.get('recid', '')) }}">Record {{ material_publication_note.get('recid', '') }}</a></li>
+                </ul>
+              {% endif %}
+            </div>
+          {% endfor %}
         </div>
       </div>
     {% endif %}
@@ -91,7 +93,7 @@
       <div id="disclaimer" class="info">
         <div class="row">
           <div class="body col-md-12">The open data are released under Creative Commons Zero (CC0). Neither CMS nor CERN endorse any works, scientific or otherwise, produced using these data.<br/>
-All releases will have a unique DOI that you are requested to cite in any applications or publications.</div>
+            All releases will have a unique DOI that you are requested to cite in any applications or publications.</div>
           <div class="col-md-12">
             <div class="ccommons">
               <img src="{{ url_for('static', filename='img/cc-zero.svg') }}" alt="">

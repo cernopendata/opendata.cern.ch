@@ -10,7 +10,7 @@
               <ul>
                 <li><a href="{{ url_for('record.metadata', recid=record.get('methodology_note.recid', '')) }}">Record {{ record.get('methodology_note.recid', '') }}</a></li>
               </ul>
-            {% endif %} 
+            {% endif %}
           </div>
         </div>
       </div>
@@ -39,19 +39,21 @@
       <div class="rec_dedicated_details_in rdd-reuse panel">
         <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#reusability">How can you use these data?<span class="pull-right fa fa-angle-up"></span></div>
         <div id="reusability" class="info collapse">
-          <div class="body">{{ record.get('material_publication_note', {}).get('note', '') }}</div>
-          <div class="links">
-            {% if record.get('material_publication_note.url', {}) %}
-              <ul>
-                <li><a href="{{ record.get('material_publication_note.url', '') }}">{{ record.get('material_publication_note.description', '') }}</a></li>
-              </ul>
-            {% endif %}
-            {% if record.get('material_publication_note.recid', {}) %}
-              <ul>
-                <li><a href="{{ url_for('record.metadata', recid=record.get('material_publication_note.recid', '')) }}">Record {{ record.get('material_publication_note.recid', '') }}</a></li>
-              </ul>
-            {% endif %}
-          </div>
+          {% for material_publication_note in record.get('material_publication_note', []) %}
+            <div class="body">{{ material_publication_note.get('note', '') }}</div>
+            <div class="links">
+              {% if material_publication_note.get('url', {}) %}
+                <ul>
+                  <li><a href="{{ material_publication_note.get('url', '') }}">{{ material_publication_note.get('description', '') }}</a></li>
+                </ul>
+              {% endif %}
+              {% if material_publication_note.get('recid', {}) %}
+                <ul>
+                  <li><a href="{{ url_for('record.metadata', recid=material_publication_note.get('recid', '')) }}">Record {{ material_publication_note.get('recid', '') }}</a></li>
+                </ul>
+              {% endif %}
+            </div>
+          {% endfor %}
         </div>
       </div>
     {% endif %}
