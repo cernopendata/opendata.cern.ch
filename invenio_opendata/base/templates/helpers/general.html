@@ -28,11 +28,13 @@
     {% set url_href = url_for(url, exp = url_params['exp']) %}
   {% elif 'collection' in url_params %}
     {% set url_href = url_for(url, name = url_params['collection']) %}
+  {% else %}
+    {% set url_href = url_for(url) %}
   {% endif %}
   <a class="center-block" href="{{ url_href }}">
     <div class="img-circle app-box">
-      <div class="title">{{title|safe}}</div>
-      <div class="img"><img class="img-circle" src="{{ url_for('static', filename='img/'+ img_file) }}" alt=""></div>
+      <div class="title"><p class="placeholder-box"></p><p class="text">{{title|safe}}</p></div>
+      <div class="img img-circle" style="background: url({{ url_for('static', filename='img/'+ img_file) }});background-size: 130px auto;"></div>
     </div>
   </a>
 </div>

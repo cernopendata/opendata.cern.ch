@@ -434,6 +434,9 @@
 
 }
 
+#subcollection .coll-overview {
+  margin-top: 20px;
+}
 #subcollection .coll-overview ul.nav {
   background-color: inherit;
   margin-right: -15px;
@@ -607,30 +610,45 @@
   text-decoration: none;
 }
 .subcollection_apps {
-  border-bottom: 4px solid rgb(198, 208, 217);
-  border-top: 4px solid rgb(198, 208, 217);
-  color: #fff;
+  /*border-bottom: 2px solid rgb(198, 208, 217);*/
+  /*border-top: 2px solid rgb(198, 208, 217);*/
+  color: #657580;
   font-weight: 100;
   font-size: 16px;
   padding-top: 15px;
   padding-bottom: 15px;
   background-color: #f4f4f4;
 }
+.subcollection_apps .coll-desc {
+  display: table-cell;
+  height: 138px;
+  vertical-align: middle;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: justify;
+}
 .subcollection_apps .title > div{
   border-radius: 3px;
 }
 .subcollection_apps .title {
   position: absolute;
-  width: 130px;
-  height: 50px;
+  width: 134px;
+  height: 134px;
   margin: auto;
-  background-color: rgb(198, 208, 217);
-  top: 0;
-  bottom: 0;
+  /* background-color: #f4f4f4; */
+  /* background-color: rgb(198, 208, 217); */
+  bottom: 2px;
   color: #657580;
   font-weight: 400;
   text-align: center;
   padding-top: 3px;
+  padding-bottom: 10px;
+  z-index: 1000;
+  overflow: hidden;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 14px;
 }
 
 .section-title {
@@ -645,7 +663,26 @@
   height: 100px;
   overflow: hidden;
 }
-
+.subcollection_apps .title p.placeholder-box {
+  display: inline-block;
+  width: 100%;
+  height: 50%;
+}
+.subcollection_apps .title p.text {
+  display: inline-block;
+  background-color: #f4f4f4;
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-bottom: 20px;
+  padding-top: 2px;
+  width: 100%;
+  height: 50%;
+  margin: 0;
+  bottom: 2px;
+  position: relative;
+  left: 0;
+  border-top: 2px solid rgb(198, 208, 217);
+}
 .subcollection_apps .app-box .go {
   width: 100%;
   display: inline-block;
@@ -657,7 +694,7 @@
 .subcollection_apps a {
   color: #657580;
   text-decoration: none;  
-  width: 180px;
+  width: 134px;
 }
 .subcollection_apps .app-box .go a,
 .subcollection_apps .app-box .go a:hover,
@@ -668,18 +705,20 @@
 }
 
 .subcollection_apps .app-box {
-  width: 140px;
-  height: 140px;
-  padding: 5px;
+  width: 138px;
+  height: 138px;
+  padding: 2px;
   overflow: hidden;
+  position: relative;
   background-color: rgb(198, 208, 217);
 }
 .subcollection_apps .app-box .img {
-  width: 130px;
-  height: 130px;
+  width: 134px;
+  height: 134px;
+  background-size: 130px auto;
 }
 .subcollection_apps .app-box:hover .img {
-  opacity: 0.9;
+  opacity: 0.5;
 }
 .subcollection_apps .app-box img {
   height: 130px;

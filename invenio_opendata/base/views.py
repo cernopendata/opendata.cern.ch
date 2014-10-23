@@ -99,12 +99,19 @@ def index2():
                         dynamic_list_constructor = (lambda :\
                         [{"url":".educate","text":"Education"}]))
 def educate(exp):
-    exp_colls, exp_names = get_collections()
+    import os.path, pkg_resources
+
+    def file_exists(filename):
+        filepath = pkg_resources.resource_filename('invenio_opendata.base', filename)
+        return os.path.isfile(filepath)
 
     def splitting(value, delimiter='/'):
         return value.split(delimiter)
 
     current_app.jinja_env.filters['splitthem'] = splitting
+    current_app.jinja_env.filters['file_exists'] = file_exists
+
+    exp_colls, exp_names = get_collections()
 
     try:
         return render_template('educate.html',
@@ -119,11 +126,19 @@ def educate(exp):
                         dynamic_list_constructor = (lambda :\
                         [{"url":".research","text":"Research"}]))
 def research(exp):
-    exp_colls, exp_names = get_collections()
+    import os.path, pkg_resources
+
+    def file_exists(filename):
+        filepath = pkg_resources.resource_filename('invenio_opendata.base', filename)
+        return os.path.isfile(filepath)
 
     def splitting(value, delimiter='/'):
         return value.split(delimiter)
+
     current_app.jinja_env.filters['splitthem'] = splitting
+    current_app.jinja_env.filters['file_exists'] = file_exists
+
+    exp_colls, exp_names = get_collections()
 
     try:
         return render_template('research.html',
