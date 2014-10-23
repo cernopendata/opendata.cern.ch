@@ -62,7 +62,7 @@
   </a>
   {% endif %}
   {% if record.get('edition_statement','')  %}
-    {% set pp = record.get('edition_statement', '').replace('Release: ', '') %}
+    {% set pp = record.get('edition_statement', '').get('statement', '').replace('Release: ', '') %}
     <a href="{{ url_for('search.search', p=pp) }}">
       <div class="rec_thumb_brief rec_footer_thumb  rec_release pull-right">
         <div class="n"><div class="t">Release</div>{{ (record.get('edition_statement', '').get('statement', '').replace('Release: ', '')) }}</div>
