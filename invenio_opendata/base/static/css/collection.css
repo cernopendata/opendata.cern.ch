@@ -351,19 +351,15 @@
 
 /*==== Styling for Edu/Research pages ====*/
 
-.coltitle {
-  color: #fff;
-}
-
 #subcollection {
-  padding-top: 30px;
-  padding-bottom: 10px;
+  padding-top: 0;
+  padding-bottom: 30px;
 }
 
 #subcollection a,
 #subcollection a:hover
 #subcollection a:focus {
-  color: #666;
+  color: #899AA5;
   text-decoration: none;
 }
 
@@ -408,28 +404,17 @@
 #subcollection .collection-res {
   background-color: #f4f4f4;
   border-radius: 3px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 100;
-  padding-top: 20px;
-  padding-bottom: 20px;
   display: inline-block;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  width: 100%;
 }
 
 #subcollection .collection-res .nav {
   background-color: inherit;
 }
-#subcollection .collection-res > .row:nth-child(2n+1) {
-  background-color: #fff;
-}
-
-#subcollection .collection-res > .row:nth-child(2n) a.dropdown-toggle {
-  background-color: #fff;
-}
-
-#subcollection .collection-res > .row:nth-child(2n+1) a.dropdown-toggle {
-  background-color: #eee;
-}
-
 #subcollection .record-brief .record-header {
   font-size: 18px;
   font-weight: 600;
@@ -472,11 +457,10 @@
 }
 
 #subcollection .coll-overview .coll-box .thumb img {
-  height: 110px;
-  width: 110px;
+  height: 120px;
+  padding: 5px;
   font-size: 30px;
   font-weight: 100px;
-  border-radius: 3px;
 }
 #subcollection .coll-overview .coll-box .top{
   display: inline-block;
@@ -493,8 +477,8 @@
 }
 #subcollection .coll-overview .coll-box .top .title {
   margin-bottom: 10px;
-  height: 45px;
   max-height: 45px;
+  height: 45px;
 }
 #subcollection .coll-overview .coll-box .bottom > div {
   text-align: center;
@@ -506,8 +490,8 @@
   text-align: center;
 }
 #subcollection .coll-overview .coll-box .top .desc {
-  height: 80px;
   max-height: 80px;
+  height: 80px;
 }
 #subcollection .coll-overview .coll-box .top .desc span {
   font-size: 12px;
@@ -523,35 +507,47 @@
 
 }
 #subcollection .collection-res > .col-md-12 {
-  background-color: #fff;
-}
-#subcollection .collection-res > .col-md-12:nth-child(2n) {
   background-color: #f4f4f4;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted #606D75;
+}
+#subcollection .collection-res > .col-md-12.last {
+  border: 0;
 }
 #subcollection .results-title {
-  padding-top: 25px;
-  padding-bottom: 40px;
-  font-size: 40px;
-  font-weight: 100;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  font-size: 25px;
+  font-weight: 400;
   text-align: center;
 }
+#subcollection .collection-res .more-block {
+  display: inline-block;
+  width: 100%;
+  border-top: 1px dotted #606D75;
+}
+
 #subcollection .collection-res .more {
   text-align: center;
+  margin: 10px 15px;
 }
 #subcollection .collection-res .more a {
   background-color: #899AA5;
-  padding: 12px 60px;
-  display: inline;
-  line-height: 3;
+  padding: 2px 20px;
+  display: inline-block;
+  line-height: 2;
   color: #fff;
   border-radius: 5px;
 }
 #subcollection .coll-desc {
-  text-align: center;
+  text-align: left;
   color: #5E6970;
   font-weight: 300;
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 20px;
+  margin-left: -15px;
+  margin-right: -15px;
 }
 
 .subcollection_desc {
@@ -592,6 +588,17 @@
   height: 100%;
 }
 
+.entrypoint_collections .coll-desc a,
+.entrypoint_collections .coll-desc a:hover,
+.entrypoint_collections .coll-desc a:focus {
+  color: inherit;
+  text-align: left;
+  padding-bottom: 1px;
+  border-bottom: 1px dotted #657580;
+  font-weight: 600;
+}
+
+
 .subcollection_desc a,
 .subcollection_desc a:hover,
 .subcollection_desc a:focus {
@@ -599,16 +606,15 @@
   text-align: left;
   text-decoration: none;
 }
-
 .subcollection_apps {
-    border-bottom: 4px solid rgb(198, 208, 217);
-    border-top: 4px solid rgb(198, 208, 217);
-    color: #fff;
-    font-weight: 100;
-    font-size: 16px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    background-color: #f4f4f4;
+  border-bottom: 4px solid rgb(198, 208, 217);
+  border-top: 4px solid rgb(198, 208, 217);
+  color: #fff;
+  font-weight: 100;
+  font-size: 16px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #f4f4f4;
 }
 .subcollection_apps .title > div{
   border-radius: 3px;
@@ -678,4 +684,167 @@
 .subcollection_apps .app-box img {
   height: 130px;
   width: 130px;
+}
+
+
+
+/*==== Record Single-box styling ====*/
+
+.rec-single-box {
+  background-color: #f4f4f4;
+  font-size: 14px;
+  font-weight: 100;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+}
+.rec-single-box .title {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 5px;
+  margin-top: -5px;
+  height: 50px;
+  line-height: 1.3;
+}
+.rec-single-box .title .t {
+  font-size: 16px;
+  font-weight: 400;
+}
+.rec-single-box .d {
+  width: 100%;
+}
+
+.rec-single-box .d kbd {
+  font-size: 10px;  
+}
+.rec-single-box .d .a {
+  width: 100%;
+  font-size: 12px;
+  padding-top: 5px;
+} 
+.rec-single-box .desc {
+  height: 150px;
+  font-size: 14px;    
+}
+.rec-single-box .desc .b {
+  height: 80%;
+}
+.rec-single-box .desc kbd {
+  font-size: 85%;
+}
+.rec-single-box .desc b {
+  font-size: 13px;
+}
+.rec-single-box .desc .go {
+  height: 20%;
+  background-color: #A2B4C0;
+  margin: 0 -15px;
+  padding: 10px 15px;
+  color: #fff;
+  font-weight: 100;
+  font-size: 14px;
+  display: block;
+  overflow: hidden;
+}
+#tools .rec-single-box .desc .go {
+  line-height: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.rec-single-box .desc .go a {
+  color: #fff;
+  font-weight: 400; 
+  font-size: 15px;
+  padding-left: 5px;
+}
+.rec-single-box .disclaimer {
+  height: 70px;
+  background-color: #fff;
+  font-size: 10px;
+  margin: -15px;
+  margin-top: 0;
+  padding: 6px 15px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.rec-single-box .disclaimer {
+  /*background-color: inherit;*/
+}
+#subcollection #external-sources,
+#subcollection #tools {
+  background-color: transparent;
+  width: auto;
+}
+
+
+/*==== Resources pages styling ====*/
+
+#resources img {
+  max-width: 100%;
+  max-height: 200px;
+
+}
+#resources {
+  color: #606D75;
+  text-align: justify;
+}
+#resources h1 {
+  margin-bottom: 30px;
+  margin-top: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 400;
+  width: 100%;
+}
+#resources p {
+  font-weight: 100;
+  font-size: 16px;
+}
+#resources a {
+  text-align: left;
+}
+#resources h2 {
+  font-weight: 400;
+  font-size: 18px;
+  display: inline-block;
+  margin-top: 0;
+}
+#resources .learn-img {
+  padding: 10px;
+  background-color: #A2B4C0;
+  color: #fff;
+  border-radius: 4px;
+}
+#resources h6 {
+  font-weight: 400;
+  text-align: center;
+}
+
+#resources a.btn,
+#resources a.btn:hover,
+#resources a.btn:focus {
+  padding: 2px 5px;
+  background-color: #606D75;
+  color: #fff;
+  margin-left: 5px;
+  font-size: 13px;
+  position: absolute;
+  top: 0;
+  right: 15px;
+}
+#resources a.btn span {
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+#resources .resource-box {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 15px 0;
+  border: 1px solid #A2B4C0;
+  background-color: #f4f4f4;
+  border-radius: 3px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
