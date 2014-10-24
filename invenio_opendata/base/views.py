@@ -313,6 +313,17 @@ def about_atlas():
     except TemplateNotFound:
         return abort(404)
 
+@blueprint.route('about/lhcb')
+@blueprint.route('about/LHCb')
+@register_breadcrumb(blueprint, '.about_lhcb', 'LHCb', \
+                        dynamic_list_constructor = (lambda :\
+                        [{"url":".about", "text":"About"},\
+                        {"url":".about_lhcb","text":"LHCb OpenData"}]) )
+def about_lhcb():
+    try:
+        return render_template('about_lhcb.html')
+    except TemplateNotFound:
+        return abort(404)
 
 @blueprint.route('about/CMS-Physics-Objects')
 @register_breadcrumb(blueprint, '.about_physics', 'CMSS', \

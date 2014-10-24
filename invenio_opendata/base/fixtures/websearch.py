@@ -126,7 +126,13 @@ class CollectionData(DataSet):
         dbquery = '980__a:"ATLAS-Tools"'
         names = {
             ('en', 'ln'): u'ATLAS Tools',
-        }
+        }   
+
+    class LHCb(siteCollection):
+        id = 16
+        name = 'LHCb'
+        dbquery = None
+            
 
 
 class CollectionCollectionData(DataSet):
@@ -281,6 +287,11 @@ class CollectionCollectionData(DataSet):
         score = 2
         type = 'r'
 
+    class siteCollection_LHCb:
+        dad = CollectionData.siteCollection
+        son = CollectionData.LHCb
+        score = 3
+        type = 'v'
 
 class CollectiondetailedrecordpagetabsData(DataSet):
 
@@ -317,7 +328,7 @@ class CollectionFormatData(DataSet):
         id_collection = CollectionData.siteCollection.ref('id')
 
 
-class PortalboxData(DataSet):
+class PortalboxData(DataSet):   
 
     class Portalbox_1:
         body = u'The CMS (Compact Muon Solenoid) experiment is one of two large general-purpose particle physics detectors built on the Large Hadron Collider (LHC) at CERN in Switzerland and France. The goal of CMS is to investigate a wide range of physics, including properties of the recently discovered Higgs boson as well as searches for extra dimensions and particles that could make up dark matter.'
@@ -439,6 +450,15 @@ class PortalboxData(DataSet):
         id = 24
         title = u'description'
 
+    class Portalbox_25:
+        body = u'LHCb Description'
+        id = 25
+        title = u'description'
+
+    class Portalbox_26:
+        body = u'LHCb.gif'
+        id = 26
+        title = u'image'
 
 class CollectionPortalboxData(DataSet):
 
@@ -610,6 +630,19 @@ class CollectionPortalboxData(DataSet):
         score = 100
         id_collection = CollectionData.ATLASDerivedDatasets.ref('id')
 
+    class CollectionPortalbox_16_25_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_25.ref('id')
+        score = 100
+        id_collection = CollectionData.LHCb.ref('id')
+    
+    class CollectionPortalbox_16_26_en: 
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_26.ref('id')
+        score = 100
+        id_collection = CollectionData.LHCb.ref('id')
 
 class FacetCollectionData(DataSet):
 
