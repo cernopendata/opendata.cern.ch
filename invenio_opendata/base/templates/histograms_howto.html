@@ -25,6 +25,138 @@
   <div class="row">
   <div class="col-md-12">
     <h3>With d3</h3>
+    <p><pre>
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+
+  <style>
+    #d3-histogram {
+      height: 500px;
+      width: 1000px;
+    }
+
+    body {
+      font: bold 12px Helvetica;
+    }
+
+    rect {
+      fill: #aec7e8;
+      stroke: #1f77b4;
+    }
+
+    .axis {
+      shape-rendering: crispEdges;
+    }
+
+    .axis line, .axis path {
+      fill: none;
+      stroke: #000;
+    }
+
+    .grid .tick {
+      stroke: lightgrey;
+      opacity: 0.7;
+    }
+
+    .grid path {
+      stroke-width: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Make an svg element with id d3-histogram. This is where the plot goes -->
+  <svg id="d3-histogram"></svg>
+
+  <script type="text/javascript">
+    (function(){
+
+      // Define the margins and axes (note: "starting" w and h are in css)
+      var m = {top: 50, right:50, bottom:50, left:100},
+      w = 1000 - m.left - m.right,
+      h = 500 - m.top - m.bottom,
+      x = d3.scale.linear().range([0, w]),
+      y = d3.scale.linear().range([h, 0]),
+      xaxis = d3.svg.axis().scale(x).orient("bottom").tickSize(6).ticks(10).tickSubdivide(true),
+      yaxis = d3.svg.axis().scale(y).orient("left").tickSize(6).ticks(10).tickSubdivide(true);
+
+      var svg = d3.select("#d3-histogram").append("svg")
+                    .attr("width", w + m.left + m.right)
+                    .attr("height", h + m.top + m.bottom)
+                    .append("g")
+                    .attr("transform", "translate("+m.left+","+m.top+")");
+
+      svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0,"+h+")")
+            .call(xaxis);
+
+      svg.append("g")
+            .attr("class", "y axis")
+            .call(yaxis);
+
+      function buildHistogram(data, bw) {
+        var minx = d3.min(data),
+            maxx = d3.max(data),
+            nbins = Math.floor((maxx-minx) / bw);
+
+        var histogram = d3.layout.histogram();
+        histogram.bins(nbins);
+        data = histogram(data);
+
+        x.domain([d3.min(data.map(function(d) {return d.x;})), d3.max(data.map(function(d) {return d.x;}))]);
+        y.domain([0,d3.max(data.map(function(d) {return d.y;}))]);
+
+        // Draw some grid lines
+        svg.append("g", ".bars")
+          .attr("class", "grid")
+          .call(d3.svg.axis().scale(x)
+            .orient("bottom")
+            .tickSize(h, 0, 0)
+            .tickFormat("")
+          );
+
+        svg.append("g", ".bars")
+          .attr("class", "grid")
+          .call(d3.svg.axis().scale(y)
+            .orient("left")
+            .tickSize(-2*h, 0, 0)
+            .tickFormat("")
+          );
+
+        // Draw the axes
+        svg.select("g.x.axis").call(xaxis);
+        svg.select("g.y.axis").call(yaxis);
+
+        // Label the x axis
+        svg.append("text")
+          .attr("x", w-m.left+10)
+          .attr("y",  h+m.bottom-10)
+          .style("text-anchor", "middle")
+          .text("Invariant mass [GeV]");
+
+        // Draw the histogram bars
+        var rects = svg.selectAll("rect").data(data);
+        rects.enter().insert("rect")
+          .attr("width", function(d) {return x(d.dx + d.x) - x(d.x)})
+          .attr("x", function(d,i) {return x(d.x);})
+          .attr("y", function(d) {return y(d.y);})
+          .attr("height", function(d) {return h-y(d.y);});
+      }
+
+      // Load up a csv file and look at the distribution of the
+      // invariant mass M (in GeV, in bins of size 0.1 GeV):
+      d3.csv("../data/MuRun2010B_0.csv", function(data) {
+        buildHistogram(data.map(function(d) {return d['M'];}), 0.1);
+      });
+
+    })();
+  </script>
+</body>
+    </pre></p>
+
+
   </div>
   </div>
 
