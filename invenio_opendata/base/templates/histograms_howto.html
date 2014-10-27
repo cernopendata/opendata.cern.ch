@@ -12,13 +12,81 @@
     Whether you use one of the files provided or make one of your own, there are several ways to examine the contents and to see what the distributions
     of the parameters contained therein look like. Here are a few examples using a csv file created by selecting from the “Mu” dataset events with precisely 2 muons. 
     Each line represents the information for the 2 muons for each event.
-    </p> 
+    </p>
+    <p>The code for all the examples is available on <a href="https://github.com/tpmccauley/opendata-histograms">github</a></p> 
   </div>
   </div>
 
   <div class="row">
   <div class="col-md-12">
-    <h3>With flot</h3>
+    <h3>With Flot</h3>
+    <a href="http://www.flotcharts.org/">Flot</a> is a JavaScript plotting library that uses <a href="http://jquery.com/">JQuery</a>:
+<p>
+<pre>
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <!-- We use d3 for making the histogram (we don't want to do it by-hand) and loading the data -->
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+
+  <script src="jquery.js"></script>
+  <script src="jquery.flot.js"></script>
+
+  <style>
+  #flot-histogram {
+    height: 500px;
+    width: 800px;
+  }
+  </style>
+</head>
+<body>
+  <!-- Make a div with id flot-histogram. This is where the plot goes -->
+  <div id="flot-histogram"></div>
+
+  <script type="text/javascript">
+    $(function(){
+
+      // Use d3 to make the histogram for us and output
+      // the result into something we can use easily with Flot
+      function buildHistogram(data, bw) {
+        var minx = d3.min(data),
+            maxx = d3.max(data),
+            nbins = Math.floor((maxx-minx) / bw);
+
+        var histogram = d3.layout.histogram();
+        histogram.bins(nbins);
+        data = histogram(data);
+
+        var output = [];
+        for ( var i = 0; i < data.length; i++ ) {
+          output.push([data[i].x, data[i].y]);
+          output.push([data[i].x + data[i].dx, data[i].y]);
+        }
+        return output;
+      }
+
+      // Set some plot options
+      var options = {
+        lines: { show: true, fill: false, lineWidth: 1.2 },
+        grid: { hoverable: true, autoHighlight: false },
+        xaxis: { tickDecimals: 0 },
+        yaxis: { autoscaleMargin: 0.1 }
+      };
+
+      // Load up a csv file and look at the distribution of the
+      // invariant mass M (in GeV, in bins of size 0.1 GeV):
+      d3.csv("../data/MuRun2010B_0.csv", function(data) {
+        var histogram = buildHistogram(data.map(function(d) {return d['M'];}), 0.1);
+
+        // Draw the plot:
+        $.plot($('#flot-histogram'), [{data:histogram, label:'Invariant mass [GeV]'}], options);
+      });
+
+    });
+  </script>
+</body>
+</pre>
+</p>
   </div>
   </div>
 
