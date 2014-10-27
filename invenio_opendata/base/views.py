@@ -504,8 +504,11 @@ def collection(name):
     register_template_context_processor
     from flask.ext.breadcrumbs import current_breadcrumbs
 
-    collection = Collection.query.filter(Collection.name == name) \
-                                 .first_or_404()
+    collection = Collection.query.filter(Collection.name == name).first()
+
+    if collection == None:
+        return render_template('404.html')
+
     coll_reclist = collection.reclist
     coll_records = []
     for rec in coll_reclist:
