@@ -86,16 +86,21 @@ header, footer {
   display: block;
   padding: 10px;
   background-color: transparent;
-  color: #091B26;
+  color: rgb(127, 139, 155);
   width: 100%;
+}
+#od-header .innernav a.disabled {
+  /*color: #fff;*/
 }
 
 #od-header .innernav li:hover,
+#od-header .innernav li:active,
 #od-header .innernav li.open,
 #od-header .innernav a:hover,
+#od-header .innernav a:active,
 #od-header .innernav a:focus {
   color: #fff;
-  background-color: #606D75;
+  background-color: rgb(141, 155, 173);
 }
 .navbar {
   margin: 0;
@@ -521,7 +526,7 @@ footer {
 
 
 .infobar {
-  background-color: #A2B4C0;
+  background-color: rgba(137, 150, 167, 0.33);
   padding: 10px 0;
   color: #fff;
   height: 42px;

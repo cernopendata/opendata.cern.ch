@@ -1,0 +1,550 @@
+{%- extends 'page.html' %}
+
+
+{% block body_attributes %}data-spy="scroll" data-offset="200" data-target="#homepage-nav"{% endblock %}
+
+{%- block page_header -%}
+  <div id="wrap"> {# get closed into page_footer #}
+  {%- include "header.html" -%}
+{%- endblock page_header -%}
+
+{% block body %}
+
+  <style>
+
+    .intro.middle.circledes::after {
+      content: "";
+      background: url('/img/home/home_net_symbols.svg');
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.3;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;   
+    }
+
+    .intro.middle .upper.circledes .middle {
+      background: url('/img/home/glass_old.png');
+      background-size: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-position-y: 30px;
+    }
+
+    #main .testimonials {
+      content: "";
+      background-color: rgba(161, 177, 197, 0.54);
+      bottom: 0;
+      right: 0;
+      left: 0;
+      position: absolute;
+    }
+
+    .quotes b {
+      padding: 0 2px;
+      display: inline-block;
+    }
+
+    .quotes span {
+      font-style: normal;
+      font-weight: 100;
+    }
+    
+    .quotes {
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      font-weight: 400; 
+      font-style: italic;
+      font-size: 13px;
+      height: 90px;
+      margin-bottom: -15px;
+    }
+
+    body, html {
+      height: 100%;
+    }
+    
+    #wrap {
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+    #od-header {
+      position: absolute;
+      height: 80px;
+      width: 100%;
+    }
+
+    #main {
+    }
+    .midnav {
+      background-color: transparent;
+    }
+    .main-header {
+      padding-top: 110px;
+      text-align: center;
+      font-size: 28px;
+      color: rgb(141, 155, 173);
+    }
+
+    .homepage-nav { 
+      position: fixed;
+      margin-right: 0px;
+      bottom: 100px;
+      z-index: 500;
+      width: 100%;
+    }
+
+    .homepage-nav.touch-bottom {
+      bottom: 0px;
+    }
+    
+
+    .homepage-nav.touch-bottom ul {
+      border-radius: 0;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+    }
+    .homepage-nav ul {
+      border-radius: 3px;
+      width: 300px;
+      background-color: rgba(161, 177, 197, 0.54);
+    }
+    .homepage-nav li {
+      /*width: 100%;*/
+      text-align: center;
+    }
+    .homepage-nav li a,
+    .homepage-nav li a:hover,
+    .homepage-nav li a:focus {
+      padding: 7px 10px;
+      border-radius: 3px;
+      padding-bottom: 5px;
+      background-color: transparent;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .homepage-nav li.active a{
+      color: rgb(141, 155, 173);
+      background-color: rgba(255, 255, 255, 0.6);
+      border-radius: 0;
+    }
+
+    .homepage-nav a,
+    .homepage-nav a:hover,
+    .homepage-nav a:focus {
+      color: #fff;
+    }
+
+    .intro.middle, 
+    .homepage-frame {
+      height: 100vh;
+      width: 100vw;
+      float: left;
+      color: rgb(141, 155, 173);
+      overflow: hidden;
+    }
+    #main.homepage-frame {
+      padding-top: 0;
+    }
+
+    #main { 
+      background-color: inherit;
+    }
+    #edu {
+      background-color: transparent;
+    }
+    #rsch{
+      background-color: rgb(198, 208, 217);
+      left: 50%;
+      z-index: -1;
+    }
+      
+    .entrypoint {
+      position: absolute;
+      height: 100vh;
+      float: left;
+      /*border-bottom: 5px solid #657580;*/
+    }
+    .entrypoint-box {
+      padding-top: 40px;
+    }
+
+    .entrypoint-box h1 { 
+      text-align: center;
+      font-size: 40px;
+      color: #fff;
+      text-shadow: 0 0 4px #ccc; /* horizontal-offset vertical-offset 'blur' colour */
+      -moz-text-shadow: 0 0 4px #ccc;
+      -webkit-text-shadow: 0 0 4px #ccc;
+      margin-bottom: 40px;
+      color: rgb(141, 155, 173);
+    }
+
+    .entrypoint-action li {
+        background-color: #f4f4f4;
+        border-radius: 3px;
+        margin-bottom: 10px;
+        width: 100%;
+        font-size: 1.4em;
+        padding: 10px;
+    }
+    
+    .entrypoint-action li:hover,
+    .entrypoint-action li:focus {
+      background-color: rgb(141, 155, 173);
+    }
+
+    .entrypoint-action li.enclr:hover {
+      background-color: rgb(141, 155, 173);
+    }
+    .entrypoint-action li.enclr {
+      background-color: rgb(161, 177, 197);
+      color: #fff;
+    }
+    .entrypoint-action a{
+      color: rgb(141, 155, 173);
+    }
+    .entrypoint-action a:hover,
+    .entrypoint-action a:focus {
+      color: #fff;
+    }
+    .entrypoint-action span {
+      padding: 5px;
+    }
+    .entrypoint-box .gotoentry {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #657580;
+    }
+    
+    .homepage-frame .exp-image {
+      float: left;
+      height: 20%;
+      padding-top: 10%;
+    }
+
+    .homepage-frame .exp-image img {
+      background-color: rgb(141, 155, 173);
+      height: 6em;
+      width: auto;
+      float: left;
+    }
+    
+    #LHCb.homepage-frame .exp-image h2,
+    #ALICE.homepage-frame .exp-image h2 {
+     /*color: #fff;*/
+    }
+    .homepage-frame .exp-image h2 {
+      color: rgb(141, 155, 173);
+      font-size: 6em;
+      float: left;
+      margin: 0;
+      margin-left: 25px; 
+    }
+    
+    #LHCb.homepage-frame .coll-desc,
+    #ALICE.homepage-frame .coll-desc {
+      /*color: #fff;*/
+    }
+    .homepage-frame .coll-desc {
+      font-size: 1.3em;
+      padding-top: 10%;
+    }
+    .homepage-frame .info_details {
+      height: 50%;
+    }
+    .homepage-frame .entry_buttons {
+      padding-top: 10%;
+      height: 30%;
+    }
+
+    .homepage-frame .entry_buttons .entrypoint-buttons {
+      bottom: 0;
+      position: absolute;
+      width: 100%;
+    }
+    .homepage-frame .entry_buttons a:hover {
+      color: #fff;
+      text-decoration: none;
+      background-color: rgb(141, 155, 173);
+    }
+    .homepage-frame .entry_buttons a {
+      background-color: #fff;
+      border-radius: 3px;
+      font-size: 17px;
+      font-weight: 400;
+      text-wrap: none;
+      padding: 20px 15px;
+      color: inherit;
+      /* margin-left: 15px; */
+      float: left;
+      color: rgb(141, 155, 173);
+      width: 100%;
+    }
+
+
+    .homepage-frame .right-side > div div {
+      /*border: 1px solid rgb(141, 155, 173);*/
+      border-radius: 3px;
+      padding-bottom: 15px;
+    }
+
+    .homepage-frame .right-side > div {
+      padding-top: 10%;
+    }
+    .homepage-frame .right-side > div h4 {
+      padding-left: 15px;
+      padding-right: 15px;
+      font-size: 32px;
+      font-weight: 400;
+    }
+
+    .homepage-frame .right-side > div li a {
+      font-size: 18px;
+      font-weight: 100;
+      color: inherit;
+    }
+
+    .homepage-frame .right-side > .news {
+      height: 30%;
+    }
+    .homepage-frame .right-side > .collections {
+      height: 30%;
+    }
+    .homepage-frame .right-side > .quicklinks {
+      height: 40%;
+    }
+
+
+    .homepage-frame .right-side > div ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    .homepage-frame .right-side > div li span {
+      padding-left: 3px;
+    }
+
+    .homepage-frame .left-side {
+      height: 45vw;
+    }
+
+    .homepage-frame .right-side {
+      height: 45vw;
+      /*border-left: 1px dotted rgb(141, 155, 173);*/
+    }
+
+    .homepage-frame .right-side .quicklinks {
+      /*position: absolute;
+      bottom: 0;*/
+    }
+
+    .homepage-frame .right-side .inner {
+      border: 1px dotted rgb(141, 155, 173);
+      border-radius: 3px;
+      padding: 15px 0;
+    }
+    #education .entrypoint-action li {
+      text-align: left;
+    }
+    #research .entrypoint-action li {
+      text-align: right;
+    }
+
+    #main .triangle-tl {
+      width: 0;
+      height: 0;
+      border-top: 100% solid gray;
+      border-radius: 100% solid transparent;
+    }
+
+    #CMS {background-color: #E1E8EC;}
+    #ALICE {background-color: rgb(190, 203, 219);}
+    #ATLAS {background-color: #DEE7F0;}
+    #LHCb {background-color: #C0CCDA;}
+  </style>
+  
+  <nav id="homepage-nav" class="homepage-nav">
+    <ul  class="nav center-block">
+      <li><a href="#main" data-id="main"><span class="fa fa-home"></span></a></li>
+      <li><a href="#CMS" data-id="CMS">CMS</a></li>
+      <li><a href="#ALICE" data-id="ALICE">ALICE</a></li>
+      <li><a href="#ATLAS" data-id="ATLAS">ATLAS</a></li>
+      <li><a href="#LHCb" data-id="LHCb">LHCb</a></li>
+      <!-- <li><a href="#main" data-id="main"><span class="fa fa-circle"></span></a></li>
+      <li><a href="#CMS" data-id="CMS"><span class="fa fa-circle"></span></a></li>
+      <li><a href="#ALICE" data-id="ALICE"><span class="fa fa-circle"></span></a></li>
+      <li><a href="#ATLAS" data-id="ATLAS"><span class="fa fa-circle"></span></a></li>
+      <li><a href="#LHCb" data-id="LHCb"><span class="fa fa-circle"></span></a></li> -->
+    </ul>
+  </nav>
+  <section id="main" class="intro middle circledes homepage-frame">
+    <div id="edu" class="entrypoint col-xs-12 col-sm-6"></div>
+    <div id="rsch" class="entrypoint col-xs-12 col-sm-6"></div>
+    {% include "middle_with_design.html" %}
+    <div class="testimonials">
+      <div class="container">
+        <div class="row">
+          <div class="quotes">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
+              <div class="row">
+                <div class="col-md-6"><b>"</b>{{testimonials[0].get('quote','')}}<b>"</b><br/><span>- {{testimonials[0].get('firstName','')}} {{testimonials[0].get('lastName','')}}</span></div>
+                <div class="col-md-6"><b>"</b>{{testimonials[1].get('quote','')}}<b>"</b><br/><span>- {{testimonials[1].get('firstName','')}} {{testimonials[1].get('lastName','')}}</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% import 'data/news_db.html' as n %}
+  
+  {% for e in exp_colls %}
+  <section id="{{e.name_ln}}" class="homepage-frame" >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="left-side">
+              <div class="exp-image col-sm-12">
+                <img src="{{ url_for('static', filename='img/'+e.name_ln+'.gif') }}" alt="" style="background-color: transparent;">
+                <h2>{{e.name_ln}}</h2>
+              </div>
+              <div class="info_details col-sm-12">
+                {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+                {% for pb in e.portalboxes %}
+                {% if (pb.portalbox.title == 'description') %}
+                {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+                {% elif (pb.portalbox.title == 'image') %}
+                {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+                {% endif %}
+                {% endfor %} 
+                <div class="coll-desc">
+                  {% for d in (coll_portalboxes['desc']|splitthem('#$#$#')) %}{{d}}{% endfor %}
+                </div>
+              </div>
+              <div class="entry_buttons col-sm-12">
+                <div class="row">
+                  <div class="entrypoint-buttons">
+                    <div class="col-sm-6">
+                      <a href="{{ url_for('.educate', exp = e.name )}}">More on {{e.name}} Education <span class="fa fa-angle-right"></span></a>
+                    </div>
+                    <div class="col-sm-6">
+                      <a href="{{ url_for('.research', exp = e.name )}}">More on {{e.name}} Research <span class="fa fa-angle-right"></span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="right-side">
+              <div class="news col-sm-12">
+                <div>
+                  <h4>News</h4>
+                  <ul class="row">
+                    {% for ns in n.news %}
+                      {% if e.name in ns[3][1]  %}
+                        <li class="col-sm-12">
+                          <a href="{{url_for('.news', newsid = ns[5])}}">{{ns[0]}}<span class="fa fa-angle-right"></span></a>
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+              <div class="collections col-sm-12">
+                <div>
+                  <h4>Collections</h4>
+                  <ul class="row">
+                    {% for c in e.collection_children_r %}
+                      <li class="col-sm-6">
+                        <a href="{{ url_for('collection', name=c.name) }}">{{ c.name_ln }}<span class="fa fa-angle-right"></span>
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+              <div class="quicklinks col-sm-12">
+                <div>
+                  <h4>Related Links</h4>
+                  <ul class="row">
+                    <li class="col-sm-6"><a href="{{ url_for('about/'+e.name_ln) }}">Learn about {{e.name_ln}}<span class="fa fa-angle-right"></span></a></li>
+                    {% if e.name_ln in ['CMS'] %}
+                    <li class="col-sm-6"><a href="{{ url_for('.about_physics') }}">CMS Physics Objects<span class="fa fa-angle-right"></span></a></li>
+                    <li class="col-sm-6"><a href="{{ url_for('.visualise_events') }}">Visialise CMS events<span class="fa fa-angle-right"></span></a></li>
+                    <li class="col-sm-6"><a href="{{ url_for('.visualise_histo') }}">Visualise histograms<span class="fa fa-angle-right"></span></a></li>
+                    {% endif %}
+                    <li class="col-sm-6"><a href="{{ url_for('.data_vms', exp = e.name ) }}">{{e.name_ln}} Virtual Machine<span class="fa fa-angle-right"></span></a></li>
+                    <li class="col-sm-6"><a href="{{ url_for('.get_started', exp = e.name) }}">Getting started with {{e.name_ln}}<span class="fa fa-angle-right"></span></a></li>
+                    <li class="col-sm-6"><a href="{{ url_for('.collection' , name = e.name+'-Tools') }}">{{e.name_ln}} Tools<span class="fa fa-angle-right"></span></a></li>
+                    <li class="col-sm-6"><a href="{{ url_for('.resources' , exp = e.name ) }}">{{e.name_ln}} External Resources<span class="fa fa-angle-right"></span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  
+
+  <script>
+    (function($) {
+      $('body').scroll( function(){
+        if( document.body.scrollTop > 103 ) {
+          alert("----");
+        }
+        else {
+          $("#homepage-nav").removeClass("touch-bottom");
+        }
+      });
+    })(jQuery);
+  </script>
+  {% endfor %}
+
+  <div id="push"></div>
+  </div> {# end wrap #}
+
+{% endblock body %}
+
+{% block javascript %}
+  {{ super() }}
+  <script>
+    (function($) {
+      window.onscroll = function(){
+        if( window.pageYOffset > 103 ) {
+          $("#homepage-nav").addClass("touch-bottom");
+        }
+        else {
+          $("#homepage-nav").removeClass("touch-bottom");
+        }
+      }
+
+      $('.nav a').click(function(){  
+        //Toggle Class
+        $(".active").removeClass("active");      
+        $(this).closest('li').addClass("active");
+        var theClass = $(this).attr("class");
+        $('.'+theClass).parent('li').addClass('active');
+        //Animate
+        $('html, body').stop().animate({
+          scrollTop: $( $(this).attr('href') ).offset().top
+        }, 400);
+        return false;
+      });
+      $('.scrollTop a').scrollTop();
+    })(jQuery);
+  </script>  
+{% endblock %}

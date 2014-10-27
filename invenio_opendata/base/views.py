@@ -63,11 +63,132 @@ def middle():
     with open(filepath,'r') as f:
         testimonials = json.load(f)
 
+    def splitting(value, delimiter='/'):
+        return value.split(delimiter)
+
+    current_app.jinja_env.filters['splitthem'] = splitting
+    
+    exp_colls, exp_names = get_collections()
+
     try:
-        return render_template('index_middle_with_design.html', testimonials = testimonials)
+        return render_template('index_middle_with_design.html', testimonials = testimonials, exp_colls = exp_colls, exp_names = exp_names)
     except TemplateNotFound:
         return abort(404)
 
+
+@blueprint.route('home2')
+def home2():
+    import json, pkg_resources
+    filepath = pkg_resources.resource_filename('invenio_opendata.base', 'templates/helpers/text/testimonials.json')
+    with open(filepath,'r') as f:
+        testimonials = json.load(f)
+
+    def splitting(value, delimiter='/'):
+        return value.split(delimiter)
+
+    current_app.jinja_env.filters['splitthem'] = splitting
+    
+    exp_colls, exp_names = get_collections()
+
+    try:
+        return render_template('index_scrollspy.html', testimonials = testimonials, exp_colls = exp_colls, exp_names = exp_names)
+    except TemplateNotFound:
+        return abort(404)    
+
+@blueprint.route('home3')
+def home3():
+    import json, pkg_resources
+    filepath = pkg_resources.resource_filename('invenio_opendata.base', 'templates/helpers/text/testimonials.json')
+    with open(filepath,'r') as f:
+        testimonials = json.load(f)
+
+    def splitting(value, delimiter='/'):
+        return value.split(delimiter)
+
+    current_app.jinja_env.filters['splitthem'] = splitting
+    
+    exp_colls, exp_names = get_collections()
+
+    try:
+        return render_template('index_combination.html', testimonials = testimonials, exp_colls = exp_colls, exp_names = exp_names)
+    except TemplateNotFound:
+        return abort(404)  
+
+@blueprint.route('home4')
+def home4():
+    import json, pkg_resources
+    filepath = pkg_resources.resource_filename('invenio_opendata.base', 'templates/helpers/text/testimonials.json')
+    with open(filepath,'r') as f:
+        testimonials = json.load(f)
+
+    def splitting(value, delimiter='/'):
+        return value.split(delimiter)
+
+    current_app.jinja_env.filters['splitthem'] = splitting
+    
+    exp_colls, exp_names = get_collections()
+
+    try:
+        return render_template('index_combination_2.html', testimonials = testimonials, exp_colls = exp_colls, exp_names = exp_names)
+    except TemplateNotFound:
+        return abort(404)  
+
+@blueprint.route('home5')
+def home5():
+    import json, pkg_resources
+    filepath = pkg_resources.resource_filename('invenio_opendata.base', 'templates/helpers/text/testimonials.json')
+    with open(filepath,'r') as f:
+        testimonials = json.load(f)
+
+    def splitting(value, delimiter='/'):
+        return value.split(delimiter)
+
+    current_app.jinja_env.filters['splitthem'] = splitting
+    
+    exp_colls, exp_names = get_collections()
+
+    try:
+        return render_template('index_combination_3.html', testimonials = testimonials, exp_colls = exp_colls, exp_names = exp_names)
+    except TemplateNotFound:
+        return abort(404)  
+
+@blueprint.route('home6')
+def home6():
+    import json, pkg_resources
+    filepath = pkg_resources.resource_filename('invenio_opendata.base', 'templates/helpers/text/testimonials.json')
+    with open(filepath,'r') as f:
+        testimonials = json.load(f)
+
+    def splitting(value, delimiter='/'):
+        return value.split(delimiter)
+
+    current_app.jinja_env.filters['splitthem'] = splitting
+    
+    exp_colls, exp_names = get_collections()
+
+    try:
+        return render_template('index_middle_with_symbols.html', testimonials = testimonials, exp_colls = exp_colls, exp_names = exp_names)
+    except TemplateNotFound:
+        return abort(404)
+
+@blueprint.route('home7')
+def home7():
+    import json, pkg_resources
+    filepath = pkg_resources.resource_filename('invenio_opendata.base', 'templates/helpers/text/testimonials.json')
+    with open(filepath,'r') as f:
+        testimonials = json.load(f)
+
+    def splitting(value, delimiter='/'):
+        return value.split(delimiter)
+
+    current_app.jinja_env.filters['splitthem'] = splitting
+    
+    exp_colls, exp_names = get_collections()
+
+    try:
+        return render_template('index_combination_4.html', testimonials = testimonials, exp_colls = exp_colls, exp_names = exp_names)
+    except TemplateNotFound:
+        return abort(404) 
 
 @blueprint.route('middle')
 def middle_des():
