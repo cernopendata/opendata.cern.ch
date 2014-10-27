@@ -4,14 +4,16 @@
       <div class="rec_dedicated_details_in rdd-sel panel">
         <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#selection">How were these data selected?<span class="pull-right fa fa-angle-up"></span></div>
         <div id="selection" class="info collapse">
-          <div class="body">{{ record.get('methodology_note', {}).get('note', '') }}</div>
-          <div class="links">
-            {% if record.get('methodology_note.recid', '') %}
-              <ul>
-                <li><a href="{{ url_for('record.metadata', recid=record.get('methodology_note.recid', '')) }}">Record {{ record.get('methodology_note.recid', '') }}</a></li>
-              </ul>
-            {% endif %}
-          </div>
+          {% for methodology_note in record.get('methodology_note', []) %}
+            <div class="body">{{ methodology_note.get('note', '') }}</div>
+            <div class="links">
+              {% if methodology_note.get('recid', '') %}
+                <ul>
+                  <li><a href="{{ url_for('record.metadata', recid=methodology_note.get('recid', '')) }}">Record {{ methodology_note.get('recid', '') }}</a></li>
+                </ul>
+              {% endif %}
+            </div>
+          {% endfor %}
         </div>
       </div>
     {% endif %}
@@ -75,7 +77,7 @@
       <div id="disclaimer" class="info">
         <div class="row">
           <div class="body col-md-12">The open data are released under Creative Commons Zero (CC0). Neither CMS nor CERN endorse any works, scientific or otherwise, produced using these data.<br/>
-All releases will have a unique DOI that you are requested to cite in any applications or publications.</div>
+            All releases will have a unique DOI that you are requested to cite in any applications or publications.</div>
           <div class="col-md-12">
             <div class="ccommons">
               <img src="{{ url_for('static', filename='img/cc-zero.svg') }}" alt="">

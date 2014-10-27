@@ -4,14 +4,16 @@
       <div class="rec_dedicated_details_in rdd-sel panel">
         <div class="panel-title title ccollapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#selection">How were these data selected?<span class="pull-right fa fa-angle-up"></span></div>
         <div id="selection" class="info ccollapse">
-          <div class="body">{{ record.get('methodology_note', {}).get('note', '') }}</div>
-          <div class="links">
-            {% if record.get('methodology_note.recid', '') %}
-              <ul>
-                <li><a href="{{ url_for('record.metadata', recid=record.get('methodology_note.recid', '')) }}">Record {{ record.get('methodology_note.recid', '') }}</a></li>
-              </ul>
-            {% endif %}
-          </div>
+          {% for methodology_note in record.get('methodology_note', []) %}
+            <div class="body">{{ methodology_note.get('note', '') }}</div>
+            <div class="links">
+              {% if methodology_note.get('recid', '') %}
+                <ul>
+                  <li><a href="{{ url_for('record.metadata', recid=methodology_note.get('recid', '')) }}">Record {{ methodology_note.get('recid', '') }}</a></li>
+                </ul>
+              {% endif %}
+            </div>
+          {% endfor %}
         </div>
       </div>
     {% endif %}
@@ -41,19 +43,19 @@
         <div id="reusability" class="info ccollapse">
           {% for material_publication_note in record.get('material_publication_note', []) %}
             {% if material_publication_note.get('note', '') %}
-            <div class="body">{{ material_publication_note.get('note', '') }}</div>
+              <div class="body">{{ material_publication_note.get('note', '') }}</div>
             {% endif %}
           {% endfor %}
           <div class="links">
             <ul>
-            {% for material_publication_note in record.get('material_publication_note', []) %}
+              {% for material_publication_note in record.get('material_publication_note', []) %}
                 {% if material_publication_note.get('url', '') %}
                   <li><a href="{{ material_publication_note.get('url', '') }}"> {{ material_publication_note.get('description', '') }}</a></li>
                 {% endif %}
                 {% if material_publication_note.get('recid', '') %}
-                    <li><a href="{{ url_for('record.metadata', recid=material_publication_note.get('recid', '')) }}">Record {{ material_publication_note.get('recid', '') }}</a></li>
+                  <li><a href="{{ url_for('record.metadata', recid=material_publication_note.get('recid', '')) }}">Record {{ material_publication_note.get('recid', '') }}</a></li>
                 {% endif %}
-            {% endfor %}
+              {% endfor %}
             </ul>
           </div>
         </div>

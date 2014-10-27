@@ -23,14 +23,16 @@
       <div class="rec_dedicated_details_in rdd-sel panel">
         <div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#selection">How were these data selected?</div>
         <div id="selection" class="info  ccollapse">
-          <div class="body">{{ record.get('methodology_note', {}).get('note', '') }}</div>
-          <div class="links">
-            {% if record.get('methodology_note.recid', '') %}
-              <ul>
-                <li><a href="{{ url_for('record.metadata', recid=record.get('methodology_note.recid', '')) }}">Record {{ record.get('methodology_note.recid', '') }}</a></li>
-              </ul>
-            {% endif %}
-          </div>
+          {% for methodology_note in record.get('methodology_note', []) %}
+            <div class="body">{{ methodology_note.get('note', '') }}</div>
+            <div class="links">
+              {% if methodology_note.get('recid', '') %}
+                <ul>
+                  <li><a href="{{ url_for('record.metadata', recid=methodology_note.get('recid', '')) }}">Record {{ methodology_note.get('recid', '') }}</a></li>
+                </ul>
+              {% endif %}
+            </div>
+          {% endfor %}
         </div>
       </div>
     {% endif %}
