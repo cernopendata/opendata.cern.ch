@@ -32,6 +32,10 @@
   <![endif]-->
 {% endblock %}
 
+{% block body_attributes %}
+  {{super() }}
+{% endblock %}
+
 {%- block page_header -%}
 <div id="wrap"> {# get closed into page_footer #}
   {%- include "header.html" -%}
