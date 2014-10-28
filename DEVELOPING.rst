@@ -68,24 +68,26 @@ opendata.cern.ch overlay.  There are two options:
           CFG_INVENIO2_DATABASE_USER=opendata \
           CFG_INVENIO2_DATABASE_NAME=opendata \
           CFG_INVENIO2_DEMOSITE_POPULATE_BEFORE="./populate-fft-file-cache.sh" \
-          CFG_INVENIO2_DEMOSITE_POPULATE="-f invenio_opendata/testsuite/data/cms/cms-primary-datasets.xml \
-                                          -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana.xml \
-                                          -f invenio_opendata/testsuite/data/cms/cms-eventdisplay-files.xml \
-                                          -f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
-                                          -f invenio_opendata/testsuite/data/cms/cms-tools-ispy.xml \
-                                          -f invenio_opendata/testsuite/data/cms/cms-tools-vm-image.xml \
-                                          -f invenio_opendata/testsuite/data/cms/cms-tools-dimuon-filter.xml \
-                                          -f invenio_opendata/testsuite/data/cms/cms-validated-runs.xml \
-                                          -f invenio_opendata/testsuite/data/cms/cms-external-resources.xml \
-                                          -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
-                                          -f invenio_opendata/testsuite/data/cms/cms-csv-files.xml \
+          CFG_INVENIO2_DEMOSITE_POPULATE="-f invenio_opendata/testsuite/data/alice/alice-analysis-modules.xml \
                                           -f invenio_opendata/testsuite/data/alice/alice-derived-datasets.xml \
-                                          -f invenio_opendata/testsuite/data/alice/alice-reconstructed-data.xml \
-                                          -f invenio_opendata/testsuite/data/alice/alice-analysis-modules.xml \
                                           -f invenio_opendata/testsuite/data/alice/alice-external-resources.xml \
+                                          -f invenio_opendata/testsuite/data/alice/alice-reconstructed-data.xml \
                                           -f invenio_opendata/testsuite/data/alice/alice-vm-image.xml \
                                           -f invenio_opendata/testsuite/data/atlas/atlas-derived-datasets.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-csv-files.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-eventdisplay-files.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-external-resources.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-primary-datasets.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-tools-dimuon-filter.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-tools-ispy.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-tools-vm-image.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-validated-runs.xml \
+                                          -f invenio_opendata/testsuite/data/lhcb/lhcb-derived-datasets.xml \
                                           -f invenio_opendata/testsuite/data/lhcb/lhcb-external-resources.xml \
+                                          -f invenio_opendata/testsuite/data/lhcb/lhcb-tools.xml \
                                           -e force-recids" \
           ./invenio2-kickstart --yes-i-know --yes-i-really-know
 
@@ -163,25 +165,27 @@ re-populate your site anew to have your updated records, you can do:
     vm> workon opendata
     vm> inveniomanage database recreate --yes-i-know
     vm> inveniomanage demosite populate --packages=invenio_opendata.base \
-         -f invenio_opendata/testsuite/data/cms/cms-primary-datasets.xml \
-         -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana.xml \
-         -f invenio_opendata/testsuite/data/cms/cms-eventdisplay-files.xml \
-         -f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
-         -f invenio_opendata/testsuite/data/cms/cms-tools-ispy.xml \
-         -f invenio_opendata/testsuite/data/cms/cms-tools-vm-image.xml \
-         -f invenio_opendata/testsuite/data/cms/cms-tools-dimuon-filter.xml \
-         -f invenio_opendata/testsuite/data/cms/cms-validated-runs.xml \
-         -f invenio_opendata/testsuite/data/cms/cms-external-resources.xml \
-         -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
-         -f invenio_opendata/testsuite/data/cms/cms-csv-files.xml \
-         -f invenio_opendata/testsuite/data/alice/alice-derived-datasets.xml \
-         -f invenio_opendata/testsuite/data/alice/alice-reconstructed-data.xml \
          -f invenio_opendata/testsuite/data/alice/alice-analysis-modules.xml \
+         -f invenio_opendata/testsuite/data/alice/alice-derived-datasets.xml \
          -f invenio_opendata/testsuite/data/alice/alice-external-resources.xml \
+         -f invenio_opendata/testsuite/data/alice/alice-reconstructed-data.xml \
          -f invenio_opendata/testsuite/data/alice/alice-vm-image.xml \
          -f invenio_opendata/testsuite/data/atlas/atlas-derived-datasets.xml \
+         -f invenio_opendata/testsuite/data/cms/cms-csv-files.xml \
+         -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana.xml \
+         -f invenio_opendata/testsuite/data/cms/cms-eventdisplay-files.xml \
+         -f invenio_opendata/testsuite/data/cms/cms-external-resources.xml \
+         -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
+         -f invenio_opendata/testsuite/data/cms/cms-primary-datasets.xml \
+         -f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
+         -f invenio_opendata/testsuite/data/cms/cms-tools-dimuon-filter.xml \
+         -f invenio_opendata/testsuite/data/cms/cms-tools-ispy.xml \
+         -f invenio_opendata/testsuite/data/cms/cms-tools-vm-image.xml \
+         -f invenio_opendata/testsuite/data/cms/cms-validated-runs.xml \
+         -f invenio_opendata/testsuite/data/lhcb/lhcb-derived-datasets.xml \
          -f invenio_opendata/testsuite/data/lhcb/lhcb-external-resources.xml \
-         -e force-recids
+         -f invenio_opendata/testsuite/data/lhcb/lhcb-tools.xml \
+        -e force-recids
 
 JS/CSS Assets
 =============
