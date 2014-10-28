@@ -157,6 +157,15 @@ class CollectionData(DataSet):
             ('en', 'ln'): u'LHCb External Resources',
         }
 
+    class ALICEExternalResources(siteCollection):
+        id = 20
+        name = 'ALICE-External-Resources'
+        dbquery = '980__a:"ALICE-External-Resources"'
+        names = {
+            ('en', 'ln'): u'ALICE External Resources',
+        }
+
+
 class CollectionCollectionData(DataSet):
 
     class siteCollection_CMS:
@@ -351,6 +360,18 @@ class CollectionCollectionData(DataSet):
         score = 2
         type = 'r'
 
+    class siteCollection_ALICEExternalResources:
+        dad = CollectionData.siteCollection
+        son = CollectionData.ALICEExternalResources
+        score = 14
+        type = 'r'
+
+    class ALICE_ALICEExternalResources:
+        dad = CollectionData.ALICE
+        son = CollectionData.ALICEExternalResources
+        score = 3
+        type = 'r'
+
 
 class CollectiondetailedrecordpagetabsData(DataSet):
 
@@ -532,6 +553,11 @@ class PortalboxData(DataSet):
     class Portalbox_29:
         body = u'This collection contains LHCb external resources.'
         id = 29
+        title = u'description'
+
+    class Portalbox_30:
+        body = u'This collection contains ALICE external resources.'
+        id = 30
         title = u'description'
 
 
@@ -739,6 +765,13 @@ class CollectionPortalboxData(DataSet):
         id_portalbox = PortalboxData.Portalbox_29.ref('id')
         score = 100
         id_collection = CollectionData.LHCbExternalResources.ref('id')
+
+    class CollectionPortalbox_20_30_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_30.ref('id')
+        score = 100
+        id_collection = CollectionData.ALICEExternalResources.ref('id')
 
 
 class FacetCollectionData(DataSet):
