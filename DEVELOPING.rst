@@ -74,6 +74,7 @@ opendata.cern.ch overlay.  There are two options:
                                           -f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-tools-ispy.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-tools-vm-image.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-tools-dimuon-filter.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-validated-runs.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-external-resources.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
@@ -97,6 +98,7 @@ opendata.cern.ch overlay.  There are two options:
           CFG_INVENIO2_DATABASE_NAME=opendata \
           CFG_INVENIO2_DEMOSITE_POPULATE="-f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-tools-ispy.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-tools-dimuon-filter.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-external-resources.xml \
                                           -f invenio_opendata/testsuite/data/alice/alice-analysis-modules.xml \
                                           -e force-recids" \
@@ -163,6 +165,7 @@ re-populate your site anew to have your updated records, you can do:
          -f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
          -f invenio_opendata/testsuite/data/cms/cms-tools-ispy.xml \
          -f invenio_opendata/testsuite/data/cms/cms-tools-vm-image.xml \
+         -f invenio_opendata/testsuite/data/cms/cms-tools-dimuon-filter.xml \
          -f invenio_opendata/testsuite/data/cms/cms-validated-runs.xml \
          -f invenio_opendata/testsuite/data/cms/cms-external-resources.xml \
          -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
