@@ -22,14 +22,12 @@
 	                  </div>
 	                </div>
 	                <div class="col-xs-6 col-sm-4">
-	                  <div class="rightside">
-	                    {% if file["url"][-3:] == 'txt' %}
-	                    	<button class="col-xs-12 col-sm-12 btn" onClick="window.location.href='{{file["url"]}}'">Download file indexes</button>
-	                    {% else %}
-	                    <button class="col-xs-12  {{ 'col-sm-6'if with_preview else 'col-sm-12'}} btn" onClick="window.location.href='{{file["url"]}}'">Download files</button>
-	                    {% if with_preview %}<button class="col-xs-12 col-sm-6 btn" onClick="window.location.href='#previewer'">Preview</button>{%endif%}
-	                    {% endif %}
-	                  </div>
+	                    <div class="right-side">
+	                    	<button class="col-xs-12  {{ 'col-sm-6' if with_preview else 'col-sm-12'}} btn" onClick="window.location.href='{{file["url"]}}'">Download</button>
+	                    	{% if with_preview %}
+	                    		<button class="col-xs-12 col-sm-6 btn" onClick="window.location.href='#previewer'">Preview</button>
+	                    	{%endif%}
+	                    </div>
 	                </div>
 	              </div>
 	            </div>
