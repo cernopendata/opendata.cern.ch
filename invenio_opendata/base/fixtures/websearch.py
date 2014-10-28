@@ -526,7 +526,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_20:
-        body = u'The ATLAS (A Toroidal LHC ApparatuS) experiment is the other general-purpose particle physics detector at the LHC. It covers a wide range of physics exploring topics like the properties of the Higgs-like particle whose discovery was announced in July 2012.'
+        body = u'The ATLAS (A Toroidal LHC ApparatuS) experiment is one of the two general purpose detectors at the LHC. It covers a wide range of physics exploring topics like the properties of the Higgs-like particle whose discovery was announced in July 2012.'
         id = 20
         title = u'description'
 
