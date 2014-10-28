@@ -190,6 +190,25 @@ def home7():
     except TemplateNotFound:
         return abort(404) 
 
+@blueprint.route('home8')
+def home8():
+    import json, pkg_resources
+    filepath = pkg_resources.resource_filename('invenio_opendata.base', 'templates/helpers/text/testimonials.json')
+    with open(filepath,'r') as f:
+        testimonials = json.load(f)
+
+    def splitting(value, delimiter='/'):
+        return value.split(delimiter)
+
+    current_app.jinja_env.filters['splitthem'] = splitting
+    
+    exp_colls, exp_names = get_collections()
+
+    try:
+        return render_template('index_middle_with_symbols_2.html', testimonials = testimonials, exp_colls = exp_colls, exp_names = exp_names)
+    except TemplateNotFound:
+        return abort(404)
+
 @blueprint.route('middle')
 def middle_des():
     try:
