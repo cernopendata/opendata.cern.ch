@@ -126,14 +126,36 @@ class CollectionData(DataSet):
         dbquery = '980__a:"ATLAS-Tools"'
         names = {
             ('en', 'ln'): u'ATLAS Tools',
-        }   
+        }
 
     class LHCb(siteCollection):
         id = 16
         name = 'LHCb'
         dbquery = None
-            
 
+    class LHCbDerivedDatasets(siteCollection):
+        id = 17
+        name = 'LHCb-Derived-Datasets'
+        dbquery = '980__a:"LHCb-Derived-Datasets"'
+        names = {
+            ('en', 'ln'): u'LHCb Derived Datasets',
+        }
+
+    class LHCbTools(siteCollection):
+        id = 18
+        name = 'LHCb-Tools'
+        dbquery = '980__a:"LHCb-Tools"'
+        names = {
+            ('en', 'ln'): u'LHCb Tools',
+        }
+
+    class LHCbExternalResources(siteCollection):
+        id = 19
+        name = 'LHCb-External-Resources'
+        dbquery = '980__a:"LHCb-External-Resources"'
+        names = {
+            ('en', 'ln'): u'LHCb External Resources',
+        }
 
 class CollectionCollectionData(DataSet):
 
@@ -293,6 +315,43 @@ class CollectionCollectionData(DataSet):
         score = 3
         type = 'v'
 
+    class siteCollection_LHCbDerivedDatasets:
+        dad = CollectionData.siteCollection
+        son = CollectionData.LHCbDerivedDatasets
+        score = 11
+        type = 'r'
+
+    class siteCollection_LHCbTools:
+        dad = CollectionData.siteCollection
+        son = CollectionData.LHCbTools
+        score = 12
+        type = 'r'
+
+    class siteCollection_LHCbExternalResources:
+        dad = CollectionData.siteCollection
+        son = CollectionData.LHCbExternalResources
+        score = 13
+        type = 'r'
+
+    class LHCb_LHCbDerivedDatasets:
+        dad = CollectionData.LHCb
+        son = CollectionData.LHCbDerivedDatasets
+        score = 0
+        type = 'r'
+
+    class LHCb_LHCbTools:
+        dad = CollectionData.LHCb
+        son = CollectionData.LHCbTools
+        score = 1
+        type = 'r'
+
+    class LHCb_LHCbExternalResources:
+        dad = CollectionData.LHCb
+        son = CollectionData.LHCbExternalResources
+        score = 2
+        type = 'r'
+
+
 class CollectiondetailedrecordpagetabsData(DataSet):
 
     class Collectiondetailedrecordpagetabs_1:
@@ -328,7 +387,7 @@ class CollectionFormatData(DataSet):
         id_collection = CollectionData.siteCollection.ref('id')
 
 
-class PortalboxData(DataSet):   
+class PortalboxData(DataSet):
 
     class Portalbox_1:
         body = u'The CMS (Compact Muon Solenoid) experiment is one of two large general-purpose particle physics detectors built on the Large Hadron Collider (LHC) at CERN in Switzerland and France. The goal of CMS is to investigate a wide range of physics, including properties of the recently discovered Higgs boson as well as searches for extra dimensions and particles that could make up dark matter.'
@@ -459,6 +518,22 @@ class PortalboxData(DataSet):
         body = u'LHCb.gif'
         id = 26
         title = u'image'
+
+    class Portalbox_27:
+        body = u'This collection contains LHCb masterclass datasets.'
+        id = 27
+        title = u'description'
+
+    class Portalbox_28:
+        body = u'This collection contains LHCb tools.'
+        id = 28
+        title = u'description'
+
+    class Portalbox_29:
+        body = u'This collection contains LHCb external resources.'
+        id = 29
+        title = u'description'
+
 
 class CollectionPortalboxData(DataSet):
 
@@ -636,13 +711,35 @@ class CollectionPortalboxData(DataSet):
         id_portalbox = PortalboxData.Portalbox_25.ref('id')
         score = 100
         id_collection = CollectionData.LHCb.ref('id')
-    
-    class CollectionPortalbox_16_26_en: 
+
+    class CollectionPortalbox_16_26_en:
         ln = u'en'
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_26.ref('id')
         score = 100
         id_collection = CollectionData.LHCb.ref('id')
+
+    class CollectionPortalbox_17_27_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_27.ref('id')
+        score = 100
+        id_collection = CollectionData.LHCbDerivedDatasets.ref('id')
+
+    class CollectionPortalbox_18_28_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_28.ref('id')
+        score = 100
+        id_collection = CollectionData.LHCbTools.ref('id')
+
+    class CollectionPortalbox_19_29_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_29.ref('id')
+        score = 100
+        id_collection = CollectionData.LHCbExternalResources.ref('id')
+
 
 class FacetCollectionData(DataSet):
 
