@@ -85,6 +85,7 @@ opendata.cern.ch overlay.  There are two options:
                                           -f invenio_opendata/testsuite/data/alice/alice-external-resources.xml \
                                           -f invenio_opendata/testsuite/data/alice/alice-vm-image.xml \
                                           -f invenio_opendata/testsuite/data/atlas/atlas-derived-datasets.xml \
+                                          -f invenio_opendata/testsuite/data/lhcb/lhcb-external-resources.xml \
                                           -e force-recids" \
           ./invenio2-kickstart --yes-i-know --yes-i-really-know
 
@@ -179,6 +180,7 @@ re-populate your site anew to have your updated records, you can do:
          -f invenio_opendata/testsuite/data/alice/alice-external-resources.xml \
          -f invenio_opendata/testsuite/data/alice/alice-vm-image.xml \
          -f invenio_opendata/testsuite/data/atlas/atlas-derived-datasets.xml \
+         -f invenio_opendata/testsuite/data/lhcb/lhcb-external-resources.xml \
          -e force-recids
 
 JS/CSS Assets
