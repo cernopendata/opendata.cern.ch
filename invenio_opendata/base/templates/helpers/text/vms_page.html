@@ -20,7 +20,7 @@
   </div>
 {% endmacro %}
 
-{% macro install_s2() %}
+{% macro install_s2(url) %}
   <div class="heading">Step 2: Downloading and Creating a Virtual Machine</div>
   <div class="body">
     <div class="row">
@@ -30,7 +30,7 @@
     </div>
     <div class="row">
         <p class="col-md-12">
-        Next download the CMS-specific CernVM image as OVA file from: <a href="http://cernvm.cern.ch/releases/CMS-OpenData-1.0.0-rc4.ova">CMS OpenData (latest)</a>.
+        Next download the CMS-specific CernVM image as OVA file from: <a href="{{url}}">CMS OpenData (latest)</a>.
         </p>
     </div>
     <div class="row">
