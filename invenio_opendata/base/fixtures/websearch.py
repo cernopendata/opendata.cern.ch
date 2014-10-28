@@ -165,6 +165,14 @@ class CollectionData(DataSet):
             ('en', 'ln'): u'ALICE External Resources',
         }
 
+    class CMSOpenDataInstructions(siteCollection):
+        id = 21
+        name = 'CMS-Open-Data-Instructions'
+        dbquery = '980__a:"CMS-Open-Data-Instructions"'
+        names = {
+            ('en', 'ln'): u'CMS Open Data Instructions',
+        }
+
 
 class CollectionCollectionData(DataSet):
 
@@ -372,6 +380,18 @@ class CollectionCollectionData(DataSet):
         score = 3
         type = 'r'
 
+    class siteCollection_CMSOpenDataInstructions:
+        dad = CollectionData.siteCollection
+        son = CollectionData.CMSOpenDataInstructions
+        score = 14
+        type = 'r'
+
+    class CMS_CMSOpenDataInstructions:
+        dad = CollectionData.CMS
+        son = CollectionData.CMSOpenDataInstructions
+        score = 5
+        type = 'r'
+
 
 class CollectiondetailedrecordpagetabsData(DataSet):
 
@@ -558,6 +578,11 @@ class PortalboxData(DataSet):
     class Portalbox_30:
         body = u'This collection contains ALICE external resources.'
         id = 30
+        title = u'description'
+
+    class Portalbox_31:
+        body = u'This collection contains CMS open data instructions.'
+        id = 31
         title = u'description'
 
 
@@ -772,6 +797,13 @@ class CollectionPortalboxData(DataSet):
         id_portalbox = PortalboxData.Portalbox_30.ref('id')
         score = 100
         id_collection = CollectionData.ALICEExternalResources.ref('id')
+
+    class CollectionPortalbox_21_31_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_31.ref('id')
+        score = 100
+        id_collection = CollectionData.CMSOpenDataInstructions.ref('id')
 
 
 class FacetCollectionData(DataSet):
