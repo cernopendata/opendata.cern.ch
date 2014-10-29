@@ -561,17 +561,17 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_27:
-        body = u'This collection contains LHCb masterclass datasets.'
+        body = u'This collection contains LHCb simplified data events to be used for the masterclass exercises.'
         id = 27
         title = u'description'
 
     class Portalbox_28:
-        body = u'This collection contains LHCb tools.'
+        body = u'This collection contains tools to access and analyse LHCb data.'
         id = 28
         title = u'description'
 
     class Portalbox_29:
-        body = u'This collection contains LHCb external resources.'
+        body = u'This collection contains links to public websites about LHCb experiment and LHCb data.'
         id = 29
         title = u'description'
 
