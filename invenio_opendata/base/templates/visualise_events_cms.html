@@ -2,12 +2,102 @@
 </div>
 <div class="tab-content">
   <div class="tab-pane fade in active" id="ispy">
-    <div id="ispy-previewer">
+    <div id="ispy-previewer" class="col-md-12">
+   <!--
      <iframe id="evd" width="100%" height="675" src="http://cern.ch/opendata-ispy"></iframe>
+   -->
+    <table>
+      <tr>
+	<td colspan="2" class="titlebar-plain bordered">
+	  <div id="title"></div>
+	</td>
+      </tr>
+      <tr style="height:24px;">
+	<td colspan="2" class="bordered">
+	  <table id="toolbar">
+	    <tr>
+	      <td>
+		<a class="toolbar-button disabled" id="prev-event-button" onclick="prevEvent();">
+		  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/prev-event.png')}}" title="Previous Event"/>
+		</a>
+	      </td>
+	      <td>
+		<a class="toolbar-button disabled" id="next-event-button" onclick="nextEvent();">
+		  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/next-event.png')}}" title="Next Event"/>
+		</a>
+	      </td>
+	      <td>
+		<a class="toolbar-button" onclick="setCameraHome();">
+		  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/home.png')}}" title="Return to Start View"/>
+		</a>
+	      </td>
+	      <td>
+		<a class="toolbar-button" onclick="zoom(1);">
+		  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/zoom_in_24.png')}}" title="Zoom In"/>
+		</a>
+	      </td>
+	      <td>
+		<a class="toolbar-button" onclick="zoom(-1);">
+		  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/zoom_out_24.png')}}" title="Zoom Out"/>
+		</a>
+	      </td>
+	      <td>
+		<a class="toolbar-button" onclick="setCameraRotation(0, 0, 0);">
+		  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/z-plane.png')}}" title="X-Y Plane"/>
+		</a>
+	      </td>
+	      <td>
+		<a class="toolbar-button" onclick="setCameraRotation(0, Math.PI / 2, Math.PI / 2);">
+		  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/y-plane.png')}}" title="Z-X Plane"/>
+		</a>
+	      </td>
+	      <td>
+		<a class="toolbar-button" onclick="setCameraRotation(0, Math.PI / 2, 0);">
+		  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/x-plane.png')}}" title="Y-Z Plane"/>
+		</a>
+	      </td>
+	      <td>
+		<a class="toolbar-button" id="perspective-view" onclick="setPerspectiveProjection(true);">
+		  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/perspective-projection.png')}}" title="Perspective View"/>
+		</a>
+	      </td>
+	      <td>
+		<a class="toolbar-button" id="orthographic-view" onclick="setPerspectiveProjection(false);">
+		  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/orthographic-projection.png')}}" title="Orthographic View"/>
+		</a>
+	      </td>
+	      <td>
+		<a class="toolbar-button" onclick="showSettings();">
+		  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/settings.png')}}" title="Settings"/>
+		</a>
+	      </td>
+	      <td>
+		<a class="toolbar-button" onclick="openAboutWindow();">
+		  <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/help2.png')}}" title="About"/>
+		</a>
+	      </td>
+	    </tr>
+	  </table>
+	</td>
+      </tr>
+      <tr>
+	<td width="280px" class="bordered">
+	  <div id="switches-div" style="overflow: auto; height: 600px;" class="flexcroll">
+	    <table id="switches" width="266px">
+	    </table>
+	  </div>
+	</td>
+	<td class="bordered">
+	  <canvas id="canvas" width="800" height="600">
+	    Sorry, this requires a web browser which supports HTML5 canvas.
+	  </canvas>
+	</td>
+      </tr>
+    </table>
+   </div>
      <p>Use the Mouse to rotate.</p>
      <p>Ctrl+Mouse or Ctrl + <span class="key">&#9650</span> <span class="key">&#9660</span> <span class="key">&#9664</span> <span class="key">&#9654</span> to pan x/y.</p>
-     <p>Shift+Mouse or Shift + <span class="key">&#9650</span> <span class="key">&#9660</span> to zoom.</p>
-   </div>    
+     <p>Shift+Mouse or Shift + <span class="key">&#9650</span> <span class="key">&#9660</span> to zoom.</p>    
  </div>
  <div class="tab-pane fade" id="howto">
   <div class="col-md-12">
