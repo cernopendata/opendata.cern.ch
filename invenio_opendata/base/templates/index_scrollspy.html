@@ -422,7 +422,7 @@
                   <ul class="row">
                     {% for c in e.collection_children_r %}
                       <li class="col-sm-6">
-                        <a href="{{ url_for('collection', name=c.name) }}">{{ c.name_ln }}<span class="fa fa-angle-right"></span>
+                        <a href="{{ url_for('.collection', name=c.name) }}">{{ c.name_ln }}<span class="fa fa-angle-right"></span>
                         </a>
                       </li>
                     {% endfor %}
