@@ -2,6 +2,7 @@
 
 {% block body %}
 {% import 'helpers/general.html' as gen_utils %}
+{% bundles "previewer_ispy.js", "previewer_ispy.css" %}
 
   <style>
     #vis-events {
@@ -20,7 +21,11 @@
     }
 
     #ispy-previewer {
+      background-color: #f4f4f4;
+      border-radius: 4px;
       margin-bottom: 70px;
+      color: #606D75;
+      margin-bottom: 20px;
     }
     #vis-events .nav {
       float: right;
