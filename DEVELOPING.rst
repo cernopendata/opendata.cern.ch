@@ -74,6 +74,7 @@ opendata.cern.ch overlay.  There are two options:
                                           -f invenio_opendata/testsuite/data/alice/alice-reconstructed-data.xml \
                                           -f invenio_opendata/testsuite/data/alice/alice-vm-image.xml \
                                           -f invenio_opendata/testsuite/data/atlas/atlas-derived-datasets.xml \
+                                          -f invenio_opendata/testsuite/data/atlas/atlas-external-resources.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-csv-files.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-eventdisplay-files.xml \
@@ -91,10 +92,11 @@ opendata.cern.ch overlay.  There are two options:
                                           -e force-recids" \
           ./invenio2-kickstart --yes-i-know --yes-i-really-know
 
-- option 2, incomplete-but-fast-and-tiny installation, no big download
-  of CMS files at all; however this will make the site largely desert;
-  so this option is useful notably for testing collection setup or
-  testing templates only:
+- option 2, incomplete-but-fast-and-tiny installation, downloading
+  some selected files only; i.e. no big download of CMS files at all;
+  however this will make the site largely desert; so this option is
+  useful notably for testing collection setup or testing templates
+  only:
 
   .. code-block:: console
 
@@ -106,7 +108,6 @@ opendata.cern.ch overlay.  There are two options:
                                           -f invenio_opendata/testsuite/data/cms/cms-tools-ispy.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-tools-dimuon-filter.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-external-resources.xml \
-                                          -f invenio_opendata/testsuite/data/alice/alice-analysis-modules.xml \
                                           -e force-recids" \
           ./invenio2-kickstart --yes-i-know --yes-i-really-know
 
@@ -171,6 +172,7 @@ re-populate your site anew to have your updated records, you can do:
          -f invenio_opendata/testsuite/data/alice/alice-reconstructed-data.xml \
          -f invenio_opendata/testsuite/data/alice/alice-vm-image.xml \
          -f invenio_opendata/testsuite/data/atlas/atlas-derived-datasets.xml \
+         -f invenio_opendata/testsuite/data/atlas/atlas-external-resources.xml \
          -f invenio_opendata/testsuite/data/cms/cms-csv-files.xml \
          -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana.xml \
          -f invenio_opendata/testsuite/data/cms/cms-eventdisplay-files.xml \
@@ -185,7 +187,7 @@ re-populate your site anew to have your updated records, you can do:
          -f invenio_opendata/testsuite/data/lhcb/lhcb-derived-datasets.xml \
          -f invenio_opendata/testsuite/data/lhcb/lhcb-external-resources.xml \
          -f invenio_opendata/testsuite/data/lhcb/lhcb-tools.xml \
-        -e force-recids
+         -e force-recids
 
 JS/CSS Assets
 =============
