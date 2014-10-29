@@ -2,8 +2,8 @@
   <div id="rec_dedicated_box" class="rec_dedicated_details col-md-12 panel-group">
     {% if record.get('methodology_note', '') %}
       <div class="rec_dedicated_details_in rdd-sel panel">
-        <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#selection">Data Selection<span class="pull-right fa fa-angle-up"></span></div>
-        <div id="selection" class="info collapse">
+        <div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#selection">Data Selection</div>
+        <div id="selection" class="info ccollapse">
           {% for methodology_note in record.get('methodology_note', []) %}
             <div class="body">{{ methodology_note.get('note', '')|safe }}</div>
             <div class="links">
@@ -19,8 +19,8 @@
     {% endif %}
     {% if record.get('action_note', '') %}
       <div class="rec_dedicated_details_in rdd-val panel">
-        <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#validation">Validation<span class="pull-right fa fa-angle-up"></span></div>
-        <div id="validation" class="info collapse">
+        <div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#validation">Validation</div>
+        <div id="validation" class="info ccollapse">
           <div class="body">{{ record.get('action_note', {}).get('action', '')|safe }}</div>
           <div class="links"">
             {% if record.get('action_note.recid', '') %}
@@ -39,8 +39,8 @@
     {% endif %}
     {% if record.get('material_publication_note', '') %}
       <div class="rec_dedicated_details_in rdd-reuse panel">
-        <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#reusability">How can you use this?<span class="pull-right fa fa-angle-up"></span></div>
-        <div id="reusability" class="info collapse">
+        <div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#reusability">How can you use this?</div>
+        <div id="reusability" class="info ccollapse">
           {% for material_publication_note in record.get('material_publication_note', []) %}
             <div class="body">{{ material_publication_note.get('note', '') }}</div>
             <div class="links">
@@ -61,8 +61,8 @@
     {% endif %}
     {% if record.get('constituent_unit_entry', '') %}
       <div class="rec_dedicated_details_in rdd-reuse panel">
-        <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#reusability">Usage<span class="pull-right fa fa-angle-up"></span></div>
-        <div id="reusability" class="info collapse">
+        <div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#reusability">Usage</div>
+        <div id="reusability" class="info ccollapse">
           <div class="body">{{ record.get('constituent_unit_entry', {}).get('heading', '') }}</div>
           <div class="links">
             {% if record.get('constituent_unit_entry.recid', '') %}
@@ -81,8 +81,8 @@
     {% endif %}
     {% if record.get('documentation_note', '') %}
       <div class="rec_dedicated_details_in rdd-limits panel">
-        <div class="panel-title title collapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#limitations">Issues & Limitations<span class="pull-right fa fa-angle-up"></span></div>
-        <div id="limitations" class="info collapse">
+        <div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#limitations">Issues & Limitations</div>
+        <div id="limitations" class="info ccollapse">
           <div class="body">{{ record.get('documentation_note', {}).get('note', '') }}</div>
           <div class="links">
             {% if record.get('documentation_note.recid', '') %}

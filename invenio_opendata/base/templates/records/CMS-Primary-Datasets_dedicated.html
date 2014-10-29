@@ -2,7 +2,7 @@
   <div id="rec_dedicated_box" class="rec_dedicated_details col-md-12 panel-group">
     {% if record.get('methodology_note', '') %}
       <div class="rec_dedicated_details_in rdd-sel panel">
-        <div class="panel-title title ccollapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#selection">How were these data selected?<span class="pull-right fa fa-angle-up"></span></div>
+        <div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#selection">How were these data selected?</div>
         <div id="selection" class="info ccollapse">
           {% for methodology_note in record.get('methodology_note', []) %}
             <div class="body">{{ methodology_note.get('note', '') }}</div>
@@ -19,7 +19,7 @@
     {% endif %}
     {% if record.get('action_note', '') %}
       <div class="rec_dedicated_details_in rdd-val panel">
-        <div class="panel-title title ccollapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#validation">How were these data validated?<span class="pull-right fa fa-angle-up"></span></div>
+        <div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#validation">How were these data validated?</div>
         <div id="validation" class="info ccollapse">
           <div class="body">{{ record.get('action_note', {})[0]['action'] }}</div>
           <div class="links"">
@@ -39,7 +39,7 @@
     {% endif %}
     {% if record.get('material_publication_note', '') %}
       <div class="rec_dedicated_details_in rdd-reuse panel">
-        <div class="panel-title title ccollapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#reusability">How can you use these data?<span class="pull-right fa fa-angle-up"></span></div>
+        <div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#reusability">How can you use these data?</div>
         <div id="reusability" class="info ccollapse">
           {% for material_publication_note in record.get('material_publication_note', []) %}
             {% if material_publication_note.get('note', '') %}
@@ -63,7 +63,7 @@
     {% endif %}
     {% if record.get('documentation_note', '') %}
       <div class="rec_dedicated_details_in rdd-limits panel">
-        <div class="panel-title title ccollapsed" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#limitations">Issues & Limitations<span class="pull-right fa fa-angle-up"></span></div>
+        <div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#limitations">Issues & Limitations</div>
         <div id="limitations" class="info ccollapse">
           <div class="body">{{ record.get('documentation_note', {}).get('note', '') }}</div>
           <div class="links">

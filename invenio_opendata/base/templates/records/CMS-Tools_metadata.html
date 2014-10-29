@@ -18,8 +18,16 @@
         </div>
       {% endif %}
       <div class="rec_thumb rec_parentcol">
-        <div class="n"><div class="t">Parent Collection</div><a href="{{ url_for('collection/'+collection.name) }}">{{ collection.name_ln }}</a></div>
+        <a href="{{ url_for('collection/'+collection.name) }}"><div class="n"><div class="t">Parent Collection</div>{{ collection.name_ln }}</div></a>
       </div>
+      {% if record.get('accelerator_experiment','') %}
+        <div class="rec_thumb rec_parentcol">
+          <div class="n"><div class="t">Accelerator</div>{{ record.get('accelerator_experiment','').get('accelerator', '') }}</div>
+        </div>
+        <div class="rec_thumb rec_parentcol">
+          <div class="n"><div class="t">Experiment</div>{{ record.get('accelerator_experiment','').get('experiment', '') }}</div>
+        </div>
+      {% endif %}
       {{ create_export_modal("exportModal", record, ['__meta_metadata__', 'restriction']) }}
     </div>
   </div>
@@ -34,6 +42,57 @@
     </div>
   </div>
 </div>
+{% if record.get('other_relationship_entry', {}) %}
+<div class="rec_metadata rec_description">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="rec_title title">Related items</div>
+    </div>
+    <div class="col-md-12">
+      <div class="rec_desc">
+        {{record.get('other_relationship_entry', {}).get('heading', '')}}
+        {% for r in record.get('other_relationship_entry', {}).get('recid', '') %}
+          <a href="{{url_for('.metadata', recid = r )}}">Record {{r}}</a>
+          {{ ', ' if not loop.last }}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div> 
+{% endif %}
+{% if record.get('computer_file_type', {}) %}
+<div class="rec_metadata rec_description">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="rec_title title">Use with..</div>
+    </div>
+    <div class="col-md-12">
+      <div class="rec_desc">
+        {{record.get('computer_file_type', {}).get('note', '')}}
+        {% for r in record.get('computer_file_type', {}).get('recid', '') %}
+          <a href="{{url_for('.metadata', recid = r )}}">Record {{r}}</a>
+          {{ ', ' if not loop.last }}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div> 
+{% endif %}
+{% if record.get('system_details', {}) %}
+<div class="rec_metadata rec_description">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="rec_title title">System Details</div>
+    </div>
+    <div class="col-md-12">
+      <div class="rec_desc">
+        {{record.get('system_details', {}).get('note', '')}}
+        <a href="{{url_for('.metadata', recid = record.get('system_details', {}).get('recid', '') )}}">Record {{record.get('system_details', {}).get('recid', '')}}</a>
+      </div>
+    </div>
+  </div>
+</div> 
+{% endif %}
 {% if record.get('url',[]) != [] %}
 <div class="rec_metadata rec_urls">
   <div class="row">
