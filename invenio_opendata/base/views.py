@@ -500,6 +500,12 @@ def privacy():
 def collections():
     base_collection = Collection.query.filter(Collection.id == '1').first_or_404()
     experiments = base_collection.collection_children_v
+    
+    def splitting(value, delimiter='/'):
+        return value.split(delimiter)
+
+    current_app.jinja_env.filters['splitthem'] = splitting
+
     try:
         return render_template('collections_overview.html',
                                experiments=experiments)
