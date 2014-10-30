@@ -198,7 +198,7 @@
                   </div>
                 </div>
               </a>
-            </div> 
+            </div>
           {% endfor %}
           </div>
         </div>
@@ -210,8 +210,7 @@
             <nav id="vm_howto_nav" class="navbar col-md-12" role="navigation">
               <ul class="nav navbar-nav col-md-12">
                 <li><a href="#install"><span class="circleme">1</span> How to install a CERN VM</a></li>
-                <li><a href="#validate"><span class="circleme">2</span>Testing & Validation Process</a></li>
-                <li><a href="#limitation"><span class="circleme">3</span>Issues & Limitations</a></li>
+                <li><a href="#limitation"><span class="circleme">2</span>Issues & Limitations</a></li>
               </ul>
             </nav>
           </div>
@@ -230,12 +229,12 @@
               <div class="howto_step col-md-12">
                 {{ text.validate_s1() }}
               </div>
-              <div class="howto_step col-md-12">
-                {{ text.validate_s2(url_for('VM/CMS/validation/report')) }}
-              </div>
             </div>
             <div id="limitation" class="row">
               <div class="title info_title col-md-12"><h5>Known Issues & Limitations</h5></div>
+              <div class="howto_step col-md-12">
+                {{ text.validate_s2(url_for('VM/CMS/validation/report')) }}
+              </div>
               <div class="howto_step col-md-12">
                 {{ text.limitation_s1() }}
               </div>
@@ -269,7 +268,7 @@
 {%- block javascript %}
 {{super()}}
 <script>
-$(document).ready(function() { 
+$(document).ready(function() {
   // add a hash to the URL when the user clicks on a tab
   $('a[data-toggle="tab"]').on('click', function(e) {
     history.pushState(null, null, $(this).attr('href'));
@@ -283,6 +282,6 @@ $(document).ready(function() {
       $('.nav-tabs a:first').tab('show');
     }
   });
-});   
+});
 </script>
 {% endblock %}
