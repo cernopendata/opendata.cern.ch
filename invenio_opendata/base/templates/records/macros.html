@@ -25,7 +25,7 @@
 	                    <div class="right-side">
 	                    	<button class="col-xs-12  {{ 'col-sm-6' if with_preview else 'col-sm-12'}} btn" onClick="window.location.href='{{file["url"]}}'">Download</button>
 	                    	{% if with_preview %}
-	                    		<button class="col-xs-12 col-sm-6 btn" onClick="window.location.href='#previewer'">Preview</button>
+	                    		<button class="col-xs-12 col-sm-6 btn" onClick="$('#evd').attr('src', '{{ url_for('previewer.preview', recid=recid, filename=file.get('full_name')) }}')">Preview</button>
 	                    	{%endif%}
 	                    </div>
 	                </div>
