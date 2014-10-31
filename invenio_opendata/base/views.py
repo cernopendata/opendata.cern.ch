@@ -374,10 +374,12 @@ def resources(exp):
                         dynamic_list_constructor = (lambda :\
                         [{"url":".data_vms","text":"Virtual Machines"}]) )
 def data_vms(exp):
+    exp_names = get_collection_names(['ATLAS'])
+    if exp not in exp_names and exp is not None:
+        return render_template("404.html")
+    
     def splitting(value, delimiter='/'):
         return value.split(delimiter)
-    exp_names = get_collection_names()
-
     current_app.jinja_env.filters['splitthem'] = splitting
 
     try:
