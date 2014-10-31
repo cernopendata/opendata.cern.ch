@@ -243,19 +243,10 @@
           </div>
         </div>
         <div class="tab-pane fade{% if exp == 'ALICE' %} in active {% endif %}" id="ALICE">
-          <div class="about">
-            <h4>{{ text.about_alice_msg(url_for('getting-started/ALICE'))}}</h4>
-          </div>
-          <div class="row">
-            <nav id="vm_howto_nav" class="navbar col-md-12" role="navigation">
-              <ul class="nav navbar-nav col-md-12">
-                <li><a href="#vbox"><span class="circleme">1</span> How to install VirtualBox</a></li>
-                <li><a href="#create"><span class="circleme">2</span>Create a VM</a></li>
-                <li><a href="#configure"><span class="circleme">3</span>Configure a VM</a></li>
-              </ul>
-            </nav>
-          </div>
           {% include 'helpers/text/vms_alice_page.html' %}
+        </div>
+        <div class="tab-pane fade{% if exp == 'LHCb' %} in active {% endif %}" id="LHCb">
+          {% include 'helpers/text/vms_lhcb_page.html' %}
         </div>
       </div>
 
