@@ -87,7 +87,9 @@
     <div class="col-md-12">
       <div class="rec_desc">
         {{record.get('system_details', {}).get('note', '')}}
-        <a href="{{url_for('.metadata', recid = record.get('system_details', {}).get('recid', '') )}}">Record {{record.get('system_details', {}).get('recid', '')}}</a>
+        {% if record.get('system_details', {}).get('recid', '') %}
+          <a href="{{url_for('.metadata', recid = record.get('system_details', {}).get('recid', '') )}}">Record {{record.get('system_details', {}).get('recid', '')}}</a>
+        {% endif %}
       </div>
     </div>
   </div>

@@ -42,72 +42,207 @@
 {% endmacro %}
 
 {% macro list_record_attributes(record, exclude=[]) %}
-<ul class="row">
-	{% for el in record|sort %}
-	<li class="col-md-12">
-		<ul class="col-md-12" style="padding-bottom: 5px;margin-bottom: 5px;border-bottom: 1px solid #d4d4d4;">
-			<kbd>{{el}}</kbd>: 
-			{% if el in exclude %}
-			-<br>
-			{% elif record[el] is sequence and record[el] is not string %}
-			<br>
-			{% for i in record[el] %}
-			<li class="col-md-12">
-				<ul class="row">
-					{%  if i is not string %}
-					<ul>
-						{% for f in i %}
-						<li class="col-md-12">
-							<b>{{f}}</b>:{{i[f]}}<br>
-						</li>
-						{% endfor %}
+	<ul class="row">
+		{% for el in record|sort %}
+		<li class="col-md-12">
+			<ul class="col-md-12" style="padding-bottom: 5px;margin-bottom: 5px;border-bottom: 1px solid #d4d4d4;">
+				<kbd>{{el}}</kbd>: 
+				{% if el in exclude %}
+				-<br>
+				{% elif record[el] is sequence and record[el] is not string %}
+				<br>
+				{% for i in record[el] %}
+				<li class="col-md-12">
+					<ul class="row">
+						{%  if i is not string %}
+						<ul>
+							{% for f in i %}
+							<li class="col-md-12">
+								<b>{{f}}</b>:{{i[f]}}<br>
+							</li>
+							{% endfor %}
+						</ul>
+						{% else %}
+						<b>{{i}}</b>: {{record[el][i]}}<br>
+						{%endif%}
 					</ul>
-					{% else %}
-					<b>{{i}}</b>: {{record[el][i]}}<br>
-					{%endif%}
-				</ul>
-			</li>
-			{% endfor %}
-			{% else %}
-			{{record[el]}}<br>
-			{% endif %}
-		</ul>
-	</li>
-	{% endfor %}
-</ul>
+				</li>
+				{% endfor %}
+				{% else %}
+				{{record[el]}}<br>
+				{% endif %}
+			</ul>
+		</li>
+		{% endfor %}
+	</ul>
 {% endmacro %}
 
 {% macro create_export_modal(name, record, exclude=[]) %}
-<style>.modal .modal-body .tab-pane{padding-top: 15px;}.modal{color:#666;}</style>
-<div class="rec_thumb rec_export" style="float:left;">
-	<div class="t">Export</div>
-	<div class="a"><a href="#" data-toggle="modal" data-target="#{{name}}">here</a></div>
-</div>
-<div class="modal fade" id="{{name}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="myModalLabel">{{record.get('title',{}).get('title','')}}</h4>
-			</div>
-			<div class="modal-body">
-				<ul class="nav nav-tabs" role="tablist">
-					<li class="active"><a href="#overview" role="tab" data-toggle="tab">Overview</a></li>
-					<li><a href="#bidtex" role="tab" data-toggle="tab">BibTex</a></li>
-				</ul>
-				<div class="tab-content">
-					<div class="tab-pane fade in active" id="overview">
-						{{ list_record_attributes(record, exclude ) }}
-					</div>
-					<div class="tab-pane fade" id="bidtex">
-						Upcoming Feature
+	<style>.modal .modal-body .tab-pane{padding-top: 15px;}.modal{color:#666;}</style>
+	<div class="rec_thumb rec_export" style="float:left;">
+		<div class="t">Export</div>
+		<div class="a"><a href="#" data-toggle="modal" data-target="#{{name}}">here</a></div>
+	</div>
+	<div class="modal fade" id="{{name}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title" id="myModalLabel">{{record.get('title',{}).get('title','')}}</h4>
+				</div>
+				<div class="modal-body">
+					<ul class="nav nav-tabs" role="tablist">
+						<li class="active"><a href="#overview" role="tab" data-toggle="tab">Overview</a></li>
+						<li><a href="#bidtex" role="tab" data-toggle="tab">BibTex</a></li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane fade in active" id="overview">
+							{{ list_record_attributes(record, exclude ) }}
+						</div>
+						<div class="tab-pane fade" id="bidtex">
+							Upcoming Feature
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+	{% endmacro %}
+
+{% macro record_methodology_note(record_data, title = 'How were these data selected?' ) %}
+	<div class="rec_dedicated_details_in rdd-sel panel">
+	  <div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#selection">{{ title }}</div>
+	    <div id="selection" class="info ccollapse">
+	    {% for methodology_note in record_data %}
+	      {% if methodology_note.get('note', '') %}
+	      <div class="body">{{ methodology_note.get('note', '') |safe }}</div>
+	      {% endif %}
+	      <div class="links">
+	        <ul>
+	        {% if methodology_note['recid'] %}
+	          <li><a href="{{ url_for('record.metadata', recid= methodology_note['recid']) }}">Record {{  methodology_note['recid'] }}</a></li>
+	        {% endif %}
+	        {% if methodology_note['url'] %}
+	          <li><a href="{{ u.url }}">{{ methodology_note['description']
+	                if methodology_note['description'] 
+	                else methodology_note['url']
+	            }}</a></li>
+	        {% endif %}
+	        </ul>
+	      </div>
+	    {% endfor %}
+	  </div>
+	</div>
 {% endmacro %}
+
+{% macro record_action_note(record_data, title = 'How were these data validated?') %}
+	<div class="rec_dedicated_details_in rdd-val panel">
+		<div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#validation">{{ title }}</div>
+		<div id="validation" class="info ccollapse">
+			{% if record_data['action'] %}
+			<div class="body">{{ record_data.get('action','') }}</div>
+			<div class="links">
+				<ul>
+					{% if record_data['recid'] %}
+					<li><a href="{{ url_for('record.metadata', recid=record.get('action_note.recid', '')) }}">Record {{ record.get('action_note.recid', '') }}</a></li>
+					{% endif %}
+					{% if record_data['url'] %}
+					{% for u in record.get('action_note') %}
+					<li><a href="{{ u.url }}">{{ u.description }}</a></li>
+					{% endfor %}
+					{% endif %}
+				</ul>
+			</div>
+			{% else %}
+			<div class="body">{{ record_data[0]['action'] }}</div>
+			<div class="links">
+				<ul>
+					{% if record_data[0]['recid'] %}
+					<li><a href="{{ url_for('record.metadata', recid=record.get('action_note.recid', '')) }}">Record {{ record.get('action_note.recid', '') }}</a></li>
+					{% endif %}
+					{% if record_data[0]['url'] %}
+					{% for u in record.get('action_note') %}
+					<li><a href="{{ u.url }}">{{ u.description }}</a></li>
+					{% endfor %}
+					{% endif %}
+				</ul>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+{% endmacro %}
+
+{% macro record_material_publication_note(record_data, title = 'How can you use these data?') %}
+	<div class="rec_dedicated_details_in rdd-reuse panel">
+		<div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#reusability">{{ title }}</div>
+		<div id="reusability" class="info ccollapse">
+			{% for material_publication_note in record.get('material_publication_note', []) %}
+			{% if material_publication_note.get('note', '') %}
+			<div class="body">{{ material_publication_note.get('note', '') }}</div>
+			{% endif %}
+			{% endfor %}
+			<div class="links">
+				<ul>
+					{% for material_publication_note in record.get('material_publication_note', []) %}
+					{% if material_publication_note.get('url', '') %}
+					<li>
+						<a href="{{ material_publication_note.get('url', '') }}"> 
+							{{ material_publication_note.get('description', '') 
+							if material_publication_note.get('description', '') 
+							else material_publication_note.get('url', '')
+						}}</a>
+
+					</li>
+					{% endif %}
+					{% if material_publication_note.get('recid', '') %}
+					<li>
+						<a href="{{ url_for('record.metadata', recid=material_publication_note.get('recid', '')) }}">Record {{ material_publication_note.get('recid', '') }}</a>
+					</li>
+					{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+
+{% macro record_documentation_note(record_data, title = 'Issues & Limitations') %}
+	<div class="rec_dedicated_details_in rdd-limits panel">
+		<div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#limitations">{{ title }}</div>
+		<div id="limitations" class="info ccollapse">
+			<div class="body">{{ record.get('documentation_note', {}).get('note', '') }}</div>
+			<div class="links">
+				{% if record.get('documentation_note.recid', '') %}
+				<ul>
+					<li><a href="{{ url_for('record.metadata', recid=record.get('documentation_note.recid', '')) }}">Record {{ record.get('documentation_note.recid', '') }}</a></li>
+				</ul>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+
+{% macro record_disclaimer( title = 'Disclaimer', exp , body = None ) %}
+	<div class="rec_dedicated_details_in rdd-disclaimer panel">
+		<div class="title">{{title}}</div>
+		<div id="disclaimer" class="info">
+			<div class="row">
+				{% if body == None %}
+					<div class="body col-md-12">The open data are released under Creative Commons Zero (CC0). Neither {{ 'OpenData Portal' if exp == Undefined else exp  }} nor CERN endorse any works, scientific or otherwise, produced using these data.<br/>All releases will have a unique DOI that you are requested to cite in any applications or publications.
+					</div>
+				{% else %}
+					{{body|safe}}
+				{% endif %}
+				<div class="col-md-12">
+					<div class="ccommons">
+						<img src="{{ url_for('static', filename='img/cc-zero.svg') }}" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+

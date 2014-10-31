@@ -1,132 +1,210 @@
-{#
-## This file is part of Invenio.
-## Copyright (C) 2012, 2013, 2014 CERN.
-##
-## Invenio is free software; you can redistribute it and/or
-## modify it under the terms of the GNU General Public License as
-## published by the Free Software Foundation; either version 2 of the
-## License, or (at your option) any later version.
-##
-## Invenio is distributed in the hope that it will be useful, but
-## WITHOUT ANY WARRANTY; without even the implied warranty of
-## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-## General Public License for more details.
-##
-## You should have received a copy of the GNU General Public License
-## along with Invenio; if not, write to the Free Software Foundation, Inc.,
-## 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
-#}
+{% from "records/macros.html" import record_files_display, create_export_modal with context %}
+{% set show_previewer={'show':false} %}
 
-{%- if not request.is_xhr -%}
-{% extends "records/base.html" %}
-{%- endif -%}
+<div class="rec_header">
+  <div class="row rec_details">
+    <div class="rec_title_info">
+      <div class="title col-md-12">
 
-{% block record_content %}
-  <div id="record_content">
-    <div class="rec_header">
-      <div class="row">
-        <div class="rec_details col-md-12">
-          <div class="row">
-            <div class="title col-md-12">{{ record.get('title',{}).get('title','') }}<span>{{ record.get('imprint', {}).get('date', '') }}</span></div>
-            <div class="rec_authors {% if (record.get('authors','')|length) < 5 %} col-md-12" {% else %} " id="rec_authors_rdmore" {% endif %} >
-              {% for auth in record['authors'] %}
-                <a href="#">{{ auth['full_name'] }}</a>
-              {% endfor %}
+      {# Show title + additional_title + imprint date #}
+      {% if record.get('title_additional', '') %}
+        {{ record.get('title_additional',{}).get('title','') }}
+        <span>{{ record.get('imprint', {}).get('date', '') }}</span>
+        <div class="additional_title">{{ record.get('title',{}).get('title','') }}</div>
+      {% elif record.get('title',{}).get('title','') %}
+        {{ record.get('title',{}).get('title','') }}
+      {% endif %}
+      </div>
+      
+      {# Show Authors ( > 5 : read_more show/hide ) #}
+      <div class="rec_authors {% if (record['authors']|length) < 5 %} col-md-12" {% else %} id="rec_authors_rdmore" {% endif %}>
+        {% if record['_first_corporate_name'] %}
+          <kbd>{{ record['_first_corporate_name']['name'] }}</kbd>
+        {% endif %}
+        {% for auth in record['authors'] %}
+          <a href="{{url_for('search', p='author:'+auth['last_name']+', '+auth['first_name'])}}">{{ auth['full_name'] }}</a>
+        {% endfor %}
+      </div>
+    </div>
+
+
+    <div class="col-md-12 ">
+      {% if record.get('doi','') %}
+        <div class="rec_thumb rec_doi">
+          <div class="n"><div class="t">DOI</div>{{ record.get('doi','') }}</div>
+        </div>
+      {% endif %}
+      <div class="rec_thumb rec_parentcol">
+        <a href="{{ url_for('collection/'+collection.name) }}"><div class="n"><div class="t">Parent Collection</div>{{ collection.name_ln }}</div></a>
+      </div>
+      {% if record.get('edition_statement','')  %}
+        {% if record.get('edition_statement', '').get('statement', '') %}
+          {% set pp = record.get('edition_statement', '').get('statement', '').replace('Release: ', '') %}
+          <a href="{{ url_for('search.search', p=pp) }}">
+            <div class="rec_thumb rec_parentcol">
+              <div class="n"><div class="t">Release</div>{{ pp }}</div>
             </div>
+          </a> 
+        {% endif %}
+        {% if record.get('edition_statement', '').get('remainder', '') %}
+          {% set rr = record.get('edition_statement', '').get('remainder', '').replace('Global tag: ', '') %}
+          <a href="{{ url_for('search.search', p=rr) }}">
+            <div class="rec_thumb rec_parentcol">
+              <div class="n"><div class="t">Global tag</div>{{ rr }}</div>
+            </div>
+          </a> 
+        {% endif %}
+      {% endif %}
+      {% if record.get('collision_energy', '') %}
+          {% set rr = record.get('collision_energy', '').replace('Collision energy: ', '') %}
+          <a href="{{ url_for('search.search', p=rr) }}">
+            <div class="rec_thumb rec_parentcol">
+              <div class="n"><div class="t">Collision Energy</div>{{ rr }}</div>
+            </div>
+          </a> 
+      {% endif %}
+      {% if record.get('accelerator_experiment','') %}
+        <a href="{{ url_for('search.search', p=record.get('accelerator_experiment','').get('accelerator', '')) }}">
+          <div class="rec_thumb rec_parentcol">
+            <div class="n"><div class="t">Accelerator</div>{{ record.get('accelerator_experiment','').get('accelerator', '') }}</div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="rec_metadata rec_description">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="rec_title title">Description</div>
-        </div>
-        <div class="col-md-12">
-          <div class="rec_desc">{{record['comment']}}</div>
-        </div>
-      </div>
-    </div>
-    <div class="rec_metadata rec_preview">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="rec_title title">Preview</div>
-        </div>
-        <div class="col-md-12">
-          <div class="rec_preview_box">
-            <iframe id="evd" width="100%" height="675" src="http://cern.ch/ispy-online"></iframe>
+        </a>
+        <a href="{{ url_for('search.search', p=record.get('accelerator_experiment','').get('experiment', '')) }}">
+          <div class="rec_thumb rec_parentcol">
+            <div class="n"><div class="t">Experiment</div>{{ record.get('accelerator_experiment','').get('experiment', '') }}</div>
           </div>
-        </div>
-      </div>
+        </a>
+      {% endif %}
+      {{ create_export_modal("exportModal", record, ['__meta_metadata__', 'restriction']) }}
     </div>
-    <div class="rec_metadata rec_files">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="rec_title title">Files <a href="{{ url_for('record.files', recid=recid) }}">(see all files)</a></div>
-        </div>
-        <div class="col-md-12">
-          <div class="rec_file_box">
-            <ul class="row">
-              {% for file in record['files'] %}
-                <li class="col-md-4">
-                  <div class="content_box">
-                    <div class="row">
-                      <div class="pull-left col-md-7">
-                        <ul class="row">
-                          <li class="col-md-12"><a href="{{file['url']}}">{{file['full_name']}}</a></li>
-                          <li class="col-md-12"><b>Size:</b> {{ file['size'] | filesizeformat }}</li>
-                          {{ '<li class="col-md-12"><b>Description:</b>'+(file.get('description')|truncate(50))+'</li>' if (file.get('description', '') != '') }}
-                        </ul>
-                      </div>
-                      <div class="pull-right col-md-5">
-                        <button class="btn">Download</button>
-                        <button class="btn">Preview</button>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <style>
-      div.star {
-        height: 30px !important;
-        float: left;
-        clear: none;
-        width: auto;
-        text-align: left;
-        background: url(/img/star_empty-icon-30x30.gif) no-repeat;
-      }
-
-      div.star a {
-        text-indent: -9000px;
-        height: 30px;
-        width: 30px;
-        float: left;
-      }
-
-      div.star:hover {
-        background-image:url(/img/star-icon-30x30.gif) !important;
-      }
-
-      /*div.half {
-         background-image:url(/img/star_empty-icon-30x30.gif) ;
-         }*/
-    </style>
   </div>
-{% endblock %}
+</div>
+<div class="rec_metadata rec_description">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="rec_title title">Description</div>
+    </div>
+    <div class="col-md-12">
+      <div class="rec_desc">{{record.get('abstract',{}).get('summary','')}}</div>
+    </div>
+  </div>
+</div>
+{% if record.get('computer_file_characteristics', '') %}
+<div class="rec_metadata rec_dataset_info row">
+  <div class="col-md-12">
+    <div class="rec_title title">Dataset</div>
+    <div class="rec_desc">
+      {% if record.get('computer_file_characteristics')['text'] %}
+        ------
+      {% else %}
+        {% for i in record.get('computer_file_characteristics') %}
+          {% if i['files'] %}
+            <span>{{ i['files'] }}<b>{{ i.get('text','') }}</b></span>
+          {% elif i['events'] %}
+            <span>{{i['events']}}<b>{{ i.get('text','') }}</b></span>
+          {% elif i['bytes'] %}
+            <span>{{(i['bytes']|float)|filesizeformat}}<b>{{ i.get('text','') }}</b></span>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endif %}
+{% if record.get('computer_file_type', {}) %}
+<div class="rec_metadata rec_description">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="rec_title title">Use with..</div>
+    </div>
+    <div class="col-md-12">
+      <div class="rec_desc">
+        {{record.get('computer_file_type', {}).get('note', '')}}
+        {% for r in record.get('computer_file_type', {}).get('recid', '') %}
+          <a href="{{url_for('.metadata', recid = r )}}">Record {{r}}</a>
+          {{ ', ' if not loop.last }}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div> 
+{% endif %}
+{% if record.get('system_details', {}) %}
+<div class="rec_metadata rec_description">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="rec_title title">System Details</div>
+    </div>
+    <div class="col-md-12">
+      <div class="rec_desc">
+        {{record.get('system_details', {}).get('note', '')}}
+        {% if record.get('system_details', {}).get('recid', '') %}
+          <a href="{{url_for('.metadata', recid = record.get('system_details', {}).get('recid', '') )}}">Record {{record.get('system_details', {}).get('recid', '')}}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div> 
+{% endif %}
+{% if record.get('other_relationship_entry', {}) %}
+<div class="rec_metadata rec_description">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="rec_title title">Related items</div>
+    </div>
+    <div class="col-md-12">
+      <div class="rec_desc">
+        {{record.get('other_relationship_entry', {}).get('heading', '')}}
+        {% for r in record.get('other_relationship_entry', {}).get('recid', '') %}
+          <a href="{{url_for('.metadata', recid = r )}}">Record {{r}}</a>
+          {{ ', ' if not loop.last }}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div> 
+{% endif %}
 
-{%- block javascript %}
-<script type="text/javascript">
-  $(function(){
-    $("#rec_authors_rdmore").readmore({
-      maxHeight: 20,
-      moreLink: '<div class="pull-left"><a href="" class="fa fa-caret-square-o-down"></a></div>',
-      lessLink: '<div class="pull-left"><a href="" class="fa fa-caret-square-o-up"></a></div>',
-    });
-  });
-</script>
-{% endblock %}
+{% for file in record['files'] if not with_preview %}
+  {% if (file.get('url','')[-3:] == '.ig') and (show_previewer['show'] == false) %}
+    {% do show_previewer.update({'show':true}) %}
+  {% endif %}
+{% endfor %}
+
+{% if show_previewer['show'] == true %}
+<div class="rec_metadata rec_preview">
+  <div class="row">
+    <div class="col-md-12">
+      <div id="previewer" class="rec_title title">Preview</div>
+    </div>
+    <div class="col-md-12">
+      <div class="rec_preview_box">
+        <iframe id="evd" width="100%" height="675" src="http://cern.ch/ispy-online"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{{ record_files_display(record.get('files',''), show_previewer['show']) }}
+
+{% if record.get('url',[]) != [] %}
+<div class="rec_metadata rec_urls">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="rec_title title">URLs</div>
+    </div>
+    <div class="col-md-12" style="margin-top: 20px;font-size: 16px;color: #606D75;font-weight: 100;">
+      <div class="row">
+      {% if record.get('url').get('url') is not string %}
+        {% for u in record.get('url').get('url') %}
+        <a class="col-md-12" href="{{ u }}">{{ u }}</a>
+        {% endfor %}
+      {% else %}
+        <a class="col-md-12" href="{{ record.get('url','').get('url','') }}">{{ record.get('url','').get('url','') }}</a>
+      {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}

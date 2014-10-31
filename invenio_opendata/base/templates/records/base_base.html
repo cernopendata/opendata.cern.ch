@@ -1,4 +1,4 @@
-{% extends "page.html" %}
+{% extends 'page.html' %}
 
 {#
 {% set title = title %}
@@ -6,179 +6,34 @@
 {% block title %}
 {% endblock title %}
 
-{% block metaheader %}
-  {% if recid != -1 and config.CFG_WEBSEARCH_DETAILED_META_FORMAT %}
-    {{ format_record(recid, of=config.CFG_WEBSEARCH_DETAILED_META_FORMAT, ln = g.ln)|safe }}
-  {% endif %}
-{% endblock metaheader %}
-
-{% block global_bundles %}
-  {{ super() }}
-  {% bundles "records.js", "od_records.js", "formatter.css" %}
-{% endblock %}
 
 {% block body %}
-  {{ super() }}
 
   {% include 'search/form/index.html' %}
-
 
   {% block record_restriction_flag %}
     {% if g.bibrec.is_restricted %}
       <div class="alert alert-danger">
-        <b>{{ _('Restricted') }}</b>
-        {%- if g.bibrec.is_processed %}
-        {{ _('Processed Record') }}
-        {%- endif -%}
+        <div class="container"><b>{{ _('Restricted') }}</b>
+          {%- if g.bibrec.is_processed %}
+          {{ _('Processed Record') }}
+          {%- endif -%}
+        </div>
       </div>
     {% endif %}
   {% endblock %}
 
-  <!-- {% block record_toptitle %}
-  <div class="infobar">
-  <div class="container">
-  <div class="row">
-  <div class="col-md-8 pull-left">
-  <p>{{ record.get('title')['title'] }}</p>
-  </div>
-
-  </div>
-  </div>
-  </div>
-  {% endblock %} -->
-
-  {% block record_tabs %}
-    <div class="rcd-actions">
-      <div class="container">
-        <ul id="record-links" class="nav nav-tabs">
-          {%- for tab in tabs|sort(attribute='order') -%}
-          {%- if tab.visible -%}
-          <li class="{{ 'active' if tab.key == request.endpoint }} {{ 'disabled' if not tab.enabled }}">
-            <a href="{{ url_for(tab.key, recid=recid) if tab.enabled else '#' }}">
-              {{ tab.label }}
-              {% if tab.count and tab.count > -1 %}
-                &nbsp;<small class="text-muted">({{ tab.count }})</small>
-              {% endif %}
-            </a>
-          </li>
-          {%- endif -%}
-          {%- endfor -%}
-        </ul>
-      </div>
-    </div>
-  {% endblock %}
-
-  <div class="container">
-    <div id="record_content" class="col-sm-12 col-md-9">
-      {% block record_content %}
-        <!-- record content -->
-      {% endblock %}
-    </div>
-    <div class="rec_dedicatedbox col-sm-12 col-md-3">
-      <div class="row">
-        <div class="rec_dedicated_top col-md-12 pull-right">
-          <div class="row">
-            {% if record['doi'] %}
-              <div class="rec_doi col-md-12">
-                <div class="n"><div class="t col-md-2">DOI</div>{{ record['doi'] }}</div>
-              </div>
-            {% endif %}
-            <div class="rec_export col-md-12">
-              {{ format_record(recid, of='HDACT', ln=g.ln)|safe }}
-            </div>
-            <div class="col-md-12 rec_parentcol">
-              <div class="n"><div class="t col-md-4">Parent Collection</div><a href="{{ url_for('collection/'+collection.name) }}">{{ collection.name_ln }}</a></div>
-            </div>
-          </div>
+  <section id="record_primary" class="content record">
+    <div class="container">
+      <div class="record-content clearfix">
+        <div class="col-md-12 col-sm-12 main clearfix">
+          {% include [ 'records/' + collection.name + '_metadata.html', 'records/metadata_base.html' ] %}
         </div>
-        <div id="rec_dedicated_box" class="rec_dedicated_details col-md-12 panel-group">
-          {% if record.get('methodology_note', '') %}
-            <div class="rec_dedicated_details_in rdd-sel panel">
-              <div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#selection">How these data were selected?</div>
-              <div id="selection" class="info  ccollapse">
-                {% for methodology_note in record.get('methodology_note', []) %}
-                  <div class="body">{{ methodology_note.get('note', '') }}</div>
-                  <div class="links">
-                    {% if methodology_note.get('recid', '') %}
-                      <ul>
-                        <li><a href="{{ url_for('record.metadata', recid=methodology_note.get('recid', '')) }}">Record {{ methodology_note.get('recid', '') }}</a></li>
-                      </ul>
-                    {% endif %}
-                  </div>
-                {% endfor %}
-              </div>
-            </div>
-          {% endif %}
-          {% if record.get('action_note', '') %}
-            <div class="rec_dedicated_details_in rdd-val panel">
-              <div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#validation">Validation</div>
-              <div id="validation" class="info ccollapse">
-                <div class="body">{{ record.get('action_note', {}).get('action', '') }}</div>
-                <div class="links">
-                  {% if record.get('action_note.recid', '') %}
-                    <ul>
-                      <li><a href="{{ url_for('record.metadata', recid=record.get('action_note.recid', '')) }}">Record {{ record.get('action_note.recid', '') }}</a></li>
-                    </ul>
-                  {% endif %}
-                  {% if record.get('action_note.url', '') %}
-                    <ul>
-                      {% for u in record.get('action_note').get('url', []) %}
-                        <li><a href="{{ u }}">{{ u }}</a></li>
-                      {% endfor %}
-                    </ul>
-                  {% endif %}
-                </div>
-              </div>
-            </div>
-          {% endif %}
-          {% if record.get('constituent_unit_entry', '') %}
-            <div class="rec_dedicated_details_in rdd-reuse panel">
-              <div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#reusability">How to reuse?</div>
-              <div id="reusability" class="info ccollapse">
-                <div class="body">{{ record.get('constituent_unit_entry', {}).get('heading', '') }}</div>
-                <div class="links">
-                  {% if record.get('constituent_unit_entry.recid', '') %}
-                    <ul>
-                      <li><a href="{{ url_for('record.metadata', recid=record.get('constituent_unit_entry.recid', '')) }}">Record {{ record.get('constituent_unit_entry.recid', '') }}</a></li>
-                    </ul>
-                  {% endif %}
-                </div>
-              </div>
-            </div>
-          {% endif %}
-          {% if record.get('documentation_note', '') %}
-            <div class="rec_dedicated_details_in rdd-limits panel">
-              <div class="title" data-toggle="collapse" data-parent="#rec_dedicated_box" data-target="#limitations">Issues & Limitations </div>
-              <div id="limitations" class="info  ccollapse">
-                <div class="body">{{ record.get('documentation_note', {}).get('note', '') }}</div>
-                <div class="links">
-                  {% if record.get('documentation_note.recid', '') %}
-                    <ul>
-                      <li><a href="{{ url_for('record.metadata', recid=record.get('documentation_note.recid', '')) }}">Record {{ record.get('documentation_note.recid', '') }}</a></li>
-                    </ul>
-                  {% endif %}
-                </div>
-              </div>
-            </div>
-          {% endif %}
-          <div class="rec_dedicated_details_in rdd-disclaimer panel">
-            <div class="title">Disclaimer</div>
-            <div id="disclaimer" class="info">
-              <div class="row">
-                <div class="body col-md-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod mollitia expedita deleniti, voluptas atque ducimus nam perferendis aspernatur laudantium vero distinctio rem, repudiandae et, blanditiis, nihil ipsam recusandae! Quaerat, illum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto veniam officiis, distinctio soluta, nostrum ducimus, quaerat ut accusamus consequuntur, accusantium ex amet ipsam tempore illum placeat commodi reprehenderit nulla iure.</div>
-                <div class="col-md-12">
-                  <div class="ccommons">
-                    <img src="{{ url_for('static', filename='img/cc.svg') }}" alt="">
-                    <img src="{{ url_for('static', filename='img/zero.svg') }}" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="col-md-12 col-sm-12 sidebar clearfix">
+          {% include [ 'records/' + collection.name + '_dedicated.html', 'records/dedicated_base.html' ] %}
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div style="clear: both;"></div>
 {% endblock %}

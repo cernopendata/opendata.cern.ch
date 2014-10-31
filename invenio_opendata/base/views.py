@@ -581,8 +581,7 @@ def metadata(recid, of='hd'):
     current_app.jinja_env.filters['splitthem'] = splitting
     record_collection = get_record(recid)['collections'][0]['primary']
     try:
-        return render_template(['records/'+record_collection+'_record.html',
-                                'records/metadata_base.html'])
+        return render_template('records/base_base.html')
     except TemplateNotFound:
         return abort(404)  # FIX
 

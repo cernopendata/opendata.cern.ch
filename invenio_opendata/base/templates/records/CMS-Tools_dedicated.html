@@ -1,110 +1,14 @@
-<div class="row" style="margin: -25px -20px;">
-  <div id="rec_dedicated_box" class="rec_dedicated_details col-md-12 panel-group">
-    {% if record.get('methodology_note', '') %}
-      <div class="rec_dedicated_details_in rdd-sel panel">
-        <div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#selection">Data Selection</div>
-        <div id="selection" class="info ccollapse">
-          {% for methodology_note in record.get('methodology_note', []) %}
-            <div class="body">{{ methodology_note.get('note', '')|safe }}</div>
-            <div class="links">
-              {% if methodology_note.get('recid', '') %}
-                <ul>
-                  <li><a href="{{ url_for('record.metadata', recid=methodology_note.get('recid', '')) }}">Record {{ methodology_note.get('recid', '') }}</a></li>
-                </ul>
-              {% endif %}
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-    {% endif %}
-    {% if record.get('action_note', '') %}
-      <div class="rec_dedicated_details_in rdd-val panel">
-        <div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#validation">Validation</div>
-        <div id="validation" class="info ccollapse">
-          <div class="body">{{ record.get('action_note', {}).get('action', '')|safe }}</div>
-          <div class="links"">
-            {% if record.get('action_note.recid', '') %}
-              <ul>
-                <li><a href="{{ url_for('record.metadata', recid=record.get('action_note.recid', '')) }}">Record {{ record.get('action_note.recid', '') }}</a></li>
-              </ul>
-            {% endif %}
-            {% if record.get('action_note.url', '') %}
-              <ul>
-                <li><a href="{{record.get('action_note.url', '')}}">{{record.get('action_note.description', '')}}</a></li>
-              </ul>
-            {% endif %}
-          </div>
-        </div>
-      </div>
-    {% endif %}
-    {% if record.get('material_publication_note', '') %}
-      <div class="rec_dedicated_details_in rdd-reuse panel">
-        <div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#reusability">How can you use this?</div>
-        <div id="reusability" class="info ccollapse">
-          {% for material_publication_note in record.get('material_publication_note', []) %}
-            <div class="body">{{ material_publication_note.get('note', '') }}</div>
-            <div class="links">
-              {% if material_publication_note.get('url', {}) %}
-                <ul>
-                  <li><a href="{{ material_publication_note.get('url', '') }}">{{ material_publication_note.get('description', '') }}</a></li>
-                </ul>
-              {% endif %}
-              {% if material_publication_note.get('recid', {}) %}
-                <ul>
-                  <li><a href="{{ url_for('record.metadata', recid=material_publication_note.get('recid', '')) }}">Record {{ material_publication_note.get('recid', '') }}</a></li>
-                </ul>
-              {% endif %}
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-    {% endif %}
-    {% if record.get('constituent_unit_entry', '') %}
-      <div class="rec_dedicated_details_in rdd-reuse panel">
-        <div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#reusability">Usage</div>
-        <div id="reusability" class="info ccollapse">
-          <div class="body">{{ record.get('constituent_unit_entry', {}).get('heading', '') }}</div>
-          <div class="links">
-            {% if record.get('constituent_unit_entry.recid', '') %}
-              <ul>
-                <li><a href="{{ url_for('record.metadata', recid=record.get('constituent_unit_entry.recid', '')) }}">Record {{ record.get('constituent_unit_entry.recid', '') }}</a></li>
-              </ul>
-            {% endif %}
-            {% if record.get('constituent_unit_entry.url', '') %}
-              <ul>
-                <li><a href="{{ record.get('constituent_unit_entry.url', '') }}">{{ record.get('constituent_unit_entry.description', '') }}</a></li>
-              </ul>
-            {% endif %}
-          </div>
-        </div>
-      </div>
-    {% endif %}
-    {% if record.get('documentation_note', '') %}
-      <div class="rec_dedicated_details_in rdd-limits panel">
-        <div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#limitations">Issues & Limitations</div>
-        <div id="limitations" class="info ccollapse">
-          <div class="body">{{ record.get('documentation_note', {}).get('note', '') }}</div>
-          <div class="links">
-            {% if record.get('documentation_note.recid', '') %}
-              <ul>
-                <li><a href="{{ url_for('record.metadata', recid=record.get('documentation_note.recid', '')) }}">Record {{ record.get('documentation_note.recid', '') }}</a></li>
-              </ul>
-            {% endif %}
-            {% if record.get('documentation_note.url', '') %}
-              <ul>
-                <li><a href="{{ record.get('documentation_note.url', '') }}">{{ record.get('documentation_note.description', '') }}</a></li>
-              </ul>
-            {% endif %}
-          </div>
-        </div>
-      </div>
-    {% endif %}
-    <div class="rec_dedicated_details_in rdd-disclaimer panel">
-      <div class="title">Disclaimer</div>
-      <div id="disclaimer" class="info">
-        <div class="row">
-          <div class="body col-md-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt quo quia porro facere similique magni modi commodi, hic dolorum alias voluptatum nulla id praesentium mollitia! Omnis nihil beatae nulla, odit!Lorem ipsum dolor sit amet.</div>
-        </div>
-      </div>
-    </div>
-  </div>
+{% extends 'records/dedicated_base.html' %}
+
+{% block methodology_note %}
+  {{ record_methodology_note(record.get('methodology_note', ''), 'Data Selection') }}
+{% endblock %}
+
+{% block action_note %}
+  {{ record_action_note(record.get('action_note', '') , 'Validation') }}
+{% endblock %}
+
+{% block material_publication_note %}
+  {{ record_material_publication_note(record.get('material_publication_note', ''), 'How can you use this?') }}
+{% endblock %}
+
