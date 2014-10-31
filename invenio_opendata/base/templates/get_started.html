@@ -97,7 +97,7 @@
           </div>
         </div>
         {% for e in exp_names %}
-        <div class="tab-pane fade{% if exp == e %} in active {% endif %}" id="{{e}}">
+        <div class="tab-pane fade{% if exp == e %} general in active {% endif %}" id="{{e}}">
         {% include 'get_started_'+e+'.html' ignore missing %}
         </div> 
         {% endfor %}
