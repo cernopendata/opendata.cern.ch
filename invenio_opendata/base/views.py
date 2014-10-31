@@ -48,11 +48,12 @@ def get_collections():
         
     return exp_colls, exp_names
 
-def get_collection_names():
+def get_collection_names(without = []):
     experiments = Collection.query.filter(Collection.id == '1').first_or_404()
     exp_names = []
     for exp in experiments.collection_children_v:
-        exp_names.append(exp.name)
+        if exp.name not in without:
+            exp_names.append(exp.name)
         
     return exp_names
 
