@@ -185,23 +185,23 @@
 
 {% for file in record['files'] if not with_preview %}
   {% if (file.get('url','')[-3:] == '.ig') and (show_previewer['show'] == false) %}
-    {% do show_previewer.update({'show':true}) %}
+    {% do show_previewer.update({'show':true, 'first_file':file.get('full_name')}) %}
   {% endif %}
 {% endfor %}
 
 {% if show_previewer['show'] == true %}
-  <div class="rec_metadata rec_preview">
-    <div class="row">
-      <div class="col-md-12">
-        <div id="previewer" class="rec_title title">Preview</div>
-      </div>
-      <div class="col-md-12">
-        <div class="rec_preview_box">
-          <iframe id="evd" width="100%" height="675"></iframe>
-        </div>
+<div class="rec_metadata rec_preview">
+  <div class="row">
+    <div class="col-md-12">
+      <div id="previewer" class="rec_title title">Preview</div>
+    </div>
+    <div class="col-md-12">
+      <div class="rec_preview_box">
+        <iframe id="evd" width="100%" height="675" scrolling="no" src="{{ url_for('previewer.preview', recid=recid, filename=show_previewer['first_file']) }}"></iframe>
       </div>
     </div>
   </div>
+</div>
 {% endif %}
 
 {{ record_files_display(record.get('files',''), show_previewer['show']) }}
