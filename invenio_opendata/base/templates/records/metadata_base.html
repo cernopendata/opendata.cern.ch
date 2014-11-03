@@ -6,16 +6,16 @@
     <div class="rec_title_info">
       <div class="title col-md-12">
 
-      {# Show title + additional_title + imprint date #}
-      {% if record.get('title_additional', '') %}
-        {{ record.get('title_additional',{}).get('title','') }}
-        <span>{{ record.get('imprint', {}).get('date', '') }}</span>
-        <div class="additional_title">{{ record.get('title',{}).get('title','') }}</div>
-      {% elif record.get('title',{}).get('title','') %}
-        {{ record.get('title',{}).get('title','') }}
-      {% endif %}
+        {# Show title + additional_title + imprint date #}
+        {% if record.get('title_additional', '') %}
+          {{ record.get('title_additional',{}).get('title','') }}
+          <span>{{ record.get('imprint', {}).get('date', '') }}</span>
+          <div class="additional_title">{{ record.get('title',{}).get('title','') }}</div>
+        {% elif record.get('title',{}).get('title','') %}
+          {{ record.get('title',{}).get('title','') }}
+        {% endif %}
       </div>
-      
+
       {# Show Authors ( > 5 : read_more show/hide ) #}
       <div class="rec_authors {% if (record['authors']|length) < 5 %} col-md-12" {% else %} id="rec_authors_rdmore" {% endif %}>
         {% if record['_first_corporate_name'] %}
@@ -33,7 +33,6 @@
         <div class="rec_thumb rec_doi">
           <div class="n"><div class="t">DOI</div>{{ record.get('doi','') }}</div>
         </div>
-<<<<<<< HEAD
       {% endif %}
       <div class="rec_thumb rec_parentcol">
         <a href="{{ url_for('collection/'+collection.name) }}"><div class="n"><div class="t">Parent Collection</div>{{ collection.name_ln }}</div></a>
@@ -45,7 +44,7 @@
             <div class="rec_thumb rec_parentcol">
               <div class="n"><div class="t">Release</div>{{ pp }}</div>
             </div>
-          </a> 
+          </a>
         {% endif %}
         {% if record.get('edition_statement', '').get('remainder', '') %}
           {% set rr = record.get('edition_statement', '').get('remainder', '').replace('Global tag: ', '') %}
@@ -53,16 +52,16 @@
             <div class="rec_thumb rec_parentcol">
               <div class="n"><div class="t">Global tag</div>{{ rr }}</div>
             </div>
-          </a> 
+          </a>
         {% endif %}
       {% endif %}
       {% if record.get('collision_energy', '') %}
-          {% set rr = record.get('collision_energy', '').replace('Collision energy: ', '') %}
-          <a href="{{ url_for('search.search', p=rr) }}">
-            <div class="rec_thumb rec_parentcol">
-              <div class="n"><div class="t">Collision Energy</div>{{ rr }}</div>
-            </div>
-          </a> 
+        {% set rr = record.get('collision_energy', '').replace('Collision energy: ', '') %}
+        <a href="{{ url_for('search.search', p=rr) }}">
+          <div class="rec_thumb rec_parentcol">
+            <div class="n"><div class="t">Collision Energy</div>{{ rr }}</div>
+          </div>
+        </a>
       {% endif %}
       {% if record.get('accelerator_experiment','') %}
         <a href="{{ url_for('search.search', p=record.get('accelerator_experiment','').get('accelerator', '')) }}">
@@ -91,79 +90,79 @@
   </div>
 </div>
 {% if record.get('computer_file_characteristics', '') %}
-<div class="rec_metadata rec_dataset_info row">
-  <div class="col-md-12">
-    <div class="rec_title title">Dataset</div>
-    <div class="rec_desc">
-      {% if record.get('computer_file_characteristics')['text'] %}
-        ------
-      {% else %}
-        {% for i in record.get('computer_file_characteristics') %}
-          {% if i['files'] %}
-            <span>{{ i['files'] }}<b>{{ i.get('text','') }}</b></span>
-          {% elif i['events'] %}
-            <span>{{i['events']}}<b>{{ i.get('text','') }}</b></span>
-          {% elif i['bytes'] %}
-            <span>{{(i['bytes']|float)|filesizeformat}}<b>{{ i.get('text','') }}</b></span>
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-    </div>
-  </div>
-</div>
-{% endif %}
-{% if record.get('computer_file_type', {}) %}
-<div class="rec_metadata rec_description">
-  <div class="row">
+  <div class="rec_metadata rec_dataset_info row">
     <div class="col-md-12">
-      <div class="rec_title title">Use with..</div>
-    </div>
-    <div class="col-md-12">
+      <div class="rec_title title">Dataset</div>
       <div class="rec_desc">
-        {{record.get('computer_file_type', {}).get('note', '')}}
-        {% for r in record.get('computer_file_type', {}).get('recid', '') %}
-          <a href="{{url_for('.metadata', recid = r )}}">Record {{r}}</a>
-          {{ ', ' if not loop.last }}
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-</div> 
-{% endif %}
-{% if record.get('system_details', {}) %}
-<div class="rec_metadata rec_description">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="rec_title title">System Details</div>
-    </div>
-    <div class="col-md-12">
-      <div class="rec_desc">
-        {{record.get('system_details', {}).get('note', '')}}
-        {% if record.get('system_details', {}).get('recid', '') %}
-          <a href="{{url_for('.metadata', recid = record.get('system_details', {}).get('recid', '') )}}">Record {{record.get('system_details', {}).get('recid', '')}}</a>
+        {% if record.get('computer_file_characteristics')['text'] %}
+          ------
+        {% else %}
+          {% for i in record.get('computer_file_characteristics') %}
+            {% if i['files'] %}
+              <span>{{ i['files'] }}<b>{{ i.get('text','') }}</b></span>
+            {% elif i['events'] %}
+              <span>{{i['events']}}<b>{{ i.get('text','') }}</b></span>
+            {% elif i['bytes'] %}
+              <span>{{(i['bytes']|float)|filesizeformat}}<b>{{ i.get('text','') }}</b></span>
+            {% endif %}
+          {% endfor %}
         {% endif %}
       </div>
     </div>
   </div>
-</div> 
 {% endif %}
-{% if record.get('other_relationship_entry', {}) %}
-<div class="rec_metadata rec_description">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="rec_title title">Related items</div>
-    </div>
-    <div class="col-md-12">
-      <div class="rec_desc">
-        {{record.get('other_relationship_entry', {}).get('heading', '')}}
-        {% for r in record.get('other_relationship_entry', {}).get('recid', '') %}
-          <a href="{{url_for('.metadata', recid = r )}}">Record {{r}}</a>
-          {{ ', ' if not loop.last }}
-        {% endfor %}
+{% if record.get('computer_file_type', {}) %}
+  <div class="rec_metadata rec_description">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="rec_title title">Use with..</div>
+      </div>
+      <div class="col-md-12">
+        <div class="rec_desc">
+          {{record.get('computer_file_type', {}).get('note', '')}}
+          {% for r in record.get('computer_file_type', {}).get('recid', '') %}
+            <a href="{{url_for('.metadata', recid = r )}}">Record {{r}}</a>
+            {{ ', ' if not loop.last }}
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
-</div> 
+{% endif %}
+{% if record.get('system_details', {}) %}
+  <div class="rec_metadata rec_description">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="rec_title title">System Details</div>
+      </div>
+      <div class="col-md-12">
+        <div class="rec_desc">
+          {{record.get('system_details', {}).get('note', '')}}
+          {% if record.get('system_details', {}).get('recid', '') %}
+            <a href="{{url_for('.metadata', recid = record.get('system_details', {}).get('recid', '') )}}">Record {{record.get('system_details', {}).get('recid', '')}}</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% if record.get('other_relationship_entry', {}) %}
+  <div class="rec_metadata rec_description">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="rec_title title">Related items</div>
+      </div>
+      <div class="col-md-12">
+        <div class="rec_desc">
+          {{record.get('other_relationship_entry', {}).get('heading', '')}}
+          {% for r in record.get('other_relationship_entry', {}).get('recid', '') %}
+            <a href="{{url_for('.metadata', recid = r )}}">Record {{r}}</a>
+            {{ ', ' if not loop.last }}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
 {% endif %}
 
 {% for file in record['files'] if not with_preview %}
@@ -173,39 +172,39 @@
 {% endfor %}
 
 {% if show_previewer['show'] == true %}
-<div class="rec_metadata rec_preview">
-  <div class="row">
-    <div class="col-md-12">
-      <div id="previewer" class="rec_title title">Preview</div>
-    </div>
-    <div class="col-md-12">
-      <div class="rec_preview_box">
-        <iframe id="evd" width="100%" height="675"></iframe>
+  <div class="rec_metadata rec_preview">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="previewer" class="rec_title title">Preview</div>
+      </div>
+      <div class="col-md-12">
+        <div class="rec_preview_box">
+          <iframe id="evd" width="100%" height="675"></iframe>
+        </div>
       </div>
     </div>
   </div>
-</div>
 {% endif %}
 
 {{ record_files_display(record.get('files',''), show_previewer['show']) }}
 
 {% if record.get('url',[]) != [] %}
-<div class="rec_metadata rec_urls">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="rec_title title">URLs</div>
-    </div>
-    <div class="col-md-12" style="margin-top: 20px;font-size: 16px;color: #606D75;font-weight: 100;">
-      <div class="row">
-      {% if record.get('url').get('url') is not string %}
-        {% for u in record.get('url').get('url') %}
-        <a class="col-md-12" href="{{ u }}">{{ u }}</a>
-        {% endfor %}
-      {% else %}
-        <a class="col-md-12" href="{{ record.get('url','').get('url','') }}">{{ record.get('url','').get('url','') }}</a>
-      {% endif %}
+  <div class="rec_metadata rec_urls">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="rec_title title">URLs</div>
+      </div>
+      <div class="col-md-12" style="margin-top: 20px;font-size: 16px;color: #606D75;font-weight: 100;">
+        <div class="row">
+          {% if record.get('url').get('url') is not string %}
+            {% for u in record.get('url').get('url') %}
+              <a class="col-md-12" href="{{ u }}">{{ u }}</a>
+            {% endfor %}
+          {% else %}
+            <a class="col-md-12" href="{{ record.get('url','').get('url','') }}">{{ record.get('url','').get('url','') }}</a>
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>
-</div>
 {% endif %}
