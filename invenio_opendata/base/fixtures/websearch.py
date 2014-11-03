@@ -471,7 +471,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_9:
-        body = u'This collection includes ALICE analysis modules.'
+        body = u'This collection contains all software packages needed to run a set of ALICE physics masterclasses and a simple ESD-based analysis.'
         id = 9
         title = u'description'
 
@@ -481,7 +481,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_11:
-        body = u'This collection includes ALICE simplified datasets.'
+        body = u'This collection contains reduced information for the reconstructed tracks and their associated clusters from a set of PbPb events. It can be used by with ALICE RAA masterclass package including an event display.'
         id = 11
         title = u'description'
 
@@ -506,7 +506,7 @@ class PortalboxData(DataSet):
         title = u'description'
 
     class Portalbox_16:
-        body = u'This collection includes ALICE reconstructed data.'
+        body = u'This collection contains files with reconstructed ALICE events in the Event Summary Data (ESD) format and they can be used for standard ALICE analysis.'
         id = 16
         title = u'description'
 
