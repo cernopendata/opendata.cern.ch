@@ -40,6 +40,7 @@ mkdir -p $OUTDIR/github-files
 rsync -a invenio_opendata/testsuite/data/cms/eos-file-indexes/ $OUTDIR/cms-eos-file-indexes/
 rsync -a invenio_opendata/testsuite/data/alice/eos-file-indexes/ $OUTDIR/alice-eos-file-indexes/
 rsync -a invenio_opendata/testsuite/data/lhcb/eos-file-indexes/ $OUTDIR/lhcb-eos-file-indexes/
+rsync -a invenio_opendata/testsuite/data/atlas/eos-file-indexes/ $OUTDIR/atlas-eos-file-indexes/
 
 # secondly, download CMS DocDB files: (if not already existing)
 $WGET -O $OUTDIR/cms-docdb-files/Run2010B_Mu_AOD_Apr21ReReco-v1-dimuon_0.csv "$DOCDB?docid=12450&amp;filename=Run2010B_Mu_AOD_Apr21ReReco-v1-dimuon_0.csv"
