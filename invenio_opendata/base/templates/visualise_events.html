@@ -4,6 +4,12 @@
 {% import 'helpers/general.html' as gen_utils %}
 {% bundles "previewer_ispy.js", "previewer_ispy.css" %}
 
+<link href="{{url_for('base.static', filename='vendors/ispy-online/css/scrollbar.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{url_for('base.static', filename='vendors/ispy-online/css/eventdisplay.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{url_for('base.static', filename='vendors/ispy-online/css/settings.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{url_for('base.static', filename='vendors/ispy-online/css/range-selection.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{url_for('base.static', filename='vendors/ispy-online/css/event-browser.css')}}" rel="stylesheet" type="text/css" />
+
   <style>
     #vis-events {
       color: #606D75;
@@ -182,11 +188,14 @@
     </div>
   </section>
 
+{% include "visualise_events_popups.html" %}
+
+
 {% endblock %}
 
 {%- block javascript %}
 <script type="text/javascript">
-$("#event-browser").hide();
+$(".dialog-window").hide();
 
 function showEventLoader() {
    centerElement("event-browser");
