@@ -23,7 +23,11 @@
 	                </div>
 	                <div class="col-xs-6 col-sm-4">
 	                    <div class="right-side">
-	                    	<button class="col-xs-12  {{ 'col-sm-6' if with_preview else 'col-sm-12'}} btn" onClick="window.location.href='{{file["url"]}}'">Download</button>
+	                    	{% if file["url"][-3:] == 'txt' or file["url"][-4:] == 'json' %}
+                    		<button class="col-xs-12 {{ 'col-sm-6' if with_preview else 'col-sm-12'}} btn" onClick="window.location.href='{{file["url"]}}'">Download file indexes</button>
+	                    	{% else %}
+	                    	<button class="col-xs-12 {{ 'col-sm-6' if with_preview else 'col-sm-12'}} btn" onClick="window.location.href='{{file["url"]}}'">Download</button>
+	                    	{% endif %}
 	                    	{% if with_preview %}
 	                    		<button class="col-xs-12 col-sm-6 btn" onClick="$('#evd').attr('src', '{{ url_for('previewer.preview', recid=recid, filename=file.get('full_name')) }}')">Preview</button>
 	                    	{%endif%}
@@ -118,7 +122,7 @@
 	    <div id="selection" class="info ccollapse">
 	    {% for methodology_note in record_data %}
 	      {% if methodology_note.get('note', '') %}
-	      <div class="body">{{ methodology_note.get('note', '') |safe }}</div>
+	      <div class="body">{{ methodology_note.get('note', '')|safe }}</div>
 	      {% endif %}
 	      <div class="links">
 	        <ul>
@@ -143,7 +147,7 @@
 		<div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#validation">{{ title }}</div>
 		<div id="validation" class="info ccollapse">
 			{% if record_data['action'] %}
-			<div class="body">{{ record_data.get('action','') }}</div>
+			<div class="body">{{ record_data.get('action','')|safe  }}</div>
 			<div class="links">
 				<ul>
 					{% if record_data['recid'] %}
@@ -181,7 +185,7 @@
 		<div id="reusability" class="info ccollapse">
 			{% for material_publication_note in record.get('material_publication_note', []) %}
 			{% if material_publication_note.get('note', '') %}
-			<div class="body">{{ material_publication_note.get('note', '') }}</div>
+			<div class="body">{{ material_publication_note.get('note', '')|safe }}</div>
 			{% endif %}
 			{% endfor %}
 			<div class="links">
@@ -194,7 +198,6 @@
 							if material_publication_note.get('description', '') 
 							else material_publication_note.get('url', '')
 						}}</a>
-
 					</li>
 					{% endif %}
 					{% if material_publication_note.get('recid', '') %}
@@ -213,7 +216,7 @@
 	<div class="rec_dedicated_details_in rdd-limits panel">
 		<div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#limitations">{{ title }}</div>
 		<div id="limitations" class="info ccollapse">
-			<div class="body">{{ record.get('documentation_note', {}).get('note', '') }}</div>
+			<div class="body">{{ record.get('documentation_note', {}).get('note', '')|safe  }}</div>
 			<div class="links">
 				{% if record.get('documentation_note.recid', '') %}
 				<ul>

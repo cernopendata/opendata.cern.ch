@@ -67,27 +67,36 @@
 
 .rec_doi {
   float: right;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 .rec_doi .t{
-  color: #606D75;
+  color: #fff;
   float: left;
   padding: 5px 8px;
   border-bottom-left-radius: 2px;
   border-top-left-radius: 2px;
-  background-color: #f4f4f4;
-  font-weight: 400;
+  background-color: transparent;
+  font-weight: 700;
   margin: -5px;
   margin-right: 5px;
+  margin-left: -65px;
 }
 .rec_doi .n {
-  background-color: #fff;
-  color: #606D75;
+  background-color: #7b8c96;
+  color: #fff;
   float: left;
   padding: 5px 5px;
   border-radius: 2px;
   font-size: 100%;
   width: 100%;
+  padding-left: 65px;
+}
+
+.rec_doi a,
+.rec_doi a:hover,
+.rec_doi a:focus {
+  color: inherit;
+  text-decoration: underline;
 }
 
 .rec_files_info {

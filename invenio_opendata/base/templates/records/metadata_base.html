@@ -31,7 +31,17 @@
     <div class="col-md-12 ">
       {% if record.get('doi','') %}
         <div class="rec_thumb rec_doi">
-          <div class="n"><div class="t">DOI</div>{{ record.get('doi','') }}</div>
+          <div class="n"><div class="t">Cite as:</div>{% if record['_first_corporate_name'] %}
+        {{ record['_first_corporate_name']['name'] }}
+      {% endif %}
+      ({{ record.get('imprint', {}).get('date', '') }})
+      {% if record.get('title_additional', '') %}
+        {{ record.get('title_additional',{}).get('title','') }}
+      {% elif record.get('title',{}).get('title','') %}
+        {{ record.get('title',{}).get('title','') }}
+      {% endif %}
+      . {{ record.get('imprint', {}).get('publisher_name', '') }} .
+      DOI: <a href="http://doi.org/{{ record.get('doi','') }}">{{ record.get('doi','') }}</a></div>
         </div>
       {% endif %}
       <div class="rec_thumb rec_parentcol">
@@ -90,27 +100,35 @@
   </div>
 </div>
 {% if record.get('computer_file_characteristics', '') %}
-  <div class="rec_metadata rec_dataset_info row">
-    <div class="col-md-12">
-      <div class="rec_title title">Dataset</div>
-      <div class="rec_desc">
-        {% if record.get('computer_file_characteristics')['text'] %}
-          ------
-        {% else %}
-          {% for i in record.get('computer_file_characteristics') %}
-            {% if i['files'] %}
-              <span>{{ i['files'] }}<b>{{ i.get('text','') }}</b></span>
-            {% elif i['events'] %}
-              <span>{{i['events']}}<b>{{ i.get('text','') }}</b></span>
-            {% elif i['bytes'] %}
-              <span>{{(i['bytes']|float)|filesizeformat}}<b>{{ i.get('text','') }}</b></span>
-            {% endif %}
-          {% endfor %}
+<div class="rec_metadata rec_dataset_info row">
+  <div class="col-md-12">
+    <div class="rec_title title">Characteristics</div>
+    <div class="rec_desc">
+        {% if record.get('computer_file_characteristics','')['characteristics'] %}
+          <span><b>{{record.get('computer_file_characteristics','')['characteristics']}}</b>:</span>
+        {% elif record.get('computer_file_characteristics','')['files'] %}
+          <span>{{ record.get('computer_file_characteristics','')['files'] }}<b>{{ record.get('computer_file_characteristics','').get('text','') }}</b></span>
+        {% elif record.get('computer_file_characteristics','')['events'] %}
+          <span>{{record.get('computer_file_characteristics','')['events']}}<b>{{ record.get('computer_file_characteristics','').get('text','') }}</b></span>
+        {% elif record.get('computer_file_characteristics','')['bytes'] %}
+          <span>{{(record.get('computer_file_characteristics','')['bytes']|float)|filesizeformat}}<b>{{ record.get('computer_file_characteristics','').get('text','').replace('bytes','') }}</b></span>
         {% endif %}
-      </div>
+        {% for i in record.get('computer_file_characteristics') %}
+          {% if i['characteristics'] %}
+            <span><b>{{i['characteristics']}}</b>:</span>
+          {% elif i['files'] %}
+            <span>{{ i['files'] }}<b>{{ i.get('text','') }}</b></span>
+          {% elif i['events'] %}
+            <span>{{i['events']}}<b>{{ i.get('text','') }}</b></span>
+          {% elif i['bytes'] %}
+            <span>{{(i['bytes']|float)|filesizeformat}}<b>{{ i.get('text','').replace('bytes','') }}</b></span>
+          {% endif %}
+        {% endfor %}
     </div>
   </div>
+</div>
 {% endif %}
+
 {% if record.get('computer_file_type', {}) %}
   <div class="rec_metadata rec_description">
     <div class="row">
