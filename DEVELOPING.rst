@@ -187,7 +187,7 @@ re-populate your site anew to have your updated records, you can do:
          -f invenio_opendata/testsuite/data/lhcb/lhcb-derived-datasets.xml \
          -f invenio_opendata/testsuite/data/lhcb/lhcb-external-resources.xml \
          -f invenio_opendata/testsuite/data/lhcb/lhcb-tools.xml \
-         -e force-recids
+         -e force-recids --yes-i-know
 
 JS/CSS Assets
 =============
