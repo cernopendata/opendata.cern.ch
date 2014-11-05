@@ -29,7 +29,8 @@
     #main {
     }
     .midnav {
-      background-color: transparent;
+      background-color: #f4f4f4;
+      padding: 5px 0;
     }
     .main-header {
       padding-top: 110px;
@@ -41,16 +42,15 @@
     .homepage-nav { 
       position: fixed;
       margin-right: 0px;
-      bottom: 0;
+      bottom: 40%;
+      right: 0;
       z-index: 500;
-      width: 100%;
-
     }
     .homepage-nav ul {
       border-top-left-radius: 3px;
       border-top-right-radius: 3px;
-      width: 300px;
-      background-color: rgba(161, 177, 197, 0.54);
+      width: 35px;
+      /*background-color: rgba(161, 177, 197, 0.54);*/
     }
     .homepage-nav li {
       /*width: 100%;*/
@@ -68,8 +68,8 @@
     }
 
     .homepage-nav li.active a{
-      color: rgb(141, 155, 173);
-      background-color: rgba(255, 255, 255, 0.6);
+      color: #354654;
+      /*background-color: rgba(255, 255, 255, 0.6);*/
       border-radius: 0;
     }
 
@@ -83,8 +83,23 @@
       height: 100vh;
       width: 100vw;
       float: left;
-      color: rgb(141, 155, 173);
+      color: #354654;
       overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .homepage-frame {
+        height: auto;
+        padding: 40px 0;
+      }
+      .entrypoint-box {
+        width: auto!important;
+        margin-top: 10%!important;
+        height: auto!important;
+      }
+      .entrypoint-action a {
+        position: relative!important;
+      }
     }
     #main.homepage-frame {
       padding-top: 0;
@@ -93,14 +108,7 @@
     #main { 
       background-color: inherit;
     }
-    #edu {
-      background-color: transparent;
-    }
-    #rsch{
-      background-color: rgb(198, 208, 217);
-      left: 50%;
-    }
-      
+
     .entrypoint {
       position: absolute;
       height: 100vh;
@@ -109,46 +117,55 @@
     }
     .entrypoint-box {
       padding-top: 40px;
+      background-color: rgba(244, 244, 244, 0.82);
+      padding: 15px;
+      border-radius: 5px;
+      height: 50vh;
+      margin-top: 25vh;
+      color: #354654;
+      width: 60%;
     }
 
     .entrypoint-box h1 { 
       text-align: center;
-      font-size: 40px;
-      color: #fff;
-      text-shadow: 0 0 4px #ccc; /* horizontal-offset vertical-offset 'blur' colour */
-      -moz-text-shadow: 0 0 4px #ccc;
-      -webkit-text-shadow: 0 0 4px #ccc;
-      margin-bottom: 40px;
-      color: rgb(141, 155, 173);
+      font-size: 2.4em;
+      margin-bottom: 35px;
     }
-
-    .entrypoint-action li {
-        background-color: #f4f4f4;
+    .entrypoint-box h5 { 
+      font-weight: 100;
+      font-size: 1.37em;
+    }
+    .entrypoint-action a {
         border-radius: 3px;
-        margin-bottom: 10px;
-        width: 100%;
+        margin-bottom: 15px;
         font-size: 1.4em;
         padding: 10px;
+        background-color: #354654;
+        color: #fff;
+        position: absolute;
+        width: 200px;
+        float: left;
+        bottom: 0;
     }
     
-    .entrypoint-action li:hover,
-    .entrypoint-action li:focus {
-      background-color: rgb(141, 155, 173);
+    #research .entrypoint-action a {
+      right: 30px;
+    }
+    #education .entrypoint-action a {
+      left: 30px;
+    }
+    #education .entrypoint-action {
+      padding-left: 15px;
+    }
+    #research .entrypoint-action {
+      padding-right: 15px;
+      float: right;
     }
 
-    .entrypoint-action li.enclr:hover {
-      background-color: rgb(141, 155, 173);
-    }
-    .entrypoint-action li.enclr {
-      background-color: rgb(161, 177, 197);
-      color: #fff;
-    }
-    .entrypoint-action a{
-      color: rgb(141, 155, 173);
-    }
     .entrypoint-action a:hover,
     .entrypoint-action a:focus {
       color: #fff;
+      text-decoration: none;
     }
     .entrypoint-action span {
       padding: 5px;
@@ -162,17 +179,37 @@
     
     .homepage-frame .exp-image {
       float: left;
-      height: 20%;
-      padding-top: 10%;
+      width: 20%;
+      position: relative;
+      display: inline-block;
+      height: 100%;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
 
     .homepage-frame .exp-image img {
       background-color: rgb(141, 155, 173);
-      height: 6em;
-      width: auto;
-      float: left;
+      width: 100%;
+      max-height: 100%;
+      /*padding: 10px;*/
+      padding-right: 15px;
+      vertical-align: middle;
+      display: inline-block;
+    }
+    #edu ul, #rsch ul {
+      height: 80vh;
     }
     
+    #edu ul li, #rsch ul li {
+      height: 18vh;
+      background-color: #f4f4f4;
+      border-radius: 4px;
+      padding: 0 10px;
+      margin-bottom: 2.8vh;
+      display: inline-block;
+      width: 100%;
+    }
+
     #LHCb.homepage-frame .exp-image h2,
     #ALICE.homepage-frame .exp-image h2 {
      /*color: #fff;*/
@@ -190,8 +227,13 @@
       /*color: #fff;*/
     }
     .homepage-frame .coll-desc {
-      font-size: 1.3em;
-      padding-top: 10%;
+      font-size: 13px;
+      font-weight: 100;
+      width: 80%;
+      float: left;
+      height: 65%;
+      overflow: hidden;
+      padding-top: 10px;
     }
     .homepage-frame .info_details {
       height: 50%;
@@ -226,27 +268,6 @@
     }
 
 
-    .homepage-frame .right-side > div div {
-      /*border: 1px solid rgb(141, 155, 173);*/
-      border-radius: 3px;
-      padding-bottom: 15px;
-    }
-
-    .homepage-frame .right-side > div {
-      padding-top: 10%;
-    }
-    .homepage-frame .right-side > div h4 {
-      padding-left: 15px;
-      padding-right: 15px;
-      font-size: 32px;
-      font-weight: 400;
-    }
-
-    .homepage-frame .right-side > div li a {
-      font-size: 18px;
-      font-weight: 100;
-      color: inherit;
-    }
 
     .homepage-frame .right-side > .news {
       height: 30%;
@@ -269,18 +290,14 @@
     }
 
     .homepage-frame .left-side {
-      height: 45vw;
+      height: 80vh;
     }
 
     .homepage-frame .right-side {
-      height: 45vw;
+      height: 80vh;
       /*border-left: 1px dotted rgb(141, 155, 173);*/
     }
 
-    .homepage-frame .right-side .quicklinks {
-      /*position: absolute;
-      bottom: 0;*/
-    }
 
     .homepage-frame .right-side .inner {
       border: 1px dotted rgb(141, 155, 173);
@@ -300,58 +317,142 @@
       border-top: 100% solid gray;
       border-radius: 100% solid transparent;
     }
+    #main {
+      background-image: url({{url_for('static', filename='img/home/home_net_new.svg')}});
+      background-size: 100% 100%;
+    }
 
-    #CMS {background-color: #E1E8EC;}
-    #ALICE {background-color: rgb(190, 203, 219);}
-    #ATLAS {background-color: #DEE7F0;}
-    #LHCb {background-color: #C0CCDA;}
+    .entry-frame-header {
+      height: 10vh;
+    }
+    .entry-frame-header h1 {
+    }
+
+    .entrypoint-desc {
+      font-weight: 100;
+      font-size: 1.4em;
+      text-align: center;
+      height: 20vh;
+    }
+    .entrypoint-goto {
+      height: 60vh;
+      background-color: #
+      border-radius: 5px;
+      margin-top: 2px;
+    }
+
+    .coll-button {
+      height: 35%;
+    }
+    .coll-button a.btn {
+      background-color: #354654;
+      /* padding: 5px 10px; */
+      color: #fff;
+      float: right;
+      width: 140px;
+      margin-top: 1.3vh;
+      margin-right: -10px;
+      height: 5vh;
+      bottom: 0;
+      position: relative;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 0;
+      padding-top: 8px;
+    }
+
+    .goto-action-image img {
+      border-radius: 3px 3px 0 0;
+      max-height: 23vh;
+      width: 100%;
+    }
+    .goto-action-image {
+      height: 24vh;
+      width: 100%;
+      background-color: #f4f4f4;
+      float: left;
+      border-radius: 3px 3px 0 0;
+      display: inline-block;
+    }
+    .entrypoint-goto-action {
+      margin-bottom: 2vh;
+    }
+    
+    .goto-action-button a {
+      color: inherit;
+    }
+    .goto-action-button {
+      height: 5vh;
+      width: 100%;
+      background-color: #354654;
+      display: inline-block;
+      font-size: 14px;
+      color: #fff;
+      border-radius: 0 0 3px 3px;
+      text-align: right;
+      padding-right: 15px;
+      padding-top: 8px;
+    }
+    
+    .goto-action-button span {
+      padding-left: 5px;
+    }
+    #rsch {background-color: #E1E8EC;}
+    #edu {background-color: #CBD6DD;}
+
+    #v-events .goto-action-image {
+      background-image: url('img/home/event.png');
+      background-position: center;
+      background-size: 95%;
+    }
+    #v-histo .goto-action-image {
+      background-image: url('img/home/histo.png');
+      background-position: center;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+    #get-started .goto-action-image {
+      background-image: url('img/default.png');
+      background-position: center;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+    #VMs .goto-action-image {
+      background-image: url('img/home/VMs.jpg');
+      background-position: center;
+      background-size: 110% 100%;
+      background-repeat: no-repeat;
+    }
   </style>
   
   <nav id="homepage-nav" class="homepage-nav">
     <ul  class="nav center-block">
-      <li><a href="#main" data-id="main"><span class="fa fa-home"></span></a></li>
-      <li><a href="#CMS" data-id="CMS">CMS</a></li>
-      <li><a href="#ALICE" data-id="ALICE">ALICE</a></li>
-      <li><a href="#ATLAS" data-id="ATLAS">ATLAS</a></li>
-      <li><a href="#LHCb" data-id="LHCb">LHCb</a></li>
-      <!-- <li><a href="#main" data-id="main"><span class="fa fa-circle"></span></a></li>
-      <li><a href="#CMS" data-id="CMS"><span class="fa fa-circle"></span></a></li>
-      <li><a href="#ALICE" data-id="ALICE"><span class="fa fa-circle"></span></a></li>
-      <li><a href="#ATLAS" data-id="ATLAS"><span class="fa fa-circle"></span></a></li>
-      <li><a href="#LHCb" data-id="LHCb"><span class="fa fa-circle"></span></a></li> -->
+      <li><a href="#main" data-id="main"><span class="fa fa-circle"></span></a></li>
+      <li><a href="#edu" data-id="edu"><span class="fa fa-circle"></span></a></li>
+      <li><a href="#rsch" data-id="rsch"><span class="fa fa-circle"></span></a></li>
     </ul>
   </nav>
   <section id="main" class="homepage-frame">
-    <div id="edu" class="entrypoint col-xs-12 col-sm-6"></div>
-    <div id="rsch" class="entrypoint col-xs-12 col-sm-6"></div>
     <div class="container">
       <div class="row">
-        <div class="main-header col-sm-12">
-          <div class="col-sm-8 col-sm-offset-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit</div>
-        </div>
-        <div class="col-md-6 col-xs-12">
-          <div id="education" class="entrypoint-box">
-            <h1 class="col-sm-9 col-xs-12 no-padding" style="text-align: left;">Education</h1>
+        <div class="col-sm-6">
+          <div id="education" class="entrypoint-box pull-left">
+            <h1 class="col-sm-12 col-xs-12 no-padding" style="text-align: left;">Education</h1>
+            <h5>
+              Visualise events, check reconstructed data, find new tools or build your own!
+            </h5>
             <div class="entrypoint-action row">
-              <ul class="col-sm-9 col-xs-12">
-                <a href=" {{ url_for('education') }}"><li class="enclr"><span class="fa fa-chevron-right"></span><span class="action-title">Go to Education Area</span></li></a>
-                <a href=" {{ url_for('visualise/events') }}"><li><span class="fa fa-chevron-right"></span><span class="action-title">Visualise detector events</span></li></a>
-                <a href=" {{ url_for('visualise/histograms') }}"><li><span class="fa fa-chevron-right"></span><span class="action-title">Visualise data histograms</span></li></a>
-                <a href=" {{ url_for('resources') }}"><li><span class="fa fa-chevron-right"></span><span class="action-title">Other resources</span></li></a>
-              </ul>
+              <a href="#edu"><span class="fa fa-chevron-right"></span><span class="action-title">Start learning</span></a>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-xs-12">
-          <div id="research" class="entrypoint-box">
+        <div class="col-sm-6">
+          <div id="research" class="entrypoint-box pull-right">
             <h1 class="col-sm-9 col-sm-offset-3 col-xs-12 no-padding" style="text-align: right;">Research</h1>
+            <h5>
+              Get the latest working environments, virtual machines and datasets to support your research
+            </h5>
             <div class="entrypoint-action row">
-              <ul class="col-sm-9 col-sm-offset-3 col-xs-12">
-                <a href=" {{ url_for('research') }}"><li class="enclr"><span class="action-title">Go to Research Area</span><span class="fa fa-chevron-left"></span></li></a>
-                <a href=" {{ url_for('VM') }}"><li><span class="action-title">Virtual machines</span><span class="fa fa-chevron-left"></span></li></a>
-                <a href=" {{ url_for('getting-started') }}"><li><span class="action-title">Getting started</span><span class="fa fa-chevron-left"></span></li></a>
-                <a href=" {{ url_for('data') }}"><li><span class="action-title">More...</span><span class="fa fa-chevron-left"></span></li></a>
-              </ul>
+              <a href="#rsch"><span class="action-title">Start analysing</span><span class="fa fa-chevron-left"></span></a>
             </div>
           </div>
         </div>
@@ -360,18 +461,18 @@
   </section>
   {% import 'data/news_db.html' as n %}
   
-  {% for e in exp_colls %}
-  <section id="{{e.name_ln}}" class="homepage-frame" >
+  <section id="edu" class="homepage-frame">
+    <div class="entry-frame-header">
+      <h1><div class="container">Education</div></h1>  
+    </div>
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
-          <div class="row">
+        <div class="col-sm-6">
             <div class="left-side">
-              <div class="exp-image col-sm-12">
-                <img src="{{ url_for('static', filename='img/'+e.name_ln+'.gif') }}" alt="" style="background-color: transparent;">
-                <h2>{{e.name_ln}}</h2>
-              </div>
-              <div class="info_details col-sm-12">
+              <ul>
+              {% for e in exp_colls %}
+              <li>
+                <div class="exp-image"><img src="{{ url_for('static', filename='img/'+e.name_ln+'.gif') }}" alt="" style="background-color: transparent;"></div>
                 {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
                 {% for pb in e.portalboxes %}
                 {% if (pb.portalbox.title == 'description') %}
@@ -381,69 +482,34 @@
                 {% endif %}
                 {% endfor %} 
                 <div class="coll-desc">
-                  {% for d in (coll_portalboxes['desc']|splitthem('#$#$#')) %}{{d}}{% endfor %}
+                  {{ coll_portalboxes['desc'].replace('#$#$#', '')|truncate(260) }}
                 </div>
-              </div>
-              <div class="entry_buttons col-sm-12">
-                <div class="row">
-                  <div class="entrypoint-buttons">
-                    <div class="col-sm-6">
-                      <a href="{{ url_for('.educate', exp = e.name )}}">More on {{e.name}} Education <span class="fa fa-angle-right"></span></a>
-                    </div>
-                    <div class="col-sm-6">
-                      <a href="{{ url_for('.research', exp = e.name )}}">More on {{e.name}} Research <span class="fa fa-angle-right"></span></a>
-                    </div>
-                  </div>
+                <div class="coll-button">
+                  <a href="{{url_for('.educate', exp = e.name)}}" class="btn">Explore {{e.name_ln}} <span class="fa fa-chevron-right"></span></a>
                 </div>
-              </div>
+              </li>  
+              {% endfor %}
+              </ul>
             </div>
-          </div>
         </div>
-        <div class="col-md-6">
-          <div class="row">
-            <div class="right-side">
-              <div class="news col-sm-12">
-                <div>
-                  <h4>News</h4>
-                  <ul class="row">
-                    {% for ns in n.news %}
-                      {% if e.name in ns[3][1]  %}
-                        <li class="col-sm-12">
-                          <a href="{{url_for('.news', newsid = ns[5])}}">{{ns[0]}}<span class="fa fa-angle-right"></span></a>
-                        </li>
-                      {% endif %}
-                    {% endfor %}
-                  </ul>
+        <div class="col-sm-6">
+          <div class="right-side">
+            <div class="entrypoint-desc">
+              For education purposes, the complex primary data need to be processed into a format (examples below) that is good for simple applications. Get in touch if you wish to build your own applications similar to those shown here
+            </div>
+            <div class="entrypoint-goto">
+              <div id="v-events" class="entrypoint-goto-action">
+                <div class="goto-action-image">
+                </div>
+                <div class="goto-action-button">
+                  <a href="{{url_for('.visualise_events')}}">Visualise events<span class="fa fa-chevron-right"></span> </a>
                 </div>
               </div>
-              <div class="collections col-sm-12">
-                <div>
-                  <h4>Collections</h4>
-                  <ul class="row">
-                    {% for c in e.collection_children_r %}
-                      <li class="col-sm-6">
-                        <a href="{{ url_for('.collection', name=c.name) }}">{{ c.name_ln }}<span class="fa fa-angle-right"></span>
-                        </a>
-                      </li>
-                    {% endfor %}
-                  </ul>
+              <div id="v-histo" class="entrypoint-goto-action">
+                <div class="goto-action-image">
                 </div>
-              </div>
-              <div class="quicklinks col-sm-12">
-                <div>
-                  <h4>Related Links</h4>
-                  <ul class="row">
-                    <li class="col-sm-6"><a href="{{ url_for('about/'+e.name_ln) }}">Learn about {{e.name_ln}}<span class="fa fa-angle-right"></span></a></li>
-                    {% if e.name_ln in ['CMS'] %}
-                    <li class="col-sm-6"><a href="{{ url_for('.about_physics') }}">CMS Physics Objects<span class="fa fa-angle-right"></span></a></li>
-                    <li class="col-sm-6"><a href="{{ url_for('.visualise_events') }}">Visialise CMS events<span class="fa fa-angle-right"></span></a></li>
-                    <li class="col-sm-6"><a href="{{ url_for('.visualise_histo') }}">Visualise histograms<span class="fa fa-angle-right"></span></a></li>
-                    {% endif %}
-                    <li class="col-sm-6"><a href="{{ url_for('.data_vms', exp = e.name ) }}">{{e.name_ln}} Virtual Machine<span class="fa fa-angle-right"></span></a></li>
-                    <li class="col-sm-6"><a href="{{ url_for('.get_started', exp = e.name) }}">Getting started with {{e.name_ln}}<span class="fa fa-angle-right"></span></a></li>
-                    <li class="col-sm-6"><a href="{{ url_for('.collection' , name = e.name+'-Tools') }}">{{e.name_ln}} Tools<span class="fa fa-angle-right"></span></a></li>
-                    <li class="col-sm-6"><a href="{{ url_for('.resources' , exp = e.name ) }}">{{e.name_ln}} External Resources<span class="fa fa-angle-right"></span></a></li>
-                  </ul>
+                <div class="goto-action-button">
+                  <a href="{{url_for('.visualise_histo')}}">Visualise histogram<span class="fa fa-chevron-right"></span> </a>
                 </div>
               </div>
             </div>
@@ -451,8 +517,65 @@
         </div>
       </div>
     </div>
-  </section>  
-  {% endfor %}
+  </section>
+
+  <section id="rsch" class="homepage-frame">
+    <div class="entry-frame-header">
+      <h1><div class="container">Research</div></h1>  
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+            <div class="left-side">
+              <ul>
+              {% for e in exp_colls %}
+              <li>
+                <div class="exp-image"><img src="{{ url_for('static', filename='img/'+e.name_ln+'.gif') }}" alt="" style="background-color: transparent;"></div>
+                {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+                {% for pb in e.portalboxes %}
+                {% if (pb.portalbox.title == 'description') %}
+                {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+                {% elif (pb.portalbox.title == 'image') %}
+                {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+                {% endif %}
+                {% endfor %} 
+                <div class="coll-desc">
+                  {{ coll_portalboxes['desc'].replace('#$#$#', '')|truncate(260) }}
+                </div>
+                <div class="coll-button">
+                  <a href="{{url_for('.research', exp = e.name)}}" class="btn">Explore {{e.name_ln}} <span class="fa fa-chevron-right"></span></a>
+                </div>
+              </li>  
+              {% endfor %}
+              </ul>
+            </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="right-side">
+            <div class="entrypoint-desc">
+              For research purposes, specific software environments and tools need to be deployed to analyse these complex primary data. In addition to the data below, you will find instructions for setting up your working environments here
+            </div>
+            <div class="entrypoint-goto">
+              <div id="get-started" class="entrypoint-goto-action">
+                <div class="goto-action-image">
+                </div>
+                <div class="goto-action-button">
+                  <a href="{{url_for('.get_started')}}">Getting started<span class="fa fa-chevron-right"></span> </a>
+                </div>
+              </div>
+              <div id="VMs" class="entrypoint-goto-action">
+                <div class="goto-action-image">
+                </div>
+                <div class="goto-action-button">
+                  <a href="{{url_for('.data_vms')}}">Virtual machines<span class="fa fa-chevron-right"></span> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <div id="push"></div>
   </div> {# end wrap #}
@@ -462,6 +585,21 @@
 {% block javascript %}
   {{ super() }}
   <script>
+  $(function() {
+    $('a[href*=#]:not([href=#])').click(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          $('html,body').animate({
+            scrollTop: target.offset().top
+          }, 400);
+          return false;
+        }
+      }
+    });
+  });
+
     (function($) {
       $('.nav a').click(function(){  
         //Toggle Class
