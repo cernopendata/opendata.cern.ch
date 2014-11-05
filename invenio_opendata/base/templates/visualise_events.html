@@ -1,9 +1,11 @@
+
 {% extends "page.html" %}
 
 {% block body %}
 {% import 'helpers/general.html' as gen_utils %}
 {% bundles "previewer_ispy.js", "previewer_ispy.css" %}
 
+<!-- For some reason I don't get the information from the bundled css above so explicitly include here: -->
 <link href="{{url_for('base.static', filename='vendors/ispy-online/css/scrollbar.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{url_for('base.static', filename='vendors/ispy-online/css/eventdisplay.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{url_for('base.static', filename='vendors/ispy-online/css/settings.css')}}" rel="stylesheet" type="text/css" />
@@ -195,11 +197,218 @@
 
 {%- block javascript %}
 <script type="text/javascript">
-$(".dialog-window").hide();
+  /* 
+     What's all this then?
+     
+     Much (most) of the display code resides in previewer_ispy 
+     (which fetches ispy-online from bower) and 
+     is setup for that use-case. However, here we want to run a bit
+     differently, populating the file menu and enabling selection 
+     of an event a la http://cern.ch/opendata-ispy.
+     
+     It's likely that this code should/could be encapsulated in 
+     the bower version in such a way that both use-cases can be
+     handled. For now though, let's have the js that we need here.
+  */
 
-function showEventLoader() {
-   centerElement("event-browser");
-   $("#event-browser").show();
-}
+
+  // For now, populate the files in the event loader by-hand
+  var mc_files = [
+    "/record/300/files/4lepton.ig",
+    "/record/300/files/diphoton.ig",
+    "/record/301/files/dimuon-Jpsi_0.ig",
+    "/record/302/files/dielectron-Jpsi_0.ig",
+    "/record/303/files/dimuon_0.ig",
+    "/record/304/files/dielectron_0.ig",
+    "/record/305/files/dielectron-Upsilon_0.ig",
+    "/record/306/files/Zee_0.ig",
+    "/record/307/files/Zmumu_0.ig",
+    "/record/308/files/Wenu_0.ig",
+    "/record/309/files/Wmunu_0.ig"
+  ];
+
+  var pd_files = [
+    "/record/600/files/BTau.ig",
+    "/record/601/files/EGMonitor.ig",
+    "/record/602/files/Electron.ig",
+    "/record/603/files/Jet.ig",
+    "/record/604/files/JetMETTauMonitor.ig",
+    "/record/605/files/METFwd.ig",
+    "/record/606/files/Mu.ig",
+    "/record/607/files/MuMonitor.ig",
+    "/record/608/files/MuOnia.ig",
+    "/record/609/files/MultiJet.ig",
+    "/record/610/files/Photon.ig",
+    "/record/611/files/Commissioning.ig",
+    "/record/612/files/MinimumBias.ig",
+    "/record/613/files/ZeroBias.ig"
+  ];
+
+  var file_list = pd_files.concat(mc_files);
+
+  var igdata = null;
+  var selectedFileName = null;
+  var selectedEventIndex = null;
+  var currentEventList = [];
+
+  $(".dialog-window").hide();
+
+  function showEventLoader() {
+     centerElement("event-browser");
+     $("#event-browser").show();
+     updateFileList(file_list, "");
+  }
+
+  function closeEventBrowser() {
+     $("#event-browser").hide();
+     $("#selected-event").html("");
+  } 
+
+  /*
+    Hmm. This works in the previewer but not here. 
+    JavaScript makes my head hurt sometimes.
+
+  function selectFile(filename) {
+     var request = $.ajax({
+       type: "GET",
+       url: filename,
+       mimeType: "text/plain; charset-x-user-defined",
+       error: function(req, status, error) { console.error(error); }
+     });
+
+     request.done(function(data) {
+       require(["vendors/jszip/dist/jszip.min"], function(JSZip) {
+           var zip = JSZip(data);
+       });
+     });
+  }
+  */
+
+  function selectFile(filename) {
+     selectedFileName = filename.split("/")[4];
+
+     var xhr = new XMLHttpRequest();
+     xhr.open("GET", filename, true);
+     xhr.overrideMimeType("text/plain; charset=x-user-defined"); 
+
+     xhr.onload = function() {
+       if (this.status == 200) {
+   
+         require(["vendors/jszip/dist/jszip.min"], function(JSZip) {
+           var zip = JSZip(xhr.responseText);
+           var eventlist = [];
+
+           $.each(zip.files, function(index, zipEntry){
+              if ( zipEntry._data !== null && zipEntry.name !== "Header" ) {
+                  eventlist.push(zipEntry.name);
+              }
+           });
+
+           currentEventList = eventlist;
+           updateEventsList(currentEventList);
+           igdata = zip;
+         });
+       }
+     };
+
+    xhr.send();
+  }
+
+  function updateFileList(list, dir) {
+     var tbl = document.getElementById("browser-files");
+  
+     for (var i = 0; i < list.length; i++) {
+       var e = list[i];  
+       var name = e.split("/")[4]; 			 
+			
+       var row = tbl.insertRow(tbl.rows.length);
+       var cell = row.insertCell(0);
+       var cls = e.type == 1 ? "dir" : "file";
+       cell.innerHTML = '<a id="browser-file-' + i + '" class="' + cls + '" onclick="selectFile(\'' + e + '\');">' + name + '</a>';
+     }
+     fleXenv.fleXcrollMain("browser-files-div");
+  }
+
+  function clearList(id) {
+    var tbl = document.getElementById(id);
+    while (tbl.rows.length > 0) {
+      tbl.deleteRow(0);
+    }
+  }
+
+  function updateEventsList(list) {
+     clearList("browser-events");
+     var tbl = document.getElementById("browser-events");
+
+     for (var i = 0; i < list.length; i++) {
+       var e = list[i];
+       var row = tbl.insertRow(tbl.rows.length);
+       var cell = row.insertCell(0);
+       cell.innerHTML = '<a id="browser-event-' + i + '" class="event" onclick="selectEvent(\'' + i + '\');">' + e + '</a>';
+     }
+     fleXenv.fleXcrollMain("browser-events-div");
+   }
+  
+   function selectEvent(index) {
+      if (selectedEventIndex) {
+        $("#browser-event-" + selectedEventIndex).removeClass("selected");
+      }
+
+      $("#browser-event-" + index).addClass("selected");
+
+      selectedEventIndex = parseInt(index);
+      var event = currentEventList[selectedEventIndex];
+
+      console.log(event);
+
+      $("#selected-event").html(selectedFileName + ":" + event);
+      $("#browser-load").removeClass("disabled");
+   }
+
+   function enableNextPrev() {
+      if (selectedEventIndex > 0) {
+        $("#prev-event-button").removeClass("disabled");
+      } else {
+        $("#prev-event-button").addClass("disabled");
+      }
+
+      if (currentEventList && currentEventList.length - 1 > selectedEventIndex) {
+        $("#next-event-button").removeClass("disabled");
+      } else {
+       $("#next-event-button").addClass("disabled");
+      }
+   }
+
+   function nextEvent() {
+      if (currentEventList && currentEventList.length - 1 > selectedEventIndex) {
+        selectedEventIndex++;
+        loadEvent();
+      }
+   }
+
+   function prevEvent() {
+      if (currentEventList && selectedEventIndex > 0) {
+        selectedEventIndex--;
+        loadEvent();
+      }
+   }
+
+   function loadEvent() {
+      closeEventBrowser();
+
+      var event = currentEventList[selectedEventIndex];
+
+      $("#title").html("Loading..."+event);
+      
+      try{
+          var ed = JSON.parse(cleanupData(igdata.file(event).asText()));
+          enableNextPrev();
+          eventDataLoaded(ed);
+      } catch(e) {
+          alert(e);
+      }
+
+      $("#title").html(selectedFileName + ":" + event);
+   }
 </script>
 {% endblock %}
