@@ -29,10 +29,10 @@ html body {
   padding: 0;
   margin: 0;
   font-family: 'Open Sans', sans-serif!important;
-  /*color: #091B26;*/
-  color:#657580;
+  color: #4d6579;
   border: 0;
-  background-color: rgb(214, 223, 230);
+  background-color: rgba(198, 229, 244, 0.65);
+  /*background-color: #C0DEED;*/
 }
 body #wrap {
   margin: 0;
@@ -181,9 +181,8 @@ header, footer {
 }
 
 .midnav {
-  /*height: 80px;*/
   background-color: #f5f5f5;
-  padding: 10px 0;
+  padding: 5px 0;
 }
 
 .midnav .navbar-toggle {
@@ -526,10 +525,10 @@ footer {
 
 
 .infobar {
-  background-color: rgba(137, 150, 167, 0.33);
-  padding: 10px 0;
+  background-color: rgba(183, 211, 225, 0.78);
+  padding: 7px 0;
   color: #fff;
-  height: 42px;
+  height: 30px;
 }
 .infobar a, .infobar a:hover, .infobar a:focus{
   color: #fff;
@@ -544,6 +543,7 @@ footer {
 
 .infobar .breadcrumbs {
   display:inline-block;
+  margin-top: -2px;
 }
 .infobar .breadcrumbs h3 {
   font-size: 30px;
@@ -552,20 +552,20 @@ footer {
   float: left;
 }
 .infobar .breadcrumbs h4 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 100;
   margin: 0;
   float: left;
 }
 .infobar .breadcrumbs h4.active {
-  font-weight: 900;
+  font-weight: 600;
 }
 .infobar .breadcrumbs span.fa {
   float: left;
   margin-left: 4px;
   margin-right: 4px;
   font-size: 11px;
-  padding-top: 8px;
+  padding-top: 6px;
 }
 
 .infobar .breadcrumbs .dropdown {
