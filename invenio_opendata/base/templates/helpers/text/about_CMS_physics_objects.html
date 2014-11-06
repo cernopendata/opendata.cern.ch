@@ -1,12 +1,12 @@
 <div class="col-md-12"><h1 class="gen-title">Contents</h1></div>
 
 <div class="col-md-12">
-  <ol>
+  <ol class="gen-menu">
       <li>
-          <a href="#what">Introduction to “physics objects”</a>
+          <a href="#what">1. Introduction to “physics objects”</a>
       </li>
       <li>
-          <a href="#list">List of CMS physics objects</a>
+          <a href="#list">2. List of CMS physics objects</a>
           <ul>
               <li>
                   <a href="#electron">Electrons</a>
@@ -77,18 +77,20 @@
     <p>Muons reconstructed by the particle-flow algorithm were also used: <code>recoPFCandidates_particleFlow_CleanedTrackeAndGlobalMuons_RECO</code>.</p>
     <p>Most of the muon properties (e.g. momentum and isolation variables) are available in the <code>reco::Muon</code> object collection, ready to use. Some precaution in the choice of the momentum or isolation definition may be needed, depending on the analysis (see next point.) Some additional corrections to the muon momentum (in general very small, &lt; 1%) can be applied, and are especially recommended for precision measurements. These are provided centrally by the muon POG and are to be applied on top of the momentum stored in the <code>reco::Muon object</code>. In general, the objects in the <code>reco::Muon</code> collection cannot be used "out of the box", but some further selections are necessary. Performance of muon selections and isolation, momentum resolution and scale corrections, fake rates, muon triggers, etc, can be found in <a href="iopscience.iop.org/1748-0221/7/10/P10002">JINST 7 (2012) P10002</a>.</p>
     <div class="remember">
-      <p class="title">Things to remember:</p>
-      <ul class="row">
-        <li>1.  The <code>reco::Muon</code> collection includes muons reconstructed by different algorithms: fit in the muon chambers alone (standalone muons), fit in the tracker alone + matching with muon hits (tracker muons), and combined fit of tracker and muon hits (global muons). Not all the objects included in this collection are suitable for every analysis: e.g. it contains non-prompt muons from hadron decays or fake muons produced by random matching of hadron tracks with muon chamber hits. Therefore further selections and identification criteria must be applied to reject fake or background muons. Three main selections are recommended for 2010 data analysis: the Soft Muon selection, optimized for low-p<sub>T</sub> muons (p<sub>T</sub> &lt; ~10 GeV/c) and used in B-physics and Quarkonia analyses; the Tight Muon selection, most effective in rejecting non-prompt muons from decays and used in many CMS analyses (e.g. involving muons from W and Z); and the Particle-Flow Muon selection, which uses information from all sub-detectors to select with high efficiency isolated and non-isolated muons, while rejecting fake muons from hadron mis-identification, and giving the best overall performance.</li>
-        <li>2.  The default momentum stored in the <code>reco::Muon</code> object is recommended for all analyses involving muons with low and intermediate p<sub>T</sub> (p<sub>T</sub> &lt; ~200 GeV/c): for p<sub>T</sub> &lt; 200 GeV, this corresponds to the momentum obtained from the fit of the Tracker hits only; for p<sub>T</sub> &gt; 200 GeV/c, the default momentum is chosen between the results of the Tracker-only fit and the combined fit of Tracker and muon-chamber hits, based on the quality of the two fits. For analyses involving very high-p<sub>T</sub> muons, subject to possible energy loss by bremsstrahlung, dedicated refits of the global muon track are available: the Tracker-Plus-First-Muon-Station (TPFMS) fit, which uses the Tracker and first muon station hits; and the Picky fit, which uses hits from the Tracker and from all the muon chambers, but selecting the muon hits with tight compatibility criteria in chambers with high hit occupancy (i.e. with possible showers). The recommended choice to optimize the momentum resolution at high p<sub>T</sub> is provided by the "Tune P" algorithm, which selects the momentum obtained from the best of three different fits: the Tracker-only, the TPFMS, and the Picky fit.</li>
-        <li>3.  The isolation variables, i.e. energy or momentum deposits in cones centered around the muon track, are stored in the <code>reco::Muon</code> object, and can be used to compute different isolation definitions. The recommended ones for 2010 data analysis are the following:
-          <ul class="with-circles">
-            <li>Tracker relative isolation: scalar sum of the p<sub>T</sub> of all Tracker tracks reconstructed in a cone of radius ΔR = √(Δη2 + Δφ2) &lt; 0.3 centred on the muon track direction;</li>
-            <li>combined relative isolation: sum of the pT of all Tracker tracks and of the transverse energy of all ECAL and HCAL towers in a cone of radius ΔR &lt; 0.3 centred on the muon track direction;</li>
-            <li>particle-ﬂow relative isolation: sum of the p<sub>T</sub> of all charged hadrons and of the transverse energy of all neutral hadrons and photons reconstructed by the particle-flow algorithm in a cone of radius ΔR &lt; 0.4 centred on the muon track direction.</li>
-          </ul>
-        </li>
-      </ul>
+      <h2 data-toggle="collapse" data-target="#rm-muon" class="title collapsed">Things to remember<span class="fa fa-chevron-down"></span><span class="fa fa-chevron-up"></span></h2>
+      <div id="rm-muon" class="collapse">
+        <ul class="row">
+          <li>1.  The <code>reco::Muon</code> collection includes muons reconstructed by different algorithms: fit in the muon chambers alone (standalone muons), fit in the tracker alone + matching with muon hits (tracker muons), and combined fit of tracker and muon hits (global muons). Not all the objects included in this collection are suitable for every analysis: e.g. it contains non-prompt muons from hadron decays or fake muons produced by random matching of hadron tracks with muon chamber hits. Therefore further selections and identification criteria must be applied to reject fake or background muons. Three main selections are recommended for 2010 data analysis: the Soft Muon selection, optimized for low-p<sub>T</sub> muons (p<sub>T</sub> &lt; ~10 GeV/c) and used in B-physics and Quarkonia analyses; the Tight Muon selection, most effective in rejecting non-prompt muons from decays and used in many CMS analyses (e.g. involving muons from W and Z); and the Particle-Flow Muon selection, which uses information from all sub-detectors to select with high efficiency isolated and non-isolated muons, while rejecting fake muons from hadron mis-identification, and giving the best overall performance.</li>
+          <li>2.  The default momentum stored in the <code>reco::Muon</code> object is recommended for all analyses involving muons with low and intermediate p<sub>T</sub> (p<sub>T</sub> &lt; ~200 GeV/c): for p<sub>T</sub> &lt; 200 GeV, this corresponds to the momentum obtained from the fit of the Tracker hits only; for p<sub>T</sub> &gt; 200 GeV/c, the default momentum is chosen between the results of the Tracker-only fit and the combined fit of Tracker and muon-chamber hits, based on the quality of the two fits. For analyses involving very high-p<sub>T</sub> muons, subject to possible energy loss by bremsstrahlung, dedicated refits of the global muon track are available: the Tracker-Plus-First-Muon-Station (TPFMS) fit, which uses the Tracker and first muon station hits; and the Picky fit, which uses hits from the Tracker and from all the muon chambers, but selecting the muon hits with tight compatibility criteria in chambers with high hit occupancy (i.e. with possible showers). The recommended choice to optimize the momentum resolution at high p<sub>T</sub> is provided by the "Tune P" algorithm, which selects the momentum obtained from the best of three different fits: the Tracker-only, the TPFMS, and the Picky fit.</li>
+          <li>3.  The isolation variables, i.e. energy or momentum deposits in cones centered around the muon track, are stored in the <code>reco::Muon</code> object, and can be used to compute different isolation definitions. The recommended ones for 2010 data analysis are the following:
+            <ul class="with-circles">
+              <li>Tracker relative isolation: scalar sum of the p<sub>T</sub> of all Tracker tracks reconstructed in a cone of radius ΔR = √(Δη2 + Δφ2) &lt; 0.3 centred on the muon track direction;</li>
+              <li>combined relative isolation: sum of the pT of all Tracker tracks and of the transverse energy of all ECAL and HCAL towers in a cone of radius ΔR &lt; 0.3 centred on the muon track direction;</li>
+              <li>particle-ﬂow relative isolation: sum of the p<sub>T</sub> of all charged hadrons and of the transverse energy of all neutral hadrons and photons reconstructed by the particle-flow algorithm in a cone of radius ΔR &lt; 0.4 centred on the muon track direction.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>    
     </div>
   </div>
 </div>
@@ -105,26 +107,27 @@
     </p>
     <p>The jets typically require Jet Energy Correction (JEC) to be applied, and the preference for MET is to apply so-called type-I corrections, which propagate the JEC to MET. The jets should have a JEC stored, although this is often re-run for analysis with the latest version of JEC constants. The 2010 AOD should have a reasonable JEC, although there may have been slight changes to JEC in later re-reco versions that we have not propagated all the way.</p>
     <p>For most educational purposes, the PF jets and MET are ready to use after JEC and type-I, since the corrections are relatively small (typically &lt; 5% and mostly &lt; 10%) and the changes in the corrections would have been even smaller (typically &lt; 2% level).</p>
-  </p>
-  <div class="remember">
-    <p class="title">Jets — Things to remember</p>
-    <ul class="row">
-      <li>1. JEC: jets should be corrected for JEC, the knowledge of which is the dominant jet systematic; the JEC uncertainties may also be available in AOD</li>
-      <li>2. JetID: jet quality cuts should be used to avoid detector problems; there should be tight and loose flags for this</li>
-      <li>3. JER: jet results should be unfolded for jet p<sub>T</sub> resolution (JER), which varies between 5–15%; if there is an accompanying MC sample, the MC JER should be oversmeared typically by 10% or more with similar uncertainty; if not, it would be useful to provide parameterized JER</li>
-        </li>
-  </div>
-  <div class="remember">
-    <p class="title">MET — Things to remember</p>
-    <ul class="row">
-      <li>1. Quality flags: MET should be cleaned for detector problems; there should be several flags for these</li>
-      <li>2. Type-I: whether or not JEC is propagated to MET, the JEC is an important systematic</li>
-      <li>3. Important uncertainties are JER, JES and unclustered energy: the JER resmearing (uncertainty on JER per jet: 5–20%) and JES systematics should be propagated to MET, and unclustered energy should be considered as an extra systematic by scaling it up and down by 10%.</li>
-      <li>4. For SUSY-type analysis, MET tails often come from jets (ECAL holes, heavy flavour, JER), so analyses typically apply cuts on Δφ(jet, MET) to ensure MET is not aligned with one of the jets</li>
-    </ul>
-  </div>
-        </li>
-    </ul>
+    <div class="remember">
+      <h2 data-toggle="collapse" data-target="#rm-jets"  class="title collapsed">Jets — Things to remember<span class="fa fa-chevron-down"></span><span class="fa fa-chevron-up"></span></h2>
+      <div id="rm-jets" class="collapse">
+        <ul class="row">
+          <li>1. JEC: jets should be corrected for JEC, the knowledge of which is the dominant jet systematic; the JEC uncertainties may also be available in AOD</li>
+          <li>2. JetID: jet quality cuts should be used to avoid detector problems; there should be tight and loose flags for this</li>
+          <li>3. JER: jet results should be unfolded for jet p<sub>T</sub> resolution (JER), which varies between 5–15%; if there is an accompanying MC sample, the MC JER should be oversmeared typically by 10% or more with similar uncertainty; if not, it would be useful to provide parameterized JER</li>
+        </ul>
+      </div>
+    </div>
+    <div class="remember">
+      <h2 data-toggle="collapse" data-target="#rm-met"  class="title collapsed">MET — Things to remember<span class="fa fa-chevron-down"></span><span class="fa fa-chevron-up"></span></h2>
+      <div id="rm-met" class="collapse">
+        <ul class="row">
+          <li>1. Quality flags: MET should be cleaned for detector problems; there should be several flags for these</li>
+          <li>2. Type-I: whether or not JEC is propagated to MET, the JEC is an important systematic</li>
+          <li>3. Important uncertainties are JER, JES and unclustered energy: the JER resmearing (uncertainty on JER per jet: 5–20%) and JES systematics should be propagated to MET, and unclustered energy should be considered as an extra systematic by scaling it up and down by 10%.</li>
+          <li>4. For SUSY-type analysis, MET tails often come from jets (ECAL holes, heavy flavour, JER), so analyses typically apply cuts on Δφ(jet, MET) to ensure MET is not aligned with one of the jets</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -138,12 +141,14 @@
     <p>The thresholds for the different b-tagging algorithms and working points can be found <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/BtagRecommendation2010OpenData#Supported_Algorithms_and_Operati">here</a>.</p>
     <p>Monte Carlo simulation does not reproduce correctly the distributions of the b-tag discriminator observed in data. As a consequence, the efficiencies for a b-jet to be tagged (as well as the probability for a light jet to be mis-tagged) when applying a certain working point requirement is not well reproduced in MC. The BTV POG provides data-to-MC scale factors to correct the efficiencies of b-tagging (and the mis-tagging rates) predicted by the simulation.</p>
     <div class="remember">
-      <p class="title">Things to remember</p>
-      <ul>
-        <li>1. The values of the discriminator threshold defining each working point for the different b-tagging algorithm: this information is available <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/BtagRecommendation2010OpenData">here</a>.</li>
-        <li>2. The values of the data-to-MC scale factors: for 2010 data, use <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/BtagRecommendation2010OpenData#Data_MC_Scale_Factors">the 2011 scale factors with 10% uncertainty</a>.</li>
-        <li>3. How to apply the scale factors to the simulated events: <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/BtagRecommendation2010OpenData#Methods_to_Apply_b_Tagging_Effic">some examples</a> are provided.</li>
-      </ul>
+      <h2 data-toggle="collapse" data-target="#rm-bjet"  class="title collapsed">Things to remember<span class="fa fa-chevron-down"></span><span class="fa fa-chevron-up"></span></h2>
+      <div id="rm-bjet" class="collapse">
+        <ul>
+          <li>1. The values of the discriminator threshold defining each working point for the different b-tagging algorithm: this information is available <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/BtagRecommendation2010OpenData">here</a>.</li>
+          <li>2. The values of the data-to-MC scale factors: for 2010 data, use <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/BtagRecommendation2010OpenData#Data_MC_Scale_Factors">the 2011 scale factors with 10% uncertainty</a>.</li>
+          <li>3. How to apply the scale factors to the simulated events: <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/BtagRecommendation2010OpenData#Methods_to_Apply_b_Tagging_Effic">some examples</a> are provided.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

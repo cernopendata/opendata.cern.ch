@@ -1,3 +1,53 @@
+.gen-menu {
+  background-color: #acc6d4;
+  display: inline-block;
+  border-radius: 3px;
+  padding: 10px;
+}
+ol.gen-menu {
+  list-style-type: none;
+}
+.gen-menu li {
+  width: 100%;
+}
+.gen-menu ul li {
+  padding-top: 8px;
+  float: left;
+  width: auto;
+  padding-left: 15px;
+
+}
+.gen-menu ol>li>ul {
+}
+.general .gen-menu ul li {
+  width: auto;
+}
+.gen-menu ul li a{
+  background-color: #fff;
+  color: #acc6d4;
+  padding: 3px;
+  margin-right: 6px;
+  border-radius: 2px;
+  float: left;
+}
+.gen-menu ul {
+  width: 100%;
+}
+.gen-menu a,
+.gen-menu a:hover,
+.gen-menu a:focus {
+  text-decoration: none;
+  color: #fff;
+  display: inline-block;
+  width: 100%;
+}
+
+.gen-menu ol ul li a,
+.gen-menu ol ul li a:hover,
+.gen-menu ol ul li a:focus {
+  width: auto;
+}
+
 .gen-box {
   background-color: #f4f4f4;
   border-radius: 4px;
@@ -20,7 +70,7 @@
   height: auto;
 }
 .gen-box h2 {
-  background-color: rgb(141, 155, 173);
+  background-color: #acc6d4;
   color: #fff;
   width: auto;
   padding: 10px;
@@ -42,11 +92,28 @@
   margin-right: auto;
 }
 .gen-box .remember {
-  padding-top: 20px;
-  border-top: 1px solid rgb(109, 120, 134);
   display: inline-block;
   margin-top: 20px;
   font-weight: 400;
+  width: 100%;
+}
+.gen-box .remember span.fa {
+  padding-left: 6px;
+}
+.gen-box .remember .collapsed .fa-chevron-down {
+  display: inline;
+}
+.gen-box .remember .collapsed .fa-chevron-up {
+  display: none;
+}
+.gen-box .remember .fa-chevron-down {
+  display: none;
+}
+.gen-box .remember h2 {
+  background-color: rgba(176, 203, 217, 0.84);
+  border-radius: 0;
+  font-size: 14px;
+  text-align: left;
 }
 .gen-box .remember ul li {
   padding: 5px 15px;
