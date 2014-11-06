@@ -268,7 +268,15 @@
       width: 100%;
     }
 
+    .homepage-frame ul a,
+    .homepage-frame ul a:hover, 
+    .homepage-frame ul a:focus {
+      color: inherit;
+    }
 
+    .homepage-frame ul a a {
+      text-decoration: underline;
+    }
 
     .homepage-frame .right-side > .news {
       height: 30%;
@@ -348,7 +356,8 @@
     .coll-button {
       height: 35%;
     }
-    .coll-button a.btn {
+    .coll-button a.btn, 
+    .coll-button a.btn:hover {
       background-color: #354654;
       /* padding: 5px 10px; */
       color: #fff;
@@ -426,6 +435,11 @@
       background-size: 110% 100%;
       background-repeat: no-repeat;
     }
+
+    li.disabled {
+      pointer-events: none;
+      opacity: 0.6;
+    }
   </style>
   
   <nav id="homepage-nav" class="homepage-nav">
@@ -475,23 +489,25 @@
             <div class="left-side">
               <ul>
               {% for e in exp_colls %}
-              <li>
-                <div class="exp-image"><img src="{{ url_for('static', filename='img/'+e.name_ln+'.gif') }}" alt="" style="background-color: transparent;"></div>
-                {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
-                {% for pb in e.portalboxes %}
-                {% if (pb.portalbox.title == 'description') %}
-                {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
-                {% elif (pb.portalbox.title == 'image') %}
-                {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
-                {% endif %}
-                {% endfor %} 
-                <div class="coll-desc">
-                  {{ coll_portalboxes['desc'].replace('#$#$#', '')|truncate(260) }}
-                </div>
-                <div class="coll-button">
-                  <a href="{{url_for('.educate', exp = e.name)}}" class="btn">Explore {{e.name_ln}} <span class="fa fa-chevron-right"></span></a>
-                </div>
-              </li>  
+              <a href="{{url_for('.educate', exp = e.name)}}">
+                <li>
+                  <div class="exp-image"><img src="{{ url_for('static', filename='img/'+e.name_ln+'.gif') }}" alt="" style="background-color: transparent;"></div>
+                  {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+                  {% for pb in e.portalboxes %}
+                  {% if (pb.portalbox.title == 'short_description_e') %}
+                  {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+                  {% elif (pb.portalbox.title == 'image') %}
+                  {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+                  {% endif %}
+                  {% endfor %} 
+                  <div class="coll-desc">
+                    {{ coll_portalboxes['desc'].replace('#$#$#', '')|safe }}
+                  </div>
+                  <div class="coll-button">
+                    <a href="{{url_for('.educate', exp = e.name)}}" class="btn">Explore {{e.name_ln}} <span class="fa fa-chevron-right"></span></a>
+                  </div>
+                </li>  
+              </a>
               {% endfor %}
               </ul>
             </div>
@@ -502,20 +518,24 @@
               For education purposes, the complex primary data need to be processed into a format (examples below) that is good for simple applications. Get in touch if you wish to build your own applications similar to those shown here
             </div>
             <div class="entrypoint-goto">
-              <div id="v-events" class="entrypoint-goto-action">
-                <div class="goto-action-image">
+              <a href="{{url_for('.visualise_events')}}">
+                <div id="v-events" class="entrypoint-goto-action">
+                  <div class="goto-action-image">
+                  </div>
+                  <div class="goto-action-button">
+                    <a href="{{url_for('.visualise_events')}}">Visualise events<span class="fa fa-chevron-right"></span> </a>
+                  </div>
                 </div>
-                <div class="goto-action-button">
-                  <a href="{{url_for('.visualise_events')}}">Visualise events<span class="fa fa-chevron-right"></span> </a>
+              </a>
+              <a href="{{url_for('.visualise_histo')}}">
+                <div id="v-histo" class="entrypoint-goto-action">
+                  <div class="goto-action-image">
+                  </div>
+                  <div class="goto-action-button">
+                    <a href="{{url_for('.visualise_histo')}}">Visualise histogram<span class="fa fa-chevron-right"></span></a>
+                  </div>
                 </div>
-              </div>
-              <div id="v-histo" class="entrypoint-goto-action">
-                <div class="goto-action-image">
-                </div>
-                <div class="goto-action-button">
-                  <a href="{{url_for('.visualise_histo')}}">Visualise histogram<span class="fa fa-chevron-right"></span> </a>
-                </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
@@ -533,22 +553,24 @@
             <div class="left-side">
               <ul>
               {% for e in exp_colls %}
-              <li>
-                <div class="exp-image"><img src="{{ url_for('static', filename='img/'+e.name_ln+'.gif') }}" alt="" style="background-color: transparent;"></div>
-                {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
-                {% for pb in e.portalboxes %}
-                {% if (pb.portalbox.title == 'description') %}
-                {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
-                {% elif (pb.portalbox.title == 'image') %}
-                {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
-                {% endif %}
-                {% endfor %} 
-                <div class="coll-desc">
-                  {{ coll_portalboxes['desc'].replace('#$#$#', '')|truncate(260) }}
-                </div>
-                <div class="coll-button">
-                  <a href="{{url_for('.research', exp = e.name)}}" class="btn">Explore {{e.name_ln}} <span class="fa fa-chevron-right"></span></a>
-                </div>
+              <li class="{{ 'disabled' if e.name not in ['CMS']}}" >
+                <a href="{{url_for('.research', exp = e.name)}}">
+                  <div class="exp-image"><img src="{{ url_for('static', filename='img/'+e.name_ln+'.gif') }}" alt="" style="background-color: transparent;"></div>
+                  {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+                  {% for pb in e.portalboxes %}
+                  {% if (pb.portalbox.title == 'short_description_r') %}
+                  {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+                  {% elif (pb.portalbox.title == 'image') %}
+                  {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+                  {% endif %}
+                  {% endfor %} 
+                  <div class="coll-desc">
+                    {{ coll_portalboxes['desc'].replace('#$#$#', '')|safe }}
+                  </div>
+                  <div class="coll-button">
+                    <a href="{{url_for('.research', exp = e.name)}}" class="btn">Explore {{e.name_ln}} <span class="fa fa-chevron-right"></span></a>
+                  </div>
+                </a>
               </li>  
               {% endfor %}
               </ul>
@@ -560,20 +582,24 @@
               For research purposes, specific software environments and tools need to be deployed to analyse these complex primary data. In addition to the data below, you will find instructions for setting up your working environments here
             </div>
             <div class="entrypoint-goto">
-              <div id="get-started" class="entrypoint-goto-action">
-                <div class="goto-action-image">
+              <a href="{{url_for('.get_started')}}">
+                <div id="get-started" class="entrypoint-goto-action">
+                  <div class="goto-action-image">
+                  </div>
+                  <div class="goto-action-button">
+                    <a href="{{url_for('.get_started')}}">Getting started<span class="fa fa-chevron-right"></span> </a>
+                  </div>
                 </div>
-                <div class="goto-action-button">
-                  <a href="{{url_for('.get_started')}}">Getting started<span class="fa fa-chevron-right"></span> </a>
+              </a>
+              <a href="{{url_for('.data_vms')}}">
+                <div id="VMs" class="entrypoint-goto-action">
+                  <div class="goto-action-image">
+                  </div>
+                  <div class="goto-action-button">
+                    <a href="{{url_for('.data_vms')}}">Virtual machines<span class="fa fa-chevron-right"></span> </a>
+                  </div>
                 </div>
-              </div>
-              <div id="VMs" class="entrypoint-goto-action">
-                <div class="goto-action-image">
-                </div>
-                <div class="goto-action-button">
-                  <a href="{{url_for('.data_vms')}}">Virtual machines<span class="fa fa-chevron-right"></span> </a>
-                </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>

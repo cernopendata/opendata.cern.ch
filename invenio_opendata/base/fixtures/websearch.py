@@ -585,6 +585,45 @@ class PortalboxData(DataSet):
         id = 31
         title = u'description'
 
+    class Portalbox_32:
+        body = u'The CMS (Compact Muon Solenoid) experiment is one of two large general-purpose detectors built on the Large Hadron Collider (LHC). Its goal is to investigate a wide range of physics such as the characteristics of the Higgs boson, extra dimensions or dark matter.'
+        id = 32
+        title = u'short_description_e'
+
+    class Portalbox_33:
+        body = u'<a href="http://aliceinfo.cern.ch/Public/Welcome.html">ALICE</a> (A Large Ion Collider Experiment) is a heavy-ion <a href="http://home.web.cern.ch/about/how-detector-works">detector</a> designed to study the physics of strongly interacting matter at extreme energy densities, where a phase of matter called <a href="http://home.web.cern.ch/about/physics/heavy-ions-and-quark-gluon-plasma">quark-gluon plasma</a> forms. More than 1000 scientists are part of the collaboration.'
+        id = 33
+        title = u'short_description_e'
+
+    class Portalbox_34:
+        body = u'The ATLAS (A Toroidal LHC ApparatuS) experiment is a general purpose detector exploring topics like the properties of the Higgs-like particle, extra dimensions of space, unification of fundamental forces, and evidence for dark matter candidates in the Universe.'
+        id = 34
+        title = u'short_description_e'
+
+    class Portalbox_35:
+        body = u'The LHCb (Large Hadron Collider beauty) experiment aims to record the decay of particles containing b and anti-b quarks,  known as B mesons. The detector is designed to gather information about the identity, trajectory, momentum and energy of each particle.'
+        id = 35
+        title = u'short_description_e'
+
+    class Portalbox_36:
+        body = u'To analyse CMS data, a Virtual Machine with the CMS analysis environment is provided. The data can be downloaded or accessed directly through the VM. In the primary datasets, no selection nor identification criteria have been applied. For this release, no simulated Monte Carlo datasets are provided.'
+        id = 36
+        title = u'short_description_r'
+
+    class Portalbox_37:
+        body = u'According to the ALICE data preservation strategy, reconstructed data and Monte Carlo data as well as the analysis software and documentation needed to process them will be made available on a time scale of 5 years (for 10% of the data). Thus, the first release of ALICE research data will happen in 2018.'
+        id = 37
+        title = u'short_description_r'
+
+    class Portalbox_38:
+        body = u'According to the ATLAS Data Access Policy, reconstructed data and accompanying tools will be released after reasonable embargo periods.'
+        id = 38
+        title = u'short_description_r'
+
+    class Portalbox_39:
+        body = u'According to the LHCb External Data Access Policy, reconstructed data will be made openly accessible 5 years after the data is taken. For the data that have already been taken, the 5 years are counted from the date of ratification of the experiment’s policy. Thus, the first release of LHCb data will happen in 2018.'
+        id = 39
+        title = u'short_description_r'
 
 class CollectionPortalboxData(DataSet):
 
@@ -805,6 +844,61 @@ class CollectionPortalboxData(DataSet):
         score = 100
         id_collection = CollectionData.CMSOpenDataInstructions.ref('id')
 
+    class CollectionPortalbox_2_32_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_32.ref('id')
+        score = 100
+        id_collection = CollectionData.CMS.ref('id')
+
+    class CollectionPortalbox_5_33_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_33.ref('id')
+        score = 100
+        id_collection = CollectionData.ALICE.ref('id')
+
+    class CollectionPortalbox_12_34_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_34.ref('id')
+        score = 100
+        id_collection = CollectionData.ATLAS.ref('id')
+
+    class CollectionPortalbox_16_35_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_35.ref('id')
+        score = 100
+        id_collection = CollectionData.LHCb.ref('id')
+
+    class CollectionPortalbox_2_36_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_36.ref('id')
+        score = 100
+        id_collection = CollectionData.CMS.ref('id')
+
+    class CollectionPortalbox_5_37_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_37.ref('id')
+        score = 100
+        id_collection = CollectionData.ALICE.ref('id')
+
+    class CollectionPortalbox_12_38_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_38.ref('id')
+        score = 100
+        id_collection = CollectionData.ATLAS.ref('id')
+
+    class CollectionPortalbox_16_39_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_39.ref('id')
+        score = 100
+        id_collection = CollectionData.LHCb.ref('id')
 
 class FacetCollectionData(DataSet):
 
