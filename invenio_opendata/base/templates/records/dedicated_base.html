@@ -1,6 +1,6 @@
 {% from "records/macros.html" import record_methodology_note, record_action_note,
                                      record_material_publication_note, record_documentation_note,
-                                     record_disclaimer with context %}
+                                     record_disclaimer, create_export_modal with context %}
 
 {% block record_dedicated %}
   
@@ -54,5 +54,6 @@
     {% block record_disclaimer %}
       {{ record_disclaimer( exp = record.get('accelerator_experiment','')['experiment']) }}
     {% endblock %}
+    {{ create_export_modal("exportModal", record, ['__meta_metadata__', 'restriction']) }}
   </div>
 {% endblock %}

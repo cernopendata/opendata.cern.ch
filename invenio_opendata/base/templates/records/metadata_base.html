@@ -31,17 +31,8 @@
     <div class="col-md-12 ">
       {% if record.get('doi','') %}
         <div class="rec_thumb rec_doi">
-          <div class="n"><div class="t">Cite as:</div>{% if record['_first_corporate_name'] %}
-        {{ record['_first_corporate_name']['name'] }}
-      {% endif %}
-      ({{ record.get('imprint', {}).get('date', '') }})
-      {% if record.get('title_additional', '') %}
-        {{ record.get('title_additional',{}).get('title','') }}
-      {% elif record.get('title',{}).get('title','') %}
-        {{ record.get('title',{}).get('title','') }}
-      {% endif %}
-      . {{ record.get('imprint', {}).get('publisher_name', '') }} .
-      DOI: <a href="http://doi.org/{{ record.get('doi','') }}">{{ record.get('doi','') }}</a></div>
+          <div class="n"><div class="t">Cite as:</div>
+        {{ record['_first_corporate_name']['name'] if record['_first_corporate_name']}}({{ record.get('imprint', {}).get('date', '') }}).{% if record.get('title_additional', '') %}{{ record.get('title_additional',{}).get('title','') }}{% elif record.get('title',{}).get('title','') %}{{ record.get('title',{}).get('title','') }}{% endif %}.{{ record.get('imprint', {}).get('publisher_name', '') }}.DOI:<a href="http://doi.org/{{ record.get('doi','') }}">{{ record.get('doi','') }}</a></div>
         </div>
       {% endif %}
       <div class="rec_thumb rec_parentcol">
@@ -85,7 +76,6 @@
           </div>
         </a>
       {% endif %}
-      {{ create_export_modal("exportModal", record, ['__meta_metadata__', 'restriction']) }}
     </div>
   </div>
 </div>
@@ -99,6 +89,29 @@
     </div>
   </div>
 </div>
+
+
+{% for file in record['files'] if not with_preview %}
+  {% if (file.get('url','')[-3:] == '.ig') and (show_previewer['show'] == false) %}
+    {% do show_previewer.update({'show':true, 'first_file':file.get('full_name')}) %}
+  {% endif %}
+{% endfor %}
+
+{% if show_previewer['show'] == true %}
+<div class="rec_metadata rec_preview">
+  <div class="row">
+    <div class="col-md-12">
+      <div id="previewer" class="rec_title title">Preview</div>
+    </div>
+    <div class="col-md-12">
+      <div class="rec_preview_box">
+        <iframe id="evd" width="100%" height="675" scrolling="no" src="{{ url_for('previewer.preview', recid=recid, filename=show_previewer['first_file']) }}"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
 {% if record.get('computer_file_characteristics', '') %}
 <div class="rec_metadata rec_dataset_info row">
   <div class="col-md-12">
@@ -181,27 +194,6 @@
       </div>
     </div>
   </div>
-{% endif %}
-
-{% for file in record['files'] if not with_preview %}
-  {% if (file.get('url','')[-3:] == '.ig') and (show_previewer['show'] == false) %}
-    {% do show_previewer.update({'show':true, 'first_file':file.get('full_name')}) %}
-  {% endif %}
-{% endfor %}
-
-{% if show_previewer['show'] == true %}
-<div class="rec_metadata rec_preview">
-  <div class="row">
-    <div class="col-md-12">
-      <div id="previewer" class="rec_title title">Preview</div>
-    </div>
-    <div class="col-md-12">
-      <div class="rec_preview_box">
-        <iframe id="evd" width="100%" height="675" scrolling="no" src="{{ url_for('previewer.preview', recid=recid, filename=show_previewer['first_file']) }}"></iframe>
-      </div>
-    </div>
-  </div>
-</div>
 {% endif %}
 
 {{ record_files_display(record.get('files',''), show_previewer['show']) }}

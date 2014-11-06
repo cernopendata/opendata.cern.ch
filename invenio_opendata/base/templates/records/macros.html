@@ -3,7 +3,7 @@
 	<div class="rec_metadata rec_files">
 	  <div class="row">
 	    <div class="col-md-12">
-	      <div class="rec_title title">Files <a href="{{ url_for('record.files', recid=recid) }}">(see all files)</a></div>
+	      <div class="rec_title title">Files / Indexes</div>
 	    </div>
 	    <div class="col-md-12">
 	      <div class="rec_file_box">
@@ -83,9 +83,8 @@
 
 {% macro create_export_modal(name, record, exclude=[]) %}
 	<style>.modal .modal-body .tab-pane{padding-top: 15px;}.modal{color:#666;}</style>
-	<div class="rec_thumb rec_export" style="float:left;">
-		<div class="t">Export</div>
-		<div class="a"><a href="#" data-toggle="modal" data-target="#{{name}}">here</a></div>
+	<div class="rec_thumb rec_export" style="float:right;margin-right:0;">
+		<div class="a" style="border-radius:2px; margin-top:10px;"><a href="#" data-toggle="modal" data-target="#{{name}}">Export</a></div>
 	</div>
 	<div class="modal fade" id="{{name}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
