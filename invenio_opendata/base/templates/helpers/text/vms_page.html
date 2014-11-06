@@ -123,11 +123,11 @@ System 3 3</pre>
       <div class="it col-md-12"><b>A: </b>To fix this, open one of the (non-CMS-specific) CernVMs first, after which the CMS-specific one should load without the error message.</div>
     </div>
   </div>
-  <div class="heading"><b>Q: </b>On Windows 7, this error message appears: "VT-X/AMD-V hardware acceleration is not available on your system. Your 64-bit guest will fail to detect a 64-but CPU and will not be able to boot."
+  <div class="heading"><b>Q: </b>On Windows 7 and 8, this error message appears: "VT-X/AMD-V hardware acceleration is not available on your system. Your 64-bit guest will fail to detect a 64-but CPU and will not be able to boot."
   </div>
   <div class="body">
     <div class="row">
-      <div class="it col-md-12"><b>A: </b>Check whether your processor supports the VT-X feature by going to <a href="http://ark.intel.com/">http://ark.intel.com/</a>: Intel® Virtualization Technology (VT-x) should be checked as "yes". Then, when the host machine is booting (just after switching it on) press the appropriate function key to get to the setup, go to advanced settings, and enable the virtualisation extensions of the CPU.</div>
+      <div class="it col-md-12"><b>A: </b>Check whether your processor supports the VT-X feature by going to <a href="http://ark.intel.com/">http://ark.intel.com/</a>: Intel® Virtualization Technology (VT-x) should be checked as "yes". Then, when the host machine is booting (just after switching it on) press the appropriate function key to get to the setup, go to advanced settings, and enable the virtualisation extensions of the CPU. Note that some recent Acer Inspire laptop models do not give access to the VT-X feature in the BIOS setup even if the processor supports it.</div>
     </div>
   </div>
   <div class="heading"><b>Q: </b>The CMS-specific VM does not boot on Windows 7: it diplays "automatic boot in 1 second", but nothing happens.
