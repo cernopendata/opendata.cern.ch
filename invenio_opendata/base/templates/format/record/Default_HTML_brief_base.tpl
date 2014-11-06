@@ -16,14 +16,14 @@
 ## along with Invenio; if not, write to the Free Software Foundation, Inc.,
 ## 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
 #}
-
-<div class="record-brief-main col-md-8 no-padding">
+<h4 class="record-header col-xs-12 no-padding">
+  {% block record_header %}
+  {% endblock %} 
+</h4>
+<div class="record-brief-main col-xs-12 col-sm-8 no-padding">
 {% block record_main %}
 <div class="record-brief">  
-  <h4 class="record-header">
-    {% block record_header %}
-    {% endblock %} 
-  </h4>
+  
   <div class="record-content">
 
     <span class="pull-left record-leftside">
@@ -45,7 +45,7 @@
 </div>
 {% endblock %}
 </div>
-<div class="record-brief-details col-md-4 no-padding">
+<div class="record-brief-details col-sm-4 col-xs-12 no-padding">
   {% block record_details %}
   {% endblock %}
 </div>

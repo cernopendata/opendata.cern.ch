@@ -20,7 +20,10 @@
 {% macro render_record_footer(number_of_displayed_authors) %} 
       <a href="{{url_for('search.search', cc=record['collections'][0]['primary'] )}}">
         <div class="rec_thumb_brief rec_footer_thumb rec_collection pull-ight">
-          <div class="n"><div class="t"><span class="glyphicon glyphicon-folder-close"></span>{{ record['collections'][0]['primary'] }}</div></div>
+          <div class="n">
+            <div class="t"><span class="glyphicon glyphicon-folder-close"></span></div>
+            {{ record['collections'][0]['primary'] }}
+          </div>
         </div>
       </a>
       {% if record.get('number_of_authors', 0) > 0 %}
@@ -44,6 +47,13 @@
             {% endif %}    
           </div>
         </div>
+      {% endif %}
+      {% if record.get('doi','') %}
+      <a href="{{ url_for('record.metadata', recid=record['recid']) }}">
+        <div class="rec_thumb_brief rec_footer_thumb pull-right">
+          <div class="n"><div class="t">DOI</div>{{ record.get('doi', '') }}</div>
+        </div>
+      </a>
       {% endif %}
 {% endmacro %}
 
