@@ -129,26 +129,6 @@ def research(exp):
     except TemplateNotFound:
         return abort(404)
 
-
-@blueprint.route('news', defaults={'newsid': None})
-@blueprint.route('news/', defaults={'newsid': None})
-@blueprint.route('news/<int:newsid>')
-@register_breadcrumb(blueprint,'.news','News', \
-                        dynamic_list_constructor = (lambda :\
-                        [{"url":".news","text":"News"}]))
-def news(newsid=None):
-    if newsid is None:
-        try:
-            return render_template('news.html')
-        except TemplateNotFound:
-            return abort(404)
-    else:
-        try:
-            return render_template('news_page.html', news_id=newsid)
-        except TemplateNotFound:
-            return abort(404)
-
-
 @blueprint.route('visualise/events')
 @register_breadcrumb(blueprint, '.visualise_events', 'Visualise Events', \
                         dynamic_list_constructor = (lambda :\
