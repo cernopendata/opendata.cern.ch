@@ -1,4 +1,4 @@
-{% macro get_breadcrumbs(breadcrumbs, exp = None, exp_names = None) %}
+{% macro get_breadcrumbs(breadcrumbs, exp = None, exp_names = None, exclude = []) %}
   <div class="breadcrumbs">
     <!-- <a href=""><span style="font-size:16px;padding-top:5px;float:left;" class="glyphicon glyphicon-home"></span><span class="fa fa-chevron-right"></span></a> -->
   {% for b in breadcrumbs[1:] %}
@@ -13,7 +13,9 @@
       </button>
       <ul class="dropdown-menu" role="menu">
         {% for e in exp_names %}
-          <li><a href="{{ url_for(b.url, exp = e) }}" data-target="#{{e}}" role="tab" data-toggle="tab">{{e}}<img class="exp-xs-img" src="{{url_for('static', filename='/img/'+e+'.gif' )}}" alt=""></a></li>
+          {% if e not in exclude %}
+          <li><a href="{{ url_for(b.url, exp = e) }}" data-target="#{{e}}" role="tab" data-toggle="tab">{{e}}<img class="exp-xs-img" src="{{url_for('static', filename='/img/'+e+'.gif' )}}" alt=""></a></li> 
+          {% endif %}
         {% endfor %}
       </ul>
     </div>

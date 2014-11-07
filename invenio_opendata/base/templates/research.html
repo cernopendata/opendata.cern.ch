@@ -10,7 +10,7 @@
 
 <section class="infobar">
   <div class="container">
-    {{ gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names) }}
+    {{ gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names, ['ALICE', 'ATLAS', 'LHCb']) }}
   </div>
 </section>
 
@@ -20,26 +20,29 @@
     <div class="tab-pane fade {%  if exp not in exp_names %}in active{% endif%}" id="general">
       <section class="subcollection_desc experiments">
         <div class="container">
-          <div style="width:100%;padding:15px 25px;font-size:18px;font-weight:100;text-align:center;border-bottom: 1px solid #BFC7D1; margin-bottom: 30px;">For research purposes, specific software environments and tools need to be deployed to analyse these complex primary data. In addition to the data below, you will find instructions for setting up your working environments here.</div>
+          <div style="width:100%;padding:15px 25px;font-size:18px;font-weight:100;text-align:center;margin-bottom: 30px;">For research purposes, specific software environments and tools need to be deployed to analyse these complex primary data. In addition to the data below, you will find instructions for setting up your working environments here.</div>
           <ul class="row">
           {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
           {% for cols in exp_colls %}
             {% for pb in cols.portalboxes %}
-              {% if (pb.portalbox.title == 'description') %}
+              {% if (pb.portalbox.title == 'research_description') %}
                 {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
               {% elif (pb.portalbox.title == 'image') %}
                 {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
               {% endif %}
             {% endfor %}
   
-            <li class="col-md-12">
+            <li class="col-xs-12 {{'disabled' if cols.name not in ['CMS']}}" >
               <div class="subcollection_exp">
-                <a href="{{ url_for((request.path|splitthem)[1]+'/'+cols['name']) }}"><div class="coll-thumb col-md-2">
+                <a href="{{ url_for((request.path|splitthem)[1]+'/'+cols['name']) }}"><div class="coll-thumb col-xs-2">
                   <img class="center-block" src="{{ url_for('static', filename='img/'+coll_portalboxes['image']) }}" alt="">
-                </div>
-                <div class="coll-desc col-md-10">
-                  {% for d in (coll_portalboxes['desc']|splitthem('#$#$#')) %}{{d}}{% endfor %}
                 </div></a>
+                <div class="coll-desc col-xs-10">
+                  {{ coll_portalboxes['desc']|replace('#$#$#','')|safe }}
+                </div>
+                <div class="coll-button">
+                    <a href="{{url_for('.research', exp = cols.name)}}" class="btn">Explore {{cols.name_ln}} <span class="fa fa-chevron-right"></span></a>
+                </div>
               </div>
             </li>
             {% endfor %}
@@ -76,14 +79,14 @@
             <div class="row">
               {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
               {% for pb in e.portalboxes %}
-              {% if (pb.portalbox.title == 'description') %}
+              {% if (pb.portalbox.title == 'research_description') %}
               {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
               {% elif (pb.portalbox.title == 'image') %}
               {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
               {% endif %}
               {% endfor %}
               <div class="coll-desc">
-                {% for d in (coll_portalboxes['desc']|splitthem('#$#$#')) %}{{d}}{% endfor %}
+                {{ coll_portalboxes['desc']|replace('#$#$#', '')|safe }}
               </div>
             </div>
           </div>  

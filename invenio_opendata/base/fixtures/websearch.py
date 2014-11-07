@@ -441,7 +441,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_3:
-        body = u'ALICE (A Large Ion Collider Experiment) is one of seven detector experiments at the Large Hadron Collider at CERN. The other six are: ATLAS, CMS, TOTEM, LHCb, LHCf and MoEDAL. ALICE is optimized to study heavy-ion (Pb-Pb nuclei) collisions at a centre of mass energy of 2.76 TeV per nucleon pair. The resulting temperature and energy density are expected to be high enough to produce quark–gluon plasma, a state of matter wherein quarks and gluons are freed. Similar conditions are believed to existed a fraction of the second after the Big Bang before quarks and gluons bound together to form hadrons and heavier particles.'
+        body = u'<a href="http://aliceinfo.cern.ch/Public/Welcome.html">ALICE</a> (A Large Ion Collider Experiment) is a heavy-ion <a href="http://home.web.cern.ch/about/how-detector-works">detector</a> designed to study the physics of strongly interacting matter at extreme energy densities, where a phase of matter called <a href="http://home.web.cern.ch/about/physics/heavy-ions-and-quark-gluon-plasma">quark-gluon plasma</a> forms.</br>The ALICE collaboration uses the 10,000-tonne ALICE detector – 26 m long, 16 m high, and 16 m wide – to study quark-gluon plasma. The detector sits in a vast cavern 56 m below ground close to the village of St Genis-Pouilly in France, receiving beams from the LHC. More than 1000 scientists are part of the collaboration.'
         id = 3
         title = u'description'
 
@@ -526,7 +526,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_20:
-        body = u'The ATLAS (A Toroidal LHC ApparatuS) experiment is one of the two general purpose detectors at the LHC. It covers a wide range of physics exploring topics like the properties of the Higgs-like particle whose discovery was announced in July 2012.'
+        body = u'The ATLAS (A Toroidal LHC ApparatuS) experiment is a general purpose detector exploring topics like the properties of the Higgs-like particle, extra dimensions of space, unification of fundamental forces, and evidence for dark matter candidates in the Universe.'
         id = 20
         title = u'description'
 
@@ -541,7 +541,7 @@ class PortalboxData(DataSet):
         title = u'description'
 
     class Portalbox_23:
-        body = u'ATLAS is releasing data in an XML format. '
+        body = u'According to the ATLAS Data Access Policy, reconstructed data and accompanying tools will be released after reasonable embargo periods.'
         id = 23
         title = u'research_description'
 
@@ -551,7 +551,7 @@ class PortalboxData(DataSet):
         title = u'description'
 
     class Portalbox_25:
-        body = u'LHCb Description'
+        body = u'The LHCb (Large Hadron Collider beauty) experiment aims to record the decay of particles containing b and anti-b quarks,  known as B mesons. The detector is designed to gather information about the identity, trajectory, momentum and energy of each particle.'
         id = 25
         title = u'description'
 
@@ -624,6 +624,11 @@ class PortalboxData(DataSet):
         body = u'According to the LHCb External Data Access Policy, reconstructed data will be made openly accessible 5 years after the data is taken. For the data that have already been taken, the 5 years are counted from the date of ratification of the experiment’s policy. Thus, the first release of LHCb data will happen in 2018.'
         id = 39
         title = u'short_description_r'
+
+    class Portalbox_40:
+        body = u'According to the LHCb External Data Access Policy, reconstructed data will be made openly accessible 5 years after the data is taken. For the data that have already been taken, the 5 years are counted from the date of ratification of the experiment’s policy. Thus, the first release of LHCb data will happen in 2018.'
+        id = 40
+        title = u'research_description'
 
 class CollectionPortalboxData(DataSet):
 
@@ -899,6 +904,13 @@ class CollectionPortalboxData(DataSet):
         id_portalbox = PortalboxData.Portalbox_39.ref('id')
         score = 100
         id_collection = CollectionData.LHCb.ref('id')
+
+    class CollectionPortalbox_16_40_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_40.ref('id')
+        score = 100
+        id_collection = CollectionData.LHCb.ref('id')    
 
 class FacetCollectionData(DataSet):
 

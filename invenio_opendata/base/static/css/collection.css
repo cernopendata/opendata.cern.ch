@@ -553,6 +553,37 @@
   margin-right: -15px;
 }
 
+.subcollection_exp .coll-desc {
+  height: 130%;
+  margin-top: -15px;
+  margin-bottom: -15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #f5f5f5 ;
+  text-align: left;
+}
+
+.subcollection_exp .coll-button {
+  position: absolute;
+  bottom: 20px;
+  right: 15px;
+  width: 100%;
+}
+.subcollection_exp .coll-button a.btn, 
+.subcollection_exp .coll-button a.btn:hover {
+  background-color: #5a676f;
+  padding: 5px 10px;
+  color: #fff;
+  float: right;
+  width: 140px;
+  height: 35px;
+  bottom: 0;
+  position: relative;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  padding-top: 8px;
+}
+
 .subcollection_desc {
   padding: 20px 0;
   font-weight: 100;
@@ -564,7 +595,6 @@
 
 }
 .coll-thumb {
-  border-right: 1px solid #ccc;
   height: 100%;
   vertical-align: middle;
 }
@@ -579,9 +609,9 @@
 .subcollection_exp {
   margin-bottom: 20px;
   padding: 15px 0;
-  background-color: #f4f4f4;
+  background-color: #acc6d4;
   color: inherit;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 100;
   border-radius: 3px;
   height: 150px;
@@ -589,6 +619,7 @@
 }
 .subcollection_exp .coll_desc {
   height: 100%;
+
 }
 
 .entrypoint_collections .coll-desc a,
@@ -605,7 +636,7 @@
 .subcollection_desc a,
 .subcollection_desc a:hover,
 .subcollection_desc a:focus {
-  color: inherit;
+  color: #58656c;
   text-align: left;
   text-decoration: none;
 }
@@ -628,6 +659,11 @@
   padding-right: 15px;
   text-align: justify;
 }
+li.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
 .subcollection_apps .title > div{
   border-radius: 3px;
 }
@@ -887,3 +923,4 @@
   margin-left: 15px;
   margin-right: 15px;
 }
+

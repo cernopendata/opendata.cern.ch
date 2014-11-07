@@ -63,12 +63,12 @@
       border-radius: 3px;
       padding-bottom: 5px;
       background-color: transparent;
-      color: #fff;
+      color: #f5f5f5;
       font-size: 18px;
     }
 
     .homepage-nav li.active a{
-      color: #354654;
+      color: #95abb7;
       /*background-color: rgba(255, 255, 255, 0.6);*/
       border-radius: 0;
     }
@@ -117,12 +117,12 @@
     }
     .entrypoint-box {
       padding-top: 40px;
-      background-color: rgba(244, 244, 244, 0.82);
+      background-color: rgba(244, 244, 244, 0.71);
       padding: 15px;
       border-radius: 5px;
       height: 50vh;
       margin-top: 25vh;
-      color: #354654;
+      color: #6c7c84;
       width: 60%;
       min-width: 230px;
     }
@@ -141,7 +141,7 @@
         margin-bottom: 15px;
         font-size: 1.4em;
         padding: 10px;
-        background-color: #354654;
+        background-color: #95abb7;
         color: #fff;
         position: absolute;
         width: 200px;
@@ -186,6 +186,11 @@
       height: 100%;
       padding-top: 10px;
       padding-bottom: 10px;
+      margin-left: -10px;
+      padding-left: 10px;
+      background-color: #95abb7;
+      border-top-left-radius:3px;
+      border-bottom-left-radius:3px; 
     }
 
     .homepage-frame .exp-image img {
@@ -193,7 +198,7 @@
       width: 100%;
       max-height: 100%;
       /*padding: 10px;*/
-      padding-right: 15px;
+      padding-right: 10px;
       vertical-align: middle;
       display: inline-block;
     }
@@ -235,6 +240,7 @@
       height: 65%;
       overflow: hidden;
       padding-top: 10px;
+      padding-left: 10px;
     }
     .homepage-frame .info_details {
       height: 50%;
@@ -358,7 +364,7 @@
     }
     .coll-button a.btn, 
     .coll-button a.btn:hover {
-      background-color: #354654;
+      background-color: #5a676f;
       /* padding: 5px 10px; */
       color: #fff;
       float: right;
@@ -396,7 +402,7 @@
     .goto-action-button {
       height: 5vh;
       width: 100%;
-      background-color: #354654;
+      background-color: #5a676f;
       display: inline-block;
       font-size: 14px;
       color: #fff;
@@ -459,7 +465,7 @@
               Visualise events, check reconstructed data, find new tools or build your own!
             </h5>
             <div class="entrypoint-action row">
-              <a href="#edu"><span class="fa fa-chevron-right"></span><span class="action-title">Start learning</span></a>
+              <a href="#edu"><span class="action-title">Start learning</span></a>
             </div>
           </div>
         </div>
@@ -470,7 +476,7 @@
               Get the genuine working environments, virtual machines and datasets to support your research
             </h5>
             <div class="entrypoint-action row">
-              <a href="#rsch"><span class="action-title">Start analysing</span><span class="fa fa-chevron-left"></span></a>
+              <a href="#rsch"><span class="action-title">Start analysing</span></a>
             </div>
           </div>
         </div>
@@ -582,21 +588,21 @@
               For research purposes, specific software environments and tools need to be deployed to analyse these complex primary data. In addition to the data below, you will find instructions for setting up your working environments here
             </div>
             <div class="entrypoint-goto">
-              <a href="{{url_for('.get_started')}}">
-                <div id="get-started" class="entrypoint-goto-action">
-                  <div class="goto-action-image">
-                  </div>
-                  <div class="goto-action-button">
-                    <a href="{{url_for('.get_started')}}">Getting started<span class="fa fa-chevron-right"></span> </a>
-                  </div>
-                </div>
-              </a>
               <a href="{{url_for('.data_vms')}}">
                 <div id="VMs" class="entrypoint-goto-action">
                   <div class="goto-action-image">
                   </div>
                   <div class="goto-action-button">
                     <a href="{{url_for('.data_vms')}}">Virtual machines<span class="fa fa-chevron-right"></span> </a>
+                  </div>
+                </div>
+              </a>
+              <a href="{{url_for('.get_started')}}">
+                <div id="get-started" class="entrypoint-goto-action">
+                  <div class="goto-action-image">
+                  </div>
+                  <div class="goto-action-button">
+                    <a href="{{url_for('.get_started')}}">Getting started<span class="fa fa-chevron-right"></span> </a>
                   </div>
                 </div>
               </a>
