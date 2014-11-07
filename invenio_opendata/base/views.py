@@ -20,7 +20,7 @@
 """Opendata Demosite interface."""
 
 from flask import Blueprint, render_template, \
-    abort, request, current_app, g, url_for
+    abort, request, current_app, g, url_for, redirect
 from flask.ext.login import current_user
 from jinja2 import TemplateNotFound
 
@@ -209,14 +209,6 @@ def data_vms(exp):
     except TemplateNotFound:
         return abort(404)
 
-
-@blueprint.route('data')
-def data():
-    try:
-        return render_template('data.html')
-    except TemplateNotFound:
-        return abort(404)
-
 @blueprint.route('VM/<exp>/validation/report')
 @register_breadcrumb(blueprint, '.val_report', 'VM', \
                         dynamic_list_constructor = (lambda :\
@@ -323,17 +315,20 @@ def privacy():
 @blueprint.route('collections')
 @blueprint.route('collection')
 def collections():
-    base_collection = Collection.query.filter(Collection.id == '1').first_or_404()
-    experiments = base_collection.collection_children_v
-    
+    import json, pkg_resources
+    filepath = pkg_resources.resource_filename('invenio_opendata.base', 'templates/helpers/text/testimonials.json')
+    with open(filepath,'r') as f:
+        testimonials = json.load(f)
+
     def splitting(value, delimiter='/'):
         return value.split(delimiter)
 
     current_app.jinja_env.filters['splitthem'] = splitting
+    
+    exp_colls, exp_names = get_collections()
 
     try:
-        return render_template('collections_overview.html',
-                               experiments=experiments)
+        return render_template('index_scrollspy.html', testimonials = testimonials, exp_colls = exp_colls, exp_names = exp_names)
     except TemplateNotFound:
         return abort(404)
 
@@ -377,11 +372,14 @@ def collection(name):
             easy_search_form=EasySearchForm(csrf_enabled=False),
             breadcrumbs=breadcrumbs)
 
+    breadcrumbs = [{},\
+                    {"url":".collection", "text": collection.most_specific_dad.name, "param":"name", "value":collection.most_specific_dad.name }]
+
     return render_template(['search/collection_{0}.html'.format(collection.id),
                             'search/collection_{0}.html'.format(slugify(name,
                                                                         '_')),
                             'search/collection.html'],
-                           collection=collection, coll_records=coll_records)
+                           collection=collection, coll_records=coll_records, breadcrumbs = breadcrumbs)
 
 
 # Routing for "record" module
@@ -404,9 +402,15 @@ def metadata(recid, of='hd'):
         return value.split(delimiter, maxsplit)
 
     current_app.jinja_env.filters['splitthem'] = splitting
+    
     record_collection = get_record(recid)['collections'][0]['primary']
+    rec_col = Collection.query.filter(Collection.name == record_collection).first_or_404()
+    breadcrumbs = [{},\
+                    {"url":".collection", "text": rec_col.most_specific_dad.name, "param":"name", "value":rec_col.most_specific_dad.name },\
+                    {"url":".collection", "text": rec_col.name_ln, "param":"name", "value":rec_col.name }]
+
     try:
-        return render_template('records/base_base.html')
+        return render_template('records/base_base.html', breadcrumbs = breadcrumbs)
     except TemplateNotFound:
         return abort(404)  # FIX
 

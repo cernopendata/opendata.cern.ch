@@ -1,11 +1,18 @@
 {% macro get_breadcrumbs(breadcrumbs, exp = None, exp_names = None, exclude = []) %}
   <div class="breadcrumbs">
-    <!-- <a href=""><span style="font-size:16px;padding-top:5px;float:left;" class="glyphicon glyphicon-home"></span><span class="fa fa-chevron-right"></span></a> -->
-  {% for b in breadcrumbs[1:] %}
-    <a href="{{url_for(b.url)}}"><h4 class="{{ ' active' if (loop.index is not divisibleby 2) }}">{{b.text}}</h4></a>{{ '<span class="fa fa-chevron-right"></span>'|safe if not loop.last }} 
+    <a href="{{url_for('.middle')}}"><span style="font-size:16px;padding-top:1px;float:left;" class="glyphicon glyphicon-home"></span><span class="fa fa-chevron-right"></span></a>
+    {% for b in breadcrumbs[1:] %}
+      {% if b.param == 'exp' %}
+        {% set url_href = url_for(b.url, exp = b.value) %}
+      {% elif b.param == 'name' %}
+        {% set url_href = url_for(b.url, name = b.value) %}
+      {% else %}
+        {% set url_href = url_for(b.url) %}
+      {% endif %}
+    <a href="{{url_href}}"><h4 class="{{ ' active' if (loop.index is divisibleby 2) }}">{{b.text}}</h4></a>{{ '<span class="fa fa-chevron-right"></span>'|safe if not loop.last }} 
     {% if loop.last and exp and  exp_names %}
     <span class="fa fa-chevron-right"></span>
-    <div class="dropdown{{ ' active' if (loop.index is divisibleby 2) }}">
+    <div class="dropdown{{ ' active' if (loop.index is not divisibleby 2) }}">
       <!-- <a href="#" data-toggle="dropdown"><h4 style="margin-left:7px;" class="{{ ' active' if (loop.index is not divisibleby 2) }}">{{exp}}</h4>
       </a> -->
       <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">

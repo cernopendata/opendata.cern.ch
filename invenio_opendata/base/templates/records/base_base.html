@@ -8,8 +8,15 @@
 
 
 {% block body %}
+  {% import 'helpers/general.html' as gen_utils %}
 
   {% include 'search/form/index.html' %}
+
+  <section class="infobar">
+    <div class="container">
+      {{ gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names) }}
+    </div>
+  </section>
 
   {% block record_restriction_flag %}
     {% if g.bibrec.is_restricted %}
