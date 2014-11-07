@@ -29,13 +29,7 @@
 <section class="infobar">
   <div class="container">
     {%- if collection.collection_children_r %}
-    <div class="row">
-      <div class="coltitle col-md-12">
-        <p>
-          {{ collection.name_ln }}
-        </p>
-      </div>
-    </div>
+      {{ gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names) }}
     {% else %}
     <div class="row">
       <div class="coltitle col-md-12">
@@ -43,7 +37,7 @@
           {% if collection.is_restricted %}
             {{ _('Restricted Collection')  }}
           {% else %}
-            {{ collection.name_ln }}
+            {{ gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names) }}
           {% endif %}
         </p>
       </div>
@@ -51,7 +45,6 @@
     {%- endif %}
   </div>
 </section>
-
 
 <section id="subcollection" style="padding-bottom: 0;">
   <div class="container">
@@ -66,7 +59,7 @@
       {% endif %}
       {% endfor %}
       <div class="coll-desc">
-        <span>{% for d in (collection.portalboxes[0].portalbox.body|splitthem('#$#$#')) %}{{d}}{% endfor %}</span>
+        <span>{{ collection.portalboxes[0].portalbox.body|replace('#$#$#','')|safe }}</span>
         <br> {{ collection.parent }}
       </div>
     </div>

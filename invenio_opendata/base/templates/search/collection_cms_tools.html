@@ -18,6 +18,7 @@
 #}
 
 {%- extends "search/collection_base.html" -%}
+{% import 'helpers/general.html' as gen_utils %}
 
 {%- macro od_collection_tree(collections, limit=None) %}
 {%- set macrokwargs = kwargs %}
@@ -42,7 +43,7 @@
                 <div class="thumb col-md-4"><img class="img-circle" src="{{ url_for('static', filename='img/'+portalboxes['image']) }}" alt=""></div>
                 <div class="details col-md-8">
                   <div class="title col-md-12">{{ collection.name_ln }}</div>
-                  <div class="desc col-md-12"><span>{% for d in (portalboxes['desc']|splitthem('#$#$#')) %}{{d}}{% endfor %}</span></div>
+                  <div class="desc col-md-12"><span>{{ collection.portalboxes[0].portalbox.body|replace('#$#$#','')|safe }}</span></div>
                 </div>
               </div>
             </div>
@@ -83,13 +84,7 @@
 <section class="infobar">
   <div class="container">
     {%- if collection.collection_children_r %}
-    <div class="row">
-      <div class="coltitle col-md-12">
-        <p>
-          {{ collection.name_ln }}
-        </p>
-      </div>
-    </div>
+      {{ gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names) }}
     {% else %}
     <div class="row">
       <div class="coltitle col-md-12">
@@ -97,7 +92,7 @@
           {% if collection.is_restricted %}
             {{ _('Restricted Collection')  }}
           {% else %}
-            {{ collection.name_ln }}
+            {{ gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names) }}
           {% endif %}
         </p>
       </div>
@@ -123,7 +118,7 @@
         {% endif %}
       {% endfor %}
       <div class="coll-desc">
-        <span>{% for d in (collection.portalboxes[0].portalbox.body|splitthem('#$#$#')) %}{{d}}{% endfor %}</span>
+        <span>{{ collection.portalboxes[0].portalbox.body|replace('#$#$#','')|safe }}</span>
         <br> {{ collection.parent }}
       </div>
     </div>
@@ -150,7 +145,6 @@
                     <div class="desc">
                       <div class="b">
                         {% if r.get('imprint','')['publisher_name'] %}
-                          <kbd>{{ r.get('imprint','')['publisher_name'] }}</kbd>
                           {% for a in r.get('authors','') %}
                             <b>{{a.get('last_name','')+' '+a.get('first_name','')}}</b>
                             {{ ', ' if not loop.last }}
