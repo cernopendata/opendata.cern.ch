@@ -206,12 +206,22 @@
       </div>
       <div class="col-md-12" style="margin-top: 20px;font-size: 16px;color: #606D75;font-weight: 100;">
         <div class="row">
-          {% if record.get('url').get('url') is not string %}
-            {% for u in record.get('url').get('url') %}
+          {% if record.get('url').get('url','') %}
+            {% if record.get('url').get('url') is not string %}
+              {% for u in record.get('url').get('url') %}
               <a class="col-md-12" href="{{ u }}">{{ u }}</a>
-            {% endfor %}
-          {% else %}
-            <a class="col-md-12" href="{{ record.get('url','').get('url','') }}">{{ record.get('url','').get('url','') }}</a>
+              {% endfor %}
+            {% else %}
+              <a class="col-md-12" href="{{ record.get('url','').get('url','') }}">{{ record.get('url','').get('url','') }}</a>
+            {% endif %}
+          {% elif record.get('url').get('host_name','') %}
+            {% if record.get('url').get('host_name') is not string %}
+              {% for u in record.get('url').get('host_name') %}
+              <a class="col-md-12" href="{{ u }}">{{ u }}</a>
+              {% endfor %}
+            {% else %}
+              <a class="col-md-12" href="{{ record.get('url','').get('host_name','') }}">{{ record.get('url','').get('host_name','') }}</a>
+            {% endif %}
           {% endif %}
         </div>
       </div>
