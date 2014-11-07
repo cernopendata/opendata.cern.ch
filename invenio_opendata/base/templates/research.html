@@ -103,7 +103,7 @@
               {% endif %}
               {% endfor %}
               <div class="coll-desc">
-                {% for d in (coll_portalboxes['desc']|splitthem('#$#$#')) %}{{d}}{% endfor %}
+                {{ coll_portalboxes['desc']|replace('#$#$#', '')|safe }}
               </div>
             </div>
           </div>
