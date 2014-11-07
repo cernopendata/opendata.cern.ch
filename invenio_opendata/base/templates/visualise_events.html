@@ -89,6 +89,10 @@
     #title { 
       color: white;
     }
+    .help-detsystem > i {
+      color: red;
+    }
+
   </style>
 
   <section class="infobar">
@@ -458,5 +462,12 @@
 
       $("#title").html("/" + selectedFileName + ":" + event);
    }
+
+   $("#switches").on("DOMNodeInserted", "tr", function(e) {
+      if ($(e.target).attr('class') === 'group') {
+        console.log(this);
+        $(this).find("td.group").append('<a href="#" class="help-detsystem"><i class="fa fa-question"></i></a>');
+      }
+   });
 </script>
 {% endblock %}
