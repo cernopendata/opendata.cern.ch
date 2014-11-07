@@ -58,6 +58,37 @@
       background-color: #f4f4f4;
       border-radius: 4px;
     }
+    #display-table {
+      width: 100%;
+    }
+
+    #title-bar {
+      height: 20px;
+    }
+
+    #tool-bar {
+      height: 27px;
+      background-color: black;
+    }
+
+    #selectors {
+      height: 600px;
+      background-color: black;
+    }
+    
+    #display {
+      height: 600px;
+      background-color: black;
+    }
+    .sw {
+      color: white;
+    }
+    .group {
+      color: white;
+    }
+    #title { 
+      color: white;
+    }
   </style>
 
   <section class="infobar">
@@ -83,15 +114,16 @@
 	  <div class="tab-content">
 	    <div class="tab-pane fade in active" id="ispy">
 	      <div id="ispy-previewer" class="col-md-12">
-		<table>
-		  <tr>
-		    <td colspan="2" class="titlebar-plain bordered">
-		      <div id="title"></div>
-		    </td>
-		  </tr>
-		  <tr style="height:24px;">
-		    <td colspan="2" class="bordered">
-		      <table id="toolbar">
+
+		<div class="row">
+                  <div id="title-bar" class="titlebar-plain bordered col-mid-12">
+		    <div id="title"></div>
+		  </div>
+                </div>
+
+                <div class="row">
+		  <div id="tool-bar" class="bordered col-mid-12">
+		     <table id="toolbar">
 			<tr>
 			  <td>
 			    <a class="toolbar-button" onclick="showEventLoader();">
@@ -160,28 +192,30 @@
 			  </td>
 			</tr>
 		      </table>
-		    </td>
-		  </tr>
-		  <tr>
-		    <td width="280px" class="bordered">
-		      <div id="switches-div" style="overflow: auto; height: 600px;" class="flexcroll">
-			<table id="switches" width="266px">
-			</table>
-		      </div>
-		    </td>
-		    <td class="bordered">
-		      <canvas id="canvas" width="800" height="600">
-			Sorry, this requires a web browser which supports HTML5 canvas.
-		      </canvas>
-		    </td>
-		  </tr>
-		</table>
+		  </div>
+                </div>
+                <div class="row">
+		  <div id="selectors" class="bordered col-md-3">
+		   <div id="switches-div" style="overflow: auto; height: 600px;" class="flexcroll">                                                                                              
+                     <table id="switches"></table>
+                   </div>   
+		  </div>
+                  <div id="display" class="bordered col-md-9">
+		    <canvas id="canvas" width="825" height="600">                                                                                                                                 
+                      Sorry, this requires a web browser which supports HTML5 canvas.                                                                                                             
+                    </canvas>            
+		  </div>
+                </div>
 	      </div>
 	      <p>Use the Mouse to rotate.</p>
-	      <p>Ctrl+Mouse or Ctrl + <span class="key">&#9650</span> <span class="key">&#9660</span> <span class="key">&#9664</span> <span class="key">&#9654</span> to pan x/y.</p>
-	      <p>Shift+Mouse or Shift + <span class="key">&#9650</span> <span class="key">&#9660</span> to zoom.</p>
+	      <p>Ctrl+Mouse or Ctrl + <span>&#9650</span> <span>&#9660</span> <span>&#9664</span> <span>&#9654</span> to pan x/y.</p>
+	      <p>Shift+Mouse or Shift + <span>&#9650</span> <span>&#9660</span> to zoom.</p>
+
+              <p><h4>
+              Try another instance of the display outside the portal in the full-window by clicking here: <a href="http://cern.ch/opendata-ispy">
+              http://cern.ch/opendata-ispy</a>
+              </h4></p>
 	    </div>		  
-	
 	    <div class="tab-pane fade" id="howto">
 	      {% include "visualise_events_help.html" %}
 	    </div>
@@ -191,7 +225,6 @@
   </section>
 
 {% include "visualise_events_popups.html" %}
-
 
 {% endblock %}
 
@@ -210,7 +243,6 @@
      the bower version in such a way that both use-cases can be
      handled. For now though, let's have the js that we need here.
   */
-
 
   // For now, populate the files in the event loader by-hand
   var mc_files = [
@@ -359,8 +391,6 @@
       selectedEventIndex = parseInt(index);
       var event = currentEventList[selectedEventIndex];
 
-      console.log(event);
-
       $("#selected-event").html(selectedFileName + ":" + event);
       $("#browser-load").removeClass("disabled");
    }
@@ -393,6 +423,24 @@
       }
    }
 
+   function invertBackground() {
+      if ( document.settings.invertColors ) {
+        $("#tool-bar").css("background-color","white");
+        $("#selectors").css("background-color","white");
+        $("#display").css("background-color","white");
+        $(".sw").css("color","black");
+        $(".group").css("color","black");
+        $("#title").css("color","black");
+      } else {
+        $("#tool-bar").css("background-color","black");
+        $("#selectors").css("background-color","black");
+        $("#display").css("background-color","black");
+        $(".sw").css("color","white");
+        $(".group").css("color","white");
+        $("#title").css("color","white");
+     }
+   }
+
    function loadEvent() {
       closeEventBrowser();
 
@@ -408,7 +456,7 @@
           alert(e);
       }
 
-      $("#title").html(selectedFileName + ":" + event);
+      $("#title").html("/" + selectedFileName + ":" + event);
    }
 </script>
 {% endblock %}
