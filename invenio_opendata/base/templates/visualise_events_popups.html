@@ -47,6 +47,7 @@
   </table>
 </div>
 
+
 <div id="load-progress-window" class="dialog-window">
   <table class="titlebar">
     <tr>
@@ -57,41 +58,6 @@
   </table>
   <div id="event-load-progress-frame"><div id="event-load-progress-bar"></div></div>
   <div id="event-load-progress-text">0%</div>
-</div>
-
-<div id="range-selector" class="dialog-window">
-  <table class="titlebar">
-    <tr>
-      <td>
-	<div class="title">Energy Range Selector</div>
-      </td>
-      <td class="buttons">
-	<a class="titlebar-button" onclick="closeRangeSelector();"><img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/close.png')}}" /></a>
-      </td>
-    </tr>
-  </table>
-  <table>
-    <tr>
-      <td>
-	<canvas id="range-selector-canvas" width="440" height="160"></canvas>
-      </td>
-      <td>
-	<table>
-	  <tr>
-	    <td align="left" colspan="2" id="cut-title">??</td>
-	  </tr>
-	  <tr>
-	    <td align="right">Low cut:</td>
-	    <td id="low-cut"></td>
-	  </tr>
-	  <tr>
-	    <td align="right">High cut:</td>
-	    <td id="high-cut"></td>
-	  </tr>
-	</table>
-      </td>
-    </tr>
-  </table>
 </div>
 
 <div id="settings" class="dialog-window">
@@ -112,7 +78,7 @@
 	<table class="settings-section">
 	  <tr>
 	    <td>
-	      <input type="checkbox" id="setting-invert-colors" onclick="toggleBackground();" />Invert colors
+	      <input type="checkbox" id="setting-invert-colors" onclick="toggleBackground(); invertBackground();" />Invert colors
 	    </td>
 	  </tr>
 	  <tr>
