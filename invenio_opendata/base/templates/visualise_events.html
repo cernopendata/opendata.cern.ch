@@ -463,10 +463,29 @@
       $("#title").html("/" + selectedFileName + ":" + event);
    }
 
+   var help_items = [
+      "Detector Model",
+      "Tracking", 
+      "ECAL", 
+      "HCAL",
+      "Muon",
+      "Physics Objects",
+   ];
+
+   function openHelp(event,id) {
+      var posx = event.clientX + document.body.scrollLeft;
+      var posy = event.clientY + document.body.scrollTop;
+
+      $("#" + id).css("right", posx + "px");
+      $("#" + id).css("top", posy + "px");
+      $("#" + id).show();
+   }
+
    $("#switches").on("DOMNodeInserted", "tr", function(e) {
       if ($(e.target).attr('class') === 'group') {
-        console.log(this);
-        $(this).find("td.group").append('<a href="#" class="help-detsystem"><i class="fa fa-question"></i></a>');
+        var help_name = $(this).find("td.group").html();
+        var id = "help-detsystem-" + help_items.indexOf(help_name);
+        $(this).find("td.group").append('<a href="#" onclick="openHelp(event,\''+id+'\');" class="help-detsystem"><i class="fa fa-question"></i></a>');
       }
    });
 </script>
