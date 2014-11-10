@@ -334,10 +334,12 @@
     }
     #main {
       background-image: url({{url_for('static', filename='img/home/home_net_new.svg')}});
-      background-size: 100% 100%;
-      background-position: center;
+      background-position: center center;
       background-repeat: no-repeat;
-
+      -webkit-background-size: contain;
+      -moz-background-size: contain;
+      -o-background-size: contain;
+      background-size: contain;
     }
 
     .entry-frame-header {
@@ -445,6 +447,10 @@
     li.disabled {
       pointer-events: none;
       opacity: 0.6;
+    }
+
+    .homepage-frame li.disabled .coll-button {
+      display: none;
     }
   </style>
   
