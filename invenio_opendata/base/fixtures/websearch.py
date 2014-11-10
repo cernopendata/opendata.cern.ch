@@ -112,12 +112,12 @@ class CollectionData(DataSet):
             ('en', 'ln'): u'ATLAS Derived Datasets',
         }
 
-    class ATLASExternalResources(siteCollection):
+    class ATLASLearningResources(siteCollection):
         id = 14
-        name = 'ATLAS-External-Resources'
-        dbquery = '980__a:"ATLAS-External-Resources"'
+        name = 'ATLAS-Learning-Resources'
+        dbquery = '980__a:"ATLAS-Learning-Resources"'
         names = {
-            ('en', 'ln'): u'ATLAS External Resources',
+            ('en', 'ln'): u'ATLAS Learning Resources',
         }
 
     class ATLASTools(siteCollection):
@@ -296,9 +296,9 @@ class CollectionCollectionData(DataSet):
         score = 8
         type = 'r'
 
-    class siteCollection_ATLASExternalResources:
+    class siteCollection_ATLASLearningResources:
         dad = CollectionData.siteCollection
-        son = CollectionData.ATLASExternalResources
+        son = CollectionData.ATLASLearningResources
         score = 9
         type = 'r'
 
@@ -314,9 +314,9 @@ class CollectionCollectionData(DataSet):
         score = 0
         type = 'r'
 
-    class ATLAS_ATLASExternalResources:
+    class ATLAS_ATLASLearningResources:
         dad = CollectionData.ATLAS
-        son = CollectionData.ATLASExternalResources
+        son = CollectionData.ATLASLearningResources
         score = 1
         type = 'r'
 
@@ -531,7 +531,7 @@ class PortalboxData(DataSet):
         title = u'description'
 
     class Portalbox_21:
-        body = u'This collection includes external resources that use ATLAS public data#$#$#. The items in this collection are suitable for education purposes.'
+        body = u'This collection includes learning resources that use ATLAS public data#$#$#. The items in this collection are suitable for education purposes.'
         id = 21
         title = u'description'
 
@@ -777,7 +777,7 @@ class CollectionPortalboxData(DataSet):
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_21.ref('id')
         score = 100
-        id_collection = CollectionData.ATLASExternalResources.ref('id')
+        id_collection = CollectionData.ATLASLearningResources.ref('id')
 
     class CollectionPortalbox_15_22_en:
         ln = u'en'
