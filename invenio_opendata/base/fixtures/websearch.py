@@ -511,7 +511,7 @@ class PortalboxData(DataSet):
         title = u'description'
 
     class Portalbox_17:
-        body = u'CMS is releasing data in the same format as used in data analysis by CMS physicists. A CMS-specific analysis framework is needed, and it is provided as a Virtual Machine image with the CMS analysis environment. The data can be downloaded (be aware of the large size of the datasets) or accessed directly through the VM image. Basic information of the data contents is provided in <a href="http://opendata.cern.ch/about/CMS">About CMS</a> and in <a href="http://opendata.cern.ch/about/CMS-Physics-Objects">About CMS Physics Objects</a>. The original data are in primary datasets, i.e. no selection nor identification criteria have been applied (apart from the trigger decision), and these have to be applied in the subsequent analysis step. For the first release, no simulated Monte Carlo datasets are provided'
+        body = u'CMS is releasing data in the same format as used in data analysis by CMS physicists. A CMS-specific analysis framework is needed, and it is provided as a Virtual Machine image with the CMS analysis environment. The data can be accessed directly through the VM image. Basic information of the data contents is provided in <a href="http://opendata.cern.ch/about/CMS">About CMS</a> and in <a href="http://opendata.cern.ch/about/CMS-Physics-Objects">About CMS Physics Objects</a>. The original data are in primary datasets, i.e. no selection nor identification criteria have been applied (apart from the trigger decision), and these have to be applied in the subsequent analysis step. For the first release, no simulated Monte Carlo datasets are provided'
         id = 17
         title = u'research_description'
 
@@ -606,7 +606,7 @@ class PortalboxData(DataSet):
         title = u'short_description_e'
 
     class Portalbox_36:
-        body = u'To analyse CMS data, a Virtual Machine with the CMS analysis environment is provided. The data can be downloaded or accessed directly through the VM. In the primary datasets, no selection nor identification criteria have been applied. For this release, no simulated Monte Carlo datasets are provided.'
+        body = u'To analyse CMS data, a Virtual Machine with the CMS analysis environment is provided. The data can be accessed directly through the VM. In the primary datasets, no selection nor identification criteria have been applied. For this release, no simulated Monte Carlo datasets are provided.'
         id = 36
         title = u'short_description_r'
 
