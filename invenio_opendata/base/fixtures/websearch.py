@@ -149,12 +149,12 @@ class CollectionData(DataSet):
             ('en', 'ln'): u'LHCb Tools',
         }
 
-    class LHCbExternalResources(siteCollection):
+    class LHCbLearningResources(siteCollection):
         id = 19
-        name = 'LHCb-External-Resources'
-        dbquery = '980__a:"LHCb-External-Resources"'
+        name = 'LHCb-Learning-Resources'
+        dbquery = '980__a:"LHCb-Learning-Resources"'
         names = {
-            ('en', 'ln'): u'LHCb External Resources',
+            ('en', 'ln'): u'LHCb Learning Resources',
         }
 
     class ALICEExternalResources(siteCollection):
@@ -344,9 +344,9 @@ class CollectionCollectionData(DataSet):
         score = 12
         type = 'r'
 
-    class siteCollection_LHCbExternalResources:
+    class siteCollection_LHCbLearningResources:
         dad = CollectionData.siteCollection
-        son = CollectionData.LHCbExternalResources
+        son = CollectionData.LHCbLearningResources
         score = 13
         type = 'r'
 
@@ -362,9 +362,9 @@ class CollectionCollectionData(DataSet):
         score = 1
         type = 'r'
 
-    class LHCb_LHCbExternalResources:
+    class LHCb_LHCbLearningResources:
         dad = CollectionData.LHCb
-        son = CollectionData.LHCbExternalResources
+        son = CollectionData.LHCbLearningResources
         score = 2
         type = 'r'
 
@@ -833,7 +833,7 @@ class CollectionPortalboxData(DataSet):
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_29.ref('id')
         score = 100
-        id_collection = CollectionData.LHCbExternalResources.ref('id')
+        id_collection = CollectionData.LHCbLearningResources.ref('id')
 
     class CollectionPortalbox_20_30_en:
         ln = u'en'
@@ -910,7 +910,7 @@ class CollectionPortalboxData(DataSet):
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_40.ref('id')
         score = 100
-        id_collection = CollectionData.LHCb.ref('id')    
+        id_collection = CollectionData.LHCb.ref('id')
 
 class FacetCollectionData(DataSet):
 
