@@ -87,7 +87,7 @@ opendata.cern.ch overlay.  There are two options:
                                           -f invenio_opendata/testsuite/data/cms/cms-tools-vm-image.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-validated-runs.xml \
                                           -f invenio_opendata/testsuite/data/lhcb/lhcb-derived-datasets.xml \
-                                          -f invenio_opendata/testsuite/data/lhcb/lhcb-external-resources.xml \
+                                          -f invenio_opendata/testsuite/data/lhcb/lhcb-learning-resources.xml \
                                           -f invenio_opendata/testsuite/data/lhcb/lhcb-tools.xml \
                                           -e force-recids" \
           ./invenio2-kickstart --yes-i-know --yes-i-really-know
@@ -185,7 +185,7 @@ re-populate your site anew to have your updated records, you can do:
          -f invenio_opendata/testsuite/data/cms/cms-tools-vm-image.xml \
          -f invenio_opendata/testsuite/data/cms/cms-validated-runs.xml \
          -f invenio_opendata/testsuite/data/lhcb/lhcb-derived-datasets.xml \
-         -f invenio_opendata/testsuite/data/lhcb/lhcb-external-resources.xml \
+         -f invenio_opendata/testsuite/data/lhcb/lhcb-learning-resources.xml \
          -f invenio_opendata/testsuite/data/lhcb/lhcb-tools.xml \
          -e force-recids --yes-i-know
 
