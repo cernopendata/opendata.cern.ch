@@ -88,15 +88,15 @@
       <div class="row">
         {% for e in exp_names %}
         <div class="col-md-6">
-          <a href="{{ url_for('.collection', name = e+"-External-Resources" ) }}">
+          <a href="{{ url_for('.collection', name = e+"-Learning-Resources" ) }}">
             <div class="coll-exp">
               <div class="top col-md-12">
                 <div class="col-md-6 col-md-offset-3 thumb"><img src="{{ url_for('static', filename='img/'+e+'.gif') }}" alt="" class="img-cirle center-block"></div>
-                <div class="col-md-12 exp-name">{{e}} External Resources</div>
+                <div class="col-md-12 exp-name">{{e}} Learning Resources</div>
               </div>
             </div>
           </a>
-        </div> 
+        </div>
         {% endfor %}
       </div>
     </div>

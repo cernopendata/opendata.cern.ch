@@ -45,7 +45,7 @@ def get_collections():
     for exp in experiments.collection_children_v:
         exp_names.append(exp.name)
         exp_colls.append(Collection.query.filter(Collection.name == exp.name).first())
-        
+
     return exp_colls, exp_names
 
 def get_collection_names(without = []):
@@ -54,7 +54,7 @@ def get_collection_names(without = []):
     for exp in experiments.collection_children_v:
         if exp.name not in without:
             exp_names.append(exp.name)
-        
+
     return exp_names
 
 @blueprint.route('')
@@ -68,7 +68,7 @@ def middle():
         return value.split(delimiter)
 
     current_app.jinja_env.filters['splitthem'] = splitting
-    
+
     exp_colls, exp_names = get_collections()
 
     try:
@@ -177,13 +177,13 @@ def get_started(exp):
 
 @blueprint.route('resources/<string:exp>')
 @blueprint.route('resources', defaults={'exp': None})
-@register_breadcrumb(blueprint, '.resources', 'External Resources', \
+@register_breadcrumb(blueprint, '.resources', 'Learning Resources', \
                         dynamic_list_constructor = (lambda :\
                         [{"url":".educate","text":"For Education"},\
-                        {"url":".resources","text":"External Resources"}]) )
+                        {"url":".resources","text":"Learning Resources"}]) )
 def resources(exp):
     exp_names = get_collection_names()
-    
+
     try:
         return render_template('resources.html', exp=exp, exp_names=exp_names)
     except TemplateNotFound:
@@ -199,7 +199,7 @@ def data_vms(exp):
     exp_names = get_collection_names(['ATLAS'])
     if exp not in exp_names and exp is not None:
         return render_template("404.html")
-    
+
     def splitting(value, delimiter='/'):
         return value.split(delimiter)
     current_app.jinja_env.filters['splitthem'] = splitting
@@ -216,7 +216,7 @@ def data_vms(exp):
                         {"url":".data_vms","text":"Validation Report"}]) )
 def val_report(exp):
     exp_names = get_collection_names()
-    
+
     try:
         return render_template([exp+'_VM_validation.html', 'data_vms.html'], exp=exp,exp_names=exp_names)
     except TemplateNotFound:
@@ -228,7 +228,7 @@ def val_report(exp):
                         dynamic_list_constructor = (lambda :\
                         [{"url":".about","text":"About"}]))
 def about():
-    try:    
+    try:
         return render_template('about.html')
     except TemplateNotFound:
         return abort(404)
@@ -324,7 +324,7 @@ def collections():
         return value.split(delimiter)
 
     current_app.jinja_env.filters['splitthem'] = splitting
-    
+
     exp_colls, exp_names = get_collections()
 
     try:
@@ -362,7 +362,7 @@ def collection(name):
         return value.split(delimiter)
 
     current_app.jinja_env.filters['splitthem'] = splitting
-    
+
     @register_template_context_processor
     def index_context():
         breadcrumbs = current_breadcrumbs + collection.breadcrumbs(ln=g.ln)[1:]
@@ -402,7 +402,7 @@ def metadata(recid, of='hd'):
         return value.split(delimiter, maxsplit)
 
     current_app.jinja_env.filters['splitthem'] = splitting
-    
+
     record_collection = get_record(recid)['collections'][0]['primary']
     rec_col = Collection.query.filter(Collection.name == record_collection).first_or_404()
     breadcrumbs = [{},\
