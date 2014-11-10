@@ -186,10 +186,14 @@
       <div class="col-md-12">
         <div class="rec_desc">
           {{record.get('other_relationship_entry', {}).get('heading', '')}}
-          {% for r in record.get('other_relationship_entry', {}).get('recid', '') %}
-            <a href="{{url_for('.metadata', recid = r )}}">Record {{r}}</a>
-            {{ ', ' if not loop.last }}
-          {% endfor %}
+          {% if record.get('other_relationship_entry', {}).get('recid', '') is string %}
+            <a href="{{url_for('.metadata', recid = record.get('other_relationship_entry', {}).get('recid', '') )}}">Record {{record.get('other_relationship_entry', {}).get('recid', '')}}</a>
+          {% else %}
+            {% for r in record.get('other_relationship_entry', {}).get('recid', '') %}
+              <a href="{{url_for('.metadata', recid = r )}}">Record {{r}}</a>
+              {{ ', ' if not loop.last }}
+            {% endfor %}
+          {% endif %}
         </div>
       </div>
     </div>
