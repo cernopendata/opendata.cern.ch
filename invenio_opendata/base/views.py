@@ -350,6 +350,7 @@ def collection(name):
     from flask.ext.breadcrumbs import current_breadcrumbs
 
     collection = Collection.query.filter(Collection.name == name).first()
+    parent_collection = collection.most_specific_dad if ( collection.most_specific_dad.id != 1 ) else None
 
     if collection == None:
         return render_template('404.html')
@@ -372,8 +373,11 @@ def collection(name):
             easy_search_form=EasySearchForm(csrf_enabled=False),
             breadcrumbs=breadcrumbs)
 
-    breadcrumbs = [{},\
-                    {"url":".collection", "text": collection.most_specific_dad.name, "param":"name", "value":collection.most_specific_dad.name }]
+    breadcrumbs = [{}]
+    if parent_collection:
+        breadcrumbs.append({ "url":".collection", "text": parent_collection.name_ln, "param":"name", "value": parent_collection.name })
+    
+    breadcrumbs.append({ "url":".collection", "text": collection.name_ln, "param":"name", "value": collection.name })
 
     return render_template(['search/collection_{0}.html'.format(collection.id),
                             'search/collection_{0}.html'.format(slugify(name,

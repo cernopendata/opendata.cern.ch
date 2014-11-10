@@ -114,7 +114,7 @@
                     <div class="col-md-12 exp-name">{{ exp.name }}</div>
                   </div>
                   <div class="other col-md-12">
-                    <span>{% for d in (portalboxes['desc']|splitthem('#$#$#')) %}{{d}}{% endfor %}</span>
+                    <span>{{ portalboxes['desc']|replace('#$#$#', '')|safe }}</span>
                   </div>
                   <div class="children col-md-12">
                     <div class="title col-md-12"><span>{{ exp.name }} Collections:</span></div>

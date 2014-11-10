@@ -128,7 +128,7 @@
         {% endif %}
       {% endfor %}
       <div class="coll-desc">
-        <span>{% for d in (collection.portalboxes[0].portalbox.body|splitthem('#$#$#')) %}{{d}}{% endfor %}</span>
+        <span>{{ collection.portalboxes[0].portalbox.body|replace('#$#$#','')|safe }}</span>
       </div>
     </div>
     {% if collection.collection_children_r %}
