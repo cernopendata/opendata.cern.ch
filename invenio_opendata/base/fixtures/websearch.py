@@ -157,12 +157,12 @@ class CollectionData(DataSet):
             ('en', 'ln'): u'LHCb Learning Resources',
         }
 
-    class ALICEExternalResources(siteCollection):
+    class ALICELearningResources(siteCollection):
         id = 20
-        name = 'ALICE-External-Resources'
-        dbquery = '980__a:"ALICE-External-Resources"'
+        name = 'ALICE-Learning-Resources'
+        dbquery = '980__a:"ALICE-Learning-Resources"'
         names = {
-            ('en', 'ln'): u'ALICE External Resources',
+            ('en', 'ln'): u'ALICE Learning Resources',
         }
 
     class CMSOpenDataInstructions(siteCollection):
@@ -368,15 +368,15 @@ class CollectionCollectionData(DataSet):
         score = 2
         type = 'r'
 
-    class siteCollection_ALICEExternalResources:
+    class siteCollection_ALICELearningResources:
         dad = CollectionData.siteCollection
-        son = CollectionData.ALICEExternalResources
+        son = CollectionData.ALICELearningResources
         score = 14
         type = 'r'
 
-    class ALICE_ALICEExternalResources:
+    class ALICE_ALICELearningResources:
         dad = CollectionData.ALICE
-        son = CollectionData.ALICEExternalResources
+        son = CollectionData.ALICELearningResources
         score = 3
         type = 'r'
 
@@ -576,7 +576,7 @@ class PortalboxData(DataSet):
         title = u'description'
 
     class Portalbox_30:
-        body = u'This collection contains ALICE external resources.'
+        body = u'This collection contains ALICE learning resources.'
         id = 30
         title = u'description'
 
@@ -840,7 +840,7 @@ class CollectionPortalboxData(DataSet):
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_30.ref('id')
         score = 100
-        id_collection = CollectionData.ALICEExternalResources.ref('id')
+        id_collection = CollectionData.ALICELearningResources.ref('id')
 
     class CollectionPortalbox_21_31_en:
         ln = u'en'
