@@ -53,6 +53,15 @@
         </div>
       </a>
       {% endif %}
+      {% if record.get('supplement_parent_entry','') %}
+        {% if record.get('supplement_parent_entry','').get('recid','') and record.get('supplement_parent_entry','').get('heading','') %}
+        <a href="{{ url_for('record.metadata', recid=record.get('supplement_parent_entry','').get('recid', '')) }}">
+          <div class="rec_thumb_brief rec_footer_thumb pull-right">
+            <div class="n"><div class="t">Dataset</div>{{ record.get('supplement_parent_entry','').get('heading', '') }}</div>
+          </div>
+        </a> 
+        {% endif %}
+      {% endif %}
 {% endmacro %}
 
 {% macro render_fulltext_snippets() %}

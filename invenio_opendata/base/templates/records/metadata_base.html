@@ -36,7 +36,7 @@
         </div>
       {% endif %}
       <div class="rec_thumb rec_parentcol">
-        <a href="{{ url_for('collection/'+collection.name) }}"><div class="n"><div class="t">Parent Collection</div>{{ collection.name_ln }}</div></a>
+        <a href="{{ url_for('collection/'+collection.name) }}"><div class="n"><div class="t">Collection</div>{{ collection.name_ln }}</div></a>
       </div>
       {% if record.get('edition_statement','')  %}
         {% if record.get('edition_statement', '').get('statement', '') %}
@@ -75,6 +75,15 @@
             <div class="n"><div class="t">Experiment</div>{{ record.get('accelerator_experiment','').get('experiment', '') }}</div>
           </div>
         </a>
+      {% endif %}
+      {% if record.get('supplement_parent_entry','') %}
+        {% if record.get('supplement_parent_entry','').get('recid','') and record.get('supplement_parent_entry','').get('heading','') %}
+        <a href="{{ url_for('record.metadata', recid=record.get('supplement_parent_entry','').get('recid', '')) }}">
+          <div class="rec_thumb rec_parentcol">
+            <div class="n"><div class="t">Dataset</div>{{ record.get('supplement_parent_entry','').get('heading', '') }}</div>
+          </div>
+        </a> 
+        {% endif %}
       {% endif %}
     </div>
   </div>
