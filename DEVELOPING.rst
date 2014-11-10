@@ -70,7 +70,7 @@ opendata.cern.ch overlay.  There are two options:
           CFG_INVENIO2_DEMOSITE_POPULATE_BEFORE="./populate-fft-file-cache.sh" \
           CFG_INVENIO2_DEMOSITE_POPULATE="-f invenio_opendata/testsuite/data/alice/alice-analysis-modules.xml \
                                           -f invenio_opendata/testsuite/data/alice/alice-derived-datasets.xml \
-                                          -f invenio_opendata/testsuite/data/alice/alice-external-resources.xml \
+                                          -f invenio_opendata/testsuite/data/alice/alice-learning-resources.xml \
                                           -f invenio_opendata/testsuite/data/alice/alice-reconstructed-data.xml \
                                           -f invenio_opendata/testsuite/data/alice/alice-vm-image.xml \
                                           -f invenio_opendata/testsuite/data/atlas/atlas-derived-datasets.xml \
@@ -168,7 +168,7 @@ re-populate your site anew to have your updated records, you can do:
     vm> inveniomanage demosite populate --packages=invenio_opendata.base \
          -f invenio_opendata/testsuite/data/alice/alice-analysis-modules.xml \
          -f invenio_opendata/testsuite/data/alice/alice-derived-datasets.xml \
-         -f invenio_opendata/testsuite/data/alice/alice-external-resources.xml \
+         -f invenio_opendata/testsuite/data/alice/alice-learning-resources.xml \
          -f invenio_opendata/testsuite/data/alice/alice-reconstructed-data.xml \
          -f invenio_opendata/testsuite/data/alice/alice-vm-image.xml \
          -f invenio_opendata/testsuite/data/atlas/atlas-derived-datasets.xml \
