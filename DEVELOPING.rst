@@ -78,7 +78,7 @@ opendata.cern.ch overlay.  There are two options:
                                           -f invenio_opendata/testsuite/data/cms/cms-csv-files.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-eventdisplay-files.xml \
-                                          -f invenio_opendata/testsuite/data/cms/cms-external-resources.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-learning-resources.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-primary-datasets.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
@@ -107,7 +107,7 @@ opendata.cern.ch overlay.  There are two options:
           CFG_INVENIO2_DEMOSITE_POPULATE="-f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-tools-ispy.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-tools-dimuon-filter.xml \
-                                          -f invenio_opendata/testsuite/data/cms/cms-external-resources.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-learning-resources.xml \
                                           -e force-recids" \
           ./invenio2-kickstart --yes-i-know --yes-i-really-know
 
@@ -176,7 +176,7 @@ re-populate your site anew to have your updated records, you can do:
          -f invenio_opendata/testsuite/data/cms/cms-csv-files.xml \
          -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana.xml \
          -f invenio_opendata/testsuite/data/cms/cms-eventdisplay-files.xml \
-         -f invenio_opendata/testsuite/data/cms/cms-external-resources.xml \
+         -f invenio_opendata/testsuite/data/cms/cms-learning-resources.xml \
          -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
          -f invenio_opendata/testsuite/data/cms/cms-primary-datasets.xml \
          -f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
