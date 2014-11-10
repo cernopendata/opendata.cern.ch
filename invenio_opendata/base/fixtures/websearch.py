@@ -83,12 +83,12 @@ class CollectionData(DataSet):
             ('en', 'ln'): u'CMS Validated Runs',
         }
 
-    class CMSExternalResources(siteCollection):
+    class CMSLearningResources(siteCollection):
         id = 10
-        name = 'CMS-External-Resources'
-        dbquery = '980__a:"CMS-External-Resources"'
+        name = 'CMS-Learning-Resources'
+        dbquery = '980__a:"CMS-Learning-Resources"'
         names = {
-            ('en', 'ln'): u'CMS External Resources',
+            ('en', 'ln'): u'CMS Learning Resources',
         }
 
     class ALICEReconstructedData(siteCollection):
@@ -206,9 +206,9 @@ class CollectionCollectionData(DataSet):
         score = 3
         type = 'r'
 
-    class CMS_CMSExternalResources:
+    class CMS_CMSLearningResources:
         dad = CollectionData.CMS
-        son = CollectionData.CMSExternalResources
+        son = CollectionData.CMSLearningResources
         score = 4
         type = 'r'
 
@@ -236,9 +236,9 @@ class CollectionCollectionData(DataSet):
         score = 3
         type = 'r'
 
-    class siteCollection_CMSExternalResources:
+    class siteCollection_CMSLearningResources:
         dad = CollectionData.siteCollection
-        son = CollectionData.CMSExternalResources
+        son = CollectionData.CMSLearningResources
         score = 4
         type = 'r'
 
@@ -501,7 +501,7 @@ class PortalboxData(DataSet):
         title = u'description'
 
     class Portalbox_15:
-        body = u'This collection includes external resources that use CMS public data#$#$#. The items in this collection are suitable for education purposes.'
+        body = u'This collection includes learning resources that use CMS public data#$#$#. The items in this collection are suitable for education purposes.'
         id = 15
         title = u'description'
 
@@ -735,7 +735,7 @@ class CollectionPortalboxData(DataSet):
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_15.ref('id')
         score = 100
-        id_collection = CollectionData.CMSExternalResources.ref('id')
+        id_collection = CollectionData.CMSLearningResources.ref('id')
 
     class CollectionPortalbox_11_16_en:
         ln = u'en'
