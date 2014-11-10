@@ -21,7 +21,7 @@
       <a href="{{url_for('search.search', cc=record['collections'][0]['primary'] )}}">
         <div class="rec_thumb_brief rec_footer_thumb rec_collection pull-ight">
           <div class="n">
-            <div class="t"><span class="glyphicon glyphicon-folder-close"></span></div>
+            <div class="t">Collection</div>
             {{ record['collections'][0]['primary'] }}
           </div>
         </div>
@@ -31,9 +31,7 @@
         {% set sep = joiner('<i style="float:left;"> ; </i>') %}
         <div class="rec_thumb_brief rec_footer_thumb">
           <div class="n">
-            <div class="t">
-              <span class="glyphicon glyphicon-user"></span>
-            </div>
+            <div class="t">Author</div>
             {% for full_name in authors[0:number_of_displayed_authors] %} {{ sep() }}
               <a href="{{ url_for('search.search', p='author:"' + full_name + '"') }}">{{ full_name }}</a>
             {% endfor %}
@@ -44,7 +42,7 @@
             data-target="#authors_{{ record['recid'] }}">
             <em>{{ _(' et al') }}</em>
             </a>
-            {% endif %}    
+            {% endif %}
           </div>
         </div>
       {% endif %}
