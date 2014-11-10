@@ -32,7 +32,7 @@
 {% endmacro %}
 
 {% macro get_experiment_apps_box(title = "", img_file = "default.png", url = '/', url_params = [], col = '6') %}
-<div style="float:left;margin-right: 0;" class="col-sm-{{col}}" >
+<div style="" class="col-sm-{{col}}" >
   {% if 'exp' in url_params %}
     {% set url_href = url_for(url, exp = url_params['exp']) %}
   {% elif 'collection' in url_params %}
@@ -40,10 +40,10 @@
   {% else %}
     {% set url_href = url_for(url) %}
   {% endif %}
-  <a class="center-block" href="{{ url_href }}">
-    <div class="img-circle app-box">
-      <div class="title"><p class="placeholder-box"></p><p class="text">{{title|safe}}</p></div>
-      <div class="img img-circle" style="background: url({{ url_for('static', filename='img/'+ img_file) }});background-size: 130px auto;"></div>
+  <a href="{{ url_href }}">
+    <div class="app-box">
+      <div class="img" style="background-image: url({{ url_for('static', filename='img/'+ img_file) }});"></div>
+      <div class="title">{{title|safe}}</div>
     </div>
   </a>
 </div>

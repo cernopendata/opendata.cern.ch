@@ -671,13 +671,13 @@ li.disabled {
 .subcollection_apps .title > div{
   border-radius: 3px;
 }
-.subcollection_apps .title {
+/*.subcollection_apps .title {
   position: absolute;
   width: 134px;
   height: 134px;
   margin: auto;
-  /* background-color: #f4f4f4; */
-  /* background-color: rgb(198, 208, 217); */
+   background-color: #f4f4f4; 
+   background-color: rgb(198, 208, 217); 
   bottom: 2px;
   color: #657580;
   font-weight: 400;
@@ -689,7 +689,7 @@ li.disabled {
   border-radius: 50%;
   display: inline-block;
   font-size: 14px;
-}
+}*/
 
 .section-title {
   padding-bottom: 20px;
@@ -699,10 +699,6 @@ li.disabled {
   overflow: hidden;
 }
 
-.subcollection_apps .app-box .img {
-  height: 100px;
-  overflow: hidden;
-}
 .subcollection_apps .title p.placeholder-box {
   display: inline-block;
   width: 100%;
@@ -723,48 +719,46 @@ li.disabled {
   left: 0;
   border-top: 2px solid rgb(198, 208, 217);
 }
-.subcollection_apps .app-box .go {
-  width: 100%;
-  display: inline-block;
-  padding-top: 5px;
-}
-.subcollection_apps .app-box .go span{
-  padding-left: 5px;
-}
-.subcollection_apps a {
-  color: #657580;
-  text-decoration: none;  
-  width: 134px;
-}
-.subcollection_apps .app-box .go a,
-.subcollection_apps .app-box .go a:hover,
-.subcollection_apps .app-box .go a:focus {
-  font-size: 12px;
-  float: right;
-  color: #657580;
-}
 
 .subcollection_apps .app-box {
-  width: 138px;
-  height: 138px;
-  padding: 2px;
+  height: 150px;
   overflow: hidden;
   position: relative;
   background-color: rgb(198, 208, 217);
 }
-.subcollection_apps .app-box .img {
-  width: 134px;
-  height: 134px;
-  background-size: 130px auto;
-}
-.subcollection_apps .app-box:hover .img {
-  opacity: 0.5;
-}
-.subcollection_apps .app-box img {
-  height: 130px;
-  width: 130px;
+
+.app-box .img {
+  height: 110px;
+  max-height: 110px;
+  width: 100%;
+  background-color: #f4f4f4;
+  float: left;
+  border-radius: 3px 3px 0 0;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
+.app-box .title a {
+  color: inherit;
+}
+.app-box .title {
+  height: 40px;
+  width: 100%;
+  background-color: #95abb7;
+  display: inline-block;
+  font-size: 14px;
+  color: #fff;
+  border-radius: 0 0 3px 3px;
+  text-align: right;
+  padding-right: 15px;
+  padding-top: 8px;
+}
+
+.app-box .title span {
+  padding-left: 5px;
+}
 
 
 /*==== Record Single-box styling ====*/
