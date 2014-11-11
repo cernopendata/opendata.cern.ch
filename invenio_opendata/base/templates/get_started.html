@@ -73,13 +73,13 @@
     </div>
   </section>
 
-  <section id="get-started" class="content">
+  <section id="get-started" class="content general">
     <div class="container">
       <div class="tab-content">
         
-        <div class="tab-pane fade {% if exp not in ['CMS', 'ALICE'] %} in active {% endif %}" id="general">
-          <div class="about">
-            <h4 style="text-align: left;font-size: 24px;">Familiarise yourself with the working environments and tools needed to analyse the data provided on this portal.</h4>
+        <div class="tab-pane fade {% if exp not in exp_names %} in active {% endif %}" id="general">
+          <div class="gen-header">
+            <h1>Familiarise yourself with the working environments and tools needed to analyse the data provided on this portal.</h1>
           </div>
           <div class="row">
             {% for e in exp_names %}
