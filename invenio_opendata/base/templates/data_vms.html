@@ -6,105 +6,6 @@
 
   <style>
 
-    .howto_step .heading {
-      width: 100%;
-      background-color: #f4f4f4;
-      font-size: 20px;
-      font-weight: 100;
-      color: #606D75;
-      padding: 15px 10px;
-      /*border-right: 5px solid #606D75;*/
-      border-left: 5px solid #606D75;
-    }
-    .howto_step .body {
-      padding: 15px;
-      background-color: #e6e6e6;
-      font-size: 16px;
-
-    }
-    .howto_step .body {
-      color: #606D75;
-    }
-    .howto_step .body p {
-      padding-top: 10px;
-      padding-bottom: 10px;
-      font-size: 16px;
-      font-weight: 100;
-      color: #606D75;
-
-    }
-    .howto_step img {
-      width: 70%;
-      margin:  20px 15%;
-      padding: 15px;
-      background-color: #606D75;
-      border-radius: 4px;
-    }
-    .howto_step .it      {
-      margin-bottom: 5px;
-    }
-
-    #create.howto_step  .body .row:nth-child(2n) {
-      background-color: #fff;
-      margin-top: 15px;
-      margin-bottom: 15px;
-    }
-
-    #vm_howto_nav ul {
-      background-color: #f4f4f4;
-    }
-    #vm_howto_nav ul li {
-      background-color: #f4f4f4;
-    }
-    #vm_howto_nav ul li a,
-    #vm_howto_nav ul li a:hover,
-    #vm_howto_nav ul li a:focus {
-      color: #777;
-      font-weight: 100;
-      font-size: 18px;
-      height: 55px;
-    }
-
-    .title.info_title h5 {
-      margin-top: 30px;
-      margin-bottom: 30px;
-      font-size: 26px;
-      font-weight: 100;
-      color: #657580;
-    }
-
-    .about {
-      padding-top: 15px;
-      padding-bottom: 15px;
-      color: #657580;
-    }
-    .about h4 {
-      font-size: 20px;
-      text-align: justify;
-      font-weight: 100;
-    }
-
-    span.circleme {
-      border-radius: 50%;
-      height: 40px;
-      background-color: #777;
-      color: #fff;
-      width: 40px;
-      display: block;
-      padding: 10px 0;
-      font-size: 20px;
-      text-align: center;
-      float: left;
-      margin-top: -8px;
-      margin-right: 10px;
-    }
-
-    .body pre {
-      margin-left: 14px;
-      margin-right: 15px;
-      text-align: left;
-    }
-
     #vm_howto_content > .row {
       margin-bottom: 20px;
     }
@@ -180,15 +81,16 @@
     </div>
   </section>
 
-  <section class="content">
+  <section class="general content">
     <div class="container">
-      <div class="about">
-        <h4 style="font-size: 24px;">{{ text.about_msg()}}</h4>
-      </div>
+      
       <div class="tab-content">
-        <div class="tab-pane fade {% if exp not in ['CMS', 'ALICE'] %} in active {% endif %}" id="general">
+        <div class="tab-pane fade {% if exp not in exp_names %} in active {% endif %}" id="general">
+          <div class="gen-header">
+            <h1>{{ text.about_msg()}}</h1>
+          </div>
           <div class="row">
-          {% for e in exp_names %}
+            {% for e in exp_names %}
             <div class="col-md-6">
               <a href="{{ url_for((request.path|splitthem)[1]+'/'+e) }}">
                 <div class="coll-exp">
@@ -199,52 +101,56 @@
                 </div>
               </a>
             </div>
-          {% endfor %}
+            {% endfor %}
           </div>
         </div>
-        <div class="tab-pane fade{% if exp == 'CMS' %} in active {% endif %}" id="CMS">
-          <div class="about">
-            <h4>{{ text.about_cms_msg(url_for('getting-started/CMS'))}}</h4>
-          </div>
+        <div class="tab-pane fade {% if exp == 'CMS' %} in active {% endif %}" id="CMS">
           <div class="row">
-            <nav id="vm_howto_nav" class="navbar col-md-12" role="navigation">
-              <ul class="nav navbar-nav col-md-12">
-                <li><a href="#install"><span class="circleme">1</span> How to install a CERN VM</a></li>
-                <li><a href="#limitation"><span class="circleme">2</span>Issues & Limitations</a></li>
-              </ul>
-            </nav>
-          </div>
-          <div id="vm_howto_content" data-spy="scroll" data-target="#vm_howto_nav" data-offset="300">
-            <div id="install" class="row">
-              <div class="title info_title col-md-12"><h5>How to install a CERN Virtual Machine</h5></div>
-              <div id="vbox" class="howto_step col-md-12">
-                {{ text.install_s1() }}
-              </div>
-              <div id="create" class="howto_step col-md-12">
-                {{ text.install_s2(url_for('.metadata', recid = 250)) }}
-              </div>
+            <div class="about">
+              <h1>{{ text.about_cms_msg(url_for('getting-started/CMS'))}}</h1>
             </div>
-            <div id="validate" class="row">
-              <div class="title info_title col-md-12"><h5>How to Test & Validate?</h5></div>
-              <div class="howto_step col-md-12">
+            <div class="col-md-12">
+              <ol class="gen-menu">
+                <li>
+                  <a href="#how">1. How to install a CERN VM</a>
+                </li>
+                <li>
+                  <a href="#issues">2. Issues & Limitations</a>
+                </li>
+              </ol>
+            </div>
+            <h1 class="col-sm-12">How to install a CERN Virtual Machine</h1>
+            <div class="col-sm-12">
+              <div class="gen-box">{{ text.install_s1() }}</div>
+            </div>
+            <div class="col-sm-12">
+              <div class="gen-box">{{ text.install_s2(url_for('.metadata', recid = 250)) }}</div>
+            </div>
+
+            <h1 class="col-sm-12">How to Test & Validate?</h1>
+            <div class="col-sm-12">
+              <div class="gen-box">
                 {{ text.validate_s1() }}
               </div>
             </div>
-            <div id="limitation" class="row">
-              <div class="title info_title col-md-12"><h5>Known Issues & Limitations</h5></div>
-              <div class="howto_step col-md-12">
+
+            <h1 class="col-sm-12">Known Issues & Limitations</h1>
+            <div class="col-sm-12">
+              <div class="gen-box">
                 {{ text.validate_s2(url_for('VM/CMS/validation/report')) }}
               </div>
-              <div class="howto_step col-md-12">
+            </div>
+            <div class="col-sm-12">
+              <div class="gen-box">
                 {{ text.limitation_s1() }}
               </div>
             </div>
           </div>
         </div>
-        <div class="tab-pane fade{% if exp == 'ALICE' %} in active {% endif %}" id="ALICE">
+        <div class="tab-pane fade {% if exp == 'ALICE' %} in active {% endif %}" id="ALICE">
           {% include 'helpers/text/vms_alice_page.html' %}
         </div>
-        <div class="tab-pane fade{% if exp == 'LHCb' %} in active {% endif %}" id="LHCb">
+        <div class="tab-pane fade {% if exp == 'LHCb' %} in active {% endif %}" id="LHCb">
           {% include 'helpers/text/vms_lhcb_page.html' %}
         </div>
       </div>

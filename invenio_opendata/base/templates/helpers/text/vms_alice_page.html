@@ -1,34 +1,31 @@
-<div class="about">
-  <h4>
-    <div class="title">ALICE Virtual Machines: How to install</div>
-  </h4>
-</div>
 <div class="row">
-  <nav id="vm_howto_nav" class="navbar col-md-12" role="navigation">
-    <ul class="nav navbar-nav col-md-12">
-      <li><a href="#vbox"><span class="circleme">1</span> How to install VirtualBox</a></li>
-      <li><a href="#create"><span class="circleme">2</span>Create a VM</a></li>
-      <li><a href="#configure"><span class="circleme">3</span>Configure a VM</a></li>
-    </ul>
-  </nav>
-</div>
-<div class="row" data-spy="scroll" data-target="#vm_howto_nav">
-  <div id="vbox" class="howto_step col-md-12">
-    <div class="heading">Step 1: Installing VirtualBox</div>
-    <div class="body">
+  <div class="about">
+    <h1 class="col-sm-12">ALICE Virtual Machines: How to install</h1>
+  </div>
+  <div class="col-sm-12">
+    <ol class="gen-menu">
+      <li><a href="#vbox">1. How to install VirtualBox</a></li>
+      <li><a href="#create">2. Create a VM</a></li>
+      <li><a href="#configure">3. Configure a VM</a></li>
+    </ol>
+  </div>
+  
+  
+  <div class="col-sm-12">
+    <div class="gen-box">
+      <h2  id="vbox">Step 1: Installing VirtualBox</h2>
       <p>VirtualBox is a free, open source and multiplatform application to run virtual machines: you can <a href="#">download</a> the package for your platform from the Downloads page.</p>
       <p>You will need administrative privileges ("root" privileges) on every platform to perform the installation of VirtualBox.</p>
       <p>Note: the latest tested version of VirtualBox working with CernVM is 4.3.14. If you have troubles with the latest verion of VirtualBox, pick that one: the full history of VirtualBox versions is available <a href="#">on a different page.</a></p>
     </div>
   </div>
-  <div id="create" class="howto_step col-md-12">
-    <div class="heading">Step 2: Creating a Virtual Machine</div>
-    <div class="body">
+
+  <div class="col-sm-12">
+    <div class="gen-box">
+      <h2 id="create">Step 2: Creating a Virtual Machine</h2>
       <div class="row">
         <p class="col-md-8">Go on the <a href="#">CernVM downloads page</a> and download the appropriate version: you must pick the OVA x86_64 for VirtualBox.</p>
         <div class="col-md-4"><img src="{{url_for('static', filename='img/alice/1.png')}}" width="100%;"></div>
-      </div>
-      <div class="row">
         <p class="col-md-12">Now open VirtualBox. Select <b>Import Appliance</b>... from the <b>File</b> menu.</p>
         <div class="col-md-12">
           <img src="{{url_for('static', filename='img/alice/2.png')}}" alt="">
@@ -37,8 +34,6 @@
           From the import dialog, select the OVA file you have just downloaded.
         </p>
         <div class="col-md-12"><img src="{{ url_for('static', filename='img/alice/3.png')}}" alt=""></div>
-      </div>
-      <div class="row">
         <p class="col-md-12">
           In the Appliance settings dialog, change the following values:<br/><br/>
           * change the name to whatever you want in order to recognize your VM in the future</br>
@@ -49,8 +44,6 @@
         <div class="col-md-12">
           <img src="{{ url_for('static', filename='img/alice/4.png')}}" alt="">
         </div>
-      </div>
-      <div class="row">
         <p class="col-md-12">Click <b>Import</b>. You will have now the CernVM virtual machine available in the list of virtual machines. Select it, then press the <b>Start</b> button to boot it</p>
         <div class="col-md-12">
           <img src="{{url_for('static', filename='img/alice/5.png')}}" alt="">
@@ -61,9 +54,10 @@
       </div>
     </div>
   </div>
-  <div id="configure" class="howto_step col-md-12">
-    <div class="heading">Step 3: Configuring a Virtual Machine</div>
-    <div class="body">
+
+  <div class="col-sm-12">
+    <div class="gen-box">
+      <h2 id="configure">Step 3: Configuring a Virtual Machine</h2>
       <p>When the virtual machine is started, it is a generic virtual machine, not configured to any specific purpose. It does not even have users, thus you still cannot log in: you have to specialize it by applying a configuration.</p>
 
       <p>This process is called contextualization, and can be performed entirely using a web browser: just start by navigating to the CernVM Online web site.</p>
