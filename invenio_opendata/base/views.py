@@ -129,7 +129,7 @@ def research(exp):
     except TemplateNotFound:
         return abort(404)
 
-@blueprint.route('visualise/events')
+@blueprint.route('visualise/events/CMS')
 @register_breadcrumb(blueprint, '.visualise_events', 'Visualise Events', \
                         dynamic_list_constructor = (lambda :\
                         [{"url":".educate","text":"For Education"},\
@@ -142,7 +142,7 @@ def visualise_events():
         return abort(404)
 
 
-@blueprint.route('visualise/histograms')
+@blueprint.route('visualise/histograms/CMS')
 @register_breadcrumb(blueprint, '.visualise_histo', 'Visualise Histograms', \
                         dynamic_list_constructor = (lambda :\
                         [{"url":".educate","text":"For Education"},\
