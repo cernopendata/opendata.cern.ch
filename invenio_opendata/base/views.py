@@ -391,10 +391,23 @@ def collection(name):
 @blueprint.route('record/<int:recid>/metadata', methods=['GET', 'POST'])
 @blueprint.route('record/<int:recid>/', methods=['GET', 'POST'])
 @blueprint.route('record/<int:recid>', methods=['GET', 'POST'])
+@blueprint.route('record/<int:recid>/export', methods=['GET', 'POST'])
 @blueprint.route('record/<int:recid>/export/<of>', methods=['GET', 'POST'])
+@blueprint.route('record/<int:recid>/usage', methods=['GET', 'POST'])
+@blueprint.route('record/<int:recid>/references', methods=['GET', 'POST'])
+@blueprint.route('record/<int:recid>/keywords', methods=['GET', 'POST'])
+@blueprint.route('record/<int:recid>/citations', methods=['GET', 'POST'])
 @wash_arguments({'of': (unicode, 'hd')})
 @request_record
 def metadata(recid, of='hd'):
+    from invenio.legacy.bibrank.downloads_similarity import register_page_view_event
+    from invenio.modules.formatter import get_output_format_content_type
+    register_page_view_event(recid, current_user.get_id(), str(request.remote_addr))
+    if get_output_format_content_type(of) != 'text/html':
+        from invenio.modules.search.views.search import response_formated_records
+        return response_formated_records([recid], g.collection, of, qid=None)
+
+
     # Send the signal 'document viewed'
     record_viewed.send(
         current_app._get_current_object(),

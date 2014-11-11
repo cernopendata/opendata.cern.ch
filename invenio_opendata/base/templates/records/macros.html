@@ -81,6 +81,14 @@
 	</ul>
 {% endmacro %}
 
+{% macro record_export(name, record, exclude=[]) %}
+<a href="{{url_for('.metadata', recid=record.recid , of='xm')}}">
+	<div class="rec_thumb rec_export" style="float:right;margin-right:0;">
+		<div class="a" style="border-radius:2px; margin-top:10px;">Export MarcXML</div>
+	</div>
+</a>
+{% endmacro %}
+
 {% macro create_export_modal(name, record, exclude=[]) %}
 	<style>.modal .modal-body .tab-pane{padding-top: 15px;}.modal{color:#666;}</style>
 	<div class="rec_thumb rec_export" style="float:right;margin-right:0;">
