@@ -35,6 +35,7 @@ mkdir -p $OUTDIR/alice-eos-file-indexes
 mkdir -p $OUTDIR/cms-docdb-files
 mkdir -p $OUTDIR/cernvm-files
 mkdir -p $OUTDIR/github-files
+mkdir -p $OUTDIR/cms-hamburg-files
 
 # firstly, mirror EOS files existing in the repository:
 rsync -a invenio_opendata/testsuite/data/cms/eos-file-indexes/ $OUTDIR/cms-eos-file-indexes/
@@ -284,6 +285,10 @@ $WGET -O $OUTDIR/cms-docdb-files/masterclass-2014.xls "$DOCDB?docid=12154&amp;fi
 $WGET -O $OUTDIR/cernvm-files/CMS-OpenData-1.0.0-rc4.ova "http://cernvm.cern.ch/releases/CMS-OpenData-1.0.0-rc4.ova"
 $WGET -O $OUTDIR/cernvm-files/CMS-OpenData-1.0.0-rc6.ova "http://cernvm.cern.ch/releases/CMS-OpenData-1.0.0-rc6.ova"
 $WGET -O $OUTDIR/github-files/Cert_136033-149442_7TeV_Apr21ReReco_Collisions10_JSON_v2.txt "https://raw.githubusercontent.com/ayrodrig/pattuples2010/master/Cert_136033-149442_7TeV_Apr21ReReco_Collisions10_JSON_v2.txt"
+
+# CMS Hamburg files:
+$WGET -O $OUTDIR/cms-hamburg-files/HEPTutorial_0.tar http://ippog.web.cern.ch/sites/ippog.web.cern.ch/files/HEPTutorial_0.tar
+(cd $OUTDIR/cms-hamburg-files && tar xf HEPTutorial_0.tar HEPTutorial/files/)
 
 # finally, make symlink to FFT cache from tmp:
 if [ ! -L "/tmp/$(basename $OUTDIR)" ]; then
