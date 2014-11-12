@@ -21,8 +21,8 @@
         {% if record['_first_corporate_name'] %}
           <kbd>{{ record['_first_corporate_name']['name'] }}</kbd>
         {% endif %}
-        {% for auth in record['authors'] %}
-          <a href="{{url_for('search', p='author:'+auth['last_name']+', '+auth['first_name'])}}">{{ auth['full_name'] }}</a>
+        {% for author in record['authors'] %}
+          <a href="{{ url_for('search', p='author:"' + author.get('full_name', '')|urlencode + '"') }}">{{ author.get('full_name', '') }}</a>
         {% endfor %}
       </div>
     </div>
@@ -82,7 +82,7 @@
           <div class="rec_thumb rec_parentcol">
             <div class="n"><div class="t">Dataset</div>{{ record.get('supplement_parent_entry','').get('heading', '') }}</div>
           </div>
-        </a> 
+        </a>
         {% endif %}
       {% endif %}
     </div>
