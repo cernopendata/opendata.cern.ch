@@ -1,231 +1,236 @@
 
 {% extends "page.html" %}
-
+{% bundles "previewer_ispy.js", "previewer_ispy.css" %}
 {% block body %}
 {% import 'helpers/general.html' as gen_utils %}
-{% bundles "previewer_ispy.js", "previewer_ispy.css" %}
 
-<!-- For some reason I don't get the information from the bundled css above so explicitly include here: -->
-<link href="{{url_for('base.static', filename='vendors/ispy-online/css/scrollbar.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{url_for('base.static', filename='vendors/ispy-online/css/eventdisplay.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{url_for('base.static', filename='vendors/ispy-online/css/settings.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{url_for('base.static', filename='vendors/ispy-online/css/range-selection.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{url_for('base.static', filename='vendors/ispy-online/css/event-browser.css')}}" rel="stylesheet" type="text/css" />
+<style>
+#vis-events {
+  color: #606D75;
+  margin-bottom: 40px;
+}
+#vis-events .pg-header h3 {
+  margin-bottom: 25px;
+  margin-top: 35px;
+}
+#vis-events .pg-header {
+  color: #606D75;
+  text-align: center;
+  font-weight: 100;
+  font-size: 20px;
+}
 
-  <style>
-    #vis-events {
-      color: #606D75;
-      margin-bottom: 40px;
-    }
-    #vis-events .pg-header h3 {
-      margin-bottom: 25px;
-      margin-top: 35px;
-    }
-    #vis-events .pg-header {
-      color: #606D75;
-      text-align: center;
-      font-weight: 100;
-      font-size: 20px;
-    }
+#ispy-previewer {
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  margin-bottom: 70px;
+  color: #606D75;
+  margin-bottom: 20px;
+}
+#vis-events .nav {
+  float: right;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+#vis-events .nav li {
+  background-color: inherit;
+}
+#vis-events .nav li a,
+#vis-events .nav li a:hover,
+#vis-events .nav li a:focus {
+  background-color: inherit;
+  color: inherit;
+}
 
-    #ispy-previewer {
-      background-color: #f4f4f4;
-      border-radius: 4px;
-      margin-bottom: 70px;
-      color: #606D75;
-      margin-bottom: 20px;
-    }
-    #vis-events .nav {
-      float: right;
-      margin-bottom: 15px;
-      display: inline-block;
-    }
-    #vis-events .nav li {
-      background-color: inherit;
-    }
-    #vis-events .nav li a,
-    #vis-events .nav li a:hover,
-    #vis-events .nav li a:focus {
-      background-color: inherit;
-      color: inherit;
-    }
+#vis-events .nav li.active{
+  display: none;
+}
 
-    #vis-events .nav li.active{
-      display: none;
-    }
+#vis-events #howto > div{
+  background-color: #f4f4f4;
+  border-radius: 4px;
+}
+#display-table {
+  width: 100%;
+}
 
-    #vis-events #howto > div{
-      background-color: #f4f4f4;
-      border-radius: 4px;
-    }
-    #display-table {
-      width: 100%;
-    }
+#title-bar {
+  height: 20px;
+}
 
-    #title-bar {
-      height: 20px;
-    }
+#tool-bar {
+  height: 27px;
+  background-color: black;
+}
 
-    #tool-bar {
-      height: 27px;
-      background-color: black;
-    }
+#selectors {
+  height: 600px;
+  background-color: black;
+}
 
-    #selectors {
-      height: 600px;
-      background-color: black;
-    }
-    
-    #display {
-      height: 600px;
-      background-color: black;
-    }
-    .sw {
-      color: white;
-    }
-    .group {
-      color: white;
-    }
-    #title { 
-      color: white;
-    }
-    .help-detsystem > i {
-      color: red;
-    }
-  </style>
+#display {
+  height: 600px;
+  background-color: black;
+}
+.sw {
+  color: white;
+}
+.group {
+  color: white;
+}
+#title { 
+  color: white;
+}
+.help-detsystem > i {
+  color: red;
+}
 
-  <section class="infobar">
-    <div class="container">
-      {{gen_utils.get_breadcrumbs(breadcrumbs)}}
-    </div>
-  </section>
+@media ( max-width: 992px ) {
+  #vis-events .container {
+    width: 100%;
+  }
 
-  <section id="vis-events" class="content">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1 pg-header">
-          <h3>Explore CMS open data and visualise detector events</h3>
-        </div>
-        <div class="col-md-12">
-          <ul class="nav" role="tablist">
-            <li class="active"><a href="#ispy" role="tab" data-toggle="tab"><span class="fa fa-long-arrow-left"></span>back to previewer</a></li>
-            <li><a href="#howto" role="tab" data-toggle="tab">Need HELP?</a></li>
-          </ul>
-        </div>
-        <div class="previewer col-md-12">
-	  <div class="col-md-10 col-md-offset-1"></div>
-	  <div class="tab-content">
-	    <div class="tab-pane fade in active" id="ispy">
-	      <div id="ispy-previewer" class="col-md-12">
+  #vis-events .pg-header {
+    display: none;
+  }
+  #canvas {
+    width: 100%;
+    height: auto;
+  }
+}
+</style>
 
-		<div class="row">
-                  <div id="title-bar" class="titlebar-plain bordered col-mid-12">
-		    <div id="title"></div>
-		  </div>
+<section class="infobar">
+  <div class="container">
+    {{gen_utils.get_breadcrumbs(breadcrumbs)}}
+  </div>
+</section>
+
+<section id="vis-events" class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 pg-header">
+        <h3>Explore CMS open data and visualise detector events</h3>
+      </div>
+      <div class="col-md-12">
+        <ul class="nav" role="tablist">
+          <li class="active"><a href="#ispy" role="tab" data-toggle="tab"><span class="fa fa-long-arrow-left"></span>back to previewer</a></li>
+          <li><a href="#howto" role="tab" data-toggle="tab">Need HELP?</a></li>
+        </ul>
+      </div>
+      <div class="previewer col-xs-12">
+        <div class="col-xs-10 col-xs-offset-1"></div>
+        <div class="tab-content">
+          <div class="tab-pane fade in active" id="ispy">
+            <div id="ispy-previewer" class="col-xs-12">
+              <div class="row">
+                <div id="title-bar" class="titlebar-plain bordered col-xs-12">
+                  <div id="title"></div>
                 </div>
-
-                <div class="row">
-		  <div id="tool-bar" class="bordered col-mid-12">
-		     <table id="toolbar">
-			<tr>
-			  <td>
-			    <a class="toolbar-button" onclick="showEventLoader();">
-			      <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/open.png')}}" title="Open File"/>
-			    </a>
-			  </td>
-			  <td>
-			    <a class="toolbar-button disabled" id="prev-event-button" onclick="prevEvent();">
-			      <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/prev-event.png')}}" title="Previous Event"/>
-			    </a>
-			  </td>
-			  <td>
-			    <a class="toolbar-button disabled" id="next-event-button" onclick="nextEvent();">
-			      <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/next-event.png')}}" title="Next Event"/>
-			    </a>
-			  </td>
-			  <td>
-			    <a class="toolbar-button" onclick="setCameraHome();">
-			      <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/home.png')}}" title="Return to Start View"/>
-			    </a>
-			  </td>
-			  <td>
-			    <a class="toolbar-button" onclick="zoom(1);">
-			      <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/zoom_in_24.png')}}" title="Zoom In"/>
-			    </a>
-			  </td>
-			  <td>
-			    <a class="toolbar-button" onclick="zoom(-1);">
-			      <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/zoom_out_24.png')}}" title="Zoom Out"/>
-			    </a>
-			  </td>
-			  <td>
-			    <a class="toolbar-button" onclick="setCameraRotation(0, 0, 0);">
-			      <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/z-plane.png')}}" title="X-Y Plane"/>
-			    </a>
-			  </td>
-			  <td>
-			    <a class="toolbar-button" onclick="setCameraRotation(0, Math.PI / 2, Math.PI / 2);">
-			      <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/y-plane.png')}}" title="Z-X Plane"/>
-			    </a>
-			  </td>
-			  <td>
-			    <a class="toolbar-button" onclick="setCameraRotation(0, Math.PI / 2, 0);">
-			      <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/x-plane.png')}}" title="Y-Z Plane"/>
-			    </a>
-			  </td>
-			  <td>
-			    <a class="toolbar-button" id="perspective-view" onclick="setPerspectiveProjection(true);">
-			      <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/perspective-projection.png')}}" title="Perspective View"/>
-			    </a>
-			  </td>
-			  <td>
-			    <a class="toolbar-button" id="orthographic-view" onclick="setPerspectiveProjection(false);">
-			      <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/orthographic-projection.png')}}" title="Orthographic View"/>
-			    </a>
-			  </td>
-			   <td>
-			     <a class="toolbar-button" onclick="showSettings();">
-			       <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/settings.png')}}" title="Settings"/>
-			     </a>
-			   </td>
-			  <td>
-			    <a class="toolbar-button" onclick="openAboutWindow();">
-			      <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/help2.png')}}" title="About"/>
-			    </a>
-			  </td>
-			</tr>
-		      </table>
-		  </div>
+              </div>
+              <div class="row">
+                <div id="tool-bar" class="bordered col-xs-12">
+                  <table id="toolbar">
+                    <tr>
+                      <td>
+                        <a class="toolbar-button" onclick="showEventLoader();">
+                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/open.png')}}" title="Open File"/>
+                        </a>
+                      </td>
+                      <td>
+                        <a class="toolbar-button disabled" id="prev-event-button" onclick="prevEvent();">
+                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/prev-event.png')}}" title="Previous Event"/>
+                        </a>
+                      </td>
+                      <td>
+                        <a class="toolbar-button disabled" id="next-event-button" onclick="nextEvent();">
+                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/next-event.png')}}" title="Next Event"/>
+                        </a>
+                      </td>
+                      <td>
+                        <a class="toolbar-button" onclick="setCameraHome();">
+                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/home.png')}}" title="Return to Start View"/>
+                        </a>
+                      </td>
+                      <td>
+                        <a class="toolbar-button" onclick="zoom(1);">
+                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/zoom_in_24.png')}}" title="Zoom In"/>
+                        </a>
+                      </td>
+                      <td>
+                        <a class="toolbar-button" onclick="zoom(-1);">
+                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/zoom_out_24.png')}}" title="Zoom Out"/>
+                        </a>
+                      </td>
+                      <td>
+                        <a class="toolbar-button" onclick="setCameraRotation(0, 0, 0);">
+                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/z-plane.png')}}" title="X-Y Plane"/>
+                        </a>
+                      </td>
+                      <td>
+                        <a class="toolbar-button" onclick="setCameraRotation(0, Math.PI / 2, Math.PI / 2);">
+                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/y-plane.png')}}" title="Z-X Plane"/>
+                        </a>
+                      </td>
+                      <td>
+                        <a class="toolbar-button" onclick="setCameraRotation(0, Math.PI / 2, 0);">
+                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/x-plane.png')}}" title="Y-Z Plane"/>
+                        </a>
+                      </td>
+                      <td>
+                        <a class="toolbar-button" id="perspective-view" onclick="setPerspectiveProjection(true);">
+                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/perspective-projection.png')}}" title="Perspective View"/>
+                        </a>
+                      </td>
+                      <td>
+                        <a class="toolbar-button" id="orthographic-view" onclick="setPerspectiveProjection(false);">
+                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/orthographic-projection.png')}}" title="Orthographic View"/>
+                        </a>
+                      </td>
+                      <td>
+                        <a class="toolbar-button" onclick="showSettings();">
+                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/settings.png')}}" title="Settings"/>
+                        </a>
+                      </td>
+                      <td>
+                        <a class="toolbar-button" onclick="openAboutWindow();">
+                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/help2.png')}}" title="About"/>
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
                 </div>
-                <div class="row">
-		  <div id="selectors" class="bordered col-md-3">
-		   <div id="switches-div" style="overflow: auto; height: 600px;" class="flexcroll">                                                                                              
-                     <table id="switches"></table>
-                   </div>   
-		  </div>
-                  <div id="display" class="bordered col-md-9">
-		    <canvas id="canvas" width="825" height="600">                                                                                                                                 
-                      Sorry, this requires a web browser which supports HTML5 canvas.                                                                                                             
-                    </canvas>            
-		  </div>
+              </div>
+              <div class="row">
+                <div id="selectors" class="bordered col-xs-3">
+                  <div id="switches-div" style="overflow: auto; height: 600px;" class="flexcroll"> 
+                    <table id="switches"></table>
+                  </div>   
                 </div>
-	      </div>
-	      <p>Use the Mouse to rotate.</p>
-	      <p>Ctrl+Mouse or Ctrl + <span>&#9650</span> <span>&#9660</span> <span>&#9664</span> <span>&#9654</span> to pan x/y.</p>
-	      <p>Shift+Mouse or Shift + <span>&#9650</span> <span>&#9660</span> to zoom.</p>
+                <div id="display" class="bordered col-xs-9">
+                  <canvas id="canvas" width="825" height="600">
+                    Sorry, this requires a web browser which supports HTML5 canvas.
+                  </canvas>            
+                </div>
+              </div>
+            </div>
+            <p>Use the Mouse to rotate.</p>
+            <p>Ctrl+Mouse or Ctrl + <span>&#9650</span> <span>&#9660</span> <span>&#9664</span> <span>&#9654</span> to pan x/y.</p>
+            <p>Shift+Mouse or Shift + <span>&#9650</span> <span>&#9660</span> to zoom.</p>
 
-              <p><h4>
+            <p><h4>
               In case of problems, try another instance of this tool (outside the portal) in the full-window by clicking here: <a href="http://cern.ch/opendata-ispy">
               http://cern.ch/opendata-ispy</a>
-              </h4></p>
-	    </div>		  
-	    <div class="tab-pane fade" id="howto">
-	      {% include "visualise_events_help.html" %}
-	    </div>
-	  </div>
+            </h4></p>
+          </div>		  
+          <div class="tab-pane fade" id="howto">
+            {% include "visualise_events_help.html" %}
+          </div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 {% include "visualise_events_popups.html" %}
 
@@ -245,38 +250,38 @@
      It's likely that this code should/could be encapsulated in 
      the bower version in such a way that both use-cases can be
      handled. For now though, let's have the js that we need here.
-  */
+     */
 
   // For now, populate the files in the event loader by-hand
   var mc_files = [
-    "/record/300/files/4lepton.ig",
-    "/record/300/files/diphoton.ig",
-    "/record/301/files/dimuon-Jpsi_0.ig",
-    "/record/302/files/dielectron-Jpsi_0.ig",
-    "/record/303/files/dimuon_0.ig",
-    "/record/304/files/dielectron_0.ig",
-    "/record/305/files/dielectron-Upsilon_0.ig",
-    "/record/306/files/Zee_0.ig",
-    "/record/307/files/Zmumu_0.ig",
-    "/record/308/files/Wenu_0.ig",
-    "/record/309/files/Wmunu_0.ig"
+  "/record/300/files/4lepton.ig",
+  "/record/300/files/diphoton.ig",
+  "/record/301/files/dimuon-Jpsi_0.ig",
+  "/record/302/files/dielectron-Jpsi_0.ig",
+  "/record/303/files/dimuon_0.ig",
+  "/record/304/files/dielectron_0.ig",
+  "/record/305/files/dielectron-Upsilon_0.ig",
+  "/record/306/files/Zee_0.ig",
+  "/record/307/files/Zmumu_0.ig",
+  "/record/308/files/Wenu_0.ig",
+  "/record/309/files/Wmunu_0.ig"
   ];
 
   var pd_files = [
-    "/record/600/files/BTau.ig",
-    "/record/601/files/EGMonitor.ig",
-    "/record/602/files/Electron.ig",
-    "/record/603/files/Jet.ig",
-    "/record/604/files/JetMETTauMonitor.ig",
-    "/record/605/files/METFwd.ig",
-    "/record/606/files/Mu.ig",
-    "/record/607/files/MuMonitor.ig",
-    "/record/608/files/MuOnia.ig",
-    "/record/609/files/MultiJet.ig",
-    "/record/610/files/Photon.ig",
-    "/record/611/files/Commissioning.ig",
-    "/record/612/files/MinimumBias.ig",
-    "/record/613/files/ZeroBias.ig"
+  "/record/600/files/BTau.ig",
+  "/record/601/files/EGMonitor.ig",
+  "/record/602/files/Electron.ig",
+  "/record/603/files/Jet.ig",
+  "/record/604/files/JetMETTauMonitor.ig",
+  "/record/605/files/METFwd.ig",
+  "/record/606/files/Mu.ig",
+  "/record/607/files/MuMonitor.ig",
+  "/record/608/files/MuOnia.ig",
+  "/record/609/files/MultiJet.ig",
+  "/record/610/files/Photon.ig",
+  "/record/611/files/Commissioning.ig",
+  "/record/612/files/MinimumBias.ig",
+  "/record/613/files/ZeroBias.ig"
   ];
 
   var file_list = pd_files.concat(mc_files);
@@ -289,15 +294,15 @@
   $(".dialog-window").hide();
 
   function showEventLoader() {
-     centerElement("event-browser");
-     $("#event-browser").show();
-     updateFileList(file_list, "");
-  }
+   centerElement("event-browser");
+   $("#event-browser").show();
+   updateFileList(file_list, "");
+ }
 
-  function closeEventBrowser() {
-     $("#event-browser").hide();
-     $("#selected-event").html("");
-  } 
+ function closeEventBrowser() {
+   $("#event-browser").hide();
+   $("#selected-event").html("");
+ } 
 
   /*
     Hmm. This works in the previewer but not here. 
@@ -320,174 +325,174 @@
   */
 
   function selectFile(filename) {
-     selectedFileName = filename.split("/")[4];
+   selectedFileName = filename.split("/")[4];
 
-     var xhr = new XMLHttpRequest();
-     xhr.open("GET", filename, true);
-     xhr.overrideMimeType("text/plain; charset=x-user-defined"); 
+   var xhr = new XMLHttpRequest();
+   xhr.open("GET", filename, true);
+   xhr.overrideMimeType("text/plain; charset=x-user-defined"); 
 
-     xhr.onload = function() {
-       if (this.status == 200) {
-   
-         require(["vendors/jszip/dist/jszip.min"], function(JSZip) {
-           var zip = JSZip(xhr.responseText);
-           var eventlist = [];
+   xhr.onload = function() {
+     if (this.status == 200) {
 
-           $.each(zip.files, function(index, zipEntry){
-              if ( zipEntry._data !== null && zipEntry.name !== "Header" ) {
-                  eventlist.push(zipEntry.name);
-              }
-           });
+       require(["vendors/jszip/dist/jszip.min"], function(JSZip) {
+         var zip = JSZip(xhr.responseText);
+         var eventlist = [];
 
-           currentEventList = eventlist;
-           updateEventsList(currentEventList);
-           igdata = zip;
-         });
-       }
-     };
+         $.each(zip.files, function(index, zipEntry){
+          if ( zipEntry._data !== null && zipEntry.name !== "Header" ) {
+            eventlist.push(zipEntry.name);
+          }
+        });
 
-    xhr.send();
+         currentEventList = eventlist;
+         updateEventsList(currentEventList);
+         igdata = zip;
+       });
+     }
+   };
+
+   xhr.send();
+ }
+
+ function updateFileList(list, dir) {
+   var tbl = document.getElementById("browser-files");
+
+   for (var i = 0; i < list.length; i++) {
+     var e = list[i];  
+     var name = e.split("/")[4]; 			 
+
+     var row = tbl.insertRow(tbl.rows.length);
+     var cell = row.insertCell(0);
+     var cls = e.type == 1 ? "dir" : "file";
+     cell.innerHTML = '<a id="browser-file-' + i + '" class="' + cls + '" onclick="selectFile(\'' + e + '\');">' + name + '</a>';
+   }
+   fleXenv.fleXcrollMain("browser-files-div");
+ }
+
+ function clearList(id) {
+  var tbl = document.getElementById(id);
+  while (tbl.rows.length > 0) {
+    tbl.deleteRow(0);
+  }
+}
+
+function updateEventsList(list) {
+ clearList("browser-events");
+ var tbl = document.getElementById("browser-events");
+
+ for (var i = 0; i < list.length; i++) {
+   var e = list[i];
+   var row = tbl.insertRow(tbl.rows.length);
+   var cell = row.insertCell(0);
+   cell.innerHTML = '<a id="browser-event-' + i + '" class="event" onclick="selectEvent(\'' + i + '\');">' + e + '</a>';
+ }
+ fleXenv.fleXcrollMain("browser-events-div");
+}
+
+function selectEvent(index) {
+  if (selectedEventIndex) {
+    $("#browser-event-" + selectedEventIndex).removeClass("selected");
   }
 
-  function updateFileList(list, dir) {
-     var tbl = document.getElementById("browser-files");
-  
-     for (var i = 0; i < list.length; i++) {
-       var e = list[i];  
-       var name = e.split("/")[4]; 			 
-			
-       var row = tbl.insertRow(tbl.rows.length);
-       var cell = row.insertCell(0);
-       var cls = e.type == 1 ? "dir" : "file";
-       cell.innerHTML = '<a id="browser-file-' + i + '" class="' + cls + '" onclick="selectFile(\'' + e + '\');">' + name + '</a>';
-     }
-     fleXenv.fleXcrollMain("browser-files-div");
+  $("#browser-event-" + index).addClass("selected");
+
+  selectedEventIndex = parseInt(index);
+  var event = currentEventList[selectedEventIndex];
+
+  $("#selected-event").html(selectedFileName + ":" + event);
+  $("#browser-load").removeClass("disabled");
+}
+
+function enableNextPrev() {
+  if (selectedEventIndex > 0) {
+    $("#prev-event-button").removeClass("disabled");
+  } else {
+    $("#prev-event-button").addClass("disabled");
   }
 
-  function clearList(id) {
-    var tbl = document.getElementById(id);
-    while (tbl.rows.length > 0) {
-      tbl.deleteRow(0);
-    }
+  if (currentEventList && currentEventList.length - 1 > selectedEventIndex) {
+    $("#next-event-button").removeClass("disabled");
+  } else {
+   $("#next-event-button").addClass("disabled");
+ }
+}
+
+function nextEvent() {
+  if (currentEventList && currentEventList.length - 1 > selectedEventIndex) {
+    selectedEventIndex++;
+    loadEvent();
+  }
+}
+
+function prevEvent() {
+  if (currentEventList && selectedEventIndex > 0) {
+    selectedEventIndex--;
+    loadEvent();
+  }
+}
+
+function invertBackground() {
+  if ( document.settings.invertColors ) {
+    $("#tool-bar").css("background-color","white");
+    $("#selectors").css("background-color","white");
+    $("#display").css("background-color","white");
+    $(".sw").css("color","black");
+    $(".group").css("color","black");
+    $("#title").css("color","black");
+  } else {
+    $("#tool-bar").css("background-color","black");
+    $("#selectors").css("background-color","black");
+    $("#display").css("background-color","black");
+    $(".sw").css("color","white");
+    $(".group").css("color","white");
+    $("#title").css("color","white");
+  }
+}
+
+function loadEvent() {
+  closeEventBrowser();
+
+  var event = currentEventList[selectedEventIndex];
+
+  $("#title").html("Loading..."+event);
+
+  try{
+    var ed = JSON.parse(cleanupData(igdata.file(event).asText()));
+    enableNextPrev();
+    eventDataLoaded(ed);
+  } catch(e) {
+    alert(e);
   }
 
-  function updateEventsList(list) {
-     clearList("browser-events");
-     var tbl = document.getElementById("browser-events");
+  $("#title").html("/" + selectedFileName + ":" + event);
 
-     for (var i = 0; i < list.length; i++) {
-       var e = list[i];
-       var row = tbl.insertRow(tbl.rows.length);
-       var cell = row.insertCell(0);
-       cell.innerHTML = '<a id="browser-event-' + i + '" class="event" onclick="selectEvent(\'' + i + '\');">' + e + '</a>';
-     }
-     fleXenv.fleXcrollMain("browser-events-div");
-   }
-  
-   function selectEvent(index) {
-      if (selectedEventIndex) {
-        $("#browser-event-" + selectedEventIndex).removeClass("selected");
-      }
+  invertBackground();
+}
 
-      $("#browser-event-" + index).addClass("selected");
+var help_items = [
+"Detector Model",
+"Tracking", 
+"ECAL", 
+"HCAL",
+"Muon",
+"Physics Objects",
+];
 
-      selectedEventIndex = parseInt(index);
-      var event = currentEventList[selectedEventIndex];
+function openHelp(event,id) {
+  var posx = event.clientX + document.body.scrollLeft;
+  var posy = event.clientY + document.body.scrollTop;
 
-      $("#selected-event").html(selectedFileName + ":" + event);
-      $("#browser-load").removeClass("disabled");
-   }
+  $("#" + id).css("right", posx + "px");
+  $("#" + id).css("top", posy + "px");
+  $("#" + id).show();
+}
 
-   function enableNextPrev() {
-      if (selectedEventIndex > 0) {
-        $("#prev-event-button").removeClass("disabled");
-      } else {
-        $("#prev-event-button").addClass("disabled");
-      }
-
-      if (currentEventList && currentEventList.length - 1 > selectedEventIndex) {
-        $("#next-event-button").removeClass("disabled");
-      } else {
-       $("#next-event-button").addClass("disabled");
-      }
-   }
-
-   function nextEvent() {
-      if (currentEventList && currentEventList.length - 1 > selectedEventIndex) {
-        selectedEventIndex++;
-        loadEvent();
-      }
-   }
-
-   function prevEvent() {
-      if (currentEventList && selectedEventIndex > 0) {
-        selectedEventIndex--;
-        loadEvent();
-      }
-   }
-
-   function invertBackground() {
-      if ( document.settings.invertColors ) {
-        $("#tool-bar").css("background-color","white");
-        $("#selectors").css("background-color","white");
-        $("#display").css("background-color","white");
-        $(".sw").css("color","black");
-        $(".group").css("color","black");
-        $("#title").css("color","black");
-      } else {
-        $("#tool-bar").css("background-color","black");
-        $("#selectors").css("background-color","black");
-        $("#display").css("background-color","black");
-        $(".sw").css("color","white");
-        $(".group").css("color","white");
-        $("#title").css("color","white");
-     }
-   }
-
-   function loadEvent() {
-      closeEventBrowser();
-
-      var event = currentEventList[selectedEventIndex];
-
-      $("#title").html("Loading..."+event);
-      
-      try{
-          var ed = JSON.parse(cleanupData(igdata.file(event).asText()));
-          enableNextPrev();
-          eventDataLoaded(ed);
-      } catch(e) {
-          alert(e);
-      }
-
-      $("#title").html("/" + selectedFileName + ":" + event);
-
-      invertBackground();
-   }
-
-   var help_items = [
-      "Detector Model",
-      "Tracking", 
-      "ECAL", 
-      "HCAL",
-      "Muon",
-      "Physics Objects",
-   ];
-
-   function openHelp(event,id) {
-      var posx = event.clientX + document.body.scrollLeft;
-      var posy = event.clientY + document.body.scrollTop;
-
-      $("#" + id).css("right", posx + "px");
-      $("#" + id).css("top", posy + "px");
-      $("#" + id).show();
-   }
-
-   $("#switches").on("DOMNodeInserted", "tr", function(e) {
-      if ($(e.target).attr('class') === 'group') {
-        var help_name = $(this).find("td.group").html();
-        var id = "help-detsystem-" + help_items.indexOf(help_name);
-        $(this).find("td.group").append('<a href="#" onclick="openHelp(event,\''+id+'\');" class="help-detsystem"><i class="fa fa-question"></i></a>');
-      }
-   });
+$("#switches").on("DOMNodeInserted", "tr", function(e) {
+  if ($(e.target).attr('class') === 'group') {
+    var help_name = $(this).find("td.group").html();
+    var id = "help-detsystem-" + help_items.indexOf(help_name);
+    $(this).find("td.group").append('<a href="#" onclick="openHelp(event,\''+id+'\');" class="help-detsystem"><i class="fa fa-question"></i></a>');
+  }
+});
 </script>
 {% endblock %}
