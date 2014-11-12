@@ -82,6 +82,7 @@ opendata.cern.ch overlay.  There are two options:
                                           -f invenio_opendata/testsuite/data/cms/cms-hamburg-files.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-learning-resources.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-open-data-instructions.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-primary-datasets.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-tools-dimuon-filter.xml \
@@ -183,6 +184,7 @@ re-populate your site anew to have your updated records, you can do:
          -f invenio_opendata/testsuite/data/cms/cms-hamburg-files.xml \
          -f invenio_opendata/testsuite/data/cms/cms-learning-resources.xml \
          -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
+         -f invenio_opendata/testsuite/data/cms/cms-open-data-instructions.xml \
          -f invenio_opendata/testsuite/data/cms/cms-primary-datasets.xml \
          -f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
          -f invenio_opendata/testsuite/data/cms/cms-tools-dimuon-filter.xml \
