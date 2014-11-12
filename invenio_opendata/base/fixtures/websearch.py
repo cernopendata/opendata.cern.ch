@@ -173,6 +173,14 @@ class CollectionData(DataSet):
             ('en', 'ln'): u'CMS Open Data Instructions',
         }
 
+    class AuthorLists(siteCollection):
+        id = 22
+        name = 'Author-Lists'
+        dbquery = '980__a:"Author-Lists"'
+        names = {
+            ('en', 'ln'): u'Author Lists',
+        }
+
 
 class CollectionCollectionData(DataSet):
 
@@ -390,6 +398,12 @@ class CollectionCollectionData(DataSet):
         dad = CollectionData.CMS
         son = CollectionData.CMSOpenDataInstructions
         score = 5
+        type = 'r'
+
+    class siteCollection_AuthorLists:
+        dad = CollectionData.siteCollection
+        son = CollectionData.AuthorLists
+        score = 15
         type = 'r'
 
 
@@ -629,6 +643,12 @@ class PortalboxData(DataSet):
         body = u'According to the LHCb External Data Access Policy, reconstructed data will be made openly accessible 5 years after the data is taken. For the data that have already been taken, the 5 years are counted from the date of ratification of the experiment’s policy. Thus, the first release of LHCb data will happen in 2018.'
         id = 40
         title = u'research_description'
+
+    class Portalbox_41:
+        body = u'This collection contains author lists.'
+        id = 41
+        title = u'description'
+
 
 class CollectionPortalboxData(DataSet):
 
@@ -911,6 +931,14 @@ class CollectionPortalboxData(DataSet):
         id_portalbox = PortalboxData.Portalbox_40.ref('id')
         score = 100
         id_collection = CollectionData.LHCb.ref('id')
+
+    class CollectionPortalbox_22_41_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_41.ref('id')
+        score = 100
+        id_collection = CollectionData.AuthorLists.ref('id')
+
 
 class FacetCollectionData(DataSet):
 

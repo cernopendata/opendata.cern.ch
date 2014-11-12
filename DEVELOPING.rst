@@ -75,6 +75,7 @@ opendata.cern.ch overlay.  There are two options:
                                           -f invenio_opendata/testsuite/data/alice/alice-vm-image.xml \
                                           -f invenio_opendata/testsuite/data/atlas/atlas-derived-datasets.xml \
                                           -f invenio_opendata/testsuite/data/atlas/atlas-learning-resources.xml \
+                                          -f invenio_opendata/testsuite/data/cms/cms-author-list.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-csv-files.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana.xml \
                                           -f invenio_opendata/testsuite/data/cms/cms-eventdisplay-files.xml \
@@ -174,6 +175,7 @@ re-populate your site anew to have your updated records, you can do:
          -f invenio_opendata/testsuite/data/alice/alice-vm-image.xml \
          -f invenio_opendata/testsuite/data/atlas/atlas-derived-datasets.xml \
          -f invenio_opendata/testsuite/data/atlas/atlas-learning-resources.xml \
+         -f invenio_opendata/testsuite/data/cms/cms-author-list.xml \
          -f invenio_opendata/testsuite/data/cms/cms-csv-files.xml \
          -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana.xml \
          -f invenio_opendata/testsuite/data/cms/cms-eventdisplay-files.xml \
