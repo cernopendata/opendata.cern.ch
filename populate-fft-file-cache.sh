@@ -286,6 +286,7 @@ mkdir -p $OUTDIR/github-files
 $WGET -O $OUTDIR/github-files/Cert_136033-149442_7TeV_Apr21ReReco_Collisions10_JSON_v2.txt "https://raw.githubusercontent.com/ayrodrig/pattuples2010/master/Cert_136033-149442_7TeV_Apr21ReReco_Collisions10_JSON_v2.txt"
 $WGET -O $OUTDIR/github-files/pattuples2012-1.0.0.tar.gz https://github.com/ayrodrig/pattuples2010/archive/v1.0.0.tar.gz
 $WGET -O $OUTDIR/github-files/OutreachExercise2010-1.0.0.tar.gz https://github.com/ayrodrig/OutreachExercise2010/archive/v1.0.0.tar.gz
+$WGET -O $OUTDIR/github-files/dimuon-filter-1.0.0.tar.gz https://github.com/tpmccauley/dimuon-filter/archive/1.0.0.tar.gz
 
 # fifthly, CMS Hamburg files:
 mkdir -p $OUTDIR/cms-hamburg-files
