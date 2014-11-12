@@ -28,14 +28,8 @@ OUTDIR="$HOME/opendata.cern.ch-fft-file-cache"
 #set -o errexit # because of wget
 set -o nounset
 
-# make sur output directory exists:
+# make sure the output directory exists:
 mkdir -p $OUTDIR
-mkdir -p $OUTDIR/cms-eos-file-indexes
-mkdir -p $OUTDIR/alice-eos-file-indexes
-mkdir -p $OUTDIR/cms-docdb-files
-mkdir -p $OUTDIR/cernvm-files
-mkdir -p $OUTDIR/github-files
-mkdir -p $OUTDIR/cms-hamburg-files
 
 # firstly, mirror EOS files existing in the repository:
 rsync -a invenio_opendata/testsuite/data/cms/eos-file-indexes/ $OUTDIR/cms-eos-file-indexes/
@@ -44,6 +38,7 @@ rsync -a invenio_opendata/testsuite/data/lhcb/eos-file-indexes/ $OUTDIR/lhcb-eos
 rsync -a invenio_opendata/testsuite/data/atlas/eos-file-indexes/ $OUTDIR/atlas-eos-file-indexes/
 
 # secondly, download CMS DocDB files: (if not already existing)
+mkdir -p $OUTDIR/cms-docdb-files
 $WGET -O $OUTDIR/cms-docdb-files/Run2010B_Mu_AOD_Apr21ReReco-v1-dimuon_0.csv "$DOCDB?docid=12450&amp;filename=Run2010B_Mu_AOD_Apr21ReReco-v1-dimuon_0.csv"
 $WGET -O $OUTDIR/cms-docdb-files/Run2010B_Mu_AOD_Apr21ReReco-v1-dimuon.csv "$DOCDB?docid=12450&amp;filename=Run2010B_Mu_AOD_Apr21ReReco-v1-dimuon.csv"
 $WGET -O $OUTDIR/cms-docdb-files/Run2010B_Mu_AOD_Apr21ReReco-v1-dimuon_1.csv "$DOCDB?docid=12450&amp;filename=Run2010B_Mu_AOD_Apr21ReReco-v1-dimuon_1.csv"
@@ -281,14 +276,25 @@ $WGET -O $OUTDIR/cms-docdb-files/masterclass_10.ig "$DOCDB?docid=12154&amp;filen
 $WGET -O $OUTDIR/cms-docdb-files/masterclass_11-leptons.csv "$DOCDB?docid=12154&amp;filename=masterclass_11-leptons.csv"
 $WGET -O $OUTDIR/cms-docdb-files/masterclass-2014.xls "$DOCDB?docid=12154&amp;filename=masterclass-2014.xls"
 
-# thirdly, download more dependent files:
+# thirdly, cernvm files:
+mkdir -p $OUTDIR/cernvm-files
 $WGET -O $OUTDIR/cernvm-files/CMS-OpenData-1.0.0-rc4.ova "http://cernvm.cern.ch/releases/CMS-OpenData-1.0.0-rc4.ova"
 $WGET -O $OUTDIR/cernvm-files/CMS-OpenData-1.0.0-rc6.ova "http://cernvm.cern.ch/releases/CMS-OpenData-1.0.0-rc6.ova"
+
+# fourthly, github files
+mkdir -p $OUTDIR/github-files
 $WGET -O $OUTDIR/github-files/Cert_136033-149442_7TeV_Apr21ReReco_Collisions10_JSON_v2.txt "https://raw.githubusercontent.com/ayrodrig/pattuples2010/master/Cert_136033-149442_7TeV_Apr21ReReco_Collisions10_JSON_v2.txt"
 
-# CMS Hamburg files:
+# fifthly, CMS Hamburg files:
+mkdir -p $OUTDIR/cms-hamburg-files
 $WGET -O $OUTDIR/cms-hamburg-files/HEPTutorial_0.tar http://ippog.web.cern.ch/sites/ippog.web.cern.ch/files/HEPTutorial_0.tar
 (cd $OUTDIR/cms-hamburg-files && tar xf HEPTutorial_0.tar HEPTutorial/files/)
+
+# sixthly, experiment data policies:
+mkdir -p $OUTDIR/data-policies
+$WGET -O $OUTDIR/data-policies/CMS-Data-Policy.pdf "$DOCDB?docid=6032&amp;version=1&amp;filename=CMSDataPolicy.pdf"
+$WGET -O $OUTDIR/data-policies/ATLAS-Data-Policy.pdf https://twiki.cern.ch/twiki/pub/AtlasPublic/AtlasPolicyDocuments/A78_ATLAS_Data_Access_Policy.pdf
+$WGET -O $OUTDIR/data-policies/LHCb-Data-Policy.pdf http://cds.cern.ch/record/1543410/files/LHCb-PUB-2013-003.pdf
 
 # finally, make symlink to FFT cache from tmp:
 if [ ! -L "/tmp/$(basename $OUTDIR)" ]; then
