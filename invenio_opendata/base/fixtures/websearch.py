@@ -181,6 +181,14 @@ class CollectionData(DataSet):
             ('en', 'ln'): u'Author Lists',
         }
 
+    class DataPolicies(siteCollection):
+        id = 23
+        name = 'Data-Policies'
+        dbquery = '980__a:"Data-Policies"'
+        names = {
+            ('en', 'ln'): u'Data-Policies',
+        }
+
 
 class CollectionCollectionData(DataSet):
 
@@ -404,6 +412,12 @@ class CollectionCollectionData(DataSet):
         dad = CollectionData.siteCollection
         son = CollectionData.AuthorLists
         score = 15
+        type = 'r'
+
+    class siteCollection_DataPolicies:
+        dad = CollectionData.siteCollection
+        son = CollectionData.DataPolicies
+        score = 16
         type = 'r'
 
 
@@ -647,6 +661,11 @@ class PortalboxData(DataSet):
     class Portalbox_41:
         body = u'This collection contains author lists.'
         id = 41
+        title = u'description'
+
+    class Portalbox_42:
+        body = u'This collection contains data policies.'
+        id = 42
         title = u'description'
 
 
@@ -938,6 +957,13 @@ class CollectionPortalboxData(DataSet):
         id_portalbox = PortalboxData.Portalbox_41.ref('id')
         score = 100
         id_collection = CollectionData.AuthorLists.ref('id')
+
+    class CollectionPortalbox_23_42_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_42.ref('id')
+        score = 100
+        id_collection = CollectionData.DataPolicies.ref('id')
 
 
 class FacetCollectionData(DataSet):
