@@ -133,7 +133,7 @@ div.plot-control {
       <div class="row buttons top">
         <div class="col-md-6">
           <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="filedropdown" data-toggle="dropdown">
+            <button class="btn btn-default dropdown-toggle" data-loading-text="Loading..." type="button" id="filedropdown" data-toggle="dropdown">
             </button>
             <ul class="dropdown-menu" role="menu" id="fileul" aria-labelledby="filedropdown"></ul>
           </div>
@@ -157,6 +157,13 @@ div.plot-control {
     </div>
   </div>
 </div>
+
+<h4>Controls:</h4>
+<p>Click on the "LogX" and "LogY" buttons to transform the axes by log10</p>
+<p>Enter a bin width and click "Set" to change the bin width of the histogram (the default is 0.1)</p>
+<p>Click on the histogram and move to select a region along the x axis. Click "Undo selection(s)" to return to the original range.</p>
+
+
 </div>
 <div class="tab-pane fade" id="howto">
 {% include "histograms_howto.html" %}
@@ -178,7 +185,7 @@ $(function () {
   var input_data;
 
   var input_files = [
-     {id:"dimuon0",name:"dimuon events with invariant mass between 2-110 GeV",file:"/record/700/files/MuRun2010B_0.csv",type:"two_lepton"},
+     {id:"dimuon0",name:"dimuon events with invariant mass between 2-110 GeV",file:"/record/700/files/MuRun2010B_0.csv",type:"two_lepton"}, 
      {id:"Jpismumu",name:"dimuon events with invariant mass between 2-5 GeV",file:"/record/301/files/dimuon-Jpsi.csv",type:"two_lepton"},
      {id:"Jpsiee",name:"dielectron events with invariant mass between 2-5 GeV",file:"/record/302/files/dielectron-Jpsi.csv",type:"two_lepton"},
      {id:"Yee",name:"dielectron events with invariant mass between 8-12 GeV",file:"/record/305/files/dielectron-Upsilon.csv",type:"two_lepton"},
@@ -221,6 +228,8 @@ $(function () {
     $('#filedropdown').text(input.name+'  ');
     $('#filedropdown').append('<span class="caret"></span>');
  
+    $('#filedropdown').button('loading');
+   
     d3.csv(input.file,
       function(d) { // leading and trailing spaces in csv aren't ignored so we strip them out (if there) in the accessor
         var newd = {};
@@ -234,6 +243,7 @@ $(function () {
       function(data) {
         populateValues(data[0], input.type);
         input_data = data;
+        $('#filedropdown').button('reset');
       }
     );
   }
