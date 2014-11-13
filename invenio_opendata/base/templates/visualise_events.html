@@ -87,7 +87,7 @@ body.black a:hover {
 
 #tool-bar {
   height: 30px;
-  background-color: #606D75;
+  background-color: black;
   padding-top: 3px;
   padding-bottom: 3px;
 }
@@ -107,7 +107,7 @@ body.black a:hover {
 }
 #selectors {
   height: 600px;
-  background-color: #f5f5f5;
+  background-color: black;
   padding-top: 15px;
 }
 
@@ -115,10 +115,10 @@ body.black a:hover {
   background-color: black;
 }
 .sw {
-  color: #606D75;
+  color: white;
 }
 .group {
-  color: #606D75;
+  color: white;
 }
 #title { 
   color: #606D75;
@@ -156,6 +156,11 @@ body.black a:hover {
   border-top-right-radius: 3px;
   font-size: 14px;
 }
+
+
+#selected-event {
+  height: 25px;
+} 
 
 @media ( max-width: 768px ) {
   #od-header, .infobar, #vis-events .pg-header,
@@ -642,7 +647,6 @@ function prevEvent() {
   }
 }
 
-/*
 function invertBackground() {
   if ( document.settings.invertColors ) {
     $("#tool-bar").css("background-color","white");
@@ -650,17 +654,14 @@ function invertBackground() {
     $("#display").css("background-color","white");
     $(".sw").css("color","black");
     $(".group").css("color","black");
-    $("#title").css("color","black");
   } else {
     $("#tool-bar").css("background-color","black");
     $("#selectors").css("background-color","black");
     $("#display").css("background-color","black");
     $(".sw").css("color","white");
     $(".group").css("color","white");
-    $("#title").css("color","white");
   }
 }
-*/
 
 function loadEvent() {
   closeEventBrowser();
@@ -679,7 +680,7 @@ function loadEvent() {
 
   $("#title").html("/" + selectedFileName + ":" + event);
 
-  // invertBackground();
+  invertBackground();
 }
 
 var help_items = [
