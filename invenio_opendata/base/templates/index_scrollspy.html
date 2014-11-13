@@ -87,20 +87,7 @@
       overflow: hidden;
     }
 
-    @media (max-width: 768px) {
-      .homepage-frame {
-        height: auto;
-        padding: 40px 0;
-      }
-      .entrypoint-box {
-        width: auto!important;
-        margin-top: 10%!important;
-        height: auto!important;
-      }
-      .entrypoint-action a {
-        position: relative!important;
-      }
-    }
+
     #main.homepage-frame {
       padding-top: 0;
     }
@@ -108,7 +95,43 @@
     #main { 
       background-color: inherit;
     }
+    @media (max-width: 768px) {
+      .homepage-frame {
+        height: auto;
+        padding: 40px 0;
+      }
+      .entrypoint-box {
+        /*width: auto!important;*/
+        margin-top: 10%!important;
+        /*height: auto!important;*/
+        width: 100%!important;
+      }
+      .entrypoint-action a {
+        position: relative!important;
+      }
 
+      #main.homepage-frame {
+        padding-top: 30px;
+      }
+/*
+      #mob-up {
+        position: absolute;
+      }
+
+      #mob-down {
+        margin-top: 120vh;
+      }*/
+      .entrypoint-desc {
+        height: auto!important;
+
+      }
+      .legal {
+        width: 100%;
+      }
+      .legal ul li {
+        width: 100%;
+      }
+    }
     .entrypoint {
       position: absolute;
       height: 100vh;
@@ -125,16 +148,18 @@
       color: #6c7c84;
       width: 60%;
       min-width: 230px;
+      min-height: 300px;
     }
 
     .entrypoint-box h1 { 
-      text-align: center;
+      text-align: left;
       font-size: 2.4em;
       margin-bottom: 35px;
     }
     .entrypoint-box h5 { 
       font-weight: 100;
       font-size: 1.37em;
+      text-align: left;
     }
     .entrypoint-action a {
         border-radius: 3px;
@@ -143,24 +168,16 @@
         padding: 10px;
         background-color: #95abb7;
         color: #fff;
-        position: absolute;
+        /*position: absolute;*/
         width: 200px;
-        float: left;
         bottom: 0;
+        text-align: left;
+        float: left;
+        margin-left: 15px;
     }
-    
-    #research .entrypoint-action a {
-      right: 30px;
-    }
-    #education .entrypoint-action a {
-      left: 30px;
-    }
-    #education .entrypoint-action {
-      padding-left: 15px;
-    }
-    #research .entrypoint-action {
-      padding-right: 15px;
-      float: right;
+
+    .entrypoint-action {
+      margin-top: 30px;
     }
 
     .entrypoint-action a:hover,
@@ -333,6 +350,7 @@
       border-radius: 100% solid transparent;
     }
     #main {
+      background-color: #CFE1EB;
       background-image: url({{url_for('static', filename='img/home/home_net_new.svg')}});
       background-position: center center;
       background-repeat: no-repeat;
@@ -351,8 +369,9 @@
     .entrypoint-desc {
       font-weight: 100;
       font-size: 1.4em;
-      text-align: center;
+      text-align: left;
       height: 20vh;
+      font-size: 100%;
     }
     .entrypoint-goto {
       height: 60vh;
@@ -469,25 +488,25 @@
   <section id="main" class="homepage-frame">
     <div class="container">
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-6 col-xs-12">
           <div id="education" class="entrypoint-box pull-left">
-            <h1 style="text-align: left;">Education</h1>
+            <h1>Education</h1>
             <h5>
               Visualise events, check reconstructed data, run tools or build your own!
             </h5>
             <div class="entrypoint-action row">
-              <a href="#edu"><span class="action-title">Start learning</span></a>
+              <a class="center-block" href="#edu"><span class="action-title">Start learning</span></a>
             </div>
           </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 col-xs-12">
           <div id="research" class="entrypoint-box pull-right">
-            <h1 style="text-align: right;">Research</h1>
+            <h1>Research</h1>
             <h5>
               Get the genuine working environments, virtual machines and datasets to start your research
             </h5>
             <div class="entrypoint-action row">
-              <a href="#rsch"><span class="action-title">Start analysing</span></a>
+              <a class="center-block" href="#rsch"><span class="action-title">Start analysing</span></a>
             </div>
           </div>
         </div>
@@ -502,7 +521,7 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-sm-6">
+        <div id="mob-down" class="col-sm-6 col-xs-12">
             <div class="left-side">
               <ul>
               {% for e in exp_colls %}
@@ -529,7 +548,7 @@
               </ul>
             </div>
         </div>
-        <div class="col-sm-6">
+        <div id="mob-up" class="col-sm-6 col-xs-12">
           <div class="right-side">
             <div class="entrypoint-desc">
               For education purposes, the complex primary data need to be processed into a format (examples below) that is good for simple applications. Get in touch if you wish to build your own applications similar to those shown here
@@ -581,7 +600,7 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-sm-6">
+        <div id="mob-down" class="col-sm-6 col-xs-12">
             <div class="left-side">
               <ul>
               {% for e in exp_colls %}
@@ -608,7 +627,7 @@
               </ul>
             </div>
         </div>
-        <div class="col-sm-6">
+        <div id="mob-up" class="col-sm-6 col-xs-12">
           <div class="right-side">
             <div class="entrypoint-desc">
               For research purposes, specific software environments and tools need to be deployed to analyse these complex primary data. In addition to the data below, you will find instructions for setting up your working environments here
