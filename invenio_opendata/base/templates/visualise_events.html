@@ -5,9 +5,27 @@
 {% import 'helpers/general.html' as gen_utils %}
 
 <style>
+body * {
+  font-size: inherit;
+  font-family: inherit;
+}
+
+body.white, body.black {
+  background-color: #CFE1EB;
+}
+
+body.white a,
+body.white a:visited,
+body.white a:hover,
+body.black a,
+body.black a:visited,
+body.black a:hover {
+  color: inherit;
+}
 #vis-events {
   color: #606D75;
   margin-bottom: 40px;
+  font-size: 11px;
 }
 #vis-events .pg-header h3 {
   margin-bottom: 25px;
@@ -26,6 +44,7 @@
   margin-bottom: 70px;
   color: #606D75;
   margin-bottom: 20px;
+  overflow: hidden;
 }
 #vis-events .nav {
   float: right;
@@ -38,8 +57,11 @@
 #vis-events .nav li a,
 #vis-events .nav li a:hover,
 #vis-events .nav li a:focus {
-  background-color: inherit;
-  color: inherit;
+  color: #FFF;
+  background-color: #ACC6D4;
+  border-radius: 3px;
+  padding: 8px 5px;
+  font-size: 12px;
 }
 
 #vis-events .nav li.active{
@@ -55,49 +77,221 @@
 }
 
 #title-bar {
-  height: 20px;
+  height: 30px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-color: #acc6d4;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 #tool-bar {
-  height: 27px;
-  background-color: black;
+  height: 30px;
+  background-color: #606D75;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
+#tool-bar img {
+  width: 20px;
+  height: 20px;
+}
+
+#canvas {
+  width: 100%;
+  height: auto;
+}
+#title {
+  text-align: left;
+  padding: 2px 15px;
+}
 #selectors {
   height: 600px;
-  background-color: black;
+  background-color: #f5f5f5;
+  padding-top: 15px;
 }
 
 #display {
-  height: 600px;
   background-color: black;
 }
 .sw {
-  color: white;
+  color: #606D75;
 }
 .group {
-  color: white;
+  color: #606D75;
 }
 #title { 
-  color: white;
+  color: #606D75;
+}
+#title img {
+  width: 14px;
+  height: 14px;
+  margin-top: -2px;
+  padding: 1px;
 }
 .help-detsystem > i {
   color: red;
 }
 
-@media ( max-width: 992px ) {
+.toolbar-button, 
+.toolbar-button.selected {
+  border: 0;
+  background: 0;
+  background-color: #dfdfdf;
+  padding: 2px;
+}
+
+#event-display-howto li img.screen-s {
+  width: 100%;
+  height: auto;
+}
+
+#event-display-howto h2 {
+  margin-left: -15px;
+  margin-right: -15px;
+  background-color: #ACC6D4;
+  padding: 7px 15px;
+  margin-top: 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  font-size: 14px;
+}
+
+@media ( max-width: 768px ) {
+  #od-header, .infobar, #vis-events .pg-header,
+  #vis-events .previewer-tablist, footer  {
+    display: none;
+  }
+  #vis-events, #ispy-previewer {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
   #vis-events .container {
     width: 100%;
   }
-
-  #vis-events .pg-header {
-    display: none;
+  #selectors {
+    height: 100%;
+    min-width: 200px;
+    z-index: 5;
+  }
+  #vis-events .previewer {
+    display: block!important;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+  #event-browser {
+    max-width: 90vw;
+    max-height: 90vw;
+  }
+  #title-bar, #tool-bar {
+    position: absolute;
+    height: 30px;
+    top: 0;
+    z-index: 10;
+  }
+  #tool-bar {
+    top: 30px;
   }
   #canvas {
+    width: 100vw;
+    height: 100vh;
+  }
+  #toolbar {
+    float: right;
+  }
+  #title {
+    width: auto;
+  }
+
+  #switches-div {
+    padding-top: 60px;
+    padding-bottom: 20px;
+  }
+  .dialog-window {
+    width: 90vw!important;
+    height: 90vh!important;
+    top: 5vh!important;
+    left: 5vw!important;
+  }
+
+  .cbp-spmenu {
+      position: absolute;
+  }
+  .cbp-spmenu-push {
+      overflow-x: hidden;
+      position: relative;
+      left: 0;
+  }
+  .cbp-spmenu-push-toright {
+      left: 200px;
+  }
+  /* Transitions */
+  .cbp-spmenu,
+  .cbp-spmenu-push {
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+  }
+  /* Vertical menu that slides from the left or right */
+  .cbp-spmenu-left {
+      left: -200px;
+  }
+  .cbp-spmenu-left.cbp-spmenu-open {
+      left: 0px;
+  }
+  .cbp-spmenu-right.cbp-spmenu-open {
+      right: 0px;
+  }
+
+  .mobile-btn,
+  .mobile-btn:hover,
+  .mobile-btn:focus {
+    background-color: #dfdfdf;
+    padding: 4px;
+    height: 24px;
+    font-size: inherit;
+    margin-right: 10px;
+    color: #606D75;
+    float: left;
+  }
+
+  #title-bar .pull-right a.btn {
+    height: 20px;
+    padding: 2px;
+    float: right;
+    margin-right: 0;
+  }
+
+  #browser-events .event,
+  #browser-files .dir,
+  #browser-files .file {
+   width: auto; 
+  }
+  
+  #browser-files {
     width: 100%;
-    height: auto;
+    height: 62vh;
+  }
+  #browser-files tbody {
+    height: 80vh;
+  }
+
+  .browser-panel {
+    height: 60vh;
+    width: 100%;
+  }
+
+  #event-browser #panels {
+    height: 30px;
+  }
+
+  #browser-table {
+    width: 88vw;
   }
 }
+
+
 </style>
 
 <section class="infobar">
@@ -112,7 +306,7 @@
       <div class="col-md-10 col-md-offset-1 pg-header">
         <h3>Explore CMS open data and visualise detector events</h3>
       </div>
-      <div class="col-md-12">
+      <div class="previewer-tablist col-sm-12">
         <ul class="nav" role="tablist">
           <li class="active"><a href="#ispy" role="tab" data-toggle="tab"><span class="fa fa-long-arrow-left"></span>back to previewer</a></li>
           <li><a href="#howto" role="tab" data-toggle="tab">Need HELP?</a></li>
@@ -124,12 +318,14 @@
           <div class="tab-pane fade in active" id="ispy">
             <div id="ispy-previewer" class="col-xs-12">
               <div class="row">
-                <div id="title-bar" class="titlebar-plain bordered col-xs-12">
-                  <div id="title"></div>
+                <div id="title-bar" class="titlebar-plain bordered col-xs-12 no-padding">
+                  <div class="col-xs-10" id="title">Load an event from 'Open File'(<img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/open.png')}}" title="Open File"/>) to display</div>
+                  <div class="visible-xs col-xs-2 pull-right"><a href="{{url_for('.middle')}}" style="height:20px;padding:2px;" class="mobile-btn btn">back</a></div>
                 </div>
               </div>
               <div class="row">
                 <div id="tool-bar" class="bordered col-xs-12">
+                  <a class="btn visible-xs mobile-btn" id="showhideMenu" onclick="showhideMenu();">Show/hide</a>
                   <table id="toolbar">
                     <tr>
                       <td>
@@ -202,26 +398,29 @@
                 </div>
               </div>
               <div class="row">
-                <div id="selectors" class="bordered col-xs-3">
-                  <div id="switches-div" style="overflow: auto; height: 600px;" class="flexcroll"> 
+                <div id="selectors" class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left bordered col-xs-3 col-sm-3">
+                  <div id="switches-div" style="overflow: auto; height: 100%;" class="flexcroll"> 
                     <table id="switches"></table>
                   </div>   
                 </div>
-                <div id="display" class="bordered col-xs-9">
+                <div id="display" class="bordered col-xs-12 col-sm-9">
                   <canvas id="canvas" width="825" height="600">
                     Sorry, this requires a web browser which supports HTML5 canvas.
                   </canvas>            
                 </div>
               </div>
             </div>
-            <p>Use the Mouse to rotate.</p>
-            <p>Ctrl+Mouse or Ctrl + <span>&#9650</span> <span>&#9660</span> <span>&#9664</span> <span>&#9654</span> to pan x/y.</p>
-            <p>Shift+Mouse or Shift + <span>&#9650</span> <span>&#9660</span> to zoom.</p>
-
-            <p><h4>
-              In case of problems, try another instance of this tool (outside the portal) in the full-window by clicking here: <a href="http://cern.ch/opendata-ispy">
-              http://cern.ch/opendata-ispy</a>
-            </h4></p>
+            <div class="col-sm-8 hidden-xs">
+              <p>Use the Mouse to rotate.</p>
+              <p>Ctrl+Mouse or Ctrl + <span>&#9650</span> <span>&#9660</span> <span>&#9664</span> <span>&#9654</span> to pan x/y.</p>
+              <p>Shift+Mouse or Shift + <span>&#9650</span> <span>&#9660</span> to zoom.</p>
+              <p>
+                <h4>
+                In case of problems, try another instance of this tool (outside the portal) in the full-window by clicking here: <a href="http://cern.ch/opendata-ispy">
+                http://cern.ch/opendata-ispy</a>
+                </h4>
+              </p>  
+            </div>
           </div>		  
           <div class="tab-pane fade" id="howto">
             {% include "visualise_events_help.html" %}
@@ -238,6 +437,18 @@
 
 {%- block javascript %}
 <script type="text/javascript">
+
+  showhideMenu = function() {
+    $(this).toggleClass('active');
+    var display = $('#display');
+    var canvas = $("#canvas");
+    var menu = $("#selectors")
+    
+    display.toggleClass('col-xs-12 col-xs-9 cbp-spmenu-push-toright');
+    menu.toggleClass('cbp-spmenu-open');
+  }
+
+
   /* 
      What's all this then?
      
@@ -431,6 +642,7 @@ function prevEvent() {
   }
 }
 
+/*
 function invertBackground() {
   if ( document.settings.invertColors ) {
     $("#tool-bar").css("background-color","white");
@@ -448,6 +660,7 @@ function invertBackground() {
     $("#title").css("color","white");
   }
 }
+*/
 
 function loadEvent() {
   closeEventBrowser();
@@ -466,7 +679,7 @@ function loadEvent() {
 
   $("#title").html("/" + selectedFileName + ":" + event);
 
-  invertBackground();
+  // invertBackground();
 }
 
 var help_items = [
