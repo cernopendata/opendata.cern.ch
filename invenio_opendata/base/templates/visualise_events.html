@@ -542,6 +542,9 @@ body.black a:hover {
    xhr.open("GET", filename, true);
    xhr.overrideMimeType("text/plain; charset=x-user-defined"); 
 
+   var ecell = document.getElementById("browser-events").insertRow(0).insertCell(0);
+   ecell.innerHTML = 'Loading events...';
+   
    xhr.onload = function() {
      if (this.status == 200) {
 
@@ -662,13 +665,12 @@ function invertBackground() {
 }
 */
 
-function loadEvent() {
+function loadEvent() {  
   closeEventBrowser();
-
   var event = currentEventList[selectedEventIndex];
 
   $("#title").html("Loading..."+event);
-
+    
   try{
     var ed = JSON.parse(cleanupData(igdata.file(event).asText()));
     enableNextPrev();
