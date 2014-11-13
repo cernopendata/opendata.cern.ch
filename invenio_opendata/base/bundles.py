@@ -48,6 +48,10 @@ ie_bundle = Bundle(
 od_records_js = Bundle(
     "vendors/readmore/readmore.min.js",
     output = "od_records.js",
+    weight=500,
+    bower={
+        "readmore": "latest"
+    }
 )
 
 od_d3_js = Bundle(

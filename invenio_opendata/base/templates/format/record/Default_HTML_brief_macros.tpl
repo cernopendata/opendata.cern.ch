@@ -28,7 +28,7 @@
       </a>
       {% if record.get('number_of_authors', 0) > 0 %}
         {% set authors = record.get('authors[:].full_name', []) %}
-        {% set sep = joiner('<i style="float:left;"> ; </i>') %}
+        {% set sep = joiner('<i style="float:left;padding-right:3px;"> ; </i>') %}
         <div class="rec_thumb_brief rec_footer_thumb">
           <div class="n">
             <div class="t">Author</div>

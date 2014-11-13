@@ -17,7 +17,7 @@
       </div>
 
       {# Show Authors ( > 5 : read_more show/hide ) #}
-      <div class="rec_authors {% if (record['authors']|length) < 5 %} col-md-12" {% else %} id="rec_authors_rdmore" {% endif %}>
+      <div class="rec_authors"{% if (record['authors']|length) < 5 %}  {% else %} id="rec_authors_rdmore" {% endif %}>
         {% if record['_first_corporate_name'] %}
           <kbd>{{ record['_first_corporate_name']['name'] }}</kbd>
         {% endif %}
