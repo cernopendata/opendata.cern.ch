@@ -4,39 +4,94 @@
 
 {% import 'helpers/general.html' as gen_utils %}
 
-<section class="infobar">
-  <div class="container">
-    {{gen_utils.get_breadcrumbs(breadcrumbs)}}
-  </div>
-</section>
+  <style>
 
-<section id="about" class="content">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h1>CERN Open Data Portal</h1>
-        <p>The CERN Open Data portal is the access point to a growing range of data produced through the research performed at CERN. It disseminates the preserved output from various research activities, including accompanying software and documentation which is needed to understand and analyze the data being shared. <br />The portal adheres to established global standards in data preservation and Open Science: the products are shared under open licenses; they are issued with a digital object identifier (DOI) to make them citable objects in the scientific discourse (see details below on how to do this).
-        </p>
-      </div>
-      <div class="col-md-12">
-        <h2>LHC Data</h2>
-        <p>Data produced by the LHC experiments are usually categorized in four different levels (<a href="http://arxiv.org/abs/0912.0255">DPHEP Study Group (2009)</a>)<br />The Open Data portal focuses on the release of data from levels 2 and 3.</p>
-        <ul>
-          <li>Level 1 data comprises data that is directly related to publications which provide documentation for the published results</li>
-          <li>Level 2 data includes simplified data formats for analysis in outreach and training exercises</li>
-          <li>Level 3 data comprises reconstucted data and simulations as well as the analysis level software to allow a full scientific analysis</li>
-          <li>Level 4 covers basic raw level data (if not yet covered as level 3 data) and their associated software and allows access to the full potential of the experimental data</li>
-        </ul>
-      </div>
-      <div class="col-md-12">
-        <h2>Data Policies</h2>
-        <p>All four LHC experiments have approved data preservation and access policies which state that they will make their data (except level 4 data) available. New data will enter the portal once the embargo periods for them are over. For detailed information regarding embargo periods, accessibility and preservation of LHC data, please refer to the experiments’ <a href="LINK MISSING">data policies</a>.<br />In support of these data policies, this portal publishes and preserves data from level 2 and 3, such as simplified formats and fully reconstructed events, together with associated software and documentation needed to access and use the data.</p>
-        <h2>How to re-use and cite these datasets</h2>
-        <p>All datasets and other material available in this portal are minted with a persistent identifier, a so called DOI (Digital Object Identifier) that allows permanent linking to the records. The CERN Open Data Portal endorses the <a href="http://www.force11.org/datacitation">FORCE 11 Joint Declaration of Data Citation Principles</a>. Thus, we ask you to cite the data provided in the portal when you re-use them. To make this easier for you, we provide you with a citation recommendation for every dataset as well as output formats (e.g. BibTex) for common reference programs. Citing datasets in the reference list of your paper will allow other platforms such as INSPIRE to track citations to these datasets and measure their impact.</p>
-        <p>The portal is a collaborative effort of the CERN groups IT-CIS and GS-SIS in collaboration with the many researchers in the HEP community.</p>
-      </div>
+
+  </style>
+  <script src="{{ url_for('static', filename='/vendors/masonry/masonry.js') }}"></script>
+
+
+  <section class="infobar">
+    <div class="container">
+      {{gen_utils.get_breadcrumbs(breadcrumbs)}}
     </div>
-  </div>
-</section>
+  </section>
+
+  <section class="general content">
+    <div class="container">
+      <div id="CMS" class="row">
+        <div class="gen-header">
+          <h1 class="col-md-12">CERN Open Data Portal</h1>
+          <p class="col-md-12">The CERN Open Data portal is the access point to a growing range 
+            of data produced through the research performed at CERN. It disseminates the preserved 
+            output from various research activities, including accompanying software and 
+            documentation which is needed to understand and analyze the data being shared.</p>
+          <p class="col-md-12">The portal adheres to established global standards in data 
+            preservation and Open Science: the products are shared under open licenses; they 
+            are issued with a digital object identifier (DOI) to make them citable objects in 
+            the scientific discourse (see details below on how to do this).</p>
+
+          <h1 class="col-md-12">Data and re-use</h1>
+		
+          <div class="col-md-12">
+            <div class="gen-box">
+              <h2 id="tools">LHC Data</h2>
+              <p class="col-md-12 no-padding">Data produced by the LHC experiments are usually 
+				categorized in four different levels (<a href="http://arxiv.org/abs/0912.0255">DPHEP 
+				Study Group (2009)</a>). The Open Data portal focuses on the release of 
+				data from levels 2 and 3.</p>
+              <ul class="col-md-12">
+                <li>Level 1 data comprises data that is directly related to publications which 
+					provide documentation for the published results</li>
+				<li>Level 2 data includes simplified data formats for analysis in outreach and 
+					training exercises</li>
+				<li>Level 3 data comprises reconstucted data and simulations as well as the 
+					analysis level software to allow a full scientific analysis</li>
+				<li>Level 4 covers basic raw level data (if not yet covered as level 3 data) and 
+					their associated software and allows access to the full potential of the 
+					experimental data</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="gen-box">
+              <h2 id="tools">Data Policies</h2>
+              <p class="col-md-12 no-padding">All four LHC experiments have approved data 
+					preservation and access policies which state that they will make their data 
+					(except level 4 data) available. New data will enter the portal once the 
+					embargo periods for them are over. For detailed information regarding 
+					embargo periods, accessibility and preservation of LHC data, please refer 
+					to the experiments’ 
+					<a href="{{ url_for('.collection', name = 'Data-Policies') }}">data policies</a>.</p>
+			  <p class="col-md-12 no-padding">In support of these data policies, this portal 
+					publishes and preserves data from level 2 and 3, such as simplified formats 
+					and fully reconstructed events, together with associated software and 
+					documentation needed to access and use the data.</p>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="gen-box">
+              <h2 id="tools">How to re-use and cite these datasets</h2>
+              <p class="col-md-12 no-padding">All datasets and other material available in this 
+					portal are minted with a persistent identifier, a so called DOI (Digital 
+					Object Identifier) that allows permanent linking to the records. The CERN 
+					Open Data Portal endorses the <a href="http://www.force11.org/datacitation">
+					FORCE 11 Joint Declaration of Data Citation </a>
+					Principles. Thus, we ask you to cite the data provided in the portal when 
+					you re-use them. To make this easier for you, we provide you with a citation 
+					recommendation for every dataset as well as output formats (e.g. BibTex) 
+					for common reference programs. Citing datasets in the reference list of 
+					your paper will allow other platforms such as INSPIRE to track citations to 
+					these datasets and measure their impact.</p>
+            </div>
+          </div>
+
+		<p class="col-md-12">The portal is a collaborative effort of the CERN groups IT-CIS 
+					and GS-SIS in collaboration with the many researchers in the HEP community.</p>
+        </div>
+
+  </section>
 
 {% endblock %}
