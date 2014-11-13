@@ -448,15 +448,15 @@
   padding-left: 15px;
 }
 #subcollection .coll-overview .coll-box {
-  background-color: #f4f4f4;
-  padding: 20px 15px;
+  background-color: #F4F4F4;
+  padding: 0px 15px;
   text-align: center;
   height: auto;
   display: inline-block;
   font-weight: 100;
-  border-radius: 5px;
   color: #657580;
   margin-bottom: 20px;
+  border-radius: 3px;
 }
 
 #subcollection .coll-overview .coll-box .thumb img {
@@ -482,6 +482,13 @@
   margin-bottom: 10px;
   max-height: 45px;
   height: 45px;
+  margin-left: -15px;
+  margin-right: -15px;
+  background-color: #ACC6D4;
+  color: #FFF;
+  padding: 10px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 #subcollection .coll-overview .coll-box .bottom > div {
   text-align: center;
@@ -651,7 +658,6 @@ li.disabled .subcollection_exp .coll-button {
   font-size: 16px;
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: #f4f4f4;
 }
 .subcollection_apps .coll-desc {
   display: table-cell;
@@ -723,7 +729,13 @@ li.disabled {
   height: 150px;
   overflow: hidden;
   position: relative;
-  background-color: rgb(198, 208, 217);
+  border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+  .subcollection_apps .app-box {
+    margin-bottom: 15px;
+  }
 }
 
 .app-box .img {
@@ -732,7 +744,6 @@ li.disabled {
   width: 100%;
   background-color: #f4f4f4;
   float: left;
-  border-radius: 3px 3px 0 0;
   display: inline-block;
   background-repeat: no-repeat;
   background-size: cover;
@@ -745,13 +756,11 @@ li.disabled {
 .app-box .title {
   height: 40px;
   width: 100%;
-  background-color: #95abb7;
+  background-color: #ACC6D4;
   display: inline-block;
   font-size: 14px;
   color: #fff;
-  border-radius: 0 0 3px 3px;
-  text-align: right;
-  padding-right: 15px;
+  text-align: center;
   padding-top: 8px;
 }
 
