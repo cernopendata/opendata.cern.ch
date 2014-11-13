@@ -418,7 +418,15 @@ def metadata(recid, of='hd'):
     def splitting(value, delimiter='/', maxsplit=0):
         return value.split(delimiter, maxsplit)
 
+    def get_record_name(recid):
+        tmp_rec = get_record(recid)
+        if tmp_rec.get('title_additional', ''):
+            return tmp_rec.get('title_additional', '').get('title', '')
+        elif tmp_rec.get('title',{}).get('title',''):
+            return tmp_rec.get('title',{}).get('title','')
+
     current_app.jinja_env.filters['splitthem'] = splitting
+    current_app.jinja_env.filters['get_record_name'] = get_record_name
 
     record_collection = get_record(recid)['collections'][0]['primary']
     rec_col = Collection.query.filter(Collection.name == record_collection).first_or_404()

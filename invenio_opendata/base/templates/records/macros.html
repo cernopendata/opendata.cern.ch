@@ -134,7 +134,7 @@
 	      <div class="links">
 	        <ul>
 	        {% if methodology_note['recid'] %}
-	          <li><a href="{{ url_for('record.metadata', recid= methodology_note['recid']) }}">Record {{  methodology_note['recid'] }}</a></li>
+	          <li><a href="{{ url_for('record.metadata', recid= methodology_note['recid']) }}">{{  (methodology_note['recid'])|get_record_name }}</a></li>
 	        {% endif %}
 	        {% if methodology_note['url'] %}
 	          <li><a href="{{ u.url }}">{{ methodology_note['description']
@@ -158,7 +158,7 @@
 			<div class="links">
 				<ul>
 					{% if record_data['recid'] %}
-					<li><a href="{{ url_for('record.metadata', recid=record.get('action_note.recid', '')) }}">Record {{ record.get('action_note.recid', '') }}</a></li>
+					<li><a href="{{ url_for('record.metadata', recid=record.get('action_note.recid', '')) }}">{{ (record.get('action_note.recid', ''))|get_record_name }}</a></li>
 					{% endif %}
 					{% if record_data['url'] %}
 					{% for u in record.get('action_note') %}
@@ -172,7 +172,7 @@
 			<div class="links">
 				<ul>
 					{% if record_data[0]['recid'] %}
-					<li><a href="{{ url_for('record.metadata', recid=record.get('action_note.recid', '')) }}">Record {{ record.get('action_note.recid', '') }}</a></li>
+					<li><a href="{{ url_for('record.metadata', recid=record.get('action_note.recid', '')) }}">{{ (record.get('action_note.recid', ''))|get_record_name }}</a></li>
 					{% endif %}
 					{% if record_data[0]['url'] %}
 					{% for u in record.get('action_note') %}
@@ -209,7 +209,7 @@
 					{% endif %}
 					{% if material_publication_note.get('recid', '') %}
 					<li>
-						<a href="{{ url_for('record.metadata', recid=material_publication_note.get('recid', '')) }}">Record {{ material_publication_note.get('recid', '') }}</a>
+						<a href="{{ url_for('record.metadata', recid=material_publication_note.get('recid', '')) }}">{{ (material_publication_note.get('recid', ''))|get_record_name }}</a>
 					</li>
 					{% endif %}
 					{% endfor %}
@@ -227,7 +227,7 @@
 			<div class="links">
 				{% if record.get('documentation_note.recid', '') %}
 				<ul>
-					<li><a href="{{ url_for('record.metadata', recid=record.get('documentation_note.recid', '')) }}">Record {{ record.get('documentation_note.recid', '') }}</a></li>
+					<li><a href="{{ url_for('record.metadata', recid=record.get('documentation_note.recid', '')) }}">{{ (record.get('documentation_note.recid', ''))|get_record_name }}</a></li>
 				</ul>
 				{% endif %}
 			</div>

@@ -38,7 +38,7 @@
           <div class="links">
             {% if record.get('constituent_unit_entry.recid', '') %}
               <ul>
-                <li><a href="{{ url_for('record.metadata', recid=record.get('constituent_unit_entry.recid', '')) }}">Record {{ record.get('constituent_unit_entry.recid', '') }}</a></li>
+                <li><a href="{{ url_for('record.metadata', recid=record.get('constituent_unit_entry.recid', '')) }}">{{ (record.get('constituent_unit_entry.recid', ''))|get_record_name }}</a></li>
               </ul>
             {% endif %}
             {% if record.get('constituent_unit_entry.url', '') %}

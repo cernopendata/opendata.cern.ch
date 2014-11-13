@@ -161,8 +161,7 @@
         <div class="rec_desc">
           {{record.get('computer_file_type', {}).get('note', '')}}
           {% for r in record.get('computer_file_type', {}).get('recid', '') %}
-            <a href="{{url_for('.metadata', recid = r )}}">Record {{r}}</a>
-            {{ ', ' if not loop.last }}
+            <a href="{{url_for('.metadata', recid = r )}}">{{ r|get_record_name }}</a>
           {% endfor %}
         </div>
       </div>
@@ -179,7 +178,7 @@
         <div class="rec_desc">
           {{record.get('system_details', {}).get('note', '')}}
           {% if record.get('system_details', {}).get('recid', '') %}
-            <a href="{{url_for('.metadata', recid = record.get('system_details', {}).get('recid', '') )}}">Record {{record.get('system_details', {}).get('recid', '')}}</a>
+            <a href="{{url_for('.metadata', recid = record.get('system_details', {}).get('recid', '') )}}">{{(record.get('system_details', {}).get('recid', ''))|get_record_name }}</a>
           {% endif %}
         </div>
       </div>
@@ -196,11 +195,10 @@
         <div class="rec_desc">
           {{record.get('other_relationship_entry', {}).get('heading', '')}}
           {% if record.get('other_relationship_entry', {}).get('recid', '') is string %}
-            <a href="{{url_for('.metadata', recid = record.get('other_relationship_entry', {}).get('recid', '') )}}">Record {{record.get('other_relationship_entry', {}).get('recid', '')}}</a>
+            <a href="{{url_for('.metadata', recid = record.get('other_relationship_entry', {}).get('recid', '') )}}">{{ (record.get('other_relationship_entry', {}).get('recid', ''))|get_record_name }}</a>
           {% else %}
             {% for r in record.get('other_relationship_entry', {}).get('recid', '') %}
-              <a href="{{url_for('.metadata', recid = r )}}">Record {{r}}</a>
-              {{ ', ' if not loop.last }}
+              <a href="{{url_for('.metadata', recid = r )}}">{{ r|get_record_name }}</a>
             {% endfor %}
           {% endif %}
         </div>
