@@ -225,9 +225,6 @@ $(function () {
 
   function loadFile(input) {
     //$('#filename').html(input.file.split('/').pop());
-    $('#filedropdown').text(input.name+'  ');
-    $('#filedropdown').append('<span class="caret"></span>');
- 
     $('#filedropdown').button('loading');
    
     d3.csv(input.file,
