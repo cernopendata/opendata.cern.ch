@@ -244,6 +244,8 @@ $(function () {
         populateValues(data[0], input.type);
         input_data = data;
         $('#filedropdown').button('reset');
+        $('#filedropdown').text(input.name+'  ');
+        $('#filedropdown').append('<span class="caret"></span>');
       }
     );
   }
