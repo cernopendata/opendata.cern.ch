@@ -12,7 +12,7 @@
       <subfield code="c">2014</subfield>
     </datafield>
     <datafield tag="520" ind1=" " ind2=" ">
-      <subfield code="a">The virtual machine image is based on CernVM, a customized development based on Scientific Linux 6.x, specifically intended for virtualization. There is some documentation on the project at http://cernvm.cern.ch/portal/release_3.3.0. <br />For CMS a special contextualization script is used to generate a version of the image including settings needed by the experiment software which runs on the open data. This script runs within CernVM and creates an image usable in <a href="https://www.virtualbox.org/">VirtualBox</a>.</subfield>
+      <subfield code="a">The virtual machine image is based on CernVM (cernvm.cern.ch), with Scientific Linux CERN 5 (slc5), which is the environment needed for the CMSSW release to be used with the 2010 CMS open data. Access to the data is through XRootD.</subfield>
     </datafield>
     <datafield tag="556" ind1=" " ind2=" ">
       <subfield code="a">For known issues and limitations see</subfield>
@@ -27,7 +27,12 @@
     <datafield tag="583" ind1=" " ind2=" ">
       <subfield code="a">A validation report of the CMS VM can be found at</subfield>
       <subfield code="u">http://opendata.cern.ch/VM/CMS/validation/report</subfield>
+      <subfield code="w">56</subfield>
       <subfield code="y">Testing the CernVM</subfield>
+    </datafield>
+    <datafield tag="693" ind1=" " ind2=" ">
+      <subfield code="a">CERN-LHC</subfield>
+      <subfield code="e">CMS</subfield>
     </datafield>
     <datafield tag="980" ind1=" " ind2=" ">
       <subfield code="a">CMS-Tools</subfield>
