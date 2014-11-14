@@ -17,7 +17,7 @@
       </div>
 
       {# Show Authors ( > 5 : read_more show/hide ) #}
-      <div class="rec_authors"{% if (record['authors']|length) < 5 %}  {% else %} id="rec_authors_rdmore" {% endif %}>
+      <div class="rec_authors col-md-12"{% if (record['authors']|length) < 5 %}  {% else %} id="rec_authors_rdmore" {% endif %}>
         {% if record['_first_corporate_name'] %}
           <kbd>{{ record['_first_corporate_name']['name'] }}</kbd>
         {% endif %}
@@ -80,7 +80,7 @@
         {% if record.get('supplement_parent_entry','').get('recid','') and record.get('supplement_parent_entry','').get('heading','') %}
         <a href="{{ url_for('record.metadata', recid=record.get('supplement_parent_entry','').get('recid', '')) }}">
           <div class="rec_thumb rec_parentcol">
-            <div class="n"><div class="t">Dataset</div>{{ record.get('supplement_parent_entry','').get('heading', '') }}</div>
+            <div class="n"><div class="t">Parent Dataset</div>{{ record.get('supplement_parent_entry','').get('heading', '') }}</div>
           </div>
         </a>
         {% endif %}
