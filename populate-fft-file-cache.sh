@@ -303,6 +303,9 @@ $WGET -O $OUTDIR/data-policies/LHCb-Data-Policy.pdf http://cds.cern.ch/record/15
 mkdir -p $OUTDIR/cms-open-data-instructions
 $WGET -O $OUTDIR/cms-open-data-instructions/OutreachExercise2010.m4v http://193.146.75.147/Outreach%20Exercise%202010.m4v
 
+# eightly, ALICE data policy:
+rsync -a invenio_opendata/testsuite/data/alice/alice-data-policy/ $OUTDIR/alice-data-policy/
+
 # finally, make symlink to FFT cache from tmp:
 if [ ! -L "/tmp/$(basename $OUTDIR)" ]; then
     ln -s $OUTDIR /tmp
