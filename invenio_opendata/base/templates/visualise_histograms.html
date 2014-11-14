@@ -177,7 +177,7 @@ div.plot-control {
 {% endblock %}
 
 {%- block javascript %}
-<script type="text/javascript" src="{{url_for('base.static', filename='vendors/d3/d3.min.js')}}"></script>
+<script src="{{url_for('base.static', filename='vendors/d3/d3.min.js')}}" charset="utf-8"></script>
 <script type="text/javascript" src="{{url_for('base.static', filename='vendors/flot/jquery.flot.js')}}"></script>
 <script type="text/javascript" src="{{url_for('base.static', filename='vendors/flot/jquery.flot.selection.js')}}"></script>
 <script type="text/javascript">
