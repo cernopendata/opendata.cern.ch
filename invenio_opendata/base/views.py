@@ -389,14 +389,14 @@ def collection(name):
 # Routing for "record" module
 @blueprint.route('record/<int:recid>/files', methods=['GET', 'POST'])
 @blueprint.route('record/<int:recid>/metadata', methods=['GET', 'POST'])
-@blueprint.route('record/<int:recid>/', methods=['GET', 'POST'])
-@blueprint.route('record/<int:recid>', methods=['GET', 'POST'])
 @blueprint.route('record/<int:recid>/export', methods=['GET', 'POST'])
 @blueprint.route('record/<int:recid>/export/<of>', methods=['GET', 'POST'])
 @blueprint.route('record/<int:recid>/usage', methods=['GET', 'POST'])
 @blueprint.route('record/<int:recid>/references', methods=['GET', 'POST'])
 @blueprint.route('record/<int:recid>/keywords', methods=['GET', 'POST'])
 @blueprint.route('record/<int:recid>/citations', methods=['GET', 'POST'])
+@blueprint.route('record/<int:recid>/', methods=['GET', 'POST'])
+@blueprint.route('record/<int:recid>', methods=['GET', 'POST'])
 @wash_arguments({'of': (unicode, 'hd')})
 @request_record
 def metadata(recid, of='hd'):
