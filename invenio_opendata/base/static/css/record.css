@@ -55,6 +55,18 @@
   padding-bottom: 15px;
 }
 
+#record_primary .rec_header .rec_authors .collaboration_tag {
+  padding: 2px;
+  color: #fff;
+  background-color: #acc6d4;
+  border-radius: 3px;
+}
+#record_primary .rec_header .rec_authors .collaboration_tag a,
+#record_primary .rec_header .rec_authors .collaboration_tag a:hover,
+#record_primary .rec_header .rec_authors .collaboration_tag a:focus {
+  color: inherit;
+}
+
 .content.record .record-content .main .rec_header {
   margin-bottom: 30px;
   margin-top: -25px;
@@ -69,7 +81,8 @@
   color: #d5d5d5;
 }
 #record_primary .rec_header .rec_authors a {
-  color: #d5d5d5;
+  color: #fff;
+  border-bottom: 1px dotted #fff;
 }
 #record_reduced .rec_header {
   color: #606D75;
@@ -122,6 +135,12 @@
 .rec_dedicated_details_in.rec_dedicated_details_in:nth-child(2n){
   background-color: #a1b8c5;
   border-bottom: 0;
+}
+
+#authors_list_box {
+  max-height: 150vh;
+  margin-bottom: 40px;
+  overflow: auto;
 }
 #record_primary .rec_dedicated_details_in span {
   font-size: 30px;
