@@ -1,9 +1,17 @@
-{% macro record_files_display(files, with_preview) %}
+{% macro record_files_display(files, with_preview, f_title) %}
 	{% if record.get('files', []) %}
 	<div class="rec_metadata rec_files">
 	  <div class="row">
 	    <div class="col-md-12">
-	      <div class="rec_title title">Files / Indexes</div>
+	      <div class="rec_title title">
+			{% if f_title == 'f' %}
+				Files
+			{% elif f_title == 'i' %}	
+				Indexes
+			{% elif f_title == 'fi' %}	
+				Files and indexes
+			{% endif %}
+	      </div>
 	    </div>
 	    <div class="col-md-12">
 	      <div class="rec_file_box">
