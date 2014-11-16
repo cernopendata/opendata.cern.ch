@@ -134,45 +134,7 @@
               {%- set new_args = args.copy() -%}
 
               {% block search_result_settings_sort scoped %}
-              <div class="btn-group">
-                <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
-                  <i class="glyphicon glyphicon-sort hidden-sm"></i> {{ _('Sort by') }}
-                  <span class="caret"></span>
-                </a>
-
-                {%- if 'so' in new_args -%}
-                {%- do new_args.pop('so') -%}
-                {%- endif -%}
-                {%- if 'rm' in new_args -%}
-                {%- do new_args.pop('rm') -%}
-                {%- endif -%}
-
-                <ul class="dropdown-menu">
-                  {%- for (k,v,vv) in [('Most recent', 'rm', ''), ('Most cited', 'rm', 'citation'), ('Most relevant', 'rm', 'wrd')] -%}
-                  {%- set active = request.values.get(v,'') == vv -%}
-                  {%- set used_args = new_args.copy() -%}
-                  {%- do used_args.update({v:vv}) -%}
-                  <li>
-                    <a href="{{ url_for('search.search', **used_args) }}{{ '#'+request.form.get('filter','')|default('', true) }}"
-                    class="{{ 'active' if active }}">
-                    <i class="pull-right icon {{ ' glyphicon glyphicon-ok' if active }}"></i>
-                    {{ _(k) }}
-                  </a>
-                </li>
-                {%- endfor -%}
-                {% if collection.rnkMETHODs|length %}
-                <li class="divider"></li>
-                {% for rnk_method in collection.rnkMETHODs %}
-                {%- set used_args = new_args.copy() -%}
-                {%- do used_args.update({'rm': rnk_method.rnkMETHOD.name }) -%}
-                <li><a href="{{ url_for('search.search', **used_args) }}">
-                  {{ rnk_method.rnkMETHOD.get_name_ln() }}
-                </a></li>
-                {% endfor %}
-                {% endif %}
-              </ul>
-            </div>
-            {%- endblock search_result_settings_sort %}
+              {%- endblock search_result_settings_sort %}
           </div>
         </div>
       </div>
