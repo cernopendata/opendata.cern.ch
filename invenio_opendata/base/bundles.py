@@ -47,10 +47,22 @@ ie_bundle = Bundle(
 
 od_records_js = Bundle(
     "vendors/readmore/readmore.min.js",
+    "js/records_base.js",
     output = "od_records.js",
-    weight=500,
-    bower={
-        "readmore": "latest"
+    weight=20,
+    bower = {
+    "readmore": "latest",
+    }
+)
+
+od_records_utils_js = Bundle(
+    "vendors/listjs/dist/list.min.js",
+    output = "od_records_utils.js",
+    weight=40,
+    filters="requirejs",
+    bower = {
+        "readmore": "latest",
+        "listjs": "latest",
     }
 )
 
