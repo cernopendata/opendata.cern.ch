@@ -420,13 +420,25 @@ def metadata(recid, of='hd'):
 
     def get_record_name(recid):
         tmp_rec = get_record(recid)
-        if tmp_rec.get('title_additional', ''):
+        if tmp_rec is None:
+            return 'Can\'t link to record ( WRONG recid )'
+
+        if 'title_additional' in tmp_rec :
             return tmp_rec.get('title_additional', '').get('title', '')
         elif tmp_rec.get('title',{}).get('title',''):
             return tmp_rec.get('title',{}).get('title','')
 
+    def get_record_author_list(recid):
+        tmp_rec = get_record(recid)
+        if tmp_rec is None:
+            return None
+
+        return tmp_rec.get('authors','')
+
+
     current_app.jinja_env.filters['splitthem'] = splitting
     current_app.jinja_env.filters['get_record_name'] = get_record_name
+    current_app.jinja_env.filters['get_record_author_list'] = get_record_author_list
 
     record_collection = get_record(recid)['collections'][0]['primary']
     rec_col = Collection.query.filter(Collection.name == record_collection).first_or_404()
@@ -435,7 +447,7 @@ def metadata(recid, of='hd'):
                     {"url":".collection", "text": rec_col.name_ln, "param":"name", "value":rec_col.name }]
 
     try:
-        return render_template('records/base_base.html', breadcrumbs = breadcrumbs)
+        return render_template('records/base_base.html', breadcrumbs = breadcrumbs )
     except TemplateNotFound:
         return abort(404)  # FIX
 
