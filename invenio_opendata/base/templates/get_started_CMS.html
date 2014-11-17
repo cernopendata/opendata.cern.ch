@@ -46,11 +46,11 @@
       Excellent! You have successfully opened a CMS AOD file in ROOT. If this was the first time you've done so, pat yourself on the back. Now, to see what is inside this file, let us take a closer look at some collections of <a href="{{ url_for('about/CMS-Physics-Objects') }}">physics objects</a>.
     </p>
     <p>
-      On the left window of ROOT (see the screenshot below), double-click on the file name (<kbd>root://eospublic.cern.ch//eos/opendata/…</kbd>), followed by <kbd>Events</kbd> and then <kbd>Collections</kbd>. You should see a list of collections of physics objects.<br />
+      On the left window of ROOT (see the screenshot below), double-click on the file name (<kbd>root://eospublic.cern.ch//eos/opendata/…</kbd>). You should see a list of entries under <kbd>Events</kbd>, each corresponding to a collection of reconstructed data. We are interested in the collections containing information about reconstructed physics objects.<br />
       <img src="{{ url_for('static', filename='img/docs/Screenshot_001_Tbrowser_t.png') }}" alt="Screenshot: After running 'TBrowser t'" style="width:70%; padding: 20px;"/>
     </p>
     <p>
-      Let us take a peek, for example, at the following electron collection, as shown on the list of <a href="{{ url_for('about/CMS-Physics-Objects') }}">physics objects</a>: <kbd>recoGsfElectrons_gsfElectrons__RECO</kbd>. Look in there by double-clicking on that line and then double-clicking on <kbd>recoGsfElectrons_gsfElectrons__RECO.obj</kbd>. Here, you can have a look at various properties of this collection, such as the plot for the transverse momentum of the electrons: <kbd>recoGsfElectrons_gsfElectrons__RECO.obj.pt_</kbd>.
+      Let us take a peek, for example, at the electrons, which are found in <kbd>recoGsfElectrons_gsfElectrons__RECO</kbd>, as shown on the list of <a href="{{ url_for('about/CMS-Physics-Objects') }}">physics objects</a>. Look in there by double-clicking on that line and then double-clicking on <kbd>recoGsfElectrons_gsfElectrons__RECO.obj</kbd>. Here, you can have a look at various properties of this collection, such as the plot for the transverse momentum of the electrons: <kbd>recoGsfElectrons_gsfElectrons__RECO.obj.pt_</kbd>.
     </p>
     <p>
       You can exit the ROOT browser through the GUI by clicking on <kbd>Browser</kbd> on the menu and then clicking on <kbd>Quit Root</kbd> or by entering <kbd>.q</kbd> in the terminal.
