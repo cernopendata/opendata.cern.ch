@@ -146,7 +146,7 @@
 
             {% if collection.reclist %}
               {% for recid in collection.reclist[-10:]|reverse %}
-                <div class="col-md-12 {{ 'last' if loop.last }}">
+                <div class="col-xs-12 {{ 'last' if loop.last }}">
                   {{ format_record(recid, of, ln=g.ln, extra_context=dict(collection=collection))|safe }}
                 </div>
               {% endfor %}
