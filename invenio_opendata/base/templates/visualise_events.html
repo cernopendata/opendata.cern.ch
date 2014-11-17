@@ -547,6 +547,7 @@ body.black a:hover {
    xhr.open("GET", filename, true);
    xhr.overrideMimeType("text/plain; charset=x-user-defined"); 
 
+   clearList("browser-events");
    var ecell = document.getElementById("browser-events").insertRow(0).insertCell(0);
    ecell.innerHTML = 'Loading events...';
    
