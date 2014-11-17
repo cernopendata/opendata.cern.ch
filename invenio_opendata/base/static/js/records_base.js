@@ -8,5 +8,8 @@ $( document ).ready(function() {
 	var options = {
 		valueNames: ['author_name', 'author_affiliaton', 'author_ccid', 'author_inspire'],
 	};
-	var authors_list = new List('authors_list', options);
+
+	if ($("#authors_list").length !== 0) {		
+		var authors_list = new List('authors_list', options);
+	}
 });
