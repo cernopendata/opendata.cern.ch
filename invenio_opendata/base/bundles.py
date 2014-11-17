@@ -67,7 +67,9 @@ od_records_utils_js = Bundle(
 )
 
 od_d3_js = Bundle(
-     "vendors/d3/d3.min.js",
+    "vendors/d3/d3.min.js",
+    "vendors/flot/jquery.flot.js",
+    "vendors/flot/jquery.flot.selection.js",
     output = "d3.js",
     bower = {
        "d3": "3.3.13"
