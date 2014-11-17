@@ -1,4 +1,4 @@
-{% macro record_files_display(files, with_preview, f_title) %}
+{% macro record_files_display(files, with_preview, f_title = 'fi') %}
 	{% if record.get('files', []) %}
 	<div class="rec_metadata rec_files">
 	  <div class="row">

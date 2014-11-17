@@ -241,13 +241,15 @@
           <div class="col-md-12">
             <div class="rec_desc">
               {{record.get('other_relationship_entry', {}).get('heading', '')}}
-              {% if record.get('other_relationship_entry', {}).get('recid', '') is string %}
-                <a href="{{url_for('.metadata', recid = record.get('other_relationship_entry', {}).get('recid', '') )}}">{{ (record.get('other_relationship_entry', {}).get('recid', ''))|get_record_name }}</a>
-              {% else %}
-                {% for r in record.get('other_relationship_entry', {}).get('recid', '') %}
-                  <a href="{{url_for('.metadata', recid = r )}}">{{ r|get_record_name }}</a>
-                {% endfor %}
-              {% endif %}
+              {% if record.get('other_relationship_entry', {}).get('recid', '') %}
+                {% if record.get('other_relationship_entry', {}).get('recid', '') is string %}
+                  <a href="{{url_for('.metadata', recid = record.get('other_relationship_entry', {}).get('recid', '') )}}">{{ (record.get('other_relationship_entry', {}).get('recid', ''))|get_record_name }}</a>
+                {% else %}
+                  {% for r in record.get('other_relationship_entry', {}).get('recid', '') %}
+                    <a href="{{url_for('.metadata', recid = r )}}">{{ r|get_record_name }}</a>
+                  {% endfor %}
+                {% endif %}
+              {% endif %}  
             </div>
           </div>
         </div>
