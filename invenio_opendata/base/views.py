@@ -57,6 +57,44 @@ def get_collection_names(without = []):
 
     return exp_names
 
+@blueprint.route('research')
+def entry_research():
+    import json, pkg_resources
+    filepath = pkg_resources.resource_filename('invenio_opendata.base', 'templates/helpers/text/testimonials.json')
+    with open(filepath,'r') as f:
+        testimonials = json.load(f)
+
+    def splitting(value, delimiter='/'):
+        return value.split(delimiter)
+
+    current_app.jinja_env.filters['splitthem'] = splitting
+
+    exp_colls, exp_names = get_collections()
+
+    try:
+        return render_template('index_scrollspy.html', entry = 'research', testimonials = testimonials, exp_colls = exp_colls, exp_names = exp_names)
+    except TemplateNotFound:
+        return abort(404)
+
+@blueprint.route('education')
+def entry_education():
+    import json, pkg_resources
+    filepath = pkg_resources.resource_filename('invenio_opendata.base', 'templates/helpers/text/testimonials.json')
+    with open(filepath,'r') as f:
+        testimonials = json.load(f)
+
+    def splitting(value, delimiter='/'):
+        return value.split(delimiter)
+
+    current_app.jinja_env.filters['splitthem'] = splitting
+
+    exp_colls, exp_names = get_collections()
+
+    try:
+        return render_template('index_scrollspy.html', entry = 'education', testimonials = testimonials, exp_colls = exp_colls, exp_names = exp_names)
+    except TemplateNotFound:
+        return abort(404)
+
 @blueprint.route('')
 def middle():
     import json, pkg_resources
@@ -76,11 +114,10 @@ def middle():
     except TemplateNotFound:
         return abort(404)
 
-@blueprint.route('education', defaults={'exp': None})
 @blueprint.route('education/<string:exp>')
-@register_breadcrumb(blueprint, '.educate', 'For Education', \
+@register_breadcrumb(blueprint, '.entry_education', 'For Education', \
                         dynamic_list_constructor = (lambda :\
-                        [{"url":".educate","text":"Education"}]))
+                        [{"url":".entry_education","text":"Education"}]))
 def educate(exp):
     import os.path, pkg_resources
 
@@ -103,11 +140,10 @@ def educate(exp):
         return abort(404)
 
 
-@blueprint.route('research', defaults={'exp': None})
 @blueprint.route('research/<string:exp>')
-@register_breadcrumb(blueprint, '.research', 'For Research', \
+@register_breadcrumb(blueprint, '.entry_research', 'For Research', \
                         dynamic_list_constructor = (lambda :\
-                        [{"url":".research","text":"Research"}]))
+                        [{"url":".entry_research","text":"Research"}]))
 def research(exp):
     import os.path, pkg_resources
 
@@ -132,7 +168,7 @@ def research(exp):
 @blueprint.route('visualise/events/CMS')
 @register_breadcrumb(blueprint, '.visualise_events', 'Visualise Events', \
                         dynamic_list_constructor = (lambda :\
-                        [{"url":".educate","text":"For Education"},\
+                        [{"url":".entry_research","text":"For Education"},\
                         {"url":".educate","text":"CMS"},\
                         {"url":".visualise_events","text":"Visualise Events"}]) )
 def visualise_events():
@@ -145,7 +181,7 @@ def visualise_events():
 @blueprint.route('visualise/histograms/CMS')
 @register_breadcrumb(blueprint, '.visualise_histo', 'Visualise Histograms', \
                         dynamic_list_constructor = (lambda :\
-                        [{"url":".educate","text":"For Education"},\
+                        [{"url":".entry_research","text":"For Education"},\
                         {"url":".educate","text":"CMS"},\
                         {"url":".visualise_histo","text":"Visualise Histograms"}]) )
 def visualise_histo():
@@ -179,7 +215,7 @@ def get_started(exp):
 @blueprint.route('resources', defaults={'exp': None})
 @register_breadcrumb(blueprint, '.resources', 'Learning Resources', \
                         dynamic_list_constructor = (lambda :\
-                        [{"url":".educate","text":"For Education"},\
+                        [{"url":".entry_research","text":"For Education"},\
                         {"url":".resources","text":"Learning Resources"}]) )
 def resources(exp):
     exp_names = get_collection_names()
@@ -347,13 +383,16 @@ def collection(name):
     from invenio.modules.search.forms import EasySearchForm
     from invenio.ext.template.context_processor import \
     register_template_context_processor
+
     from flask.ext.breadcrumbs import current_breadcrumbs
-
     collection = Collection.query.filter(Collection.name == name).first()
-    parent_collection = collection.most_specific_dad if ( collection.most_specific_dad.id != 1 ) else None
-
+    
     if collection == None:
         return render_template('404.html')
+
+    parent_collection = collection.most_specific_dad if ( collection.most_specific_dad.id != 1 ) else None
+
+    
 
     coll_reclist = collection.reclist
     coll_records = []

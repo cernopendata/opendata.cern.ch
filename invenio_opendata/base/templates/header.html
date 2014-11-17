@@ -55,8 +55,8 @@
                   </ul>
                 </li>
                 <li><a href="{{ url_for('search') }}">SEARCH</a></li>
-                <li><a href="{{ url_for('invenio_opendata.middle', _anchor='edu') }}">EDUCATION</a></li>
-                <li><a href="{{ url_for('invenio_opendata.middle',_anchor='rsch') }}">RESEARCH</a></li>
+                <li><a href="{% if home==true %}#education{%else%}{{ url_for('invenio_opendata.entry_education') }}{% endif %}">EDUCATION</a></li>
+                <li><a href="{% if home==true %}#research{%else%}{{ url_for('invenio_opendata.entry_research') }}{%endif%}">RESEARCH</a></li>
               </ul>
             </div>
           </div>
