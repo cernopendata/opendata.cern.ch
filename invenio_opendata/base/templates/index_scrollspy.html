@@ -557,22 +557,22 @@
               For education purposes, the complex primary data need to be processed into a format (examples below) that is good for simple applications. Get in touch if you wish to build your own applications similar to those shown here
             </div>
             <div class="entrypoint-goto row">
-              <a href="{{url_for('.visualise_events')}}">
+              <a href="{{url_for('.visualise_events', exp='CMS')}}">
                 <div id="v-events" class="entrypoint-goto-action col-sm-6">
                   <div class="goto-action-image">
                   </div>
-                  <a href="{{url_for('.visualise_events')}}">
+                  <a href="{{url_for('.visualise_events', exp='CMS')}}">
                     <div class="goto-action-button">
                       Visualise events<span class="fa fa-chevron-right"></span> 
                     </div>
                   </a>
                 </div>
               </a>
-              <a href="{{url_for('.visualise_histo')}}">
+              <a href="{{url_for('.visualise_histo', exp='CMS')}}">
                 <div id="v-histo" class="entrypoint-goto-action col-sm-6">
                   <div class="goto-action-image">
                   </div>
-                  <a href="{{url_for('.visualise_histo')}}">
+                  <a href="{{url_for('.visualise_histo', exp='CMS')}}">
                     <div class="goto-action-button">
                       Visualise histogram<span class="fa fa-chevron-right"></span>
                     </div>

@@ -95,7 +95,7 @@ div.row.buttons {
   margin-right: 0px;
 }
 
-div.dropdown {
+#browse-dropdown.dropdown {
   padding-top: 15px;
 }
 
@@ -107,7 +107,7 @@ div.plot-control {
 </style>
 <section class="infobar">
   <div class="container">
-    {{gen_utils.get_breadcrumbs(breadcrumbs)}}
+    {{gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names)}}
   </div>
 </section>
 
@@ -133,7 +133,7 @@ div.plot-control {
     <div class="previewer" id="histogram">
       <div class="row buttons top">
         <div class="col-md-6">
-          <div class="dropdown">
+          <div id="browse-dropdown" class="dropdown">
             <button class="btn btn-default dropdown-toggle" data-loading-text="Loading..." type="button" id="filedropdown" data-toggle="dropdown">
             </button>
             <ul class="dropdown-menu" role="menu" id="fileul" aria-labelledby="filedropdown"></ul>

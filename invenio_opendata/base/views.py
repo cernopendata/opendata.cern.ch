@@ -165,28 +165,28 @@ def research(exp):
     except TemplateNotFound:
         return abort(404)
 
-@blueprint.route('visualise/events/CMS')
-@register_breadcrumb(blueprint, '.visualise_events', 'Visualise Events', \
-                        dynamic_list_constructor = (lambda :\
-                        [{"url":".entry_research","text":"For Education"},\
-                        {"url":".educate","text":"CMS"},\
-                        {"url":".visualise_events","text":"Visualise Events"}]) )
-def visualise_events():
+@blueprint.route('visualise/events/<string:exp>')
+def visualise_events(exp = 'CMS'):
+
+    exp_names = get_collection_names(['ALICE', 'LHCb', 'ATLAS'])
+
+    breadcrumbs = [{},{"url":".entry_education","text":"For Education"},\
+                        {"url":".entry_education","text":"Visualise Events"}]
     try:
-        return render_template('visualise_events.html')
+        return render_template('visualise_events.html', exp = exp, exp_names = exp_names, breadcrumbs = breadcrumbs)
     except TemplateNotFound:
         return abort(404)
 
 
-@blueprint.route('visualise/histograms/CMS')
-@register_breadcrumb(blueprint, '.visualise_histo', 'Visualise Histograms', \
-                        dynamic_list_constructor = (lambda :\
-                        [{"url":".entry_research","text":"For Education"},\
-                        {"url":".educate","text":"CMS"},\
-                        {"url":".visualise_histo","text":"Visualise Histograms"}]) )
-def visualise_histo():
+@blueprint.route('visualise/histograms/<string:exp>')
+def visualise_histo(exp = 'CMS'):
+    exp_colls, exp_names = get_collections()
+
+    breadcrumbs = [{},{"url":".entry_education","text":"For Education"},\
+                        {"url":".entry_education","text":"Visualise Histograms"}]
+
     try:
-        return render_template('visualise_histograms.html')
+        return render_template('visualise_histograms.html', exp = exp, exp_names = exp_names, breadcrumbs = breadcrumbs)
     except TemplateNotFound:
         return abort(404)
 
