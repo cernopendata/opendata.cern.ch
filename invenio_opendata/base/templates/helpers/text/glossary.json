@@ -2,71 +2,212 @@
 	{
 		"term": "AOD",
 		"anchor": "AOD",
-		"definition": "Analysis Object Data: Definition needed",
+		"definition": "Stands for “Analysis Object Data”, a format that contains all information needed for a CMS analysis. It contains reconstructed “physics objects” such as electrons, photons and muons.",
 		"category": "specific",
 		"experiment": [
-			{"name": "CMS"}
+			{
+				"name": "CMS"
+			}
 		],
-		"links": [{
-			"text": "Read more on the CMS website",
-			"url": "http://cern.ch/cms"
-		}
+		"see-also": [
+			{
+				"term": "Primary dataset"
+			},
+			{
+				"term": "Reconstruction"
+			}
+		],
+		"links": [
+			{
+				"text": "Read more in the CMS WorkBook",
+				"url": "https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookDataFormats#AoD"
+			},
+			{
+				"text": "Read more on the \"About CMS\" page on this portal",
+				"url": "http://opendata.cern.ch/about/CMS"
+			}
+		]
+	},
+	{
+		"term": "Derived dataset",
+		"anchor": "derived",
+		"category": "specific",
+		"definition": "Contains data that have been derived from the primary datasets. The data may be reduced in the sense that (a) only part of the information is kept or (b) only part of the events are selected.",
+		"experiment": [
+			{
+				"name": "CMS"
+			},
+			{
+				"name": "ATLAS"
+			},
+			{
+				"name": "ALICE"
+			},
+			{
+				"name": "LHCb"
+			}
+		],
+		"see-also": [
+			{
+				"term": "Primary datasets"
+			}
+		],
+		"links": [
+			{
+				"text": "See all the \"Derived datasets\" collections on this portal",
+				"url": "http://opendata.cern.ch/search?ln=en&p=+%28collection%3AALICE-Derived-Datasets+OR+collection%3ACMS-Derived-Datasets+OR+collection%3AATLAS-Derived-Datasets+OR+collection%3ALHCb-Derived-Datasets%29&action_search="
+			}
+		]
+	},
+	{
+		"term": "CMSSW",
+		"anchor": "CMSSW",
+		"category": "specific",
+		"definition": "Stands for CMS Software and refers to the so-called “Offline” software needed to analyse CMS data.",
+		"experiment": [
+			{
+				"name": "CMS"
+			}
+		],
+		"see-also": [
+			{
+				"term": ""
+			}
+		],
+		"links": [
+			{
+				"text": "See the CMSSW codebase on GitHub",
+				"url": "https://github.com/cms-sw/cmssw"
+			}
 		]
 	},
 	{
 		"term": "PAT",
 		"anchor": "PAT",
 		"category": "specific",
-		"definition": "Physics Analysis Toolkit: Definition needed",
+		"definition": "Stands for Physics Analysis Toolkit, and provides easy access to algorithms developed by the CMS Physics Object Groups (POGs) in the framework of CMS Software (CMSSW), suitable for most CMS analyses.",
 		"experiment": [
-			{"name": "CMS"}
+			{
+				"name": "CMS"
+			}
 		],
-		"links": [{
-			"text": "Read more on the CMS website",
-			"url": "http://cern.ch/cms"
-		}
-		]
-	},
-	{
-		"term": "RunB",
-		"anchor": "RunB",
-		"category": "specific",
-		"definition": "Definition needed",
-		"experiment": [
-			{"name": "CMS"}
+		"see-also": [
+			{
+				"term": ""
+			}
 		],
-		"links": [{
-			"text": "Read more on the CMS website",
-			"url": "http://cern.ch/cms"
-		}
+		"links": [
+			{
+				"text": "Read more in the CMS Software guide",
+				"url": "https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuidePAT"
+			}
 		]
 	},
 	{
 		"term": "Primary dataset",
 		"anchor": "primary",
 		"category": "specific",
-		"definition": "Definition needed",
+		"definition": "Datasets without any selection criteria applied. On this portal, primary datasets refer to “reconstructed data”.",
 		"experiment": [
-			{"name": "CMS"}
+			{
+				"name": "CMS"
+			},
+			{
+				"name": "ATLAS"
+			},
+			{
+				"name": "ALICE"
+			},
+			{
+				"name": "LHCb"
+			}
 		],
-		"links": [{
-			"text": "Read more on the CMS website",
-			"url": "http://cern.ch/cms"
-		}
+		"see-also": [
+			{
+				"term": "AOD"
+			},
+			{
+				"term": "Reconstruction"
+			}
+		],
+		"links": [
+			{
+				"text": "Read more on the CMS website",
+				"url": "http://cern.ch/cms"
+			}
+		]
+	},
+	{
+		"term": "Reconstruction",
+		"anchor": "reconstruction",
+		"category": "specific",
+		"definition": "Fragmented data from various sub-detectors are processed or “reconstructed” to provide coherent information about individual physics objects such as electrons or particle jets. Reconstruction involves putting together information from different sub-detectors into a coherent representation of every particle collision. However, the format for the first tier of reconstructed data is often too huge for meaningful analysis, and is converted into a lighter format, such as the AOD format for CMS.",
+		"experiment": [
+			{
+				"name": "CMS"
+			},
+			{
+				"name": "ATLAS"
+			},
+			{
+				"name": "ALICE"
+			},
+			{
+				"name": "LHCb"
+			}
+		],
+		"see-also": [
+			{
+				"term": "AOD"
+			},
+			{
+				"term": "Primary dataset"
+			}
+		],
+		"links": [
+			{
+				"text": "Read more in the CMS WorkBook",
+				"url": "https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookDataFormats#RecO"
+			}
+		]
+	},
+	{
+		"term": "RunB",
+		"anchor": "RunB",
+		"category": "specific",
+		"definition": "ATTENTION: Definition needed",
+		"experiment": [
+			{
+				"name": "CMS"
+			}
+		],
+		"see-also": [
+			{
+				"term": ""
+			}
+		],
+		"links": [
+			{
+				"text": "Read more on the CMS website",
+				"url": "http://cern.ch/cms"
+			}
 		]
 	},
 	{
 		"term": "electron",
 		"anchor": "electron",
 		"category": "generic",
-		"definition": "Definition needed",
-		"experiment": [
-			{"name": "not-applicable"}
+		"definition": "ATTENTION: Definition needed",
+		"see-also": [
+			{
+				"term": ""
+			}
 		],
-		"links": [{
-			"text": "Read more on Wikipedia",
-			"url": "http://en.wikipedia.org"
-		}
+		"links": [
+			{
+				"text": "Read more on Wikipedia",
+				"url": "https://en.wikipedia.org/wiki/Electron"
+			}
 		]
 	}
 ]
