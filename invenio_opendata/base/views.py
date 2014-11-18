@@ -479,11 +479,17 @@ def metadata(recid, of='hd'):
     current_app.jinja_env.filters['get_record_name'] = get_record_name
     current_app.jinja_env.filters['get_record_author_list'] = get_record_author_list
 
+
     record_collection = get_record(recid)['collections'][0]['primary']
     rec_col = Collection.query.filter(Collection.name == record_collection).first_or_404()
-    breadcrumbs = [{},\
-                    {"url":".collection", "text": rec_col.most_specific_dad.name, "param":"name", "value":rec_col.most_specific_dad.name },\
-                    {"url":".collection", "text": rec_col.name_ln, "param":"name", "value":rec_col.name }]
+    parent_collection = rec_col.most_specific_dad if ( rec_col.most_specific_dad.id != 1 ) else None
+
+    breadcrumbs = [{}]
+
+    if parent_collection:
+        breadcrumbs.append({ "url":".collection", "text": parent_collection.name_ln, "param":"name", "value": parent_collection.name })
+
+    breadcrumbs.append({"url":".collection", "text": rec_col.name_ln, "param":"name", "value":rec_col.name })
 
     try:
         return render_template('records/base_base.html', breadcrumbs = breadcrumbs )
