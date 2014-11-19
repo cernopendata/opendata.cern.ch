@@ -259,7 +259,7 @@
 
   {% block record_files_urls %}
     {% block record_files %}
-      {{ record_files_display(record.get('files',''), show_previewer['show'], show_previewer['file_title'], record.get('accelerator_experiment','').get('experiment', ''))  }}    
+      {{ record_files_display(record.get('files',''), show_previewer['show'], show_previewer['file_title'], record.get('accelerator_experiment','').get('experiment', '') if record.get('accelerator_experiment','') else None )  }}    
     {% endblock %}
     {% block record_urls %}
       {% if record.get('url',[]) != [] %}
