@@ -649,7 +649,7 @@ class PortalboxData(DataSet):
         title = u'short_description_r'
 
     class Portalbox_39:
-        body = u'According to the LHCb External Data Access Policy, reconstructed data will be made openly accessible 5 years after the data is taken. For the data that have already been taken, the 5 years are counted from the date of ratification of the experiment’s policy. Thus, the first release of LHCb data will happen in 2018.'
+        body = u'According to the LHCb External Data Access Policy, reconstructed data and accompanying tools will be released after reasonable embargo periods.'
         id = 39
         title = u'short_description_r'
 
