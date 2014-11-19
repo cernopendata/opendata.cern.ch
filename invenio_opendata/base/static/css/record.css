@@ -24,8 +24,60 @@
   font-size: 10px;
   background-color: #9BB1BD;
 }
+
 #record_primary .rec_metadata.rec_files li .content_box {
   padding: 5px;
+}
+.rec_metadata.rec_files li span.method {
+  background-color: #fff;
+  padding: 1px 3px;
+  font-size: inherit;;
+  font-weight: 100;
+  color: inherit;
+  margin-left: 5px;
+  border-radius: 2px;
+}
+.rec_metadata.rec_files li .modal-content {
+  background-color:  #c97a69;
+  color: #fff;
+}
+
+.rec_file_box .modal-content button {
+  border: 0;
+  padding: 5px 10px;
+  height: auto;
+  color: #fff;
+}
+.rec_file_box .modal-content button.btn-success { 
+  background-color: #5cb85c!important;
+}
+.rec_file_box .modal-body {
+  font-size: 13px;
+}
+@media (min-width: 768px) {
+.rec_file_box .modal-content {
+  border: 0;
+  -webkit-box-shadow: 0!important;
+  box-shadow: 0!important;
+  border-radius: 3px;
+}  
+}
+.rec_file_box .modal-content {
+  border: 0;
+  -webkit-box-shadow: 0!important;
+  box-shadow: 0!important;
+  border-radius: 3px;
+}
+.rec_file_box .modal-content a, 
+.rec_file_box .modal-content a:focus, 
+.rec_file_box .modal-content a:hover{ 
+  color: #fff!important;
+  text-decoration: underline;
+  font-size: inherit!important;
+}
+.rec_file_box .modal-content button.btn-default {
+background-color: #fff!important;
+color: #a2b4c2!important;
 }
 #record_primary .rec_file_box .content_box .pull-right {
   padding-top: 6px;

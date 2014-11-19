@@ -1,4 +1,4 @@
-{% macro record_files_display(files, with_preview, f_title = 'fi') %}
+{% macro record_files_display(files, with_preview, f_title = 'fi', exp = None) %}
 	{% if record.get('files', []) %}
 	<div class="rec_metadata rec_files">
 	  <div class="row">
@@ -23,7 +23,8 @@
 	                <div class="col-xs-6 col-sm-8">
 	                  <div class="leftside">
 	                    <ul>
-	                      <li class="col-xs-12 col-sm-8 no-padding"><a href="{{ file.get('url','') }}">{{ file.get('full_name','') }}</a></li>
+	                      <li class="col-xs-12 col-sm-8 no-padding"><b>{{ file.get('full_name','') }}</b>
+	                      </li>
 	                      <li class="col-xs-12 col-sm-4 no-padding"><b>Size:</b> {{ file.get('size','') | filesizeformat }}</li>
 	                    </ul>
 	                    {{ ('<ul><li class="col-xs-12 no-padding"><b>Description:</b>'+(file.get('comment')|truncate(100))+'</li></ul>')|safe if (file.get('comment', '') != '') }}
@@ -51,6 +52,73 @@
 	  </div>
 	</div>
 	{% endif %}
+	{% if record['electronic_location'] %}
+	<div class="rec_metadata rec_files">
+	  <div class="row">
+	    <div class="col-md-12">
+	      <div class="rec_title title">Files</div>
+	    </div>
+	    <div class="col-md-12">
+	      <div class="rec_file_box">
+	        <ul class="row">
+	        	{% for file in record['electronic_location'] %}
+	          <li class="col-md-12">
+	            <div class="content_box">
+	              <div class="row">
+	                <div class="col-xs-6 col-sm-8">
+	                  <div class="leftside">
+	                    <ul>
+	                      <li class="col-xs-12 col-sm-8 no-padding"><b>{{ (file.get('uri','')|splitthem('/',-1))[-1:][0]|safe }}<span class="method">{{file.get('method','')}}</span></b>
+	                      </li>
+	                      <li class="col-xs-12 col-sm-4 no-padding"><b>Size:</b> {{ file.get('size','') | filesizeformat }}
+	                      </li>
+	                    </ul>
+	                  </div>
+	                </div>
+	                <div class="col-xs-6 col-sm-4">
+	                    <div class="right-side">
+	                    	<button class="col-xs-12 btn" data-toggle="modal" data-target="#download-caution-{{loop.index}}">Download</button>
+												{{create_download_modal( url = (file.get('uri','')|splitthem('/',3))[-1:][0], name = (file.get('uri','')|splitthem('/',-1))[-1:][0]|safe, size = file.get('size',''), exp = exp, id = loop.index)}}
+	                    </div>
+	                </div>
+	              </div>
+	            </div>
+	          </li>
+	        	{% endfor %}
+	        </ul>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	{% endif %}
+{% endmacro %}
+
+{% macro create_download_modal(url ='', name = None, size = None, exp = None, id = None) %}
+<div class="modal fade" id="download-caution-{{id}}" tabindex="-1" role="dialog" aria-labelledby="download-caution-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+      	<p>Please note that the file you are going to download {{ '('+name+')'|safe  if name }} is {{ ('<b>'+size+' bytes</b>')|safe if size else 'very'}} big. On an average ADSL connection, it may take several hours to download it.
+      	</p>
+      	<p>Moreover, if you use one of provided <a href="{{url_for('.data_vms', exp = exp)}}">Virtual Machines</a> to perform your analyses, then you don't need to download datasets manually, because the VM will fetch all the necessary file chunks via the XRootD protocol.
+      	</p>
+      	<p>Manual download of files via HTTP is only necessary if you would prefer not to use the XRootD protocol for a reason or another.
+      	</p>
+      	<p>
+      		<label class="checkbox-inline">
+      			<input type="checkbox" id="inlineCheckbox-agree" onchange="$('#download-caution-{{id}} #modal-download-btn').toggleClass('disabled');" value="agree"><b>Yes, I understood.</b>
+      		</label>
+      	</p>
+      </div>
+      <div class="modal-footer">
+        <div class="pull-right">
+        	<button id="modal-download-btn" type="button" class="btn btn-default disabled" onClick="window.location.href='{{url_for('.middle')}}{{url[1:]}}'">PROCEED WITH DOWNLOAD</button>
+        	<button type="button" class="btn btn-success" data-dismiss="modal">CLOSE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endmacro %}
 
 {% macro list_record_attributes(record, exclude=[]) %}
