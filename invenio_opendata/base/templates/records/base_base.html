@@ -31,15 +31,14 @@
       </div>
     {% endif %}
   {% endblock %}
-
   <section id="record_primary" class="content record">
     <div class="container">
       <div class="record-content clearfix">
         <div class="col-md-12 col-sm-12 main clearfix">
-          {% include [ 'records/' + collection.name + '_metadata.html', 'records/metadata_base.html' ] %}
+          {% include [ 'records/' + collection.name + '_metadata.html', 'records/'+((collection.name)|splitthem('-',-1))[-1:][0]+'_metadata.html', 'records/metadata_base.html' ] %}
         </div>
         <div class="col-md-12 col-sm-12 sidebar clearfix">
-          {% include [ 'records/' + collection.name + '_dedicated.html', 'records/dedicated_base.html' ] %}
+          {% include [ 'records/' + collection.name + '_dedicated.html', 'records/'+((collection.name)|splitthem('-',-1))[-1:][0]+'_dedicated.html', 'records/dedicated_base.html' ] %}
         </div>
       </div>
     </div>

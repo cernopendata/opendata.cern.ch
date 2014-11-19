@@ -1,0 +1,45 @@
+{% extends 'records/metadata_base.html' %}
+
+{% block record_content %}
+  {% block record_content_top %}{% endblock %}
+
+  {% block record_descritpion %}
+    {{ super() }}   
+  {% endblock %}
+  
+  {% block record_previewer %}
+    {{ super() }}
+  {% endblock %}
+  
+  {% block record_urls %}   
+    {{ super() }}   
+  {% endblock %}
+
+  {% block records_usability %}
+    {{ super() }}   
+  {% endblock %}
+
+  {% block record_system_details %} 
+    {{ super() }}   
+  {% endblock %}
+
+  {% block records_related_items %}  
+    {{ super() }}   
+  {% endblock %}
+
+  {% block record_characteristics %}
+    {{ super() }} 
+  {% endblock %}
+
+  {% block record_files_urls %}
+    {% block record_files %}
+      {{ super() }} 
+    {% endblock %}
+  {% endblock %}
+
+{% block record_content_bottom %}{% endblock %}
+
+{% endblock %}
+
+
+
