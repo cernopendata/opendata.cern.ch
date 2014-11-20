@@ -172,13 +172,13 @@
             {% endif %}
             {% for i in record.get('computer_file_characteristics') %}
               {% if i['characteristics'] %}
-                <span><b>{{i['characteristics']}}</b>:</span>
+                <span>{{i['characteristics']}}:</span>
               {% elif i['files'] %}
-                <span>{{ i['files'] }}<b>{{ i.get('text','') }}</b></span>
+                <span><b>{{ i['files'] }}</b>{{ i.get('text','') }}</span>
               {% elif i['events'] %}
-                <span>{{i['events']}}<b>{{ i.get('text','') }}</b></span>
+                <span><b>{{i['events']}}</b>{{ i.get('text','') }}</span>
               {% elif i['bytes'] %}
-                <span>{{(i['bytes']|float)|filesizeformat}}<b>{{ i.get('text','').replace('bytes','') }}</b></span>
+                <span><b>{{(i['bytes']|float)|filesizeformat}}</b>{{ i.get('text','').replace('bytes','') }}</span>
               {% endif %}
             {% endfor %}
         </div>
