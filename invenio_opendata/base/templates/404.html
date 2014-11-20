@@ -6,117 +6,39 @@
   {{ super() }}
 
   <style>
-
-    .contentinfo {
-      background-color: #899AA5;
-      padding: 15px 0;
-    }
-
-    .contentinfo h3 {
-      color: #fff;
-      font-size: 23px;
-      font-weight: 400;
-    }
-
-
-    .content {
-      background-color: transparent;
-      height: 500px;
-      color: #fff;
-    }
-
-    .loginBox {
-      padding-top: 85px;
-    }
-
-    .loginBox .title {
-      height: 60px;
-      border-radius: 5px 5px 0 0;
-      background-color: #A2B4C0;
-      text-align: center;
-      padding: 20px;
-      color: #fff;
-      font-size: 16px;
-    }
-
-    .loginBox .loginForm {
-      border-radius: 0 0 5px 5px;
-      background-color: #899AA5;
-    }
-
-    .loginBox .form-group {
-      text-align: center;
-      margin-top: 30px;
-    }
-
-    .loginForm input {
-      border: 0;
-      background-color: #fff;
-      font-size: 16px;
-      height: 30px;
-      font-weight: 100;
-      padding: 5px 10px;
-      box-shadow: 0 0 3px #ccc;
-      float: none;
-    }
-
-    .loginForm button {
-      color: #fff;
-    }
-    .loginBox .loginForm {
-      padding: 5px;
-    }
-
-    input[type=checkbox].checkbox {
-      display: none;
-      float: left;
-    }
-
-    .prettyCheckbox {
-      border-radius: 0;
-      float: left;
-    }
-
-    .prettyCheckbox + label {
-      float: left;
-      margin-left: 5px;
-      color: #fff;
-      font-weight: 300;
-    }
-
-    .loginBox .forgot {
-      margin: 0;
-      color: #fff;
-    }
-
     .box-default {
       padding-top: 85px;
     }
-
     .box-default .box-title {
       height: 60px;
       border-radius: 5px 5px 0 0;
-      background-color: #A2B4C0;
+      background-color: #acc6d4;
       text-align: center;
       padding: 20px;
       color: #fff;
       font-size: 16px;
     }
-
     .box-default .box-content {
       padding: 20px;
       display: inline-block;
       border-radius: 0 0 5px 5px;
-      background-color: #899AA5;
+      background-color: #f5f5f5;
+      color: #5E6970;
     }
-
+    .box-default .btn {
+      background-color: #acc6d4;
+      color: #fff;
+    }
   </style>
 
   {%- block breadcrumb %}
   {%- endblock breadcrumb %}
-  <section class="contentinfo">
+  <section class="infobar">
     <div class="container">
-      <h3>Oops..</h3>
+     <div class="breadcrumbs">
+      <a href="/"><span style="font-size:16px;padding-top:1px;float:left;" class="glyphicon glyphicon-home"></span><span class="fa fa-chevron-right"></span></a>
+      <h4 class="">Oops</h4> 
+    </div>
     </div>
   </section>
   <section class="content">
