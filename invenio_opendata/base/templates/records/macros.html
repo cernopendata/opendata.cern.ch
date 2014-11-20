@@ -33,7 +33,7 @@
 	                <div class="col-xs-6 col-sm-4">
 	                    <div class="right-side">
 	                    	{% if file["url"][-3:] == 'txt' or file["url"][-4:] == 'json' %}
-                    		<button class="col-xs-12 {{ 'col-sm-6' if with_preview else 'col-sm-12'}} btn" onClick="window.location.href='{{file["url"]}}'">Download file indexes</button>
+                    		<button class="col-xs-12 {{ 'col-sm-6' if with_preview else 'col-sm-12'}} btn" onClick="window.location.href='{{file["url"]}}'">Download index</button>
 	                    	{% else %}
 	                    	<button class="col-xs-12 {{ 'col-sm-6' if with_preview else 'col-sm-12'}} btn" onClick="window.location.href='{{file["url"]}}'">Download</button>
 	                    	{% endif %}
@@ -85,10 +85,13 @@
 							</div>
 						</li>
 						{% endfor %}
+						{% if record['electronic_location'][5] %}
 						<li class="elec-loc-item col-md-12" style="overflow: visible;height:20px">
 							<button id="showall_button" class="disabled">Go to dedicated page to see all..</button>
 							<button id="close_showmore_button_2">hide</button>
-						</li>
+						</li>	
+						{% endif %}
+
 						<li id="showmore_buttons" class="col-md-12" style="overflow: visible;height:20px">
 							<button id="showmore_button">Show 5 more files</button>
 							<button id="close_showmore_button">hide</button>
