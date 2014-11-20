@@ -17,7 +17,7 @@
     body, html {
       height: 100%;
     }
-    
+
     #wrap {
       margin: 0;
       padding: 0;
@@ -42,7 +42,7 @@
       color: rgb(141, 155, 173);
     }
 
-    .homepage-nav { 
+    .homepage-nav {
       position: fixed;
       margin-right: 0px;
       bottom: 40%;
@@ -95,7 +95,7 @@
       padding-top: 0;
     }
 
-    #main { 
+    #main {
       background-color: inherit;
     }
     @media (max-width: 768px) {
@@ -154,12 +154,12 @@
       min-height: 300px;
     }
 
-    .entrypoint-box h1 { 
+    .entrypoint-box h1 {
       text-align: left;
       font-size: 2.4em;
       margin-bottom: 35px;
     }
-    .entrypoint-box h5 { 
+    .entrypoint-box h5 {
       font-weight: 100;
       font-size: 1.37em;
       text-align: left;
@@ -197,7 +197,7 @@
       border-radius: 50%;
       background-color: #657580;
     }
-    
+
     .homepage-frame .exp-image {
       float: left;
       width: 20%;
@@ -210,7 +210,7 @@
       padding-left: 10px;
       background-color: #95abb7;
       border-top-left-radius:3px;
-      border-bottom-left-radius:3px; 
+      border-bottom-left-radius:3px;
     }
 
     .homepage-frame .exp-image img {
@@ -225,7 +225,7 @@
     #education ul, #research ul {
       height: 80vh;
     }
-    
+
     #education ul li, #research ul li {
       height: 18vh;
       background-color: #f4f4f4;
@@ -245,9 +245,9 @@
       font-size: 6em;
       float: left;
       margin: 0;
-      margin-left: 25px; 
+      margin-left: 25px;
     }
-    
+
     #LHCb.homepage-frame .coll-desc,
     #ALICE.homepage-frame .coll-desc {
       /*color: #fff;*/
@@ -295,7 +295,7 @@
     }
 
     .homepage-frame ul a,
-    .homepage-frame ul a:hover, 
+    .homepage-frame ul a:hover,
     .homepage-frame ul a:focus {
       color: inherit;
     }
@@ -386,7 +386,7 @@
     .coll-button {
       height: 35%;
     }
-    .coll-button a.btn, 
+    .coll-button a.btn,
     .coll-button a.btn:hover {
       background-color: #95abb7;
       /* padding: 5px 10px; */
@@ -419,7 +419,7 @@
     .entrypoint-goto-action {
       margin-bottom: 2vh;
     }
-    
+
     .goto-action-button a {
       color: inherit;
     }
@@ -435,7 +435,7 @@
       padding-right: 15px;
       padding-top: 8px;
     }
-    
+
     .goto-action-button span {
       padding-left: 5px;
     }
@@ -480,7 +480,7 @@
       display: none;
     }
   </style>
-  
+
   <nav id="homepage-nav" class="homepage-nav">
     <ul  class="nav center-block">
       <li><a href="#main" data-id="main"><span class="fa fa-circle"></span></a></li>
@@ -517,10 +517,10 @@
     </div>
   </section>
   {% import 'data/news_db.html' as n %}
-  
+
   <section id="education" class="homepage-frame">
     <div class="entry-frame-header">
-      <h1><div class="container">Education</div></h1>  
+      <h1><div class="container">Education</div></h1>
     </div>
     <div class="container">
       <div class="row">
@@ -538,14 +538,14 @@
                   {% elif (pb.portalbox.title == 'image') %}
                   {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
                   {% endif %}
-                  {% endfor %} 
+                  {% endfor %}
                   <div class="coll-desc">
                     {{ coll_portalboxes['desc'].replace('#$#$#', '')|safe }}
                   </div>
                   <div class="coll-button">
                     <a href="{{url_for('.educate', exp = e.name)}}" class="btn">Explore {{e.name_ln}} <span class="fa fa-chevron-right"></span></a>
                   </div>
-                </li>  
+                </li>
               </a>
               {% endfor %}
               </ul>
@@ -563,7 +563,7 @@
                   </div>
                   <a href="{{url_for('.visualise_events', exp='CMS')}}">
                     <div class="goto-action-button">
-                      Visualise events<span class="fa fa-chevron-right"></span> 
+                      Visualise events<span class="fa fa-chevron-right"></span>
                     </div>
                   </a>
                 </div>
@@ -574,7 +574,7 @@
                   </div>
                   <a href="{{url_for('.visualise_histo', exp='CMS')}}">
                     <div class="goto-action-button">
-                      Visualise histogram<span class="fa fa-chevron-right"></span>
+                      Visualise histograms<span class="fa fa-chevron-right"></span>
                     </div>
                   </a>
                 </div>
@@ -599,7 +599,7 @@
 
   <section id="research" class="homepage-frame">
     <div class="entry-frame-header">
-      <h1><div class="container">Research</div></h1>  
+      <h1><div class="container">Research</div></h1>
     </div>
     <div class="container">
       <div class="row">
@@ -617,7 +617,7 @@
                   {% elif (pb.portalbox.title == 'image') %}
                   {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
                   {% endif %}
-                  {% endfor %} 
+                  {% endfor %}
                   <div class="coll-desc">
                     {{ coll_portalboxes['desc'].replace('#$#$#', '')|safe }}
                   </div>
@@ -625,7 +625,7 @@
                     <a href="{{url_for('.research', exp = e.name)}}" class="btn">Explore {{e.name_ln}} <span class="fa fa-chevron-right"></span></a>
                   </div>
                 </a>
-              </li>  
+              </li>
               {% endfor %}
               </ul>
             </div>
@@ -641,7 +641,7 @@
                   <div class="goto-action-image">
                   </div>
                   <a href="{{url_for('.data_vms')}}"><div class="goto-action-button">
-                    Install your Virtual Machine<span class="fa fa-chevron-right"></span> 
+                    Install your Virtual Machine<span class="fa fa-chevron-right"></span>
                   </div>
                 </a>
               </div>
@@ -652,7 +652,7 @@
                   </div>
                   <a href="{{url_for('.get_started')}}">
                     <div class="goto-action-button">
-                      Start analysing the data<span class="fa fa-chevron-right"></span> 
+                      Start analysing the data<span class="fa fa-chevron-right"></span>
                     </div>
                   </a>
                 </div>
@@ -672,8 +672,8 @@
 {% block javascript %}
   {{ super() }}
   <script>
-  $(function() {  
-    
+  $(function() {
+
 
     $('a[href*=#]:not([href=#])').click(function() {
       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -694,9 +694,9 @@
   });
 
   (function($) {
-    $('.nav a').click(function(){  
+    $('.nav a').click(function(){
       //Toggle Class
-      $(".active").removeClass("active");      
+      $(".active").removeClass("active");
       $(this).closest('li').addClass("active");
       var theClass = $(this).attr("class");
       $('.'+theClass).parent('li').addClass('active');
@@ -708,5 +708,5 @@
     });
     $('.scrollTop a').scrollTop();
   })(jQuery);
-  </script>  
+  </script>
 {% endblock %}
