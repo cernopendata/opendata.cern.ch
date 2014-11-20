@@ -135,6 +135,17 @@
         width: 100%;
       }
     }
+
+    @media (max-height: 700px) {
+      .coll-button a.btn,
+      .coll-button a.btn:hover {
+        padding-top: 2px!important;
+      }
+
+      .goto-action-button {
+        padding-top: 2px!important;
+      }
+    }
     .entrypoint {
       position: absolute;
       height: 100vh;
@@ -211,16 +222,16 @@
       background-color: #95abb7;
       border-top-left-radius:3px;
       border-bottom-left-radius:3px;
+      text-align: center;
     }
 
     .homepage-frame .exp-image img {
       background-color: rgb(141, 155, 173);
-      width: 100%;
-      max-height: 100%;
+      max-width: 100%;
+      max-height: 70%;
       /*padding: 10px;*/
       padding-right: 10px;
       vertical-align: middle;
-      display: inline-block;
     }
     #education ul, #research ul {
       height: 80vh;
@@ -258,8 +269,9 @@
       width: 80%;
       float: left;
       height: 65%;
-      overflow: hidden;
-      padding-top: 10px;
+      overflow: scroll;
+      margin-top: 10px;
+      margin-bottom: -10px;
       padding-left: 10px;
     }
     .homepage-frame .info_details {
@@ -479,6 +491,12 @@
     .homepage-frame li.disabled .coll-button {
       display: none;
     }
+
+    span.helper {
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
   </style>
 
   <nav id="homepage-nav" class="homepage-nav">
@@ -530,7 +548,7 @@
               {% for e in exp_colls %}
               <a href="{{url_for('.educate', exp = e.name)}}">
                 <li>
-                  <div class="exp-image"><img src="{{ url_for('static', filename='img/'+e.name_ln+'.gif') }}" alt="" style="background-color: transparent;"></div>
+                  <div class="exp-image"><span class="helper"></span><img src="{{ url_for('static', filename='img/'+e.name_ln+'.gif') }}" alt="" style="background-color: transparent;"></div>
                   {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
                   {% for pb in e.portalboxes %}
                   {% if (pb.portalbox.title == 'short_description_e') %}
@@ -609,7 +627,7 @@
               {% for e in exp_colls %}
               <li class="{{ 'disabled' if e.name not in ['CMS']}}" >
                 <a href="{{url_for('.research', exp = e.name)}}">
-                  <div class="exp-image"><img src="{{ url_for('static', filename='img/'+e.name_ln+'.gif') }}" alt="" style="background-color: transparent;"></div>
+                  <div class="exp-image"><span class="helper"></span> <img src="{{ url_for('static', filename='img/'+e.name_ln+'.gif') }}" alt="" style="background-color: transparent;"></div>
                   {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
                   {% for pb in e.portalboxes %}
                   {% if (pb.portalbox.title == 'short_description_r') %}
@@ -673,8 +691,6 @@
   {{ super() }}
   <script>
   $(function() {
-
-
     $('a[href*=#]:not([href=#])').click(function() {
       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
         var target = $(this.hash);
@@ -688,9 +704,11 @@
       }
     });
 
-    $('html, body').animate({
-        scrollTop: $("#{{entry}}").offset().top
-    }, 700);
+    {% if entry %}
+      $('html, body').animate({
+          scrollTop: $("#{{entry}}").offset().top,
+      }, 700);    
+    {% endif %}
   });
 
   (function($) {
