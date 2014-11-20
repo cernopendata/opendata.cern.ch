@@ -280,6 +280,7 @@ $WGET -O $OUTDIR/cms-docdb-files/masterclass-2014.xls "$DOCDB?docid=12154&amp;fi
 mkdir -p $OUTDIR/cernvm-files
 $WGET -O $OUTDIR/cernvm-files/CMS-OpenData-1.0.0-rc4.ova "http://cernvm.cern.ch/releases/CMS-OpenData-1.0.0-rc4.ova"
 $WGET -O $OUTDIR/cernvm-files/CMS-OpenData-1.0.0-rc6.ova "http://cernvm.cern.ch/releases/CMS-OpenData-1.0.0-rc6.ova"
+$WGET -O $OUTDIR/cernvm-files/CMS-OpenData-1.0.0-rc7.ova "http://cernvm.cern.ch/releases/CMS-OpenData-1.0.0-rc7.ova"
 
 # fourthly, github files
 mkdir -p $OUTDIR/github-files
