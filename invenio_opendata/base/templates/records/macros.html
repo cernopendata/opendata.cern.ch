@@ -6,9 +6,9 @@
 	      <div class="rec_title title">
 			{% if f_title == 'f' %}
 				Files
-			{% elif f_title == 'i' %}	
+			{% elif f_title == 'i' %}
 				Indexes
-			{% elif f_title == 'fi' %}	
+			{% elif f_title == 'fi' %}
 				Files and indexes
 			{% endif %}
 	      </div>
@@ -126,7 +126,7 @@
 		{% for el in record|sort %}
 		<li class="col-md-12">
 			<ul class="col-md-12" style="padding-bottom: 5px;margin-bottom: 5px;border-bottom: 1px solid #d4d4d4;">
-				<kbd>{{el}}</kbd>: 
+				<kbd>{{el}}</kbd>:
 				{% if el in exclude %}
 				-<br>
 				{% elif record[el] is sequence and record[el] is not string %}
@@ -160,7 +160,7 @@
 {% macro record_export(name, record, exclude=[]) %}
 <a href="{{url_for('.metadata', recid=record.recid , of='xm')}}">
 	<div class="rec_thumb rec_export" style="float:right;margin-right:0;">
-		<div class="a" style="border-radius:2px; margin-top:10px;">Export MarcXML</div>
+		<div class="a" style="border-radius:2px; margin-top:10px;">Export MARCXML</div>
 	</div>
 </a>
 {% endmacro %}
@@ -214,7 +214,7 @@
 	        {% endif %}
 	        {% if methodology_note['url'] %}
 	          <li><a href="{{ u.url }}">{{ methodology_note['description']
-	                if methodology_note['description'] 
+	                if methodology_note['description']
 	                else methodology_note['url']
 	            }}</a></li>
 	        {% endif %}
@@ -276,9 +276,9 @@
 					{% for material_publication_note in record.get('material_publication_note', []) %}
 					{% if material_publication_note.get('url', '') %}
 					<li>
-						<a href="{{ material_publication_note.get('url', '') }}"> 
-							{{ material_publication_note.get('description', '') 
-							if material_publication_note.get('description', '') 
+						<a href="{{ material_publication_note.get('url', '') }}">
+							{{ material_publication_note.get('description', '')
+							if material_publication_note.get('description', '')
 							else material_publication_note.get('url', '')
 						}}</a>
 					</li>
