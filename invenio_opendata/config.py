@@ -43,7 +43,7 @@ CFG_SITE_SECURE_URL = 'http://opendata.cern.ch'
 CFG_SITE_NAME = 'CERN Open Data Portal'
 CFG_SITE_LANGS = {'en'}
 CFG_SITE_NAME_INTL = {}
-CFG_SITE_NAME_INTL['en'] = 'CERN Open Data Portal Demo'
+CFG_SITE_NAME_INTL['en'] = 'CERN Open Data Portal'
 
 CFG_WEBCOMMENT_ALLOW_REVIEWS = 0
 
