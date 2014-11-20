@@ -47,6 +47,7 @@ CFG_SITE_NAME_INTL['en'] = 'CERN Open Data Portal Demo'
 
 CFG_WEBCOMMENT_ALLOW_REVIEWS = 0
 
+CFG_WEBSEARCH_DISPLAY_NEAREST_TERMS = 0
 
 try:
     from invenio_opendata.instance_config import *  # noqa
