@@ -28,6 +28,50 @@
 #record_primary .rec_metadata.rec_files li .content_box {
   padding: 5px;
 }
+
+.rec_metadata.rec_files #elec-loc-list li.elec-loc-item:nth-child(n+6) {
+  display: none;
+}
+.rec_metadata.rec_files #showall_button,
+.rec_metadata.rec_files #showall_button:hover,
+.rec_metadata.rec_files #showall_button:focus,
+.rec_metadata.rec_files #close_showmore_button,
+.rec_metadata.rec_files #close_showmore_button:hover,
+.rec_metadata.rec_files #close_showmore_button:focus,
+.rec_metadata.rec_files #close_showmore_button_2,
+.rec_metadata.rec_files #close_showmore_button_2:hover,
+.rec_metadata.rec_files #close_showmore_button_2:focus,
+.rec_metadata.rec_files #showmore_button,
+.rec_metadata.rec_files #showmore_button:hover,
+.rec_metadata.rec_files #showmore_button:focus{
+  width: 90%;
+  padding: 5px 10px;
+  float: left;
+  display: inline-block;
+  margin-right: 0;
+  border-radius: 0;
+  border: 0;
+  margin-top: -5px;
+  margin-bottom: -5px;
+  display: inline-block;
+  height: auto;
+  background-color: #fff;
+  color: #A2B4C2;
+  border-bottom-left-radius: 3px;
+}
+.rec_metadata.rec_files #close_showmore_button_2,
+.rec_metadata.rec_files #close_showmore_button_2:hover,
+.rec_metadata.rec_files #close_showmore_button_2:focus,
+.rec_metadata.rec_files #close_showmore_button,
+.rec_metadata.rec_files #close_showmore_button:focus,
+.rec_metadata.rec_files #close_showmore_button:hover{
+  width: 10%;
+  color: #fff;
+  background-color: #A2B4C2;
+  margin-right: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 0;
+}
 .rec_metadata.rec_files li span.method {
   background-color: #fff;
   padding: 1px 3px;

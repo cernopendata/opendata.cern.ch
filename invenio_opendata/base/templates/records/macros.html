@@ -54,41 +54,49 @@
 	{% endif %}
 	{% if record['electronic_location'] %}
 	<div class="rec_metadata rec_files">
-	  <div class="row">
-	    <div class="col-md-12">
-	      <div class="rec_title title">Files</div>
-	    </div>
-	    <div class="col-md-12">
-	      <div class="rec_file_box">
-	        <ul class="row">
-	        	{% for file in record['electronic_location'] %}
-	          <li class="col-md-12">
-	            <div class="content_box">
-	              <div class="row">
-	                <div class="col-xs-6 col-sm-8">
-	                  <div class="leftside">
-	                    <ul>
-	                      <li class="col-xs-12 col-sm-8 no-padding"><b>{{ (file.get('uri','')|splitthem('/',-1))[-1:][0]|safe }}<span class="method">{{file.get('method','')}}</span></b>
-	                      </li>
-	                      <li class="col-xs-12 col-sm-4 no-padding"><b>Size:</b> {{ file.get('size','') | filesizeformat }}
-	                      </li>
-	                    </ul>
-	                  </div>
-	                </div>
-	                <div class="col-xs-6 col-sm-4">
-	                    <div class="right-side">
-	                    	<button class="col-xs-12 btn" data-toggle="modal" data-target="#download-caution-{{loop.index}}">Download</button>
-												{{create_download_modal( url = (file.get('uri','')|splitthem('/',3))[-1:][0], name = (file.get('uri','')|splitthem('/',-1))[-1:][0]|safe, size = file.get('size',''), exp = exp, id = loop.index)}}
-	                    </div>
-	                </div>
-	              </div>
-	            </div>
-	          </li>
-	        	{% endfor %}
-	        </ul>
-	      </div>
-	    </div>
-	  </div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="rec_title title">Files</div>
+			</div>
+			<div class="col-md-12">
+				<div class="rec_file_box" style="border-bottom: 1px #A2B4C2 dotted;">
+					<ul id="elec-loc-list" class="row">
+						{% for file in record['electronic_location'][:200] %}
+						<li class="elec-loc-item col-md-12">
+							<div class="content_box">
+								<div class="row">
+									<div class="col-xs-6 col-sm-8">
+										<div class="leftside">
+											<ul>
+												<li class="col-xs-12 col-sm-8 no-padding"><b>{{ (file.get('uri','')|splitthem('/',-1))[-1:][0]|safe }}<span class="method">{{file.get('method','')}}</span></b>
+												</li>
+												<li class="col-xs-12 col-sm-4 no-padding"><b>Size:</b> {{ file.get('size','') | filesizeformat }}
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-4">
+										<div class="right-side">
+											<button class="col-xs-12 btn" data-toggle="modal" data-target="#download-caution-{{loop.index}}">Download</button>
+											{{create_download_modal( url = (file.get('uri','')|splitthem('/',3))[-1:][0], name = (file.get('uri','')|splitthem('/',-1))[-1:][0]|safe, size = file.get('size',''), exp = exp, id = loop.index)}}
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						{% endfor %}
+						<li class="elec-loc-item col-md-12" style="overflow: visible;height:20px">
+							<button id="showall_button" class="disabled">Go to dedicated page to see all..</button>
+							<button id="close_showmore_button_2">hide</button>
+						</li>
+						<li id="showmore_buttons" class="col-md-12" style="overflow: visible;height:20px">
+							<button id="showmore_button">Show 5 more files</button>
+							<button id="close_showmore_button">hide</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</div>
 	{% endif %}
 {% endmacro %}

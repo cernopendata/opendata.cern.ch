@@ -30,10 +30,6 @@
           {% for c in collaborations %}
             {% if record['_first_corporate_name']['name'] == c %}
               <a class="collaboration_tag" href="{{ url_for('.metadata', recid = collaboration_recid[loop.index-1] ) }}">{{ record['_first_corporate_name']['name'] }}</a>
-              {% set outer_loop = loop %}
-              {% for a in (collaboration_recid[outer_loop.index-1])|get_record_author_list %}
-                <a href="{{ url_for('search', p='author:"' + a.get('full_name', '')|urlencode + '"') }}">{{ a.get('full_name', '') }}</a>{{ '; ' if not loop.last }}
-              {% endfor %}
             {% endif %}
           {% endfor %}
         {% endif %}
