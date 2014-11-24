@@ -114,7 +114,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
-      	<p>Please note that the file you are going to download {{ '('+name+')'|safe  if name }} is {{ ('<b>'+size+' bytes</b>')|safe if size else 'very'}} big. On an average ADSL connection, it may take several hours to download it.
+      	<p>Please note that the file you are going to download {{ '('+name+')'|safe  if name }} is {{ ('<b>'+size+' bytes</b>')|safe if size else 'very'}} big. On an average ADSL connection, it may take several hours to download it ( about {{ (size|int)|get_download_time }} at 1Mb/s).
       	</p>
       	<p>Moreover, if you use one of the provided <a href="{{url_for('.data_vms', exp = exp)}}">Virtual Machines</a> to perform your analyses, then you don't need to download datasets manually, because the VM will fetch all the necessary file chunks via the XRootD protocol.
       	</p>

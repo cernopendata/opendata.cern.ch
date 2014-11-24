@@ -57,6 +57,32 @@ def get_collection_names(without = []):
 
     return exp_names
 
+def calculate_download_time(filesize, fileunits =1, transferunits=(1024*1024/8)):
+    from math import floor,pow
+
+    def _round(number, precision):
+        if (precision>0):
+            multiplier = pow(10,precision)
+            return  round(multiplier*number, precision)/multiplier
+        else:
+            return  round(number, 0)
+
+    seconds = (filesize*fileunits)/transferunits
+    hours_int           = floor(seconds/3600)
+    minutes_int         = floor((seconds - hours_int*3600)/60)
+    seconds_float       = seconds - minutes_int*60 - hours_int *3600
+    seconds_float       = _round(seconds_float,2)
+    hoursText = ' hour ' if hours_int == 1 else ' hours '
+    minutesText = ' minute ' if minutes_int == 1 else ' minutes '
+    secondsText = ' second ' if seconds_float == 1 else ' seconds '
+
+    if (seconds < 60):
+        return (str(int(seconds_float)) + secondsText)
+    elif (seconds < 3600):
+        return (str(int(minutes_int)) + minutesText + str(int(seconds_float)) + secondsText)
+    else:
+        return (str(int(hours_int)) + hoursText + str(int(minutes_int)) + minutesText + str(int(seconds_float)) + secondsText)
+
 @blueprint.route('research')
 def entry_research():
     import json, pkg_resources
@@ -478,6 +504,7 @@ def metadata(recid, of='hd'):
     current_app.jinja_env.filters['splitthem'] = splitting
     current_app.jinja_env.filters['get_record_name'] = get_record_name
     current_app.jinja_env.filters['get_record_author_list'] = get_record_author_list
+    current_app.jinja_env.filters['get_download_time'] = calculate_download_time
 
 
     record_collection = get_record(recid)['collections'][0]['primary']
