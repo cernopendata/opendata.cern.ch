@@ -2,24 +2,9 @@
 
 # from invenio/requirements.txt
 #
--e git+git://github.com/lnielsen-cern/dictdiffer.git#egg=dictdiffer
--e git+https://github.com/mrjoes/flask-admin#egg=Flask-Admin
--e git+https://github.com/mitsuhiko/flask-sqlalchemy#egg=Flask-SQLAlchemy-dev
-https://www.reportlab.com/ftp/pyRXP-1.16-daily-unix.tar.gz#egg=pyRXP
--e git+git://github.com/romanchyla/workflow.git@e41299579501704b1486c72cc2509a9f82e63ea6#egg=workflow
+-e git+git://github.com/mrjoes/flask-admin.git#egg=Flask-Admin-1.0.9.dev0
 -e git+https://github.com/inveniosoftware/invenio-previewer-ispy.git#egg=invenio-previewer-ispy
 
-# from invenio/setup.py,
-#
-# They were pulled by the above packages and are specified in invenio's setup.py
-# We will be able to remove them once the requirements.txt of Invenio is made
-# history, I hope.
-#
-WTForms>=1.0.5,<2.0
-SQLAlchemy==0.8.3
-# [img]
-qrcode
-Pillow
 # END
 
 -e git+https://github.com/inveniosoftware/invenio@pu#egg=Invenio-dev
