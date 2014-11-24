@@ -26,8 +26,4 @@ from invenio.base.factory import with_app_context
 @with_app_context(new_context=True)
 def post_handler_demosite_populate(sender, default_data='', *args, **kwargs):
     """Loads data after records are created."""
-
-    if default_data != 'demosite':
-        print '>>> You can define your own post hadler for `demosite populate`'
-    except Exception as e:
-        print ">>> FAIL: data has not been loaded", e
+    pass

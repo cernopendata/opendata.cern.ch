@@ -15,7 +15,7 @@
 # along with Invenio; if not, write to the Free Software Foundation, Inc.,
 # 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
 
-"""Example demosite repository."""
+"""CERN Open Data Portal"""
 
 import os
 from setuptools import setup, find_packages
@@ -30,9 +30,9 @@ version = g['__version__']
 
 
 setup(
-    name='Invenio-Demosite',
+    name='Invenio-OpenData',
     version=version,
-    url='https://github.com/inveniosoftware/invenio-demosite',
+    url='https://github.com/cernopendata/opendata.cern.ch',
     license='GPLv2',
     author='CERN',
     author_email='info@invenio-software.org',
