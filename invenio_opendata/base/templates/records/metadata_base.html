@@ -43,8 +43,16 @@
     <div class="col-md-12 ">
       {% if record.get('doi','') %}
         <div class="rec_thumb rec_doi">
-          <div class="n"><div class="t">Cite as:</div>
-        {{ record['_first_corporate_name']['name'] if record['_first_corporate_name']}}({{ record.get('imprint', {}).get('date', '') }}).{% if record.get('title_additional', '') %}{{ record.get('title_additional',{}).get('title','') }}{% elif record.get('title',{}).get('title','') %}{{ record.get('title',{}).get('title','') }}{% endif %}.{{ record.get('imprint', {}).get('publisher_name', '') }}.DOI:<a href="http://doi.org/{{ record.get('doi','') }}">{{ record.get('doi','') }}</a></div>
+          <div class="n"><div class="t" style="margin-right:0;">Cite as:</div>  
+        {% if record['authors'] %}
+          {% for author in (record['authors'])[:5] %}
+            {% if loop.first %}{% elif loop.last and not (record['authors'])[5] %}<span> <i>&</i> </span>{% else %}<span> , </span>{% endif %}<a href="{{ url_for('search', p='author:"' + author.get('full_name', '')|urlencode + '"') }}">{{ author.get('last_name', '')+', '+author.get('first_name', '')[0]}}.</a>
+          {% endfor %}
+          {% if (record['authors'])[5] %}
+            <span> <i>et al</i></span>
+          {% endif %}
+        {% endif %}
+        {{ record['_first_corporate_name']['name'] if record['_first_corporate_name']}} ({{ record.get('imprint', {}).get('date', '') }}). {% if record.get('title_additional', '') %}{{ record.get('title_additional',{}).get('title','') }}{% elif record.get('title',{}).get('title','') %}{{ record.get('title',{}).get('title','') }}{% endif %}. CERN Open Data Portal. DOI: <a href="http://doi.org/{{ record.get('doi','') }}">{{ record.get('doi','') }}</a></div>
         </div>
       {% endif %}
       <div class="rec_thumb rec_parentcol">
