@@ -39,49 +39,48 @@ default_breadcrumb_root(blueprint, '.')
 
 
 def get_collections():
-    experiments = Collection.query.filter(Collection.id == '1').first_or_404()
-    exp_colls = []
-    exp_names = []
-    for exp in experiments.collection_children_v:
-        exp_names.append(exp.name)
-        exp_colls.append(Collection.query.filter(Collection.name == exp.name).first())
+  experiments = Collection.query.filter(Collection.id == '1').first_or_404()
+  exp_colls = []
+  exp_names = []
+  for exp in experiments.collection_children_v:
+      exp_names.append(exp.name)
+      exp_colls.append(Collection.query.filter(Collection.name == exp.name).first())
 
-    return exp_colls, exp_names
+  return exp_colls, exp_names
 
 def get_collection_names(without = []):
-    experiments = Collection.query.filter(Collection.id == '1').first_or_404()
-    exp_names = []
-    for exp in experiments.collection_children_v:
-        if exp.name not in without:
-            exp_names.append(exp.name)
+  experiments = Collection.query.filter(Collection.id == '1').first_or_404()
+  exp_names = []
+  for exp in experiments.collection_children_v:
+    if exp.name not in without:
+      exp_names.append(exp.name)
 
-    return exp_names
+  return exp_names
 
 def calculate_download_time(filesize, fileunits =1, transferunits=(1024*1024/8)):
-    from math import floor,pow
-
-    def _round(number, precision):
-        if (precision>0):
-            multiplier = pow(10,precision)
-            return  round(multiplier*number, precision)/multiplier
-        else:
-            return  round(number, 0)
-
-    seconds = (filesize*fileunits)/transferunits
-    hours_int           = floor(seconds/3600)
-    minutes_int         = floor((seconds - hours_int*3600)/60)
-    seconds_float       = seconds - minutes_int*60 - hours_int *3600
-    seconds_float       = _round(seconds_float,2)
-    hoursText = ' hour ' if hours_int == 1 else ' hours '
-    minutesText = ' minute ' if minutes_int == 1 else ' minutes '
-    secondsText = ' second ' if seconds_float == 1 else ' seconds '
-
-    if (seconds < 60):
-        return (str(int(seconds_float)) + secondsText)
-    elif (seconds < 3600):
-        return (str(int(minutes_int)) + minutesText + str(int(seconds_float)) + secondsText)
+  from math import floor,pow
+  
+  def _round(number, precision):
+    if (precision>0):
+        multiplier = pow(10,precision)
+        return round(multiplier*number, precision)/multiplier
     else:
-        return (str(int(hours_int)) + hoursText + str(int(minutes_int)) + minutesText + str(int(seconds_float)) + secondsText)
+        return round(number, 0)
+
+  seconds = (filesize*fileunits)/transferunits
+  hours_int = floor(seconds/3600)
+  minutes_int = floor((seconds - hours_int*3600)/60)
+  seconds_float = seconds - minutes_int*60 - hours_int *3600
+  seconds_float = _round(seconds_float,2)
+  hoursText = ' hour ' if hours_int == 1 else ' hours '
+  minutesText = ' minute ' if minutes_int == 1 else ' minutes '
+
+  if (seconds < 60):
+    return 'less than a minute'
+  elif (seconds < 3600):
+    return (str(int(minutes_int)) + minutesText)
+  else:
+    return (str(int(hours_int)) + hoursText + str(int(minutes_int)) + minutesText)
 
 @blueprint.route('research')
 def entry_research():
