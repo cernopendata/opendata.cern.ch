@@ -68,19 +68,25 @@ def calculate_download_time(filesize, fileunits =1, transferunits=(1024*1024/8))
         return round(number, 0)
 
   seconds = (filesize*fileunits)/transferunits
+  days_int = floor(seconds/86400)
   hours_int = floor(seconds/3600)
   minutes_int = floor((seconds - hours_int*3600)/60)
   seconds_float = seconds - minutes_int*60 - hours_int *3600
   seconds_float = _round(seconds_float,2)
-  hoursText = ' hour ' if hours_int == 1 else ' hours '
+  extra_mins = 1 if (minutes_int > 45)  else 0
+  days_text = ' day ' if days_int == 1 else ' days '
+  hoursText = ' hour ' if ( hours_int == 1 and extra_mins == 0 ) else ' hours '
   minutesText = ' minute ' if minutes_int == 1 else ' minutes '
 
   if (seconds < 60):
     return 'less than a minute'
   elif (seconds < 3600):
     return (str(int(minutes_int)) + minutesText)
+  elif (seconds < 86400):
+    return (str(int(hours_int)+extra_mins) + hoursText)
   else:
-    return (str(int(hours_int)) + hoursText + str(int(minutes_int)) + minutesText)
+    return (str(int(days_int)) + days_text)
+ 
 
 @blueprint.route('research')
 def entry_research():
@@ -522,6 +528,35 @@ def metadata(recid, of='hd'):
     except TemplateNotFound:
         return abort(404)  # FIX
 
+@blueprint.route('record/<int:recid>/load/files/<int:start>/to/<int:end>', methods=['GET', 'POST'])
+@blueprint.route('record/<int:recid>/load/files/', methods=['GET', 'POST'], defaults={'start': '0', 'end':'5'})
+def load_files(recid, start = 0, end = 5):
+  from invenio.modules.records.models import Record
+
+  def splitting(value, delimiter='/', maxsplit=0):
+      return value.split(delimiter, maxsplit)
+
+  def get_record_name(recid):
+      tmp_rec = get_record(recid)
+      if tmp_rec is None:
+          return 'Can\'t link to record ( WRONG recid )'
+
+      if 'title_additional' in tmp_rec :
+          return tmp_rec.get('title_additional', '').get('title', '')
+      elif tmp_rec.get('title',{}).get('title',''):
+          return tmp_rec.get('title',{}).get('title','')
+
+  current_app.jinja_env.filters['splitthem'] = splitting
+  current_app.jinja_env.filters['get_record_name'] = get_record_name
+  current_app.jinja_env.filters['get_download_time'] = calculate_download_time
+
+  record = Record.query.filter(Record.id == recid).first_or_404()
+  data = record.record_json[0].json['electronic_location'][start:end]
+
+  try:
+    return render_template('records/load_files_base.html', data = data, start = start, end = end)
+  except TemplateNotFound:
+    return render_template('404.html')
 
 @blueprint.route('youraccount/login', methods=['GET', 'POST'])
 @blueprint.route('youraccount/register', methods=['GET', 'POST'])
