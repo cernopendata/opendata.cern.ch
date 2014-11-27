@@ -22,56 +22,59 @@
 from invenio.ext.assets import Bundle
 
 from invenio.base.bundles import styles as _styles
+from invenio.modules.previewer.bundles import csv_previewer as _csv_previewer
+
+_csv_previewer.bower['d3'] = '3.3.13'
 
 css = Bundle(
-    "css/style.css",
-    "css/carousel.css",
-    "css/collection.css",
-    "css/testimonials.css",
-    "css/search.css",
-    "css/educate.css",
-    "css/news.css",
-    "css/records.css",
-    "css/middle.css",
-    "css/record.css",
-    "css/general.css",
-    output="opendata.css",
-    weight=1,
+  "css/style.css",
+  "css/carousel.css",
+  "css/collection.css",
+  "css/testimonials.css",
+  "css/search.css",
+  "css/educate.css",
+  "css/news.css",
+  "css/records.css",
+  "css/middle.css",
+  "css/record.css",
+  "css/general.css",
+  output="opendata.css",
+  weight=1,
 )
 
 ie_bundle = Bundle(
-    "vendors/respond/src/respond.js",
-    output="respond.js", 
-    weight=200,
+  "vendors/respond/src/respond.js",
+  output="respond.js", 
+  weight=200,
 )
 
 od_records_js = Bundle(
-    "vendors/readmore/readmore.min.js",
-    "js/records_base.js",
-    output = "od_records.js",
-    weight=20,
-    bower = {
+  "vendors/readmore/readmore.min.js",
+  "js/records_base.js",
+  output = "od_records.js",
+  weight=20,
+  bower = {
     "readmore": "latest",
-    }
+  }
 )
 
 od_records_utils_js = Bundle(
-    "vendors/listjs/dist/list.min.js",
-    output = "od_records_utils.js",
-    weight=40,
-    filters="requirejs",
-    bower = {
-        "readmore": "latest",
-        "listjs": "latest",
-    }
+  "vendors/listjs/dist/list.min.js",
+  output = "od_records_utils.js",
+  weight=40,
+  filters="requirejs",
+  bower = {
+    "readmore": "latest",
+    "listjs": "latest",
+  }
 )
 
 od_d3_js = Bundle(
-    "vendors/d3/d3.min.js",
-    "vendors/flot/jquery.flot.js",
-    "vendors/flot/jquery.flot.selection.js",
-    output = "d3.js",
-    bower = {
-       "d3": "3.3.13"
-    }
+  "vendors/d3/d3.min.js",
+  "vendors/flot/jquery.flot.js",
+  "vendors/flot/jquery.flot.selection.js",
+  output = "d3.js",
+  bower = {
+    "d3": "3.3.13",
+  },
 )
