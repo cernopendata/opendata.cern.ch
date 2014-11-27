@@ -40,6 +40,9 @@ css = Bundle(
   "css/general.css",
   output="opendata.css",
   weight=1,
+  bower = {
+    "open-sans-fontface": "latest",
+  }
 )
 
 ie_bundle = Bundle(

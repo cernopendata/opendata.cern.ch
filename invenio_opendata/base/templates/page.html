@@ -26,7 +26,7 @@
 
 {% block head_links %}
   {{ super() }}
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendors/open-sans-fontface/open-sans.css') }}">
   <!--[if lt IE 9]>
     <script src="{{url_for('static', filename="/vendors/respond/src/respond.js")}}"></script>
   <![endif]-->
