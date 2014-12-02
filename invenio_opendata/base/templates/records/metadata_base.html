@@ -244,6 +244,9 @@
           </div>
           <div class="col-md-12">
             <div class="rec_desc">
+              {% if record.get('other_relationship_entry', {}).get('note', '') %}
+                {{ record.get('other_relationship_entry', {}).get('note', '') }}<br>
+              {% endif %}
               {{record.get('other_relationship_entry', {}).get('heading', '')}}
               {% if record.get('other_relationship_entry', {}).get('recid', '') %}
                 {% if record.get('other_relationship_entry', {}).get('recid', '') is string %}
