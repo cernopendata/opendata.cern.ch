@@ -40,29 +40,29 @@
 {% macro validate_s1() %}
   <h2>Set up the CMS environment and run a demo analyzer</h2>
   <p>
-      <div class="it col-md-12">Open a terminal with the X terminal emulator (an icon bottom-left of the VM screen)</div>
-      <div class="it col-md-12">Execute the following command; this command builds the local release area (the directory structure) for CMSSW, and only needs to be run once:</div>
+      <div class="it">Open a terminal with the X terminal emulator (an icon bottom-left of the VM screen)</div>
+      <div class="it">Execute the following command; this command builds the local release area (the directory structure) for CMSSW, and only needs to be run once:</div>
       <pre>cmsrel CMSSW_4_2_8</pre>
-      <div class="it col-md-12">Change to the <kbd>CMSSW_4_2_8/src/</kbd> directory:</div>
+      <div class="it">Change to the <kbd>CMSSW_4_2_8/src/</kbd> directory:</div>
       <pre>cd CMSSW_4_2_8/src/</pre>
-      <div class="it col-md-12">Then, run the following command to create the CMS runtime variables:</div>
+      <div class="it">Then, run the following command to create the CMS runtime variables:</div>
       <pre>cmsenv</pre>
-      <div class="it col-md-12">Create a working directory for the demo analyzer, change to that directory and create a "skeleton" for the analyzer:</div>
+      <div class="it">Create a working directory for the demo analyzer, change to that directory and create a "skeleton" for the analyzer:</div>
       <pre>mkdir Demo
 cd Demo
 mkedanlzr DemoAnalyzer</pre>
-      <div class="it col-md-12">Compile the code:</div>
+      <div class="it">Compile the code:</div>
       <pre>cd DemoAnalyzer
 scram b</pre>
-      <div class="it col-md-12">Change the file name in the configuration file <kbd>demoanalyzer_cfg.py</kbd> in the DemoAnalyzer directory:
+      <div class="it">Change the file name in the configuration file <kbd>demoanalyzer_cfg.py</kbd> in the DemoAnalyzer directory:
         i.e. replace <kbd>file:myfile.root</kbd> with
         <kbd>root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/AOD/Apr21ReReco-v1/0000/00459D48-EB70-E011-AF09-90E6BA19A252.root</kbd></div>
-      <div class="it col-md-12">Change the max number of events to 10 (i.e change -1 to 10 in <kbd>process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1)</kbd>).</div>
-      <div class="it col-md-12">Move two directories back using:</div>
+      <div class="it">Change the max number of events to 10 (i.e change -1 to 10 in <kbd>process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1)</kbd>).</div>
+      <div class="it">Move two directories back using:</div>
       <pre>cd ../..</pre>
-      <div class="it col-md-12">And then run:</div>
+      <div class="it">And then run:</div>
       <pre>cmsRun Demo/DemoAnalyzer/demoanalyzer_cfg.py</pre>
-      <div class="it col-md-12">You can consider your VM "validated" &mdash; i.e it gets access to and compiles the CMS software, and reads the CMS open data files &mdash; if you get an output like:</div>
+      <div class="it">You can consider your VM "validated" &mdash; i.e it gets access to and compiles the CMS software, and reads the CMS open data files &mdash; if you get an output like:</div>
       <pre>08-Sep-2014 10:48:11 CEST Initiating request to open file root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/AOD/Apr21ReReco-v1/0000/00459D48-EB70-E011-AF09-90E6BA19A252.root
 08-Sep-2014 10:48:21 CEST Successfully opened file root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/AOD/Apr21ReReco-v1/0000/00459D48-EB70-E011-AF09-90E6BA19A252.root
 Begin processing the 1st record. Run 146436, Event 90626440, LumiSection 322 at 08-Sep-2014 10:48:25.836 CEST
