@@ -224,6 +224,9 @@
           </div>
           <div class="col-md-12">
             <div class="rec_desc">
+              {% if record.get('system_details', {}).get('displaytext', '') %}
+                {{record.get('system_details', {}).get('displaytext', '')}}<br>
+              {% endif %}
               {{record.get('system_details', {}).get('note', '')}}
               {% if record.get('system_details', {}).get('recid', '') %}
                 <a href="{{url_for('.metadata', recid = record.get('system_details', {}).get('recid', '') )}}">{{(record.get('system_details', {}).get('recid', ''))|get_record_name }}</a>
@@ -247,7 +250,12 @@
               {% if record.get('other_relationship_entry', {}).get('note', '') %}
                 {{ record.get('other_relationship_entry', {}).get('note', '') }}<br>
               {% endif %}
-              {{record.get('other_relationship_entry', {}).get('heading', '')}}
+              {% if record.get('other_relationship_entry', {}).get('heading', '') %}
+                {{ record.get('other_relationship_entry', {}).get('heading', '') }}<br>
+              {% endif %}
+              {% if record.get('other_relationship_entry', {}).get('other_item_identifier', '') %}
+                <a href="{{ record.get('other_relationship_entry', {}).get('other_item_identifier', '') }}">{{ record.get('other_relationship_entry', {}).get('other_item_identifier', '') }}</a><br>
+              {% endif %}              
               {% if record.get('other_relationship_entry', {}).get('recid', '') %}
                 {% if record.get('other_relationship_entry', {}).get('recid', '') is string %}
                   <a href="{{url_for('.metadata', recid = record.get('other_relationship_entry', {}).get('recid', '') )}}">{{ (record.get('other_relationship_entry', {}).get('recid', ''))|get_record_name }}</a>
