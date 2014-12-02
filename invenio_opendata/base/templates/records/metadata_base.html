@@ -170,7 +170,14 @@
         <div class="rec_title title">Characteristics</div>
         <div class="rec_desc">
             {% if record.get('computer_file_characteristics','')['characteristics'] %}
-              <span><b>{{record.get('computer_file_characteristics','')['characteristics']}}</b>:</span>
+              <span>{{record.get('computer_file_characteristics','')['characteristics']}}:</span>
+              {% if record.get('computer_file_characteristics','')['files'] %}
+              <span><b>{{ record.get('computer_file_characteristics','')['files'] }}</b>{{ record.get('computer_file_characteristics','').get('text','') }}</span>
+              {% elif record.get('computer_file_characteristics','')['events'] %}
+                <span><b>{{record.get('computer_file_characteristics','')['events']}}</b>{{ record.get('computer_file_characteristics','').get('text','') }}</span>
+              {% elif record.get('computer_file_characteristics','')['bytes'] %}
+                <span><b>{{(record.get('computer_file_characteristics','')['bytes']|float)|filesizeformat}}</b>{{ record.get('computer_file_characteristics','').get('text','').replace('bytes','') }}</span>
+              {% endif %}
             {% elif record.get('computer_file_characteristics','')['files'] %}
               <span>{{ record.get('computer_file_characteristics','')['files'] }}<b>{{ record.get('computer_file_characteristics','').get('text','') }}</b></span>
             {% elif record.get('computer_file_characteristics','')['events'] %}
@@ -181,6 +188,13 @@
             {% for i in record.get('computer_file_characteristics') %}
               {% if i['characteristics'] %}
                 <span>{{i['characteristics']}}:</span>
+                {% if i['files'] %}
+                <span><b>{{ i['files'] }}</b>{{ i.get('text','') }}</span>
+                {% elif i['events'] %}
+                  <span><b>{{i['events']}}</b>{{ i.get('text','') }}</span>
+                {% elif i['bytes'] %}
+                  <span><b>{{(i['bytes']|float)|filesizeformat}}</b>{{ i.get('text','').replace('bytes','') }}</span>
+                {% endif %}
               {% elif i['files'] %}
                 <span><b>{{ i['files'] }}</b>{{ i.get('text','') }}</span>
               {% elif i['events'] %}
