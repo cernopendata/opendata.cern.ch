@@ -1,5 +1,6 @@
 {% extends 'records/dedicated_base.html' %}
 
+
 {% block methodology_note %}
   {{ record_methodology_note(record.get('methodology_note', ''), 'Data Selection') }}
 {% endblock %}
@@ -9,6 +10,5 @@
 {% endblock %}
 
 {% block material_publication_note %}
-  {{ record_material_publication_note(record.get('material_publication_note', ''), 'How can you use this?') }}
 {% endblock %}
-
+  
