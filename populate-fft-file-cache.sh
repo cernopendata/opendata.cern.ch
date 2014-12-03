@@ -308,6 +308,9 @@ $WGET -O $OUTDIR/cms-open-data-instructions/OutreachExercise2010.m4v http://193.
 # eightly, ALICE data policy:
 rsync -a invenio_opendata/testsuite/data/alice/alice-data-policy/ $OUTDIR/alice-data-policy/
 
+# ninthly, ATLAS Higgs Challenge 2014:
+rsync -a invenio_opendata/testsuite/data/atlas/atlas-higgs-challenge-2014/ $OUTDIR/atlas-higgs-challenge-2014/
+
 # finally, make symlink to FFT cache from tmp:
 if [ ! -L "/tmp/$(basename $OUTDIR)" ]; then
     ln -s $OUTDIR /tmp
