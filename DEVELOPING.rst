@@ -64,6 +64,7 @@ opendata.cern.ch overlay.  There are two options:
   .. code-block:: console
 
       vm> CFG_INVENIO2_REPOSITORY_OVERLAY=git://github.com/tiborsimko/opendata.cern.ch \
+          CFG_INVENIO2_REPOSITORY_OVERLAY_BRANCH=master \
           CFG_INVENIO2_VIRTUAL_ENV=opendata \
           CFG_INVENIO2_DATABASE_USER=opendata \
           CFG_INVENIO2_DATABASE_NAME=opendata \
@@ -106,6 +107,7 @@ opendata.cern.ch overlay.  There are two options:
   .. code-block:: console
 
       vm> CFG_INVENIO2_REPOSITORY_OVERLAY=git://github.com/tiborsimko/opendata.cern.ch \
+          CFG_INVENIO2_REPOSITORY_OVERLAY_BRANCH=master \
           CFG_INVENIO2_VIRTUAL_ENV=opendata \
           CFG_INVENIO2_DATABASE_USER=opendata \
           CFG_INVENIO2_DATABASE_NAME=opendata \
@@ -263,28 +265,64 @@ like this:
        fetch = +refs/heads/*:refs/remotes/upstream/*
        fetch = +refs/pull/*/head:refs/remotes/upstream/pr/*
 
+Understanding repository branches
+---------------------------------
+
+We use three official base branches:
+
+master
+  Where the bleeding-edge developments happen.
+
+qa
+  What is installed on the `pre-production server <http://opendataqa.cern.ch>`_.
+
+production
+  What is installed on the `production server <http://opendata.cern.ch>`_.
+
+The life-cycle of a typical new feature is therefore: (1) development
+starts on a personal laptop in a new topical branch stemming from the
+``master`` branch; (2) when the feature is ready, the developer issues
+a pull request, the branch is reviewed by the system integrator,
+merged into the ``qa`` branch , and deployed on the pre-production
+server; (3) after sufficient testing time on the pre-publication
+server, the feature is merged into the ``production`` branch and
+deployed on the production server.
+
+The following sections document the development life cycle in fuller
+detail.
+
 Working on topical branches
 ---------------------------
 
 You are now ready to work on something.  You should always create
-separate topical branches for separate issues:
+separate topical branches for separate issues, starting from
+appropriate base branch:
+
+- for bug fixes solving problems spotted on the production server, you
+  would typically start your topical branch from the ``production``
+  branch;
+
+- for new developments, you would typically start your topical branch
+  from the ``master`` branch.
+
+Here is example:
 
 .. code-block:: console
 
-   $ git checkout pu
-   $ git checkout -b fix-event-display-icons
+   $ git checkout master
+   $ git checkout -b improve-event-display-icons
    $ emacsclient some_file.py
-   $ git commit -a -m 'some fix'
+   $ git commit -a -m 'some improvement'
    $ emacsclient some_other_file.py
-   $ git commit -a -m 'some other fix'
+   $ git commit -a -m 'some other improvement'
 
 When everything is ready, you may want to rebase your topical branch
 to get rid of unnecessary commits:
 
 .. code-block:: console
 
-   $ git checkout fix-event-display-icons
-   $ git rebase pu -i # squash commits here
+   $ git checkout improve-event-display-icons
+   $ git rebase master -i # squash commits here
 
 Making pull requests
 --------------------
@@ -294,7 +332,7 @@ your personal repository:
 
 .. code-block:: console
 
-   $ git push origin fix-event-display-icons
+   $ git push origin improve-event-display-icons
 
 and use GitHub's "Pull request" button to make the pull request.
 
@@ -307,20 +345,20 @@ Updating pull requests
 Consider the integrator had some remarks about your branch and you
 have to update your pull request.
 
-Firstly, update to latest upstream "pu" branch, in case it may have
-changed in the meantime:
+Firstly, update to latest upstream "master" branch, in case it may
+have changed in the meantime:
 
 .. code-block:: console
 
-   $ git checkout pu
+   $ git checkout master
    $ git fetch upstream
-   $ git merge upstream/pu --ff-only
+   $ git merge upstream/master --ff-only
 
 Secondly, make any required changes on your topical branch:
 
 .. code-block:: console
 
-   $ git checkout fix-event-display-icons
+   $ git checkout improve-event-display-icons
    $ emacsclient some_file.py
    $ git commit -a -m 'amends something'
 
@@ -329,14 +367,14 @@ nicely organised commits:
 
 .. code-block:: console
 
-   $ git rebase pu -i # squash commits here
+   $ git rebase master -i # squash commits here
 
 Finally, re-push your topical branch with a force option in order to
 update your pull request:
 
 .. code-block:: console
 
-   $ git push origin fix-event-display-icons -f
+   $ git push origin improve-event-display-icons -f
 
 Finishing pull requests
 -----------------------
@@ -346,21 +384,21 @@ local sources:
 
 .. code-block:: console
 
-   $ git checkout pu
+   $ git checkout master
    $ git fetch upstream
-   $ git merge upstream/pu --ff-only
+   $ git merge upstream/master --ff-only
 
 You can now delete your topical branch locally:
 
 .. code-block:: console
 
-   $ git branch -d fix-event-display-icons
+   $ git branch -d improve-event-display-icons
 
 and remove it from your repository as well:
 
 .. code-block:: console
 
-   $ git push origin pu
-   $ git push origin :fix-event-display-icons
+   $ git push origin master
+   $ git push origin :improve-event-display-icons
 
-This would conclude your work on ``fix-event-display-icons``.
+This would conclude your work on ``improve-event-display-icons``.
