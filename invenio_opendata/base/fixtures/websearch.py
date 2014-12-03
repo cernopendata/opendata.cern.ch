@@ -189,6 +189,14 @@ class CollectionData(DataSet):
             ('en', 'ln'): u'Data-Policies',
         }
 
+    class ATLASHiggsChallenge2014(siteCollection):
+        id = 24
+        name = 'ATLAS-Higgs-Challenge-2014'
+        dbquery = '980__a:"ATLAS-Higgs-Challenge-2014"'
+        names = {
+            ('en', 'ln'): u'ATLAS Higgs Challenge 2014',
+        }
+
 
 class CollectionCollectionData(DataSet):
 
@@ -418,6 +426,12 @@ class CollectionCollectionData(DataSet):
         dad = CollectionData.siteCollection
         son = CollectionData.DataPolicies
         score = 16
+        type = 'r'
+
+    class ATLAS_ATLASHiggsChallenge2014:
+        dad = CollectionData.ATLAS
+        son = CollectionData.ATLASHiggsChallenge2014
+        score = 3
         type = 'r'
 
 
@@ -666,6 +680,11 @@ class PortalboxData(DataSet):
     class Portalbox_42:
         body = u'This collection contains data policies.'
         id = 42
+        title = u'description'
+
+    class Portalbox_43:
+        body = u'This collection contains ATLAS Higgs Machine Learning Challenge 2014.'
+        id = 43
         title = u'description'
 
 
@@ -965,6 +984,12 @@ class CollectionPortalboxData(DataSet):
         score = 100
         id_collection = CollectionData.DataPolicies.ref('id')
 
+    class CollectionPortalbox_24_43_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_43.ref('id')
+        score = 100
+        id_collection = CollectionData.ATLASHiggsChallenge2014.ref('id')
 
 class FacetCollectionData(DataSet):
 
