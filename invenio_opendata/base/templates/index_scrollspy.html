@@ -491,6 +491,12 @@
       background-size: 100%;
       background-repeat: no-repeat;
     }
+    #home-glossary .goto-action-image {
+      background-image: url('img/glossary.jpg');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;      
+    }
     li.disabled {
       pointer-events: none;
       opacity: 0.6;
@@ -601,12 +607,23 @@
                 </div>
               </a>
               <a href="{{url_for('.resources')}}">
-                <div id="lrn-resources" class="entrypoint-goto-action col-sm-12">
+                <div id="lrn-resources" class="entrypoint-goto-action col-sm-6">
                   <div class="goto-action-image">
                   </div>
                   <a href="{{url_for('.resources')}}">
                     <div class="goto-action-button">
                       Learning Resources<span class="fa fa-chevron-right"></span>
+                    </div>
+                  </a>
+                </div>
+              </a>
+              <a href="{{url_for('.glossary')}}">
+                <div id="home-glossary" class="entrypoint-goto-action col-sm-6">
+                  <div class="goto-action-image">
+                  </div>
+                  <a href="{{url_for('.glossary')}}">
+                    <div class="goto-action-button">
+                      Glossary<span class="fa fa-chevron-right"></span>
                     </div>
                   </a>
                 </div>
