@@ -572,3 +572,21 @@ def no_accounts():
         return render_template('404.html')
     except TemplateNotFound:
         return abort('404')
+
+
+@blueprint.route('glossary', methods=['GET', 'POST'])
+@register_breadcrumb(blueprint, '.glossary', 'Glossary', \
+                        dynamic_list_constructor = (lambda :\
+                        [{"url":".entry_education", "text":"Education"},\
+                        {"url":".glossary","text":"Glossary"}]) )
+def glossary():
+    import json, pkg_resources
+    filepath = pkg_resources.resource_filename('invenio_opendata.base', 'templates/helpers/text/glossary.json')
+    with open(filepath,'r') as f:
+        glossary = json.load(f)
+        
+    try:
+        return render_template('glossary.html', glossary = glossary)
+    except TemplateNotFound:
+        return abort('404')
+
