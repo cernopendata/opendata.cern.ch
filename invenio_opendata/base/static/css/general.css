@@ -11,23 +11,25 @@ ol.gen-menu {
   width: 100%;
 }
 .gen-menu ul li {
-  padding-top: 8px;
   float: left;
   width: auto;
-  padding-left: 15px;
+  padding-right: 5px;
 
 }
-.gen-menu ol>li>ul {
+ol.gen-menu >li>ul {
+  padding-left: 15px;
 }
 .general .gen-menu ul li {
   width: auto;
 }
-.gen-menu ul li a{
+.gen-menu ul li a,
+.gen-menu ul li a:hover{
   background-color: #fff;
-  color: #acc6d4;
-  padding: 3px;
-  margin-right: 6px;
+  color: inherit;
+  padding: 1px 2px;
+  margin-right: 2px;
   border-radius: 2px;
+  font-size: 13px;
   float: left;
 }
 .gen-menu ul {
@@ -48,6 +50,13 @@ ol.gen-menu {
   width: auto;
 }
 
+.gen-menu h3 {
+  margin: 0;
+  float: left;
+  font-weight: 300;
+  color: #fff;
+  margin-bottom: 10px;
+}
 .gen-box {
   background-color: #f4f4f4;
   border-radius: 4px;
@@ -215,6 +224,30 @@ ol.gen-menu {
   margin-top: 30px;
   margin-bottom: 25px;
   font-size: 26px;
+  float: left;
+}
+
+.gen-box .gen-title-tags {
+  float: right;
+}
+.gen-box .gen-title-tags a,
+.gen-box .gen-title-tags a:hover,
+.gen-box .gen-title-tags a:focus {
+  background-color: #95abb7;
+  text-decoration: none;
+  color: #fff;
+  margin-right: 5px;
+  border-radius: 2px;
+  padding: 2px 4px;
+  font-size: 11px;
+}
+
+.gen-box .gen-title-tags a.exp-tag { 
+  background-color: #6e7d87;
+}
+
+#glossary .gen-box {
+  min-height: 20px;
 }
 /*===== Styling for Grid-blocks / Column Layout =====*/
 
