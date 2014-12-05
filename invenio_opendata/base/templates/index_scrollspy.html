@@ -245,6 +245,7 @@
       margin-bottom: 2.8vh;
       display: inline-block;
       width: 100%;
+      position: relative;
     }
 
     #LHCb.homepage-frame .exp-image h2,
@@ -390,26 +391,26 @@
     }
     .entrypoint-goto {
       height: 60vh;
-      background-color: #
       border-radius: 5px;
       margin-top: 2px;
     }
 
     .coll-button {
       height: 35%;
+      float: left;
+      position: absolute;
+      bottom: 0;
+      right: 0;
     }
     .coll-button a.btn,
     .coll-button a.btn:hover {
       background-color: #95abb7;
-      /* padding: 5px 10px; */
       color: #fff;
-      float: right;
       width: 140px;
-      margin-top: 1.3vh;
-      margin-right: -10px;
       height: 5vh;
       bottom: 0;
-      position: relative;
+      right: 0;
+      position: absolute;
       border-bottom-left-radius: 0;
       border-top-right-radius: 0;
       padding-top: 8px;
@@ -430,6 +431,7 @@
     }
     .entrypoint-goto-action {
       margin-bottom: 2vh;
+      position: relative;
     }
 
     .goto-action-button a {
@@ -443,9 +445,15 @@
       font-size: 14px;
       color: #fff;
       border-radius: 0 0 3px 3px;
-      text-align: right;
-      padding-right: 15px;
+      text-align: left;
+      padding-left: 15px;
       padding-top: 8px;
+    }
+
+    span.helper {
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
     }
 
     .goto-action-button span {
@@ -492,11 +500,6 @@
       display: none;
     }
 
-    span.helper {
-      display: inline-block;
-      height: 100%;
-      vertical-align: middle;
-    }
   </style>
 
   <nav id="homepage-nav" class="homepage-nav">
@@ -627,7 +630,7 @@
               {% for e in exp_colls %}
               <li class="{{ 'disabled' if e.name not in ['CMS']}}" >
                 <a href="{{url_for('.research', exp = e.name)}}">
-                  <div class="exp-image"><span class="helper"></span> <img src="{{ url_for('static', filename='img/'+e.name_ln+'.gif') }}" alt="" style="background-color: transparent;"></div>
+                  <div class="exp-image"><span class="helper"></span><img src="{{ url_for('static', filename='img/'+e.name_ln+'.gif') }}" alt="" style="background-color: transparent;"></div>
                   {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
                   {% for pb in e.portalboxes %}
                   {% if (pb.portalbox.title == 'short_description_r') %}
@@ -658,11 +661,12 @@
                 <div id="VMs" class="entrypoint-goto-action">
                   <div class="goto-action-image">
                   </div>
-                  <a href="{{url_for('.data_vms')}}"><div class="goto-action-button">
-                    Install your Virtual Machine<span class="fa fa-chevron-right"></span>
-                  </div>
-                </a>
-              </div>
+                  <a href="{{url_for('.data_vms')}}">
+                    <div class="goto-action-button">
+                      Install your Virtual Machine<span class="fa fa-chevron-right"></span>
+                    </div>
+                  </a>
+                </div>
               </a>
               <a href="{{url_for('.get_started')}}">
                 <div id="get-started" class="entrypoint-goto-action">
