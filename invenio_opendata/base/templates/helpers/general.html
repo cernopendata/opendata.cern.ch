@@ -50,3 +50,20 @@
     </ul>
   </div>
 {% endmacro %}
+
+{% macro homepage_experiments_dropdown(url, exp, exp_names, exclude = []) %}
+  <div class="homepage-exp-dropdown btn-group dropup">
+    <button type="button" class="btn">Choose experiment</button>
+    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+      <span class="caret"></span>
+      <span class="sr-only">Choose experiment</span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      {% for e in exp_names %}
+        {% if e not in exclude %}
+        <li><a href="{{ url_for(url, exp = e) }}" data-target="#{{e}}" role="tab" data-toggle="tab">{{e}}<img class="exp-xs-img" src="{{url_for('static', filename='/img/'+e+'.gif' )}}" alt=""></a></li> 
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+{% endmacro %}
