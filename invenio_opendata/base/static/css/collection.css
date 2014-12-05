@@ -158,6 +158,17 @@
 
 }
 
+#subcollection #main-description {
+  margin-top: 35px;
+
+}
+#subcollection #main-description .coll-desc {
+  margin-left: 0;
+  margin-right: 0;
+  text-align: justify;
+  font-size: 16px;
+}
+
 .collections .nav {
   background-color: #091B26;
 }
@@ -778,8 +789,9 @@ li.disabled {
   font-size: 14px;
   font-weight: 100;
   padding: 15px;
-  border-radius: 4px;
+  border-radius: 3px;
   margin-bottom: 30px;
+  padding-bottom: 0;
 }
 .rec-single-box .title {
   border-bottom: 1px solid #ccc;
@@ -810,6 +822,7 @@ li.disabled {
 }
 .rec-single-box .desc .b {
   height: 80%;
+  overflow: hidden;
 }
 .rec-single-box .desc kbd {
   font-size: 85%;
@@ -817,9 +830,14 @@ li.disabled {
 .rec-single-box .desc b {
   font-size: 13px;
 }
+.rec-single-box .desc .go span {
+  margin-left: 5px;
+  font-size: 11px;
+}
+
 .rec-single-box .desc .go {
-  height: 20%;
-  background-color: #A2B4C0;
+  background-color: #acc6d4;
+  height: 39px;
   margin: 0 -15px;
   padding: 10px 15px;
   color: #fff;
@@ -827,11 +845,8 @@ li.disabled {
   font-size: 14px;
   display: block;
   overflow: hidden;
-}
-#tools .rec-single-box .desc .go {
-  line-height: 100%;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 .rec-single-box .desc .go a {
   color: #fff;
@@ -932,3 +947,22 @@ li.disabled {
   margin-right: 15px;
 }
 
+#record-list {
+  margin-top: 25px;
+  margin-bottom: 35px;
+}
+#record-list h3 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+#subcollection .main-description-img {
+  max-width: 350px;
+  float: right;
+  margin-top: 4px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  border-radius: 2px;
+  border: 5px #f5f5f5 solid;
+
+}
