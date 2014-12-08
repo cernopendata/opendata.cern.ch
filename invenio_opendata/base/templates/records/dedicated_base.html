@@ -50,9 +50,13 @@
         </div>
       </div>
     {% endif %}
-
     {% block record_disclaimer %}
-      {% if record['license'] %}
+      {% if not record['license'] %}
+        {{ record_disclaimer(title = 'Disclaimer', exp = record.get('accelerator_experiment','')['experiment']) }}
+      {% elif record['license'].get('license') == 'CC0' %}
+        {{ record_disclaimer(title = 'Disclaimer', exp = record.get('accelerator_experiment','')['experiment']) }}
+      {% else %}
+        {{ record_disclaimer(title = 'Disclaimer', body = record['license'].get('license', '') , exp = record.get('accelerator_experiment','')['experiment']) }}
       <div class="rec_dedicated_details_in rdd-disclaimer panel">
         <div class="title"></div>
         <div id="disclaimer" class="info">
@@ -63,8 +67,6 @@
           </div>
         </div>
       </div>
-      {% else %}
-        {{ record_disclaimer( exp = record.get('accelerator_experiment','')['experiment']) }}
       {% endif %}
     {% endblock %}
     {{ record_export("exportModal", record, ['__meta_metadata__', 'restriction']) }}
