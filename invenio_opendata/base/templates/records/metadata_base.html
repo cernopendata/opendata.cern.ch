@@ -125,6 +125,21 @@
     </div>
   </div>
   {% endblock %}
+  
+  {% block record_comment_note %}
+  {% if record.get('comment') %}    
+  <div class="rec_metadata rec_description">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="rec_title title">Notes</div>
+      </div>
+      <div class="col-md-12">
+        <div class="rec_desc">{{record.get('comment',{})|safe}}</div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% endblock %}
 
   {% block record_previewer %}
     {% for file in record['files'] if not with_preview %}
@@ -251,52 +266,7 @@
       </div>
     {% endif %}
   {% endblock %}
-  {% block record_formatted_contents %}
-    {% if record.get('formatted_contents_note', '') %}
-    <div class="rec_metadata rec_dataset_info row">
-      <div class="col-md-12">
-        <div class="rec_title title">Columns specified in the CSV files</div>
-        <div class="rec_desc">
-          <div class="body">
-            <ul>
-              <li>
-                {% for f_item in record.get('formatted_contents_note', '') %}
-                  <b>{{f_item.title}}:</b> {{f_item.miscellaneous}}<br>
-                {% endfor %}
-              </li>
-            </ul>
-          </div>
-          {% for formatted_contents_note in record.get('formatted_contents_note', []) %}
-          {% if formatted_contents_note.get('note', '') %}
-          <div class="body">
-            {{ formatted_contents_note.get('note', '')|safe }}</div>
-          {% endif %}
-          {% endfor %}
-          <div class="links">
-            <ul style="margin-bottom:0;">
-              {% for formatted_contents_note in record.get('formatted_contents_note', []) %}
-              {% if formatted_contents_note.get('url', '') %}
-              <li>
-                <a href="{{ formatted_contents_note.get('url', '') }}">
-                  {{ formatted_contents_note.get('description', '')
-                  if formatted_contents_note.get('description', '')
-                  else formatted_contents_note.get('url', '')
-                }}</a>
-              </li>
-              {% endif %}
-              {% if formatted_contents_note.get('recid', '') %}
-              <li>
-                <a href="{{ url_for('record.metadata', recid=formatted_contents_note.get('recid', '')) }}">{{ (formatted_contents_note.get('recid', ''))|get_record_name }}</a>
-              </li>
-              {% endif %}
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    {% endif %}
-  {% endblock %}
+
   {% block records_related_items %}
     {% if record.get('other_relationship_entry', {}) %}
       <div class="rec_metadata rec_description">
@@ -335,6 +305,54 @@
     {% block record_files %}
       {{ record_files_display(record.get('files',''), show_previewer['show'], show_previewer['file_title'], record.get('accelerator_experiment','').get('experiment', '') if record.get('accelerator_experiment','') else None )  }}
     {% endblock %}
+
+    {% block record_formatted_contents %}
+      {% if record.get('formatted_contents_note', '') %}
+      <div class="rec_metadata rec_dataset_info row">
+        <div class="col-md-12">
+          <div class="rec_title title">Dataset Semantics</div>
+          <div class="rec_desc">
+            <div class="body">
+              <ul>
+                <li>
+                  {% for f_item in record.get('formatted_contents_note', '') %}
+                    <b>{{f_item.title}}:</b> {{f_item.miscellaneous}}<br>
+                  {% endfor %}
+                </li>
+              </ul>
+            </div>
+            {% for formatted_contents_note in record.get('formatted_contents_note', []) %}
+            {% if formatted_contents_note.get('note', '') %}
+            <div class="body">
+              {{ formatted_contents_note.get('note', '')|safe }}</div>
+            {% endif %}
+            {% endfor %}
+            <div class="links">
+              <ul style="margin-bottom:0;">
+                {% for formatted_contents_note in record.get('formatted_contents_note', []) %}
+                {% if formatted_contents_note.get('url', '') %}
+                <li>
+                  <a href="{{ formatted_contents_note.get('url', '') }}">
+                    {{ formatted_contents_note.get('description', '')
+                    if formatted_contents_note.get('description', '')
+                    else formatted_contents_note.get('url', '')
+                  }}</a>
+                </li>
+                {% endif %}
+                {% if formatted_contents_note.get('recid', '') %}
+                <li>
+                  <a href="{{ url_for('record.metadata', recid=formatted_contents_note.get('recid', '')) }}">{{ (formatted_contents_note.get('recid', ''))|get_record_name }}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    {% endblock %}
+
     {% block record_urls %}
       {% if record.get('url',[]) != [] %}
         <div class="rec_metadata rec_urls">
@@ -368,7 +386,6 @@
       {% endif %}
     {% endblock %}
   {% endblock %}
-
 {% block record_content_bottom %}{% endblock %}
 
 {% endblock %}
