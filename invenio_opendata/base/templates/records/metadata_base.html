@@ -251,7 +251,52 @@
       </div>
     {% endif %}
   {% endblock %}
-
+  {% block record_formatted_contents %}
+    {% if record.get('formatted_contents_note', '') %}
+    <div class="rec_metadata rec_dataset_info row">
+      <div class="col-md-12">
+        <div class="rec_title title">Columns specified in the CSV files</div>
+        <div class="rec_desc">
+          <div class="body">
+            <ul>
+              <li>
+                {% for f_item in record.get('formatted_contents_note', '') %}
+                  <b>{{f_item.title}}:</b> {{f_item.miscellaneous}}<br>
+                {% endfor %}
+              </li>
+            </ul>
+          </div>
+          {% for formatted_contents_note in record.get('formatted_contents_note', []) %}
+          {% if formatted_contents_note.get('note', '') %}
+          <div class="body">
+            {{ formatted_contents_note.get('note', '')|safe }}</div>
+          {% endif %}
+          {% endfor %}
+          <div class="links">
+            <ul style="margin-bottom:0;">
+              {% for formatted_contents_note in record.get('formatted_contents_note', []) %}
+              {% if formatted_contents_note.get('url', '') %}
+              <li>
+                <a href="{{ formatted_contents_note.get('url', '') }}">
+                  {{ formatted_contents_note.get('description', '')
+                  if formatted_contents_note.get('description', '')
+                  else formatted_contents_note.get('url', '')
+                }}</a>
+              </li>
+              {% endif %}
+              {% if formatted_contents_note.get('recid', '') %}
+              <li>
+                <a href="{{ url_for('record.metadata', recid=formatted_contents_note.get('recid', '')) }}">{{ (formatted_contents_note.get('recid', ''))|get_record_name }}</a>
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  {% endblock %}
   {% block records_related_items %}
     {% if record.get('other_relationship_entry', {}) %}
       <div class="rec_metadata rec_description">
