@@ -181,15 +181,15 @@
       <p>\[ \text{AMS} = \sqrt{2\left((s+b+b_r) \log \left(1 + \frac{s}{b + b_r}\right)-s\right)}\]</p>
       <p>where</p>
       <ul>
-      <li>\\(s, b\\): unnormalized true positive and false positive rates, respectively,</li>
-      <li>\\(b_r =10\\) is the constant regularization term,</li>
-      <li>\\(\log\\) is the natural log.</li>
+      <li>$s, b$: unnormalized true positive and false positive rates, respectively,</li>
+      <li>$b_r =10$ is the constant regularization term,</li>
+      <li>$\log$ is the natural log.</li>
       </ul>
-      <p>More precisely, let \\((y_1, \ldots, y_n) \in \{\text{b},\text{s}\}^n\\) be the vector of true test labels, let \\((\hat{y}_1, \ldots, \hat{y}_n) \in \{\text{b},\text{s}\}^n\\) be the vector of predicted (submitted) test labels, and let \\((w_1, \ldots, w_n) \in {\mathbb{R}^+}^n\\) be the vector of weights. Then</p>
+      <p>More precisely, let $(y_1, \ldots, y_n) \in \{\text{b},\text{s}\}^n$ be the vector of true test labels, let $(\hat{y}_1, \ldots, \hat{y}_n) \in \{\text{b},\text{s}\}^n$ be the vector of predicted (submitted) test labels, and let $(w_1, \ldots, w_n) \in {\mathbb{R}^+}^n$ be the vector of weights. Then</p>
       <p>\[ s = \sum_{i=1}^n w_i\mathbb{1}\{y_i = \text{s}\} \mathbb{1}\{\hat{y}_i = \text{s}\} \]</p>
       <p>and</p>
       <p>\[ b = \sum_{i=1}^n w_i\mathbb{1}\{y_i = \text{b}\} \mathbb{1}\{\hat{y}_i = \text{s}\}, \]</p>
-      <p>where the indicator function \\(\mathbb{1}\{A\}\\) is 1 if its argument \\(A\\) is true and 0 otherwise.</p>
+      <p>where the indicator function $\mathbb{1}\{A\}$ is 1 if its argument $A$ is true and 0 otherwise.</p>
       <p>For more information on the statistical model and the derivation of the metric, see the documentation.</p> ]]></subfield>
     </datafield>
     <datafield tag="567" ind1=" " ind2=" ">
