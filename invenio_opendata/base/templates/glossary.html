@@ -2,6 +2,9 @@
 
 {% import 'helpers/general.html' as gen_utils %}
 
+
+{% block glossary_bundle %}{% endblock %}
+{% block glossary_js %}{% endblock %}
 {% block body %}
 <section class="infobar">
 	<div class="container">
@@ -96,28 +99,30 @@
 		<div class="row">
 		<div class="col-md-12"><h1 class="gen-title">Glossary Terms</h1></div>
 			{% for i in glossary %}
-			<div class="col-md-12">
-				<div class="term-box">
-						<h2 id="{{ i.anchor }}"><a href="#{{ i.anchor }}"><span class="fa fa-anchor"></span>{{ i.term }}</a></h2>
-						<p>
-							{{ i.definition }}<br/>
-							{% for e in i.experiment %}
-								<a class="term-tag exp-tag" href="#">{{e.name}}</a>
-							{% endfor %}
-							{% if i.links %}
-								{% for l in i.links %}
-								<span class="links"><a href="{{l.url}}">{{l.text}}</a></span>
+				{% if i.status != "WIP" %}
+				<div class="col-md-12">
+					<div class="term-box">
+							<h2 id="{{ i.anchor }}"><a href="#{{ i.anchor }}"><span class="fa fa-anchor"></span>{{ i.term }}</a></h2>
+							<p>
+								{{ i.definition }}<br/>
+								{% for e in i.experiment %}
+									<a class="term-tag exp-tag" href="#">{{e.name}}</a>
 								{% endfor %}
+								{% if i.links %}
+									{% for l in i.links %}
+									<span class="links"><a href="{{l.url}}">{{l.text}}</a></span>
+									{% endfor %}
+								{% endif %}
+								{% if i.see_also %}
+							  	<span class="seealso">see also: {% for s in i.see_also %}<a href="#{{s.term}}">{{ s.term }}</a>{{', ' if not loop.last}}{% endfor %}</span>								
+								{% endif %}
+							</p>
+							{% if not loop.last %}
+								<div class="center-block"></div>							
 							{% endif %}
-							{% if i.see_also %}
-						  	<span class="seealso">see also: {% for s in i.see_also %}<a href="#{{s.term}}">{{ s.term }}</a>{{', ' if not loop.last}}{% endfor %}</span>								
-							{% endif %}
-						</p>
-						{% if not loop.last %}
-							<div class="center-block"></div>							
-						{% endif %}
-				</div>
-			</div>
+					</div>
+				</div>				
+				{% endif %}
 			{% endfor %}				
 		</div>
 	</div>
