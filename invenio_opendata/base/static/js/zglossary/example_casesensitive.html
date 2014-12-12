@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-language" content="en" />
+
+<!-- zGlossary plugin scripts and stylesheet (required) -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="jquery.zglossary.min.js" type="text/javascript"></script>
+<link href="jquery.zglossary.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Example page styling (not required) -->
+<link href="example.css" rel="stylesheet" type="text/css" />
+
+<title>zGlossary - Example of case sensitive search</title>
+
+<script>
+$(document).ready(function () {
+	$('body').glossary('terms.json', {
+		ignorecase: false
+	});
+});
+</script>
+
+</head>
+<body>
+
+<h1>zGlossary - Example of case sensitive search</h1>
+<p>This example will only display definitions for the term 'URL' in uppercase.</p>
+
+<h4>Script</h4>
+<pre>
+$(document).ready(function () {
+	$('body').glossary('terms.json', {
+		ignorecase: false
+	});
+});
+</pre>
+
+<h4>Definitions file</h4>
+<pre>
+[
+   {
+       "term":"Zazar",
+       "type":"0",
+       "definition":"Online website builder for creating professional sites with no technical knowledge."
+   },
+   {
+       "term":"URL",
+       "type":"1",
+       "definition":""
+   },
+   {
+       "term":"HTML",
+       "type":"2",
+       "definition":""
+   },
+   {
+       "term":"zGlossary plugin",
+       "type":"3",
+       "definition":"http://www.zazar.net/developers/jquery/zglossary/"
+   }
+]
+</pre>
+
+<h4>Result</h4>
+<h2>URL will be found</h2>
+<h2>url will not be found</h2>
+<h2>embedurlterm will also not be found</h2>
+
+</body>
+</html>
