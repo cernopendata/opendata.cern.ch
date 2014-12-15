@@ -685,9 +685,23 @@ footer {
 }
 /*-------------------------------------*/
 
+a.glossaryTerm,
+a.glossaryTerm:hover,
+a.glossaryTerm:focus {
+  text-decoration: none!important;
+  color: inherit!important;
+  font-size: inherit!important;
+  font-weight: inherit!important;
+  /*background-color: rgba(51, 51, 51, 0.09);*/
+  border-bottom: 1px dotted!important;
+  width: auto!important;
+}
 
-
-
+#glossaryContent {
+  border-radius: 2px;
+  border: 0!important;
+  background-color: #f4f4f4!important;
+}
 
 
 

@@ -20,8 +20,12 @@
 {%- extends "page_base.html" -%}
 
 {%- block global_bundles -%}
-{{ super() }}
-{%- bundle "opendata.css" -%}
+  {{ super() }}
+  {%- bundle "opendata.css" -%}
+
+  {% block glossary_bundle %}
+    {%- bundle "glossary.js" -%}  
+  {% endblock %}
 {%- endblock -%}
 
 {% block head_links %}
@@ -46,7 +50,7 @@
   {%- block page_body_before -%}{%- endblock -%}
   {%- block title %}{{ body }}{% endblock -%}
   {{ flashed_messages() }}
-  <div class="content">
+  <div id="main-content" class="content">
     {%- block body -%}{% endblock -%}
   </div>
   {% block page_body_after %}{% endblock %}
@@ -63,16 +67,32 @@
 
 {% block javascript %}
   {{ super() }}
-    <script>
+    
+  <script>
+    (function($) {
 
-  (function($) {
-    $('.infobar a[data-toggle="tab"]').on('click', function(e) {
-      $(this).parent().siblings().removeClass("active");
-    });
-    $(".infobar .dropdown-menu li a").click(function(){
-      selText = $(this).html();
-      $(this).parents('.dropdown').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
-    });
-  })(jQuery);
+      {% block glossary_js %}
+      $(document).ready(function(){
+        $("#main-content").glossary(
+          "{{url_for('static', filename='/json/glossary.json')}}",
+          {
+            ignorecase: true,
+            linktarget: '_blank',
+            excludetags: ['a','h2','pre', 'kbd'],
+          });
+      });      
+      {% endblock %}
+
+      {% block infobar_tabs_dropdowns %}
+      $('.infobar a[data-toggle="tab"]').on('click', function(e) {
+        $(this).parent().siblings().removeClass("active");
+      });
+      $(".infobar .dropdown-menu li a").click(function(){
+        selText = $(this).html();
+        $(this).parents('.dropdown').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+      });      
+      {% endblock %}
+
+    })(jQuery);
   </script>
 {% endblock %}

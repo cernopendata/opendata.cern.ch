@@ -38,11 +38,18 @@ css = Bundle(
   "css/middle.css",
   "css/record.css",
   "css/general.css",
+  "js/zglossary/jquery.zglossary.min.css",
   output="opendata.css",
   weight=1,
   bower = {
     "open-sans-fontface": "latest",
   }
+)
+
+glossary = Bundle(
+  "js/zglossary/jquery.zglossary.js",
+  output="glossary.js",
+  weight=100,
 )
 
 ie_bundle = Bundle(
