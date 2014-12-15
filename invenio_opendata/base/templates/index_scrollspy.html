@@ -1,5 +1,6 @@
 {%- extends 'page.html' %}
 
+{% block glossary_bundle %}{% endblock %}
 
 {% block body_attributes %}data-spy="scroll" data-offset="200" data-target="#homepage-nav"{% endblock %}
 
@@ -317,6 +318,10 @@
       text-decoration: underline;
     }
 
+    .homepage-frame ul .coll-desc a {
+      color: #428bca;
+    }
+    
     .homepage-frame .right-side > .news {
       height: 30%;
     }
@@ -699,6 +704,7 @@
 
 {% block javascript %}
   {{ super() }}
+  {% block glossary_js %}{% endblock %}
   <script>
   $(function() {
     $('a[href*=#]:not([href=#])').click(function() {

@@ -27,7 +27,7 @@
 
 {% block record_header %}
   <a href="{{ url_for('record.metadata', recid=record['recid']) }}" alt="{{ record.get('title.title', '') }}">
-    <div class="rec_title">{{ record.get('title.title', '') }}</div>
+    <div class="no-glossary rec_title">{{ record.get('title.title', '') }}</div>
     {{- record.get('title.volume', '')|prefix(', ') }}
     {{- record.get('title.subtitle', '')|prefix(': ') }}
   </a>
