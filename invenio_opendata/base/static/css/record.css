@@ -221,9 +221,12 @@ color: #a2b4c2!important;
 #record_primary .rec_header .title span {
   color: #d5d5d5;
 }
-#record_primary .rec_header .rec_authors a {
+#record_primary .rec_header .rec_authors a,
+#record_primary .rec_header .rec_authors a:hover,
+#record_primary .rec_header .rec_authors a:focus {
   color: #fff;
   border-bottom: 1px dotted #fff;
+  text-decoration: none;
 }
 #record_reduced .rec_header {
   color: #606D75;

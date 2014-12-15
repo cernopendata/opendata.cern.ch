@@ -705,6 +705,7 @@
 {% block javascript %}
   {{ super() }}
   {% block glossary_js %}{% endblock %}
+  {% block js_search_for_external_links %}{% endblock %}
   <script>
   $(function() {
     $('a[href*=#]:not([href=#])').click(function() {

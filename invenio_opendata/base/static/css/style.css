@@ -101,6 +101,35 @@ header, footer {
   color: #fff;
   background-color: #95abb7;
 }
+
+a span.external-link-l::after {
+  font-family: FontAwesome;
+  content:"\f08e";
+  font-size: 10px;
+  padding-right: 3px;
+  opacity: 0.3;
+  /*visibility: hidden;*/
+}
+
+a:hover span.external-link-l::after {
+  /*visibility: visible;*/
+  text-decoration: none;
+}
+
+a span.external-link-r::after {
+  font-family: FontAwesome;
+  content:"\f08e";
+  font-size: 10px;
+  padding-left: 3px;
+  opacity: 0.3;
+  /*visibility: hidden;*/
+}
+
+a:hover span.external-link-r::after {
+  /*visibility: visible;*/
+  text-decoration: none;
+}
+
 .navbar {
   margin: 0;
 }
@@ -699,7 +728,6 @@ a.glossaryTerm:focus {
 
 #glossaryContent {
   border-radius: 2px;
-  border: 0!important;
   background-color: #f4f4f4!important;
 }
 
