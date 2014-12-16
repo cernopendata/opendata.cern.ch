@@ -63,14 +63,16 @@
 
 {% block javascript %}
   {{ super() }}
+
+  {% block show_more_js %}
   <script>  
     $('#showmore-button-next').click(function(){
       button = $(this);
-      page = $("#showmore-page");
+      page = $("#showmore-authors-page");
       page_n = parseInt(page.text());
       page_n = parseInt(page.val());
       last = parseInt($("#showmore-page-total").text());
-      p_total_n = Math.ceil(last/5);
+      p_total_n = Math.ceil(last/50);
 
       if (page_n < p_total_n) {
         $('#showmore-button-prev').prop("disabled", false);
@@ -87,7 +89,7 @@
 
     $('#showmore-button-prev').click(function(){
       button = $(this);
-      page = $("#showmore-page");
+      page = $("#showmore-authors-page");
       page_n = parseInt(page.val());
 
       if(page_n > 1 ){
@@ -102,10 +104,10 @@
       }
     });
 
-    $('#showmore-page').bind("keyup input change",function(){
+    $('#showmore-authors-page').bind("keyup input change",function(){
       page = parseInt($(this).val());
       last = parseInt($("#showmore-page-total").text());
-      last_p = Math.ceil(last/5);
+      last_p = Math.ceil(last/50);
       b_next = $('#showmore-button-prev');
       b_prev = $('#showmore-button-prev');
       start_f = $('#showmore-page-start');
@@ -113,16 +115,16 @@
 
       if( !isNaN(page)){
         if( page >=1 && page <= last_p ) {
-          start = (parseInt(page)-1)*5;
-          end = (parseInt(page)*5);
+          start = (parseInt(page)-1)*50;
+          end = (parseInt(page)*50);
           end = (end > last) ? last : end;
 
           start_f.text(start+1);
           end_f.text(end);
 
-          $.get( '{{ url_for('.load_files', recid = record.recid )}}'+start+'/to/'+end)
+          $.get( '{{ url_for('.load_authors', recid = record.recid )}}'+start+'/to/'+end)
           .done(function(data){
-            $('#elec-loc-list').html(data);
+            $('#authors-list').html(data);
           });
           if (page < last_p) {
             b_next.prop("disabled", false);
@@ -135,4 +137,6 @@
       }
     });
   </script>
+  {% endblock %}
+
 {% endblock %}

@@ -1,0 +1,18 @@
+{% for a in data %}
+<li class="col-xs-12 {{loop.cycle('odd','even')}}">
+	<div class="author_item row">
+		<div class="col-xs-12 col-md-4 author_name">{{a['last_name']+' '+a['first_name']}}</div>
+		<div class="col-xs-6 col-md-4 author_affiliaton">
+			{% if a['affiliation'] is string%}
+			{{a['affiliation']}}
+			{%else%}
+			{% for i in a['affiliation'] %}
+			{{i}}{{', ' if not loop.last}}
+			{% endfor %}
+			{%endif%}
+		</div>
+		<div class="col-xs-3 col-md-2 author_ccid">{{a['CCID']}}</div>
+		<div class="col-xs-3 col-md-2 author_inspire">{{a['INSPIRE_number']}}</div>
+	</div>
+</li>
+{% endfor %}
