@@ -82,7 +82,7 @@
       });      
       {% endblock %}
       {% block js_search_for_external_links %}
-        $(".content a[href^='http']").prepend('<span class="external-link-l"></span>').append('<span class="external-link-r"></span>');
+        $(".content a[href^='http']").prepend('<span class="external-link-l"></span>');
       {% endblock %}
       {% block infobar_tabs_dropdowns %}
       $('.infobar a[data-toggle="tab"]').on('click', function(e) {
