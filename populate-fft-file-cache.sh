@@ -289,7 +289,7 @@ $WGET -O $OUTDIR/github-files/pattuples2012-1.0.0.tar.gz https://github.com/ayro
 $WGET -O $OUTDIR/github-files/pattuples2012-1.0.2.tar.gz https://github.com/ayrodrig/pattuples2010/archive/v1.0.2.tar.gz
 $WGET -O $OUTDIR/github-files/OutreachExercise2010-1.0.0.tar.gz https://github.com/ayrodrig/OutreachExercise2010/archive/v1.0.0.tar.gz
 $WGET -O $OUTDIR/github-files/dimuon-filter-1.0.0.tar.gz https://github.com/tpmccauley/dimuon-filter/archive/1.0.0.tar.gz
-$WGET -O $OUTDIR/github-files/HiggsML2014-0.0.tar.gz https://github.com/ATLAS-outreach/HiggsML2014/archive/v0.0.tar.gz
+$WGET -O $OUTDIR/github-files/HiggsML2014-1.0.tar.gz https://github.com/ATLAS-outreach/HiggsML2014/archive/v1.0.tar.gz
 
 # fifthly, CMS Hamburg files:
 mkdir -p $OUTDIR/cms-hamburg-files
