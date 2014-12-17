@@ -59,7 +59,7 @@ def get_collection_names(without = []):
 
 def calculate_download_time(filesize, fileunits =1, transferunits=(1024*1024/8)):
   from math import floor,pow
-  
+
   def _round(number, precision):
     if (precision>0):
         multiplier = pow(10,precision)
@@ -86,7 +86,7 @@ def calculate_download_time(filesize, fileunits =1, transferunits=(1024*1024/8))
     return (str(int(hours_int)+extra_mins) + hoursText)
   else:
     return (str(int(days_int)) + days_text)
- 
+
 
 @blueprint.route('research')
 def entry_research():
@@ -421,9 +421,9 @@ def collection(name):
     if collection == None:
         return render_template('404.html')
 
-    parent_collection = collection.most_specific_dad if ( collection.most_specific_dad.id != 1 ) else None
-
-
+    parent_collection = collection.most_specific_dad \
+                        if (collection.most_specific_dad and \
+                            collection.most_specific_dad.id != 1) else None
 
     coll_reclist = collection.reclist
     coll_records = []
@@ -514,7 +514,9 @@ def metadata(recid, of='hd'):
 
     record_collection = get_record(recid)['collections'][0]['primary']
     rec_col = Collection.query.filter(Collection.name == record_collection).first_or_404()
-    parent_collection = rec_col.most_specific_dad if ( rec_col.most_specific_dad.id != 1 ) else None
+    parent_collection = rec_col.most_specific_dad \
+                        if (rec_col.most_specific_dad and \
+                            rec_col.most_specific_dad.id != 1) else None
 
     breadcrumbs = [{}]
 
@@ -580,9 +582,8 @@ def glossary():
     filepath = pkg_resources.resource_filename('invenio_opendata.base', 'templates/helpers/text/glossary.json')
     with open(filepath,'r') as f:
         glossary = json.load(f)
-        
+
     try:
         return render_template('glossary.html', glossary = glossary)
     except TemplateNotFound:
         return abort('404')
-
