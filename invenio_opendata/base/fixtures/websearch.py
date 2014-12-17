@@ -428,12 +428,6 @@ class CollectionCollectionData(DataSet):
         score = 16
         type = 'r'
 
-    class ATLAS_ATLASHiggsChallenge2014:
-        dad = CollectionData.ATLAS
-        son = CollectionData.ATLASHiggsChallenge2014
-        score = 3
-        type = 'r'
-
 
 class CollectiondetailedrecordpagetabsData(DataSet):
 
