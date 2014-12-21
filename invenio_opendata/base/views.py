@@ -306,7 +306,7 @@ def about():
 @register_breadcrumb(blueprint, '.about_cms', 'CMS', \
                         dynamic_list_constructor = (lambda :\
                         [{"url":".about", "text":"About"},\
-                        {"url":".about_cms","text":"CMS OpenData"}]) )
+                        {"url":".about_cms","text":"CMS Open Data"}]) )
 def about_cms():
     try:
         return render_template('about_cms.html')
@@ -318,7 +318,7 @@ def about_cms():
 @register_breadcrumb(blueprint, '.about_alice', 'ALICE', \
                         dynamic_list_constructor = (lambda :\
                         [{"url":".about", "text":"About"},\
-                        {"url":".about_alice","text":"ALICE OpenData"}]) )
+                        {"url":".about_alice","text":"ALICE Open Data"}]) )
 def about_alice():
     try:
         return render_template('about_alice.html')
@@ -330,7 +330,7 @@ def about_alice():
 @register_breadcrumb(blueprint, '.about_atlas', 'ATLAS', \
                         dynamic_list_constructor = (lambda :\
                         [{"url":".about", "text":"About"},\
-                        {"url":".about_atlas","text":"ATLAS OpenData"}]) )
+                        {"url":".about_atlas","text":"ATLAS Open Data"}]) )
 def about_atlas():
     try:
         return render_template('about_atlas.html')
@@ -342,7 +342,7 @@ def about_atlas():
 @register_breadcrumb(blueprint, '.about_lhcb', 'LHCb', \
                         dynamic_list_constructor = (lambda :\
                         [{"url":".about", "text":"About"},\
-                        {"url":".about_lhcb","text":"LHCb OpenData"}]) )
+                        {"url":".about_lhcb","text":"LHCb Open Data"}]) )
 def about_lhcb():
     try:
         return render_template('about_lhcb.html')
