@@ -88,6 +88,9 @@ def calculate_download_time(filesize, fileunits =1, transferunits=(1024*1024/8))
     return (str(int(days_int)) + days_text)
 
 
+def splitting(value, delimiter='/', maxsplit=0):
+    return value.split(delimiter, maxsplit)
+
 @blueprint.route('research')
 def entry_research():
     import json, pkg_resources
@@ -485,8 +488,6 @@ def metadata(recid, of='hd'):
         id_user=current_user.get_id(),
         request=request)
 
-    def splitting(value, delimiter='/', maxsplit=0):
-        return value.split(delimiter, maxsplit)
 
     def get_record_name(recid):
         tmp_rec = get_record(recid)
@@ -550,6 +551,9 @@ def load_files(recid, start = 0, end = 5):
 
   record = Record.query.filter(Record.id == recid).first_or_404()
   data = record.record_json[0].json['electronic_location'][start:end]
+
+  current_app.jinja_env.filters['get_download_time'] = calculate_download_time
+  current_app.jinja_env.filters['splitthem'] = splitting
 
   try:
     return render_template('records/load_files_base.html', data = data, start = start, end = end)
