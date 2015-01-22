@@ -87,47 +87,8 @@ def calculate_download_time(filesize, fileunits =1, transferunits=(1024*1024/8))
   else:
     return (str(int(days_int)) + days_text)
 
-
 def splitting(value, delimiter='/', maxsplit=0):
     return value.split(delimiter, maxsplit)
-
-@blueprint.route('research')
-def entry_research():
-    import json, pkg_resources
-    filepath = pkg_resources.resource_filename('invenio_opendata.base', 'templates/helpers/text/testimonials.json')
-    with open(filepath,'r') as f:
-        testimonials = json.load(f)
-
-    def splitting(value, delimiter='/'):
-        return value.split(delimiter)
-
-    current_app.jinja_env.filters['splitthem'] = splitting
-
-    exp_colls, exp_names = get_collections()
-
-    try:
-        return render_template('index_scrollspy.html', entry = 'research', testimonials = testimonials, exp_colls = exp_colls, exp_names = exp_names)
-    except TemplateNotFound:
-        return abort(404)
-
-@blueprint.route('education')
-def entry_education():
-    import json, pkg_resources
-    filepath = pkg_resources.resource_filename('invenio_opendata.base', 'templates/helpers/text/testimonials.json')
-    with open(filepath,'r') as f:
-        testimonials = json.load(f)
-
-    def splitting(value, delimiter='/'):
-        return value.split(delimiter)
-
-    current_app.jinja_env.filters['splitthem'] = splitting
-
-    exp_colls, exp_names = get_collections()
-
-    try:
-        return render_template('index_scrollspy.html', entry = 'education', testimonials = testimonials, exp_colls = exp_colls, exp_names = exp_names)
-    except TemplateNotFound:
-        return abort(404)
 
 @blueprint.route('')
 def middle():
@@ -148,11 +109,13 @@ def middle():
     except TemplateNotFound:
         return abort(404)
 
+@blueprint.route('education')
 @blueprint.route('education/<string:exp>')
-@register_breadcrumb(blueprint, '.entry_education', 'For Education', \
+@register_breadcrumb(blueprint, '.educate', 'Education', \
                         dynamic_list_constructor = (lambda :\
-                        [{"url":".entry_education","text":"Education"}]))
-def educate(exp):
+                        [{"url":".educate","text":"Education"}
+                        ]))
+def educate(exp = None):
     import os.path, pkg_resources
 
     def file_exists(filename):
@@ -166,6 +129,12 @@ def educate(exp):
     current_app.jinja_env.filters['file_exists'] = file_exists
 
     exp_colls, exp_names = get_collections()
+
+    if exp not in exp_names:
+        try:
+            return render_template('index_scrollspy.html', entry = 'education', exp_colls = exp_colls, exp_names = exp_names)
+        except TemplateNotFound:
+            return abort(404)
 
     try:
         return render_template('educate.html',
@@ -174,11 +143,13 @@ def educate(exp):
         return abort(404)
 
 
+
+@blueprint.route('research')
 @blueprint.route('research/<string:exp>')
-@register_breadcrumb(blueprint, '.entry_research', 'For Research', \
+@register_breadcrumb(blueprint, '.research', 'Research', \
                         dynamic_list_constructor = (lambda :\
-                        [{"url":".entry_research","text":"Research"}]))
-def research(exp):
+                        [{"url":".research","text":"Research"}]))
+def research(exp = None):
     import os.path, pkg_resources
 
     def file_exists(filename):
@@ -192,6 +163,12 @@ def research(exp):
     current_app.jinja_env.filters['file_exists'] = file_exists
 
     exp_colls, exp_names = get_collections()
+
+    if exp not in exp_names :
+        try:
+            return render_template('index_scrollspy.html', entry = 'research', exp_colls = exp_colls, exp_names = exp_names)
+        except TemplateNotFound:
+            return abort(404)
 
     try:
         return render_template('research.html',
@@ -204,8 +181,8 @@ def visualise_events(exp = 'CMS'):
 
     exp_names = get_collection_names(['ALICE', 'LHCb', 'ATLAS'])
 
-    breadcrumbs = [{},{"url":".entry_education","text":"For Education"},\
-                        {"url":".entry_education","text":"Visualise Events"}]
+    breadcrumbs = [{},{"url":".educate","text":"Education"},\
+                        {"url":".educate","text":"Visualise Events"}]
     try:
         return render_template('visualise_events.html', exp = exp, exp_names = exp_names, breadcrumbs = breadcrumbs)
     except TemplateNotFound:
@@ -216,8 +193,8 @@ def visualise_events(exp = 'CMS'):
 def visualise_histo(exp = 'CMS'):
     exp_colls, exp_names = get_collections()
 
-    breadcrumbs = [{},{"url":".entry_education","text":"For Education"},\
-                        {"url":".entry_education","text":"Visualise Histograms"}]
+    breadcrumbs = [{},{"url":".educate","text":"Education"},\
+                        {"url":".educate","text":"Visualise Histograms"}]
 
     try:
         return render_template('visualise_histograms.html', exp = exp, exp_names = exp_names, breadcrumbs = breadcrumbs)
@@ -249,7 +226,7 @@ def get_started(exp):
 @blueprint.route('resources', defaults={'exp': None})
 @register_breadcrumb(blueprint, '.resources', 'Learning Resources', \
                         dynamic_list_constructor = (lambda :\
-                        [{"url":".entry_research","text":"For Education"},\
+                        [{"url":".educate","text":"Education"},\
                         {"url":".resources","text":"Learning Resources"}]) )
 def resources(exp):
     exp_names = get_collection_names()
@@ -579,7 +556,7 @@ def no_accounts():
 @blueprint.route('glossary', methods=['GET', 'POST'])
 @register_breadcrumb(blueprint, '.glossary', 'Glossary', \
                         dynamic_list_constructor = (lambda :\
-                        [{"url":".entry_education", "text":"Education"},\
+                        [{"url":".educate", "text":"Education"},\
                         {"url":".glossary","text":"Glossary"}]) )
 def glossary():
     import json, pkg_resources
