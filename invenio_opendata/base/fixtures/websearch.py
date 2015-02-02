@@ -350,6 +350,12 @@ class CollectionCollectionData(DataSet):
         score = 2
         type = 'r'
 
+    class ATLAS_ATLASHiggsChallenge2014:
+        dad = CollectionData.ATLAS
+        son = CollectionData.ATLASHiggsChallenge2014
+        score = 3
+        type = 'r'
+
     class siteCollection_LHCb:
         dad = CollectionData.siteCollection
         son = CollectionData.LHCb
@@ -426,6 +432,12 @@ class CollectionCollectionData(DataSet):
         dad = CollectionData.siteCollection
         son = CollectionData.DataPolicies
         score = 16
+        type = 'r'
+
+    class siteCollection_ATLASHiggsChallenge2014:
+        dad = CollectionData.siteCollection
+        son = CollectionData.ATLASHiggsChallenge2014
+        score = 17
         type = 'r'
 
 
