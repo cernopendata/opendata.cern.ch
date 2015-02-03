@@ -3,16 +3,16 @@
 {% import 'data/news_db.html' as n %}
 
 {% macro date_to_text(date) %}
-  <span class="date">4 days ago</span>
+  <span class="date">{{date}}</span>
 {% endmacro %}
 
-{% macro news_box(title, body, author, extra, n_id) %}
+{% macro news_box(title, body, author, extra, date, n_id) %}
   {% block news_box scoped%}
     <div class="news-box col-md-12">
       <div class="header">
         <div class="info pull-left">
-          <div class="title"><a href="{{ url_for('news/'+n_id) }}">{{ title }}</a></div>
-          <div class="details">posted by {{author}}, {{ date_to_text() }} </div>
+          <div class="title">{{ title }}</div>
+          <div class="details">posted on {{ date_to_text(date) }} by <span>{{author}}</span></div>
         </div>
         <div class="more pull-right">
           <div class="category">
@@ -24,9 +24,6 @@
       </div>
       <div class="body">
         {{  body|safe }}
-        {% for link in extra[1] %}
-          <a href="{{ link }}">{{ link }}</a><br/>
-        {% endfor %}
       </div>
     </div>
   {% endblock %}
@@ -72,7 +69,7 @@
         <div class="news-container col-sm-12">
           <div class="row">
             {% for ns in n.news %}
-              {{ news_box(ns[0], ns[1], ns[2], ns[3], ns[5]) }}
+              {{ news_box(ns[0], ns[1], ns[2], ns[3], ns[4], ns[5]) }}
             {% endfor %}
           </div>
         </div>
