@@ -568,3 +568,14 @@ def glossary():
         return render_template('glossary.html', glossary = glossary)
     except TemplateNotFound:
         return abort('404')
+
+@blueprint.route('news')
+@register_breadcrumb(blueprint,'.news','News', \
+                        dynamic_list_constructor = (lambda :\
+                        [{"url":".news","text":"News"}]))
+def news():
+    try:
+        return render_template('news.html')
+    except TemplateNotFound:
+        return abort(404)
+

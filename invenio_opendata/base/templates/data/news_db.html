@@ -1,55 +1,91 @@
 {% set news = [
-    ('CMS Open Data release: call for feedback','<p>
-                                          We are close to the first public release of CMS reconstructed data and the appropriate working environments, and would like to call for feedback from the CMS Collaboration.
-                                      </p>
-                                      <p>
-                                          The release is being made under the CMS Data Preservation and Open Access initiative and the expected date for the release is mid-October. In this effort, we have the support of CERN\'s IT and GIS services who have built an Open Data Portal at CERN. Please <strong>do not share</strong> this beta version of the portal outside the collaboration. A press release from CERN and a news item from CMS will accompany the official unveiling of the portal.
-                                      </p>
-                                      <p>
-                                          This release itself consists of primary dataset files in AOD format from 2010 RunB. We know that a considerable amount of additional knowledge is required in order to obtain meaningful results with these, and we have provided a minimal set of background information and some examples for external users to get started with our data. We also provide examples of how to further use these data in teaching and education.
-                                      <p>
-                                          The biggest audience we foresee is in education. We will provide examples of simplified, ready-to-use, online applications on the portal: at the moment this includes an event display for CMS events and a simple histogramming tool is on its way. For people interested in building similar applications, we provide the source code with basic instructions for the tools and the software for event processing they need.
-                                      </p>
-                                      <p>
-                                          We would like to hear from you with feedback on three levels:
-                                      </p>
-                                      <p>
-                                          <ul class="with-circles col-md-12">
-                                              <li>
-                                                  BASIC: Take the Open Data portal for a spin and let us know if you have any comments, by writing to <a href="mailto:opendata-support@cern.ch">opendata-support@cern.ch</a>.
-                                              </li>
-                                              <li>
-                                                  INTERMEDIATE: Go through the tasks on <a href="https://docs.google.com/forms/d/1i_vtQ_8nR4YXqZCNnXzN9zjbYp5YqLQM4HuGzCL243A/viewform">this Google form</a> to test the usability of the portal for different audiences.
-                                              </li>
-                                              <li>
-                                                  ADVANCED: Perform your own analysis with 2010 RunB data. If you have any simple example code that can be run on these data, please check whether <a href="http://opendata.cern.ch/VM/CMS">the instructions</a> for setting up the environment and accessing the data are adequate. Also, let us know if you think that your analysis example can be used by others e.g. in undergraduate teaching, and if you would like to host the analysis code and the intermediate data files on the portal.
-                                              </li>
-                                          </ul>
-                                      </p>','CMS Collaboration',('NULL', ('CMS',),()), '01/10/2014', '1'),
+  (
+    'ATLAS Higss Machine Learning Challenge',
+    '
+    <p>The dataset from the ATLAS Higgs Machine Learning Challenge has <a href="/collection/ATLAS-Higgs-Challenge-2014">been
+    released</a> on CERN Open Data Portal.
+    </p>
 
-     ('ALICE Open Data','<p>ALICE is making a public release of a number of datasets customised for
-                demonstration and educational purpose. A number of reconstructed data
-                files which are not statistically representative are included to allow
-                plotting transverse momentum and pseudorapidity distributions. More
-                advanced analysis and tools as well as larger data samples will be
-                available in future releases.</p><p>At this stage we are making available a set of outreach and educational
-        analysis exercises. These are based on specifically-selected ALICE data
-        and are widely used for the particle physics masterclasses. These
-        exercises expose simplified tools, which however give the feel of the
-        real tools employed by the physicists for the data analysis, and come in
-        the form of analysis packages and small datasets organised as root
-        files. Each analysis downloads on demand the required software and data
-        from a common graphics interface.</p><p>The documentation coming with these exercises contains both some physics
-        introduction and the instructions for running the programs, which
-        highlight some of the ALICE physics.  One exercise is the search for
-        particles containing strange quarks, based on their V0 decays; the
-        motivation is to give an insight to strangeness enhancement, one of the
-        first signatures for the Quark-Gluon Plasma (QGP).  Another exercise
-        basically looks at charged particle tracks; the aim is to calculate the
-        nuclear modification factor RAA, by comparing particle yields in the
-        case of lead-lead and proton-proton collisions; the fact that RAA is
-        less than one indicates the suppression of charged particles due to
-        interactions of partons with the QGP.</p>','ALICE Collaboration',('NULL',('ALICE',),()),'02/10/2014', '2')
+    <p><a href="http://www.atlas.ch/news/2014/are-you-up-for-higgs-challenge.html">The Challenge</a>, which ran from May to September 2014, was to
+    develop an algorithm that improved the detection of the Higgs boson signal.
+    The <a href="http://www.atlas.ch/news/2013/higgs-into-fermions.html">specific sample</a> used simulated Higgs particles
+    into two tau particles inside the ATLAS detector. The downloadable sample
+    was provided for participants at the host platform on Kaggle’s website.
+    With almost 1,785 teams competing, the event was a huge success.
+    Participants applied and developed cutting edge Machine Learning
+    techniques, which have been shown to be better than existing traditional
+    high-energy physics tools.
+    </p>
+
+    <p>The dataset was removed at the end of the Challenge but due to high public
+    demand, ATLAS as organizer of the event, has decided to house it in the
+    CERN Open Data Portal where it will be available permanently. The 60MB
+    zipped ASCII file can be decoded without a special software, and a few
+    scripts are provided to help users get started. Detailed documentation for
+    physicists and data scientists is also available. Thanks to the Digital
+    Object Identifiers (DOIs) in CERN Open Data Portal, the dataset and
+    accompanying material can be cited like any other paper.
+    </p>
+
+    <p>The <a href="http://atlas.ch/news/2014/machine-learning-wins-the-higgs-challenge.html">Challenge’s winner</a>
+    Gábor Melis, and recipients of the Special High Energy Physics meets
+    Machine Learning Award, Tianqi Chen and Tong He, will be visiting CERN to
+    deliver talks on their winning algorithms on 19 May.</p>
+    ','ATLAS Collaboration',('NULL',('ATLAS',),()),'February 3rd 2015', '2'
+  ),
+  (
+  'ALICE Open Data',
+  '<p>ALICE is making a public release of a number of datasets customised for
+              demonstration and educational purpose. A number of reconstructed data
+              files which are not statistically representative are included to allow
+              plotting transverse momentum and pseudorapidity distributions. More
+              advanced analysis and tools as well as larger data samples will be
+              available in future releases.
+    </p>
+    <p>At this stage we are making available a set of outreach and educational
+      analysis exercises. These are based on specifically-selected ALICE data
+      and are widely used for the particle physics masterclasses. These
+      exercises expose simplified tools, which however give the feel of the
+      real tools employed by the physicists for the data analysis, and come in
+      the form of analysis packages and small datasets organised as root
+      files. Each analysis downloads on demand the required software and data
+      from a common graphics interface.
+    </p>
+    <p>The documentation coming with these exercises contains both some physics
+      introduction and the instructions for running the programs, which
+      highlight some of the ALICE physics.  One exercise is the search for
+      particles containing strange quarks, based on their V0 decays; the
+      motivation is to give an insight to strangeness enhancement, one of the
+      first signatures for the Quark-Gluon Plasma (QGP).  Another exercise
+      basically looks at charged particle tracks; the aim is to calculate the
+      nuclear modification factor RAA, by comparing particle yields in the
+      case of lead-lead and proton-proton collisions; the fact that RAA is
+      less than one indicates the suppression of charged particles due to
+      interactions of partons with the QGP.
+    </p>',
+    'ALICE Collaboration',
+    ('NULL',('ALICE',),()),
+    'November 20th 2014', 
+    '2'
+  ),
+  (
+    'CMS releases first batch of high-level LHC open data',
+    '<p>
+        The Compact Muon Solenoid (CMS) Collaboration at CERN is excited to
+        announce the public release of the first batch of high-level,
+        analysable and open data from the Large Hadron Collider (LHC),
+        recorded by the CMS detector. The datasets are available on the new
+        CERN Open Data Portal and are being released into the public domain
+        under the Creative Commons CC0 waiver, in keeping with CMS’s
+        commitment to data preservation and open data. <a href="http://cms.web.cern.ch/news/cms-releases-first-batch-high-level-lhc-open-data">Read full release announcement</a>
+      </p>
+    ',
+    'CMS Collaboration',
+    ('NULL', ('CMS',),()),
+    'November 20th 2014', 
+    '1'
+  )
+
    ]
 %}
 
