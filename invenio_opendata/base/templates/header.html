@@ -51,12 +51,13 @@
                     <li class="col-md-12" role="presentation"><a href="{{ url_for('about/ALICE') }}">ALICE Open Data</a></li>
                     <li class="col-md-12" role="presentation"><a href="{{ url_for('about/ATLAS') }}">ATLAS Open Data</a></li>
                     <li class="col-md-12" role="presentation"><a href="{{ url_for('about/LHCb') }}">LHCb Open Data</a></li>
-                    <li class="col-md-12" role="presentation"><a href="{{ url_for('.glossary') }}">Glossary</a></li>
+                    <li class="col-md-12" role="presentation"><a href="{{ url_for('invenio_opendata.glossary') }}">Glossary</a></li>
+                    <li class="col-md-12" role="presentation"><a href="{{ url_for('invenio_opendata.news') }}">News</a></li>
                   </ul>
                 </li>
                 <li><a href="{{ url_for('search') }}">SEARCH</a></li>
-                <li><a href="{% if home==true %}#education{%else%}{{ url_for('invenio_opendata.entry_education') }}{% endif %}">EDUCATION</a></li>
-                <li><a href="{% if home==true %}#research{%else%}{{ url_for('invenio_opendata.entry_research') }}{%endif%}">RESEARCH</a></li>
+                <li><a href="{% if home==true %}#education" onclick="history.pushState({},'','education')" {%else%}{{ url_for('invenio_opendata.educate') }}"{% endif %}>EDUCATION</a></li>
+                <li><a href="{% if home==true %}#research" onclick="history.pushState({},'','research')" {%else%}{{ url_for('invenio_opendata.research') }}"{%endif%}">RESEARCH</a></li>
               </ul>
             </div>
           </div>

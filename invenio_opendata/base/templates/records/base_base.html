@@ -120,8 +120,11 @@
           start_f.text(start+1);
           end_f.text(end);
 
+          $("#loading-refresh-icon").show();
+
           $.get( '{{ url_for('.load_files', recid = record.recid )}}'+start+'/to/'+end)
           .done(function(data){
+            $("#loading-refresh-icon").hide();
             $('#elec-loc-list').html(data);
           });
           if (page < last_p) {

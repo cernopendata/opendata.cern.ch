@@ -1,6 +1,6 @@
 {#
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2014 CERN.
+# Copyright (C) 2014, 2015 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -55,7 +55,7 @@
           <p>Discovery of the long awaited Higgs boson was announced July 4, 2012 and confirmed six months later. 2013 saw a number of prestigious awards, <a href="http://www.nobelprize.org/nobel_prizes/physics/laureates/2013/">including a Nobel prize</a>. But for physicists, the discovery of a new particle means the beginning of a long and difficult quest to measure its characteristics and determine if it fits the current model of nature.</p>
           <p>A key property of any particle is how often it decays into other particles. ATLAS is a particle physics experiment taking place at the Large Hadron Collider at CERN that searches for new particles and processes using head-on collisions of protons of extraordinarily high energy. The ATLAS experiment has recently observed a signal of the Higgs boson decaying into two tau particles, but this decay is a small signal buried in background noise.</p>
           <p>The goal of the Higgs Boson Machine Learning Challenge is to explore the potential of advanced machine learning methods to improve the discovery significance of the experiment. No knowledge of particle physics is required. Using simulated data with features characterizing events detected by ATLAS, your task is to classify events into "tau tau decay of a Higgs boson" versus "background."</p>
-          <p>The Challenge has run on the Kaggle platform from May to September 2014, drawing more that 1700 participants. Very promising techniques and methodologies have been applied. The Challenge dataset is now permanently vailable on opendata.cern.ch so that further developments are made possible.</p>
+          <p>The Challenge has run on the Kaggle platform from May to September 2014, drawing more that 1700 participants. Very promising techniques and methodologies have been applied. The Challenge dataset is now permanently available on opendata.cern.ch so that further developments are made possible.</p>
       </div>
     </div>
     <div id="record-list" class="row">
@@ -75,8 +75,8 @@
                   {% for a in authors %}
                   <b>{{a.get('last_name','')+' '+a.get('first_name','')}}</b>
                   {{ ', ' if not loop.last }}
-                  {% endfor %}   
-                {% else %}               
+                  {% endfor %}
+                {% else %}
                   <b>{{authors[0].get('last_name','')+' '+authors[0].get('first_name','')}}, </b>
                   <b>{{authors[1].get('last_name','')+' '+authors[1].get('first_name','')}}, </b>
                   <b><i>et al</i></b>
@@ -94,7 +94,7 @@
       </div>
       {% endfor %}
       {% endif %}
-    </div>  
+    </div>
   </div>
 </section>
 

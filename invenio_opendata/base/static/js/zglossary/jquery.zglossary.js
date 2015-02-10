@@ -44,14 +44,14 @@
 
 					// Case insensistive matching option
 					if (options.ignorecase) {
-						var pos = e.data.toLowerCase().indexOf(patfmt.toLowerCase());
+						var pos = e.data.toLowerCase().search(new RegExp('\\b'+patfmt.toLowerCase()+'\\b'));
 					} else {
-						var pos = e.data.indexOf(patfmt);
+						var pos = e.data.search(new RegExp('\\b'+patfmt+'\\b'));
 					}
 
 					// Check if the term is found
 					if (pos >= 0) {
-						// Check for excluded tags
+						// Check for excluded tagsnew 
 						if (( jQuery.inArray($(e).parent().get(0).tagName,options.excludetags) > -1) || 
 							( $(e).parent().hasClass('no-glossary') ) 
 						){} else {
@@ -144,7 +144,14 @@
 
 							// Find term in text
 							var item = data[i];
-							_addTerm(e, item.term, item.type, item.definition);
+							if ( item.term instanceof Array) {
+								for (var o = 0 ; o < item.term.length ; o++) {
+									_addTerm(e, item.term[o], item.type, item.definition);
+								}
+							}
+							else {
+								_addTerm(e, item.term, item.type, item.definition);
+							}
 						}
 					}
 				},
