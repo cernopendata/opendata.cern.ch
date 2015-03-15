@@ -255,6 +255,7 @@
 					<li><a href="{{ url_for('record.metadata', recid=record.get('action_note.recid', '')) }}">{{ (record.get('action_note.recid', ''))|get_record_name }}</a></li>
 					{% endif %}
 					{% if record_data['url'] %}
+					<li><a href="{{ record_data['url'] }}">{{ record_data['description'] }}</a></li>
 					{% for u in record.get('action_note') %}
 					<li><a href="{{ u.url }}">{{ u.description }}</a></li>
 					{% endfor %}
