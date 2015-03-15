@@ -52,7 +52,7 @@
             <span> <i>et al</i></span>
           {% endif %}
         {% endif %}
-        {{ record['_first_corporate_name']['name'] if record['_first_corporate_name']}} ({{ record.get('imprint', {}).get('date', '') }}). {% if record.get('title_additional', '') %}{{ record.get('title_additional',{}).get('title','') }}{% elif record.get('title',{}).get('title','') %}{{ record.get('title',{}).get('title','') }}{% endif %}. CERN Open Data Portal. DOI: <a href="http://doi.org/{{ record.get('doi','') }}">{{ record.get('doi','') }}</a></div>
+        {{ record['_first_corporate_name']['name'] if record['_first_corporate_name']}} ({{ record.get('imprint', {}).get('date', '') }}). {% if record.get('title_additional', '') %}{{ record.get('title_additional',{}).get('title','') }}{% elif record.get('title',{}).get('title','') %}{{ record.get('title',{}).get('title','') }}{% endif %}. CERN Open Data Portal. DOI: <a class="clean" href="http://doi.org/{{ record.get('doi','') }}">{{ record.get('doi','') }}</a></div>
         </div>
       {% endif %}
       <div class="rec_thumb rec_parentcol">

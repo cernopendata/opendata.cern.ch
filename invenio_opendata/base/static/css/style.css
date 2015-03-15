@@ -45,6 +45,13 @@ a, a:hover, a:focus {
   font-size: inherit;
 }
 
+a.clean, a.clean:hover, a.clean:focus {
+  color: inherit!important;
+  text-decoration: none!important;
+  font-size: inherit!important;
+  border: 0!important;
+}
+
 header a, header a:hover, header a:focus,
 footer a, footer a:hover, footer a:focus {
   color: #fff;
@@ -722,8 +729,8 @@ a.glossaryTerm:focus {
   color: inherit!important;
   font-size: inherit!important;
   font-weight: inherit!important;
-  background-color: rgba(51, 51, 51, 0.09);
-  /*border-bottom: 1px dotted!important;*/
+  /*background-color: rgba(51, 51, 51, 0.09);*/
+  border-bottom: 1px dashed!important;
   width: auto!important;
 }
 
