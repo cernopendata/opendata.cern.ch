@@ -6,10 +6,10 @@
         {% set url_href = url_for(b.url, exp = exp) %}
       {% elif b.param == 'name' %}
         {% set url_href = url_for(b.url, name = b.value) %}
-        <a href="{{url_href}}"><h4 class="{{ ' active' if (loop.index is divisibleby 2) }}">{{b.text}}</h4></a>{{ '<span class="fa fa-chevron-right"></span>'|safe if ((not loop.last) )}} 
+        <a href="{{url_href}}"><h4 class="no-glossary {{ ' active' if (loop.index is divisibleby 2) }}">{{b.text}}</h4></a>{{ '<span class="fa fa-chevron-right"></span>'|safe if ((not loop.last) )}} 
       {% else %}
         {% set url_href = url_for(b.url) %}
-        <a href="{{url_href}}"><h4 class="{{ ' active' if (loop.index is divisibleby 2) }}">{{b.text}}</h4></a>{{ '<span class="fa fa-chevron-right"></span>'|safe if ((not loop.last) )}} 
+        <a href="{{url_href}}"><h4 class="no-glossary {{ ' active' if (loop.index is divisibleby 2) }}">{{b.text}}</h4></a>{{ '<span class="fa fa-chevron-right"></span>'|safe if ((not loop.last) )}} 
       {% endif %}
       {% if loop.last and exp and  exp_names %}
         {{ experiments_dropdown(loop, b.url, exp, exp_names, exclude) }}
