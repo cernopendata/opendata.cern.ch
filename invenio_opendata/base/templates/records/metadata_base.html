@@ -264,7 +264,12 @@
               {% if record.get('system_details', {}).get('displaytext', '') %}
                 {{record.get('system_details', {}).get('displaytext', '')}}<br>
               {% endif %}
-              {{record.get('system_details', {}).get('note', '')}}
+              {% if record.get('system_details', {}).get('notebis', '') %}
+                {{record.get('system_details', {}).get('notebis', '')}}<br>
+              {% endif %}
+              {% if record.get('system_details', {}).get('note', '') %}
+                {{record.get('system_details', {}).get('note', '')}}<br>
+              {% endif %}
               {% if record.get('system_details', {}).get('recid', '') %}
                 <a href="{{url_for('.metadata', recid = record.get('system_details', {}).get('recid', '') )}}">{{(record.get('system_details', {}).get('recid', ''))|get_record_name }}</a>
               {% endif %}
