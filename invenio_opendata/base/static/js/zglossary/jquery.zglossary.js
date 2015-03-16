@@ -15,7 +15,7 @@
 
 (function($){
 	
-	$.fn.glossary = function(url, options) {
+	$.fn.glossary = function(url, options, exp) {
 
 		// Set plugin defaults
 		var defaults = {
@@ -141,9 +141,27 @@
 
 						var count = data.length;
 						for (var i=0; i<count; i++) {
+							move_on = false;
 
 							// Find term in text
 							var item = data[i];
+							if (item.category == 'specific') {
+								console.log('## '+' == '+exp+' : '+ item.term );
+								console.log(item.experiment);
+
+								item.experiment.forEach(function(e, i, a) {
+									console.log('-- '+e.name+' == '+exp+' : '+ item.term  +'////'+ e)
+									if( e.name == exp ){
+										move_on = true;
+									}
+								});
+							}
+							else {
+								move_on = true;
+							}
+							if (!move_on) {
+								continue;
+							}
 							if ( item.term instanceof Array) {
 								for (var o = 0 ; o < item.term.length ; o++) {
 									_addTerm(e, item.term[o], item.type, item.definition);

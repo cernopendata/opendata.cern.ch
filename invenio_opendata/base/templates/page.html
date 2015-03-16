@@ -78,7 +78,8 @@
             ignorecase: true,
             linktarget: '_blank',
             excludetags: ['a','h2','pre', 'kbd'],
-          });
+          },
+          exp = "{{ exp if exp else ''}}");
       });      
       {% endblock %}
       {% block js_search_for_external_links %}

@@ -426,6 +426,9 @@ def collection(name):
     breadcrumbs = [{}]
     if parent_collection:
         breadcrumbs.append({ "url":".collection", "text": parent_collection.name_ln, "param":"name", "value": parent_collection.name })
+        exp = parent_collection.name_ln
+    else:
+        exp = collection.name_ln
 
     breadcrumbs.append({ "url":".collection", "text": collection.name_ln, "param":"name", "value": collection.name })
 
@@ -433,7 +436,7 @@ def collection(name):
                             'search/collection_{0}.html'.format(slugify(name,
                                                                         '_')),
                             'search/collection.html'],
-                           collection=collection, coll_records=coll_records, breadcrumbs = breadcrumbs)
+                           collection=collection, coll_records=coll_records, breadcrumbs = breadcrumbs, exp = exp)
 
 
 # Routing for "record" module
