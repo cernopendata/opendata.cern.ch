@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2012, 2013, 2014 CERN.
+# Copyright (C) 2012, 2013, 2014, 2015 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -569,7 +569,7 @@ class PortalboxData(DataSet):
         title = u'research_description'
 
     class Portalbox_19:
-        body = u'ATLAS.gif'
+        body = u'ATLAS.svg'
         id = 19
         title = u'image'
 
