@@ -569,7 +569,7 @@ class PortalboxData(DataSet):
         title = u'research_description'
 
     class Portalbox_19:
-        body = u'ATLAS.gif'
+        body = u'ATLAS-Logo-Square-Blue-RGB.svg'
         id = 19
         title = u'image'
 
