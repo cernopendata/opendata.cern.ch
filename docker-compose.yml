@@ -1,0 +1,54 @@
+# This file is part of CERN Open Data Portal.
+# Copyright (C) 2015 CERN.
+#
+# CERN Open Data Portal is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# CERN Open Data Portal is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Invenio; if not, write to the Free Software Foundation, Inc.,
+# 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+
+web:
+  build: .
+  command: inveniomanage runserver -h 0.0.0.0 -p 28080
+  ports:
+    - "28080:28080"
+  environment:
+    - CACHE_REDIS_HOST=cache
+    - CFG_DATABASE_HOST=db
+    - INVENIO_APP_CONFIG_ENVS=CACHE_REDIS_HOST,CFG_DATABASE_HOST
+  volumes:
+    - /tmp:/tmp
+  links:
+    - mysql:db
+    - redis:cache
+worker:
+  build: .
+  command: celery worker --purge -E -A invenio.celery.celery --loglevel=DEBUG
+  environment:
+    - BROKER_URL=redis://cache:6379/1
+    - CACHE_REDIS_HOST=cache
+    - CELERY_RESULT_BACKEND=redis://cache:6379/1
+    - CFG_DATABASE_HOST=db
+    - INVENIO_APP_CONFIG_ENVS=BROKER_URL,CELERY_RESULT_BACKEND,CACHE_REDIS_HOST,CFG_DATABASE_HOST
+  volumes_from:
+    - web
+  links:
+    - mysql:db
+    - redis:cache
+redis:
+  image: redis
+mysql:
+  image: mysql
+  environment:
+    - MYSQL_DATABASE=invenio
+    - MYSQL_USER=invenio
+    - MYSQL_PASSWORD=my123p$ss
+    - MYSQL_ROOT_PASSWORD=mysecretpassword
