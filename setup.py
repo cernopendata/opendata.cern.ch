@@ -1,5 +1,5 @@
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2013, 2014 CERN.
+# Copyright (C) 2013, 2014, 2015 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -43,7 +43,7 @@ setup(
     zip_safe=False,
     platforms='any',
     install_requires=[
-        'Invenio>=1.9999.3,<1.9999.4',
+        'Invenio>=1.9999.3,<2.1.0',
         'invenio-previewer-ispy',
     ],
     extras_require={
