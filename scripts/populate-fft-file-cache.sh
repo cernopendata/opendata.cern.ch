@@ -4,25 +4,23 @@
 # used for FFT uploads when building opendata.cern.ch site.
 #
 # NOTE: the FFT file cache directory is by default located in
-# "$HOME/opendata.cern.ch-fft-file-cache".  The script also makes
-# symlink to this place from "/tmp" so that files can be uploaded
-# regardless of $HOME.
+# "$HOME/Local/opendata.cern.ch-fft-file-cache".  The script also
+# makes symlink to this place from "/tmp" so that files can be
+# uploaded regardless of $HOME.
 #
-# NOTE: if the files are already present in the destinated directory,
-# does not download anything, even without checking whether remote
-# files have changed.
+# NOTE: if a file is already present in the destinated directory, then
+# the script does not download it again, even without checking whether
+# the remote file has changed or not.
 #
-# NOTE: not using remote CMS DocDB URLs directly, because the total
-# amount of files to transfer is about 6.6 GB.  It is better to run
-# this script once in your development environment to store the files
-# locally on your laptop, in which case further rebuilds of
-# opendata.cern.ch site can be run fully locally, hence being
-# significantly faster.
+# NOTE: The total amount of files to transfer is about 8 GB and may
+# take significant time.  It is therefore better to run this script
+# once in your development environment and to store the files locally
+# on your laptop and use this cache for further builds.
 
 # config section:
 WGET="wget -nc -nv --no-check-certificate"
 DOCDB="https://cms-docdb.cern.ch/cgi-bin/PublicDocDB/RetrieveFile"
-OUTDIR="$HOME/opendata.cern.ch-fft-file-cache"
+OUTDIR="$HOME/Local/opendata.cern.ch-fft-file-cache"
 
 # quit on errors and potentially unbound symbols:
 #set -o errexit # because of wget
