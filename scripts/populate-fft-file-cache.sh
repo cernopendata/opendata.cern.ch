@@ -310,6 +310,9 @@ rsync -a invenio_opendata/testsuite/data/alice/alice-data-policy/ $OUTDIR/alice-
 # ninthly, ATLAS Higgs Challenge 2014:
 rsync -a invenio_opendata/testsuite/data/atlas/atlas-higgs-challenge-2014/ $OUTDIR/atlas-higgs-challenge-2014/
 
+# tenthly, CVM VM contextualisation scripts:
+rsync -a invenio_opendata/testsuite/data/cms/cms-vm-contextualisation-scripts/ $OUTDIR/cms-vm-contextualisation-scripts/
+
 # finally, make symlink to FFT cache from tmp:
 if [ ! -L "/tmp/$(basename $OUTDIR)" ]; then
     ln -s $OUTDIR /tmp
