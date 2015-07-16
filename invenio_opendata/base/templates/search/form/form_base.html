@@ -17,7 +17,7 @@
 # 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
 #}
 
-{# Collect the nav links, forms, and other content for toggling #}
+{# Collect the nav links, forms and other content for toggling #}
 <form action="{{ url_for('search.search') }}" method="get" role="search" id="searchform">
 {%- block search_form_ctrls -%}
   <input type="hidden" name="ln" value="{{g.ln}}">

@@ -489,7 +489,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_3:
-        body = u'<a href="http://aliceinfo.cern.ch/Public/Welcome.html">ALICE</a> (A Large Ion Collider Experiment) is a heavy-ion <a href="http://home.web.cern.ch/about/how-detector-works">detector</a> designed to study the physics of strongly interacting matter at extreme energy densities, where a phase of matter called <a href="http://home.web.cern.ch/about/physics/heavy-ions-and-quark-gluon-plasma">quark-gluon plasma</a> forms.</br>The ALICE collaboration uses the 10,000-tonne ALICE detector – 26 m long, 16 m high, and 16 m wide – to study quark-gluon plasma. The detector sits in a vast cavern 56 m below ground close to the village of St Genis-Pouilly in France, receiving beams from the LHC. More than 1000 scientists are part of the collaboration.'
+        body = u'<a href="http://aliceinfo.cern.ch/Public/Welcome.html">ALICE</a> (A Large Ion Collider Experiment) is a heavy-ion <a href="http://home.web.cern.ch/about/how-detector-works">detector</a> designed to study the physics of strongly interacting matter at extreme energy densities, where a phase of matter called <a href="http://home.web.cern.ch/about/physics/heavy-ions-and-quark-gluon-plasma">quark-gluon plasma</a> forms.</br>The ALICE collaboration uses the 10,000-tonne ALICE detector – 26 m long, 16 m high and 16 m wide – to study quark-gluon plasma. The detector sits in a vast cavern 56 m below ground close to the village of St Genis-Pouilly in France, receiving beams from the LHC. More than 1000 scientists are part of the collaboration.'
         id = 3
         title = u'description'
 
@@ -539,7 +539,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_13:
-        body = u'This collection includes tools, with which the CMS open data can be accessed and used#$#$#. It contains the VM image of the CMS environment through which the datasets can be read. It includes the software with which the derived datasets were produced, and analysis examples. It also contains the source code for the online applications deployed on this site.'
+        body = u'This collection includes tools with which the CMS open data can be accessed and used#$#$#. It contains the VM image of the CMS environment through which the datasets can be read. It includes the software with which the derived datasets were produced, and analysis examples. It also contains the source code for the online applications deployed on this site.'
         id = 13
         title = u'description'
 
@@ -564,7 +564,7 @@ class PortalboxData(DataSet):
         title = u'research_description'
 
     class Portalbox_18:
-        body = u'These ALICE datasets contain a sample of events from the p-p an PbPb LHC runs in 2010, in the ESD (event summary data) format of the ALICE reconstruction program. The events are unbiased and are not a result of event selections and this format is directly usable by the analysis done by ALICE physicists. The data can be downloaded and used from a specific ALICE virtual machine image which can be installed using this procedure (link) and which demonstrates some ALICE analysis and event display examples. A single dataset is exposed in the form of a custom VSD (V0 summary data) format which is not usable in normal analysis but just by a set of masterclasses available also from the ALICE VM. For the first release, no simulated Monte Carlo datasets are provided.'
+        body = u'These ALICE datasets contain a sample of events from the pp and PbPb LHC runs in 2010, in the ESD (event summary data) format of the ALICE reconstruction program. The events are unbiased and are not a result of event selections and this format is directly usable by the analysis done by ALICE physicists. The data can be downloaded and used from a specific ALICE virtual machine image which can be installed using this procedure (link) and which demonstrates some ALICE analysis and event display examples. A single dataset is exposed in the form of a custom VSD (V0 summary data) format which is not usable in normal analysis but just by a set of masterclasses available also from the ALICE VM. For the first release, no simulated Monte Carlo datasets are provided.'
         id = 18
         title = u'research_description'
 
@@ -574,7 +574,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_20:
-        body = u'The ATLAS (A Toroidal LHC ApparatuS) experiment is a general purpose detector exploring topics like the properties of the Higgs-like particle, extra dimensions of space, unification of fundamental forces, and evidence for dark matter candidates in the Universe.'
+        body = u'The ATLAS (A Toroidal LHC ApparatuS) experiment is a general-purpose detector exploring topics like the properties of the Higgs-like particle, extra dimensions of space, unification of fundamental forces and evidence for dark matter candidates in the Universe.'
         id = 20
         title = u'description'
 
@@ -584,7 +584,7 @@ class PortalboxData(DataSet):
         title = u'description'
 
     class Portalbox_22:
-        body = u'This collection includes tools, with which the ATLAS open data can be accessed and used#$#$#.'
+        body = u'This collection includes tools with which the ATLAS open data can be accessed and used#$#$#.'
         id = 22
         title = u'description'
 
@@ -644,7 +644,7 @@ class PortalboxData(DataSet):
         title = u'short_description_e'
 
     class Portalbox_34:
-        body = u'The ATLAS (A Toroidal LHC ApparatuS) experiment is a general purpose detector exploring topics like the properties of the Higgs-like particle, extra dimensions of space, unification of fundamental forces, and evidence for dark matter candidates in the Universe.'
+        body = u'The ATLAS (A Toroidal LHC ApparatuS) experiment is a general-purpose detector exploring topics like the properties of the Higgs-like particle, extra dimensions of space, unification of fundamental forces and evidence for dark matter candidates in the Universe.'
         id = 34
         title = u'short_description_e'
 
@@ -674,7 +674,7 @@ class PortalboxData(DataSet):
         title = u'short_description_r'
 
     class Portalbox_40:
-        body = u'According to the LHCb External Data Access Policy, reconstructed data will be made openly accessible 5 years after the data is taken. For the data that have already been taken, the 5 years are counted from the date of ratification of the experiment’s policy. Thus, the first release of LHCb data will happen in 2018.'
+        body = u'According to the LHCb External Data Access Policy, reconstructed data will be made openly accessible 5 years after the data are taken. For the data that have already been taken, the 5 years are counted from the date of ratification of the experiment’s policy. Thus, the first release of LHCb data will happen in 2018.'
         id = 40
         title = u'research_description'
 
