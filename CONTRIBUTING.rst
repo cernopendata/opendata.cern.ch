@@ -2,7 +2,7 @@
  Contributing
 ==============
 
-Bug reports, feature requests, and code contributions are encouraged
+Bug reports, feature requests and code contributions are encouraged
 and welcome!
 
 Bug reports and feature requests

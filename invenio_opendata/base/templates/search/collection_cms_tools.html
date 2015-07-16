@@ -130,7 +130,7 @@
       <div class="col-md-12">
         <div id="tools" class="collection-res row">
           {% if collection.is_restricted %}
-            <strong>{{ _('This collection is restricted. If you are authorized to access it, please click on the Search button.') }}</strong>
+            <strong>{{ _('This collection is restricted. If you are authorised to access it, please click on the Search button.') }}</strong>
           {% else %}
             {% if collection.reclist %}
               {% for r in coll_records %}
@@ -151,7 +151,7 @@
                       </div>
                       <a href="{{ url_for('.metadata', recid = r.get('_id'))}}">
                         <div class="go">
-                          <div>Go to page<span class="fa fa-chevron-right"></span></div>                     
+                          <div>Go to page<span class="fa fa-chevron-right"></span></div>
                         </div>
                       </a>
                     </div>
@@ -169,4 +169,3 @@
 
 
 {%- endblock -%}
-

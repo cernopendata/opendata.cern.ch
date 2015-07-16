@@ -30,6 +30,6 @@ information.
 Contributing
 ------------
 
-Bug reports, feature requests, and code contributions are encouraged
+Bug reports, feature requests and code contributions are encouraged
 and welcome!  Please see `contributing guide <CONTRIBUTING.rst>`_ for
 more information.
