@@ -569,14 +569,14 @@ class PortalboxData(DataSet):
         title = u'research_description'
 
     class Portalbox_19:
-        body = u'ATLAS.svg'
+        body = u'The ATLAS (A Toroidal LHC ApparatuS) experiment is a general purpose detector exploring topics like the properties of the Higgs-like particle, extra dimensions of space, unification of fundamental forces, and evidence for dark matter candidates in the Universe.'
         id = 19
-        title = u'image'
+        title = u'description'
 
     class Portalbox_20:
-        body = u'The ATLAS (A Toroidal LHC ApparatuS) experiment is a general-purpose detector exploring topics like the properties of the Higgs-like particle, extra dimensions of space, unification of fundamental forces and evidence for dark matter candidates in the Universe.'
+        body = u'ATLAS.svg'
         id = 20
-        title = u'description'
+        title = u'image'
 
     class Portalbox_21:
         body = u'This collection includes learning resources that use ATLAS public data#$#$#. The items in this collection are suitable for education purposes.'
