@@ -273,6 +273,26 @@ $WGET -O $OUTDIR/cms-docdb-files/masterclass_9.ig "$DOCDB?docid=12154&amp;filena
 $WGET -O $OUTDIR/cms-docdb-files/masterclass_10.ig "$DOCDB?docid=12154&amp;filename=masterclass_10.ig"
 $WGET -O $OUTDIR/cms-docdb-files/masterclass_11-leptons.csv "$DOCDB?docid=12154&amp;filename=masterclass_11-leptons.csv"
 $WGET -O $OUTDIR/cms-docdb-files/masterclass-2014.xls "$DOCDB?docid=12154&amp;filename=masterclass-2014.xls"
+$WGET -O $OUTDIR/cms-docdb-files/BTag_Run2011A.ig "$DOCDB?docid=12752&amp;filename=BTag_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/DoubleElectron_Run2011A.ig "$DOCDB?docid=12752&amp;filename=DoubleElectron_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/DoubleMu_Run2011A.ig "$DOCDB?docid=12752&amp;filename=DoubleMu_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/ElectronHad_Run2011A.ig "$DOCDB?docid=12752&amp;filename=ElectronHad_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/HT_Run2011A.ig "$DOCDB?docid=12752&amp;filename=HT_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/Jet_Run2011A.ig "$DOCDB?docid=12752&amp;filename=Jet_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/METBTag_Run2011A.ig "$DOCDB?docid=12752&amp;filename=METBTag_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/MET_Run2011A.ig "$DOCDB?docid=12752&amp;filename=MET_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/MinimumBias_Run2011A.ig "$DOCDB?docid=12752&amp;filename=MinimumBias_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/MuEG_Run2011A.ig "$DOCDB?docid=12752&amp;filename=MuEG_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/MuHad_Run2011A.ig "$DOCDB?docid=12752&amp;filename=MuHad_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/MuOnia_Run2011A.ig "$DOCDB?docid=12752&amp;filename=MuOnia_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/MultiJet_Run2011A.ig "$DOCDB?docid=12752&amp;filename=MultiJet_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/PhotonHad_Run2011A.ig "$DOCDB?docid=12752&amp;filename=PhotonHad_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/Photon_Run2011A.ig "$DOCDB?docid=12752&amp;filename=Photon_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/SingleElectron_Run2011A.ig "$DOCDB?docid=12752&amp;filename=SingleElectron_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/SingleMu_Run2011A.ig "$DOCDB?docid=12752&amp;filename=SingleMu_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/TauPlusX_Run2011A.ig "$DOCDB?docid=12752&amp;filename=TauPlusX_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/Tau_Run2011A.ig "$DOCDB?docid=12752&amp;filename=Tau_Run2011A.ig"
+
 
 # thirdly, cernvm files:
 mkdir -p $OUTDIR/cernvm-files
