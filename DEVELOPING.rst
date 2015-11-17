@@ -106,6 +106,7 @@ populate *all* collections, you can use::
     -f invenio_opendata/testsuite/data/cms/cms-csv-files.xml \
     -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana.xml \
     -f invenio_opendata/testsuite/data/cms/cms-eventdisplay-files.xml \
+    -f invenio_opendata/testsuite/data/cms/cms-eventdisplay-files-Run2011A.xml \
     -f invenio_opendata/testsuite/data/cms/cms-hamburg-files.xml \
     -f invenio_opendata/testsuite/data/cms/cms-learning-resources.xml \
     -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
