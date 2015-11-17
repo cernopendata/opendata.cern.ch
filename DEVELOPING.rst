@@ -112,6 +112,7 @@ populate *all* collections, you can use::
     -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
     -f invenio_opendata/testsuite/data/cms/cms-open-data-instructions.xml \
     -f invenio_opendata/testsuite/data/cms/cms-primary-datasets.xml \
+    -f invenio_opendata/testsuite/data/cms/cms-primary-datasets-Run2011A.xml \
     -f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
     -f invenio_opendata/testsuite/data/cms/cms-tools-dimuon-filter.xml \
     -f invenio_opendata/testsuite/data/cms/cms-tools-ispy.xml \
