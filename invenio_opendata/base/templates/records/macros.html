@@ -325,6 +325,15 @@
                 <li><a href="{{ url_for('record.metadata', recid=record.get('documentation_note.recid', '')) }}">{{ (record.get('documentation_note.recid', ''))|get_record_name }}</a></li>
             </ul>
             {% endif %}
+            {% if record.get('documentation_note.url', '') %}
+            <ul>
+                {% if record.get('documentation_note.description', '') %}
+                <li><a href="{{ record.get('documentation_note.url', '') }}">{{ record.get('documentation_note.description', '')  }}</a></li>
+                {% else %}
+                <li><a href="{{ record.get('documentation_note.url', '') }}">{{ record.get('documentation_note.url', '')  }}</a></li>
+                {% endif %}
+            </ul>
+            {% endif %}
         </div>
     </div>
 </div>
