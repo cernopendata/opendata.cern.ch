@@ -197,6 +197,22 @@ class CollectionData(DataSet):
             ('en', 'ln'): u'ATLAS Higgs Challenge 2014',
         }
 
+    class CMSSimulatedDatasets(siteCollection):
+        id = 25
+        name = 'CMS-Simulated-Datasets'
+        dbquery = '980__a:"CMS-Simulated-Datasets"'
+        names = {
+            ('en', 'ln'): u'CMS Simulated Datasets',
+        }
+
+    class CMSValidationUtilities(siteCollection):
+        id = 26
+        name = 'CMS-Validation-Utilities'
+        dbquery = '980__a:"CMS-Vallidation-Utilities"'
+        names = {
+            ('en', 'ln'): u'CMS Validation Utilities',
+        }
+
 
 class CollectionCollectionData(DataSet):
 
@@ -212,28 +228,40 @@ class CollectionCollectionData(DataSet):
         score = 0
         type = 'r'
 
+    class CMS_CMSSimulatedDatasets:
+        dad = CollectionData.CMS
+        son = CollectionData.CMSSimulatedDatasets
+        score = 1
+        type = 'r'
+
     class CMS_CMSDerivedDatasets:
         dad = CollectionData.CMS
         son = CollectionData.CMSDerivedDatasets
-        score = 1
+        score = 2
         type = 'r'
 
     class CMS_CMSTools:
         dad = CollectionData.CMS
         son = CollectionData.CMSTools
-        score = 2
+        score = 3
         type = 'r'
 
-    class CMS_CMSValidatedRuns:
+    class CMS_CMSValidationUtilities:
         dad = CollectionData.CMS
-        son = CollectionData.CMSValidatedRuns
-        score = 3
+        son = CollectionData.CMSValidationUtilities
+        score = 4
         type = 'r'
 
     class CMS_CMSLearningResources:
         dad = CollectionData.CMS
         son = CollectionData.CMSLearningResources
-        score = 4
+        score = 5
+        type = 'r'
+
+    class CMS_CMSOpenDataInstructions:
+        dad = CollectionData.CMS
+        son = CollectionData.CMSOpenDataInstructions
+        score = 6
         type = 'r'
 
     class siteCollection_CMSPrimaryDatasets:
@@ -254,9 +282,9 @@ class CollectionCollectionData(DataSet):
         score = 2
         type = 'r'
 
-    class siteCollection_CMSValidatedRuns:
+    class siteCollection_CMSValidationUtilities:
         dad = CollectionData.siteCollection
-        son = CollectionData.CMSValidatedRuns
+        son = CollectionData.CMSValidationUtilities
         score = 3
         type = 'r'
 
@@ -416,12 +444,6 @@ class CollectionCollectionData(DataSet):
         score = 14
         type = 'r'
 
-    class CMS_CMSOpenDataInstructions:
-        dad = CollectionData.CMS
-        son = CollectionData.CMSOpenDataInstructions
-        score = 5
-        type = 'r'
-
     class siteCollection_AuthorLists:
         dad = CollectionData.siteCollection
         son = CollectionData.AuthorLists
@@ -438,6 +460,18 @@ class CollectionCollectionData(DataSet):
         dad = CollectionData.siteCollection
         son = CollectionData.ATLASHiggsChallenge2014
         score = 17
+        type = 'r'
+
+    class siteCollection_CMSSimulatedDatasets:
+        dad = CollectionData.siteCollection
+        son = CollectionData.CMSSimulatedDatasets
+        score = 18
+        type = 'r'
+
+    class siteCollection_CMSSimulatedDatasets:
+        dad = CollectionData.siteCollection
+        son = CollectionData.CMSSimulatedDatasets
+        score = 19
         type = 'r'
 
 
@@ -691,6 +725,16 @@ class PortalboxData(DataSet):
     class Portalbox_43:
         body = u'This collection contains ATLAS Higgs Machine Learning Challenge 2014.'
         id = 43
+        title = u'description'
+
+    class Portalbox_44:
+        body = u'This collection contains CMS Simulated Datasets.'
+        id = 44
+        title = u'description'
+
+    class Portalbox_45:
+        body = u'This collection contains CMS Validation Utilities.'
+        id = 45
         title = u'description'
 
 
@@ -996,6 +1040,21 @@ class CollectionPortalboxData(DataSet):
         id_portalbox = PortalboxData.Portalbox_43.ref('id')
         score = 100
         id_collection = CollectionData.ATLASHiggsChallenge2014.ref('id')
+
+    class CollectionPortalbox_25_44_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_44.ref('id')
+        score = 100
+        id_collection = CollectionData.CMSSimulatedDatasets.ref('id')
+
+    class CollectionPortalbox_26_45_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_45.ref('id')
+        score = 100
+        id_collection = CollectionData.CMSValidationUtilities.ref('id')
+
 
 class FacetCollectionData(DataSet):
 
