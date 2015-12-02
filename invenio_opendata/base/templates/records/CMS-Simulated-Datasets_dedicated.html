@@ -1,0 +1,5 @@
+{% extends 'records/dedicated_base.html' %}
+
+{% block methodology_note %}
+  {{ record_methodology_note(record.get('methodology_note', ''), 'How were these data generated?') }}
+{% endblock %}
