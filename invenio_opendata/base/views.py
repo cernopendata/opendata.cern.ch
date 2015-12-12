@@ -205,19 +205,20 @@ def visualise_histo(exp = 'CMS'):
 @blueprint.route('getstarted', defaults={'exp': None})
 @blueprint.route('<string:exp>/getstarted')
 @blueprint.route('getstarted/<string:exp>')
-@blueprint.route('getting-started', defaults={'exp': None})
-@blueprint.route('getting-started/<string:exp>')
+@blueprint.route('getting-started', defaults={'exp': None, 'year': None})
+@blueprint.route('getting-started/<string:exp>',defaults={'year': None})
+@blueprint.route('getting-started/<string:exp>/<string:year>')
 @register_breadcrumb(blueprint, '.get_started', 'Get Started', \
                         dynamic_list_constructor = (lambda :\
                         [{"url":".get_started","text":"Getting started"}]))
-def get_started(exp):
+def get_started(exp, year):
     def splitting(value, delimiter='/'):
         return value.split(delimiter)
     exp_names = get_collection_names()
     current_app.jinja_env.filters['splitthem'] = splitting
 
     try:
-        return render_template('get_started.html', exp=exp,exp_names=exp_names)
+        return render_template('get_started.html', exp=exp,exp_names=exp_names, year=year)
     except TemplateNotFound:
         return abort(404)
 
@@ -237,12 +238,13 @@ def resources(exp):
         return abort(404)
 
 
-@blueprint.route('VM', defaults={'exp': None})
-@blueprint.route('VM/<string:exp>')
+@blueprint.route('VM', defaults={'exp': None, 'year': None})
+@blueprint.route('VM/<string:exp>', defaults={'year': None})
+@blueprint.route('VM/<string:exp>/<string:year>')
 @register_breadcrumb(blueprint, '.data_vms', 'Virtual Machines' , \
                         dynamic_list_constructor = (lambda :\
                         [{"url":".data_vms","text":"Virtual Machines"}]) )
-def data_vms(exp):
+def data_vms(exp, year):
     exp_names = get_collection_names(['ATLAS'])
     if exp not in exp_names and exp is not None:
         return render_template("404.html")
@@ -252,7 +254,7 @@ def data_vms(exp):
     current_app.jinja_env.filters['splitthem'] = splitting
 
     try:
-        return render_template('data_vms.html', exp=exp, exp_names=exp_names)
+        return render_template('data_vms.html', exp=exp, exp_names=exp_names, year=year)
     except TemplateNotFound:
         return abort(404)
 

@@ -70,6 +70,10 @@
   <script>
     (function($) {
 
+      $('.yeartabs > div > a').click(function (e) {
+        $('.yeartabs > div.active').removeClass('active')
+        $(this).parent('div').addClass('active')
+      });
       {% block glossary_js %}
       $(document).ready(function(){
         $("#main-content").glossary(

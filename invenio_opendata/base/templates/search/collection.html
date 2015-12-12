@@ -20,6 +20,8 @@
 {%- extends "search/collection_base.html" -%}
 {% import 'helpers/general.html' as gen_utils %}
 
+{% set YEARLY_TABED_COLLECTIONS = ['CMS Primary Datasets', 'CMS Simulated Datasets', 'CMS Derived Datasets', 'CMS Tools', 'CMS Open Data Instructions', 'CMS Validation Utilities' ] %}
+
 {%- macro od_collection_tree(collections, limit=None) %}
 {%- set macrokwargs = kwargs %}
 {%- block collection_tree scoped %}
@@ -43,6 +45,11 @@
                 <div class="details col-xs-12">
                   <div class="title">{{ collection.name_ln }}</div>
                   <div class="desc col-xs-12"><span>{{ (portalboxes['desc']|splitthem('#$#$#'))[0]|truncate(125) }}</span></div>
+                </div>
+                <div class="years col-xs-12">
+                  {% if collection.name_ln in YEARLY_TABED_COLLECTIONS %}
+                    Years: <div class="yr"><a href="#URL_FIXME">2010</a></div>, <div class="yr"><a href="#URL_FIXME">2011</a></div>
+                  {% endif %}
                 </div>
               </div>
             </div>
