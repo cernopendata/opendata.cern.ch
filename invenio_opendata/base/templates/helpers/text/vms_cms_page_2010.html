@@ -1,0 +1,43 @@
+{% import 'helpers/text/vms_page.html' as text %}
+
+<div class="row">
+  <div class="about">
+    <h1>{{ text.about_cms_msg(url_for('getting-started/CMS'))}}</h1>
+  </div>
+  <div class="col-md-12">
+    <ol class="gen-menu">
+      <li>
+        <a href="#how">1. How to install a CERN VM</a>
+      </li>
+      <li>
+        <a href="#issues">2. Issues & Limitations</a>
+      </li>
+    </ol>
+  </div>
+  <h1 id="how" class="col-sm-12">How to install a CERN Virtual Machine</h1>
+  <div class="col-sm-12">
+    <div class="gen-box">{{ text.install_s1() }}</div>
+  </div>
+  <div class="col-sm-12">
+    <div class="gen-box">{{ text.install_s2(url_for('.metadata', recid = 250)) }}</div>
+  </div>
+
+  <h1 class="col-sm-12">How to Test & Validate?</h1>
+  <div class="col-sm-12">
+    <div class="gen-box">
+      {{ text.validate_s1() }}
+    </div>
+  </div>
+
+  <h1 id="issues" class="col-sm-12">Known Issues & Limitations</h1>
+  <div class="col-sm-12">
+    <div class="gen-box">
+      {{ text.validate_s2(url_for('VM/CMS/validation/report')) }}
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="gen-box">
+      {{ text.limitation_s1() }}
+    </div>
+  </div>
+</div>
