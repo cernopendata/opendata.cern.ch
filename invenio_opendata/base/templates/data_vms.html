@@ -73,7 +73,6 @@
   {% with collection = 0 %}
     {% include 'search/form/index.html' %}
   {% endwith %}
-  {% import 'helpers/text/vms_page.html' as text %}
 
   <section class="infobar">
     <div class="container">
@@ -87,7 +86,7 @@
       <div class="tab-content">
         <div class="tab-pane fade {% if exp not in exp_names %} in active {% endif %}" id="general">
           <div class="gen-header">
-            <h1>{{ text.about_msg()}}</h1>
+            <h1>CERN Virtual Machines allow you to run Scientific Linux on any operating system and access the CERN working environments and software tools.</h1>
           </div>
           <div class="row">
             {% for e in exp_names %}
@@ -105,47 +104,7 @@
           </div>
         </div>
         <div class="tab-pane fade {% if exp == 'CMS' %} in active {% endif %}" id="CMS">
-          <div class="row">
-            <div class="about">
-              <h1>{{ text.about_cms_msg(url_for('getting-started/CMS'))}}</h1>
-            </div>
-            <div class="col-md-12">
-              <ol class="gen-menu">
-                <li>
-                  <a href="#how">1. How to install a CERN VM</a>
-                </li>
-                <li>
-                  <a href="#issues">2. Issues & Limitations</a>
-                </li>
-              </ol>
-            </div>
-            <h1 id="how" class="col-sm-12">How to install a CERN Virtual Machine</h1>
-            <div class="col-sm-12">
-              <div class="gen-box">{{ text.install_s1() }}</div>
-            </div>
-            <div class="col-sm-12">
-              <div class="gen-box">{{ text.install_s2(url_for('.metadata', recid = 250)) }}</div>
-            </div>
-
-            <h1 class="col-sm-12">How to Test & Validate?</h1>
-            <div class="col-sm-12">
-              <div class="gen-box">
-                {{ text.validate_s1() }}
-              </div>
-            </div>
-
-            <h1 id="issues" class="col-sm-12">Known Issues & Limitations</h1>
-            <div class="col-sm-12">
-              <div class="gen-box">
-                {{ text.validate_s2(url_for('VM/CMS/validation/report')) }}
-              </div>
-            </div>
-            <div class="col-sm-12">
-              <div class="gen-box">
-                {{ text.limitation_s1() }}
-              </div>
-            </div>
-          </div>
+          {% include 'helpers/text/vms_cms_page.html' %}
         </div>
         <div class="tab-pane fade {% if exp == 'ALICE' %} in active {% endif %}" id="ALICE">
           {% include 'helpers/text/vms_alice_page.html' %}

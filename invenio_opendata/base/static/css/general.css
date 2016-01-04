@@ -300,3 +300,42 @@ ol.gen-menu >li>ul {
     padding-right: 15px;
   }
 }
+
+.yeartabs-container {
+  margin-top: 50px;  
+}
+
+.yeartabs {
+  text-align: center; 
+  border-bottom: 1px solid #ACC6D4; 
+  line-height: 0.1em;
+  margin: 10px 0 20px; 
+}
+
+.yeartabs > div {
+  background-color: #ACC6D4;
+  border-radius: 3px;
+  padding: 5px 10px;
+  display: inline;
+}
+
+
+.yeartabs > div > a,
+.yeartabs > div > a:hover,
+.yeartabs > div > a:focus {
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.yeartabs > div.active {
+  background-color: #f4f4f4;
+  border: 1px solid #ACC6D4;
+}
+
+.yeartabs > div.active > a,
+.yeartabs > div.active > a:hover,
+.yeartabs > div.active > a:focus {
+  color: #ACC6D4;
+}

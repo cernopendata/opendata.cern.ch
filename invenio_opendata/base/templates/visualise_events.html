@@ -46,6 +46,7 @@ body.black a:hover {
   margin-bottom: 20px;
   overflow: hidden;
 }
+
 #vis-events .nav {
   float: right;
   margin-bottom: 15px;
@@ -76,26 +77,6 @@ body.black a:hover {
   width: 100%;
 }
 
-#title-bar {
-  height: 30px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  background-color: #acc6d4;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-#tool-bar {
-  height: 30px;
-  background-color: black;
-  padding-top: 3px;
-  padding-bottom: 3px;
-}
-
-#tool-bar img {
-  width: 20px;
-  height: 20px;
-}
 
 #canvas {
   width: 100%;
@@ -120,7 +101,7 @@ body.black a:hover {
 .group {
   color: white;
 }
-#title { 
+#title {
   color: #606D75;
 }
 #title img {
@@ -133,7 +114,7 @@ body.black a:hover {
   color: red;
 }
 
-.toolbar-button, 
+.toolbar-button,
 .toolbar-button.selected {
   border: 0;
   background: 0;
@@ -160,7 +141,7 @@ body.black a:hover {
 
 #selected-event {
   height: 25px;
-} 
+}
 
 @media ( max-width: 768px ) {
   #od-header, .infobar, #vis-events .pg-header,
@@ -185,19 +166,7 @@ body.black a:hover {
     height: 100vh;
     overflow: hidden;
   }
-  #event-browser {
-    max-width: 90vw;
-    max-height: 90vw;
-  }
-  #title-bar, #tool-bar {
-    position: absolute;
-    height: 30px;
-    top: 0;
-    z-index: 10;
-  }
-  #tool-bar {
-    top: 30px;
-  }
+
   #canvas {
     width: 100vw;
     height: 100vh;
@@ -208,18 +177,6 @@ body.black a:hover {
   #title {
     width: auto;
   }
-
-  #switches-div {
-    padding-top: 60px;
-    padding-bottom: 20px;
-  }
-  .dialog-window {
-    width: 90vw!important;
-    height: 90vh!important;
-    top: 5vh!important;
-    left: 5vw!important;
-  }
-
   .cbp-spmenu {
       position: absolute;
   }
@@ -260,40 +217,6 @@ body.black a:hover {
     color: #606D75;
     float: left;
   }
-
-  #title-bar .pull-right a.btn {
-    height: 20px;
-    padding: 2px;
-    float: right;
-    margin-right: 0;
-  }
-
-  #browser-events .event,
-  #browser-files .dir,
-  #browser-files .file {
-   width: auto; 
-  }
-  
-  #browser-files {
-    width: 100%;
-    height: 62vh;
-  }
-  #browser-files tbody {
-    height: 80vh;
-  }
-
-  .browser-panel {
-    height: 60vh;
-    width: 100%;
-  }
-
-  #event-browser #panels {
-    height: 30px;
-  }
-
-  #browser-table {
-    width: 88vw;
-  }
 }
 
 
@@ -322,111 +245,112 @@ body.black a:hover {
         <div class="tab-content">
           <div class="tab-pane fade in active" id="ispy">
             <div id="ispy-previewer" class="col-xs-12">
+
               <div class="row">
-                <div id="title-bar" class="titlebar-plain bordered col-xs-12 no-padding">
-                  <div class="col-xs-10" id="title">Load an event from 'Open File'(<img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/open.png')}}" title="Open File"/>) to display</div>
-                  <div class="visible-xs col-xs-2 pull-right"><a href="{{url_for('.middle')}}" style="height:20px;padding:2px;" class="mobile-btn btn">back</a></div>
+                <div class="col-xs-12 bordered black" id="titlebar">
+                  <div class=row">
+                    <div class="col-xs-6" id="application-name">iSpy WebGL</div>
+                    <div class="col-xs-6" id="event-loaded"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-12 bordered black" id="toolbar">
+                  <div class="button-toolbar" role="toolbar">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#open-files" title="Open File">
+                        <i class="fa fa-folder-open"></i>
+                      </button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-default disabled" id="prev-event-button" onclick="ispy.prevEvent();" title="Previous Event">
+                        <i class="fa fa-step-backward"></i>
+                      </button>
+                      <button type="button" class="btn btn-default disabled" id="next-event-button" onclick="ispy.nextEvent();" title="Next Event">
+                        <i class="fa fa-step-forward"></i>
+                      </button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-default" onclick="ispy.resetControls();" title="Return to Start View">
+                        <i class="fa fa-home"></i>
+                      </button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-default" onclick="ispy.zoom(0.5);" title="Zoom In [Shift + Up Arrow]">
+                        <i class="fa fa-search-plus"></i>
+                      </button>
+                      <button type="button" class="btn btn-default" onclick="ispy.zoom(-0.5);" title="Zoom Out [Shift + Down Arrow]">
+                        <i class="fa fa-search-minus"></i>
+                      </button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-default" onclick="ispy.setXY();" title="YX Plane">
+                        <img src="{{url_for('base.static', filename='vendors/ispy-webgl/graphics/yx_small.png')}}">
+                      </button>
+                      <button type="button" class="btn btn-default" onclick="ispy.setYZ();" title="YZ plane">
+                        <img src="{{url_for('base.static', filename='vendors/ispy-webgl/graphics/yz_small.png')}}">
+                      </button>
+                      <button type="button" class="btn btn-default" onclick="ispy.setZX();" title="XZ plane">
+                        <img src="{{url_for('base.static', filename='vendors/ispy-webgl/graphics/xz_small.png')}}">
+                      </button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button type="button" id="perspective" class="btn btn-default active" onclick="ispy.setPerspective();" title="Perspective Projection">
+                        <img src="{{url_for('base.static', filename='vendors/ispy-webgl/graphics/perspective-projection.png')}}" title="Perspective View"/>
+                      </button>
+                      <button type="button" id="orthographic" class="btn btn-default" onclick="ispy.setOrthographic();" title="Orthographic Projection">
+                        <img src="{{url_for('base.static', filename='vendors/ispy-webgl/graphics/orthographic-projection.png')}}" title="Orthographic View"/>
+                      </button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#settings" onclick="ispy.updateRendererInfo();" title="Settings">
+                        <i class="fa fa-gear"></i>
+                      </button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#about" title="About">
+                        <i class="fa fa-info"></i>
+                      </button>
+                    </div>
+                    <!--
+                    <div class="btn-group" role="group">
+                      <button type="button" id="stereo" class="btn btn-default" data-toggle="modal" data-target="#stereo-modal" title="Stereo View">
+                        <i class="fa fa-binoculars"></i>
+                      </button>
+                    </div>
+                    -->
+                  </div>
                 </div>
               </div>
               <div class="row">
-                <div id="tool-bar" class="bordered col-xs-12">
-                  <a class="btn visible-xs mobile-btn" id="showhideMenu" onclick="showhideMenu();">Show/hide</a>
-                  <table id="toolbar">
-                    <tr>
-                      <td>
-                        <a class="toolbar-button" onclick="showEventLoader();">
-                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/open.png')}}" title="Open File"/>
-                        </a>
-                      </td>
-                      <td>
-                        <a class="toolbar-button disabled" id="prev-event-button" onclick="prevEvent();">
-                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/prev-event.png')}}" title="Previous Event"/>
-                        </a>
-                      </td>
-                      <td>
-                        <a class="toolbar-button disabled" id="next-event-button" onclick="nextEvent();">
-                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/next-event.png')}}" title="Next Event"/>
-                        </a>
-                      </td>
-                      <td>
-                        <a class="toolbar-button" onclick="setCameraHome();">
-                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/home.png')}}" title="Return to Start View"/>
-                        </a>
-                      </td>
-                      <td>
-                        <a class="toolbar-button" onclick="zoom(1);">
-                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/zoom_in_24.png')}}" title="Zoom In"/>
-                        </a>
-                      </td>
-                      <td>
-                        <a class="toolbar-button" onclick="zoom(-1);">
-                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/zoom_out_24.png')}}" title="Zoom Out"/>
-                        </a>
-                      </td>
-                      <td>
-                        <a class="toolbar-button" onclick="setCameraRotation(0, 0, 0);">
-                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/z-plane.png')}}" title="X-Y Plane"/>
-                        </a>
-                      </td>
-                      <td>
-                        <a class="toolbar-button" onclick="setCameraRotation(0, Math.PI / 2, Math.PI / 2);">
-                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/y-plane.png')}}" title="Z-X Plane"/>
-                        </a>
-                      </td>
-                      <td>
-                        <a class="toolbar-button" onclick="setCameraRotation(0, Math.PI / 2, 0);">
-                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/x-plane.png')}}" title="Y-Z Plane"/>
-                        </a>
-                      </td>
-                      <td>
-                        <a class="toolbar-button" id="perspective-view" onclick="setPerspectiveProjection(true);">
-                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/perspective-projection.png')}}" title="Perspective View"/>
-                        </a>
-                      </td>
-                      <td>
-                        <a class="toolbar-button" id="orthographic-view" onclick="setPerspectiveProjection(false);">
-                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/orthographic-projection.png')}}" title="Orthographic View"/>
-                        </a>
-                      </td>
-                      <td>
-                        <a class="toolbar-button" onclick="showSettings();">
-                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/settings.png')}}" title="Settings"/>
-                        </a>
-                      </td>
-                      <td>
-                        <a class="toolbar-button" onclick="openAboutWindow();">
-                          <img src="{{url_for('base.static', filename='vendors/ispy-online/graphics/help2.png')}}" title="About"/>
-                        </a>
-                      </td>
-                    </tr>
+                <div class="col-xs-3 bordered black" id="treeview">
+                  <div class="table-responsive">
+                  <table class="table table-hover">
                   </table>
+                  </div>
+                </div>
+                <!-- The canvas goes into this div -->
+                <div class="col-xs-9 bordered black" id="display">
+                  <div class="black" id="axes"></div>
                 </div>
               </div>
               <div class="row">
-                <div id="selectors" class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left bordered col-xs-3 col-sm-3">
-                  <div id="switches-div" style="overflow: auto; height: 100%;" class="flexcroll"> 
-                    <table id="switches"></table>
-                  </div>   
-                </div>
-                <div id="display" class="bordered col-xs-12 col-sm-9">
-                  <canvas id="canvas" width="825" height="600">
-                    Sorry, this requires a web browser which supports HTML5 canvas.
-                  </canvas>            
+                <div class="col-xs-12 bordered black" id="tableview">
+                <table id="collection-table" class="table table-hover"></table>
                 </div>
               </div>
+
+              <div id="event-info" class="black">
+              <table>
+                <tr>
+                  <td id="cms-logo"><img src="{{url_for('base.static', filename='vendors/ispy-webgl/graphics/cms-color-medium.png')}}"/></td>
+                  <td id="event-text"></td>
+                </tr>
+              </table>
+              </div>
             </div>
-            <div class="col-sm-8 hidden-xs">
-              <p>Use the Mouse to rotate.</p>
-              <p>Ctrl+Mouse or Ctrl + <span>&#9650</span> <span>&#9660</span> <span>&#9664</span> <span>&#9654</span> to pan x/y.</p>
-              <p>Shift+Mouse or Shift + <span>&#9650</span> <span>&#9660</span> to zoom.</p>
-              <p>
-                <h4>
-                In case of problems, try another instance of this tool (outside the portal) in the full-window by clicking here: <a href="http://cern.ch/opendata-ispy">
-                http://cern.ch/opendata-ispy</a>
-                </h4>
-              </p>  
-            </div>
-          </div>		  
+
           <div class="tab-pane fade" id="howto">
             {% include "visualise_events_help.html" %}
           </div>
@@ -438,278 +362,4 @@ body.black a:hover {
 
 {% include "visualise_events_popups.html" %}
 
-{% endblock %}
-
-{%- block javascript %}
-<script type="text/javascript">
-
-  showhideMenu = function() {
-    $(this).toggleClass('active');
-    var display = $('#display');
-    var canvas = $("#canvas");
-    var menu = $("#selectors")
-    
-    display.toggleClass('col-xs-12 col-xs-9 cbp-spmenu-push-toright');
-    menu.toggleClass('cbp-spmenu-open');
-  }
-
-
-  /* 
-     What's all this then?
-     
-     Much (most) of the display code resides in previewer_ispy 
-     (which fetches ispy-online from bower) and 
-     is setup for that use-case. However, here we want to run a bit
-     differently, populating the file menu and enabling selection 
-     of an event a la http://cern.ch/opendata-ispy.
-     
-     It's likely that this code should/could be encapsulated in 
-     the bower version in such a way that both use-cases can be
-     handled. For now though, let's have the js that we need here.
-     */
-
-  // For now, populate the files in the event loader by-hand
-  var mc_files = [
-  "/record/300/files/4lepton.ig",
-  "/record/300/files/diphoton.ig",
-  "/record/301/files/dimuon-Jpsi_0.ig",
-  "/record/302/files/dielectron-Jpsi_0.ig",
-  "/record/303/files/dimuon_0.ig",
-  "/record/304/files/dielectron_0.ig",
-  "/record/305/files/dielectron-Upsilon_0.ig",
-  "/record/306/files/Zee_0.ig",
-  "/record/307/files/Zmumu_0.ig",
-  "/record/308/files/Wenu_0.ig",
-  "/record/309/files/Wmunu_0.ig"
-  ];
-
-  var pd_files = [
-  "/record/600/files/BTau.ig",
-  "/record/601/files/EGMonitor.ig",
-  "/record/602/files/Electron.ig",
-  "/record/603/files/Jet.ig",
-  "/record/604/files/JetMETTauMonitor.ig",
-  "/record/605/files/METFwd.ig",
-  "/record/606/files/Mu.ig",
-  "/record/607/files/MuMonitor.ig",
-  "/record/608/files/MuOnia.ig",
-  "/record/609/files/MultiJet.ig",
-  "/record/610/files/Photon.ig",
-  "/record/611/files/Commissioning.ig",
-  "/record/612/files/MinimumBias.ig",
-  "/record/613/files/ZeroBias.ig"
-  ];
-
-  var file_list = pd_files.concat(mc_files);
-
-  var igdata = null;
-  var selectedFileName = null;
-  var selectedEventIndex = null;
-  var currentEventList = [];
-
-  $(".dialog-window").hide();
-
-  function showEventLoader() {
-   centerElement("event-browser");
-   $("#event-browser").show();
-   updateFileList(file_list, "");
- }
-
- function closeEventBrowser() {
-   $("#event-browser").hide();
-   $("#selected-event").html("");
- } 
-
-  /*
-    Hmm. This works in the previewer but not here. 
-    JavaScript makes my head hurt sometimes.
-
-  function selectFile(filename) {
-     var request = $.ajax({
-       type: "GET",
-       url: filename,
-       mimeType: "text/plain; charset-x-user-defined",
-       error: function(req, status, error) { console.error(error); }
-     });
-
-     request.done(function(data) {
-       require(["vendors/jszip/dist/jszip.min"], function(JSZip) {
-           var zip = JSZip(data);
-       });
-     });
-  }
-  */
-
-  function selectFile(filename) {
-   selectedFileName = filename.split("/")[4];
-
-   var xhr = new XMLHttpRequest();
-   xhr.open("GET", filename, true);
-   xhr.overrideMimeType("text/plain; charset=x-user-defined"); 
-
-   clearList("browser-events");
-   var ecell = document.getElementById("browser-events").insertRow(0).insertCell(0);
-   ecell.innerHTML = 'Loading events...';
-   
-   xhr.onload = function() {
-     if (this.status == 200) {
-
-       require(["vendors/jszip/dist/jszip.min"], function(JSZip) {
-         var zip = JSZip(xhr.responseText);
-         var eventlist = [];
-
-         $.each(zip.files, function(index, zipEntry){
-          if ( zipEntry._data !== null && zipEntry.name !== "Header" ) {
-            eventlist.push(zipEntry.name);
-          }
-        });
-
-         currentEventList = eventlist;
-         updateEventsList(currentEventList);
-         igdata = zip;
-       });
-     }
-   };
-
-   xhr.send();
- }
-
- function updateFileList(list, dir) {
-   var tbl = document.getElementById("browser-files");
-
-   for (var i = 0; i < list.length; i++) {
-     var e = list[i];  
-     var name = e.split("/")[4]; 			 
-
-     var row = tbl.insertRow(tbl.rows.length);
-     var cell = row.insertCell(0);
-     var cls = e.type == 1 ? "dir" : "file";
-     cell.innerHTML = '<a id="browser-file-' + i + '" class="' + cls + '" onclick="selectFile(\'' + e + '\');">' + name + '</a>';
-   }
-   fleXenv.fleXcrollMain("browser-files-div");
- }
-
- function clearList(id) {
-  var tbl = document.getElementById(id);
-  while (tbl.rows.length > 0) {
-    tbl.deleteRow(0);
-  }
-}
-
-function updateEventsList(list) {
- clearList("browser-events");
- var tbl = document.getElementById("browser-events");
-
- for (var i = 0; i < list.length; i++) {
-   var e = list[i];
-   var row = tbl.insertRow(tbl.rows.length);
-   var cell = row.insertCell(0);
-   cell.innerHTML = '<a id="browser-event-' + i + '" class="event" onclick="selectEvent(\'' + i + '\');">' + e + '</a>';
- }
- fleXenv.fleXcrollMain("browser-events-div");
-}
-
-function selectEvent(index) {
-  if (selectedEventIndex) {
-    $("#browser-event-" + selectedEventIndex).removeClass("selected");
-  }
-
-  $("#browser-event-" + index).addClass("selected");
-
-  selectedEventIndex = parseInt(index);
-  var event = currentEventList[selectedEventIndex];
-
-  $("#selected-event").html(selectedFileName + ":" + event);
-  $("#browser-load").removeClass("disabled");
-}
-
-function enableNextPrev() {
-  if (selectedEventIndex > 0) {
-    $("#prev-event-button").removeClass("disabled");
-  } else {
-    $("#prev-event-button").addClass("disabled");
-  }
-
-  if (currentEventList && currentEventList.length - 1 > selectedEventIndex) {
-    $("#next-event-button").removeClass("disabled");
-  } else {
-   $("#next-event-button").addClass("disabled");
- }
-}
-
-function nextEvent() {
-  if (currentEventList && currentEventList.length - 1 > selectedEventIndex) {
-    selectedEventIndex++;
-    loadEvent();
-  }
-}
-
-function prevEvent() {
-  if (currentEventList && selectedEventIndex > 0) {
-    selectedEventIndex--;
-    loadEvent();
-  }
-}
-
-function invertBackground() {
-  if ( document.settings.invertColors ) {
-    $("#tool-bar").css("background-color","white");
-    $("#selectors").css("background-color","white");
-    $("#display").css("background-color","white");
-    $(".sw").css("color","black");
-    $(".group").css("color","black");
-  } else {
-    $("#tool-bar").css("background-color","black");
-    $("#selectors").css("background-color","black");
-    $("#display").css("background-color","black");
-    $(".sw").css("color","white");
-    $(".group").css("color","white");
-  }
-}
-
-function loadEvent() {  
-  closeEventBrowser();
-  var event = currentEventList[selectedEventIndex];
-
-  $("#title").html("Loading..."+event);
-    
-  try{
-    var ed = JSON.parse(cleanupData(igdata.file(event).asText()));
-    enableNextPrev();
-    eventDataLoaded(ed);
-  } catch(e) {
-    alert(e);
-  }
-
-  $("#title").html("/" + selectedFileName + ":" + event);
-
-  invertBackground();
-}
-
-var help_items = [
-"Detector Model",
-"Tracking", 
-"ECAL", 
-"HCAL",
-"Muon",
-"Physics Objects",
-];
-
-function openHelp(event,id) {
-  var posx = event.clientX + document.body.scrollLeft;
-  var posy = event.clientY + document.body.scrollTop;
-
-  $("#" + id).css("right", posx + "px");
-  $("#" + id).css("top", posy + "px");
-  $("#" + id).show();
-}
-
-$("#switches").on("DOMNodeInserted", "tr", function(e) {
-  if ($(e.target).attr('class') === 'group') {
-    var help_name = $(this).find("td.group").html();
-    var id = "help-detsystem-" + help_items.indexOf(help_name);
-    $(this).find("td.group").append('<a href="#" onclick="openHelp(event,\''+id+'\');" class="help-detsystem"><i class="fa fa-question"></i></a>');
-  }
-});
-</script>
 {% endblock %}
