@@ -565,7 +565,7 @@ def no_accounts():
                         {"url":".glossary","text":"Glossary"}]) )
 def glossary():
     import json, pkg_resources
-    filepath = pkg_resources.resource_filename('invenio_opendata.base', 'templates/helpers/text/glossary.json')
+    filepath = pkg_resources.resource_filename('invenio_opendata.base', 'static/json/glossary.json')
     with open(filepath,'r') as f:
         glossary = json.load(f)
 
