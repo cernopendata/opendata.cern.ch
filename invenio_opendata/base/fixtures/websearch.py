@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2012, 2013, 2014, 2015 CERN.
+# Copyright (C) 2012, 2013, 2014, 2015, 2016 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -213,6 +213,14 @@ class CollectionData(DataSet):
             ('en', 'ln'): u'CMS Validation Utilities',
         }
 
+    class CMSTriggerInformation(siteCollection):
+        id = 27
+        name = 'CMS-Trigger-Information'
+        dbquery = '980__a:"CMS-Trigger-Information"'
+        names = {
+            ('en', 'ln'): u'CMS Trigger Information',
+        }
+
 
 class CollectionCollectionData(DataSet):
 
@@ -262,6 +270,12 @@ class CollectionCollectionData(DataSet):
         dad = CollectionData.CMS
         son = CollectionData.CMSOpenDataInstructions
         score = 6
+        type = 'r'
+
+    class CMS_CMSTriggerInformation:
+        dad = CollectionData.CMS
+        son = CollectionData.CMSTriggerInformation
+        score = 7
         type = 'r'
 
     class siteCollection_CMSPrimaryDatasets:
@@ -468,9 +482,9 @@ class CollectionCollectionData(DataSet):
         score = 18
         type = 'r'
 
-    class siteCollection_CMSSimulatedDatasets:
+    class siteCollection_CMSTriggerInformation:
         dad = CollectionData.siteCollection
-        son = CollectionData.CMSSimulatedDatasets
+        son = CollectionData.CMSTriggerInformation
         score = 19
         type = 'r'
 

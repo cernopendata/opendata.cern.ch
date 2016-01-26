@@ -306,36 +306,62 @@ ol.gen-menu >li>ul {
 }
 
 .yeartabs {
-  text-align: center; 
-  border-bottom: 1px solid #ACC6D4; 
-  line-height: 0.1em;
-  margin: 10px 0 20px; 
+  border-bottom: 1px solid #ACC6D4;
+  margin: 10px 0px 20px;
 }
+
+/*.yeartabs > div.active:after {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(136, 183, 213, 0);
+  border-top-color: #ACC6D4;
+  border-width: 8px;
+  margin-left: -8px;
+}*/
+
+
 
 .yeartabs > div {
-  background-color: #ACC6D4;
-  border-radius: 3px;
-  padding: 5px 10px;
+  background-color: rgb(172, 198, 212);
+  border-width: 1px 1px 0px;
+  border-style: solid solid none;
+  border-color: #ACC6D4 #ACC6D4 -moz-use-text-color;
+  -moz-border-top-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  border-image: none;
+  border-radius: 3px 3px 0px 0px;
+  padding: 5px 10px 1px;
   display: inline;
+  position: relative;
 }
-
 
 .yeartabs > div > a,
 .yeartabs > div > a:hover,
 .yeartabs > div > a:focus {
   font-weight: 600;
   font-size: 16px;
-  color: #fff;
   text-decoration: none;
+  color: rgb(244, 244, 244);
 }
 
 .yeartabs > div.active {
-  background-color: #f4f4f4;
-  border: 1px solid #ACC6D4;
+  background-color: #CFE1EB;
+  border-bottom: 0px none;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  padding-bottom: 2px;
 }
 
 .yeartabs > div.active > a,
 .yeartabs > div.active > a:hover,
 .yeartabs > div.active > a:focus {
-  color: #ACC6D4;
+  color: #8799A4;
 }
