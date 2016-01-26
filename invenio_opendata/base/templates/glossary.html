@@ -102,7 +102,7 @@
 				{% if i.status != "WIP" %}
 				<div class="col-md-12">
 					<div class="term-box">
-							<h2 id="{{ i.anchor }}"><a href="#{{ i.anchor }}"><span class="fa fa-anchor"></span>{{ i.term }}</a></h2>
+							<h2 id="{{ i.anchor }}"><a href="#{{ i.anchor }}"><span class="fa fa-anchor"></span>{% if i.term is string %}{{i.term}}{% else %}{{i.term[0]}}{% endif %}</a></h2>
 							<p>
 								{{ i.definition }}<br/>
 								{% for e in i.experiment %}
