@@ -221,6 +221,14 @@ class CollectionData(DataSet):
             ('en', 'ln'): u'CMS Trigger Information',
         }
 
+    class CMSConditionData(siteCollection):
+        id = 28
+        name = 'CMS-Condition-Data'
+        dbquery = '980__a:"CMS-Condition-Data"'
+        names = {
+            ('en', 'ln'): u'CMS Condition Data',
+        }
+
 
 class CollectionCollectionData(DataSet):
 
@@ -276,6 +284,12 @@ class CollectionCollectionData(DataSet):
         dad = CollectionData.CMS
         son = CollectionData.CMSTriggerInformation
         score = 7
+        type = 'r'
+
+    class CMS_CMSConditionData:
+        dad = CollectionData.CMS
+        son = CollectionData.CMSConditionData
+        score = 8
         type = 'r'
 
     class siteCollection_CMSPrimaryDatasets:
@@ -486,6 +500,12 @@ class CollectionCollectionData(DataSet):
         dad = CollectionData.siteCollection
         son = CollectionData.CMSTriggerInformation
         score = 19
+        type = 'r'
+
+    class siteCollection_CMSConditionData:
+        dad = CollectionData.siteCollection
+        son = CollectionData.CMSConditionData
+        score = 20
         type = 'r'
 
 
@@ -749,6 +769,16 @@ class PortalboxData(DataSet):
     class Portalbox_45:
         body = u'This collection contains CMS Validation Utilities.'
         id = 45
+        title = u'description'
+
+    class Portalbox_46:
+        body = u'This collection contains CMS Trigger Information.'
+        id = 46
+        title = u'description'
+
+    class Portalbox_47:
+        body = u'This collection contains CMS Condition Data.'
+        id = 47
         title = u'description'
 
 
@@ -1068,6 +1098,20 @@ class CollectionPortalboxData(DataSet):
         id_portalbox = PortalboxData.Portalbox_45.ref('id')
         score = 100
         id_collection = CollectionData.CMSValidationUtilities.ref('id')
+
+    class CollectionPortalbox_27_46_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_46.ref('id')
+        score = 100
+        id_collection = CollectionData.CMSTriggerInformation.ref('id')
+
+    class CollectionPortalbox_28_47_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_47.ref('id')
+        score = 100
+        id_collection = CollectionData.CMSConditionData.ref('id')
 
 
 class FacetCollectionData(DataSet):
