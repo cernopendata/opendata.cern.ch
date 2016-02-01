@@ -115,6 +115,7 @@ populate *all* collections, you can use::
     -f invenio_opendata/testsuite/data/cms/cms-primary-datasets.xml \
     -f invenio_opendata/testsuite/data/cms/cms-primary-datasets-Run2011A.xml \
     -f invenio_opendata/testsuite/data/cms/cms-trigger-information-Run2011A.xml \
+    -f invenio_opendata/testsuite/data/cms/cms-trigger-path-Run2011A.xml \
     -f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
     -f invenio_opendata/testsuite/data/cms/cms-tools-dimuon-filter.xml \
     -f invenio_opendata/testsuite/data/cms/cms-tools-ispy.xml \
