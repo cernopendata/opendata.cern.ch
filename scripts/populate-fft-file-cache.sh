@@ -350,6 +350,9 @@ rsync -a invenio_opendata/testsuite/data/cms/cms-pileup-configuration-files/ $OU
 # CMS dimuon spectrum 2010 files:
 rsync -a invenio_opendata/testsuite/data/cms/cms-tools-dimuon-spectrum-2010/ $OUTDIR/cms-tools-dimuon-spectrum-2010/
 
+# CMS VM image files:
+rsync -a invenio_opendata/testsuite/data/cms/cms-vm-images/ $OUTDIR/cms-vm-images/
+
 # finally, make symlink to FFT cache from tmp:
 if [ ! -L "/tmp/$(basename $OUTDIR)" ]; then
     ln -s $OUTDIR /tmp
