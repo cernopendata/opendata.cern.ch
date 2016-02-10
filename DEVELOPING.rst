@@ -102,6 +102,7 @@ populate *all* collections, you can use::
     -f invenio_opendata/testsuite/data/atlas/atlas-derived-datasets.xml \
     -f invenio_opendata/testsuite/data/atlas/atlas-higgs-challenge-2014.xml \
     -f invenio_opendata/testsuite/data/atlas/atlas-learning-resources.xml \
+    -f invenio_opendata/testsuite/data/atlas/atlas-tools.xml \
     -f invenio_opendata/testsuite/data/cms/cms-author-list.xml \
     -f invenio_opendata/testsuite/data/cms/cms-csv-files.xml \
     -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana.xml \
