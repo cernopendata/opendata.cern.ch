@@ -7,7 +7,7 @@
       </div>
       <div class="modal-body">
         <table>
-          <p><button type="button" class="btn btn-default" onclick="ispy.openDialog('#files'); ispy.loadWebFiles(); $('#open-files').modal('hide');">Open file(s) from the Web</button></p>
+          <p><button type="button" class="btn btn-default" onclick="ispy.openDialog('#files'); ispy.showWebDirs(); $('#open-files').modal('hide');">Open file(s) from the Web</button></p>
           <p>
             Open local file(s): <input type="file" id="local-files" onchange="ispy.loadLocalFiles();" onclick="$('#open-files').modal('hide');" multiple/>
           </p>
@@ -35,6 +35,7 @@
           </tr>
           <tr>
             <td class="bordered">
+              <table class="table table-hover black" id="browser-dirs"></table>
               <table class="table table-hover black" id="browser-files"></table>
             </td>
             <td class="bordered">
