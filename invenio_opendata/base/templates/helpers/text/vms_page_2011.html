@@ -98,12 +98,6 @@ System 3 3</pre>
 <div class="heading"><b>Q: </b>On Windows 7 and 8, this error message appears: "VT-X/AMD-V hardware acceleration is not available on your system. Your 64-bit guest will fail to detect a 64-but CPU and will not be able to boot."
 </div>
 <p><b>A: </b>Check whether your processor supports the VT-X feature by going to <a href="http://ark.intel.com/">http://ark.intel.com/</a>: Intel® Virtualisation Technology (VT-x) should be checked as "yes". Then, when the host machine is booting (just after switching it on) press the appropriate function key to get to the setup, go to advanced settings, and enable the virtualisation extensions of the CPU. Note that some recent Acer Inspire laptop models do not give access to the VT-X feature in the BIOS setup even if the processor supports it.</p>
-<div class="heading"><b>Q: </b>The CMS-specific VM does not boot on Windows 7: it diplays "automatic boot in 1 second", but nothing happens.
-</div>
-
-<p><b>A: </b>This problem could not be reproduced on a different Windows 7 machine, running the same version of VirtualBox with the same VM image. No solution is offered at the moment. Please check your VirtualBox and host-machine settings.</p>
-<div class="heading"><b>Q: </b>The cursor is captured to the VM screen, and the "host key" combination, which is indicated down-right of the screen and should enable the cursor to move outside of the VM machine screen, does not work (Windows 7 with a Swiss-French keyboard, VirtualBox 4.3.12).</div>
-<p><b>A: </b>This problem could not be reproduced on a different Windows 7 machine with a Swiss-French keyboard, running the same version of VirtualBox with the same VM image. No solution is offered at the moment. Please check your VirtualBox and host-machine settings.</p>
 <div class="heading"><b>Q: </b>The VM does not inherit the keyboard layout of the host machine.</div>
 <p><b>A: </b>The layout can be changed by using setxkbmap from a terminal inside the Virtual Machine. For example a user with a Swiss keyboard with French variant would type <kbd>setxkbmap 'ch(fr)'</kbd> in the terminal and a user with a Finnish keyboard would type <kbd>setxkbmap fi</kbd>. This can also be solved by using the GUI, which can be launched either from the graphical menu in the lower left corner (Preferences &rarr; Keyboard) or by typing in the console: xfce4-keyboard-settings. In the Layout tab it is possible to change the keyboard model and the layout. If you wish to keep these settings after reboot, you should delete all the other layouts from the menu.
 </p>
@@ -111,6 +105,8 @@ System 3 3</pre>
 <p><b>A: </b>Using a terminal such as xterm will allow reading and writing special characters.</p>
 <div class="heading"><b>Q: </b>Users who use high resolutions on small displays and have set their host machines DPI manually, for example through <kbd>.Xresources</kbd> on Linux (X11), may find that everything is too small to be read efficiently. (Also helpful to users who have difficulties in reading the fonts and other visual information on the image due to the size of the graphical components.)
 </div>
-
 <p><b>A: </b>The DPI can easily be adjusted from Xfce menu &rarr; Preferences &rarr; Appearance &rarr; Fonts &rarr; DPI. This enhances the readability and general usability significantly.</p>
+<div class="heading"><b>Q: </b>Resizing the VM window doesn't resize its contents.
+</div>
+<p><b>A: </b>This appears to only occur when a new VM image is launched for the first time. The contents should resize after several minutes (up to half an hour), and the problem should not manifest when the VM image is opened a second time.</p>
 {% endmacro %}
