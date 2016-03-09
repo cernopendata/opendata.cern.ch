@@ -122,6 +122,7 @@ populate *all* collections, you can use::
     -f invenio_opendata/testsuite/data/cms/cms-validated-runs.xml \
     -f invenio_opendata/testsuite/data/cms/cms-condition-data-Run2010B.xml \
     -f invenio_opendata/testsuite/data/cms/cms-condition-data-Run2011A.xml \
+    -f invenio_opendata/testsuite/data/cms/cms-configuration-files-Run2011A.xml \
     -f invenio_opendata/testsuite/data/lhcb/lhcb-derived-datasets.xml \
     -f invenio_opendata/testsuite/data/lhcb/lhcb-learning-resources.xml \
     -f invenio_opendata/testsuite/data/lhcb/lhcb-tools.xml \

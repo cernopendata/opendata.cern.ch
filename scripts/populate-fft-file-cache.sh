@@ -341,6 +341,9 @@ rsync -a invenio_opendata/testsuite/data/cms/cms-csv-files/ $OUTDIR/cms-csv-file
 # twelvethly, CMS trigger information configuration files:
 rsync -a invenio_opendata/testsuite/data/cms/cms-trigger-information/ $OUTDIR/cms-trigger-information/
 
+# thirteenly, CMS configuration files:
+rsync -a invenio_opendata/testsuite/data/cms/cms-configuration-files/ $OUTDIR/cms-configuration-files/
+
 # finally, make symlink to FFT cache from tmp:
 if [ ! -L "/tmp/$(basename $OUTDIR)" ]; then
     ln -s $OUTDIR /tmp

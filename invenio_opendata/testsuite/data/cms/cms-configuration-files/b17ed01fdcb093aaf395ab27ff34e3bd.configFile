@@ -1,0 +1,101 @@
+# Auto generated configuration file
+# using: 
+# Revision: 1.381.2.28 
+# Source: /local/reps/CMSSW/CMSSW/Configuration/PyReleaseValidation/python/ConfigBuilder.py,v 
+# with command line options: step1 --filein dbs:/Graviton2PH3qqbarToZZTo4L_M-125p6_7TeV-JHUGenV3-pythia6/Summer11Leg-START53_LV4-v1/GEN-SIM --fileout file:HIG-Summer11LegDR-00284_step1.root --pileup_input dbs:/MinBias_TuneZ2_7TeV-pythia6/Summer11Leg-START53_LV4-v1/GEN-SIM --mc --eventcontent RAWSIM --pileup 2011_FinalDist_OOTPU --datatier GEN-RAW --conditions START53_LV6::All --step DIGI,L1,DIGI2RAW,HLT:2011 --python_filename /afs/cern.ch/cms/PPD/PdmV/work/McM/submit/HIG-Summer11LegDR-00284/HIG-Summer11LegDR-00284_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 261
+import FWCore.ParameterSet.Config as cms
+
+process = cms.Process('HLT')
+
+# import of standard configurations
+process.load('Configuration.StandardSequences.Services_cff')
+process.load('SimGeneral.HepPDTESSource.pythiapdt_cfi')
+process.load('FWCore.MessageService.MessageLogger_cfi')
+process.load('Configuration.EventContent.EventContent_cff')
+process.load('SimGeneral.MixingModule.mix_2011_FinalDist_OOTPU_cfi')
+process.load('Configuration.StandardSequences.GeometryRecoDB_cff')
+process.load('Configuration.StandardSequences.MagneticField_38T_cff')
+process.load('Configuration.StandardSequences.Digi_cff')
+process.load('Configuration.StandardSequences.SimL1Emulator_cff')
+process.load('Configuration.StandardSequences.DigiToRaw_cff')
+process.load('HLTrigger.Configuration.HLT_2011_cff')
+process.load('Configuration.StandardSequences.EndOfProcess_cff')
+process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
+
+process.maxEvents = cms.untracked.PSet(
+    input = cms.untracked.int32(261)
+)
+
+# Input source
+process.source = cms.Source("PoolSource",
+    secondaryFileNames = cms.untracked.vstring(),
+    fileNames = cms.untracked.vstring('/store/mc/Summer11Leg/Graviton2PH3qqbarToZZTo4L_M-125p6_7TeV-JHUGenV3-pythia6/GEN-SIM/START53_LV4-v1/00000/00C87061-E58F-E411-B0AF-002481CFE864.root', 
+        '/store/mc/Summer11Leg/Graviton2PH3qqbarToZZTo4L_M-125p6_7TeV-JHUGenV3-pythia6/GEN-SIM/START53_LV4-v1/00000/08E80F49-F58F-E411-9646-02163E00F33B.root', 
+        '/store/mc/Summer11Leg/Graviton2PH3qqbarToZZTo4L_M-125p6_7TeV-JHUGenV3-pythia6/GEN-SIM/START53_LV4-v1/00000/0A3A7097-3D90-E411-932D-003048C57486.root', 
+        '/store/mc/Summer11Leg/Graviton2PH3qqbarToZZTo4L_M-125p6_7TeV-JHUGenV3-pythia6/GEN-SIM/START53_LV4-v1/00000/0AB97E65-1490-E411-A0B7-001E67398052.root', 
+        '/store/mc/Summer11Leg/Graviton2PH3qqbarToZZTo4L_M-125p6_7TeV-JHUGenV3-pythia6/GEN-SIM/START53_LV4-v1/00000/0C947859-F98F-E411-A25B-02163E00F786.root', 
+        '/store/mc/Summer11Leg/Graviton2PH3qqbarToZZTo4L_M-125p6_7TeV-JHUGenV3-pythia6/GEN-SIM/START53_LV4-v1/00000/0CDD223F-E48F-E411-8DCD-0025904C51F0.root', 
+        '/store/mc/Summer11Leg/Graviton2PH3qqbarToZZTo4L_M-125p6_7TeV-JHUGenV3-pythia6/GEN-SIM/START53_LV4-v1/00000/0E08D13D-1490-E411-961D-0025901D4C18.root', 
+        '/store/mc/Summer11Leg/Graviton2PH3qqbarToZZTo4L_M-125p6_7TeV-JHUGenV3-pythia6/GEN-SIM/START53_LV4-v1/00000/0EEB3051-FF8F-E411-B800-60EB69BAC8A2.root', 
+        '/store/mc/Summer11Leg/Graviton2PH3qqbarToZZTo4L_M-125p6_7TeV-JHUGenV3-pythia6/GEN-SIM/START53_LV4-v1/00000/1088B1C9-F88F-E411-B66E-00237DDC5C38.root', 
+        '/store/mc/Summer11Leg/Graviton2PH3qqbarToZZTo4L_M-125p6_7TeV-JHUGenV3-pythia6/GEN-SIM/START53_LV4-v1/00000/10AF3931-1490-E411-A9FD-00259073E3B6.root')
+)
+
+process.options = cms.untracked.PSet(
+
+)
+
+# Production Info
+process.configurationMetadata = cms.untracked.PSet(
+    version = cms.untracked.string('$Revision: 1.381.2.28 $'),
+    annotation = cms.untracked.string('step1 nevts:261'),
+    name = cms.untracked.string('PyReleaseValidation')
+)
+
+# Output definition
+
+process.RAWSIMoutput = cms.OutputModule("PoolOutputModule",
+    splitLevel = cms.untracked.int32(0),
+    eventAutoFlushCompressedSize = cms.untracked.int32(5242880),
+    outputCommands = process.RAWSIMEventContent.outputCommands,
+    fileName = cms.untracked.string('file:HIG-Summer11LegDR-00284_step1.root'),
+    dataset = cms.untracked.PSet(
+        filterName = cms.untracked.string(''),
+        dataTier = cms.untracked.string('GEN-RAW')
+    )
+)
+
+# Additional output definition
+
+# Other statements
+process.mix.input.fileNames = cms.untracked.vstring(['/store/mc/Summer11Leg/MinBias_TuneZ2_7TeV-pythia6/GEN-SIM/START53_LV4-v1/10000/00064CCC-A218-E311-A2E9-D485646A4E1A.root', '/store/mc/Summer11Leg/MinBias_TuneZ2_7TeV-pythia6/GEN-SIM/START53_LV4-v1/10000/000C8549-8C18-E311-85EB-80000048FE80.root', '/store/mc/Summer11Leg/MinBias_TuneZ2_7TeV-pythia6/GEN-SIM/START53_LV4-v1/10000/0015EB9A-AD18-E311-8F14-003048D47662.root', '/store/mc/Summer11Leg/MinBias_TuneZ2_7TeV-pythia6/GEN-SIM/START53_LV4-v1/10000/003139D6-B218-E311-B020-0022194FFF5A.root', '/store/mc/Summer11Leg/MinBias_TuneZ2_7TeV-pythia6/GEN-SIM/START53_LV4-v1/10000/0061B6CC-A518-E311-A147-0023AEFDEEA8.root', '/store/mc/Summer11Leg/MinBias_TuneZ2_7TeV-pythia6/GEN-SIM/START53_LV4-v1/10000/0079A0C1-A418-E311-A93A-D4AE527EE013.root', '/store/mc/Summer11Leg/MinBias_TuneZ2_7TeV-pythia6/GEN-SIM/START53_LV4-v1/10000/0094049B-B018-E311-BC4A-009C02AAB258.root', '/store/mc/Summer11Leg/MinBias_TuneZ2_7TeV-pythia6/GEN-SIM/START53_LV4-v1/10000/00979D6B-A818-E311-B37D-00145E5521AD.root', '/store/mc/Summer11Leg/MinBias_TuneZ2_7TeV-pythia6/GEN-SIM/START53_LV4-v1/10000/00A8B0F3-B018-E311-A735-009C02AAB484.root', '/store/mc/Summer11Leg/MinBias_TuneZ2_7TeV-pythia6/GEN-SIM/START53_LV4-v1/10000/00D6482E-B018-E311-87E6-00266CF89130.root'])
+from Configuration.AlCa.GlobalTag import GlobalTag
+process.GlobalTag = GlobalTag(process.GlobalTag, 'START53_LV6::All', '')
+
+# Path and EndPath definitions
+process.digitisation_step = cms.Path(process.pdigi)
+process.L1simulation_step = cms.Path(process.SimL1Emulator)
+process.digi2raw_step = cms.Path(process.DigiToRaw)
+process.endjob_step = cms.EndPath(process.endOfProcess)
+process.RAWSIMoutput_step = cms.EndPath(process.RAWSIMoutput)
+
+# Schedule definition
+process.schedule = cms.Schedule(process.digitisation_step,process.L1simulation_step,process.digi2raw_step)
+process.schedule.extend(process.HLTSchedule)
+process.schedule.extend([process.endjob_step,process.RAWSIMoutput_step])
+
+# customisation of the process.
+
+# Automatic addition of the customisation function from HLTrigger.Configuration.customizeHLTforMC
+from HLTrigger.Configuration.customizeHLTforMC import customizeHLTforMC 
+
+#call to customisation function customizeHLTforMC imported from HLTrigger.Configuration.customizeHLTforMC
+process = customizeHLTforMC(process)
+
+# Automatic addition of the customisation function from Configuration.DataProcessing.Utils
+from Configuration.DataProcessing.Utils import addMonitoring 
+
+#call to customisation function addMonitoring imported from Configuration.DataProcessing.Utils
+process = addMonitoring(process)
+
+# End of customisation functions

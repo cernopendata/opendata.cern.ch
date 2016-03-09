@@ -1,0 +1,86 @@
+# Auto generated configuration file
+# using: 
+# Revision: 1.381.2.28 
+# Source: /local/reps/CMSSW/CMSSW/Configuration/PyReleaseValidation/python/ConfigBuilder.py,v 
+# with command line options: step1 --filein lhe:5213 --mc --eventcontent LHE --datatier GEN --conditions START53_LV4::All --step NONE --python_filename /afs/cern.ch/cms/PPD/PdmV/work/McM/submit/HIG-Summer11LegpLHE-00003/HIG-Summer11LegpLHE-00003_1_cfg.py --no_exec -n 1
+import FWCore.ParameterSet.Config as cms
+
+process = cms.Process('LHE')
+
+# import of standard configurations
+process.load('FWCore.MessageService.MessageLogger_cfi')
+process.load('Configuration.EventContent.EventContent_cff')
+process.load('SimGeneral.MixingModule.mixNoPU_cfi')
+process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
+
+process.maxEvents = cms.untracked.PSet(
+    input = cms.untracked.int32(1)
+)
+
+# Input source
+process.source = cms.Source("LHESource",
+    fileNames = cms.untracked.vstring('/store/lhe/5213/7TeV_Z3jetsM10_50_run10001to10039_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run10041to10079_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run10081to10119_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run10121to10159_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run10161to10199_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run10201to10239_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run10241to10279_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run10281to10319_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run10321to10359_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run10361to10399_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run10401to10439_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run10441to10479_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run10481to10519_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run10521to10559_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run10561to10599_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run250002to250040_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run250042to250080_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run250082to250120_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run250124to250162_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run250166to250204_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run250208to250246_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run250248to250286_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run250290to250328_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run250331to250369_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run250371to250409_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run250411to250449_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5213/7TeV_Z3jetsM10_50_run250514to250552_1processes_unweighted_events_qcut12.5_mgPostv2.lhe')
+)
+
+process.options = cms.untracked.PSet(
+
+)
+
+# Production Info
+process.configurationMetadata = cms.untracked.PSet(
+    version = cms.untracked.string('$Revision: 1.381.2.28 $'),
+    annotation = cms.untracked.string('step1 nevts:1'),
+    name = cms.untracked.string('PyReleaseValidation')
+)
+
+# Output definition
+
+process.LHEoutput = cms.OutputModule("PoolOutputModule",
+    splitLevel = cms.untracked.int32(0),
+    eventAutoFlushCompressedSize = cms.untracked.int32(5242880),
+    outputCommands = process.LHEEventContent.outputCommands,
+    fileName = cms.untracked.string('step1_NONE.root'),
+    dataset = cms.untracked.PSet(
+        filterName = cms.untracked.string(''),
+        dataTier = cms.untracked.string('GEN')
+    )
+)
+
+# Additional output definition
+
+# Other statements
+from Configuration.AlCa.GlobalTag import GlobalTag
+process.GlobalTag = GlobalTag(process.GlobalTag, 'START53_LV4::All', '')
+
+# Path and EndPath definitions
+process.LHEoutput_step = cms.EndPath(process.LHEoutput)
+
+# Schedule definition
+process.schedule = cms.Schedule(process.LHEoutput_step)
+
