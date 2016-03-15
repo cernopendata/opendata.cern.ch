@@ -43,7 +43,7 @@
     <div class="col-md-12 ">
       {% if record.get('doi','') %}
         <div class="rec_thumb rec_doi">
-          <div class="n"><div class="t" style="margin-right:0;">Cite as:</div>  
+          <div class="n no-glossary"><div class="t" style="margin-right:0;">Cite as:</div>  
         {% if record['authors'] %}
           {% for author in (record['authors'])[:5] %}
             {% if loop.first %}{% elif loop.last and not (record['authors'])[5] %}<span> <i>&</i> </span>{% else %}<span> , </span>{% endif %}<a href="{{ url_for('search', p='author:"' + author.get('full_name', '')|urlencode + '"') }}">{{ author.get('last_name', '')+', '+author.get('first_name', '')[0]}}.</a>
@@ -56,14 +56,14 @@
         </div>
       {% endif %}
       <div class="rec_thumb rec_parentcol">
-        <a href="{{ url_for('collection/'+collection.name) }}"><div class="n"><div class="t">Collection</div>{{ collection.name_ln }}</div></a>
+        <a href="{{ url_for('collection/'+collection.name) }}"><div class="n no-glossary"><div class="t">Collection</div>{{ collection.name_ln }}</div></a>
       </div>
       {% if record.get('edition_statement','')  %}
         {% if record.get('edition_statement', '').get('statement', '') %}
           {% set pp = record.get('edition_statement', '').get('statement', '').replace('Release: ', '') %}
           <a href="{{ url_for('search.search', p=pp) }}">
             <div class="rec_thumb rec_parentcol">
-              <div class="n"><div class="t">Release</div>{{ pp }}</div>
+              <div class="n no-glossary"><div class="t">Release</div>{{ pp }}</div>
             </div>
           </a>
         {% endif %}
@@ -71,7 +71,7 @@
           {% set rr = record.get('edition_statement', '').get('remainder', '').replace('Global tag: ', '') %}
           <a href="{{ url_for('search.search', p=rr) }}">
             <div class="rec_thumb rec_parentcol">
-              <div class="n"><div class="t">Global tag</div>{{ rr }}</div>
+              <div class="n no-glossary"><div class="t">Global tag</div>{{ rr }}</div>
             </div>
           </a>
         {% endif %}
@@ -80,19 +80,19 @@
         {% set rr = record.get('collision_energy', '').replace('Collision energy: ', '') %}
         <a href="{{ url_for('search.search', p=rr) }}">
           <div class="rec_thumb rec_parentcol">
-            <div class="n"><div class="t">Collision Energy</div>{{ rr }}</div>
+            <div class="n no-glossary"><div class="t">Collision Energy</div>{{ rr }}</div>
           </div>
         </a>
       {% endif %}
       {% if record.get('accelerator_experiment','') %}
         <a href="{{ url_for('search.search', p=record.get('accelerator_experiment','').get('accelerator', '')) }}">
           <div class="rec_thumb rec_parentcol">
-            <div class="n"><div class="t">Accelerator</div>{{ record.get('accelerator_experiment','').get('accelerator', '') }}</div>
+            <div class="n no-glossary"><div class="t">Accelerator</div>{{ record.get('accelerator_experiment','').get('accelerator', '') }}</div>
           </div>
         </a>
         <a href="{{ url_for('search.search', p=record.get('accelerator_experiment','').get('experiment', '')) }}">
           <div class="rec_thumb rec_parentcol">
-            <div class="n"><div class="t">Experiment</div>{{ record.get('accelerator_experiment','').get('experiment', '') }}</div>
+            <div class="n no-glossary"><div class="t">Experiment</div>{{ record.get('accelerator_experiment','').get('experiment', '') }}</div>
           </div>
         </a>
       {% endif %}
@@ -100,7 +100,7 @@
         {% if record.get('supplement_parent_entry','').get('recid','') and record.get('supplement_parent_entry','').get('heading','') %}
         <a href="{{ url_for('record.metadata', recid=record.get('supplement_parent_entry','').get('recid', '')) }}">
           <div class="rec_thumb rec_parentcol">
-            <div class="n"><div class="t">Parent Dataset</div>{{ record.get('supplement_parent_entry','').get('heading', '') }}</div>
+            <div class="n no-glossary"><div class="t">Parent Dataset</div>{{ record.get('supplement_parent_entry','').get('heading', '') }}</div>
           </div>
         </a>
         {% endif %}
