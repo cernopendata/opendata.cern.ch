@@ -339,7 +339,7 @@ def about_lhcb():
                         {"url":".about_physics","text":"Physics Objects"}]) )
 def about_physics():
     try:
-        return render_template('about_physics_objects.html')
+        return render_template('about_physics_objects_overview.html')
     except TemplateNotFound:
         return abort(404)
 
