@@ -20,7 +20,7 @@
 {% macro render_record_footer(number_of_displayed_authors) %} 
       <a href="{{url_for('search.search', cc=record['collections'][0]['primary'] )}}">
         <div class="rec_thumb_brief rec_footer_thumb rec_collection pull-ight">
-          <div class="n">
+          <div class="n no-glossary">
             <div class="t">Collection</div>
             {{ record['collections'][0]['primary'] }}
           </div>
@@ -30,7 +30,7 @@
         {% set authors = record.get('authors[:].full_name', []) %}
         {% set sep = joiner('<i style="float:left;padding-right:3px;"> ; </i>') %}
         <div class="rec_thumb_brief rec_footer_thumb">
-          <div class="n">
+          <div class="n no-glossary">
             <div class="t">Author</div>
             {% for full_name in authors[0:number_of_displayed_authors] %} {{ sep() }}
               <a href="{{ url_for('search.search', p='author:"' + full_name + '"') }}">{{ full_name }}</a>
@@ -49,15 +49,15 @@
       {% if record.get('doi','') %}
       <a href="{{ url_for('record.metadata', recid=record['recid']) }}">
         <div class="rec_thumb_brief rec_footer_thumb pull-right">
-          <div class="n"><div class="t">DOI</div>{{ record.get('doi', '') }}</div>
+          <div class="n no-glossary"><div class="t">DOI</div>{{ record.get('doi', '') }}</div>
         </div>
       </a>
       {% endif %}
       {% if record.get('supplement_parent_entry','') %}
         {% if record.get('supplement_parent_entry','').get('recid','') and record.get('supplement_parent_entry','').get('heading','') %}
         <a href="{{ url_for('record.metadata', recid=record.get('supplement_parent_entry','').get('recid', '')) }}">
-          <div class="rec_thumb_brief rec_footer_thumb pull-right">
-            <div class="n"><div class="t">Parent Dataset</div>{{ record.get('supplement_parent_entry','').get('heading', '') }}</div>
+          <div class="rec_thumb_brief rec_footer_thumb pull-right ">
+            <div class="n no-glossary"><div class="t">Parent Dataset</div>{{ record.get('supplement_parent_entry','').get('heading', '') }}</div>
           </div>
         </a> 
         {% endif %}
