@@ -347,6 +347,9 @@ rsync -a invenio_opendata/testsuite/data/cms/cms-configuration-files/ $OUTDIR/cm
 # fourteenthly, CMS HLT 2011 configuration files:
 rsync -a invenio_opendata/testsuite/data/cms/cms-hlt-2011-configuration-files/ $OUTDIR/cms-hlt-2011-configuration-files/
 
+# fifteenthly, CMS pileup configuration files:
+rsync -a invenio_opendata/testsuite/data/cms/cms-pileup-configuration-files/ $OUTDIR/cms-pileup-configuration-files/
+
 # finally, make symlink to FFT cache from tmp:
 if [ ! -L "/tmp/$(basename $OUTDIR)" ]; then
     ln -s $OUTDIR /tmp
