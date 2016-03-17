@@ -209,7 +209,7 @@ class CollectionData(DataSet):
     class CMSValidationUtilities(siteCollection):
         id = 26
         name = 'CMS-Validation-Utilities'
-        dbquery = '980__a:"CMS-Vallidation-Utilities"'
+        dbquery = '980__a:"CMS-Validation-Utilities"'
         names = {
             ('en', 'ln'): u'CMS Validation Utilities',
         }
