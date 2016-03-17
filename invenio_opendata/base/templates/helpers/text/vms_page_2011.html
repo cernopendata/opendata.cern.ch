@@ -1,3 +1,5 @@
+<!-- START CMS VM instructions -->
+
 {% macro about_cms_msg(url) %}
   <h1 class="col-md-12">CMS 2011 Virtual Machines: How to install</h1>
   <p class="col-md-12">
@@ -5,18 +7,14 @@
   </p>
 {% endmacro %}
 
-{% macro about_alice_msg(url) %}
-  <div class="title">ALICE Virtual Machines: How to install</div>
-{% endmacro %}
-
-{% macro install_s1() %}
+{% macro cms_install_2011_s1() %}
   <h2>Step 1: Installing VirtualBox</h2>
   <p>VirtualBox is a free, open source and multiplatform application to run virtual machines: you can <a href="https://www.VirtualBox.org/wiki/Downloads">download</a> the package for your platform from the Downloads page.</p>
   <p>You will need administrative ("root") privileges on every platform to perform the installation of VirtualBox.</p>
-  <p>Note: the latest tested version of VirtualBox working with CernVM is 4.3.14. If you have troubles with the latest verion of VirtualBox, pick that one: the full history of VirtualBox versions is available <a href="https://www.VirtualBox.org/wiki/Download_Old_Builds">on a different page.</a></p>
+  <p>Note: the latest tested version of VirtualBox working with this CMS-specific CernVM image is 5.0.14. If you have troubles with the latest version of VirtualBox, pick that one: the full history of VirtualBox versions is available <a href="https://www.VirtualBox.org/wiki/Download_Old_Builds">on a different page.</a></p>
 {% endmacro %}
 
-{% macro install_s2(url) %}
+{% macro cms_install_2011_s2(url) %}
   <h2>Step 2: Downloading and Creating a Virtual Machine</h2>
   <p>
     <strong>Important</strong>: Before you download the CernVM, note that the imported settings may not always work on your host machine. Please see <a href="#issues">Issues and Limitations</a> if you encounter any problems with booting the VM.
@@ -29,18 +27,18 @@
   </p>
 {% endmacro %}
 
-{% macro validate_intro(url) %}
+{% macro cms_validate_intro_2011(url) %}
   <p>The validation procedure tests that the CMS environment is installed and operational on your virtual machine, and that you have access to the ROOT files. You may skip this step if you want, and head straight to <a href="{{url}}">Getting Started with CMS data</a>. However, these steps give you a quick introduction to the CMS environment.</p>
 {% endmacro %}
 
-{% macro validate_s1() %}
+{% macro cms_validate_2011_s1() %}
   <h2>Set up the CMS environment and run a demo analyzer</h2>
   <p>
       <div class="it">Open a terminal with the X terminal emulator (an icon bottom-left of the VM screen)</div>
       <div class="it">Execute the following command; this command builds the local release area (the directory structure) for CMSSW, and only needs to be run once:</div>
-      <pre>cmsrel CMSSW_4_2_8</pre>
-      <div class="it">Change to the <kbd>CMSSW_4_2_8/src/</kbd> directory:</div>
-      <pre>cd CMSSW_4_2_8/src/</pre>
+      <pre>cmsrel CMSSW_5_3_32</pre>
+      <div class="it">Change to the <kbd>CMSSW_5_3_32/src/</kbd> directory:</div>
+      <pre>cd CMSSW_5_3_32/src/</pre>
       <div class="it">Then, run the following command to create the CMS runtime variables:</div>
       <pre>cmsenv</pre>
       <div class="it">Create a working directory for the demo analyzer, change to that directory and create a "skeleton" for the analyzer:</div>
@@ -52,25 +50,26 @@ mkedanlzr DemoAnalyzer</pre>
 scram b</pre>
       <div class="it">Change the file name in the configuration file <kbd>demoanalyzer_cfg.py</kbd> in the DemoAnalyzer directory:
         i.e. replace <kbd>file:myfile.root</kbd> with
-        <kbd>root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/AOD/Apr21ReReco-v1/0000/00459D48-EB70-E011-AF09-90E6BA19A252.root</kbd></div>
+        <kbd>root://eospublic.cern.ch//eos/opendata/cms/Run2011A/ElectronHad/AOD/12Oct2013-v1/20001/001F9231-F141-E311-8F76-003048F00942.root</kbd></div>
       <div class="it">Change the max number of events to 10 (i.e change -1 to 10 in <kbd>process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1)</kbd>).</div>
       <div class="it">Move two directories back using:</div>
       <pre>cd ../..</pre>
       <div class="it">And then run:</div>
       <pre>cmsRun Demo/DemoAnalyzer/demoanalyzer_cfg.py</pre>
       <div class="it">You can consider your VM "validated" &mdash; i.e it gets access to and compiles the CMS software, and reads the CMS open data files &mdash; if you get an output like:</div>
-      <pre>08-Sep-2014 10:48:11 CEST Initiating request to open file root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/AOD/Apr21ReReco-v1/0000/00459D48-EB70-E011-AF09-90E6BA19A252.root
-08-Sep-2014 10:48:21 CEST Successfully opened file root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/AOD/Apr21ReReco-v1/0000/00459D48-EB70-E011-AF09-90E6BA19A252.root
-Begin processing the 1st record. Run 146436, Event 90626440, LumiSection 322 at 08-Sep-2014 10:48:25.836 CEST
-Begin processing the 2nd record. Run 146436, Event 90634848, LumiSection 322 at 08-Sep-2014 10:48:25.839 CEST
-Begin processing the 3rd record. Run 146436, Event 90649368, LumiSection 322 at 08-Sep-2014 10:48:25.839 CEST
-Begin processing the 4th record. Run 146436, Event 90668184, LumiSection 322 at 08-Sep-2014 10:48:25.840 CEST
-Begin processing the 5th record. Run 146436, Event 90703728, LumiSection 322 at 08-Sep-2014 10:48:25.842 CEST
-Begin processing the 6th record. Run 146436, Event 90716480, LumiSection 322 at 08-Sep-2014 10:48:25.843 CEST
-Begin processing the 7th record. Run 146436, Event 90735104, LumiSection 322 at 08-Sep-2014 10:48:25.844 CESTBegin processing the 8th record. Run 146436, Event 90745896, LumiSection 322 at 08-Sep-2014 10:48:25.844 CEST
-Begin processing the 9th record. Run 146436, Event 90755600, LumiSection 322 at 08-Sep-2014 10:48:25.845 CEST
-Begin processing the 10th record. Run 146436, Event 90778200, LumiSection 322 at 08-Sep-2014 10:48:25.849 CEST
-08-Sep-2014 10:48:25 CEST Closed file root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/AOD/Apr21ReReco-v1/0000/00459D48-EB70-E011-AF09-90E6BA19A252.root
+      <pre>16-Mar-2016 15:45:13 CET Initiating request to open file root://eospublic.cern.ch//eos/opendata/cms/Run2011A/ElectronHad/AOD/12Oct2013-v1/20001/001F9231-F141-E311-8F76-003048F00942.root
+16-Mar-2016 15:45:17 CET Successfully opened file root://eospublic.cern.ch//eos/opendata/cms/Run2011A/ElectronHad/AOD/12Oct2013-v1/20001/001F9231-F141-E311-8F76-003048F00942.root
+Begin processing the 1st record. Run 166782, Event 340184599, LumiSection 309 at 16-Mar-2016 15:45:40.234 CET
+Begin processing the 2nd record. Run 166782, Event 340185007, LumiSection 309 at 16-Mar-2016 15:45:40.235 CET
+Begin processing the 3rd record. Run 166782, Event 340187903, LumiSection 309 at 16-Mar-2016 15:45:40.236 CET
+Begin processing the 4th record. Run 166782, Event 340227487, LumiSection 309 at 16-Mar-2016 15:45:40.237 CET
+Begin processing the 5th record. Run 166782, Event 340210607, LumiSection 309 at 16-Mar-2016 15:45:40.237 CET
+Begin processing the 6th record. Run 166782, Event 340256207, LumiSection 309 at 16-Mar-2016 15:45:40.238 CET
+Begin processing the 7th record. Run 166782, Event 340165759, LumiSection 309 at 16-Mar-2016 15:45:40.239 CET
+Begin processing the 8th record. Run 166782, Event 340396487, LumiSection 309 at 16-Mar-2016 15:45:40.239 CET
+Begin processing the 9th record. Run 166782, Event 340390767, LumiSection 309 at 16-Mar-2016 15:45:40.241 CET
+Begin processing the 10th record. Run 166782, Event 340435263, LumiSection 309 at 16-Mar-2016 15:45:40.241 CET
+16-Mar-2016 15:45:40 CET Closed file root://eospublic.cern.ch//eos/opendata/cms/Run2011A/ElectronHad/AOD/12Oct2013-v1/20001/001F9231-F141-E311-8F76-003048F00942.root
 MessageLogger Summary
 type category sev module subroutine count total
 1 fileAction           -s file_close                             1        1
@@ -83,13 +82,13 @@ System 3 3</pre>
   </p>
 {% endmacro %}
 
-{% macro validate_s2(url) %}
+{% macro cms_validate_2011_s2(url) %}
 <h2>Validation report</h2>
-<p>The CMS-specific CERN Virtual Machine has been tested on several operating systems, VM softwares and hardware configurations. However, we cannot guarantee that it will work under all conditions. Problems can often be traced to a user’s particular system settings. </p>
-<p>Solutions to some of the common problems encountered are listed below. <a href="{{url}}">This validation report</a> contains more information, including a full list of tested machines and configurations, along with issues faced during testing.</p>
+<p>Coming soon! Meanwhile, please check the validation report for the VM image for our 2010 data, which may contain information useful to you.<!-->The CMS-specific CERN Virtual Machine has been tested on several operating systems, VM softwares and hardware configurations. However, we cannot guarantee that it will work under all conditions. Problems can often be traced to a user’s particular system settings. </p>
+<p>Solutions to some of the common problems encountered are listed below. <a href="{{url}}">This validation report</a> contains more information, including a full list of tested machines and configurations, along with issues faced during testing.--></p>
 {% endmacro %}
 
-{% macro limitation_s1() %}
+{% macro cms_limitation_2011_s1() %}
 <h2>Known Issues FAQ</h2>
 <div class="heading"><b>Q: </b>The following error message appears when the Virtual Machine is started: "Could not start the machine CMS Open Data because the following physical network interfaces were not found: vboxnet0 (adapter 2). You can either change the machine's network settings or stop the machine."</div>
 <p><b>A: </b>Change the Network settings for adapter 2 from "Host-only Adapter" to "NAT". The VM should then start correctly.</p>
@@ -110,3 +109,13 @@ System 3 3</pre>
 </div>
 <p><b>A: </b>This appears to only occur when a new VM image is launched for the first time. The contents should resize after several minutes (up to half an hour), and the problem should not manifest when the VM image is opened a second time.</p>
 {% endmacro %}
+
+<!-- END CMS VM instructions -->
+
+<!-- START ALICE VM instructions -->
+
+{% macro about_alice_msg(url) %}
+  <div class="title">ALICE Virtual Machines: How to install</div>
+{% endmacro %}
+
+<!-- END ALICE VM instructions -->
