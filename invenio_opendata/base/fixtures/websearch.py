@@ -18,8 +18,9 @@
 # 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
 
 from fixture import DataSet
-#from invenio.modules.search.fixtures import FormatData
+# from invenio.modules.search.fixtures import FormatData
 from invenio.modules.search import fixtures as default
+
 
 class CollectionData(DataSet):
 
@@ -208,7 +209,7 @@ class CollectionData(DataSet):
     class CMSValidationUtilities(siteCollection):
         id = 26
         name = 'CMS-Validation-Utilities'
-        dbquery = '980__a:"CMS-Vallidation-Utilities"'
+        dbquery = '980__a:"CMS-Validation-Utilities"'
         names = {
             ('en', 'ln'): u'CMS Validation Utilities',
         }
@@ -227,6 +228,14 @@ class CollectionData(DataSet):
         dbquery = '980__a:"CMS-Condition-Data"'
         names = {
             ('en', 'ln'): u'CMS Condition Data',
+        }
+
+    class CMSConfigurationFiles(siteCollection):
+        id = 29
+        name = 'CMS-Configuration-Files'
+        dbquery = '980__a:"CMS-Configuration-Files"'
+        names = {
+            ('en', 'ln'): u'CMS Configuration Files',
         }
 
 
@@ -290,6 +299,12 @@ class CollectionCollectionData(DataSet):
         dad = CollectionData.CMS
         son = CollectionData.CMSConditionData
         score = 8
+        type = 'r'
+
+    class CMS_CMSConfigurationFiles:
+        dad = CollectionData.CMS
+        son = CollectionData.CMSConfigurationFiles
+        score = 9
         type = 'r'
 
     class siteCollection_CMSPrimaryDatasets:
@@ -508,6 +523,12 @@ class CollectionCollectionData(DataSet):
         score = 20
         type = 'r'
 
+    class siteCollection_CMSConfigurationFiles:
+        dad = CollectionData.siteCollection
+        son = CollectionData.CMSConfigurationFiles
+        score = 21
+        type = 'r'
+
 
 class CollectiondetailedrecordpagetabsData(DataSet):
 
@@ -520,27 +541,27 @@ class CollectionFormatData(DataSet):
 
     class CollectionFormat_1_1:
         score = 100
-        id_format = 1 # FormatData.Format_1.ref('id')
+        id_format = 1  # FormatData.Format_1.ref('id')
         id_collection = CollectionData.siteCollection.ref('id')
 
     class CollectionFormat_1_2:
         score = 90
-        id_format = 2 # FormatData.Format_2.ref('id')
+        id_format = 2  # FormatData.Format_2.ref('id')
         id_collection = CollectionData.siteCollection.ref('id')
 
     class CollectionFormat_1_3:
         score = 80
-        id_format = 3 # FormatData.Format_3.ref('id')
+        id_format = 3  # FormatData.Format_3.ref('id')
         id_collection = CollectionData.siteCollection.ref('id')
 
     class CollectionFormat_1_4:
         score = 70
-        id_format = 4 # FormatData.Format_4.ref('id')
+        id_format = 4  # FormatData.Format_4.ref('id')
         id_collection = CollectionData.siteCollection.ref('id')
 
     class CollectionFormat_1_5:
         score = 60
-        id_format = 5 # FormatData.Format_5.ref('id')
+        id_format = 5  # FormatData.Format_5.ref('id')
         id_collection = CollectionData.siteCollection.ref('id')
 
 
@@ -779,6 +800,11 @@ class PortalboxData(DataSet):
     class Portalbox_47:
         body = u'This collection contains CMS Condition Data.'
         id = 47
+        title = u'description'
+
+    class Portalbox_48:
+        body = u'This collection contains the configuration files that were used in different steps of the data processing.'
+        id = 48
         title = u'description'
 
 
@@ -1112,6 +1138,13 @@ class CollectionPortalboxData(DataSet):
         id_portalbox = PortalboxData.Portalbox_47.ref('id')
         score = 100
         id_collection = CollectionData.CMSConditionData.ref('id')
+
+    class CollectionPortalbox_29_48_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_48.ref('id')
+        score = 100
+        id_collection = CollectionData.CMSConfigurationFiles.ref('id')
 
 
 class FacetCollectionData(DataSet):

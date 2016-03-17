@@ -29,13 +29,13 @@ set -o nounset
 # make sure the output directory exists:
 mkdir -p $OUTDIR
 
-# firstly, mirror EOS files existing in the repository:
+# mirror EOS files existing in the repository:
 rsync -a invenio_opendata/testsuite/data/cms/eos-file-indexes/ $OUTDIR/cms-eos-file-indexes/
 rsync -a invenio_opendata/testsuite/data/alice/eos-file-indexes/ $OUTDIR/alice-eos-file-indexes/
 rsync -a invenio_opendata/testsuite/data/lhcb/eos-file-indexes/ $OUTDIR/lhcb-eos-file-indexes/
 rsync -a invenio_opendata/testsuite/data/atlas/eos-file-indexes/ $OUTDIR/atlas-eos-file-indexes/
 
-# secondly, download CMS DocDB files: (if not already existing)
+# download CMS DocDB files: (if not already existing)
 mkdir -p $OUTDIR/cms-docdb-files
 $WGET -O $OUTDIR/cms-docdb-files/Run2010B_Mu_AOD_Apr21ReReco-v1-dimuon_0.csv "$DOCDB?docid=12450&amp;filename=Run2010B_Mu_AOD_Apr21ReReco-v1-dimuon_0.csv"
 $WGET -O $OUTDIR/cms-docdb-files/Run2010B_Mu_AOD_Apr21ReReco-v1-dimuon.csv "$DOCDB?docid=12450&amp;filename=Run2010B_Mu_AOD_Apr21ReReco-v1-dimuon.csv"
@@ -294,13 +294,13 @@ $WGET -O $OUTDIR/cms-docdb-files/TauPlusX_Run2011A.ig "$DOCDB?docid=12752&amp;fi
 $WGET -O $OUTDIR/cms-docdb-files/Tau_Run2011A.ig "$DOCDB?docid=12752&amp;filename=Tau_Run2011A.ig"
 
 
-# thirdly, cernvm files:
+# cernvm files:
 mkdir -p $OUTDIR/cernvm-files
 $WGET -O $OUTDIR/cernvm-files/CMS-OpenData-1.0.0-rc4.ova "http://cernvm.cern.ch/releases/CMS-OpenData-1.0.0-rc4.ova"
 $WGET -O $OUTDIR/cernvm-files/CMS-OpenData-1.0.0-rc6.ova "http://cernvm.cern.ch/releases/CMS-OpenData-1.0.0-rc6.ova"
 $WGET -O $OUTDIR/cernvm-files/CMS-OpenData-1.0.0-rc7.ova "http://cernvm.cern.ch/releases/CMS-OpenData-1.0.0-rc7.ova"
 
-# fourthly, github files
+# github files
 mkdir -p $OUTDIR/github-files
 $WGET -O $OUTDIR/github-files/Cert_136033-149442_7TeV_Apr21ReReco_Collisions10_JSON_v2.txt "https://raw.githubusercontent.com/ayrodrig/pattuples2010/master/Cert_136033-149442_7TeV_Apr21ReReco_Collisions10_JSON_v2.txt"
 $WGET -O $OUTDIR/github-files/Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt "https://raw.githubusercontent.com/cms-outreach/ispy-analyzers/Run2011A/Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt"
@@ -311,35 +311,41 @@ $WGET -O $OUTDIR/github-files/dimuon-filter-1.0.0.tar.gz https://github.com/tpmc
 $WGET -O $OUTDIR/github-files/HiggsML2014-1.0.tar.gz https://github.com/ATLAS-outreach/HiggsML2014/archive/v1.0.tar.gz
 $WGET -O $OUTDIR/github-files/SUSYBSMAnalysis-RazorFilter-1.0.0.tar.gz https://github.com/jmduarte/SUSYBSMAnalysis-RazorFilter/archive/1.0.0.tar.gz
 
-# fifthly, CMS Hamburg files:
+# CMS Hamburg files:
 mkdir -p $OUTDIR/cms-hamburg-files
 $WGET -O $OUTDIR/cms-hamburg-files/HEPTutorial_0.tar http://ippog.web.cern.ch/sites/ippog.web.cern.ch/files/HEPTutorial_0.tar
 (cd $OUTDIR/cms-hamburg-files && tar xf HEPTutorial_0.tar HEPTutorial/files/)
 
-# sixthly, experiment data policies:
+# experiment data policies:
 mkdir -p $OUTDIR/data-policies
 $WGET -O $OUTDIR/data-policies/CMS-Data-Policy.pdf "$DOCDB?docid=6032&amp;version=1&amp;filename=CMSDataPolicy.pdf"
 $WGET -O $OUTDIR/data-policies/ATLAS-Data-Policy.pdf https://twiki.cern.ch/twiki/pub/AtlasPublic/AtlasPolicyDocuments/A78_ATLAS_Data_Access_Policy.pdf
 $WGET -O $OUTDIR/data-policies/LHCb-Data-Policy.pdf http://cds.cern.ch/record/1543410/files/LHCb-PUB-2013-003.pdf
 
-# seventhly, Ana's video:
+# Ana's video:
 mkdir -p $OUTDIR/cms-open-data-instructions
 $WGET -O $OUTDIR/cms-open-data-instructions/OutreachExercise2010.m4v http://193.146.75.147/Outreach%20Exercise%202010.m4v
 
-# eightly, ALICE data policy:
+# ALICE data policy:
 rsync -a invenio_opendata/testsuite/data/alice/alice-data-policy/ $OUTDIR/alice-data-policy/
 
-# ninthly, ATLAS Higgs Challenge 2014:
+# ATLAS Higgs Challenge 2014:
 rsync -a invenio_opendata/testsuite/data/atlas/atlas-higgs-challenge-2014/ $OUTDIR/atlas-higgs-challenge-2014/
 
-# tenthly, CMS VM contextualisation scripts:
+# CMS VM contextualisation scripts:
 rsync -a invenio_opendata/testsuite/data/cms/cms-vm-contextualisation-scripts/ $OUTDIR/cms-vm-contextualisation-scripts/
 
-# eleventhly, CMS CSV files:
+# CMS CSV files:
 rsync -a invenio_opendata/testsuite/data/cms/cms-csv-files/ $OUTDIR/cms-csv-files/
 
-# twelvethly, CMS trigger information configuration files:
-rsync -a invenio_opendata/testsuite/data/cms/cms-trigger-information/ $OUTDIR/cms-trigger-information/
+# CMS configuration files:
+rsync -a invenio_opendata/testsuite/data/cms/cms-configuration-files/ $OUTDIR/cms-configuration-files/
+
+# CMS HLT 2011 configuration files:
+rsync -a invenio_opendata/testsuite/data/cms/cms-hlt-2011-configuration-files/ $OUTDIR/cms-hlt-2011-configuration-files/
+
+# CMS pileup configuration files:
+rsync -a invenio_opendata/testsuite/data/cms/cms-pileup-configuration-files/ $OUTDIR/cms-pileup-configuration-files/
 
 # finally, make symlink to FFT cache from tmp:
 if [ ! -L "/tmp/$(basename $OUTDIR)" ]; then

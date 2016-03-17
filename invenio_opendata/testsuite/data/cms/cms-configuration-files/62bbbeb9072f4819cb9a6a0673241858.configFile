@@ -1,0 +1,98 @@
+# Auto generated configuration file
+# using: 
+# Revision: 1.381.2.28 
+# Source: /local/reps/CMSSW/CMSSW/Configuration/PyReleaseValidation/python/ConfigBuilder.py,v 
+# with command line options: step1 --filein lhe:7410 --fileout file:HIG-Summer11LegpLHE-00088.root --mc --eventcontent LHE --datatier GEN --conditions START53_LV4::All --step NONE --python_filename /afs/cern.ch/cms/PPD/PdmV/work/McM/submit/HIG-Summer11LegpLHE-00088/HIG-Summer11LegpLHE-00088_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 10000
+import FWCore.ParameterSet.Config as cms
+
+process = cms.Process('LHE')
+
+# import of standard configurations
+process.load('FWCore.MessageService.MessageLogger_cfi')
+process.load('Configuration.EventContent.EventContent_cff')
+process.load('SimGeneral.MixingModule.mixNoPU_cfi')
+process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
+
+process.maxEvents = cms.untracked.PSet(
+    input = cms.untracked.int32(10000)
+)
+
+# Input source
+process.source = cms.Source("LHESource",
+    fileNames = cms.untracked.vstring('/store/lhe/7410/pwgevents_2mu2tau_1.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_10.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_11.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_12.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_13.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_14.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_15.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_16.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_17.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_18.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_19.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_2.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_20.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_21.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_22.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_23.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_24.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_25.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_26.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_27.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_28.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_29.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_3.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_30.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_4.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_5.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_6.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_7.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_8.lhe', 
+        '/store/lhe/7410/pwgevents_2mu2tau_9.lhe')
+)
+
+process.options = cms.untracked.PSet(
+
+)
+
+# Production Info
+process.configurationMetadata = cms.untracked.PSet(
+    version = cms.untracked.string('$Revision: 1.381.2.28 $'),
+    annotation = cms.untracked.string('step1 nevts:10000'),
+    name = cms.untracked.string('PyReleaseValidation')
+)
+
+# Output definition
+
+process.LHEoutput = cms.OutputModule("PoolOutputModule",
+    splitLevel = cms.untracked.int32(0),
+    eventAutoFlushCompressedSize = cms.untracked.int32(5242880),
+    outputCommands = process.LHEEventContent.outputCommands,
+    fileName = cms.untracked.string('file:HIG-Summer11LegpLHE-00088.root'),
+    dataset = cms.untracked.PSet(
+        filterName = cms.untracked.string(''),
+        dataTier = cms.untracked.string('GEN')
+    )
+)
+
+# Additional output definition
+
+# Other statements
+from Configuration.AlCa.GlobalTag import GlobalTag
+process.GlobalTag = GlobalTag(process.GlobalTag, 'START53_LV4::All', '')
+
+# Path and EndPath definitions
+process.LHEoutput_step = cms.EndPath(process.LHEoutput)
+
+# Schedule definition
+process.schedule = cms.Schedule(process.LHEoutput_step)
+
+# customisation of the process.
+
+# Automatic addition of the customisation function from Configuration.DataProcessing.Utils
+from Configuration.DataProcessing.Utils import addMonitoring 
+
+#call to customisation function addMonitoring imported from Configuration.DataProcessing.Utils
+process = addMonitoring(process)
+
+# End of customisation functions

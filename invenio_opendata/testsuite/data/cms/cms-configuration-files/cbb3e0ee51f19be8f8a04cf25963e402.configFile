@@ -1,0 +1,195 @@
+# Auto generated configuration file
+# using: 
+# Revision: 1.381.2.28 
+# Source: /local/reps/CMSSW/CMSSW/Configuration/PyReleaseValidation/python/ConfigBuilder.py,v 
+# with command line options: Configuration/GenProduction/python/Hadronizer_MgmMatchTuneZ2_7TeV_madgraph_tauola_cff.py --dbsquery find file where dataset=/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/Summer11LegpLHE-START53_LV4-v1/GEN --fileout file:step1.root --mc --eventcontent RAWSIM --customise SimG4Core/Application/reproc2011_2012_cff.customiseG4 --datatier GEN-SIM --conditions START53_LV4::All --beamspot Realistic7TeV2011CollisionV2 --step GEN,SIM --python_filename /afs/cern.ch/cms/PPD/PdmV/work/McM/submit/SUS-Summer11Leg-00001/SUS-Summer11Leg-00001_1_cfg.py --no_exec -n 2
+import FWCore.ParameterSet.Config as cms
+
+process = cms.Process('SIM')
+
+# import of standard configurations
+process.load('Configuration.StandardSequences.Services_cff')
+process.load('SimGeneral.HepPDTESSource.pythiapdt_cfi')
+process.load('FWCore.MessageService.MessageLogger_cfi')
+process.load('Configuration.EventContent.EventContent_cff')
+process.load('SimGeneral.MixingModule.mixNoPU_cfi')
+process.load('Configuration.StandardSequences.GeometryRecoDB_cff')
+process.load('Configuration.StandardSequences.GeometrySimDB_cff')
+process.load('Configuration.StandardSequences.MagneticField_38T_cff')
+process.load('Configuration.StandardSequences.Generator_cff')
+process.load('IOMC.EventVertexGenerators.VtxSmearedRealistic7TeV2011CollisionV2_cfi')
+process.load('GeneratorInterface.Core.genFilterSummary_cff')
+process.load('Configuration.StandardSequences.SimIdeal_cff')
+process.load('Configuration.StandardSequences.EndOfProcess_cff')
+process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
+
+process.maxEvents = cms.untracked.PSet(
+    input = cms.untracked.int32(2)
+)
+
+# Input source
+process.source = cms.Source("PoolSource",
+    secondaryFileNames = cms.untracked.vstring(),
+    fileNames = cms.untracked.vstring('/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/F40C4F70-B513-E311-89A0-003048F23FEA.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/EE8DFAD1-B913-E311-AE72-0025901D62A6.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/E22FB774-B513-E311-8F44-003048F2464C.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/DED7276F-B513-E311-B0D6-0025B3203860.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/D86F087F-B513-E311-82DC-003048F1DB40.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/CE436E77-B513-E311-A904-003048F23FE8.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/C830CE71-B513-E311-9DC6-003048CF97B2.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/C06EA177-B513-E311-A52D-003048F1DD9C.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/BA53BE76-B513-E311-A87D-003048D2BE08.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/B46C1B75-B513-E311-A20D-003048F1C1B6.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/B202BA5B-BA13-E311-A51A-003048CF97B2.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/B02552AC-B513-E311-B585-003048FEAF80.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/A898F075-B513-E311-9CFC-0025B32035A4.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/A20A2C79-B513-E311-AC7F-003048CF97BC.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/A0E0DA6E-BA13-E311-8793-003048F009B4.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/98B9956F-B513-E311-8A65-003048CF9E54.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/961E8874-B513-E311-948E-002481E0E9D4.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/92C82C70-B513-E311-B6A8-003048F1C9D2.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/90C96C6D-BA13-E311-BD54-003048F0117C.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/8E9A104F-BB13-E311-A51B-003048FEAF80.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/8E884B77-B513-E311-8479-003048F1C7F2.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/8ACE4F72-B513-E311-8BF3-003048F179C0.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/76D11D74-B513-E311-A958-003048F01118.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/76CE63A4-B513-E311-A0B3-003048F23838.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/62BD967D-B513-E311-BF01-003048F0117C.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/5EEA4B72-B513-E311-A3E0-003048F24956.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/507C1782-B513-E311-B4BE-003048D373C4.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/5042259A-B513-E311-945A-00215AEDFDE0.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/4CE1D076-B513-E311-8505-003048D2BF48.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/446F6480-B513-E311-882D-003048CF96DC.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/4248C070-B513-E311-899E-0025901D62A6.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/3CE81473-B513-E311-96F4-001D09F24303.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/34642472-B513-E311-B5D8-003048F1C554.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/2295A47D-B513-E311-BFF7-003048F1C5A0.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/1C58E138-BA13-E311-A75C-003048F1DD9C.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/1A45F471-B513-E311-AE32-003048F009B4.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/1272EF6F-B513-E311-98CA-003048F01174.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/12108F7D-B513-E311-9AB9-003048F11928.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/0AD9D877-B513-E311-9B71-003048D2BCF4.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/0A58D565-BA13-E311-9F0E-00215AEDFDE0.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/06F83E65-BA13-E311-AF58-003048F1DB40.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/06416D70-B513-E311-8C5D-001E67397D0F.root', 
+        '/store/generator/Summer11LegpLHE/WJetsToLNu_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/00EB6371-B513-E311-8F87-003048F1B852.root')
+)
+
+process.options = cms.untracked.PSet(
+
+)
+
+# Production Info
+process.configurationMetadata = cms.untracked.PSet(
+    version = cms.untracked.string('$Revision: 1.381.2.28 $'),
+    annotation = cms.untracked.string('Configuration/GenProduction/python/Hadronizer_MgmMatchTuneZ2_7TeV_madgraph_tauola_cff.py nevts:2'),
+    name = cms.untracked.string('PyReleaseValidation')
+)
+
+# Output definition
+
+process.RAWSIMoutput = cms.OutputModule("PoolOutputModule",
+    splitLevel = cms.untracked.int32(0),
+    eventAutoFlushCompressedSize = cms.untracked.int32(5242880),
+    outputCommands = process.RAWSIMEventContent.outputCommands,
+    fileName = cms.untracked.string('file:step1.root'),
+    dataset = cms.untracked.PSet(
+        filterName = cms.untracked.string(''),
+        dataTier = cms.untracked.string('GEN-SIM')
+    ),
+    SelectEvents = cms.untracked.PSet(
+        SelectEvents = cms.vstring('generation_step')
+    )
+)
+
+# Additional output definition
+
+# Other statements
+process.genstepfilter.triggerConditions=cms.vstring("generation_step")
+from Configuration.AlCa.GlobalTag import GlobalTag
+process.GlobalTag = GlobalTag(process.GlobalTag, 'START53_LV4::All', '')
+
+process.generator = cms.EDFilter("Pythia6HadronizerFilter",
+    ExternalDecays = cms.PSet(
+        Tauola = cms.untracked.PSet(
+            UseTauolaPolarization = cms.bool(True),
+            InputCards = cms.PSet(
+                mdtau = cms.int32(0),
+                pjak2 = cms.int32(0),
+                pjak1 = cms.int32(0)
+            )
+        ),
+        parameterSets = cms.vstring('Tauola')
+    ),
+    UseExternalGenerators = cms.untracked.bool(True),
+    pythiaPylistVerbosity = cms.untracked.int32(1),
+    pythiaHepMCVerbosity = cms.untracked.bool(True),
+    comEnergy = cms.double(7000.0),
+    jetMatching = cms.untracked.PSet(
+        MEMAIN_showerkt = cms.double(0),
+        MEMAIN_maxjets = cms.int32(-1),
+        MEMAIN_minjets = cms.int32(-1),
+        MEMAIN_qcut = cms.double(-1),
+        MEMAIN_excres = cms.string(''),
+        MEMAIN_etaclmax = cms.double(-1),
+        MEMAIN_nqmatch = cms.int32(5),
+        outTree_flag = cms.int32(0),
+        scheme = cms.string('Madgraph'),
+        mode = cms.string('auto')
+    ),
+    maxEventsToPrint = cms.untracked.int32(0),
+    PythiaParameters = cms.PSet(
+        pythiaUESettings = cms.vstring('MSTU(21)=1     ! Check on possible errors during program execution', 
+            'MSTJ(22)=2     ! Decay those unstable particles', 
+            'PARJ(71)=10 .  ! for which ctau  10 mm', 
+            'MSTP(33)=0     ! no K factors in hard cross sections', 
+            'MSTP(2)=1      ! which order running alphaS', 
+            'MSTP(51)=10042 ! structure function chosen (external PDF CTEQ6L1)', 
+            'MSTP(52)=2     ! work with LHAPDF', 
+            'PARP(82)=1.832 ! pt cutoff for multiparton interactions', 
+            'PARP(89)=1800. ! sqrts for which PARP82 is set', 
+            'PARP(90)=0.275 ! Multiple interactions: rescaling power', 
+            'MSTP(95)=6     ! CR (color reconnection parameters)', 
+            'PARP(77)=1.016 ! CR', 
+            'PARP(78)=0.538 ! CR', 
+            'PARP(80)=0.1   ! Prob. colored parton from BBR', 
+            'PARP(83)=0.356 ! Multiple interactions: matter distribution parameter', 
+            'PARP(84)=0.651 ! Multiple interactions: matter distribution parameter', 
+            'PARP(62)=1.025 ! ISR cutoff', 
+            'MSTP(91)=1     ! Gaussian primordial kT', 
+            'PARP(93)=10.0  ! primordial kT-max', 
+            'MSTP(81)=21    ! multiple parton interactions 1 is Pythia default', 
+            'MSTP(82)=4     ! Defines the multi-parton model'),
+        processParameters = cms.vstring('MSEL=0         ! User defined processes', 
+            'PMAS(5,1)=4.8   ! b quark mass', 
+            'PMAS(6,1)=172.5 ! t quark mass', 
+            'MSTJ(1)=1       ! Fragmentation/hadronization on or off', 
+            'MSTP(61)=1      ! Parton showering on or off'),
+        parameterSets = cms.vstring('pythiaUESettings', 
+            'processParameters')
+    )
+)
+
+
+# Path and EndPath definitions
+process.generation_step = cms.Path(process.pgen)
+process.simulation_step = cms.Path(process.psim)
+process.genfiltersummary_step = cms.EndPath(process.genFilterSummary)
+process.endjob_step = cms.EndPath(process.endOfProcess)
+process.RAWSIMoutput_step = cms.EndPath(process.RAWSIMoutput)
+
+# Schedule definition
+process.schedule = cms.Schedule(process.generation_step,process.genfiltersummary_step,process.simulation_step,process.endjob_step,process.RAWSIMoutput_step)
+# filter all path with the production filter sequence
+for path in process.paths:
+	getattr(process,path)._seq = process.generator * getattr(process,path)._seq 
+
+# customisation of the process.
+
+# Automatic addition of the customisation function from SimG4Core.Application.reproc2011_2012_cff
+from SimG4Core.Application.reproc2011_2012_cff import customiseG4 
+
+#call to customisation function customiseG4 imported from SimG4Core.Application.reproc2011_2012_cff
+process = customiseG4(process)
+
+# End of customisation functions

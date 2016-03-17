@@ -115,6 +115,7 @@ populate *all* collections, you can use::
     -f invenio_opendata/testsuite/data/cms/cms-primary-datasets.xml \
     -f invenio_opendata/testsuite/data/cms/cms-primary-datasets-Run2011A.xml \
     -f invenio_opendata/testsuite/data/cms/cms-trigger-information-Run2011A.xml \
+    -f invenio_opendata/testsuite/data/cms/cms-trigger-path-Run2011A.xml \
     -f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
     -f invenio_opendata/testsuite/data/cms/cms-tools-dimuon-filter.xml \
     -f invenio_opendata/testsuite/data/cms/cms-tools-ispy.xml \
@@ -122,6 +123,10 @@ populate *all* collections, you can use::
     -f invenio_opendata/testsuite/data/cms/cms-validated-runs.xml \
     -f invenio_opendata/testsuite/data/cms/cms-condition-data-Run2010B.xml \
     -f invenio_opendata/testsuite/data/cms/cms-condition-data-Run2011A.xml \
+    -f invenio_opendata/testsuite/data/cms/cms-configuration-files-Run2011A.xml \
+    -f invenio_opendata/testsuite/data/cms/cms-hlt-2011-configuration-files.xml \
+    -f invenio_opendata/testsuite/data/cms/cms-pileup-configuration-files.xml \
+    -f invenio_opendata/testsuite/data/cms/cms-simulated-datasets-Run2011A.xml \
     -f invenio_opendata/testsuite/data/lhcb/lhcb-derived-datasets.xml \
     -f invenio_opendata/testsuite/data/lhcb/lhcb-learning-resources.xml \
     -f invenio_opendata/testsuite/data/lhcb/lhcb-tools.xml \

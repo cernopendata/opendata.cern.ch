@@ -1,0 +1,89 @@
+# Auto generated configuration file
+# using: 
+# Revision: 1.381.2.28 
+# Source: /local/reps/CMSSW/CMSSW/Configuration/PyReleaseValidation/python/ConfigBuilder.py,v 
+# with command line options: step1 --filein lhe:3588 --mc --eventcontent LHE --datatier GEN --conditions START53_LV4::All --step NONE --python_filename /afs/cern.ch/cms/PPD/PdmV/work/McM/submit/HIG-Summer11LegpLHE-00010/HIG-Summer11LegpLHE-00010_1_cfg.py --no_exec -n 1
+import FWCore.ParameterSet.Config as cms
+
+process = cms.Process('LHE')
+
+# import of standard configurations
+process.load('FWCore.MessageService.MessageLogger_cfi')
+process.load('Configuration.EventContent.EventContent_cff')
+process.load('SimGeneral.MixingModule.mixNoPU_cfi')
+process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
+
+process.maxEvents = cms.untracked.PSet(
+    input = cms.untracked.int32(1)
+)
+
+# Input source
+process.source = cms.Source("LHESource",
+    fileNames = cms.untracked.vstring('/store/lhe/3588/7TeV_wz3lv_run50001_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50002_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50003_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50004_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50005_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50006_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50007_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50008_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50009_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50010_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50011_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50012_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50013_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50014_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50015_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50016_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50017_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50018_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50019_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50020_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50021_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50022_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50023_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50024_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50025_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50026_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50027_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50028_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50029_unweighted_events_qcut18_mgPostv2.lhe', 
+        '/store/lhe/3588/7TeV_wz3lv_run50030_unweighted_events_qcut18_mgPostv2.lhe')
+)
+
+process.options = cms.untracked.PSet(
+
+)
+
+# Production Info
+process.configurationMetadata = cms.untracked.PSet(
+    version = cms.untracked.string('$Revision: 1.381.2.28 $'),
+    annotation = cms.untracked.string('step1 nevts:1'),
+    name = cms.untracked.string('PyReleaseValidation')
+)
+
+# Output definition
+
+process.LHEoutput = cms.OutputModule("PoolOutputModule",
+    splitLevel = cms.untracked.int32(0),
+    eventAutoFlushCompressedSize = cms.untracked.int32(5242880),
+    outputCommands = process.LHEEventContent.outputCommands,
+    fileName = cms.untracked.string('step1_NONE.root'),
+    dataset = cms.untracked.PSet(
+        filterName = cms.untracked.string(''),
+        dataTier = cms.untracked.string('GEN')
+    )
+)
+
+# Additional output definition
+
+# Other statements
+from Configuration.AlCa.GlobalTag import GlobalTag
+process.GlobalTag = GlobalTag(process.GlobalTag, 'START53_LV4::All', '')
+
+# Path and EndPath definitions
+process.LHEoutput_step = cms.EndPath(process.LHEoutput)
+
+# Schedule definition
+process.schedule = cms.Schedule(process.LHEoutput_step)
+

@@ -1,0 +1,59 @@
+{% extends 'page.html' %}
+
+{% block body %}
+
+{% import 'helpers/general.html' as gen_utils %}
+
+  <style>
+    .general img {
+      max-width: 100%;
+
+    }
+    #phys_about {
+      color: #606D75;
+      text-align: justify;
+    }
+    #phys_about h1 {
+      margin-bottom: 30px;
+      padding-right: 15px;
+      padding-left: 15px;
+      display: inline-block;
+      width: 100%;
+    }
+
+    #phys_about a {
+      text-align: left;
+    }
+
+    #phys_about .learn-img {
+      padding: 15px;
+      background-color: #606D75;
+      color: #fff;
+      border-radius: 4px;
+      margin-top: 15px;
+    }
+    #phys_about h6 {
+      width: 100%;
+      text-align: center;
+    }
+    #phys_about ul.with-circles li {
+      margin-left: 20px;
+      float: none!important;
+    }
+  </style>
+
+  <section class="infobar">
+    <div class="container">
+      {{ gen_utils.get_breadcrumbs(breadcrumbs, exp) }}
+    </div>
+  </section>
+
+  <section id="phys_abou" class="general content">
+    <div class="container">
+      <div class="row">
+        {% include 'helpers/text/about_CMS_physics_objects_overview.html' ignore missing %}
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

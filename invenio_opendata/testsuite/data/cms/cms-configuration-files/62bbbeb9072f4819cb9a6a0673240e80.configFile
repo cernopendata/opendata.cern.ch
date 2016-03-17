@@ -1,0 +1,98 @@
+# Auto generated configuration file
+# using: 
+# Revision: 1.381.2.28 
+# Source: /local/reps/CMSSW/CMSSW/Configuration/PyReleaseValidation/python/ConfigBuilder.py,v 
+# with command line options: step1 --filein lhe:7264 --fileout file:HIG-Summer11LegpLHE-00091.root --mc --eventcontent LHE --datatier GEN --conditions START53_LV4::All --step NONE --python_filename /afs/cern.ch/cms/PPD/PdmV/work/McM/submit/HIG-Summer11LegpLHE-00091/HIG-Summer11LegpLHE-00091_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 10000
+import FWCore.ParameterSet.Config as cms
+
+process = cms.Process('LHE')
+
+# import of standard configurations
+process.load('FWCore.MessageService.MessageLogger_cfi')
+process.load('Configuration.EventContent.EventContent_cff')
+process.load('SimGeneral.MixingModule.mixNoPU_cfi')
+process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
+
+process.maxEvents = cms.untracked.PSet(
+    input = cms.untracked.int32(10000)
+)
+
+# Input source
+process.source = cms.Source("LHESource",
+    fileNames = cms.untracked.vstring('/store/lhe/7264/pwgevents_4e_1.lhe', 
+        '/store/lhe/7264/pwgevents_4e_10.lhe', 
+        '/store/lhe/7264/pwgevents_4e_11.lhe', 
+        '/store/lhe/7264/pwgevents_4e_12.lhe', 
+        '/store/lhe/7264/pwgevents_4e_13.lhe', 
+        '/store/lhe/7264/pwgevents_4e_14.lhe', 
+        '/store/lhe/7264/pwgevents_4e_15.lhe', 
+        '/store/lhe/7264/pwgevents_4e_16.lhe', 
+        '/store/lhe/7264/pwgevents_4e_17.lhe', 
+        '/store/lhe/7264/pwgevents_4e_18.lhe', 
+        '/store/lhe/7264/pwgevents_4e_19.lhe', 
+        '/store/lhe/7264/pwgevents_4e_2.lhe', 
+        '/store/lhe/7264/pwgevents_4e_20.lhe', 
+        '/store/lhe/7264/pwgevents_4e_21.lhe', 
+        '/store/lhe/7264/pwgevents_4e_22.lhe', 
+        '/store/lhe/7264/pwgevents_4e_23.lhe', 
+        '/store/lhe/7264/pwgevents_4e_24.lhe', 
+        '/store/lhe/7264/pwgevents_4e_25.lhe', 
+        '/store/lhe/7264/pwgevents_4e_26.lhe', 
+        '/store/lhe/7264/pwgevents_4e_27.lhe', 
+        '/store/lhe/7264/pwgevents_4e_28.lhe', 
+        '/store/lhe/7264/pwgevents_4e_29.lhe', 
+        '/store/lhe/7264/pwgevents_4e_3.lhe', 
+        '/store/lhe/7264/pwgevents_4e_30.lhe', 
+        '/store/lhe/7264/pwgevents_4e_4.lhe', 
+        '/store/lhe/7264/pwgevents_4e_5.lhe', 
+        '/store/lhe/7264/pwgevents_4e_6.lhe', 
+        '/store/lhe/7264/pwgevents_4e_7.lhe', 
+        '/store/lhe/7264/pwgevents_4e_8.lhe', 
+        '/store/lhe/7264/pwgevents_4e_9.lhe')
+)
+
+process.options = cms.untracked.PSet(
+
+)
+
+# Production Info
+process.configurationMetadata = cms.untracked.PSet(
+    version = cms.untracked.string('$Revision: 1.381.2.28 $'),
+    annotation = cms.untracked.string('step1 nevts:10000'),
+    name = cms.untracked.string('PyReleaseValidation')
+)
+
+# Output definition
+
+process.LHEoutput = cms.OutputModule("PoolOutputModule",
+    splitLevel = cms.untracked.int32(0),
+    eventAutoFlushCompressedSize = cms.untracked.int32(5242880),
+    outputCommands = process.LHEEventContent.outputCommands,
+    fileName = cms.untracked.string('file:HIG-Summer11LegpLHE-00091.root'),
+    dataset = cms.untracked.PSet(
+        filterName = cms.untracked.string(''),
+        dataTier = cms.untracked.string('GEN')
+    )
+)
+
+# Additional output definition
+
+# Other statements
+from Configuration.AlCa.GlobalTag import GlobalTag
+process.GlobalTag = GlobalTag(process.GlobalTag, 'START53_LV4::All', '')
+
+# Path and EndPath definitions
+process.LHEoutput_step = cms.EndPath(process.LHEoutput)
+
+# Schedule definition
+process.schedule = cms.Schedule(process.LHEoutput_step)
+
+# customisation of the process.
+
+# Automatic addition of the customisation function from Configuration.DataProcessing.Utils
+from Configuration.DataProcessing.Utils import addMonitoring 
+
+#call to customisation function addMonitoring imported from Configuration.DataProcessing.Utils
+process = addMonitoring(process)
+
+# End of customisation functions

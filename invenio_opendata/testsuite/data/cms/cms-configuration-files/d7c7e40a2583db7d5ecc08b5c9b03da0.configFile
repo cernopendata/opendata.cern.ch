@@ -1,0 +1,159 @@
+# Auto generated configuration file
+# using: 
+# Revision: 1.381.2.28 
+# Source: /local/reps/CMSSW/CMSSW/Configuration/PyReleaseValidation/python/ConfigBuilder.py,v 
+# with command line options: step1 --filein lhe:5111 --mc --eventcontent LHE --datatier GEN --conditions START53_LV4::All --step NONE --python_filename /afs/cern.ch/cms/PPD/PdmV/work/McM/submit/HIG-Summer11LegpLHE-00001/HIG-Summer11LegpLHE-00001_1_cfg.py --no_exec -n 1
+import FWCore.ParameterSet.Config as cms
+
+process = cms.Process('LHE')
+
+# import of standard configurations
+process.load('FWCore.MessageService.MessageLogger_cfi')
+process.load('Configuration.EventContent.EventContent_cff')
+process.load('SimGeneral.MixingModule.mixNoPU_cfi')
+process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
+
+process.maxEvents = cms.untracked.PSet(
+    input = cms.untracked.int32(1)
+)
+
+# Input source
+process.source = cms.Source("LHESource",
+    fileNames = cms.untracked.vstring('/store/lhe/5111/7TeV_Z1jetsM10_50_run250001_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250002_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250003_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250004_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250005_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250006_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250007_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250008_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250009_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250010_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250011_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250012_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250013_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250014_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250015_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250016_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250017_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250018_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250019_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250020_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250021_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250022_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250023_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250024_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250025_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250026_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250027_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250028_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250029_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250030_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250031_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250032_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250033_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250034_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250035_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250036_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250037_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250038_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250039_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250040_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250041_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250042_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250043_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250044_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250045_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250046_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250047_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250048_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250049_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250050_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250051_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250052_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250053_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250054_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250055_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250056_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250057_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250058_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250059_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250060_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250061_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250062_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250063_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250064_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250065_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250066_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250067_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250068_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250069_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250070_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250071_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250072_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250073_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250074_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250075_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250076_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250077_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250078_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250079_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250080_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250081_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250082_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250083_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250084_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250085_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250086_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250087_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250088_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250089_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250090_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250091_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250092_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250093_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250094_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250095_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250096_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250097_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250098_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250099_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5111/7TeV_Z1jetsM10_50_run250100_unweighted_events_qcut12.5_mgPostv2.lhe')
+)
+
+process.options = cms.untracked.PSet(
+
+)
+
+# Production Info
+process.configurationMetadata = cms.untracked.PSet(
+    version = cms.untracked.string('$Revision: 1.381.2.28 $'),
+    annotation = cms.untracked.string('step1 nevts:1'),
+    name = cms.untracked.string('PyReleaseValidation')
+)
+
+# Output definition
+
+process.LHEoutput = cms.OutputModule("PoolOutputModule",
+    splitLevel = cms.untracked.int32(0),
+    eventAutoFlushCompressedSize = cms.untracked.int32(5242880),
+    outputCommands = process.LHEEventContent.outputCommands,
+    fileName = cms.untracked.string('step1_NONE.root'),
+    dataset = cms.untracked.PSet(
+        filterName = cms.untracked.string(''),
+        dataTier = cms.untracked.string('GEN')
+    )
+)
+
+# Additional output definition
+
+# Other statements
+from Configuration.AlCa.GlobalTag import GlobalTag
+process.GlobalTag = GlobalTag(process.GlobalTag, 'START53_LV4::All', '')
+
+# Path and EndPath definitions
+process.LHEoutput_step = cms.EndPath(process.LHEoutput)
+
+# Schedule definition
+process.schedule = cms.Schedule(process.LHEoutput_step)
+
