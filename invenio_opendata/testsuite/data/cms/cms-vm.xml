@@ -25,11 +25,11 @@
     </datafield>
     <datafield tag="567" ind1=" " ind2=" ">
       <subfield code="a">The contextualisation scripts used for setting up the CMS VM images are available at</subfield>
-      <subfield code="u">LINK</subfield>
+      <subfield code="u">251</subfield>
     </datafield>
     <datafield tag="581" ind1=" " ind2=" ">
       <subfield code="a">Please follow the tutorial on how to use the CMS Virtual Machine</subfield>
-      <subfield code="u">http://opendata.cern.ch/VM/CMS#2011</subfield>
+      <subfield code="u">http://opendata.cern.ch/VM/CMS#how</subfield>
       <subfield code="y">CMS Virtual Machines: How to install</subfield>
     </datafield>
     <datafield tag="583" ind1=" " ind2=" ">
@@ -51,7 +51,7 @@
   <record>
     <controlfield tag="001">251</controlfield>
     <datafield tag="100" ind1=" " ind2=" ">
-      <subfield code="a">TEXT</subfield>
+      <subfield code="a">Huffman, Adam</subfield>
     </datafield>
      <datafield tag="245" ind1=" " ind2=" ">
       <subfield code="a">Contextualisation scripts to create the CMS VM Image, for 2011 data release</subfield>
@@ -73,7 +73,7 @@
     <datafield tag="581" ind1=" " ind2=" ">
       <subfield code="a"><p> First, you need to run a normal Micro-CernVM, using your own context so you can login. Copy the attached files to the running VM and then 
       login.<p>Inside the VM, you first need a copy of the latest Micro-CernVM release as a template for the Open Data image. Download it, inside the running VM, from: 
-      http://cernvm.cern.ch/releases/ucernvm-images.1.18-13.cernvm.x86_64/ucernvm-slc5.1.18-13.cernvm.x86_64.hdd <br/>placing it in the same directory as the other files.<br/>Run 
+      http://cernvm.cern.ch/releases/testing/ucernvm-prod.2.5-2.cernvm.x86_64.hdd <br/>placing it in the same directory as the other files.<br/>Run 
       the script:<br/>./cernvm-script <br/>which will produce some output on the terminal, and then finish.
       <p>The result should be a file with the title coming from the -n field in the script. In this case, the file we're interested in is:
       <br/>CMS-OpenData-1.0.1.ova
