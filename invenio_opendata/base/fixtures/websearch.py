@@ -743,7 +743,7 @@ class PortalboxData(DataSet):
         title = u'short_description_e'
 
     class Portalbox_36:
-        body = u'To analyse CMS data, a Virtual Machine with the CMS analysis environment is provided. The data can be accessed directly through the VM. In the primary datasets, no selection nor identification criteria have been applied. For this release, no simulated Monte Carlo datasets are provided.'
+        body = u'To analyse CMS data, a Virtual Machine with the CMS analysis environment is provided. The data can be accessed directly through the VM. In the primary datasets, no selection nor identification criteria have been applied. The 2011 data release includes simulated Monte Carlo datasets, but no simulated datasets are provided for the 2010 release.'
         id = 36
         title = u'short_description_r'
 
