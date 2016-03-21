@@ -1,6 +1,6 @@
 ﻿<collection xmlns="http://www.loc.gov/MARC21/slim">
   <record>
-    <controlfield tag="001">FIXME TIBOR </controlfield>
+    <controlfield tag="001">FIXME</controlfield>
     <datafield tag="024" ind1="7" ind2=" ">
       <subfield code="2">DOI</subfield>
       <subfield code="a">10.7483/OPENDATA.CMS.WYJG.FYK9</subfield>
@@ -19,41 +19,28 @@
       <subfield code="c">2011</subfield>
     </datafield>
     <datafield tag="516" ind1=" " ind2=" ">
-      <subfield code="a">Use this with primary datasets from 2011</subfield>
+      <subfield code="a">Use this with primary datasets from 2011 CMS open data</subfield>
     </datafield>
     <datafield tag="520" ind1=" " ind2=" ">
       <subfield code="a"> CMS Software Version 5_3_32</subfield>
     </datafield>
     <datafield tag="540" ind1=" " ind2=" ">
-      <subfield code="a">Apache Lisense, Version 2.0</subfield>
+      <subfield code="a">Apache License, Version 2.0</subfield>
     </datafield>
-    <datafield tag="567" ind1=" " ind2=" ">
-      <subfield code="a">In order to analyse only the "good quality" data,
-you must apply some selection criteria. You can specify your initial selection criteria within the analyzer 
-to perform your analysis directly on the AOD files, or further elaborate the selections and other operations 
-needed for analyzing the reduced dataset. To learn more about configuring analyzers, follow these instructions 
-in the CMSSW WorkBook. Make sure, though, that you replace the release version (CMSSW_nnn) with the release that 
+    <datafield tag="581" ind1=" " ind2=" ">
+      <subfield code="a"><![CDATA[<p>To get started with CMSSW in the context of the CMS open data, follow the instructions in <a href="http://opendatadev.cern.ch/getting-started/CMS/2011">Getting started with CMS 2011 data</a>
+      You can learn more about CMSSW in <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBook">The CMS Offline WorkBook</a>. If you follow the instructions in the Workbook make sure, though, that you replace the release version (CMSSW_nnn) with the release that 
 you are using, i.e. one that is compatible with the CMS open data.  Be aware that the instructions in the WorkBook 
-are in use in CMS currently and have been updated for more recent CMSSW releases. Also note that more recent code does not work with 
+are in use in CMS currently and have been updated for more recent CMSSW releases. With the 2011 data, you should 
+always use the releases in the series of CMSSW_5_3 and not higher. Also note that more recent code does not work with 
 older releases, so whenever you see git cms-addpkg… in the instruction, it is likely that the code package this command 
-adds does not work with the release you need.</subfield>
-      <subfield code="u">http://opendatadev.cern.ch/getting-started/CMS</subfield>
-    </datafield>
-    <datafield tag="583" ind1=" " ind2=" ">
-      <subfield code="a"> VALIDATION TEXT </subfield>
-      <subfield code="u">http://opendatadev.cern.ch/getting-started/CMS</subfield>
-    </datafield>
+adds does not work with the release you need. </p> ]] </subfield>
     <datafield tag="693" ind1=" " ind2=" ">
       <subfield code="a">CERN-LHC</subfield>
       <subfield code="e">CMS</subfield>
     </datafield>
-    <datafield tag="581" ind1=" " ind2=" ">
-      <subfield code="a">See the run instructions in</subfield>
-      <subfield code="u">http://opendatadev.cern.ch/getting-started/CMS</subfield>
-      <subfield code="y">LINK NAMING</subfield>
-    </datafield>
-    <datafield tag="856" ind1="4" ind2=" ">
-      <subfield code="u">FIXME TIBOR</subfield>
+    <datafield tag="964" ind1=" " ind2="0">
+      <subfield code="c">Run2011A</subfield>
     </datafield>
     <datafield tag="980" ind1=" " ind2=" ">
       <subfield code="a">CMS-Tools</subfield>
