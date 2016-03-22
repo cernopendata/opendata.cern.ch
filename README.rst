@@ -6,6 +6,8 @@
    :target: http://issuestats.com/github/cernopendata/opendata.cern.ch
 .. image:: https://img.shields.io/badge/licence-GPL_2-green.svg?style=flat
    :target: https://raw.githubusercontent.com/cernopendata/opendata.cern.ch/pu/COPYING
+.. image:: https://badges.gitter.im/Join%20Chat.svg
+   :target: https://gitter.im/cernopendata/opendata.cern.ch?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge
 
 About
 -----
