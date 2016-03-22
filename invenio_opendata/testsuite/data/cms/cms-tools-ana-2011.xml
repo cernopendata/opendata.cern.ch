@@ -1,6 +1,6 @@
 <collection>
   <record>
-    <controlfield tag="001">FIXME</controlfield>
+    <controlfield tag="001">233</controlfield>
     <datafield tag="024" ind1="7" ind2=" ">
       <subfield code="2">DOI</subfield>
       <subfield code="a">10.7483/OPENDATA.CMS.ETJK.JKMB</subfield>
@@ -9,15 +9,15 @@
       <subfield code="a">Rodriguez Marrero, Ana</subfield>
     </datafield>
     <datafield tag="245" ind1=" " ind2=" ">
-      <subfield code="a">Software to preprocess the Muon and Electron datasets for the two-lepton/four-lepton analysis example of CMS 2011 open data</subfield>
+      <subfield code="a">Software to preprocess the CMS 2011 DoubleMu and DoubleElectron datasets for the two-lepton/four-lepton analysis example of CMS open data.</subfield>
     </datafield>
     <datafield tag="256" ind1=" " ind2=" ">
       <subfield code="a">Software</subfield>
-      <subfield code="f">WILL BE UPDATED</subfield>
+      <subfield code="f">1</subfield>
       <subfield code="t">file</subfield>
     </datafield>
     <datafield tag="256" ind1=" " ind2=" ">
-      <subfield code="b">WILL BE UPDATED</subfield>
+      <subfield code="b">0</subfield>
       <subfield code="t">bytes</subfield>
     </datafield>
     <datafield tag="260" ind1=" " ind2=" ">
@@ -33,7 +33,7 @@
       <subfield code="w">17</subfield>
     </datafield>
     <datafield tag="520" ind1=" " ind2=" ">
-      <subfield code="a">Software to produce the intermediate data files, derived from the primary datasets, for a simple analysis on Z decays to two leptons and ZZ decays to four leptons, of CMS 2011 open data. </subfield>
+      <subfield code="a">Software to produce the intermediate data files, derived from the primary datasets, for a simple analysis on Z decays to two leptons and ZZ decays to four leptons, of CMS open data. </subfield>
     </datafield>
     <datafield tag="538" ind1=" " ind2=" ">
       <subfield code="a">Software release: CMSSW_5_3_32</subfield>
@@ -44,7 +44,7 @@
       <subfield code="a">GNU General Public License (GPL) version 3</subfield>
     </datafield>
     <datafield tag="556" ind1=" " ind2=" ">
-      <subfield code="a">Only muon and electron collections are kept. Processing the full primary datasets took ? hours.</subfield>
+      <subfield code="a">Only muon and electron collections are kept. This processing step is time-consuming.</subfield>
     </datafield>
     <datafield tag="567" ind1=" " ind2=" ">
       <subfield code="a">The software produces the physics object in PAT candidate format. Only muon and electron PAT candidate collections are stored. No further selection, apart from accepting only the validated runs, is applied.</subfield>
@@ -67,11 +67,8 @@
     </datafield>
     <datafield tag="787" ind1=" " ind2=" ">
       <subfield code="a">The files created are:</subfield>
-      <subfield code="w">WILL BE UPDATED</subfield>
-      <subfield code="w">WILL BE UPDATED</subfield>
-    </datafield>
-    <datafield tag="856" ind1="4" ind2=" ">
-      <subfield code="u">https://github.com/katilp/pattuples2011</subfield>
+      <subfield code="w">230</subfield>
+      <subfield code="w">231</subfield>
     </datafield>
     <datafield tag="964" ind1=" " ind2="0">
       <subfield code="c">Run2011A</subfield>
@@ -84,7 +81,7 @@
     </datafield>
   </record>
   <record>
-    <controlfield tag="001">FIXME</controlfield>
+    <controlfield tag="001">234</controlfield>
     <datafield tag="024" ind1="7" ind2=" ">
       <subfield code="2">DOI</subfield>
       <subfield code="a">10.7483/OPENDATA.CMS.3E87.48PZ</subfield>
@@ -97,11 +94,11 @@
     </datafield>
     <datafield tag="256" ind1=" " ind2=" ">
       <subfield code="a">Software</subfield>
-      <subfield code="f">WILL BE UPDATED</subfield>
+      <subfield code="f">1</subfield>
       <subfield code="t">file</subfield>
     </datafield>
     <datafield tag="256" ind1=" " ind2=" ">
-      <subfield code="b">WILL BE UPDATED</subfield>
+      <subfield code="b">0</subfield>
       <subfield code="t">bytes</subfield>
     </datafield>
     <datafield tag="260" ind1=" " ind2=" ">
@@ -113,11 +110,11 @@
     </datafield>
     <datafield tag="516" ind1=" " ind2=" ">
       <subfield code="a">Use this with the following datasets:</subfield>
-      <subfield code="w">WILL BE UPDATED</subfield>
-      <subfield code="w">WILL BE UPDATED</subfield>
+      <subfield code="w">230</subfield>
+      <subfield code="w">231</subfield>
     </datafield>
     <datafield tag="520" ind1=" " ind2=" ">
-      <subfield code="a">Example code for a simple analysis on Z decays to two leptons and ZZ decays to four leptons, of CMS 2011 open data.</subfield>
+      <subfield code="a">Example code for a simple analysis on Z decays to two leptons and ZZ decays to four leptons, of CMS open data.</subfield>
     </datafield>
     <datafield tag="538" ind1=" " ind2=" ">
       <subfield code="a">Software release: CMSSW_5_3_32</subfield>
@@ -128,10 +125,10 @@
       <subfield code="a">GNU General Public License (GPL) version 3</subfield>
     </datafield>
     <datafield tag="556" ind1=" " ind2=" ">
-      <subfield code="a">Processing the preprocessed datasets takes several hours.</subfield>
+      <subfield code="a">Running the job over all preprocessed datasets may take several hours.</subfield>
     </datafield>
     <datafield tag="567" ind1=" " ind2=" ">
-      <subfield code="a"><p> An event selection is applied in the two analysis cases:
+      <subfield code="a"><p> The event selection is the same as the one used in <a href="http://opendatadev.cern.ch/record/101">2010 example</a>:
       <ol class="text"><li>In the Z analysis at least two leptons with opposite charge, with invariant mass ”mll” between 12 GeV and 120 GeV are required. The pair with the invariant mass closest to the Z boson mass is selected as the Z candidate.</li>
       <li>In the ZZ analysis two Z candidates are required, and for both candidates, two leptons with opposite charge are required. The first Z candidate is required to have higher lepton momentum: 20 GeV for the first lepton and 10 GeV for the second lepton. The invariant mass is required to be in the range 40 GeV to 120 GeV. The second candidate is required to have an invariant mass higher then 4 GeV. The first candidate is the one with the invariant mass closest to the Z boson mass.</li></ol></p>
       <p>Selection criteria for electron candidates:
@@ -169,10 +166,6 @@
     </datafield>
     <datafield tag="700" ind1=" " ind2=" ">
       <subfield code="a">Lassila-Perini, Kati</subfield>
-    </datafield>
-    <datafield tag="787" ind1=" " ind2=" ">
-      <subfield code="a">The expected output is a histogram file such as</subfield>
-      <subfield code="o">WILL BE UPDATED</subfield>
     </datafield>
     <datafield tag="856" ind1="4" ind2=" ">
       <subfield code="u">https://github.com/katilp/OutreachExercise2011</subfield>
