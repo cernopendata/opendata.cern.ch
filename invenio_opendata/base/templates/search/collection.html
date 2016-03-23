@@ -1,6 +1,6 @@
 {#
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2014 CERN.
+# Copyright (C) 2014, 2016 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -48,7 +48,7 @@
                 </div>
                 <div class="years col-xs-12">
                   {% if collection.name_ln in YEARLY_TABED_COLLECTIONS %}
-                    Years: <div class="yr"><a href="#URL_FIXME">2010</a></div>, <div class="yr"><a href="#URL_FIXME">2011</a></div>
+                    Years: <div class="yr"><a href="/search?p=Run2010B%20collection%3A{{ collection.name }}">2010</a></div>, <div class="yr"><a href="/search?p=Run2011A%20collection%3A{{ collection.name }}">2011</a></div>
                   {% endif %}
                 </div>
               </div>
