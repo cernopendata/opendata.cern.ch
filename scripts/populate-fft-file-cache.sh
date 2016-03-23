@@ -353,6 +353,9 @@ rsync -a invenio_opendata/testsuite/data/cms/cms-tools-dimuon-spectrum-2010/ $OU
 # CMS VM image files:
 rsync -a invenio_opendata/testsuite/data/cms/cms-vm-images/ $OUTDIR/cms-vm-images/
 
+# CMS validation code Run2011B
+rsync -a invenio_opendata/testsuite/data/cms/cms-validation-code-Run2010B/ $OUTDIR/cms-validation-code-Run2010B/
+
 # finally, make symlink to FFT cache from tmp:
 if [ ! -L "/tmp/$(basename $OUTDIR)" ]; then
     ln -s $OUTDIR /tmp
