@@ -1,5 +1,7 @@
+#!/bin/sh
+#
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2014, 2016 CERN.
+# Copyright (C) 2016 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -15,22 +17,19 @@
 # along with Invenio; if not, write to the Free Software Foundation, Inc.,
 # 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
 
-notifications:
-  email: false
+# quit on errors and potentially unbound symbols:
+set -o errexit
+set -o nounset
 
-sudo: false
+# check for possibly incorrect XML files:
+xmllint --noout invenio_opendata/testsuite/data/*.xml
+xmllint --noout invenio_opendata/testsuite/data/*/*.xml
 
-language: python
-
-python:
-  - "2.7"
-
-addons:
-  apt:
-    packages:
-    - libxml2-utils
-
-install: true
-
-script:
-  - "./run-tests.sh"
+# check for possibly dupe record IDs:
+dupes=$(git grep '"001"' invenio_opendata/testsuite/data/ | awk -F'>' '{print $2;}' | \
+               awk -F'<' '{print $1;}' | sort | uniq -d)
+if [ "x${dupes}" != "x" ]; then
+    echo "[ERROR] Found duplicate record IDs:"
+    echo "${dupes}"
+    exit 1
+fi
