@@ -1,0 +1,188 @@
+{#
+# This file is part of CERN Open Data Portal.
+# Copyright (C) 2012, 2014 CERN.
+#
+# CERN Open Data Portal is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# CERN Open Data Portal is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Invenio; if not, write to the Free Software Foundation, Inc.,
+# 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+#}
+
+{% macro render_search_pagination(pagination) %}{%- block render_search_pagination scoped -%}
+  {%- set args = request.args.copy().to_dict() -%}
+  {%- set form_args = request.form.copy().to_dict() -%}
+  {%- if form_args|length() and 'filter' in form_args -%}
+  {%- do form_args.pop('filter') -%}
+  {%- do args.update(form_args) -%}
+  {%- set hash_tag = '#'+request.form.get('filter','') -%}
+  {%- else -%}
+  {%- set hash_tag = '' -%}
+  {%- endif -%}
+  {%- if pagination.pages > 1 -%}
+  <ul class="pagination">
+    {%- block pagination_first scoped -%}
+    <li{{ ' class="disabled"'|safe if not pagination.has_prev }}>
+      {%- do args.update({'jrec': 1}) -%}
+      <a title="first" href="{{ url_for('search.search', **args)+hash_tag }}">«</a>
+    </li>
+    {%- endblock -%}
+    {%- block pagination_prev scoped -%}
+    <li{{ ' class="disabled"'|safe if not pagination.has_prev }}>
+      {%- set jrec = (pagination.page-1)*pagination.per_page if pagination.has_prev else 1 -%}
+      {%- do args.update({'jrec': jrec}) -%}
+      <a title="prev" href="{{ url_for('search.search', **args)+hash_tag }}">&lsaquo;</a>
+    </li>
+    {%- endblock -%}
+    {%- block pagination_pages scoped -%}
+    {%- for page in pagination.iter_pages() %}
+    {%- if page -%}
+    {%- block pagination_page scoped -%}
+    <li{{ ' class="active"'|safe if page == pagination.page }}>
+      {%- do args.update({'jrec': (page-1)*pagination.per_page+1}) -%}
+      <a href="{{ url_for('search.search', **args)+hash_tag }}">{{ page }}</a>
+    </li>
+    {%- endblock -%}
+    {%- else -%}
+    {%- block pagination_dots scoped -%}
+    <li class="disabled"><a href="{{ hash_tag|default('#', true) }}">...</a></li>
+    {%- endblock -%}
+    {%- endif -%}
+    {%- endfor -%}
+    {%- endblock -%}
+    {%- block pagination_next scoped -%}
+    <li{{ ' class="disabled"'|safe if not pagination.has_next }}>
+      {%- set jrec = (pagination.page+1)*pagination.per_page if pagination.has_next else (pagination.pages-1)*pagination.per_page+1 -%}
+      {%- do args.update({'jrec': jrec}) -%}
+      <a href="{{ url_for('search.search', **args)+hash_tag }}">&rsaquo;</a>
+    </li>
+    {%- endblock -%}
+    {%- block pagination_last scoped -%}
+    <li{{ ' class="disabled"'|safe if not pagination.has_next }}>
+      {%- do args.update({'jrec': (pagination.pages-1)*pagination.per_page+1}) -%}
+      <a title="last" href="{{ url_for('search.search', **args)+hash_tag }}">»</a>
+    </li>
+    {%- endblock -%}
+  </ul>
+  {%- endif -%}
+  {% endblock %}{% endmacro %}
+
+  {% macro results_actions() %}{%- block results_actions scoped -%}
+    <div class="form-group col-xs-4 col-sm-1">
+      <span class="btn-group" class="col-sm-4">
+        <span class="btn btn-default" onclick="$('[name=recid]').prop('checked', function() {return !$(this).prop('checked')});"
+              class="btn">
+          <i class="glyphicon glyphicon-check"
+             rel="tooltip"
+             title="{{ _('Toggle all') }}"></i>
+        </span>
+        {% if current_user.precached_usebaskets %}
+          <button name="action" value="addtobasket" class="btn btn-default">
+            <i class="glyphicon glyphicon-bookmark"
+               rel="tooltip"
+               title="{{ _('Add to basket') }}"></i>
+            <span style="display: none">{{ _('Add to basket') }}</span>
+          </button>
+        {% endif %}
+      </span>
+    </div>
+    {% endblock %}{% endmacro %}
+
+
+    {% macro render_search_results(recids, collection, pagination, format_record) %}{%- block render_search_results scoped -%}
+      <style>
+        .pagination {
+          margin: 0px;
+          vertical-align: middle;
+        }
+        /* fix for text in dropdowns - not to be aligned to right */
+        .form-group.pull-right {
+          text-align: left;
+        }
+      </style>
+
+        {%- block search_results_header scoped %}
+        <div id="search_header">
+          {% block search_result_nb_recs scoped %}
+          <div class="form-group col-xs-8">
+            <p class="help-block">
+              {%- set r_from = (pagination.page-1)*pagination.per_page+1 -%}
+              {%- set r_to = pagination.page*pagination.per_page -%}
+              {%- set r_of = pagination.total_count -%}
+              {%- set r_to = r_to if r_to < r_of else r_of -%}
+              {{ _('Showing records %(x_from)d to %(x_to)d out of %(x_total)d results.', x_from=r_from, x_to=r_to, x_total=r_of) }}
+            </p>
+          </div>
+          {% endblock search_result_nb_recs %}
+          {% block search_result_settings scoped %}
+          <div class="form-group col-xs-4">
+            <div class="pull-right">
+              {%- set args = request.values.copy().to_dict() -%}
+              {%- set form_args = request.form.copy().to_dict() -%}
+              {%- if form_args|length() and 'filter' in form_args -%}
+              {%- do form_args.pop('filter') -%}
+              {%- do args.update(form_args) -%}
+              {%- endif -%}
+              {%- set new_args = args.copy() -%}
+
+              {% block search_result_settings_sort scoped %}
+              {%- endblock search_result_settings_sort %}
+          </div>
+        </div>
+      </div>
+      {%- endblock search_result_settings %}
+      <form class="form-inline" name="" action="{{ url_for('search.dispatch') }}" method="post">
+        {%- endblock search_results_header %}
+        {%- block search_results scoped -%}
+        {%- for recid in recids -%}{% set recordloop = loop %}{%- block search_result scoped -%}
+        {%- if of[0] == 'h' -%}
+        <div class="row record">
+          {%- block search_result_record scoped -%}
+          <div class="col-sm-12 col-xs-12">
+            {{ format_record(recid, of, ln=g.ln, qid=qid, extra_context=dict(collection=collection))|safe }}
+          </div>
+          {%- endblock search_result_record -%}
+        </div>
+        {%- else -%}
+        {%- block search_result_record_nohtml scoped %}
+        {{ format_record(recid, of, ln=g.ln, extra_context=dict(collection=collection)) }}
+        {%- endblock search_result_record_nohtml %}
+        {%- endif -%}
+        {%- endblock search_result -%}
+        {%- endfor -%}
+        {%- endblock search_results -%}
+
+        {%- block search_results_footer scoped %}
+        <div class="row clearfix">
+          <div class="col-md-12">
+            {%- block search_results_pagination scoped -%}
+            <div class="search-pagination form-group pull-right">
+              {{ render_search_pagination(pagination) }}
+            </div>
+            {%- endblock search_results_pagination -%}
+          </div>
+        </div>
+        {%- endblock search_results_footer %}
+      </form>
+
+      {% for category, msg in get_flashed_messages(with_categories=True, category_filter=['search-results-after']) %}
+        {{ msg|safe }}
+      {% endfor %}
+                {% endblock %}{% endmacro %}
+
+                {% if not request.is_xhr %}
+                  {% extends 'search/searchbar_frame.html' %}
+                  {% block body %}
+                    {{ render_search_results(recids, collection, pagination, format_record) }}
+                  {% endblock %}
+                {% else %}
+                  {{ render_search_results(recids, collection, pagination, format_record) }}
+                {% endif %}

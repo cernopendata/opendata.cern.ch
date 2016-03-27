@@ -1,0 +1,380 @@
+
+{% extends "page.html" %}
+{% bundles "previewer_ispy.js", "previewer_ispy.css" %}
+{% block body %}
+{% import 'helpers/general.html' as gen_utils %}
+
+<style>
+body * {
+  font-size: inherit;
+  font-family: inherit;
+}
+
+body.white, body.black {
+  background-color: #CFE1EB;
+}
+
+body.white a,
+body.white a:visited,
+body.white a:hover,
+body.black a,
+body.black a:visited,
+body.black a:hover {
+  color: inherit;
+}
+#vis-events {
+  color: #606D75;
+  margin-bottom: 40px;
+  font-size: 11px;
+}
+#vis-events .pg-header h3 {
+  margin-bottom: 25px;
+  margin-top: 35px;
+}
+#vis-events .pg-header {
+  color: #606D75;
+  text-align: center;
+  font-weight: 100;
+  font-size: 20px;
+}
+
+#ispy-previewer {
+  background-color: #000;
+  border-radius: 4px;
+  margin-bottom: 70px;
+  color: #606D75;
+  margin-bottom: 20px;
+  overflow: hidden;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.modal {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+#vis-events .nav {
+  float: right;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+#vis-events .nav li {
+  background-color: inherit;
+}
+#vis-events .nav li a,
+#vis-events .nav li a:hover,
+#vis-events .nav li a:focus {
+  color: #FFF;
+  background-color: #ACC6D4;
+  border-radius: 3px;
+  padding: 8px 5px;
+  font-size: 12px;
+}
+
+#vis-events .nav li.active{
+  display: none;
+}
+
+#vis-events #howto > div{
+  background-color: #f4f4f4;
+  border-radius: 4px;
+}
+#display-table {
+  width: 100%;
+}
+
+
+#canvas {
+  width: 100%;
+  height: auto;
+}
+#title {
+  text-align: left;
+  padding: 2px 15px;
+}
+#selectors {
+  height: 600px;
+  background-color: black;
+  padding-top: 15px;
+}
+
+#display {
+  background-color: black;
+}
+
+#browser-dirs td {
+  border: 0;
+}
+
+.sw {
+  color: white;
+}
+.group {
+  color: white;
+}
+#title {
+  color: #606D75;
+}
+#title img {
+  width: 14px;
+  height: 14px;
+  margin-top: -2px;
+  padding: 1px;
+}
+.help-detsystem > i {
+  color: red;
+}
+
+.toolbar-button,
+.toolbar-button.selected {
+  border: 0;
+  background: 0;
+  background-color: #dfdfdf;
+  padding: 2px;
+}
+
+#event-display-howto li img.screen-s {
+  width: 100%;
+  height: auto;
+}
+
+#event-display-howto h2 {
+  margin-left: -15px;
+  margin-right: -15px;
+  background-color: #ACC6D4;
+  padding: 7px 15px;
+  margin-top: 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  font-size: 14px;
+}
+
+
+#selected-event {
+  height: 25px;
+}
+
+.progress-bar[aria-valuenow="0"] {
+  background-color: #337ab7;
+  color: #ffffff;
+}
+
+@media ( max-width: 768px ) {
+  #od-header, .infobar, #vis-events .pg-header,
+  #vis-events .previewer-tablist, footer  {
+    display: none;
+  }
+  #vis-events, #ispy-previewer {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  #vis-events .container {
+    width: 100%;
+  }
+  #selectors {
+    height: 100%;
+    min-width: 200px;
+    z-index: 5;
+  }
+  #vis-events .previewer {
+    display: block!important;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  #canvas {
+    width: 100vw;
+    height: 100vh;
+  }
+  #toolbar {
+    float: right;
+  }
+  #title {
+    width: auto;
+  }
+  .cbp-spmenu {
+      position: absolute;
+  }
+  .cbp-spmenu-push {
+      overflow-x: hidden;
+      position: relative;
+      left: 0;
+  }
+  .cbp-spmenu-push-toright {
+      left: 200px;
+  }
+  /* Transitions */
+  .cbp-spmenu,
+  .cbp-spmenu-push {
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+  }
+  /* Vertical menu that slides from the left or right */
+  .cbp-spmenu-left {
+      left: -200px;
+  }
+  .cbp-spmenu-left.cbp-spmenu-open {
+      left: 0px;
+  }
+  .cbp-spmenu-right.cbp-spmenu-open {
+      right: 0px;
+  }
+
+  .mobile-btn,
+  .mobile-btn:hover,
+  .mobile-btn:focus {
+    background-color: #dfdfdf;
+    padding: 4px;
+    height: 24px;
+    font-size: inherit;
+    margin-right: 10px;
+    color: #606D75;
+    float: left;
+  }
+}
+
+
+</style>
+
+<section class="infobar">
+  <div class="container">
+    {{gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names)}}
+  </div>
+</section>
+
+<section id="vis-events" class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 pg-header">
+        <h3>Explore CMS open data and visualise detector events</h3>
+      </div>
+      <div class="previewer-tablist col-sm-12">
+        <ul class="nav" role="tablist">
+          <li class="active"><a href="#ispy" role="tab" data-toggle="tab"><span class="fa fa-long-arrow-left"></span>back to previewer</a></li>
+          <li><a href="#howto" role="tab" data-toggle="tab">Need HELP?</a></li>
+        </ul>
+      </div>
+      <div class="previewer col-xs-12">
+        <div class="col-xs-10 col-xs-offset-1"></div>
+        <div class="tab-content">
+          <div class="tab-pane fade in active" id="ispy">
+            <div id="ispy-previewer" class="col-xs-12">
+
+              <div class="row">
+                <div class="col-xs-12 bordered black" id="titlebar">
+                  <div class=row">
+                    <div class="col-xs-6" id="application-name">iSpy WebGL</div>
+                    <div class="col-xs-6" id="event-loaded"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-12 bordered black" id="toolbar">
+                  <div class="button-toolbar" role="toolbar">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#open-files" title="Open File">
+                        <i class="fa fa-folder-open"></i>
+                      </button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-default disabled" id="prev-event-button" onclick="ispy.prevEvent();" title="Previous Event">
+                        <i class="fa fa-step-backward"></i>
+                      </button>
+                      <button type="button" class="btn btn-default disabled" id="next-event-button" onclick="ispy.nextEvent();" title="Next Event">
+                        <i class="fa fa-step-forward"></i>
+                      </button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-default" onclick="ispy.resetControls();" title="Return to Start View">
+                        <i class="fa fa-home"></i>
+                      </button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-default" onclick="ispy.zoom(0.5);" title="Zoom In [Shift + Up Arrow]">
+                        <i class="fa fa-search-plus"></i>
+                      </button>
+                      <button type="button" class="btn btn-default" onclick="ispy.zoom(-0.5);" title="Zoom Out [Shift + Down Arrow]">
+                        <i class="fa fa-search-minus"></i>
+                      </button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-default" onclick="ispy.setXY();" title="YX Plane">
+                        <img src="{{url_for('base.static', filename='vendors/ispy-webgl/graphics/yx_small.png')}}">
+                      </button>
+                      <button type="button" class="btn btn-default" onclick="ispy.setYZ();" title="YZ plane">
+                        <img src="{{url_for('base.static', filename='vendors/ispy-webgl/graphics/yz_small.png')}}">
+                      </button>
+                      <button type="button" class="btn btn-default" onclick="ispy.setZX();" title="XZ plane">
+                        <img src="{{url_for('base.static', filename='vendors/ispy-webgl/graphics/xz_small.png')}}">
+                      </button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button type="button" id="perspective" class="btn btn-default active" onclick="ispy.setPerspective();" title="Perspective Projection">
+                        <img src="{{url_for('base.static', filename='vendors/ispy-webgl/graphics/perspective-projection.png')}}" title="Perspective View"/>
+                      </button>
+                      <button type="button" id="orthographic" class="btn btn-default" onclick="ispy.setOrthographic();" title="Orthographic Projection">
+                        <img src="{{url_for('base.static', filename='vendors/ispy-webgl/graphics/orthographic-projection.png')}}" title="Orthographic View"/>
+                      </button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#settings" onclick="ispy.updateRendererInfo();" title="Settings">
+                        <i class="fa fa-gear"></i>
+                      </button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#about" title="About">
+                        <i class="fa fa-info"></i>
+                      </button>
+                    </div>
+                    <!--
+                    <div class="btn-group" role="group">
+                      <button type="button" id="stereo" class="btn btn-default" data-toggle="modal" data-target="#stereo-modal" title="Stereo View">
+                        <i class="fa fa-binoculars"></i>
+                      </button>
+                    </div>
+                    -->
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-3 bordered black" id="treeview">
+                  <div class="table-responsive">
+                  <table class="table table-hover">
+                  </table>
+                  </div>
+                </div>
+                <!-- The canvas goes into this div -->
+                <div class="col-xs-9 bordered black" id="display">
+                  <div class="black" id="axes"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 bordered black" id="tableview">
+                <table id="collection-table" class="table table-hover"></table>
+                </div>
+              </div>
+
+              <div id="event-info" class="black">
+              <table>
+                <tr>
+                  <td id="cms-logo"><img src="{{url_for('base.static', filename='vendors/ispy-webgl/graphics/cms-color-medium.png')}}"/></td>
+                  <td id="event-text"></td>
+                </tr>
+              </table>
+              </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="howto">
+          {% include "visualise_events_help.html" %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+{% include "visualise_events_popups.html" %}
+
+{% endblock %}

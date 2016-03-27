@@ -1,0 +1,418 @@
+{% extends "page.html" %}
+
+{% bundle 'd3.js' %}
+{% block body %}
+
+{% import 'helpers/general.html' as gen_utils %}
+
+<style>
+#vis-histograms {
+  color: #606D75;
+}
+
+#vis-histograms .pg-header h3 {
+  margin-bottom: 25px;
+  margin-top: 35px;
+}
+#vis-histograms .pg-header {
+  color: #606D75;
+  text-align: center;
+  font-weight: 100;
+  font-size: 20px;
+  margin-bottom: 35px;
+}
+#vis-histograms .previewer {
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  margin-bottom: 35px;
+  color: #606D75;
+  margin-bottom: 20px;
+}
+
+#vis-histograms #flot-plots {
+  background-color: #fff;
+  margin-bottom: 15px;
+  min-height: 300px;
+  height: auto;
+  margin-right: 0;
+  margin-left: 0;
+}
+#vis-histograms #flot-plots >div {
+  display: inline-block;
+  float: left;
+}
+
+#vis-histograms ul#parameter-button-row  {
+  display: inline-block;
+}
+#vis-histograms #parameter-button-row li {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+#vis-histograms .nav {
+  float: right;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+    
+#vis-histograms .nav li {
+  background-color: inherit;
+}
+
+#vis-histograms .nav li a,
+#vis-histogram .nav li a:hover,
+#vis-histograms .nav li a:focus {
+  background-color: inherit;
+  color: inherit;
+}
+
+#vis-histograms .nav li.active{
+  display: none;
+}
+
+#vis-histograms #howto > div{
+  background-color: #f4f4f4;
+  border-radius: 4px;
+}
+
+.binwidth {
+  width: 150px;
+}
+
+.btn {
+  background-color: #eeeeee;
+}
+.btn.active {
+  background-color: #A8B6CA;
+}
+.btn:hover {
+  background-color: #e6e6e6;
+}
+
+div.row.buttons {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#browse-dropdown.dropdown {
+  padding-top: 15px;
+}
+
+div.plot-control {
+  padding-top: 4px;
+  padding-left: 24px;
+}
+
+</style>
+<section class="infobar">
+  <div class="container">
+    {{gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names)}}
+  </div>
+</section>
+
+<section id="vis-histograms" class="content">
+<div class="container">
+<div class="row">
+  <div class="col-md-10 col-md-offset-1 pg-header">
+    <h3>Explore CMS open data and play with the histograms</h3>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <ul class="nav" role="tablist">
+    <li class="active"><a href="#histograms" role="tab" data-toggle="tab"><span class="fa fa-long-arrow-left"></span>back to histograms</a></li>
+    <li><a href="#howto" role="tab" data-toggle="tab">Need HELP?</a></li>
+  </ul>
+</div>
+
+<div class="tab-content">
+<div class="tab-pane fade in active" id="histograms">
+<div class="row">
+  <div class="col-md-12" >
+    <div class="previewer" id="histogram">
+      <div class="row buttons top">
+        <div class="col-md-6">
+          <div id="browse-dropdown" class="dropdown">
+            <button class="btn btn-default dropdown-toggle" data-loading-text="Loading..." type="button" id="filedropdown" data-toggle="dropdown">
+            </button>
+            <ul class="dropdown-menu" role="menu" id="fileul" aria-labelledby="filedropdown"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="row buttons">
+        <div class="col-md-12">
+          <h4>Select one or more parameters:</h4>
+        </div>
+      </div>
+      <div class="row buttons">
+        <div class="col-md-12">
+          <ul id="parameter-button-row"></ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row" id="flot-plots"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h4>Controls:</h4>
+<p>Click on the "LogX" and "LogY" buttons to transform the axes by log10</p>
+<p>Enter a bin width and click "Set" to change the bin width of the histogram (the default is 0.1)</p>
+<p>Click on the histogram and move to select a region along the x axis. Click "Undo selection(s)" to return to the original range.</p>
+
+
+</div>
+<div class="tab-pane fade" id="howto">
+{% include "histograms_howto.html" %}
+</div>
+</div>
+
+
+
+</div>
+</section>
+{% endblock %}
+
+{%- block javascript %}
+<script type="text/javascript">
+$(function () {
+  var input_data;
+
+  var input_files = [
+     {id:"dimuon0",name:"dimuon events with invariant mass between 2-110 GeV",file:"/record/700/files/MuRun2010B_0.csv",type:"two_lepton"}, 
+     {id:"Jpismumu",name:"dimuon events with invariant mass between 2-5 GeV",file:"/record/301/files/dimuon-Jpsi.csv",type:"two_lepton"},
+     {id:"Jpsiee",name:"dielectron events with invariant mass between 2-5 GeV",file:"/record/302/files/dielectron-Jpsi.csv",type:"two_lepton"},
+     {id:"Yee",name:"dielectron events with invariant mass between 8-12 GeV",file:"/record/305/files/dielectron-Upsilon.csv",type:"two_lepton"},
+     {id:"Zee",name:"dielectron events around the Z boson mass",file:"/record/306/files/Zee.csv",type:"two_lepton"},
+     {id:"Zmumu",name:"dimuon events around the Z boson mass",file:"/record/307/files/Zmumu.csv",type:"two_lepton"},
+     {id:"Wenu",name:"W bosons decaying to an electron and a neutrino",file:"/record/308/files/Wenu.csv",type:"lepton_neutrino"},
+     {id:"Wmuu",name:"W bosons decaying to a muon and a neutrino",file:"/record/309/files/Wmunu.csv",type:"lepton_neutrino"}
+  ];
+  
+  // We know the names of the parameters that we have produced in the csv files.
+  // We also have only two event types in the csv: lepton_neutrino and two_lepton.
+  // We therefore provide some information on the parameters. 
+  var event_types = {
+     "two_lepton":    
+     [{name:"E1", unit:"GeV", description:"The total energy of the first lepton"},
+      {name:"pt1", unit:"GeV", description:"The transverse momentum of the first lepton"},
+      {name:"eta1", unit:null, description:"The pseudorapidity of the first muon"},
+      {name:"phi1", unit:"radians", description:"The phi angle of the first lepton direction"},
+      {name:"Q1", unit:null, description:"The charge of the first lepton"},
+      {name:"E2", unit:"GeV", description:"The total energy of the second lepton"},
+      {name:"pt2", unit:"GeV", description:"The transverse momentum of the second lepton"},
+      {name:"eta2", unit:null, description:"The pseudorapidity of the second lepton"},
+      {name:"phi2", unit:"radians", description:"The phi angle of the second muon lepton"},
+      {name:"Q2", unit:null, description:"The charge of the second lepton"},
+      {name:"M", unit:"GeV", description:"The invariant mass of the two leptons"}
+     ],
+     "lepton_neutrino":
+     [{name:"E", unit:"GeV", description:"The total energy of the lepton"},
+      {name:"MET", unit:"GeV", description:"The missing transverse energy due to the neutrino"},
+      {name:"Q", unit:null, description:"The charge of the lepton"},
+      {name:"phiMET", unit:"radians", description:"The phi angle of the missing transverse energy"},
+      {name:"eta", unit:null, description:"The pseudorapidity of the lepton"},
+      {name:"phi", unit:"radians", description:"The phi angle of the lepton direction"},
+      {name:"pt", unit:"GeV", description:"The transverse momentum of the lepton"}
+     ]
+  };
+
+  function loadFile(input) {
+    //$('#filename').html(input.file.split('/').pop());
+    $('#filedropdown').button('loading');
+   
+    d3.csv(input.file,
+      function(d) { // leading and trailing spaces in csv aren't ignored so we strip them out (if there) in the accessor
+        var newd = {};
+        for ( key in d ) {
+          if ( ! is_excluded(key.trim()) ) {
+            newd[key.trim()] = +d[key];
+          }
+        }
+        return newd;
+      },
+      function(data) {
+        populateValues(data[0], input.type);
+        input_data = data;
+        $('#filedropdown').button('reset');
+        $('#filedropdown').text(input.name+'  ');
+        $('#filedropdown').append('<span class="caret"></span>');
+      }
+    );
+  }
+
+  // Load a file automatically...
+  loadFile(input_files[0]);
+
+  //...and activate the first histogram
+  // Q: do we want to do this on every file load?
+  $(window).load(function() {
+    $('#parameter-button-row li button').first().trigger('click');
+  });
+
+  $.each(input_files, function(f) {
+    $('#fileul').append("<li role='presentation'><a id='"+input_files[f].id+"'>"+input_files[f].name+"</a></li>");
+  });
+
+  // Some fields aren't numbers, or it doesn't make sense to plot them, or they are redundant.
+  // Therefore exclude them.
+  var excluded = ["Run","Event","Type","Type1","Type2","px1","py1","pz1","px2","py2","pz2","px","py","pz"];
+  function is_excluded(key) {
+    if ( excluded.indexOf(key) === -1 ) {
+      return false;
+    }
+    return true;
+  }
+
+  function get_parameter_info(name, type) {
+    for ( var i = 0; i < type.length; i++ ) {
+      if ( name === type[i].name ) {
+        if ( type[i].unit !== null ) {
+          return type[i].description + ' ['+ type[i].unit +']';
+        } else {
+          return type[i].description;
+        }
+      }
+    }
+  }
+
+  function populateValues(data, type) {
+    for (var key in data) {
+      var parameter_info = get_parameter_info(key, event_types[type]);
+      $('#parameter-button-row').append("<li><button type='button' data-toggle='button' title='"+parameter_info+"' class='btn btn-default btn-large parameter'>"+ key +"</button></li>");
+    }
+  }
+
+ function buildHistogram(data, bw) {
+   var minx = d3.min(data),
+   maxx = d3.max(data),
+   nbins = Math.floor((maxx-minx) / bw);
+
+   var histogram = d3.layout.histogram();
+   histogram.bins(nbins);
+   data = histogram(data);
+
+   var output = [];
+   for ( var i = 0; i < data.length; i++ ) {
+     output.push([data[i].x, data[i].y]);
+     output.push([data[i].x + data[i].dx, data[i].y]);
+   }
+   return output;
+ }
+
+ var makeLog = function(v) {return v > 0 ? Math.log(v) : 0;};
+ var makeExp = function(v) {return Math.log(v);}
+
+ $(document).on('click', '#fileul li a', function() {
+   var id = $(this).attr("id");
+   var input_file = $.grep(input_files, function(i) {
+     return i.id == id;
+   });
+   $('#parameter-button-row').empty();
+   $('#flot-plots').empty();
+   loadFile(input_file[0]);
+ });
+
+ $(document).on('click', '.parameter', function() {
+   var parameter = $(this).html();
+   var parId = '#'+parameter;
+   var active = $(this).hasClass('active');
+
+   if ( active ) {
+      $('#flot-plots').append("<div id='"+parameter+"' class='col-md-6'></div>");
+      $(parId).css({"border":"1px dotted"});
+
+      $(parId).append("<div class='plot-control btn-toolbar'></div>");
+      $(parId).append("<div class='plot-container'></div>");
+      $(parId + ' div.plot-control').css({"height":"30px"});
+      $(parId + ' div.plot-container').css({"height":"300px"});
+
+      // This screams "template!"
+      var logbtns = "<div class='btn-group btn-group-sm'>";
+      logbtns += "<button type='button' class='btn btn-default logx "+ parameter + "' data-toggle='button'>Log X</button>";
+      logbtns += "<button type='button' class='btn btn-default logy "+ parameter + "' data-toggle='button'>Log Y</button>";
+      logbtns += "</div>";
+
+      $(parId + ' div.plot-control').append(logbtns);
+
+      var bininput = "<div class='input-group input-group-sm binwidth'>";
+      bininput += "<input type='text' name='binwidth' placeholder='Set bin width' class='form-control'>";
+      bininput += "<span class='input-group-btn'>";
+      bininput += "<button class='btn btn-default binw "+ parameter +"' type='button'>Set</button>";
+      bininput += "</span>";
+      bininput += "</div>";
+
+      $(parId + ' div.plot-control').append(bininput);
+
+      var selectbtn = "<div class='btn-group btn-group-sm'>";
+      selectbtn += "<button type='button' class='btn btn-default undoselect "+ parameter + "'>Undo selection(s)</button>";
+      selectbtn += "</div>";
+
+      $(parId + ' div.plot-control').append(selectbtn);
+
+      var options = {
+        label: parameter,
+        lines: { show: true, fill: false, lineWidth: 1.2 },
+        grid: { hoverable: true, autoHighlight: false },
+        xaxis: { tickDecimals: 0 },
+        yaxis: { autoscaleMargin: 0.1 },
+        crosshair: { mode: "x" },
+        selection: { mode: "x", color: "yellow" }
+      };
+
+      var histogram = buildHistogram(input_data.map(function(d) {return d[parameter];}), 0.1);
+      var data = [{data:histogram, label:parameter}];
+      var plot = $.plot($(parId + ' .plot-container'), data, options);
+      plot.setupGrid();
+      plot.draw();
+
+      var xmin = plot.getAxes().xaxis.min;
+      var xmax = plot.getAxes().xaxis.max;
+
+      $('button.logx.'+parameter).on('click', function() {
+        if ( ! $(this).hasClass('active')  ) {
+           $.extend(true, options, {xaxis:{transform:makeLog,inverseTransform:makeExp}});
+        } else {
+           $.extend(true, options, {xaxis:{transform:null,inverseTransform:null}});
+        }
+        $.plot($(parId + ' .plot-container'), data, options);
+      });
+
+      $('button.logy.'+parameter).on('click', function() {
+        if ( ! $(this).hasClass('active') ) {
+           $.extend(true, options, {yaxis: {transform: makeLog, inverseTransform: makeExp}});
+        } else {
+           $.extend(true, options, {yaxis: {transform:null, inverseTransform:null}});
+        }
+        $.plot($(parId + ' .plot-container'), data, options);
+      });
+
+      $('button.binw.'+parameter).on('click', function() {
+        var value = $('input[name=binwidth]').val();
+        histogram = buildHistogram(input_data.map(function(d) {return d[parameter];}), value);
+        data = [{data:histogram, label:parameter}];
+        $.plot($(parId + ' .plot-container'), data, options);
+      });
+
+      $('button.undoselect.'+parameter).on('click', function() {
+         $.extend(true, options, {xaxis:{min: xmin, max: xmax}});
+         $.plot($(parId + ' .plot-container'), data, options);
+      });
+
+      $(parId + ' .plot-container').bind("plotselected", function(event, ranges) {
+         //console.log("You selected " + ranges.xaxis.from.toFixed(1) + " to " + ranges.xaxis.to.toFixed(1));
+         $.extend(true, options, {xaxis:{min: ranges.xaxis.from, max: ranges.xaxis.to}});
+         $.plot($(parId + ' .plot-container'), data, options);
+      });
+
+    } else {
+     $('#'+parameter).remove();
+   }
+ });
+});
+</script>
+{% endblock %}

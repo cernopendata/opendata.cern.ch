@@ -1,0 +1,143 @@
+/*
+ * This file is part of CERN Open Data Portal.
+ * Copyright (C) 2014 CERN.
+ *
+ * CERN Open Data Portal is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation; either version 2 of the
+ * License, or (at your option) any later version.
+ *
+ * CERN Open Data Portal is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Invenio; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+ */
+
+@charset "utf-8";
+@import "base.less";
+@import "base/cern-toolbar.less";
+@import "base/prototype.less";
+
+body {
+    font-family: 'PT Sans','Trebuchet MS',Tahoma,sans-serif;
+    color: #626262;
+    padding-top: 0; /* hot fix */
+}
+
+footer, footer p {
+    font-size: inherit; /* hot fix */
+}
+
+#footer {
+    height: auto; /* hot fix */
+}
+
+#wrap {
+    padding-bottom: 275px;
+    margin-bottom: -275px;
+}
+
+/* ------------------------------------------------------------------------- */
+
+#search-form {
+    padding: 1em 0;
+    background-color: #f6f6f6;
+}
+
+#heading {
+    padding-top: 2em;
+    border-bottom: 1px solid #eee;
+    height: auto; /* hot fix */
+}
+
+#body {
+    padding: 2em 0 4em;
+    border-top: 1px solid #eee;
+}
+
+#mainmenu {
+    h1 {
+        font-weight: bold;
+        margin: 0;
+        font-size: 30px;
+
+        a {
+            color: inherit;
+        }
+    }
+    p {
+        margin: 0 0 2em;
+        padding: 0;
+    }
+
+    nav {
+        text-align: right;
+        margin-bottom: 0;
+
+        a {
+            padding: 0 .5em;
+            font-size: 18px;
+        }
+        ul {
+            padding: 10px 0;
+            margin-bottom: 0;
+
+            li {
+                display: inline;
+                line-height: normal;
+            }
+        }
+    }
+}
+
+#footer {
+    .clearfix;
+
+    color: #666666;
+    background: none #EEEEEE;
+    font-size: 13px;
+    padding: 5em 0;
+
+    .langs {
+        text-align: right;
+    }
+}
+
+.pagefooter {
+    padding: 0 42px;
+    .pagefooterstripeleft {
+        float: left;
+        width: 35%;
+    }
+    .pagefooterstriperight {
+        float: right;
+        width: 60%;
+        text-align: right;
+    }
+    .cern-logo {
+        float:right;
+        margin: 0 0 32px 32px;
+        vertical-align: bottom;
+    }
+}
+
+/* ------------------------------------------------------------------------- */
+
+.navbar-form {
+    padding: 0;
+}
+
+@media (min-width: @screen-md-min) {
+    #searchform-input-group {
+        width: @container-md - 30 !important;
+    }
+}
+@media (min-width: @screen-lg-min) {
+    #searchform-input-group {
+        width: @container-lg - 30 !important;
+    }
+}

@@ -1,0 +1,74 @@
+{% from "records/macros.html" import record_methodology_note, record_action_note,
+                                     record_material_publication_note, record_documentation_note,
+                                     record_disclaimer, record_export with context %}
+
+{% block record_dedicated %}
+  
+<div class="row" style="margin: -25px -20px;">
+  <div id="rec_dedicated_box" class="rec_dedicated_details col-md-12 panel-group">
+    {% if record.get('methodology_note', '') %}
+      {% block methodology_note %}
+        {{ record_methodology_note(record.get('methodology_note', '')) }}
+      {% endblock %}
+    {% endif %}
+
+    {% if record.get('action_note', '') %}
+      {% block action_note %}
+        {{ record_action_note(record.get('action_note', '')) }}
+      {% endblock %}
+    {% endif %}
+
+    {% if record.get('material_publication_note', '') %}
+      {% block material_publication_note %}
+        {{ record_material_publication_note(record.get('material_publication_note', '')) }}
+      {% endblock %}
+    {% endif %}
+
+    {% if record.get('documentation_note', '') %}
+      {% block documentation_note %}
+        {{ record_documentation_note(record.get('documentation_note', '')) }}
+      {% endblock %}
+    {% endif %}
+    
+    {% if record.get('constituent_unit_entry', '') %}
+      <div class="rec_dedicated_details_in rdd-reuse panel">
+        <div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#reusability">Usage</div>
+        <div id="reusability" class="info ccollapse">
+          <div class="body">{{ record.get('constituent_unit_entry', {}).get('heading', '') }}</div>
+          <div class="links">
+            {% if record.get('constituent_unit_entry.recid', '') %}
+              <ul>
+                <li><a href="{{ url_for('record.metadata', recid=record.get('constituent_unit_entry.recid', '')) }}">{{ (record.get('constituent_unit_entry.recid', ''))|get_record_name }}</a></li>
+              </ul>
+            {% endif %}
+            {% if record.get('constituent_unit_entry.url', '') %}
+              <ul>
+                <li><a href="{{ record.get('constituent_unit_entry.url', '') }}">{{ record.get('constituent_unit_entry.description', '') }}</a></li>
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    {% block record_disclaimer %}
+      {% if not record['license'] %}
+        {{ record_disclaimer( exp = record.get('accelerator_experiment','')['experiment'], title = 'Disclaimer')}}
+      {% elif record['license'].get('license') == 'CC0' %}
+        {{ record_disclaimer( exp = record.get('accelerator_experiment','')['experiment'], title = 'Disclaimer')}}
+      {% else %}
+        {{ record_disclaimer(exp = record.get('accelerator_experiment','')['experiment'], title = 'Disclaimer', body = record['license'].get('license', '')) }}
+      <div class="rec_dedicated_details_in rdd-disclaimer panel">
+        <div class="title"></div>
+        <div id="disclaimer" class="info">
+          <div class="row">
+            <div class="body col-md-12">
+              {{ record['license'].get('license', '') }}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    {% endblock %}
+    {{ record_export("exportModal", record, ['__meta_metadata__', 'restriction']) }}
+  </div>
+{% endblock %}

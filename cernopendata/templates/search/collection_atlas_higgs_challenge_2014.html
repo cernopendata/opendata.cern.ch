@@ -1,0 +1,102 @@
+{#
+# This file is part of CERN Open Data Portal.
+# Copyright (C) 2014, 2015 CERN.
+#
+# CERN Open Data Portal is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# CERN Open Data Portal is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Invenio; if not, write to the Free Software Foundation, Inc.,
+# 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+#}
+
+{% extends 'page.html' %}
+
+{% block body %}
+
+{% import 'helpers/general.html' as gen_utils %}
+{% with collection = 0 %}
+{% include 'search/form/index.html' %}
+{% endwith %}
+
+<section class="infobar">
+  <div class="container">
+    {%- if collection.collection_children_r %}
+      {{ gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names) }}
+    {% else %}
+    <div class="row">
+      <div class="coltitle col-md-12">
+        <p>
+          {% if collection.is_restricted %}
+            {{ _('Restricted Collection')  }}
+          {% else %}
+            {{ gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names) }}
+          {% endif %}
+        </p>
+      </div>
+    </div>
+    {%- endif %}
+  </div>
+</section>
+
+<section id="subcollection" style="padding-bottom: 0;">
+  <div class="container">
+    <div id="main-description" class="row">
+      <div style="margin:0;" class="coll-desc col-sm-12 col-xs-12 pull-left">
+          <div class="results-title">{{ collection.name_ln }}</div>
+          <img  class="main-description-img" src="{{url_for('static', filename='img/atlas_challenge.png')}}" alt="">
+          <p>Discovery of the long-awaited Higgs boson was announced on 4 July 2012 and confirmed six months later. The year 2013 saw a number of prestigious awards given for the discovery, <a href="http://www.nobelprize.org/nobel_prizes/physics/laureates/2013/">including a Nobel Prize</a>. But for physicists, the discovery of a new particle means the beginning of a long and difficult quest to measure its characteristics and determine if it fits the current model of nature.</p>
+          <p>A key property of any particle is how often it decays into other particles. ATLAS is a particle-physics experiment at the Large Hadron Collider at CERN that searches for new particles and processes using head-on collisions of protons with extraordinarily high energy. The ATLAS experiment has recently observed a signal of the Higgs boson decaying into two tau particles, but this decay is a small signal buried in background noise.</p>
+          <p>The goal of the Higgs Boson Machine Learning Challenge is to explore the potential of advanced machine-learning methods to improve the discovery significance of the experiment. No knowledge of particle physics is required. Using simulated data with features characterising events detected by ATLAS, your task is to classify events into "tau-tau decay of a Higgs boson" versus "background".</p>
+          <p>The Challenge ran on the Kaggle platform from May to September 2014, drawing more that 1700 participants. Very promising techniques and methodologies were applied. The Challenge dataset is now permanently available on <a href="http://opendata.cern.ch">opendata.cern.ch</a> so that further developments are made possible.</p>
+      </div>
+    </div>
+    <div id="record-list" class="row">
+      {% if collection.reclist %}
+      <div class="col-sm-12"><h3>Collection items</h3></div>
+      {% for r in coll_records %}
+      <div class="col-md-4">
+        <div class="rec-single-box">
+          <div class="title">
+            <div class="t">{{r.get('title','').get('title','')|truncate(75) }}</div>
+          </div>
+          <div class="desc">
+            <div class="b">
+              {% set authors = r.get('authors', '') %}
+              {% if r.get('imprint','')['publisher_name'] %}
+                {% if authors|length < 3 %}
+                  {% for a in authors %}
+                  <b>{{a.get('last_name','')+' '+a.get('first_name','')}}</b>
+                  {{ ', ' if not loop.last }}
+                  {% endfor %}
+                {% else %}
+                  <b>{{authors[0].get('last_name','')+' '+authors[0].get('first_name','')}}, </b>
+                  <b>{{authors[1].get('last_name','')+' '+authors[1].get('first_name','')}}, </b>
+                  <b><i>et al</i></b>
+                {% endif %}
+              {% endif %}
+              {{ r.get('abstract','').get('summary','')| truncate(200)}}
+            </div>
+            <a href="{{ url_for('.metadata', recid = r.get('_id'))}}">
+              <div class="go">
+                <div>Go to page<span class="fa fa-chevron-right"></span></div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+
+{%- endblock %}

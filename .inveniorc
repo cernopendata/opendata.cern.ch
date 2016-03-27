@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Kickstart CERN Open Data Portal demo instance.
+
+# sphinxdoc-kickstart-configuration-variables-begin
+export INVENIO_WEB_HOST=192.168.50.10
+export INVENIO_WEB_INSTANCE=cernopendata
+export INVENIO_WEB_VENV=cernopendata
+export INVENIO_USER_EMAIL=info@inveniosoftware.org
+export INVENIO_USER_PASS=uspass123
+export INVENIO_POSTGRESQL_HOST=192.168.50.11
+export INVENIO_POSTGRESQL_DBNAME=cernopendata
+export INVENIO_POSTGRESQL_DBUSER=cernopendata
+export INVENIO_POSTGRESQL_DBPASS=dbpass123
+export INVENIO_REDIS_HOST=192.168.50.12
+export INVENIO_ELASTICSEARCH_HOST=192.168.50.13
+export INVENIO_RABBITMQ_HOST=192.168.50.14
+export INVENIO_WORKER_HOST=192.168.50.15
+# sphinxdoc-kickstart-configuration-variables-end
+
+# Now you can use kickstart scripts, for example:
+#
+# vagrant up
+# vagrant ssh web -c 'source .inveniorc && /vagrant/scripts/install.sh'
+# curl http://0.0.0.0:5000/records/1

@@ -1,0 +1,65 @@
+{#
+# This file is part of CERN Open Data Portal.
+# Copyright (C) 2014, 2015 CERN.
+#
+# CERN Open Data Portal is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# CERN Open Data Portal is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Invenio; if not, write to the Free Software Foundation, Inc.,
+# 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+#}
+
+{%- extends "footer_base.html" -%}
+
+{%- block footer %}
+<!--   <div class="upperfoot">
+<div class="container">
+<div class=" col-md-6 col-sm-12 no-padding">
+<ul class="ppull-left">
+<li><span class="fa fa-facebook"></span></li>
+<li><span class="fa fa-twitter"></span></li>
+<li><span class="fa fa-youtube-play"></span></li>
+</ul>
+</div>
+<div class="col-md-6 col-sm-12 no-padding">
+<ul class="ppull-right actions ">
+<li style="color:#666;"><span class="fa fa-paper-plane"></span>CONTACT + SUGGESTIONS ?</li>
+</ul>
+</div>
+</div>
+</div>
+-->
+    <div class="b">
+      <div class="container">
+        <div class="row">
+          <div class="middle_l col-md-6 col-xs-12 col-sm-6">
+            <a href="http://www.cern.ch"><img src="{{ url_for('static', filename='/img/opendata/cern-logo-large.png') }}" style="width:auto;height:55px;" alt=""></a>
+          </div>
+          <div class="middle_r col-md-6 col-xs-12 col-sm-6">
+            <a href="http://alice.cern.ch"><img src="{{ url_for('static', filename='/img/ALICE.gif') }}" alt=""></a>
+            <a href="http://atlas.ch"><img src="{{ url_for('static', filename='/img/ATLAS.svg') }}" alt=""></a>
+            <a href="http://cms.cern.ch"><img src="{{ url_for('static', filename='/img/CMS.gif') }}" alt=""></a>
+            <a href="http://lhcb.cern.ch"><img src="{{ url_for('static', filename='/img/LHCb.gif') }}" alt=""></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="centered legal">
+            <ul class="">
+              <li>© 2014, 2015 CERN</li>
+              <li><a href="{{ url_for('terms-of-use') }}">Terms of Use</a></li>
+              <li><a href="{{ url_for('privacy-policy') }}">Privacy Policy</a></li>
+              <li><a href="mailto:opendata-support@cern.ch">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+{%- endblock footer %}

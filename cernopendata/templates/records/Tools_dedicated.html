@@ -1,0 +1,14 @@
+{% extends 'records/dedicated_base.html' %}
+
+
+{% block methodology_note %}
+  {{ record_methodology_note(record.get('methodology_note', ''), 'Data Selection') }}
+{% endblock %}
+
+{% block action_note %}
+  {{ record_action_note(record.get('action_note', '') , 'Validation') }}
+{% endblock %}
+
+{% block material_publication_note %}
+{% endblock %}
+  

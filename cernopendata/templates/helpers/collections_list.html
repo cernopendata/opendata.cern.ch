@@ -1,0 +1,128 @@
+{% macro document_recbox(title, id, author, description, collection, filenum, class='col-md-6', link=false, img_type='fa-file') %}
+  <li class="{{class}} col-xs-12 col-sm-6">
+    <div class="recordbox">
+      <div class="top col-md-12">
+        <a href="{{ url_for('record/'+id) if not link else link|safe}}"><h5>{{ title |safe }}</h5></a>
+      </div>
+      <div class="details col-md-12">
+        <ul class="row">
+          <li class="recbox-desc col-md-12">{{ description }}</li>
+          <li class="recbox-info col-md-12">
+            <div><span class="fa fa-user"></span>{{ author}}</div>
+            <div><span class="fa fa-folder-open"></span>{{ collection }}</div>
+            <div><span class="fa fa-file"></span>{{filenum}}</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </li>
+{% endmacro %}
+{% macro datasample_recbox(title, id, link=false, image='default.jpg') %}
+  <li class="col-md-4 col-xs-12 col-sm-6">
+    <a href="{{ url_for('record/'+id) if not link else link|safe}}">
+      <div class="recordbox">
+        <div class="top row">
+          <div class="col-md-2">
+            <span class="fa fa-database"></span>
+          </div>
+          <div class="col-md-10">
+            <h5>{{ title |safe }}</h5>
+          </div>
+        </div>
+        <div class="thumb">
+          <img src="{{ url_for('static', filename=image ) }}" alt="">
+        </div>
+        <div class="details">
+          <span>Read more</span>
+        </div>
+      </div>
+    </a>
+  </li>
+{% endmacro %}
+
+{% macro record_samples(cms, alice, cmstools, purpose, exp) %}
+  <div class="tab-content">
+    <div class="tab-pane fade {%  if exp in ['CMS','all'] %}in active{% endif%}" id="CMS">
+      <div class="col-md-8 col-sm-12">
+        <div class="row">
+          <div class="title col-md-12">CMS Datasets</div>
+        </div>
+        <ul class="cms-list row">
+          {% for r in cms %}
+            {% if 'authors' in r %}
+              {{ document_recbox(r.get('title',{}).get('title',''), r['recid']|string, r.get('authors',[{}])[0].get('full_name',''), r.get('abstract',{}).get('summary',''), 'CMS Derived Datasets', r['files']|length) }}
+            {% elif '_first_corporate_name' in r %}
+              {{ document_recbox(r.get('title',{}).get('title',''), r['recid']|string, r['_first_corporate_name']['name'], r.get('abstract',{}).get('summary',''), 'CMS Derived Datasets', r['files']|length) }}
+
+            {% endif %}
+
+          {% endfor %}
+        </ul>
+        <div class="seeall center-block">
+          <a href="{{ url_for('collection/CMS') }}" class="col-md-12">SEE ALL</a>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="row"><div class="title col-md-12">CMS Tools</div></div>
+        <ul class="row">
+          {% for t in cmstools %}
+            {% if 'comment' in t %}
+              {{ document_recbox(t.get('title',{}).get('title',''), t['recid']|string, t.get('authors',[{}])[0].get('full_name',''), t['comment'] , 'CMS Tools', t['files']|length, "col-md-12" ) }}
+            {% else %}
+              {{ document_recbox(t.get('title',{}).get('title',''), t['recid']|string, t.get('authors',[{}])[0].get('full_name',''), t.get('abstract',{}).get('summary',''), 'CMS Tools', t['files']|length, "col-md-12" ) }}
+            {% endif%}
+
+          {% endfor %}
+        </ul>
+        <div class="seeall center-block">
+          <a href="{{ url_for('collection/CMS-Tools') }}" class="col-md-12">SEE ALL</a>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade {%  if exp in ['ALICE'] %}in active{% endif%}" id="ALICE">
+      <ul class="row">
+        {% for r in alice %}
+          {{ document_recbox(r.get('title',{}).get('title',''), r['recid']|string, r.get('authors',[{}])[0].get('full_name',''), r['comment'], 'ALICE Tools', r['files']|length) }}
+        {% endfor %}
+      </ul>
+      <div class="seeall">
+        <a href="{{ url_for('collection/ALICE') }}" class="col-md-2 col-md-offset-5">SEE ALL</a>
+      </div>
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro search_form() %}
+  {% block searchform %}
+    <div class="pull-right searchForm col-md-12">
+      <form action="{{ url_for('search') }}" method="get" name="searchForm" role="form" class="pull-right" id="searchForm">
+        <input type="text" name="p" placeholder="Looking for ..." class="form-control">
+        <button class="btn btn-search fa fa-search"></button>
+      </form>
+    </div>
+  {% endblock searchform %}
+{% endmacro %}
+
+<!-- /////////// -->
+{% if show_navbar is sameas true %}
+  <div class="nav collections-nav">
+    <div class="container">
+      <div class="row">
+        {% block leftside_actions %}
+          <ul class="pull-left col-md-7 nav nav-tabs" role="tablist">
+            <li {% if exp in ['CMS','all'] %} class="active" {% endif %}><a href="#CMS" role="tab" data-toggle="tab"></span>CMS</a></li>
+            <li {% if exp == 'ALICE' %} class="active" {% endif %}><a href="#ALICE" role="tab" data-toggle="tab"></span>ALICE</a></li>
+          </ul>
+        {% endblock leftside_actions %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+
+<div class="collRecords">
+  <div class="container">
+    {{ record_samples(cms, alice, cmstools, purpose, exp) }}
+  </div>
+</div>

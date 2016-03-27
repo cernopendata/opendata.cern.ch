@@ -1,0 +1,64 @@
+{%- extends config.BASE_TEMPLATE %}
+
+{% import 'data/news_db.html' as n %}
+
+{% macro date_to_text(date) %}
+  <span class="date">{{ date }}</span>
+{% endmacro %}
+
+{% macro news_box(title, body, author, extra, date, n_id) %}
+  {% block news_box scoped%}
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3>{{ title }}</h3>
+        <p>
+          <small>posted on {{ date_to_text(date) }} by <strong>{{author}}</strong></small>
+          {% for tag in extra[2] %}
+            <span class="label label-default">#{{ tag }}</span>
+          {% endfor %}
+        </p>
+      </div>
+      <div class="panel-body">
+        {{  body|safe }}
+      </div>
+    </div>
+  {% endblock %}
+{% endmacro %}
+
+{% macro tag_box(name, classes) %}
+  {% block tag_box scoped%}
+    <a href="#" class="tag-box {{classes}}">
+      <span>#{{name}}</span>
+    </a>
+  {% endblock %}
+{% endmacro %}
+
+{% block page_body %}
+  <section class="news-main">
+    <div class="container">
+      <!-- <div class="row">
+        <div class="col-md-12">
+          <div class="tag-container">
+            <div class="tag-filter col-sm-2">
+              <div class="">Filter news:</div>
+            </div>
+            <div class="tag-boxes col-sm-10">
+              <div class="">
+                {% for tag in n.tags %}
+                  {{ tag_box(tag[0], tag[1]) }}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="row">
+        {% for ns in n.news %}
+        <div class="col-sm-12">
+          {{ news_box(ns[0], ns[1], ns[2], ns[3], ns[4], ns[5]) }}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock page_body %}

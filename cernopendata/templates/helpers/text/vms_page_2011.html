@@ -1,0 +1,121 @@
+<!-- START CMS VM instructions -->
+
+{% macro about_cms_msg(url) %}
+  <h1 class="col-md-12">CMS 2011 Virtual Machines: How to install</h1>
+  <p class="col-md-12">
+    The CMS-specific VM includes the <a href="http://root.cern.ch/">ROOT framework</a> and <a href="http://cms-sw.github.io/">CMSSW</a>. Follow the instructions below to setup a CERN Virtual Machine on your computer. Then, go to <a href="{{url}}">Getting Started with CMS data</a>
+  </p>
+{% endmacro %}
+
+{% macro cms_install_2011_s1() %}
+  <h2>Step 1: Installing VirtualBox</h2>
+  <p>VirtualBox is a free, open source and multiplatform application to run virtual machines: you can <a href="https://www.VirtualBox.org/wiki/Downloads">download</a> the package for your platform from the Downloads page.</p>
+  <p>You will need administrative ("root") privileges on every platform to perform the installation of VirtualBox.</p>
+  <p>Note: the latest tested version of VirtualBox working with this CMS-specific CernVM image is 5.0.14. If you have troubles with the latest version of VirtualBox, pick that one: the full history of VirtualBox versions is available <a href="https://www.VirtualBox.org/wiki/Download_Old_Builds">on a different page.</a></p>
+{% endmacro %}
+
+{% macro cms_install_2011_s2(url) %}
+  <h2>Step 2: Downloading and Creating a Virtual Machine</h2>
+  <p>
+    <strong>Important</strong>: Before you download the CernVM, note that the imported settings may not always work on your host machine. Please see <a href="#issues">Issues and Limitations</a> if you encounter any problems with booting the VM.
+  </p>
+  <p>
+    Next download the CMS-specific CernVM image as OVA file from: <a href="{{url}}">CMS VM Image for 2011 CMS open data</a>.
+  </p>
+  <p>
+    By double clicking the downloaded file, VirtualBox imports the image with ready-to-run settings: in case of any problems with booting with these default settings, see <a href="#issues">Issues and Limitations</a>. Then, you launch the CMS-specific CernVM, which boots into the graphical user interface and sets up the CMS environment.
+  </p>
+{% endmacro %}
+
+{% macro cms_validate_intro_2011(url) %}
+  <p>The validation procedure tests that the CMS environment is installed and operational on your virtual machine, and that you have access to the ROOT files. You may skip this step if you want, and head straight to <a href="{{url}}">Getting Started with CMS data</a>. However, these steps give you a quick introduction to the CMS environment.</p>
+{% endmacro %}
+
+{% macro cms_validate_2011_s1() %}
+  <h2>Set up the CMS environment and run a demo analyzer</h2>
+  <p>
+      <div class="it">Open a terminal with the X terminal emulator (an icon bottom-left of the VM screen)</div>
+      <div class="it">Execute the following command; this command builds the local release area (the directory structure) for CMSSW, and only needs to be run once:</div>
+      <pre>cmsrel CMSSW_5_3_32</pre>
+      <div class="it">Change to the <kbd>CMSSW_5_3_32/src/</kbd> directory:</div>
+      <pre>cd CMSSW_5_3_32/src/</pre>
+      <div class="it">Then, run the following command to create the CMS runtime variables:</div>
+      <pre>cmsenv</pre>
+      <div class="it">Create a working directory for the demo analyzer, change to that directory and create a "skeleton" for the analyzer:</div>
+      <pre>mkdir Demo
+cd Demo
+mkedanlzr DemoAnalyzer</pre>
+      <div class="it">Compile the code:</div>
+      <pre>cd DemoAnalyzer
+scram b</pre>
+      <div class="it">Change the file name in the configuration file <kbd>demoanalyzer_cfg.py</kbd> in the DemoAnalyzer directory:
+        i.e. replace <kbd>file:myfile.root</kbd> with
+        <kbd>root://eospublic.cern.ch//eos/opendata/cms/Run2011A/ElectronHad/AOD/12Oct2013-v1/20001/001F9231-F141-E311-8F76-003048F00942.root</kbd></div>
+      <div class="it">Change the max number of events to 10 (i.e change -1 to 10 in <kbd>process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1)</kbd>).</div>
+      <div class="it">Move two directories back using:</div>
+      <pre>cd ../..</pre>
+      <div class="it">And then run:</div>
+      <pre>cmsRun Demo/DemoAnalyzer/demoanalyzer_cfg.py</pre>
+      <div class="it">You can consider your VM "validated" &mdash; i.e it gets access to and compiles the CMS software, and reads the CMS open data files &mdash; if you get an output like:</div>
+      <pre>16-Mar-2016 15:45:13 CET Initiating request to open file root://eospublic.cern.ch//eos/opendata/cms/Run2011A/ElectronHad/AOD/12Oct2013-v1/20001/001F9231-F141-E311-8F76-003048F00942.root
+16-Mar-2016 15:45:17 CET Successfully opened file root://eospublic.cern.ch//eos/opendata/cms/Run2011A/ElectronHad/AOD/12Oct2013-v1/20001/001F9231-F141-E311-8F76-003048F00942.root
+Begin processing the 1st record. Run 166782, Event 340184599, LumiSection 309 at 16-Mar-2016 15:45:40.234 CET
+Begin processing the 2nd record. Run 166782, Event 340185007, LumiSection 309 at 16-Mar-2016 15:45:40.235 CET
+Begin processing the 3rd record. Run 166782, Event 340187903, LumiSection 309 at 16-Mar-2016 15:45:40.236 CET
+Begin processing the 4th record. Run 166782, Event 340227487, LumiSection 309 at 16-Mar-2016 15:45:40.237 CET
+Begin processing the 5th record. Run 166782, Event 340210607, LumiSection 309 at 16-Mar-2016 15:45:40.237 CET
+Begin processing the 6th record. Run 166782, Event 340256207, LumiSection 309 at 16-Mar-2016 15:45:40.238 CET
+Begin processing the 7th record. Run 166782, Event 340165759, LumiSection 309 at 16-Mar-2016 15:45:40.239 CET
+Begin processing the 8th record. Run 166782, Event 340396487, LumiSection 309 at 16-Mar-2016 15:45:40.239 CET
+Begin processing the 9th record. Run 166782, Event 340390767, LumiSection 309 at 16-Mar-2016 15:45:40.241 CET
+Begin processing the 10th record. Run 166782, Event 340435263, LumiSection 309 at 16-Mar-2016 15:45:40.241 CET
+16-Mar-2016 15:45:40 CET Closed file root://eospublic.cern.ch//eos/opendata/cms/Run2011A/ElectronHad/AOD/12Oct2013-v1/20001/001F9231-F141-E311-8F76-003048F00942.root
+MessageLogger Summary
+type category sev module subroutine count total
+1 fileAction           -s file_close                             1        1
+2 fileAction           -s file_open                              2        2
+type category Examples: run/evt run/evt run/evt
+1 fileAction           PostEndRun
+2 fileAction           pre-events       pre-events
+Severity # Occurrences Total Occurrences
+System 3 3</pre>
+  </p>
+{% endmacro %}
+
+{% macro cms_validate_2011_s2(url) %}
+<h2>Validation report</h2>
+<p>Coming soon! Meanwhile, please check the validation report for the VM image for our 2010 data, which may contain information useful to you.<!-->The CMS-specific CERN Virtual Machine has been tested on several operating systems, VM softwares and hardware configurations. However, we cannot guarantee that it will work under all conditions. Problems can often be traced to a user’s particular system settings. </p>
+<p>Solutions to some of the common problems encountered are listed below. <a href="{{url}}">This validation report</a> contains more information, including a full list of tested machines and configurations, along with issues faced during testing.--></p>
+{% endmacro %}
+
+{% macro cms_limitation_2011_s1() %}
+<h2>Known Issues FAQ</h2>
+<div class="heading"><b>Q: </b>The following error message appears when the Virtual Machine is started: "Could not start the machine CMS Open Data because the following physical network interfaces were not found: vboxnet0 (adapter 2). You can either change the machine's network settings or stop the machine."</div>
+<p><b>A: </b>Change the Network settings for adapter 2 from "Host-only Adapter" to "NAT". The VM should then start correctly.</p>
+<div class="heading"><b>Q: </b>On Ubuntu running the latest version of VirtualBox, an error appears when opening the CMS-specific virtual machine: the message is about a missing path to a definition file.</div>
+<p><b>A: </b>To fix this, open one of the (non-CMS-specific) CernVMs first, after which the CMS-specific one should load without the error message.</p>
+<div class="heading"><b>Q: </b>On Windows 7 and 8, this error message appears: "VT-X/AMD-V hardware acceleration is not available on your system. Your 64-bit guest will fail to detect a 64-but CPU and will not be able to boot."
+</div>
+<p><b>A: </b>Check whether your processor supports the VT-X feature by going to <a href="http://ark.intel.com/">http://ark.intel.com/</a>: Intel® Virtualisation Technology (VT-x) should be checked as "yes". Then, when the host machine is booting (just after switching it on) press the appropriate function key to get to the setup, go to advanced settings, and enable the virtualisation extensions of the CPU. Note that some recent Acer Inspire laptop models do not give access to the VT-X feature in the BIOS setup even if the processor supports it.</p>
+<div class="heading"><b>Q: </b>The VM does not inherit the keyboard layout of the host machine.</div>
+<p><b>A: </b>The layout can be changed by using setxkbmap from a terminal inside the Virtual Machine. For example a user with a Swiss keyboard with French variant would type <kbd>setxkbmap 'ch(fr)'</kbd> in the terminal and a user with a Finnish keyboard would type <kbd>setxkbmap fi</kbd>. This can also be solved by using the GUI, which can be launched either from the graphical menu in the lower left corner (Preferences &rarr; Keyboard) or by typing in the console: xfce4-keyboard-settings. In the Layout tab it is possible to change the keyboard model and the layout. If you wish to keep these settings after reboot, you should delete all the other layouts from the menu.
+</p>
+<div class="heading"><b>Q: </b>The default terminal does not accept (not even from the clipboard) nor display certain language-specific characters such as <a href="http://en.wikipedia.org/wiki/Diaeresis_%28diacritic%29">umlauts</a>.</div>
+<p><b>A: </b>Using a terminal such as xterm will allow reading and writing special characters.</p>
+<div class="heading"><b>Q: </b>Users who use high resolutions on small displays and have set their host machines DPI manually, for example through <kbd>.Xresources</kbd> on Linux (X11), may find that everything is too small to be read efficiently. (Also helpful to users who have difficulties in reading the fonts and other visual information on the image due to the size of the graphical components.)
+</div>
+<p><b>A: </b>The DPI can easily be adjusted from Xfce menu &rarr; Preferences &rarr; Appearance &rarr; Fonts &rarr; DPI. This enhances the readability and general usability significantly.</p>
+<div class="heading"><b>Q: </b>Resizing the VM window doesn't resize its contents.
+</div>
+<p><b>A: </b>This appears to only occur when a new VM image is launched for the first time. The contents should resize after several minutes (up to half an hour), and the problem should not manifest when the VM image is opened a second time.</p>
+{% endmacro %}
+
+<!-- END CMS VM instructions -->
+
+<!-- START ALICE VM instructions -->
+
+{% macro about_alice_msg(url) %}
+  <div class="title">ALICE Virtual Machines: How to install</div>
+{% endmacro %}
+
+<!-- END ALICE VM instructions -->

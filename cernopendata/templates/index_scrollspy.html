@@ -1,0 +1,747 @@
+{%- extends 'page.html' %}
+
+{% block glossary_bundle %}{% endblock %}
+
+{% block body_attributes %}data-spy="scroll" data-offset="200" data-target="#homepage-nav"{% endblock %}
+
+{%- block page_header -%}
+  <div id="wrap"> {# get closed into page_footer #}
+  {% with home=true %}
+    {%- include "header.html" -%}
+  {% endwith %}
+{%- endblock page_header -%}
+
+
+{% block body %}
+
+  <style>
+    body, html {
+      height: 100%;
+    }
+
+    #wrap {
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+    #od-header {
+      position: absolute;
+      height: 80px;
+      width: 100%;
+    }
+
+    #main {
+    }
+    .midnav {
+      background-color: #f4f4f4;
+      padding: 5px 0;
+    }
+    .main-header {
+      padding-top: 110px;
+      text-align: center;
+      font-size: 28px;
+      color: rgb(141, 155, 173);
+    }
+
+    .homepage-nav {
+      position: fixed;
+      margin-right: 0px;
+      bottom: 40%;
+      right: 0;
+      z-index: 500;
+    }
+    .homepage-nav ul {
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      width: 35px;
+      /*background-color: rgba(161, 177, 197, 0.54);*/
+    }
+    .homepage-nav li {
+      /*width: 100%;*/
+      text-align: center;
+    }
+    .homepage-nav li a,
+    .homepage-nav li a:hover,
+    .homepage-nav li a:focus {
+      padding: 7px 10px;
+      border-radius: 3px;
+      padding-bottom: 5px;
+      background-color: transparent;
+      color: #f5f5f5;
+      font-size: 18px;
+    }
+
+    .homepage-nav li.active a{
+      color: #95abb7;
+      /*background-color: rgba(255, 255, 255, 0.6);*/
+      border-radius: 0;
+    }
+
+    .homepage-nav a,
+    .homepage-nav a:hover,
+    .homepage-nav a:focus {
+      color: #fff;
+    }
+
+    .homepage-frame {
+      height: 100vh;
+      width: 100vw;
+      float: left;
+      color: #354654;
+      overflow: hidden;
+    }
+
+
+    #main.homepage-frame {
+      padding-top: 0;
+    }
+
+    #main {
+      background-color: inherit;
+    }
+    @media (max-width: 768px) {
+      .homepage-frame {
+        height: auto;
+        padding: 40px 0;
+      }
+      .entrypoint-box {
+        /*width: auto!important;*/
+        margin-top: 10%!important;
+        /*height: auto!important;*/
+        width: 100%!important;
+      }
+      .entrypoint-action a {
+        position: relative!important;
+      }
+
+      #main.homepage-frame {
+        padding-top: 30px;
+      }
+/*
+      #mob-up {
+        position: absolute;
+      }
+
+      #mob-down {
+        margin-top: 120vh;
+      }*/
+      .entrypoint-desc {
+        height: auto!important;
+
+      }
+      .legal {
+        width: 100%;
+      }
+      .legal ul li {
+        width: 100%;
+      }
+    }
+
+    @media (max-height: 700px) {
+      .coll-button a.btn,
+      .coll-button a.btn:hover {
+        padding-top: 2px!important;
+      }
+
+      .goto-action-button {
+        padding-top: 2px!important;
+      }
+    }
+    .entrypoint {
+      position: absolute;
+      height: 100vh;
+      float: left;
+      /*border-bottom: 5px solid #657580;*/
+    }
+    .entrypoint-box {
+      padding-top: 40px;
+      background-color: rgba(244, 244, 244, 0.71);
+      padding: 15px;
+      border-radius: 5px;
+      height: 50vh;
+      margin-top: 25vh;
+      color: #6c7c84;
+      width: 60%;
+      min-width: 230px;
+      min-height: 300px;
+    }
+
+    .entrypoint-box h1 {
+      text-align: left;
+      font-size: 2.4em;
+      margin-bottom: 35px;
+    }
+    .entrypoint-box h5 {
+      font-weight: 100;
+      font-size: 1.37em;
+      text-align: left;
+    }
+    .entrypoint-action a {
+        border-radius: 3px;
+        margin-bottom: 15px;
+        font-size: 1.4em;
+        padding: 10px;
+        background-color: #95abb7;
+        color: #fff;
+        /*position: absolute;*/
+        width: 200px;
+        bottom: 0;
+        text-align: left;
+        float: left;
+        margin-left: 15px;
+    }
+
+    .entrypoint-action {
+      margin-top: 30px;
+    }
+
+    .entrypoint-action a:hover,
+    .entrypoint-action a:focus {
+      color: #fff;
+      text-decoration: none;
+    }
+    .entrypoint-action span {
+      padding: 5px;
+    }
+    .entrypoint-box .gotoentry {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #657580;
+    }
+
+    .homepage-frame .exp-image {
+      float: left;
+      width: 20%;
+      position: relative;
+      display: inline-block;
+      height: 100%;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-left: -10px;
+      padding-left: 10px;
+      background-color: #95abb7;
+      border-top-left-radius:3px;
+      border-bottom-left-radius:3px;
+      text-align: center;
+    }
+
+    .homepage-frame .exp-image img {
+      background-color: rgb(141, 155, 173);
+      max-width: 90%;
+      max-height: 70%;
+      /*padding: 10px;*/
+      padding-right: 10px;
+      vertical-align: middle;
+    }
+    #education ul, #research ul {
+      height: 80vh;
+    }
+
+    #education ul li, #research ul li {
+      height: 18vh;
+      background-color: #f4f4f4;
+      border-radius: 4px;
+      padding: 0 10px;
+      margin-bottom: 2.8vh;
+      display: inline-block;
+      width: 100%;
+      position: relative;
+    }
+
+    #LHCb.homepage-frame .exp-image h2,
+    #ALICE.homepage-frame .exp-image h2 {
+     /*color: #fff;*/
+    }
+    .homepage-frame .exp-image h2 {
+      color: rgb(141, 155, 173);
+      font-size: 6em;
+      float: left;
+      margin: 0;
+      margin-left: 25px;
+    }
+
+    #LHCb.homepage-frame .coll-desc,
+    #ALICE.homepage-frame .coll-desc {
+      /*color: #fff;*/
+    }
+    .homepage-frame .coll-desc {
+      font-size: 13px;
+      font-weight: 100;
+      width: 80%;
+      float: left;
+      height: 65%;
+      overflow: auto;
+      margin-top: 10px;
+      margin-bottom: -10px;
+      padding-left: 10px;
+    }
+    .homepage-frame .info_details {
+      height: 50%;
+    }
+    .homepage-frame .entry_buttons {
+      padding-top: 10%;
+      height: 30%;
+    }
+
+    .homepage-frame .entry_buttons .entrypoint-buttons {
+      bottom: 0;
+      position: absolute;
+      width: 100%;
+    }
+    .homepage-frame .entry_buttons a:hover {
+      color: #fff;
+      text-decoration: none;
+      background-color: rgb(141, 155, 173);
+    }
+    .homepage-frame .entry_buttons a {
+      background-color: #fff;
+      border-radius: 3px;
+      font-size: 17px;
+      font-weight: 400;
+      text-wrap: none;
+      padding: 20px 15px;
+      color: inherit;
+      /* margin-left: 15px; */
+      float: left;
+      color: rgb(141, 155, 173);
+      width: 100%;
+    }
+
+    .homepage-frame ul a,
+    .homepage-frame ul a:hover,
+    .homepage-frame ul a:focus {
+      color: inherit;
+    }
+
+    .homepage-frame ul a a {
+      text-decoration: underline;
+    }
+
+    .homepage-frame ul .coll-desc a {
+      color: #428bca;
+    }
+    
+    .homepage-frame .right-side > .news {
+      height: 30%;
+    }
+    .homepage-frame .right-side > .collections {
+      height: 30%;
+    }
+    .homepage-frame .right-side > .quicklinks {
+      height: 40%;
+    }
+
+
+    .homepage-frame .right-side > div ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    .homepage-frame .right-side > div li span {
+      padding-left: 3px;
+    }
+
+    .homepage-frame .left-side {
+      height: 80vh;
+    }
+
+    .homepage-frame .right-side {
+      height: 80vh;
+      /*border-left: 1px dotted rgb(141, 155, 173);*/
+    }
+
+
+    .homepage-frame .right-side .inner {
+      border: 1px dotted rgb(141, 155, 173);
+      border-radius: 3px;
+      padding: 15px 0;
+    }
+    #edu .entrypoint-action li {
+      text-align: left;
+    }
+    #rsch .entrypoint-action li {
+      text-align: right;
+    }
+
+    #main .triangle-tl {
+      width: 0;
+      height: 0;
+      border-top: 100% solid gray;
+      border-radius: 100% solid transparent;
+    }
+    #main {
+      background-color: #CFE1EB;
+      background-image: url({{url_for('static', filename='img/home/home_net_new.svg')}});
+      background-position: center center;
+      background-repeat: no-repeat;
+      -webkit-background-size: contain;
+      -moz-background-size: contain;
+      -o-background-size: contain;
+      background-size: contain;
+    }
+
+    .entry-frame-header {
+      height: 10vh;
+    }
+    .entry-frame-header h1 {
+    }
+
+    .entrypoint-desc {
+      font-weight: 100;
+      font-size: 1.4em;
+      text-align: left;
+      height: 20vh;
+      font-size: 100%;
+    }
+    .entrypoint-goto {
+      height: 60vh;
+      border-radius: 5px;
+      margin-top: 2px;
+    }
+
+    .coll-button {
+      height: 35%;
+      float: left;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+    .coll-button a.btn,
+    .coll-button a.btn:hover {
+      background-color: #95abb7;
+      color: #fff;
+      width: 140px;
+      height: 5vh;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 0;
+      padding-top: 8px;
+    }
+
+    .goto-action-image img {
+      border-radius: 3px 3px 0 0;
+      max-height: 23vh;
+      width: 100%;
+    }
+    .goto-action-image {
+      height: 24vh;
+      width: 100%;
+      background-color: #f4f4f4;
+      float: left;
+      border-radius: 3px 3px 0 0;
+      display: inline-block;
+    }
+    .entrypoint-goto-action {
+      margin-bottom: 2vh;
+      position: relative;
+    }
+
+    .goto-action-button a {
+      color: inherit;
+    }
+    .goto-action-button {
+      height: 5vh;
+      width: 100%;
+      background-color: #95abb7;
+      display: inline-block;
+      font-size: 14px;
+      color: #fff;
+      border-radius: 0 0 3px 3px;
+      text-align: left;
+      padding-left: 15px;
+      padding-top: 8px;
+    }
+
+    span.helper {
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    .goto-action-button span {
+      padding-left: 5px;
+    }
+    #research {background-color: #cbdde7;}
+    #education {background-color: #c8d9e3;}
+
+    #v-events .goto-action-image {
+      background-image: url('img/home/event.png');
+      background-position: center;
+      background-size: 95%;
+    }
+    #v-histo .goto-action-image {
+      background-image: url('img/home/histo.png');
+      background-position: center;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+    #get-started .goto-action-image {
+      background-image: url('img/default.png');
+      background-position: center;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+    #VMs .goto-action-image {
+      background-image: url('img/home/VMs.jpg');
+      background-position: center;
+      background-size: 110% 100%;
+      background-repeat: no-repeat;
+    }
+    #lrn-resources .goto-action-image {
+      background-image: url('img/CMSMasterclass.jpg');
+      background-position: center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+    #home-glossary .goto-action-image {
+      background-image: url('img/glossary.jpg');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;      
+    }
+    li.disabled {
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .homepage-frame li.disabled .coll-button {
+      display: none;
+    }
+
+  </style>
+
+  <nav id="homepage-nav" class="homepage-nav">
+    <ul  class="nav center-block">
+      <li><a href="#main" data-id="main" onclick="history.pushState({},'','/')"><span class="fa fa-circle"></span></a></li>
+      <li><a href="#education" data-id="education" onclick="history.pushState({},'','education')"><span class="fa fa-circle"></span></a></li>
+      <li><a href="#research" data-id="research" onclick="history.pushState({},'','research')"><span class="fa fa-circle"></span></a></li>
+    </ul>
+  </nav>
+  <section id="main" class="homepage-frame">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <div id="edu" class="entrypoint-box pull-left">
+            <h1>Education</h1>
+            <h5>
+              Visualise events, check reconstructed data, run tools or build your own!
+            </h5>
+            <div class="entrypoint-action row">
+              <a class="center-block" href="#education"><span class="action-title">Start learning</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <div id="rsch" class="entrypoint-box pull-right">
+            <h1>Research</h1>
+            <h5>
+              Get the genuine working environments, virtual machines and datasets to start your research
+            </h5>
+            <div class="entrypoint-action row">
+              <a class="center-block" href="#research"><span class="action-title">Start analysing</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% import 'data/news_db.html' as n %}
+
+  <section id="education" class="homepage-frame">
+    <div class="entry-frame-header">
+      <h1><div class="container">Education</div></h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div id="mob-down" class="col-sm-6 col-xs-12">
+            <div class="left-side">
+              <ul>
+              {% for e in exp_colls %}
+              <a href="{{url_for('.education', exp = e.name)}}">
+                <li>
+                  <div class="exp-image"><span class="helper"></span><img src="{{ url_for('static', filename='img/'+e.name_ln+'.gif') }}" alt="" style="background-color: transparent;"></div>
+                  {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+                  {% for pb in e.portalboxes %}
+                  {% if (pb.portalbox.title == 'short_description_e') %}
+                  {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+                  {% elif (pb.portalbox.title == 'image') %}
+                  {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+                  {% endif %}
+                  {% endfor %}
+                  <div class="coll-desc">
+                    {{ coll_portalboxes['desc'].replace('#$#$#', '')|safe }}
+                  </div>
+                  <div class="coll-button">
+                    <a href="{{url_for('.education', exp = e.name)}}" class="btn">Explore {{e.name_ln}} <span class="fa fa-chevron-right"></span></a>
+                  </div>
+                </li>
+              </a>
+              {% endfor %}
+              </ul>
+            </div>
+        </div>
+        <div id="mob-up" class="col-sm-6 col-xs-12">
+          <div class="right-side">
+            <div class="entrypoint-desc">
+              For education purposes, the complex primary data need to be processed into a format (examples below) that is good for simple applications. Get in touch if you wish to build your own applications similar to those shown here
+            </div>
+            <div class="entrypoint-goto row">
+              <a href="{{url_for('.visualise_events', exp='CMS')}}">
+                <div id="v-events" class="entrypoint-goto-action col-sm-6">
+                  <div class="goto-action-image">
+                  </div>
+                  <a href="{{url_for('.visualise_events', exp='CMS')}}">
+                    <div class="goto-action-button">
+                      Visualise events<span class="fa fa-chevron-right"></span>
+                    </div>
+                  </a>
+                </div>
+              </a>
+              <a href="{{url_for('.visualise_histo', exp='CMS')}}">
+                <div id="v-histo" class="entrypoint-goto-action col-sm-6">
+                  <div class="goto-action-image">
+                  </div>
+                  <a href="{{url_for('.visualise_histo', exp='CMS')}}">
+                    <div class="goto-action-button">
+                      Visualise histograms<span class="fa fa-chevron-right"></span>
+                    </div>
+                  </a>
+                </div>
+              </a>
+              <a href="{{url_for('.resources')}}">
+                <div id="lrn-resources" class="entrypoint-goto-action col-sm-12">
+                  <div class="goto-action-image">
+                  </div>
+                  <a href="{{url_for('.resources')}}">
+                    <div class="goto-action-button">
+                      Learning Resources<span class="fa fa-chevron-right"></span>
+                    </div>
+                  </a>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research" class="homepage-frame">
+    <div class="entry-frame-header">
+      <h1><div class="container">Research</div></h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div id="mob-down" class="col-sm-6 col-xs-12">
+            <div class="left-side">
+              <ul>
+              {% for e in exp_colls %}
+              <li class="{{ 'disabled' if e.name not in ['CMS']}}" >
+                <a href="{{url_for('.research', exp = e.name)}}">
+                  <div class="exp-image"><span class="helper"></span><img src="{{ url_for('static', filename='img/'+e.name_ln+'.gif') }}" alt="" style="background-color: transparent;"></div>
+                  {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+                  {% for pb in e.portalboxes %}
+                  {% if (pb.portalbox.title == 'short_description_r') %}
+                  {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+                  {% elif (pb.portalbox.title == 'image') %}
+                  {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+                  {% endif %}
+                  {% endfor %}
+                  <div class="coll-desc">
+                    {{ coll_portalboxes['desc'].replace('#$#$#', '')|safe }}
+                  </div>
+                  <div class="coll-button">
+                    <a href="{{url_for('.research', exp = e.name)}}" class="btn">Explore {{e.name_ln}} <span class="fa fa-chevron-right"></span></a>
+                  </div>
+                </a>
+              </li>
+              {% endfor %}
+              </ul>
+            </div>
+        </div>
+        <div id="mob-up" class="col-sm-6 col-xs-12">
+          <div class="right-side">
+            <div class="entrypoint-desc">
+              For research purposes, specific software environments and tools need to be deployed to analyse these complex primary data. In addition to the data below, you will find instructions for setting up your working environments here
+            </div>
+            <div class="entrypoint-goto">
+              <a href="{{url_for('.data_vms')}}">
+                <div id="VMs" class="entrypoint-goto-action">
+                  <div class="goto-action-image">
+                  </div>
+                  <a href="{{url_for('.data_vms')}}">
+                    <div class="goto-action-button">
+                      Install your Virtual Machine<span class="fa fa-chevron-right"></span>
+                    </div>
+                  </a>
+                </div>
+              </a>
+              <a href="{{url_for('.get_started')}}">
+                <div id="get-started" class="entrypoint-goto-action">
+                  <div class="goto-action-image">
+                  </div>
+                  <a href="{{url_for('.get_started')}}">
+                    <div class="goto-action-button">
+                      Start analysing the data<span class="fa fa-chevron-right"></span>
+                    </div>
+                  </a>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="push"></div>
+  </div> {# end wrap #}
+
+{% endblock body %}
+
+{% block javascript %}
+  {{ super() }}
+  {% block glossary_js %}{% endblock %}
+  {% block js_search_for_external_links %}{% endblock %}
+  <script>
+  $(function() {
+    $('a[href*=#]:not([href=#])').click(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          $('html,body').animate({
+            scrollTop: target.offset().top
+          }, 700);
+          return false;
+        }
+      }
+    });
+
+    {% if entry %}
+      $('html, body').animate({
+          scrollTop: $("#{{entry}}").offset().top,
+      }, 700);    
+    {% endif %}
+  });
+
+  (function($) {
+    $('.nav a').click(function(){
+      //Toggle Class
+      $(".active").removeClass("active");
+      $(this).closest('li').addClass("active");
+      var theClass = $(this).attr("class");
+      $('.'+theClass).parent('li').addClass('active');
+      //Animate
+      $('html, body').stop().animate({
+        scrollTop: $( $(this).attr('href') ).offset().top
+      }, 700);
+      return false;
+    });
+    $('.scrollTop a').scrollTop();
+  })(jQuery);
+  </script>
+{% endblock %}

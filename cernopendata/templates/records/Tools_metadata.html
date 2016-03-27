@@ -1,0 +1,82 @@
+{% extends 'records/metadata_base.html' %}
+
+{% block record_content %}
+  {% block record_content_top %}{% endblock %}
+
+  {% block record_descritpion %}
+    {{ super() }}   
+  {% endblock %}
+  
+  {% block record_previewer %}
+    {{ super() }}
+  {% endblock %}
+  
+  {% block record_urls %}   
+    {{ super() }}   
+  {% endblock %}  
+
+  {% block record_material_publication %}
+    {% if record.get('material_publication_note', '') %}
+    <div class="rec_metadata rec_dataset_info row">
+      <div class="col-md-12">
+        <div class="rec_title title">How can you use this?</div>
+        <div class="rec_desc">
+          {% for material_publication_note in record.get('material_publication_note', []) %}
+          {% if material_publication_note.get('note', '') %}
+          <div class="body">{{ material_publication_note.get('note', '')|safe }}</div>
+          {% endif %}
+          {% endfor %}
+          <div class="links">
+            <ul style="margin-bottom:0;">
+              {% for material_publication_note in record.get('material_publication_note', []) %}
+              {% if material_publication_note.get('url', '') %}
+              <li>
+                <a href="{{ material_publication_note.get('url', '') }}">
+                  {{ material_publication_note.get('description', '')
+                  if material_publication_note.get('description', '')
+                  else material_publication_note.get('url', '')
+                }}</a>
+              </li>
+              {% endif %}
+              {% if material_publication_note.get('recid', '') %}
+              <li>
+                <a href="{{ url_for('record.metadata', recid=material_publication_note.get('recid', '')) }}">{{ (material_publication_note.get('recid', ''))|get_record_name }}</a>
+              </li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  {% endblock %}
+
+  {% block records_usability %}
+    {{ super() }}   
+  {% endblock %}
+
+  {% block record_system_details %} 
+    {{ super() }}   
+  {% endblock %}
+
+  {% block records_related_items %}  
+    {{ super() }}   
+  {% endblock %}
+
+  {% block record_characteristics %}
+    {{ super() }} 
+  {% endblock %}
+
+  {% block record_files_urls %}
+    {% block record_files %}
+      {{ super() }} 
+    {% endblock %}
+  {% endblock %}
+
+{% block record_content_bottom %}{% endblock %}
+
+{% endblock %}
+
+
+

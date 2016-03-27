@@ -1,0 +1,48 @@
+{#
+# This file is part of CERN Open Data Portal.
+# Copyright (C) 2014 CERN.
+#
+# CERN Open Data Portal is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# CERN Open Data Portal is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Invenio; if not, write to the Free Software Foundation, Inc.,
+# 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+#}
+
+
+{%- block search_form -%}
+{%- block search_form_body -%}  
+
+<div id="search-box-main" class="rw">
+  <div class="container">
+    <div class="navbar">
+      {%- block search_form_form -%}
+      <div class=" col-md-12 no-padding">
+        {% include "search/form/form.html" %}
+        {% include "search/form/settings.html" %}
+      </div>
+      {%- endblock search_form_form -%}
+    </div>
+  </div>
+</div>
+{%- block search_form_flashed_messages -%}
+{%- for category, msg in get_flashed_messages(with_categories=True,
+                                             category_filter=['websearch-after-search-form']) %}
+<div class="row">
+  <div class="col-md-12">
+    {{ msg|safe }}
+  </div>
+</div>
+  {%- endfor %}
+{%- endblock search_form_flashed_messages -%}
+
+{%- endblock search_form_body -%}
+{%- endblock search_form -%}

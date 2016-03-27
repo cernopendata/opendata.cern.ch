@@ -1,0 +1,173 @@
+{#
+# This file is part of CERN Open Data Portal.
+# Copyright (C) 2013, 2014 CERN.
+#
+# CERN Open Data Portal is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# CERN Open Data Portal is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Invenio; if not, write to the Free Software Foundation, Inc.,
+# 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+#}
+
+{%- from "_formhelpers.html" import render_filter_form with context -%}
+{%- from "search/helpers.html" import collection_tree, portalbox_sidebar,
+search_also, with context -%}
+{%- extends "search/searchbar_frame.html" %}
+
+{% set title = None %}
+
+{%- set portalboxes = dict() -%}
+{%- for k,l in collection.portalboxes_ln|groupby('position') -%}
+  {%- do portalboxes.update({k:l}) -%}
+{%- endfor -%}
+
+{%- macro collection_records(collection, coll_records) -%}{% block collection_records scoped %}
+{%- block extra_style -%}
+<style>
+.websearch .nav > li > ul > li {
+  float: left;
+}
+.websearch .nav > li a {
+  display: inline;
+}
+.websearch .nav > li > a {
+  white-space: nowrap;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.websearch .nav > li > a:hover {
+  background-color: inherit;
+}
+.websearch ul.nav > li > ul {
+  clear: both;
+}
+.websearch ul.nav > li > ul > li {
+  display: inline;
+}
+.websearch ul.nav > li > ul > li > a {
+  display: inline;
+}
+.websearch .badge {
+  font-size: 80%;
+}
+
+.collection ul.nav-list {
+  padding-left: 0px;
+}
+
+.collection ul.nav-list ul.nav-list {
+  font-size: 90%;
+}
+
+.collection ul ul li a {
+  color: #333;
+  opacity: 0.8;
+}
+
+.collection .badge {
+  opacity:0.6;
+  font-size:80%;
+}
+
+.collection ul ul .badge {
+  color: #333;
+  background-color: #EEE;
+  border: 1px solid #999;
+}
+
+.form-horizontal .form-group {
+  display: block;
+  margin-bottom: 15px;
+  vertical-align: middle;
+}
+</style>
+{%- endblock extra_style -%}
+
+{%- block index -%}
+<div class="row websearch clearfix"><!-- row 2 -->
+  {%- block portalbox_lt -%}{{ portalbox_sidebar(portalboxes.lt, class="col-md-2") }}{%- endblock -%}
+
+  {%- block index_right -%}
+  {% if collection.collection_children_r %}
+    <div class="col-md-{{ '4' if collection.collection_children_v else '8' }} collection clearfix">
+      <h4>{{ collection.get_collectionbox_name(box_type='r') }}</h4>
+      {{ collection_tree(collection.collection_children_r, limit=2, class="nav nav-list clearfix") }}
+    </div>
+  {% else %}
+      <div class="col-md-{{ '4' if collection.collection_children_v else '8' }}">
+      {% if collection.is_restricted %}
+        <strong>{{ _('This collection is restricted. If you are authorised to access it, please click on the Search button.') }}</strong>
+      {% else %}
+        {% if collection.reclist %}
+        <div class="page-header">
+          <h3>{{ collection.name + ":" }}</h3>
+        </div>
+        {% for recid in collection.reclist[-10:]|reverse %}
+        <div class="row">
+          <div class="col-md-12">
+            {{ format_record(recid, of, ln=g.ln)|safe }}
+            {{ '<hr/>'|safe if not loop.last }}
+          </div>
+        </div>
+        {% endfor %}
+        {% if collection.reclist|length > 10 %}
+          <a href="{{ url_for('search.search', cc=collection.name, ln=g.ln, jrec=11)|safe }}"
+             class="pull-right text-muted">[&gt;&gt; {{ _('more')}}]</a>
+        {% endif %}
+        {% endif %}
+      {% endif %}
+      </div>
+  {% endif %}
+  {%- endblock index_right -%}
+
+
+  {%- block index_left -%}
+  {% if collection.collection_children_v %}
+    <div class="col-md-4 collection clearfix">
+      <h4>{{ collection.get_collectionbox_name(box_type='v') }}</h4>
+      {{ collection_tree(collection.collection_children_v, limit=2, class="nav nav-list clearfix") }}
+
+      {{ search_also(collection.externalcollections_2) }}
+    </div>
+  {% elif collection.externalcollections_2 %}
+      <div class="col-md-2">
+        {{ search_also(collection.externalcollections_2) }}
+      </div>
+  {% endif %}
+  {%- endblock index_left -%}
+
+
+  {%- block portalbox_rt -%}
+  {% if collection.externalcollections_2 %}
+    {{ portalbox_sidebar(portalboxes.rt, class="col-md-2") }}
+  {% else %}
+    {{ portalbox_sidebar(portalboxes.rt, class="col-md-offset-1 col-md-3") }}
+  {% endif %}
+  {%- endblock portalbox_rt -%}
+</div>
+{%- endblock index -%}
+{% endblock collection_records %}{%- endmacro -%}
+
+{% block title %}
+  {{ portalboxes.tp }}
+  {{ super() }}
+  {{ portalboxes.te }}
+{% endblock %}
+
+{% block inner_content %}
+  {% if collection.is_restricted %}
+    {{ collection_records(collection, coll_records) }}
+  {% else %}
+    {# cache 24*60*60, collection.name, g.ln #}
+      {{ collection_records(collection, coll_records) }}
+    {# endcache #}
+  {% endif %}
+{% endblock %}

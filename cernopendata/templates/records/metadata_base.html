@@ -1,0 +1,408 @@
+{% from "records/macros.html" import record_files_display with context %}
+{% set show_previewer={'show':false} %}
+
+<div class="rec_header">
+  <div class="row rec_details">
+    {% block record_header_top %}
+    <div class="rec_title_info">
+      {% block record_title %}
+      <div class="title col-md-12">
+        {# Show title + additional_title + imprint date #}
+        {% if record.get('title_additional', '') %}
+          {{ record.get('title_additional',{}).get('title','') }}
+          <span>{{ record.get('imprint', {}).get('date', '') }}</span>
+          <div class="additional_title">{{ record.get('title',{}).get('title','') }}</div>
+        {% elif record.get('title',{}).get('title','') %}
+          {{ record.get('title',{}).get('title','') }}
+        {% endif %}
+      </div>
+      {% endblock %}
+
+      {% block record_authors %}
+      {# Show Authors ( > 5 : read_more show/hide ) #}
+      <div class="rec_authors col-md-12"{% if ((record['authors']|length) < 5) and not record['_first_corporate_name'] %}  {% else %} id="rec_authors_rdmore" {% endif %}>
+        {% for author in record['authors'] %}
+          <a href="{{ url_for('search', p='author:"' + author.get('full_name', '')|urlencode + '"') }}">{{ author.get('full_name', '') }}</a>{{ '; ' if not loop.last }}
+        {% endfor %}
+        {% if record['_first_corporate_name'] %}
+          {% set collaborations = ['CMS collaboration'] %}
+          {% set collaboration_recid = ['450'] %}
+          {% for c in collaborations %}
+            {% if record['_first_corporate_name']['name'] == c %}
+              <a class="collaboration_tag" href="{{ url_for('.metadata', recid = collaboration_recid[loop.index-1] ) }}">{{ record['_first_corporate_name']['name'] }}</a>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
+      {% endblock %}
+    </div>
+    {% endblock %}
+
+
+    {% block record_header_bottom %}
+    <div class="col-md-12 ">
+      {% if record.get('doi','') %}
+        <div class="rec_thumb rec_doi">
+          <div class="n no-glossary"><div class="t" style="margin-right:0;">Cite as:</div>  
+        {% if record['authors'] %}
+          {% for author in (record['authors'])[:5] %}
+            {% if loop.first %}{% elif loop.last and not (record['authors'])[5] %}<span> <i>&</i> </span>{% else %}<span> , </span>{% endif %}<a href="{{ url_for('search', p='author:"' + author.get('full_name', '')|urlencode + '"') }}">{{ author.get('last_name', '')+', '+author.get('first_name', '')[0]}}.</a>
+          {% endfor %}
+          {% if (record['authors'])[5] %}
+            <span> <i>et al</i></span>
+          {% endif %}
+        {% endif %}
+        {{ record['_first_corporate_name']['name'] if record['_first_corporate_name']}} ({{ record.get('imprint', {}).get('date', '') }}). {% if record.get('title_additional', '') %}{{ record.get('title_additional',{}).get('title','') }}{% elif record.get('title',{}).get('title','') %}{{ record.get('title',{}).get('title','') }}{% endif %}. CERN Open Data Portal. DOI: <a class="clean" href="http://doi.org/{{ record.get('doi','') }}">{{ record.get('doi','') }}</a></div>
+        </div>
+      {% endif %}
+      <div class="rec_thumb rec_parentcol">
+        <a href="{{ url_for('collection/'+collection.name) }}"><div class="n no-glossary"><div class="t">Collection</div>{{ collection.name_ln }}</div></a>
+      </div>
+      {% if record.get('edition_statement','')  %}
+        {% if record.get('edition_statement', '').get('statement', '') %}
+          {% set pp = record.get('edition_statement', '').get('statement', '').replace('Release: ', '') %}
+          <a href="{{ url_for('search.search', p=pp) }}">
+            <div class="rec_thumb rec_parentcol">
+              <div class="n no-glossary"><div class="t">Release</div>{{ pp }}</div>
+            </div>
+          </a>
+        {% endif %}
+        {% if record.get('edition_statement', '').get('remainder', '') %}
+          {% set rr = record.get('edition_statement', '').get('remainder', '').replace('Global tag: ', '') %}
+          <a href="{{ url_for('search.search', p=rr) }}">
+            <div class="rec_thumb rec_parentcol">
+              <div class="n no-glossary"><div class="t">Global tag</div>{{ rr }}</div>
+            </div>
+          </a>
+        {% endif %}
+      {% endif %}
+      {% if record.get('collision_energy', '') %}
+        {% set rr = record.get('collision_energy', '').replace('Collision energy: ', '') %}
+        <a href="{{ url_for('search.search', p=rr) }}">
+          <div class="rec_thumb rec_parentcol">
+            <div class="n no-glossary"><div class="t">Collision Energy</div>{{ rr }}</div>
+          </div>
+        </a>
+      {% endif %}
+      {% if record.get('accelerator_experiment','') %}
+        <a href="{{ url_for('search.search', p=record.get('accelerator_experiment','').get('accelerator', '')) }}">
+          <div class="rec_thumb rec_parentcol">
+            <div class="n no-glossary"><div class="t">Accelerator</div>{{ record.get('accelerator_experiment','').get('accelerator', '') }}</div>
+          </div>
+        </a>
+        <a href="{{ url_for('search.search', p=record.get('accelerator_experiment','').get('experiment', '')) }}">
+          <div class="rec_thumb rec_parentcol">
+            <div class="n no-glossary"><div class="t">Experiment</div>{{ record.get('accelerator_experiment','').get('experiment', '') }}</div>
+          </div>
+        </a>
+      {% endif %}
+      {% if record.get('supplement_parent_entry','') %}
+        {% if record.get('supplement_parent_entry','').get('recid','') and record.get('supplement_parent_entry','').get('heading','') %}
+        <a href="{{ url_for('record.metadata', recid=record.get('supplement_parent_entry','').get('recid', '')) }}">
+          <div class="rec_thumb rec_parentcol">
+            <div class="n no-glossary"><div class="t">Parent Dataset</div>{{ record.get('supplement_parent_entry','').get('heading', '') }}</div>
+          </div>
+        </a>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+    {% endblock %}
+</div>
+
+{% block record_content %}
+  {% block record_content_top %}{% endblock %}
+
+  {% block record_descritpion %}
+  <div class="rec_metadata rec_description">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="rec_title title">Description</div>
+      </div>
+      <div class="col-md-12">
+        <div class="rec_desc">{{record.get('abstract',{}).get('summary','')|safe}}</div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+  
+  {% block record_comment_note %}
+  {% if record.get('comment') %}    
+  <div class="rec_metadata rec_comment_note">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="rec_title title">Notes</div>
+      </div>
+      <div class="col-md-12">
+        <div class="rec_desc">{{record.get('comment',{})|safe}}</div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% endblock %}
+
+  {% block record_previewer %}
+    {% for file in record['files'] if not with_preview %}
+      {% if (file.get('url','')[-3:] == '.ig') and (show_previewer['show'] == false) %}
+        {% do show_previewer.update({'show':true, 'first_file':file.get('full_name')}) %}
+      {% endif %}
+
+      {% if (file.get('url','')[-3:] == 'txt') or (file.get('url','')[-4:] == 'json') %}
+        {% if not show_previewer['file_title'] %}
+          {% do show_previewer.update({'file_title':'i'}) %}
+        {% elif show_previewer['file_title'] == 'f' %}
+          {% do show_previewer.update({'file_title':'fi'}) %}
+        {% endif %}
+      {% else %}
+        {% if not show_previewer['file_title'] %}
+          {% do show_previewer.update({'file_title':'f'}) %}
+        {% elif show_previewer['file_title'] == 'i' %}
+          {% do show_previewer.update({'file_title':'fi'}) %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    {% if show_previewer['show'] == true %}
+    <div class="rec_metadata rec_preview">
+      <div class="row">
+        <div class="col-md-12">
+          <div id="previewer" class="rec_title title">Preview</div>
+        </div>
+        <div class="col-md-12">
+          <div class="rec_preview_box">
+            <iframe id="evd" width="100%" height="675" scrolling="no" src="{{ url_for('previewer.preview', recid=recid, filename=show_previewer['first_file']) }}"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  {% endblock %}
+
+  {% block record_characteristics %}
+    {% if record.get('computer_file_characteristics', '') %}
+    <div class="rec_metadata rec_dataset_info row">
+      <div class="col-md-12">
+        <div class="rec_title title">Characteristics</div>
+        <div class="rec_desc">
+            {% if record.get('computer_file_characteristics','')['characteristics'] %}
+              <span>{{record.get('computer_file_characteristics','')['characteristics']}}:</span>
+              {% if record.get('computer_file_characteristics','')['files'] %}
+              <span><b>{{ record.get('computer_file_characteristics','')['files'] }}</b>{{ record.get('computer_file_characteristics','').get('text','') }}</span>
+              {% elif record.get('computer_file_characteristics','')['events'] %}
+                <span><b>{{record.get('computer_file_characteristics','')['events']}}</b>{{ record.get('computer_file_characteristics','').get('text','') }}</span>
+              {% elif record.get('computer_file_characteristics','')['bytes'] %}
+                <span><b>{{(record.get('computer_file_characteristics','')['bytes']|float)|filesizeformat}}</b>{{ record.get('computer_file_characteristics','').get('text','').replace('bytes','') }}</span>
+              {% endif %}
+            {% elif record.get('computer_file_characteristics','')['files'] %}
+              <span>{{ record.get('computer_file_characteristics','')['files'] }}<b>{{ record.get('computer_file_characteristics','').get('text','') }}</b></span>
+            {% elif record.get('computer_file_characteristics','')['events'] %}
+              <span>{{record.get('computer_file_characteristics','')['events']}}<b>{{ record.get('computer_file_characteristics','').get('text','') }}</b></span>
+            {% elif record.get('computer_file_characteristics','')['bytes'] %}
+              <span>{{(record.get('computer_file_characteristics','')['bytes']|float)|filesizeformat}}<b>{{ record.get('computer_file_characteristics','').get('text','').replace('bytes','') }}</b></span>
+            {% endif %}
+            {% for i in record.get('computer_file_characteristics') %}
+              {% if i['characteristics'] %}
+                <span>{{i['characteristics']}}:</span>
+                {% if i['files'] %}
+                <span><b>{{ i['files'] }}</b>{{ i.get('text','') }}</span>
+                {% elif i['events'] %}
+                  <span><b>{{i['events']}}</b>{{ i.get('text','') }}</span>
+                {% elif i['bytes'] %}
+                  <span><b>{{(i['bytes']|float)|filesizeformat}}</b>{{ i.get('text','').replace('bytes','') }}</span>
+                {% endif %}
+              {% elif i['files'] %}
+                <span><b>{{ i['files'] }}</b>{{ i.get('text','') }}</span>
+              {% elif i['events'] %}
+                <span><b>{{i['events']}}</b>{{ i.get('text','') }}</span>
+              {% elif i['bytes'] %}
+                <span><b>{{(i['bytes']|float)|filesizeformat}}</b>{{ i.get('text','').replace('bytes','') }}</span>
+              {% endif %}
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  {% endblock %}
+
+  {% block records_usability %}
+    {% if record.get('computer_file_type', {}) %}
+      <div class="rec_metadata rec_description">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="rec_title title">Use with..</div>
+          </div>
+          <div class="col-md-12">
+            <div class="rec_desc">
+              {% for i in record.get('computer_file_type', {}) %}
+                {{i['note']}}
+                {% if i['recid'] %}
+                  {% if i['recid'] is string %}
+                    <a href="{{url_for('.metadata', recid = i['recid'] )}}">{{ (i['recid'])|get_record_name }}</a>
+                  {% else %}
+                    {% for r in i['recid'] %}
+                      <a href="{{url_for('.metadata', recid = r )}}">{{ r|get_record_name }}</a>
+                    {% endfor %}
+                  {% endif %}
+                {% endif %}                
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endblock %}
+
+  {% block record_system_details %}
+    {% if record.get('system_details', {}) %}
+      <div class="rec_metadata rec_description">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="rec_title title">System Details</div>
+          </div>
+          <div class="col-md-12">
+            <div class="rec_desc">
+              {% if record.get('system_details', {}).get('displaytext', '') %}
+                {{record.get('system_details', {}).get('displaytext', '')}}<br>
+              {% endif %}
+              {% if record.get('system_details', {}).get('notebis', '') %}
+                {{record.get('system_details', {}).get('notebis', '')}}<br>
+              {% endif %}
+              {% if record.get('system_details', {}).get('note', '') %}
+                {{record.get('system_details', {}).get('note', '')}}<br>
+              {% endif %}
+              {% if record.get('system_details', {}).get('recid', '') %}
+                <a href="{{url_for('.metadata', recid = record.get('system_details', {}).get('recid', '') )}}">{{(record.get('system_details', {}).get('recid', ''))|get_record_name }}</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endblock %}
+
+  {% block records_related_items %}
+    {% if record.get('other_relationship_entry', {}) %}
+      <div class="rec_metadata rec_description">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="rec_title title">Related items</div>
+          </div>
+          <div class="col-md-12">
+            <div class="rec_desc">
+              {% if record.get('other_relationship_entry', {}).get('note', '') %}
+                {{ record.get('other_relationship_entry', {}).get('note', '') }}<br>
+              {% endif %}
+              {% if record.get('other_relationship_entry', {}).get('heading', '') %}
+                {{ record.get('other_relationship_entry', {}).get('heading', '') }}<br>
+              {% endif %}
+              {% if record.get('other_relationship_entry', {}).get('other_item_identifier', '') %}
+                <a href="{{ record.get('other_relationship_entry', {}).get('other_item_identifier', '') }}">{{ record.get('other_relationship_entry', {}).get('other_item_identifier', '') }}</a><br>
+              {% endif %}              
+              {% if record.get('other_relationship_entry', {}).get('recid', '') %}
+                {% if record.get('other_relationship_entry', {}).get('recid', '') is string %}
+                  <a href="{{url_for('.metadata', recid = record.get('other_relationship_entry', {}).get('recid', '') )}}">{{ (record.get('other_relationship_entry', {}).get('recid', ''))|get_record_name }}</a>
+                {% else %}
+                  {% for r in record.get('other_relationship_entry', {}).get('recid', '') %}
+                    <a href="{{url_for('.metadata', recid = r )}}">{{ r|get_record_name }}</a>
+                  {% endfor %}
+                {% endif %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endblock %}
+
+  {% block record_files_urls %}
+    {% block record_files %}
+      {{ record_files_display(record.get('files',''), show_previewer['show'], show_previewer['file_title'], record.get('accelerator_experiment','').get('experiment', '') if record.get('accelerator_experiment','') else None )  }}
+    {% endblock %}
+
+    {% block record_formatted_contents %}
+      {% if record.get('formatted_contents_note', '') %}
+      <div class="rec_metadata rec_dataset_info row">
+        <div class="col-md-12">
+          <div class="rec_title title">Dataset Semantics</div>
+          <div class="rec_desc">
+            <div class="body">
+              <ul>
+                <li>
+                  {% for f_item in record.get('formatted_contents_note', '') %}
+                    <b>{{f_item.title}}:</b> {{f_item.miscellaneous}}<br>
+                  {% endfor %}
+                </li>
+              </ul>
+            </div>
+            {% for formatted_contents_note in record.get('formatted_contents_note', []) %}
+            {% if formatted_contents_note.get('note', '') %}
+            <div class="body">
+              {{ formatted_contents_note.get('note', '')|safe }}</div>
+            {% endif %}
+            {% endfor %}
+            <div class="links">
+              <ul style="margin-bottom:0;">
+                {% for formatted_contents_note in record.get('formatted_contents_note', []) %}
+                {% if formatted_contents_note.get('url', '') %}
+                <li>
+                  <a href="{{ formatted_contents_note.get('url', '') }}">
+                    {{ formatted_contents_note.get('description', '')
+                    if formatted_contents_note.get('description', '')
+                    else formatted_contents_note.get('url', '')
+                  }}</a>
+                </li>
+                {% endif %}
+                {% if formatted_contents_note.get('recid', '') %}
+                <li>
+                  <a href="{{ url_for('record.metadata', recid=formatted_contents_note.get('recid', '')) }}">{{ (formatted_contents_note.get('recid', ''))|get_record_name }}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    {% endblock %}
+
+    {% block record_urls %}
+      {% if record.get('url',[]) != [] %}
+        <div class="rec_metadata rec_urls">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="rec_title title">URLs</div>
+            </div>
+            <div class="col-md-12" style="margin-top: 20px;font-size: 16px;color: #606D75;font-weight: 100;">
+              <div class="row">
+                {% if record.get('url','')['url'] %}
+                  {% if record.get('url','')['url'] is string %}
+                    <a class="col-md-12" href="{{ record.get('url','')['url'] }}">{{ record.get('url','')['url'] }}</a>
+                  {% elif record.get('url','')['url'] %}
+                    {% for u in record.get('url')['url'] %}
+                        <a class="col-md-12" href="{{ u }}">{{ u }}</a>
+                    {% endfor %}
+                  {% endif %}
+                {% else %}
+                    {% for i in record.get('url') %}
+                      {% if i.get('url') is not string %}
+                        {% for u in i.get('url') %}
+                        <a class="col-md-12" href="{{ u }}">{{ u }}</a>
+                        {% endfor %}
+                      {% else %}
+                        <a class="col-md-12" href="{{ i.get('url','') }}">{{ i.get('url','') }}</a>
+                      {% endif %}                    
+                    {% endfor %}                    
+                {% endif %}
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endblock %}
+  {% endblock %}
+{% block record_content_bottom %}{% endblock %}
+
+{% endblock %}

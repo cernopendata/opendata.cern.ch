@@ -1,0 +1,361 @@
+{% macro record_files_display(files, with_preview, f_title = 'fi', exp = None) %}
+{% if record.get('files', []) %}
+<div class="rec_metadata rec_files">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="rec_title title">
+                {% if f_title == 'f' %}
+                Files
+                {% elif f_title == 'i' %}
+                Indexes
+                {% elif f_title == 'fi' %}
+                Files and indexes
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="rec_file_box">
+                <ul class="row">
+                    {% for file in record['files'] %}
+                    <li class="col-md-12">
+                        <div class="content_box">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-8">
+                                    <div class="leftside">
+                                        <ul>
+                                            <li class="col-xs-12 col-sm-8 no-padding"><b>{{ file.get('full_name','') }}</b>
+                                            </li>
+                                            <li class="col-xs-12 col-sm-4 no-padding"><b>Size:</b> {{ file.get('size','') | filesizeformat }}</li>
+                                        </ul>
+                                        {{ ('<ul><li class="col-xs-12 no-padding"><b>Description:</b>'+(file.get('comment')|truncate(100))+'</li></ul>')|safe if (file.get('comment', '') != '') }}
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-4">
+                                    <div class="right-side">
+                                        {% if file["url"][-3:] == 'txt' or file["url"][-4:] == 'json' %}
+                                        <button class="col-xs-12 {{ 'col-sm-6' if with_preview else 'col-sm-12'}} btn" onClick="window.location.href='{{file["url"]}}'">Download index</button>
+                                        {% else %}
+                                        <button class="col-xs-12 {{ 'col-sm-6' if with_preview else 'col-sm-12'}} btn" onClick="window.location.href='{{file["url"]}}'">Download</button>
+                                        {% endif %}
+                                        {% if with_preview %}
+                                        <button class="col-xs-12 col-sm-6 btn" onClick="$('#evd').attr('src', '{{ url_for('previewer.preview', recid=recid, filename=file.get('full_name')) }}'); window.location.hash = '#previewer';">Preview</button>
+                                        {%endif%}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% if record['electronic_location'] %}
+<div class="rec_metadata rec_files">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="rec_title title">Files <span id="loading-refresh-icon" class="pull-right fa fa-refresh fa-spin"></span> </div>
+        </div>
+        <div class="col-md-12">
+            <div class="rec_file_box">
+                <ul id="elec-loc-list" class="row">
+                    {% for file in record['electronic_location'][:5] %}
+                    <li class="elec-loc-item col-md-12">
+                        <div class="content_box">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-8">
+                                    <div class="leftside">
+                                        <ul>
+                                            {% set s = (file.get('uri','')|splitthem('/',-1)) %}
+                                            {% if 'AliESD' in s[-1] %}
+                                            {% set fname = s[-2:]|join('/') %}
+                                            {% else %}
+                                            {% set fname = s[-1] %}
+                                            {% endif %}
+                                            <li class="col-xs-12 col-sm-8 no-padding"><b>{{ fname|safe }}<span class="method">{{file.get('method','')}}</span></b>
+                                            </li>
+                                            <li class="col-xs-12 col-sm-4 no-padding"><b>Size:</b> {{ file.get('size','') | filesizeformat }}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-4">
+                                    <div class="right-side">
+                                        <button class="col-xs-12 btn" data-toggle="modal" data-target="#download-caution-{{loop.index}}">Download</button>
+                                        {{create_download_modal( url = (file.get('uri','')|splitthem('/',3))[-1:][0], name = (file.get('uri','')|splitthem('/',-1))[-1:][0]|safe, size = file.get('size',''), exp = exp, id = loop.index)}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+            {% if record['electronic_location'][5] %}
+            <div id="showmore_buttons" class="pull-right" data-start="0" data-end="5">
+                <button id="showmore-button-prev" disabled>
+                    <span class="fa fa-chevron-left"></span>
+                </button>
+                <div id="showmore-info"><input type="hidden" id="showmore-page" value="1">Files <span id="showmore-page-start">1</span> - <span id="showmore-page-end">5</span> out of <span id="showmore-page-total">{{ ((record['electronic_location']|length))}}</span></div>
+                <button id="showmore-button-next">
+                    <span class="fa fa-chevron-right"></span>
+                </button>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endmacro %}
+
+{% macro create_download_modal(url ='', name = None, size = None, exp = None, id = None) %}
+<div class="modal fade" id="download-caution-{{id}}" tabindex="-1" role="dialog" aria-labelledby="download-caution-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Please note that the file you are going to download {{ '('+name+')'|safe  if name }} is {{ ('<b>'+size+' bytes</b>')|safe if size else 'very'}} big. On an average ADSL connection, it may take {{ 'several hours' if (((size|int)/131072) > 3600) else 'long' }} to download it (about {{ (size|int)|get_download_time }} at 1Mbps).
+                </p>
+                <p>Moreover, if you use one of the provided <a href="{{url_for('.data_vms', exp = exp)}}">Virtual Machines</a> to perform your analyses, then you don't need to download datasets manually, because the VM will fetch all the necessary file chunks via the XRootD protocol.
+                </p>
+                <p>Manual download of files via HTTP is only necessary if you would prefer not to use the XRootD protocol for one reason or another.
+                </p>
+                <p>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox-agree" onchange="$('#download-caution-{{id}} #modal-download-btn').toggleClass('disabled');" value="agree"><b>Yes, I understood.</b>
+                    </label>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <div class="pull-right">
+                    <button id="modal-download-btn" type="button" class="btn btn-default disabled" onClick="window.location.href='{{url_for('.middle')}}{{url[1:]}}'">PROCEED WITH DOWNLOAD</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro list_record_attributes(record, exclude=[]) %}
+<ul class="row">
+    {% for el in record|sort %}
+    <li class="col-md-12">
+        <ul class="col-md-12" style="padding-bottom: 5px;margin-bottom: 5px;border-bottom: 1px solid #d4d4d4;">
+            <kbd>{{el}}</kbd>:
+            {% if el in exclude %}
+            -<br>
+            {% elif record[el] is sequence and record[el] is not string %}
+            <br>
+            {% for i in record[el] %}
+            <li class="col-md-12">
+                <ul class="row">
+                    {%  if i is not string %}
+                    <ul>
+                        {% for f in i %}
+                        <li class="col-md-12">
+                            <b>{{f}}</b>:{{i[f]}}<br>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <b>{{i}}</b>: {{record[el][i]}}<br>
+                    {%endif%}
+                </ul>
+            </li>
+            {% endfor %}
+            {% else %}
+            {{record[el]}}<br>
+            {% endif %}
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
+{% endmacro %}
+
+{% macro record_export(name, record, exclude=[]) %}
+<a href="{{url_for('.metadata', recid=record.recid , of='xm')}}">
+    <div class="rec_thumb rec_export" style="float:right;margin-right:0;">
+        <div class="a" style="border-radius:2px; margin-top:10px;">Export MARCXML</div>
+    </div>
+</a>
+{% endmacro %}
+
+{% macro create_export_modal(name, record, exclude=[]) %}
+<style>.modal .modal-body .tab-pane{padding-top: 15px;}.modal{color:#666;}</style>
+<div class="rec_thumb rec_export" style="float:right;margin-right:0;">
+    <div class="a" style="border-radius:2px; margin-top:10px;"><a href="#" data-toggle="modal" data-target="#{{name}}">Export</a></div>
+</div>
+<div class="modal fade" id="{{name}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{record.get('title',{}).get('title','')}}</h4>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#overview" role="tab" data-toggle="tab">Overview</a></li>
+                    <li><a href="#bidtex" role="tab" data-toggle="tab">BibTex</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="overview">
+                        {{ list_record_attributes(record, exclude ) }}
+                    </div>
+                    <div class="tab-pane fade" id="bidtex">
+                        Upcoming Feature
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro record_methodology_note(record_data, title = 'How were these data selected?' ) %}
+<div class="rec_dedicated_details_in rdd-sel panel">
+    <div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#selection">{{ title }}</div>
+    <div id="selection" class="info ccollapse">
+        {% for methodology_note in record_data %}
+        {% if methodology_note.get('note', '') %}
+        <div class="body">{{ methodology_note.get('note', '')|safe }}</div>
+        {% endif %}
+        <div class="links">
+            <ul>
+                {% if methodology_note['recid'] %}
+                <li><a href="{{ url_for('record.metadata', recid= methodology_note['recid']) }}">{{  (methodology_note['recid'])|get_record_name }}</a></li>
+                {% endif %}
+                {% if methodology_note['url'] %}
+                <li><a href="{{ u.url }}">{{ methodology_note['description']
+                    if methodology_note['description']
+                    else methodology_note['url']
+                    }}</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endmacro %}
+
+{% macro record_action_note(record_data, title = 'How were these data validated?') %}
+<div class="rec_dedicated_details_in rdd-val panel">
+    <div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#validation">{{ title }}</div>
+    <div id="validation" class="info ccollapse">
+        {% if record_data['action'] %}
+        <div class="body">{{ record_data.get('action','')|safe  }}</div>
+        <div class="links">
+            <ul>
+                {% if record_data['recid'] %}
+                <li><a href="{{ url_for('record.metadata', recid=record.get('action_note.recid', '')) }}">{{ (record.get('action_note.recid', ''))|get_record_name }}</a></li>
+                {% endif %}
+                {% if record_data['url'] %}
+                <li><a href="{{ record_data['url'] }}">{{ record_data['description'] }}</a></li>
+                {% for u in record.get('action_note') %}
+                <li><a href="{{ u.url }}">{{ u.description }}</a></li>
+                {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+        {% else %}
+        <div class="body">{{ record_data[0]['action'] }}</div>
+        <div class="links">
+            <ul>
+                {% if record_data[0]['recid'] %}
+                <li><a href="{{ url_for('record.metadata', recid=record.get('action_note.recid', '')) }}">{{ (record.get('action_note.recid', ''))|get_record_name }}</a></li>
+                {% endif %}
+                {% if record_data[0]['url'] %}
+                {% for u in record.get('action_note') %}
+                <li><a href="{{ u.url }}">{{ u.description }}</a></li>
+                {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endmacro %}
+
+{% macro record_material_publication_note(record_data, title = 'How can you use these data?') %}
+<div class="rec_dedicated_details_in rdd-reuse panel">
+    <div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#reusability">{{ title }}</div>
+    <div id="reusability" class="info ccollapse">
+        {% for material_publication_note in record.get('material_publication_note', []) %}
+        {% if material_publication_note.get('note', '') %}
+        <div class="body">{{ material_publication_note.get('note', '')|safe }}</div>
+        {% endif %}
+        {% endfor %}
+        <div class="links">
+            <ul>
+                {% for material_publication_note in record.get('material_publication_note', []) %}
+                {% if material_publication_note.get('url', '') %}
+                <li>
+                    <a href="{{ material_publication_note.get('url', '') }}">
+                        {{ material_publication_note.get('description', '')
+                        if material_publication_note.get('description', '')
+                        else material_publication_note.get('url', '')
+                        }}</a>
+                </li>
+                {% endif %}
+                {% if material_publication_note.get('recid', '') %}
+                <li>
+                    <a href="{{ url_for('record.metadata', recid=material_publication_note.get('recid', '')) }}">{{ (material_publication_note.get('recid', ''))|get_record_name }}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro record_documentation_note(record_data, title = 'Issues & Limitations') %}
+<div class="rec_dedicated_details_in rdd-limits panel">
+    <div class="panel-title title ccollapsed" data-toggle="ccollapse" data-parent="#rec_dedicated_box" data-target="#limitations">{{ title }}</div>
+    <div id="limitations" class="info ccollapse">
+        <div class="body">{{ record.get('documentation_note', {}).get('note', '')|safe  }}</div>
+        <div class="links">
+            {% if record.get('documentation_note.recid', '') %}
+            <ul>
+                <li><a href="{{ url_for('record.metadata', recid=record.get('documentation_note.recid', '')) }}">{{ (record.get('documentation_note.recid', ''))|get_record_name }}</a></li>
+            </ul>
+            {% endif %}
+            {% if record.get('documentation_note.url', '') %}
+            <ul>
+                {% if record.get('documentation_note.description', '') %}
+                <li><a href="{{ record.get('documentation_note.url', '') }}">{{ record.get('documentation_note.description', '')  }}</a></li>
+                {% else %}
+                <li><a href="{{ record.get('documentation_note.url', '') }}">{{ record.get('documentation_note.url', '')  }}</a></li>
+                {% endif %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro record_disclaimer( title = 'Disclaimer', exp = None , body = None ) %}
+<div class="rec_dedicated_details_in rdd-disclaimer panel">
+    <div class="title">{{title}}</div>
+    <div id="disclaimer" class="info">
+        <div class="row">
+            {% if body == None %}
+            <div class="body col-md-12">The open data are released under the <a href="http://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 waiver</a>. Neither {{ 'Open Data Portal' if exp == Undefined else exp  }} nor CERN endorse any works, scientific or otherwise, produced using these data.<br/>All releases will have a unique DOI that you are requested to cite in any applications or publications.
+            </div>
+            <div class="col-md-12">
+                <div class="ccommons">
+                    <img src="{{ url_for('static', filename='img/cc-zero.svg') }}" alt="">
+                </div>
+            </div>
+            {% else %}
+            <div class="body col-md-12">{{body|safe}}</div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endmacro %}

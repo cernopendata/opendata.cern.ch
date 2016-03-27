@@ -1,0 +1,76 @@
+{#
+# This file is part of CERN Open Data Portal.
+# Copyright (C) 2014 CERN.
+#
+# CERN Open Data Portal is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# CERN Open Data Portal is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Invenio; if not, write to the Free Software Foundation, Inc.,
+# 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+#}
+
+{% extends 'page.html' %}
+
+{% block body %}
+
+{% import 'helpers/general.html' as gen_utils %}
+{% with collection = 0 %}
+{% include 'search/form/index.html' %}
+{% endwith %}
+
+<section class="infobar">
+  <div class="container">
+    {%- if collection.collection_children_r %}
+      {{ gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names) }}
+    {% else %}
+    <div class="row">
+      <div class="coltitle col-md-12">
+        <p>
+          {% if collection.is_restricted %}
+            {{ _('Restricted Collection')  }}
+          {% else %}
+            {{ gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names) }}
+          {% endif %}
+        </p>
+      </div>
+    </div>
+    {%- endif %}
+  </div>
+</section>
+
+<section id="subcollection" style="padding-bottom: 0;">
+  <div class="container">
+    <div class="col-md-12">
+      <div class="results-title">{{ collection.name_ln }}</div>
+      {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+      {% for pb in collection.portalboxes %}
+      {% if (pb.portalbox.title == 'description') %}
+      {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+      {% elif (pb.portalbox.title == 'image') %}
+      {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+      {% endif %}
+      {% endfor %}
+      <div class="coll-desc">
+        <span>{{ collection.portalboxes[0].portalbox.body|replace('#$#$#','')|safe }}</span>
+        <br> {{ collection.parent }}
+      </div>
+    </div>
+  </div>
+</section>
+<section id="resources" class="content">
+  <div class="container">
+    <div class="row">
+      {% include 'helpers/text/alice_learning_resources.html' %}
+    </div>
+  </div>
+</section>
+
+{%- endblock %}

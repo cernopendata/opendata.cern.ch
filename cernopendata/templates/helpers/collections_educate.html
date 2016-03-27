@@ -1,0 +1,54 @@
+{% set YEARLY_TABED_COLLECTIONS = ['CMS Primary Datasets', 'CMS Simulated Datasets', 'CMS Derived Datasets', 'CMS Tools', 'CMS Open Data Instructions', 'CMS Validation Utilities' ] %}
+
+<section id="subcollection">
+    <div class="container">
+        <div class="coll-overview row">
+            <ul>
+                {% for collection in exp_collection.collection_children_r recursive %}
+                {% if collection.name not in ['CMS-Primary-Datasets', 'CMS-Simulated-Datasets', 'CMS-Validated-Runs', 'CMS-Validation-Utilities'] %}
+                {% set portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+                {% for pb in collection.portalboxes %}
+                {% if (pb.portalbox.title == 'description') %}
+                {% if portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+                {% elif (pb.portalbox.title == 'image') %}
+                {% if portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+                {% endif %}
+                {% endfor %}
+                <li class="col-xs-{{ '6' if collections|length == 2 else '4' }}">
+                    <div class="coll-box col-xs-12">
+                        <a href="{{ url_for('collection/'+collection.name|safe) }}">
+                            <div class="row">
+                                <div class="top col-xs-12">
+                                    <div class="row">
+                                        <div class="details col-xs-12">
+                                            <div class="title"><span class="no-glossary">{{ collection.name_ln }}</span></div>
+                                            <div class="desc col-xs-12"><span>{{ (portalboxes['desc']|splitthem('#$#$#'))[0]|truncate(125) }}</span></div>
+                                        </div>
+                                        <div class="years col-xs-12">
+                                            {% if collection.name_ln in YEARLY_TABED_COLLECTIONS %}
+                                                Years: <div class="yr"><a href="/search?p=Run2010B%20collection%3A{{ collection.name }}">2010</a></div>, <div class="yr"><a href="/search?p=Run2011A%20collection%3A{{ collection.name }}">2011</a></div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bottom col-xs-12">
+                                    <div class="row">
+                                        <div class="subcollection col-xs-12">
+                                            {% if collection.collection_children == [] %}
+                                            <div class="totalrecs col-xs-12">
+                                                <div class="col-xs-12"><b>Total records:</b></div><div class="col-xs-12 coll-rec-num">{{collection.nbrecs}}</div>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>

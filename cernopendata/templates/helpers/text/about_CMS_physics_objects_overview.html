@@ -1,0 +1,101 @@
+<div class="col-md-12"><h1 class="gen-title">Contents</h1></div>
+
+<div class="col-md-12">
+  <ol class="gen-menu">
+      <li>
+          <a href="#what">1. Introduction to “physics objects”</a>
+      </li>
+      <li>
+          <a href="#list">2. List of CMS physics objects</a>
+          <ul>
+            <li>
+              <ul>
+                <li><strong>2010: </strong></li>
+                <li>
+                    <a href="#electron" goto="year2010">Electrons</a>
+                </li>
+                <li>
+                    <a href="#photon" goto="year2010">Photons</a>
+                </li>
+                <li>
+                    <a href="#muon" goto="year2010">Muons</a>
+                </li>
+                <li>
+                    <a href="#jetmet" goto="year2010">Jets and missing transverse energy (MET)</a>
+                </li>
+                <li>
+                    <a href="#bjet" goto="year2010">b-jets</a>
+                </li>
+                <li>
+                    <a href="#tau" goto="year2010">Taus</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul>
+                <li><strong>2011: </strong></li>
+                <li>
+                    <a href="#electron2011" goto="year2011">Electrons</a>
+                </li>
+                <li>
+                    <a href="#photon2011" goto="year2011">Photons</a>
+                </li>
+                <li>
+                    <a href="#muon2011" goto="year2011">Muons</a>
+                </li>
+                <li>
+                    <a href="#jetmet2011" goto="year2011">Jets and missing transverse energy (MET)</a>
+                </li>
+                <li>
+                    <a href="#bjet2011" goto="year2011">b-jets</a>
+                </li>
+                <li>
+                    <a href="#tau2011" goto="year2011">Taus</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+      </li>
+  </ol>
+</div>
+
+<div class="col-md-12"><h1 class="gen-title" id="what">Introduction to “physics objects”</h1></div>
+
+<div class="col-md-12">
+  <p>Particle colliders are the most powerful tools we have to study the building blocks of our Universe and the laws governing them. Gigantic detectors, such as CMS, act as cameras that take "photographs" of the particle collisions, allowing us to test our understanding of Nature.</p>
+  <p>Although we cannot observe the particles created in the collisions themselves, their decay products leave signals in the CMS sub-detectors. Dedicated software then uses these signals to "reconstruct" the decay products, which we classify into families called "physics objects" (see list below). It is important to note that these reconstructed physics objects are only interpretations of the signals observed by CMS and as such are subject to various sources of uncertainty (efficiencies, misidentifications etc.).</p>
+  <p>For example, see the two events below, both belonging to a collection of muons. The first shows hits in the muon chamber segments but does not in fact contain a real muon. The second event, on the other hand, shows a clear muon flying through CMS.</p>
+  <br>
+  <div class="row">
+    <div class="col-md-6"><img src="../../../img/physics-objects-GIFs/bad_mu.gif"></div>
+    <div class="col-md-6"><img src="../../../img/physics-objects-GIFs/good_mu.gif"></div>
+  </div>
+  <br>
+  <p>Like assembling a jigsaw puzzle, we have to put together all the individual information about the physics objects from each collision to get a picture of what took place at the collision point. Analysing several (trillions!) of collisions allow us to look for patterns in the data that may correspond to previously undiscovered particles or phenomena, or allow us to make even more precise measurements of known phenomena.</p>
+  <p>Standard collections of physics objects can be used for the vast majority of CMS analyses without further tweaking. However, different analyses may require different combinations of physics objects and information about how they are related. The trick is to balance efficiency of data selection (select as many objects of a particular type) versus the fake rate (probability of misidentification).</p>
+  <p style="border-top:1px solid #606D75;padding-top:35px;margin-top:35px;">Below, you will find the collections for the CMS physics objects in the AOD files — electrons, photons, muons, jets (and a special subset, b-jets) and missing transverse energy (MET) — along with information on how to perform some simple analyses using these. With this knowledge and <a href="{{url_for('getting-started/CMS')}}">the example we provide</a>, you should be able to select the objects and collections suitable for the analyses you intend to perform.</p>
+  <p style="border-top:1px solid #606D75;padding-top:35px;margin-top:35px;"><strong>A note about Particle Flow</strong>: The particle-flow algorithm aims at reconstructing and identifying all stable particles in the event, i.e., electrons, muons, photons, charged hadrons and neutral hadrons, with a thorough combination of all CMS sub-detectors towards an optimal determination of their direction, energy and type. This list of individual particles is then used, as if it came from a Monte-Carlo event generator, to build jets (from which the quark and gluon energies and directions are inferred), to determine the missing transverse energy (which gives an estimate of the direction and energy of the neutrinos and other invisible particles), to reconstruct and identify taus from their decay products and more. To learn more about it, it would be good to start with the public note <a href="https://cds.cern.ch/record/1194487?ln=en">CMS-PAS-PFT-09-001</a>, which explains the concepts. You can also check <a href="https://cds.cern.ch/record/1247373?ln=en">CMS-PAS-PFT-10-001</a>, <a href="https://cds.cern.ch/record/1279341?ln=en">CMS-PAS-PFT-10-002</a> and <a href="https://cds.cern.ch/record/1279347?ln=en">CMS-PAS-PFT-10-003</a> for information regarding the commissioning done in 2010, although these notes are less adapted for general use.</a></p>
+</div>
+
+<div class="col-md-12"><h1 class="gen-title" id="list">List of CMS physics objects</h1></div>
+
+<div class="col-md-12">
+  <div class="yeartabs-container">
+    <div id="sticky-anchor"></div>
+    <div id="sticky">
+        <div class="yeartabs tabs">
+          <div><a data-toggle="tab"  data-target="#year2010" href="{{url_for('.get_started', exp='CMS', year='2010')}}">2010</a></div>
+          <div class="in active"><a data-toggle="tab" data-target="#year2011" href="{{url_for('.get_started', exp='CMS', year='2011')}}">2011</a></div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="tab-content">
+  <div id="year2010" class="tab-pane fade">
+    {% include 'helpers/text/about_CMS_physics_objects_2010.html' ignore missing %}
+  </div>
+  <div id="year2011" class="tab-pane fade in active">
+    {% include 'helpers/text/about_CMS_physics_objects_2011.html'  %}
+  </div>
+</div>

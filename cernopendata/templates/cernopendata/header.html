@@ -1,0 +1,7 @@
+{%- extends "invenio_theme/header.html" %}
+
+{%- block breadcrumbs %}
+{% if request.path != '/' %}
+  {{ super() }}
+{% endif %}
+{%- endblock %}

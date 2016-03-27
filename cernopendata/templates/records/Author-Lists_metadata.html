@@ -1,0 +1,69 @@
+{% extends 'records/metadata_base.html' %}
+
+{% block record_authors %}
+{% endblock %}
+
+{% block record_descritpion %}
+<div class="rec_metadata rec_description">
+<div class="row">
+  <div class="col-md-12">
+    <div class="rec_title title">Description</div>
+  </div>
+  <div class="col-md-12">
+    <div class="rec_desc">{{record.get('title',{}).get('title','')|safe}}</div>
+  </div>
+</div>
+</div>
+{% endblock %}
+
+{% block record_content_bottom %}
+	<script src="http://listjs.com/no-cdn/list.js"></script>
+	<div class="rec_metadata rec_authors_list">
+		<div id="authors_list" class="row">
+			<div class="col-xs-12">
+				<div class="rec_title title">Author information</div>
+			</div>
+		<div class="col-xs-12" style="margin-top: 20px;font-size: 16px;color: #606D75;font-weight: 100;">
+				<div class="author_item row">
+					<div class="col-xs-12 col-md-4 author_name"><a class="sort" data-sort="author_name"><b>Name</b></a></div>
+					<div class="col-xs-6 col-md-4 author_affiliaton"><a class="sort" data-sort="author_affiliaton"><b>Affiliation</b></a></div>
+					<div class="col-xs-3 col-md-2 author_ccid"><a class="sort" data-sort="author_ccid"><b>CCID</b></a></div>
+					<div class="col-xs-3 col-md-2 author_inspire"><a class="sort" data-sort="author_inspire"><b>INSPIRE number</b></a></div>
+				</div>					
+			</div>
+			<div id="authors_list_box" class="col-xs-12" style="margin-top: 20px;font-size: 16px;color: #606D75;font-weight: 100;">
+				<ul id="authors-list" class="list row">
+					{% for a in record['authors'][:50] %}
+					<li class="col-xs-12 {{loop.cycle('odd','even')}}">
+						<div class="author_item row">
+							<div class="col-xs-12 col-md-4 author_name">{{a['last_name']+' '+a['first_name']}}</div>
+							<div class="col-xs-6 col-md-4 author_affiliaton">
+								{% if a['affiliation'] is string%}
+								{{a['affiliation']}}
+								{%else%}
+								{% for i in a['affiliation'] %}
+								{{i}}{{', ' if not loop.last}}
+								{% endfor %}
+								{%endif%}
+							</div>
+							<div class="col-xs-3 col-md-2 author_ccid">{{a['CCID']}}</div>
+							<div class="col-xs-3 col-md-2 author_inspire">{{a['INSPIRE_number']}}</div>
+						</div>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% if record['authors'][50] %}
+			<div id="showmore_buttons" class="showmore-buttons-authors pull-right" data-start="0" data-end="50">
+				<button id="showmore-button-prev" class="btn" disabled>
+					<span class="fa fa-chevron-left"></span>
+				</button>
+				<div id="showmore-info"><input type="hidden" id="showmore-authors-page" value="1">Authors <span id="showmore-page-start">1</span> - <span id="showmore-page-end">50</span> out of <span id="showmore-page-total">{{ ((record['authors']|length))}}</span></div>
+				<button id="showmore-button-next" class="btn">
+					<span class="fa fa-chevron-right"></span>
+				</button>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+﻿@charset "UTF-8";
+/**
+ * Zazar zGlossary Plugin
+ *
+ * Stylesheet: jquery.zglossary.css
+ *
+ * Version: 1.0.1
+ * (C) 2011-2012 Zazar Ltd
+ * 
+ * Description: Stylesheet for the jquery.zglossary.js plugin
+ *
+ * History:
+ * 1.0.0 - Initial release
+ *
+ **/
+
+a.glossaryTerm, a.glossaryTerm:visited, a.glossaryTerm:link { border-bottom: 1px dashed #999; text-decoration: none; }
+a.glossaryTerm:hover { border-bottom: none; text-decoration: none; }
+
+#glossaryTip {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99999;
+	cursor: default;
+}
+
+#glossaryContent {
+	text-align: justify;
+	font-size: 11px;
+	line-height: 125%;
+	padding: 1em;
+	background-color: #fff;
+	border: 1px solid #ccc;
+}
+#glossaryContent h6 {
+	margin: 0 0 0.6em;
+	font-size: 13px;
+	font-weight: bold;
+}
+#glossaryContent p { margin: 0; }
+
+#glossaryClose {
+	position: absolute;
+	right: -5px;
+	top: -5px;
+	width: 20px;
+	height: 20px;
+	background: url('ui_close_sm.gif') no-repeat;
+	cursor: pointer;
+}
+#glossaryTip > #glossaryClose { background: url('ui_close_sm.png') no-repeat; }

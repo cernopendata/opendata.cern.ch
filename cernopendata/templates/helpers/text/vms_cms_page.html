@@ -1,0 +1,15 @@
+<div class="yeartabs-container">
+  <div class="yeartabs">
+    <div {% if year == '2010' %}class="in active"{% endif %}><a data-toggle="tab"  data-target="#year2010" href="/VM/CMS/2010">2010</a></div>
+    <div {% if year == '2011' or year==None %}class="in active"{% endif %}><a data-toggle="tab" data-target="#year2011" href="/VM/CMS/2011">2011</a></div>
+  </div>  
+</div>
+
+<div class="tab-content">
+  <div id="year2010" class="tab-pane fade {% if year == '2010' %} active in {% endif %}">
+    {% include 'helpers/text/vms_cms_page_2010.html' ignore missing %}
+  </div>
+  <div id="year2011" class="tab-pane fade {% if year == '2011' or year==None %} active in {% endif %}">
+    {% include 'helpers/text/vms_cms_page_2011.html' ignore missing %}
+  </div>
+</div>

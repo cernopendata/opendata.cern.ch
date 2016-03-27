@@ -1,0 +1,129 @@
+{% extends 'page.html' %}
+
+
+{% block body %}
+{% import 'helpers/general.html' as gen_utils %}
+
+  <style>
+    .coll-exp .thumb {
+      border-bottom: 1px solid #dfdfdf;
+      padding-bottom: 20px;
+    }
+    .coll-exp .thumb img {
+      height: 120px;
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 30px;
+      font-weight: 100px;
+    }
+
+    .coll-exp .title span{
+      float: left;
+      font-size: 16px;
+      font-weight: 400;
+
+    }
+    .coll-exp .other {
+      padding-bottom: 25px;
+      height: 100%;
+      max-height: 150px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .coll-exp .other span {
+      height: 120px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: block;
+    }
+    .coll-exp .exp-name {
+      padding: 20px;
+      font-size: 26px;
+      font-weight: 100;
+      color: #657580;
+    }
+
+    .coll-exp {
+      background-color: #f4f4f4;
+      padding: 30px;
+      text-align: center;
+      height: auto;
+      display: inline-block;
+      font-weight: 100;
+      border-radius: 5px;
+      color: #657580;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    .about h4 {
+      font-size: 20px;
+      text-align: justify;
+      font-weight: 100;
+    }
+    .about {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      color: #657580;
+    }
+  </style>
+
+  <section class="infobar">
+    <div class="container">
+      {{ gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names) }}
+    </div>
+  </section>
+
+  <section id="get-started" class="content general">
+    <div class="container">
+      <div class="tab-content">
+        
+        <div class="tab-pane fade {% if exp not in exp_names %} in active {% endif %}" id="general">
+          <div class="gen-header">
+            <h1>Familiarise yourself with the working environments and tools needed to analyse the data provided on this portal.</h1>
+          </div>
+          <div class="row">
+            {% for e in exp_names %}
+            <div class="col-md-6">
+              <a href="{{ url_for((request.path|splitthem)[1]+'/'+e) }}">
+                <div class="coll-exp">
+                  <div class="top col-md-12">
+                    <div class="col-md-6 col-md-offset-3 thumb"><img src="{{ url_for('static', filename='img/'+e+'.gif') }}" alt="" class="img-cirle center-block"></div>
+                    <div class="col-md-12 exp-name">{{e}} Getting Started</div>
+                  </div>
+                </div>
+              </a>
+            </div> 
+            {% endfor %}
+          </div>
+        </div>
+        {% for e in exp_names %}
+        <div class="tab-pane fade{% if exp == e %} general in active {% endif %}" id="{{e}}">
+        {% include 'get_started_'+e+'.html' ignore missing %}
+        </div> 
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
+
+{%- block javascript %}
+{{super()}}
+<script>
+$(document).ready(function() {
+  // add a hash to the URL when the user clicks on a tab
+  $('a[data-toggle="tab"]').on('click', function(e) {
+    history.pushState(null, null, $(this).attr('href'));
+  });
+  // navigate to a tab when the history changes
+  window.addEventListener("popstate", function(e) {
+    var activeTab = $('[href="' + location.pathname + '"][data-toggle="tab"]');
+    if (activeTab.length) {
+      activeTab.tab('show');
+    } else {
+      $('.nav-tabs a:first').tab('show');
+    }
+  });
+});
+</script>
+{% endblock %}

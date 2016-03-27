@@ -1,0 +1,26 @@
+{%  macro testimonial_box(quote, author) %}
+  <li class="testimonial col-md-4">
+    <div class="quote">
+      <span class="fa fa-quote-left" style="text-align:left;"></span>
+      <span class="text">{{ quote | safe }}</span>
+      <span class="fa fa-quote-right" style="text-align:right;"></span>
+    </div>
+    <div class="details">{{ author | safe  }}</div>
+  </li>
+{% endmacro %}
+
+{% macro testimonials_list( list ) %}
+  {% block testimonials_list %}
+    <ul>
+      {% for quote, author in list %}
+        {{ testimonial_box(quote, author) }}
+      {% endfor %}
+    </ul>
+  {% endblock %}
+{% endmacro %}
+
+<ul>
+  {{ testimonial_box('I find it fascinating -— all the leptons, bosons, hadrons -- oh my!', '-- Stephen Bohlman, high-school student, EPPOG Masterclasses 2006') }}
+  {{ testimonial_box('We could do something with this data. It made us feel that we were scientists for a day.  When we saw [one], we\’d just scream out, "The muon!"','-- Sammi Qin, EPPOG Masterclasses 2006') }}
+  {{ testimonial_box('I find it fascinating -— all the leptons, bosons, hadrons -- oh my!', '-- Stephen Bohlman, high-school student, EPPOG Masterclasses 2006') }}
+</ul>

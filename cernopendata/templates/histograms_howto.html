@@ -1,0 +1,295 @@
+<div class="col-md-12">
+
+  <div class="row">
+  <div class="col-md-12">
+    <h2>How do I make my own histograms?</h2>
+    <p>
+    This application reads in a csv file, where "csv" stands for comma-separated value. Files from several different datasets and event selections
+    are provided. If you want to make your own csv files from the primary datasets example code can be found here:
+    <a href="https://github.com/tpmccauley/dimuon-filter">https://github.com/tpmccauley/dimuon-filter</a>.
+    </p>
+    <p>
+    Whether you use one of the files provided or make one of your own, there are several ways to examine the contents and to see what the distributions
+    of the parameters contained therein look like. Here are a few examples using a csv file created by selecting from the “Mu” dataset events with precisely 2 muons.
+    Each line represents the information for the 2 muons for each event. For example:
+
+    <pre>
+Run,Event,Type1,E1,px1 ,py1,pz1,pt1,eta1,phi1,Q1,Type2,E2,px2,py2,pz2,pt2,eta2,phi2,Q2,M
+146436,90830792,G,19.1712,3.81713,9.04323,-16.4673,9.81583,-1.28942,1.17139,1,T,5.43984,-0.362592,2.62699,-4.74849,2.65189,-1.34587,1.70796,1,2.73205
+146436,90862225,G,12.9435,5.12579,-3.98369,-11.1973,6.4918,-1.31335,-0.660674,-1,G,11.8636,4.78984,-6.26222,-8.86434,7.88403,-0.966622,-0.917841,1,3.10256
+146436,90644850,G,12.3999,-0.849742,9.4011,8.04015,9.43943,0.77258,1.66094,1,G,8.55532,-4.85155,6.97696,-0.983229,8.49797,-0.115445,2.17841,-1,9.41149
+146436,90678594,G,17.8132,-1.95959,2.80531,17.4811,3.42195,2.3335,2.18053,1,G,9.42174,4.36523,0.168017,8.34713,4.36846,1.403,0.0384708,1,7.74702
+    </pre>
+    </p>
+    <p>Here are three examples using <a href="#withflot">Flot</a>, <a href="#withd3">d3</a> and <a href="#withr">R</a>. The code for all the examples is available on <a href="https://github.com/tpmccauley/opendata-histograms">github</a>.</p>
+  </div>
+  </div>
+
+  <div class="row">
+  <div class="col-md-12">
+    <a name="withflot"></a>
+    <h3>With Flot</h3>
+    <p><a href="http://www.flotcharts.org/">Flot</a> is a JavaScript plotting library that uses <a href="http://jquery.com/">jQuery</a>:</p>
+<p>
+<pre>
+&lt!DOCTYPE html&gt
+&ltmeta charset="utf-8"&gt
+&lthead&gt
+  &lt!-- We use d3 for making the histogram (we don't want to do it by-hand) and loading the data --&gt
+  &ltscript src="http://d3js.org/d3.v3.min.js"&gt&lt/script&gt
+
+  &ltscript src="jquery.js"&gt&lt/script&gt
+  &ltscript src="jquery.flot.js"&gt&lt/script&gt
+
+  &ltstyle&gt
+  #flot-histogram {
+    height: 500px;
+    width: 800px;
+  }
+  &lt/style&gt
+&lt/head&gt
+&ltbody&gt
+  &lt!-- Make a div with id flot-histogram. This is where the plot goes --&gt
+  &ltdiv id="flot-histogram"&gt&lt/div&gt
+
+  &ltscript type="text/javascript"&gt
+    $(function(){
+
+      // Use d3 to make the histogram for us and output
+      // the result into something we can use easily with Flot
+      function buildHistogram(data, bw) {
+        var minx = d3.min(data),
+            maxx = d3.max(data),
+            nbins = Math.floor((maxx-minx) / bw);
+
+        var histogram = d3.layout.histogram();
+        histogram.bins(nbins);
+        data = histogram(data);
+
+        var output = [];
+        for ( var i = 0; i < data.length; i++ ) {
+          output.push([data[i].x, data[i].y]);
+          output.push([data[i].x + data[i].dx, data[i].y]);
+        }
+        return output;
+      }
+
+      // Set some plot options
+      var options = {
+        lines: { show: true, fill: false, lineWidth: 1.2 },
+        grid: { hoverable: true, autoHighlight: false },
+        xaxis: { tickDecimals: 0 },
+        yaxis: { autoscaleMargin: 0.1 }
+      };
+
+      // Load up a csv file and look at the distribution of the
+      // invariant mass M (in GeV, in bins of size 0.1 GeV):
+      d3.csv("../data/MuRun2010B_0.csv", function(data) {
+        var histogram = buildHistogram(data.map(function(d) {return d['M'];}), 0.1);
+
+        // Draw the plot:
+        $.plot($('#flot-histogram'), [{data:histogram, label:'Invariant mass [GeV]'}], options);
+      });
+
+    });
+  &lt/script&gt
+&lt/body&gt
+</pre>
+</p>
+  </div>
+  </div>
+
+  <div class="row">
+  <div class="col-md-12">
+    <a name="withd3"></a>
+    <h3>With d3</h3>
+    <p><a href="http://d3js.org/">d3</a> (Data-Driven-Documents) is a JavaScript library for visualizing data in the browser:</p>
+    <p>
+<pre>
+&lt!DOCTYPE html&gt
+&ltmeta charset="utf-8"&gt
+&lthead&gt
+  &ltscript src="http://d3js.org/d3.v3.min.js"&gt&lt/script&gt
+
+  &ltstyle&gt
+    #d3-histogram {
+      height: 500px;
+      width: 1000px;
+    }
+
+    body {
+      font: bold 12px Helvetica;
+    }
+
+    rect {
+      fill: #aec7e8;
+      stroke: #1f77b4;
+    }
+
+    .axis {
+      shape-rendering: crispEdges;
+    }
+
+    .axis line, .axis path {
+      fill: none;
+      stroke: #000;
+    }
+
+    .grid .tick {
+      stroke: lightgrey;
+      opacity: 0.7;
+    }
+
+    .grid path {
+      stroke-width: 0;
+    }
+  &lt/style&gt
+&lt/head&gt
+&ltbody&gt
+  &lt!-- Make an svg element with id d3-histogram. This is where the plot goes --&gt
+  &ltsvg id="d3-histogram"&gt&lt/svg&gt
+
+  &ltscript type="text/javascript"&gt
+    (function(){
+
+      // Define the margins and axes (note: "starting" w and h are in css)
+      var m = {top: 50, right:50, bottom:50, left:100},
+      w = 1000 - m.left - m.right,
+      h = 500 - m.top - m.bottom,
+      x = d3.scale.linear().range([0, w]),
+      y = d3.scale.linear().range([h, 0]),
+      xaxis = d3.svg.axis().scale(x).orient("bottom").tickSize(6).ticks(10).tickSubdivide(true),
+      yaxis = d3.svg.axis().scale(y).orient("left").tickSize(6).ticks(10).tickSubdivide(true);
+
+      var svg = d3.select("#d3-histogram").append("svg")
+                    .attr("width", w + m.left + m.right)
+                    .attr("height", h + m.top + m.bottom)
+                    .append("g")
+                    .attr("transform", "translate("+m.left+","+m.top+")");
+
+      svg.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0,"+h+")")
+            .call(xaxis);
+
+      svg.append("g")
+            .attr("class", "y axis")
+            .call(yaxis);
+
+      function buildHistogram(data, bw) {
+        var minx = d3.min(data),
+            maxx = d3.max(data),
+            nbins = Math.floor((maxx-minx) / bw);
+
+        var histogram = d3.layout.histogram();
+        histogram.bins(nbins);
+        data = histogram(data);
+
+        x.domain([d3.min(data.map(function(d) {return d.x;})), d3.max(data.map(function(d) {return d.x;}))]);
+        y.domain([0,d3.max(data.map(function(d) {return d.y;}))]);
+
+        // Draw some grid lines
+        svg.append("g", ".bars")
+          .attr("class", "grid")
+          .call(d3.svg.axis().scale(x)
+            .orient("bottom")
+            .tickSize(h, 0, 0)
+            .tickFormat("")
+          );
+
+        svg.append("g", ".bars")
+          .attr("class", "grid")
+          .call(d3.svg.axis().scale(y)
+            .orient("left")
+            .tickSize(-2*h, 0, 0)
+            .tickFormat("")
+          );
+
+        // Draw the axes
+        svg.select("g.x.axis").call(xaxis);
+        svg.select("g.y.axis").call(yaxis);
+
+        // Label the x axis
+        svg.append("text")
+          .attr("x", w-m.left+10)
+          .attr("y",  h+m.bottom-10)
+          .style("text-anchor", "middle")
+          .text("Invariant mass [GeV]");
+
+        // Draw the histogram bars
+        var rects = svg.selectAll("rect").data(data);
+        rects.enter().insert("rect")
+          .attr("width", function(d) {return x(d.dx + d.x) - x(d.x)})
+          .attr("x", function(d,i) {return x(d.x);})
+          .attr("y", function(d) {return y(d.y);})
+          .attr("height", function(d) {return h-y(d.y);});
+      }
+
+      // Load up a csv file and look at the distribution of the
+      // invariant mass M (in GeV, in bins of size 0.1 GeV):
+      d3.csv("../data/MuRun2010B_0.csv", function(data) {
+        buildHistogram(data.map(function(d) {return d['M'];}), 0.1);
+      });
+
+    })();
+  &lt/script&gt
+&lt/body&gt
+</pre>
+</p>
+  </div>
+  </div>
+
+  <div class="row">
+  <div class="col-md-12">
+    <a name="withr"></a>
+    <h3>With R</h3>
+    <a href="http://www.r-project.org/">R</a> is a software environment for data analysis, statistics and visualisation. This code can be run in the R console. See the <a href="http://www.r-project.org/">R page</a> for more on how to get and run R.</p>
+    <p><pre>
+# read in the dimuon csv file:
+dimuons <- read.csv(file="../data/MuRun2010B_0.csv")
+
+# select for events where the 2 muons have opposite-sign
+dimuons.oppsigns <- subset(dimuons, dimuons$Q1*dimuons$Q2 == -1)
+
+# and then from those, select events with 2 global muons
+dimuons.globals <- subset(dimuons.oppsigns, dimuons.oppsigns$Type1 == "G" & dimuons.oppsigns$Type2 == "G")
+
+# set the number of bins
+nbins <- 200
+
+# and make a histogram:
+hist.data <- hist(log10(dimuons$M), breaks=nbins)
+# which is not bad on its own
+
+# however, another way to draw is to take the data from the hist and make a barplot:
+barplot(log10(hist.data$counts), names.arg=signif(hist.data$mids,2), col="white")
+
+# this works nicely if one uses the dimuons frame directly:
+qplot(log10(dimuons$M), binwidth=0.01, log="y", colour=I("black"), fill=I("white"))
+
+#as does this (which is probably the nicest):
+ggplot(dimuons, aes(x=log10(M))) + geom_histogram(binwidth=0.01, colour="black", fill="white") + scale_y_log10()
+
+# however, this works well and is simple to understand:
+plot(hist.data$mids, log10(hist.data$counts), type="s", yaxt="n", ylab="", col="black", lwd=2)
+
+# let's make histograms of the selections:
+hist.oppsigns.data <- hist(log10(dimuons.oppsigns$M), breaks=nbins)
+hist.globals.data <- hist(log10(dimuons.globals$M),  breaks=nbins)
+
+# and plot all 3 histograms:
+plot(hist.data$mids, log10(hist.data$counts), xlab="log10(M [GeV])", yaxt="n", ylab="", type="s", col="black", lwd=2)
+lines(hist.oppsigns.data$mids, log10(hist.oppsigns.data$counts),type="s", col="blue", lwd=2)
+lines(hist.globals.data$mids, log10(hist.globals.data$counts), type="s", col="red", lwd=2)
+
+# add some vertical grid lines
+abline(v=(c(0.25,0.5,0.75,1.0,1.25,1.5,1.75,2.0)), col="lightgray", lty="dotted")
+
+# and a legend
+legend.txt = c("All muon pairs", "All opposite-sign muon pairs", "All opposite-sign global muon pairs")
+legend("topright", legend.txt, lwd=c(2.5,2.5,2.5),col=c("black","blue","red"))
+    </pre></p>
+  </div>
+  </div>
+
+</div>

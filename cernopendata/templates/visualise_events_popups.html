@@ -1,0 +1,442 @@
+<div id="open-files" role="dialog" class="modal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content bordered black">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i><span class="sr-only">Close</span></button>
+        <h4 class="modal-title black">Open File</h4>
+      </div>
+      <div class="modal-body">
+        <table>
+          <p><button type="button" class="btn btn-default" onclick="ispy.openDialog('#files'); ispy.showWebDirs(); $('#open-files').modal('hide');">Open file(s) from the Web</button></p>
+          <p>
+            Open local file(s): <input type="file" id="local-files" onchange="ispy.loadLocalFiles();" onclick="$('#open-files').modal('hide');" multiple/>
+          </p>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="files" role="dialog" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content bordered black">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i><span class="sr-only">Close</span></button>
+        <h4 class="modal-title black">Open Event</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table black" width="100%" id="browser-table">
+          <tr>
+            <th class="browser-header bordered black" width="50%">Files</th>
+            <th class="browser-header bordered black">Events</th>
+          </tr>
+          <tr>
+            <td class="bordered">
+              <table class="table table-hover black" id="browser-dirs"></table>
+              <table class="table table-hover black" id="browser-files"></table>
+            </td>
+            <td class="bordered">
+              <table class="table table-hover black" id="browser-events"></table>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <div class="bordered" id="selected-event"> </div>
+        <div id="event-buttons">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" id="load-event" class="btn btn-default disabled" onclick="$('#files').modal('hide'); ispy.loadEvent();">Load</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="loading" role="dialog" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content bordered black">
+      <div class="modal-header"></div>
+      <div class="modal-body">
+        <h4><i class="fa fa-spinner fa-spin"></i> Loading...</h4>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
+
+<div id="progress" role="dialog" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content bordered black">
+      <div class="modal-header"></div>
+      <div class="modal-body">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+        </div>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
+
+<div id="settings" role="dialog" class="modal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content bordered black">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i><span class="sr-only">Close</span></button>
+        <h4 class="modal-title black">Settings</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          Invert colors: <input id='invert-colors' type='checkbox' onchange='ispy.invertColors();'>
+        </p>
+        <p>
+          Hide axes: <input id='show-axes' type='checkbox'>
+        </p>
+        <p>
+          Show information dialogs: <input id='show-info' type='checkbox' checked>
+        </p>
+        <p>
+          Show display statistics: <input id='show-stats' type='checkbox'>
+        </p>
+        <p>
+          Set maximum frame rate: <span id='fr'></span> fps
+          <input type='range' min='1' max='60' value='30' id='fps-slider' step='1' oninput='ispy.setFramerate(value);'>
+        </p>
+        <div id="renderer-info"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="about" role="dialog" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content bordered black">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i><span class="sr-only">Close</span></button>
+        <h4 class="modal-title black">About</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          <h4>iSpy-WebGL <span id="version"></span></h4>
+        </p>
+        <p>
+          A browser-based event display for the <a target="_blank" href="http://cern.ch/cms">CMS experiment</a> at the LHC using WebGL.
+        </p>
+        <p>
+          <a href="mailto:ispy-developers@cern.ch">Questions/comments/problems</a></p>
+        <p>
+          <a target="_blank" href="https://github.com/cms-outreach/ispy-webgl">Code</a> and
+          <a target="_blank" href="https://github.com/cms-outreach/ispy-webgl/issues">Issues</a>
+        </p>
+        <p>Contributors: L. Barnard, M. Hategan, C. Logren, T. McCauley, P. Nguyen, M. Saunby</p>
+        <!-- Need to update
+        <p>Reference: <a target="_blank" href="http://iopscience.iop.org/1742-6596/396/2/022022/">J.Phys.Conf.Ser. 396 (2012) 022022</a></p>
+        -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="stereo-modal" role="dialog" class="modal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content bordered black">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i><span class="sr-only">Close</span></button>
+        <h4 class="modal-title black">Set to Stereo View</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          This view is specifically designed for use in a
+          <a href="https://www.google.com/get/cardboard/" target="_blank">Google Cardboard</a> viewer
+          and therefore requires a viewer and a suitable mobile phone.
+        </p>
+        <p>
+          To use with the viewer, rotate the phone to landscape, press the button below, and insert into the viewer. The view automatically
+          pans forward in the direction of view. To exit, tap the screen.
+        </p>
+        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="ispy.setStereo();">Start</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="import-model" role="dialog" class="modal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content bordered black">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i><span class="sr-only">Close</span></button>
+        <h4 class="modal-title black">Import 3D Model</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          Select a 3D model to load.
+        </p>
+        <p>
+          Currently only .obj format is supported.
+          If an additional .mtl is available and loaded it will be used as well.
+        </p>
+        <p>
+          <i>Nota bene</i>: a large complicated 3D model may take minutes to load.
+        </p>
+        <input type="file" id="import-file" onchange="ispy.importModel();" multiple/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Template me! ["Detector", "Provenance", "Tracking", "ECAL", "HCAL", "Muon", "Physics"] -->
+
+<div id="info-Detector" role="dialog" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content bordered black">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i><span class="sr-only">Close</span></button>
+        <h4 class="modal-title black">Detector</h4>
+      </div>
+      <div class="modal-body">
+        <dl>
+          <dt>Tracker:</dt>
+          <dd>Silicon and pixel detectors used to detect passage of charged particles</dd>
+          <dt>ECAL Barrel:</dt>
+          <dd>Central electromagnetic calorimeter; measures energy of electrons and photons</dd>
+          <dt>ECAL Endcap:</dt>
+          <dd>Electromagnetic calorimeters at either end of CMS for measurements close to the beam axis</dd>
+          <dt>HCAL Barrel:</dt>
+          <dd>Central hadronic calorimeter; measures energy of hadrons</dd>
+          <dt>HCAL Endcap:</dt>
+          <dd>Hadronic calorimeters at either end of CMS, close to the beam axis</dd>
+          <dt>HCAL Outer:</dt>
+          <dd>Hadronic calorimeter layer just outside the solenoid magnet</dd>
+          <dt>HCAL Forward:</dt>
+          <dd>Hadronic calorimeters farther down and very close to the beam axis</dd>
+          <dt>Drift Tubes (DT):</dt>
+          <dd>Central muon chambers outside the solenoid and HCAL Outer</dd>
+          <dt>Cathode Strip Chambers (CSC):</dt>
+          <dd>Forward muon detectors</dd>
+          <dt>Resistive Place Chambers (RPC):</dt>
+          <dd>Solid state muon detectors</dd>
+        </dl>
+        <p>Want to know more? Go <a href='http://cms.web.cern.ch/news/cms-detector-design' target='_blank'>here</a>.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="info-Imported" role="dialog" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content bordered black">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i><span class="sr-only">Close</span></button>
+        <h4 class="modal-title black">Imported</h4>
+      </div>
+      <div class="modal-body">
+        <dl>
+          Imported geometry models such the beam pipe.
+        </dl>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="info-Provenance" role="dialog" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content bordered black">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i><span class="sr-only">Close</span></button>
+        <h4 class="modal-title black">Provenance</h4>
+      </div>
+      <div class="modal-body">
+        <dl>
+          <dt>Event:</dt>
+          <dd>Each event is distinguished by a run number, event number, luminosity section, and time stamp</dd>
+        </dl>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="info-Tracking" role="dialog" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content bordered black">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i><span class="sr-only">Close</span></button>
+        <h4 class="modal-title black">Tracking</h4>
+      </div>
+      <div class="modal-body">
+          <dl>
+            <dt>Tracks (reco.):</dt>
+            <dd>Reconstructed particle tracks in the tracker</dd>
+            <dt>Rec. Hits (Tracking):</dt>
+            <dd>All particle hits in the tracker</dd>
+          </dl>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="info-ECAL" role="dialog" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content bordered black">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i><span class="sr-only">Close</span></button>
+        <h4 class="modal-title black">ECAL: Electromagnetic calorimeter</h4>
+      </div>
+      <div class="modal-body">
+        <dl>
+          <dt>Barrel Rec. Hits:</dt>
+          <dd>Energy in a single ECAL crystal</dd>
+          <dt>Endcap Rec. Hits:</dt>
+          <dd>Hits in ECAL Endcap</dd>
+          <dt>Preshower Rec. Hits:</dt>
+          <dd>Hits in ECAL Preshower</dd>
+        </dl>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="info-HCAL" role="dialog" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content bordered black">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i><span class="sr-only">Close</span></button>
+        <h4 class="modal-title black">HCAL: Hadronic calorimeter</h4>
+      </div>
+      <div class="modal-body">
+        <dl>
+          <dt>Barrel Rec. Hits:</dt>
+          <dd>Energy in a single HCAL tile</dd>
+          <dt>Endcap Rec. Hits:</dt>
+          <dd>Hits in HCAL Endcap</dd>
+          <dt>Forward Rec. Hits:</dt>
+          <dd>Hits in HCAL Forward</dd>
+          <dt>Outer Rec. Hits:</dt>
+          <dd>Hits in HCAL Outer</dd>
+        </dl>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="info-Muon" role="dialog" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content bordered black">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i><span class="sr-only">Close</span></button>
+        <h4 class="modal-title black">Muon</h4>
+      </div>
+      <div class="modal-body">
+        <dl>
+          <dt>Matching muon chambers:</dt>
+          <dd>The muon chambers (drift tubes and/or cathode strip chambers) that correspond to the reconstructed muon</dd>
+          <dt>DT Rec. Hits:</dt>
+          <dd>Muon hits in Drift Tubes</dd>
+          <dt>DT Rec. Segments:</dt>
+          <dd>Muon track segments in Drift Tubes</dd>
+          <dt>CSC Segments:</dt>
+          <dd>Muon track segments in Cathode Strip Chambers</dd>
+          <dt>RPC Rec. Hits:</dt>
+          <dd>Muon hits in Resistive Plate Chambers</dd>
+          <dt>CSC Rec. Hits:</dt>
+          <dd>Muon hits in Cathode Strip Chambers</dd>
+        </dl>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="info-Physics" role="dialog" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content bordered black">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i><span class="sr-only">Close</span></button>
+        <h4 class="modal-title black">Physics Objects</h4>
+      </div>
+      <div class="modal-body">
+        <dl>
+          <dt>Electron Tracks (GSF):</dt>
+          <dd>Reconstructed candidate electron tracks in the tracker</dd>
+          <dt>Photons (Reco):</dt>
+          <dd>Inferred photon trajectories</dd>
+          <dt>Tracker Muons (Reco):</dt>
+          <dd>Reconstructed muon tracks in tracker</dd>
+          <dt>Stand-alone Muons (Reco):</dt>
+          <dd>Reconstructed muon track segments in muon chambers</dd>
+          <dt>Global Muons (Reco):</dt>
+          <dd>Reconstructed complete muon tracks, combining tracker and stand-alone muons</dd>
+          <dt>Jets:</dt>
+          <dd>Collimated streams of particles</dd>
+          <dt>MET:</dt>
+          <dd>Missing transverse energy</dd>
+        </dl>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="data-EventObjects" role="dialog" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content bordered black">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i><span class="sr-only">Close</span></button>
+        <h4 id="title-data-EventObjects" class="modal-title black"></h4>
+      </div>
+      <div class="modal-body">
+        <div class="table-responsive">
+          <table id="table-data-eventObject" class="black table table-hover">
+            <thead>
+              <tr>
+                <th class="group">Type</th>
+                <th class="group">Value</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

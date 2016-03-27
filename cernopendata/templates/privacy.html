@@ -1,0 +1,57 @@
+{% extends 'page.html' %}
+
+{% block body %}
+  {% with collection = 0 %}
+    {% include 'search/form/index.html' %}
+  {% endwith %}
+
+<style>
+	#privacy {
+		padding-top: 40px;
+		padding-bottom: 40px;
+		color: #091B26;
+	}
+
+	#privacy .header {
+		text-align: center;
+		width: 100%;
+		font-size: 20px;
+		font-weight: 100;
+		margin-bottom: 30px;
+	}
+	#privacy .body h4 {
+		font-weight: 600;
+	}
+	#privacy .body ol {
+		list-style-type: decimal;
+	}
+	#privacy .body p {
+		width: 100%;
+		font-size: 16px;
+		font-weight: 100;
+		padding-bottom: 10px;
+		float: none;
+	}
+</style>
+
+<section class="infobar">
+<div class="container">
+  <h3>Privacy Policy</h3>
+</div>
+</section>
+<section id="privacy" class="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="header">CERN Open Data Privacy Policy</div>
+				<div class="body">
+					<p>CERN does not track, collect or retain personal information from users of CERN Open Data Portal, except as otherwise provided herein. In order to enhance CERN Open Data Portal and monitor traffic, non-personal information such as IP addresses and cookies may be tracked and retained, as well as log files shared in aggregation with other community services. User provided information, like corrections of metadata or paper claims, will be integrated into the database without displaying its source and may shared with other services.</p>
+					<p>CERN Open Data Portal will take all reasonable measures to protect the privacy of its users and to resist service interruptions, intentional attacks, or other events that may compromise the security of the CERN Open Data Portal website.</p>
+					<p>If you have any questions about the CERN Open Data Portal privacy policy, please contact <a href="mailto:opendata-support@cern.ch">opendata-support@cern.ch</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

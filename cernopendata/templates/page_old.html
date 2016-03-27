@@ -1,0 +1,75 @@
+{#
+# This file is part of CERN Open Data Portal.
+# Copyright (C) 2014 CERN.
+#
+# CERN Open Data Portal is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# CERN Open Data Portal is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Invenio; if not, write to the Free Software Foundation, Inc.,
+# 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+#}
+
+{%- extends "page_base.html" -%}
+
+
+{%- block page_header -%}
+<div id="wrap"> {# get closed into page_footer #}
+  {#
+  # The CERN header shouldn't be part of the Invenio application as it's
+  # added automagically by the apache server (I guess) and the login goes to
+  # sibboleth.
+  #}
+  {%- include "cern_header.html" -%}
+  <div id="heading">
+    <div id="mainmenu" class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1><a href="{{ url_for("search.index") }}">
+            {{- config.CFG_SITE_NAME_INTL.get(g.ln, config.CFG_SITE_NAME) -}}
+          </a></h1>
+          <p>
+            {{- config.CFG_SITE_MISSION_INTL.get(g.ln, config.CFG_SITE_MISSION) -}}
+          </p>
+        </div>
+        <div class="col-md-6">
+          <nav>
+            <ul>
+              {%- for item in current_menu.submenu("main").children if item.visible and item.name not in ("admin", "search") -%}
+              <li><a href="{{ item.url }}">{{ item.text | safe }}</a></li>
+              {%- endfor -%}
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%- endblock -%}
+
+  {%- block page_body -%}
+  {%- block page_body_before -%}{%- endblock -%}
+  <div id="body">
+    <div class="container">
+      {%- block title %}{{ body }}{% endblock -%}
+      {{ flashed_messages() }}
+      {%- block body -%}{{ body }}{% endblock -%}
+    </div>
+    {% block page_body_after %}{% endblock %}
+  </div>
+  {%- endblock -%}
+
+  {%- block page_footer -%}
+  <div id=push></div>
+</div> {# end wrap #}
+<footer id="footer">
+  {%- block pagefooteradd -%}{{ pagefooteradd | safe }}{%- endblock pagefooteradd -%}
+  {%- include "footer.html" -%}
+</footer>
+{%- endblock -%}

@@ -1,0 +1,110 @@
+<div class="col-md-12">
+  <div class="gen-box">
+    <h2 id="electron">Electrons<div class="phys-item-illust"><img src="{{url_for('static', filename='img/physics-objects-GIFs/electron.svg')}}" alt=""></div></h2>
+    <p>The collection most commonly used in 2010 data was <code>recoGsfElectrons_gsfElectrons__RECO</code> (collection of objects type <code>reco::GsfElectron</code>).</p>
+    <p>Energy and momentum were "ready-to-use". However an additional selection was needed for identification. The cuts can be found <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/EgammaPublicData">here</a>, with information on how to access the variables and the value to be applied for different selections.</p>
+    <p>It is important to apply identification and isolation selection to avoid large background contamination.</p>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="gen-box">
+    <h2 id="photon">Photons<div class="phys-item-illust"><img src="{{url_for('static', filename='img/physics-objects-GIFs/photon.svg')}}" alt=""></div></h2>
+    <p>The collection most commonly used in 2010 data was <code>recoPhotons_photons__RECO</code> (collection of objects type <code>reco::Photon</code>).</p>
+    <p>The energy and momentum were ready to use. However for photon identification additional selection needs to be applied. These cuts are listed in <a href="http://cms-physics.web.cern.ch/cms-physics/public/EGM-10-006-pas.pdf">Table 1 here [PDF]</a>.</p>
+    <p>Converted photons are included in the above mentioned collection. The conversion seeded by the ECAL clusters were already attached to the photon collection and can be accessed with this information.</p>
+    <p>Difference between "AllConversions" and "conversions": "AllConversions" are conversion seeded with tracking properties, while "conversions" are seeding by the ECAL clusters. The latter are very similar to the conversion also linked to the photon, it slightly differs for p<sub>T</sub> cuts.</p>
+    <p>The default collection of photons has a very very loose pre-selection. Basically every energy deposit in the ECAL with E<sub>T</sub> &gt; 10 GeV and HCAL energy / ECAL energy &lt; 0.5 is reconstructed as a photon. This means that without any additional selection the background is very very large and it is not usable for any analysis.</p>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="gen-box">
+    <h2 id="muon">Muons<div class="phys-item-illust"><img src="{{url_for('static', filename='img/physics-objects-GIFs/muon.svg')}}" alt=""></div></h2>
+    <p>The muons most commonly used in 2010 data analysis are contained in the collection <code>recoMuons_muon__RECO</code>.</p>
+    <p>Muons reconstructed by the particle-flow algorithm were also used: <code>recoPFCandidates_particleFlow_CleanedTrackeAndGlobalMuons_RECO</code>.</p>
+    <p>Most of the muon properties (e.g. momentum and isolation variables) are available in the <code>reco::Muon</code> object collection, ready to use. Some precaution in the choice of the momentum or isolation definition may be needed, depending on the analysis (see below.) Some additional corrections to the muon momentum (in general very small, &lt; 1%) can be applied, and are especially recommended for precision measurements. These are provided centrally by the muon POG and are to be applied on top of the momentum stored in the <code>reco::Muon object</code>. In general, the objects in the <code>reco::Muon</code> collection cannot be used "out of the box", but some further selections are necessary. Performance of muon selections and isolation, momentum resolution and scale corrections, fake rates, muon triggers, etc, can be found in <a href="http://iopscience.iop.org/1748-0221/7/10/P10002">JINST 7 (2012) P10002</a>.</p>
+    <div class="remember">
+      <h2 data-toggle="collapse" data-target="#rm-muon" class="title collapsed">Things to remember<span class="fa fa-chevron-down"></span><span class="fa fa-chevron-up"></span></h2>
+      <div id="rm-muon" class="collapse">
+        <ul class="row">
+          <li>1.  The <code>reco::Muon</code> collection includes muons reconstructed by different algorithms: fit in the muon chambers alone (standalone muons), fit in the tracker alone + matching with muon hits (tracker muons), and combined fit of tracker and muon hits (global muons). Not all the objects included in this collection are suitable for every analysis: e.g. it contains non-prompt muons from hadron decays or fake muons produced by random matching of hadron tracks with muon chamber hits. Therefore further selections and identification criteria must be applied to reject fake or background muons. Three main selections are recommended for 2010 data analysis: the Soft Muon selection, optimised for low-p<sub>T</sub> muons (p<sub>T</sub> &lt; ~10 GeV/c) and used in B-physics and Quarkonia analyses; the Tight Muon selection, most effective in rejecting non-prompt muons from decays and used in many CMS analyses (e.g. involving muons from W and Z); and the Particle-Flow Muon selection, which uses information from all sub-detectors to select with high efficiency isolated and non-isolated muons, while rejecting fake muons from hadron mis-identification, and giving the best overall performance.</li>
+          <li>2.  The default momentum stored in the <code>reco::Muon</code> object is recommended for all analyses involving muons with low and intermediate p<sub>T</sub> (p<sub>T</sub> &lt; ~200 GeV/c): for p<sub>T</sub> &lt; 200 GeV, this corresponds to the momentum obtained from the fit of the Tracker hits only; for p<sub>T</sub> &gt; 200 GeV/c, the default momentum is chosen between the results of the Tracker-only fit and the combined fit of Tracker and muon-chamber hits, based on the quality of the two fits. For analyses involving very high-p<sub>T</sub> muons, subject to possible energy loss by bremsstrahlung, dedicated refits of the global muon track are available: the Tracker-Plus-First-Muon-Station (TPFMS) fit, which uses the Tracker and first muon station hits; and the Picky fit, which uses hits from the Tracker and from all the muon chambers, but selecting the muon hits with tight compatibility criteria in chambers with high hit occupancy (i.e. with possible showers). The recommended choice to optimize the momentum resolution at high p<sub>T</sub> is provided by the "Tune P" algorithm, which selects the momentum obtained from the best of three different fits: the Tracker-only, the TPFMS and the Picky fit.</li>
+          <li>3.  The isolation variables, i.e. energy or momentum deposits in cones centered around the muon track, are stored in the <code>reco::Muon</code> object, and can be used to compute different isolation definitions. The recommended ones for 2010 data analysis are the following:
+            <ul class="with-circles">
+              <li>Tracker relative isolation: scalar sum of the p<sub>T</sub> of all Tracker tracks reconstructed in a cone of radius ΔR = √(Δη2 + Δφ2) &lt; 0.3 centred on the muon track direction;</li>
+              <li>combined relative isolation: sum of the pT of all Tracker tracks and of the transverse energy of all ECAL and HCAL towers in a cone of radius ΔR &lt; 0.3 centred on the muon track direction;</li>
+              <li>particle-ﬂow relative isolation: sum of the p<sub>T</sub> of all charged hadrons and of the transverse energy of all neutral hadrons and photons reconstructed by the particle-flow algorithm in a cone of radius ΔR &lt; 0.4 centred on the muon track direction.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="gen-box">
+    <h2 id="jetmet">Jets and missing transverse energy (MET)<div class="phys-item-illust"><img src="{{url_for('static', filename='img/physics-objects-GIFs/jet.svg')}}" alt=""></div></h2>
+    <p>(N.B.: b-jets described separately <a href="#bjet">below</a>)</p>
+    <p>The most commonly used variants of jets and missing E<sub>T</sub> are:
+      <ul>
+        <li><code>recoPFJets_ak5PFJets__RECO</code> (collection of objects of type <code>reco::PFJet</code>)</li>
+        <li><code>recoPFMETs_pfMet__RECO</code> (collection of objects of type <code>reco::PFMET</code>)</li>
+      </ul>
+    </p>
+    <p>The jets typically require Jet Energy Correction (JEC) to be applied, and the preference for MET is to apply so-called type-I corrections, which propagate the JEC to MET. The jets should have a JEC stored, although this is often re-run for analysis with the latest version of JEC constants. The 2010 AOD should have a reasonable JEC, although there may have been slight changes to JEC in later re-reco versions that we have not propagated all the way.</p>
+    <p>For most educational purposes, the PF jets and MET are ready to use after JEC and type-I, since the corrections are relatively small (typically &lt; 5% and mostly &lt; 10%) and the changes in the corrections would have been even smaller (typically &lt; 2% level).</p>
+    <div class="remember">
+      <h2 data-toggle="collapse" data-target="#rm-jets"  class="title collapsed">Jets — Things to remember<span class="fa fa-chevron-down"></span><span class="fa fa-chevron-up"></span></h2>
+      <div id="rm-jets" class="collapse">
+        <ul class="row">
+          <li>1. JEC: jets should be corrected for JEC, the knowledge of which is the dominant jet systematic; the JEC uncertainties may also be available in AOD</li>
+          <li>2. JetID: jet quality cuts should be used to avoid detector problems; there should be tight and loose flags for this</li>
+          <li>3. JER: jet results should be unfolded for jet p<sub>T</sub> resolution (JER), which varies between 5–15%; if there is an accompanying MC sample, the MC JER should be oversmeared typically by 10% or more with similar uncertainty; if not, it would be useful to provide parameterised JER</li>
+        </ul>
+      </div>
+    </div>
+    <div class="remember">
+      <h2 data-toggle="collapse" data-target="#rm-met"  class="title collapsed">MET — Things to remember<span class="fa fa-chevron-down"></span><span class="fa fa-chevron-up"></span></h2>
+      <div id="rm-met" class="collapse">
+        <ul class="row">
+          <li>1. Quality flags: MET should be cleaned for detector problems; there should be several flags for these</li>
+          <li>2. Type-I: whether or not JEC is propagated to MET, the JEC is an important systematic</li>
+          <li>3. Important uncertainties are JER, JES and unclustered energy: the JER resmearing (uncertainty on JER per jet: 5–20%) and JES systematics should be propagated to MET, and unclustered energy should be considered as an extra systematic by scaling it up and down by 10%.</li>
+          <li>4. For SUSY-type analysis, MET tails often come from jets (ECAL holes, heavy flavour, JER), so analyses typically apply cuts on Δφ(jet, MET) to ensure MET is not aligned with one of the jets</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="gen-box">
+    <h2 id="bjet">b-jets<div class="phys-item-illust"><img src="{{url_for('static', filename='img/physics-objects-GIFs/jet_b.svg')}}" alt=""></div></h2>
+    <p>The most commonly used tags in 2010 analyses were the Track Counting High Purity (collection: <code>trackCountingHighPurBJetTags</code>) and Track Counting High Efficiency (collection: <code>trackCountingHighEffBJetTags</code>).</p>
+    <p>Also in use were the Simple Secondary Vertex High Efficiency (collection: <code>simpleSecondaryVertexHighEffBJetTags</code>) and Simple Secondary Vertex High Purity (collection: <code>simpleSecondaryVertexHighEffBJetTags</code>).</p>
+    <p>Finally, later analyses on 2010 data have used the Combined Secondary Vertex (collection: <code>combinedSecondaryVertexBJetTags</code>) and maybe the Jet Probability (collection: <code>jetProbabilityBJetTags</code>) algorithms.</p>
+    <p>The collections contain the discriminator values for each jets, for the respective b-tagging algorithm. In order to decide if a jet is tagged, one has to ask the discriminator value to be greater of a specific threshold.<p>We define three possible thresholds (working points) for each algorithm, which correspond to the cuts on the discriminator that allow to reduce the rate of mis-identification of light jets as b-jets to 10% (loose working point), 1% (medium working point) and 0.1% (tight working point), respectively.</p>
+    <p>The thresholds for the different b-tagging algorithms and working points can be found <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/BtagRecommendation2010OpenData#Supported_Algorithms_and_Operati">here</a>.</p>
+    <p>Monte Carlo simulation does not reproduce correctly the distributions of the b-tag discriminator observed in data. As a consequence, the efficiencies for a b-jet to be tagged (as well as the probability for a light jet to be mis-tagged) when applying a certain working point requirement is not well reproduced in MC. The BTV POG provides data-to-MC scale factors to correct the efficiencies of b-tagging (and the mis-tagging rates) predicted by the simulation.</p>
+    <div class="remember">
+      <h2 data-toggle="collapse" data-target="#rm-bjet"  class="title collapsed">Things to remember<span class="fa fa-chevron-down"></span><span class="fa fa-chevron-up"></span></h2>
+      <div id="rm-bjet" class="collapse">
+        <ul>
+          <li>1. The values of the discriminator threshold defining each working point for the different b-tagging algorithm: this information is available <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/BtagRecommendation2010OpenData">here</a>.</li>
+          <li>2. The values of the data-to-MC scale factors: for 2010 data, use <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/BtagRecommendation2010OpenData#Data_MC_Scale_Factors">the 2011 scale factors with 10% uncertainty</a>.</li>
+          <li>3. How to apply the scale factors to the simulated events: <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/BtagRecommendation2010OpenData#Methods_to_Apply_b_Tagging_Effic">some examples</a> are provided.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-md-12">
+  <div class="gen-box">
+    <h2 id="tau">Taus<div class="phys-item-illust"><img src="{{url_for('static', filename='img/physics-objects-GIFs/tau.svg')}}" alt=""></div></h2>
+    <p>The taus stored in 42x AODs are vastly outdated and the tau POG cannot really recommend nor support any collection for the analysis. The reason is that tau objects are quite complex and one needs to develop smart techniques how to distinguish them from overwhelming jet backgrounds. Those developments could not be included in 42x and therefore the taus included in the public release should not be used for analysis.</p>
+  </div>
+</div>

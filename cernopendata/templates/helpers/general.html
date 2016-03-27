@@ -1,0 +1,70 @@
+{% macro get_breadcrumbs(breadcrumbs, exp = None, exp_names = None, exclude = []) %}
+  <div class="breadcrumbs">
+    <a href="{{url_for('.middle')}}"><span style="font-size:16px;padding-top:1px;float:left;" class="glyphicon glyphicon-home"></span><span class="fa fa-chevron-right"></span></a>
+    {% for b in breadcrumbs[1:] %}
+      {% if b.param == 'exp' %}
+        {% set url_href = url_for(b.url, exp = exp) %}
+      {% elif b.param == 'name' %}
+        {% set url_href = url_for(b.url, name = b.value) %}
+        <a href="{{url_href}}"><h4 class="no-glossary {{ ' active' if (loop.index is divisibleby 2) }}">{{b.text}}</h4></a>{{ '<span class="fa fa-chevron-right"></span>'|safe if ((not loop.last) )}} 
+      {% else %}
+        {% set url_href = url_for(b.url) %}
+        <a href="{{url_href}}"><h4 class="no-glossary {{ ' active' if (loop.index is divisibleby 2) }}">{{b.text}}</h4></a>{{ '<span class="fa fa-chevron-right"></span>'|safe if ((not loop.last) )}} 
+      {% endif %}
+      {% if loop.last and exp and  exp_names %}
+        {{ experiments_dropdown(loop, b.url, exp, exp_names, exclude) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+{% macro get_experiment_apps_box(title = "", img_file = "default.png", url = '/', url_params = [], col = '6') %}
+<div style="" class="col-sm-{{col}}" >
+  {% if 'exp' in url_params %}
+    {% set url_href = url_for(url, exp = url_params['exp']) %}
+  {% elif 'collection' in url_params %}
+    {% set url_href = url_for(url, name = url_params['collection']) %}
+  {% else %}
+    {% set url_href = url_for(url) %}
+  {% endif %}
+  <a href="{{ url_href }}">
+    <div class="app-box">
+      <div class="title">{{title|safe}}</div>
+      <div class="img" style="background-image: url({{ url_for('static', filename='img/'+ img_file) }});"></div>
+    </div>
+  </a>
+</div>
+{% endmacro %}
+
+{% macro experiments_dropdown(outter_loop, url, exp, exp_names, exclude = []) %}
+  <span class="fa fa-chevron-right"></span>
+  <div class="dropdown{{ ' active' if (outter_loop.index is not divisibleby 2) }}">
+    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+      {{exp}}<img class="exp-xs-img" src="{{url_for('static', filename='/img/'+exp+'.gif' )}}" alt=""><span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      {% for e in exp_names %}
+        {% if e not in exclude %}
+        <li><a href="{{ url_for(url, exp = e) }}" data-target="#{{e}}" role="tab" data-toggle="tab">{{e}}<img class="exp-xs-img" src="{{url_for('static', filename='/img/'+e+'.gif' )}}" alt=""></a></li> 
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+{% endmacro %}
+
+{% macro homepage_experiments_dropdown(url, exp, exp_names, exclude = []) %}
+  <div class="homepage-exp-dropdown btn-group dropup">
+    <button type="button" class="btn">Choose experiment</button>
+    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+      <span class="caret"></span>
+      <span class="sr-only">Choose experiment</span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      {% for e in exp_names %}
+        {% if e not in exclude %}
+        <li><a href="{{ url_for(url, exp = e) }}" data-target="#{{e}}" role="tab" data-toggle="tab">{{e}}<img class="exp-xs-img" src="{{url_for('static', filename='/img/'+e+'.gif' )}}" alt=""></a></li> 
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+{% endmacro %}

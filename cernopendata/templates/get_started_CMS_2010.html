@@ -1,0 +1,121 @@
+<h1 class="gen-title">Getting started with CMS 2010 data</h1>
+
+<div class="gen-box">
+  <h2>"I have installed the CERN Virtual Machine: now what?"</h2>
+    <p>
+      To analyse CMS data collected in 2010, you need <strong>version 4.2.8</strong> of CMSSW, supported only on <strong>Scientific Linux 5</strong>. If you are unfamiliar with Linux, take a look at <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookBasicLinux">this short introduction to Linux</a>. Once you have installed the <a href="{{ url_for('VM/CMS/2010') }}">CMS-specific CERN Virtual Machine</a>, execute the following command in the terminal if you haven't done so before; it ensures that you have this version of CMSSW running:
+    </p>
+    <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>$&nbsp;cmsrel CMSSW_4_2_8</span></span></span></div></pre>
+    <p>
+      Then, make sure that you are always in the <strong>CMSSW_4_2_8/src/</strong> directory by entering the following command in the terminal (you must do so every time you boot the VM before you can proceed):
+    </p>
+    <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>$&nbsp;cd CMSSW_4_2_8/src/</span></span></span></div></pre>
+</div>
+
+<div class="gen-box">
+  <h2>"OK! Where can I get the CMS data?"</h2>
+    <p>
+      It is best if we start off with a quick introduction to <strong><a href="http://root.cern.ch">ROOT</a></strong>. ROOT is the framework used by several particle-physics experiments to work with the collected data. Although analysis is not itself performed within the ROOT GUI, it is instructive to understand how these files are structured and what data and collections they contain.
+    </p>
+    <p>
+      The CMS data provided on the CERN Open Data Portal is in a format called "<a href="{{ url_for('about/CMS#what-data') }}">Analysis Object Data</a>" or AOD for short. These AOD files are prepared by piecing raw data collected by various sub-detectors of CMS and contain all the information that is needed for analysis. The files cannot be opened and understood as simple data tables but require ROOT in order to be read.
+    </p>
+    <p>
+      So, let's see what an AOD file looks like and take ROOT for a spin!
+    </p>
+    <p>
+      Making sure that you are in the <strong>CMSSW_4_2_8/src/</strong> folder, execute the following command in your terminal to launch the CMS analysis environment:
+    </p>
+    <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>$&nbsp;cmsenv</span></span></span></div></pre>
+    <p>
+      You can now open a CMS AOD file in ROOT. Let us open one of the files from the CERN Open Data Portal by entering the following command:
+    </p>
+    <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>$&nbsp;root&nbsp;root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/AOD/Apr21ReReco-v1/0000/00459D48-EB70-E011-AF09-90E6BA19A252.root</span></span></span></div></pre>
+    <p>
+      You will see the ROOT logo appear on screen. You can now open the ROOT GUI by entering:
+    </p>
+    <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>TBrowser&nbsp;t</span></span></span></div></pre>
+    <p>
+      Excellent! You have successfully opened a CMS AOD file in ROOT. If this was the first time you've done so, <span class="no-glossary">pat</span> yourself on the back. Now, to see what is inside this file, let us take a closer look at some collections of <a href="{{ url_for('about/CMS-Physics-Objects') }}">physics objects</a>.
+    </p>
+    <p>
+      On the left window of ROOT (see the screenshot below), double-click on the file name (<kbd>root://eospublic.cern.ch//eos/opendata/…</kbd>). You should see a list of entries under <kbd>Events</kbd>, each corresponding to a collection of reconstructed data. We are interested in the collections containing information about reconstructed physics objects.<br />
+      <img src="{{ url_for('static', filename='img/docs/Screenshot_001_Tbrowser_t.png') }}" alt="Screenshot: After running 'TBrowser t'" style="width:70%; padding: 20px;"/>
+    </p>
+    <p>
+      Let us take a peek, for example, at the electrons, which are found in <kbd>recoGsfElectrons_gsfElectrons__RECO</kbd>, as shown on the list of <a href="{{ url_for('about/CMS-Physics-Objects') }}">physics objects</a>. Look in there by double-clicking on that line and then double-clicking on <kbd>recoGsfElectrons_gsfElectrons__RECO.obj</kbd>. Here, you can have a look at various properties of this collection, such as the plot for the transverse momentum of the electrons: <kbd>recoGsfElectrons_gsfElectrons__RECO.obj.pt_</kbd>.
+    </p>
+    <p>
+      You can exit the ROOT browser through the GUI by clicking on <kbd>Browser</kbd> on the menu and then clicking on <kbd>Quit Root</kbd> or by entering <kbd>.q</kbd> in the terminal.
+    </p>
+</div>
+<div class="gen-box">
+  <h2>"Nice! But how do I analyse these data?"</h2>
+    <p>
+      In AOD files, reconstructed <a href="{{ url_for('about/CMS-Physics-Objects') }}">physics objects</a> are included without checking their "quality", i.e. in case of our electron collection that you opened in ROOT, without ensuring that the reconstructed object is really an electron. In order to analyse only the "good quality" data, you must apply some selection criteria.
+    </p>
+    <p>
+      With these criteria, you are in effect reducing the dataset, either in terms of the number of collisions events it contains or in terms of the information carried by each event. Following this, you run your analysis code on the reduced dataset.
+    </p>
+    <p>
+      Depending on the nature of your analysis you <em>can</em> run your analysis code directly on the AOD files themselves, if needed, performing the selections along the way, but this can be resource-intensive and is done only for very specific usecases.
+    </p>
+    <p>
+      We will now take you through these steps through a specially prepared example analysis.
+    </p>
+</div>
+
+<div class="gen-box">
+  <h2>Applying selection cuts and reducing the data sample</h2>
+    <p>
+      Your final analysis is done using a software module called an "analyzer". If you have followed the validation step for the virtual machine setup, you have already produced and run a simple analyzer. You can specify your initial selection criteria within the analyzer to perform your analysis directly on the AOD files, or further elaborate the selections and other operations needed for analyzing the reduced dataset. To learn more about configuring analyzers, follow <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWriteFrameworkModule">these instructions in the CMSSW WorkBook</a>. Make sure, though, that you replace the release version (CMSSW_nnn) with the release that you are using, i.e. one that is compatible with the CMS open data.
+    </p>
+    <p>
+      You can also pass the selection criteria through the configuration file. This file activates existing tools within CMSSW in order to perform the desired selections. If you have followed the validation step for the virtual machine setup, you have already seen a configuration file, which is used to give the parameters to the <kbd>cmsRun</kbd> executable. You can see how this is done in our analysis example.
+    </p>
+    <p>
+      We start by applying selection cuts via the configuration file and reduce the AOD files into a format known as PATtuple. You can find more information about this data format (which gets its name from the CMS Physics Analysis Toolkit, or PAT) on the <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookPAT">CMSSW PAT WorkBook</a>.
+    </p>
+    <p>
+      <strong>Important</strong>: Be aware that the instructions in the WorkBook are in use in CMS currently and have been updated for more recent CMSSW releases. With the 2010 data, you should always use the releases in the series of CMSSW_4_2 and not higher. Also note that more recent code does not work with older releases, so whenever you see <kbd>git cms-addpkg&hellip;</kbd> in the instruction, it is likely that the code package this command adds does not work with the release you need. However, the material under the pages gives you a good introduction to PAT.
+    </p>
+    <p>
+      Code as well as instructions for producing PATtuples from the CMS open data can be found in <a href="https://github.com/ayrodrig/pattuples2010">this GitHub repo</a>. However, since it took a dedicated computing cluster nine days (!!!) to run this step and reduce the several TB of AOD files to a few GB of PATtuples, we have provided you with the PATtuples in that GitHub repo, saving you quite a lot of time! Although you do not need to run this step, it is worth looking at <a href="https://github.com/ayrodrig/pattuples2010/blob/master/PAT_data_repo.py">the configuration file</a>:
+    </p>
+    <p>
+      You can see that the line <kbd>removeAllPATObjectsBut(process, ['Muons','Electrons'])</kbd> removes all "PATObjects" but muon and electrons, which will be needed in the final analysis step of this example.
+    </p>
+    <p>
+      Note also how only the validated runs are selected on lines:
+    </p>
+    <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>import FWCore.ParameterSet.Config as cms
+      import PhysicsTools.PythonAnalysis.LumiList as LumiList
+      myLumis = LumiList.LumiList(filename='Cert_136033-149442_7TeV_Apr21ReReco_Collisions10_JSON_v2.txt').getCMSSWString().split(',')
+      process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange()
+      process.source.lumisToProcess.extend(myLumis)</span></span></span></div></pre>
+    <p>
+      This selection must always be applied to any analysis on CMS open data, and to do so you must have the validation file downloaded to your local area.
+    </p>
+</div>
+
+<div class="gen-box">
+  <h2>Analysing the reduced dataset</h2>
+    <p>
+      Now, as the intermediate PATtuple files have been produced for you, you can go directly to the next step, as described in <a href="https://github.com/ayrodrig/OutreachExercise2010">this second GitHub repo</a> and follow the instructions on that page.
+    </p>
+    <ul>
+      <p>
+        Note that even though these are derived datasets, running the analysis code over the full data can take several hours. So if you want just give it a try, you can limit the number events or read only part of the files. Bear in mind that running on a low number of files will not give you a meaningful plot.
+      </p>
+      <p>
+        Your analysis job is defined in <kbd>OutreachExercise2010/DecaysToLeptons/run/run.py</kbd>. The analysis code is in the files located in the <kbd>OutreachExercise2010/DecaysToLeptons/python</kbd> directory.
+      </p>
+      <p>
+        This example uses IPython, which gets configured and starts the job with the following command:
+      </p>
+    </ul>
+    <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>ipython run.py</span></span></span></div></pre>
+    <p>
+      That's it! Follow the rest of the instructions on the README and you have performed an analysis using data from CMS. Hope you enjoyed this exercise. Feel free to play around with the rest of the data and write your own analyzers and analysis code. (To exit IPython, enter <kbd>exit()</kbd>.)
+    </p>
+</div>

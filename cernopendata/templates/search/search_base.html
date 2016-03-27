@@ -1,0 +1,152 @@
+{#
+# This file is part of CERN Open Data Portal.
+# Copyright (C) 2012, 2014 CERN.
+#
+# CERN Open Data Portal is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# CERN Open Data Portal is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Invenio; if not, write to the Free Software Foundation, Inc.,
+# 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+#}
+
+{% extends "search/searchbar_frame.html" %}
+
+{% from "search/results.html" import render_search_results with context %}
+
+{% block global_bundles %}
+  {{ super() }}
+  {% bundles "formatter.css", "tags.js" %}
+{% endblock %}
+
+{%- set portalboxes = dict() -%}
+{%- for k,l in collection.portalboxes_ln|groupby('position') -%}
+{%- do portalboxes.update({k:l}) -%}
+{%- endfor -%}
+
+{% block title %}
+  {{ portalboxes.tp }}
+  {{ super() }}
+  {{ portalboxes.te }}
+{% endblock %}
+{% block header %}
+  {{ super() }}
+  {%- set args = request.args.copy().to_dict() -%}
+  {%- set jrec = (pagination.page-2)*pagination.per_page+1 if pagination.has_prev else 1 -%}
+  {%- do args.update({'jrec': jrec}) -%}
+  {%- if pagination.has_prev -%}
+  <link rel="prev" href="{{ url_for(request.endpoint, **args) }}"/>
+  {%- endif -%}
+  {%- if pagination.has_next -%}
+  {%- set jrec = (pagination.page)*pagination.per_page+1 if pagination.has_next else (pagination.pages-1)*pagination.per_page+1 -%}
+  {%- do args.update({'jrec': jrec}) -%}
+  <link rel="next" href="{{ url_for(request.endpoint, **args) }}"/>
+  {%- endif -%}
+{% endblock %}
+
+
+
+{%- block inner_content -%}
+{%- block index -%}
+<section class="content">
+
+
+  {%- if not recids|length -%}
+  <div class="infobar">
+    <div class="container">
+      <div class="noresults">
+        <p>
+          {{ _('Your search <b>did not match</b> any records. Please try again.') }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container results">
+    {%- block index_noresult -%}
+    <div class="row">
+      <div class="col-md-12">
+        <div class="nearesttermsmain">
+          {{ create_nearest_terms_box()|safe }}
+        </div>
+      </div>
+    </div>
+    {%- endblock index_noresult -%}
+  </div>
+  {%- else -%}
+  <div class="container results">
+    {%- block index_results -%}
+    <div class="row">
+      {%- block facets %}
+      <div class="col-md-2 col-lg-2 visible-md visible-lg">
+        <div class="facet" id="facet_list"></div>
+      </div>
+      {%- endblock facets %}
+      {%- block index_right -%}
+      <div class="col-md-10 col-lg-10">
+        {%- block facets_filter %}
+        <div class="row visible-md visible-lg">
+          <div class="col-md-10">
+            <div class="well" id="facet_filter" style="clear:both; display: none;">
+              <input type="hidden" value="{{ request.args.get('p', '') }}" name="p" />
+            </div>
+          </div>
+        </div>
+        {%- endblock facets_filter %}
+        {%- block results %}
+        <div class="row">
+          <div id="search_results" class="col-md-12">
+            {%- block search_results -%}
+            {{ render_search_results(recids, collection, pagination, format_record) }}
+            {%- endblock search_results -%}
+          </div>
+        </div>
+        {%- endblock results %}
+      </div>
+      {%- endblock index_right -%}
+    </div>
+    {%- block filter_modal -%}
+    <div class="modal hide" id="overlay">
+      <div class="modal-body">
+        <center>
+          <img alt="" src="/img/loading.gif" id="img-load" />
+          <strong>{{ _('Filtering') }} ...</strong>
+        </center>
+      </div>
+    </div>
+    {%- endblock filter_modal -%}
+    {%- endblock index_results -%}
+  </div>
+  {%- endif -%}
+</section>
+{%- endblock index -%}
+{%- endblock -%}
+
+
+{% block javascript %}
+  {{ super() }}
+  {% if recids|length %}
+<script type="text/javascript">
+require(['jquery', 'js/search/search'], function($, search) {
+  search({
+    elem: '#facet_list',
+    data: {{ facets | tojson | safe }},
+    searchResultsUrl: '{{ url_for('search.results', qid=qid) }}',
+    args: {{ request.args.to_dict() | tojson | safe }},
+    labels: {
+      action: '{{ _('Default action is <em class="text-info">limit</em>, however you can also <abbr title="you can use shift+left click"><em class="text-danger">exclude</em></abbr> selected term from results.') | safe }}',
+      exclude: '{{ _('Exclude') }}',
+      didyouknow: '{{ _('Did you know?') }}',
+      alreadyin: '{{ _('An item is already in the facet filter.') }}'
+    }
+  })
+})
+</script>
+  {% endif %}
+{% endblock %}

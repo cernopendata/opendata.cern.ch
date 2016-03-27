@@ -1,0 +1,87 @@
+<div class="row">
+  <div class="about">
+    <h1 class="col-sm-12">ALICE Virtual Machines: How to install</h1>
+  </div>
+  <div class="col-sm-12">
+    <ol class="gen-menu">
+      <li><a href="#vbox">1. How to install VirtualBox</a></li>
+      <li><a href="#create">2. Create a VM</a></li>
+      <li><a href="#configure">3. Configure a VM</a></li>
+    </ol>
+  </div>
+
+
+  <div class="col-sm-12">
+    <div class="gen-box">
+      <h2  id="vbox">Step 1: Installing VirtualBox</h2>
+      <p>VirtualBox is a free, open source and multiplatform application to run virtual machines: you can <a href="https://www.VirtualBox.org/wiki/Downloads">download</a> the package for your platform from the Downloads page.</p>
+      <p>You will need administrative privileges ("root" privileges) on every platform to perform the installation of VirtualBox.</p>
+      <p>Note: the latest tested version of VirtualBox working with CernVM is 4.3.14. If you have troubles with the latest verion of VirtualBox, pick that one: the full history of VirtualBox versions is available <a href="https://www.VirtualBox.org/wiki/Download_Old_Builds">on a different page.</a></p>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="gen-box">
+      <h2 id="create">Step 2: Creating a Virtual Machine</h2>
+      <div class="row">
+        <p class="col-md-8">Go on the <a href="http://cernvm.cern.ch/portal/downloads">CernVM downloads page</a> and download the appropriate version: you must pick the OVA x86_64 for VirtualBox.</p>
+        <div class="col-md-4"><img src="{{url_for('static', filename='img/alice/1.png')}}" width="100%;"></div>
+        <p class="col-md-12">Now open VirtualBox. Select <b>Import Appliance</b>... from the <b>File</b> menu.</p>
+        <div class="col-md-12">
+          <img src="{{url_for('static', filename='img/alice/2.png')}}" alt="">
+        </div>
+        <p class="col-md-12">
+          From the import dialog, select the OVA file you have just downloaded.
+        </p>
+        <div class="col-md-12"><img src="{{ url_for('static', filename='img/alice/3.png')}}" alt=""></div>
+        <p class="col-md-12">
+          In the Appliance settings dialog, change the following values:<br/><br/>
+          * change the name to whatever you want in order to recognise your VM in the future</br>
+          * increase the RAM to 2048 MB</br>
+          * check "Reinitialize the MAC address of all network cards"</br>
+          You can compare your settings with the picture below.
+        </p>
+        <div class="col-md-12">
+          <img src="{{ url_for('static', filename='img/alice/4.png')}}" alt="">
+        </div>
+        <p class="col-md-12">Click <b>Import</b>. You will have now the CernVM virtual machine available in the list of virtual machines. Select it, then press the <b>Start</b> button to boot it.</p>
+        <div class="col-md-12">
+          <img src="{{url_for('static', filename='img/alice/5.png')}}" alt="">
+        </div>
+        <p class="col-md-12">Let CernVM finish the boot process. As you might have noticed, the OVA file you have downloaded is less than 20 MB in size: in fact, it does not contain the operating system's components, which are downloaded on demand as soon as you access them.</p>
+        <p class="col-md-12">For this reason, the first boot might take longer. Afterwards, the main components will be accessed from the cache.</p>
+        <p class="col-md-12">Note: CernVM needs Internet connectivity to run. You cannot run CernVM when you are offline.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="gen-box">
+      <h2 id="configure">Step 3: Configuring a Virtual Machine</h2>
+      <p>When the virtual machine is started, it is a generic virtual machine, not configured to any specific purpose. It does not even have users, thus you still cannot log in: you have to specialise it by applying a configuration.</p>
+
+      <p>This process is called contextualisation, and can be performed entirely using a web browser: just start by navigating to the CernVM Online web site.</p>
+
+      <p>The first time you connect you need to register: the procedure takes seconds. Click on the register link:</p>
+      <div class="col-md-12"><img src="{{ url_for('static', filename='img/alice/6.png')}}" alt=""></div>
+      <p>Complete the registration form. You must provide a valid email address: you will receive a confirmation email for activating the account.</p>
+      <div class="col-md-12"><img src="{{ url_for('static', filename='img/alice/7.png')}}" alt=""></div>
+      <p><b>Note:</b> please make sure that the "captcha" is filled correctly.</p>
+      <p>Once you have registered, you can go back to the login page and provide your credentials.</p>
+      <p>In this example, we are looking for the <b>ALICE analysis</b> configuration for the <b>ALICE</b> experiment: adapt the example to the configuration you wish to apply.</p>
+      <p>From the top menu, click on <b>Marketplace (Step A)</b>, then on the bottom right click on <b>ALICE (Step B)</b>. From the list of available configurations, select <b>ALICE analysis (Step C)</b> as shown in the picture.</p>
+      <div class="col-md-12"><img src="{{ url_for('static', filename='img/alice/8.png')}}" alt=""></div>
+
+      <p>When the configuration is selected, click the <b>Pair button (Step D)</b>: a six-digit number will appear on the screen, as shown in the picture:</p>
+      <div class="col-md-12"><img src="{{ url_for('static', filename='img/alice/9.png')}}" alt=""></div>
+      <p>Don't close this web page. Go instead to VirtualBox, where you have the login screen of CernVM. At the login screen, type the pound sign (#) followed by the six digits (no spaces).</p>
+      <div class="col-md-12"><img src="{{ url_for('static', filename='img/alice/10.png')}}" alt=""></div>
+
+      <p>The virtual machine will download the configuration automatically, and the web page on CernVM Online will update automatically.</p>
+      <div class="col-md-12"><img src="{{ url_for('static', filename='img/alice/11.png')}}" alt=""></div>
+
+
+      <p>Your CernVM virtual machine should now present a graphical interface: you can start using it immediately. Enjoy!</p>
+    </div>
+  </div>
+</div>

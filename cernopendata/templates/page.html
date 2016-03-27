@@ -1,0 +1,138 @@
+{#
+# This file is part of CERN Open Data Portal.
+# Copyright (C) 2014 CERN.
+#
+# CERN Open Data Portal is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# CERN Open Data Portal is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Invenio; if not, write to the Free Software Foundation, Inc.,
+# 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+#}
+
+{%- extends "page_base.html" -%}
+
+{%- block global_bundles -%}
+  {{ super() }}
+  {%- bundle "opendata.css" -%}
+
+  {% block glossary_bundle %}
+    {%- bundle "glossary.js" -%}  
+  {% endblock %}
+{%- endblock -%}
+
+{% block head_links %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendors/open-sans-fontface/open-sans.css') }}">
+  <!--[if lt IE 9]>
+    <script src="{{url_for('static', filename="/vendors/respond/src/respond.js")}}"></script>
+  <![endif]-->
+{% endblock %}
+
+{% block body_attributes %}
+  {{super() }}
+{% endblock %}
+
+{%- block page_header -%}
+<div id="wrap"> {# get closed into page_footer #}
+  {%- include "header.html" -%}
+
+  {%- endblock page_header -%}
+
+  {%- block page_body -%}
+  {%- block page_body_before -%}{%- endblock -%}
+  {%- block title %}{{ body }}{% endblock -%}
+  {{ flashed_messages() }}
+  <div id="main-content" class="content">
+    {%- block body -%}{% endblock -%}
+  </div>
+  {% block page_body_after %}{% endblock %}
+  {%- endblock -%}
+
+  {%- block page_footer -%}
+  <div id="push"></div>
+</div> {# end wrap #}
+<footer class="middlefoot">
+  {%- block pagefooteradd -%}{{ pagefooteradd | safe }}{%- endblock pagefooteradd -%}
+  {%- include "footer.html" -%}
+</footer>
+{%- endblock -%}
+
+{% block javascript %}
+  {{ super() }}
+  <script>
+    (function($) {
+
+      $('.yeartabs > div > a').click(function (e) {
+        $('.yeartabs > div.active').removeClass('active')
+        $(this).parent('div').addClass('active')
+      });
+
+      {% block glossary_js %}
+        $(document).ready(function(){
+          $("#main-content").glossary(
+            "{{url_for('static', filename='/json/glossary.json')}}",
+            {
+              ignorecase: true,
+              linktarget: '_blank',
+              excludetags: ['a','h2','pre', 'kbd'],
+            },
+            exp = "{{ exp if exp else ''}}");
+        });
+      {% endblock %}
+
+      {% block js_search_for_external_links %}
+        $(".content a[href^='http']").prepend('<span class="external-link-l"></span>');
+      {% endblock %}
+
+      {% block infobar_tabs_dropdowns %}
+        $('.infobar a[data-toggle="tab"]').on('click', function(e) {
+          $(this).parent().siblings().removeClass("active");
+        });
+        $(".infobar .dropdown-menu li a").click(function(){
+          selText = $(this).html();
+          $(this).parents('.dropdown').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+        });
+
+        $('a').not('.tabs div a').on('click', function(evt) {
+            var whereTo = $(this).attr('goto');
+            if (whereTo){
+              evt.preventDefault();
+              $tabs = $(".tabs div");
+              $tabs.find('a[data-target=#' + whereTo + ']').trigger('click');
+              $('html, body').animate({
+                  scrollTop: $($(this).attr("href")).offset().top
+              });
+            }
+        });
+
+        function sticky_relocate() {
+          var window_top = $(window).scrollTop();
+          if( $('#sticky-anchor').length ){
+            var div_top = $('#sticky-anchor').offset().top;
+            if (window_top > div_top) {
+                $('#sticky').addClass('stick');
+                $('#sticky-anchor').addClass('stick');
+            } else {
+                $('#sticky').removeClass('stick');
+                $('#sticky-anchor').removeClass('stick');
+            }
+          }
+        }
+        $("#sticky").width($('.tab-content').width()-30);
+        $(function () {
+            $(window).scroll(sticky_relocate);
+            sticky_relocate();
+        });
+      {% endblock %}
+
+    })(jQuery);
+  </script>
+{% endblock %}

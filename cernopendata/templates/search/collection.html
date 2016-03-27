@@ -1,0 +1,176 @@
+{#
+# This file is part of CERN Open Data Portal.
+# Copyright (C) 2014, 2016 CERN.
+#
+# CERN Open Data Portal is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# CERN Open Data Portal is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Invenio; if not, write to the Free Software Foundation, Inc.,
+# 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+#}
+
+{%- extends "search/collection_base.html" -%}
+{% import 'helpers/general.html' as gen_utils %}
+
+{% set YEARLY_TABED_COLLECTIONS = ['CMS Primary Datasets', 'CMS Simulated Datasets', 'CMS Derived Datasets', 'CMS Tools', 'CMS Open Data Instructions', 'CMS Validation Utilities' ] %}
+
+{%- macro od_collection_tree(collections, limit=None) %}
+{%- set macrokwargs = kwargs %}
+{%- block collection_tree scoped %}
+{%- set idxs = [0] -%}
+<ul {{ macrokwargs|xmlattr }}>
+  {% for collection in collections recursive %}
+    {% set portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+    {% for pb in collection.portalboxes %}
+      {% if (pb.portalbox.title == 'description') %}
+        {% if portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+      {% elif (pb.portalbox.title == 'image') %}
+        {% if portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+      {% endif %}
+    {% endfor %}
+    <li class="col-xs-{{ '6' if collections|length == 2 else '4' }}">
+      <div class="coll-box col-xs-12">
+        <a href="{{ url_for('collection/'+collection.name|safe) }}">
+          <div class="row">
+            <div class="top col-xs-12">
+              <div class="row">
+                <div class="details col-xs-12">
+                  <div class="title">{{ collection.name_ln }}</div>
+                  <div class="desc col-xs-12"><span>{{ (portalboxes['desc']|splitthem('#$#$#'))[0]|truncate(125) }}</span></div>
+                </div>
+                <div class="years col-xs-12">
+                  {% if collection.name_ln in YEARLY_TABED_COLLECTIONS %}
+                    Years: <div class="yr"><a href="/search?p=Run2010B%20collection%3A{{ collection.name }}">2010</a></div>, <div class="yr"><a href="/search?p=Run2011A%20collection%3A{{ collection.name }}">2011</a></div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            <div class="bottom col-xs-12">
+              <div class="row">
+                <div class="subcollection col-xs-12">
+                  {% if collection.collection_children == [] %}
+                    <div class="totalrecs col-xs-12">
+                      <div class="col-xs-12"><b>Total records:</b></div><div class="col-xs-12 coll-rec-num">{{collection.nbrecs}}</div>
+                  {% else %}
+                      <div class="title col-xs-12"><span><b>Collections items:</b></span></div>
+                      <ul>
+                        {% for r in collection.reclist %}
+                          <li class="col-xs-6">
+                            <a href="{{ url_for('record/'+r.id) }}">{{ r.name }}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                  {% endif %}
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock collection_tree %}
+{% endmacro %}
+
+{% block extra_style %}
+  <style>
+
+
+  </style>
+  {{super()}}
+{% endblock %}
+
+{%- block index -%}
+
+
+{%- block index_title %}
+<section class="infobar">
+  <div class="container">
+    {%- if collection.collection_children_r %}
+      {{ gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names) }}
+    {% else %}
+    <div class="row">
+      <div class="coltitle col-md-12">
+        <p>
+          {% if collection.is_restricted %}
+            {{ _('Restricted Collection')  }}
+          {% else %}
+            {{ gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names) }}
+          {% endif %}
+        </p>
+      </div>
+    </div>
+    {%- endif %}
+  </div>
+</section>
+{%- endblock index_title %}
+
+
+
+<section id="subcollection" class="collections">
+  <div class="container">
+    {%- block index_right -%}
+    <div class="col-md-12">
+      <div class="results-title">{{ collection.name_ln }}</div>
+      {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+      {% for pb in collection.portalboxes %}
+        {% if (pb.portalbox.title == 'description') %}
+          {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+        {% elif (pb.portalbox.title == 'image') %}
+          {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+        {% endif %}
+      {% endfor %}
+      <div class="coll-desc">
+        <span>{{ collection.portalboxes[0].portalbox.body|replace('#$#$#','')|safe }}</span>
+      </div>
+    </div>
+    {% if collection.collection_children_r %}
+      <div class="row">
+        <div class="col-md-12 coll-overview">
+          {{ od_collection_tree(collection.collection_children_r, limit=2, class="nav nav-list clearfix row") }}
+        </div>
+      </div>
+    {% endif %}
+    <div class="row">
+      <div class="col-md-12">
+        <div class="collection-res">
+          {% if collection.is_restricted %}
+            <strong>{{ _('This collection is restricted. If you are authorised to access it, please click on the Search button.') }}</strong>
+          {% else %}
+
+            {% if collection.reclist %}
+              {% for recid in collection.reclist[:10] %}
+                <div class="col-xs-12 {{ 'last' if loop.last }}">
+                  {{ format_record(recid, of, ln=g.ln, extra_context=dict(collection=collection))|safe }}
+                </div>
+              {% endfor %}
+              {% if collection.reclist|length > 10 %}
+                <div class="more-block">
+                  <div class="more pull-right">
+                    <a href="{{ url_for('search.search', cc=collection.name, ln=g.ln, jrec=11)|safe }}"
+                       class="text-muted">{{ _('more')}} <div class="fa fa-chevron-right"></div> </a>
+                  </div>
+                </div>
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    {%- endblock index_right -%}
+  </div>
+</section>
+
+
+{%- endblock -%}

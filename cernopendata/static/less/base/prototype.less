@@ -1,0 +1,248 @@
+/*
+ * This file is part of CERN Open Data Portal.
+ * Copyright (C) 2014 CERN.
+ *
+ * CERN Open Data Portal is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation; either version 2 of the
+ * License, or (at your option) any later version.
+ *
+ * CERN Open Data Portal is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Invenio; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+ */
+
+@box-padding: 10px;
+
+.box {
+    height: 340px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-bottom: 2em;
+    position: relative;
+    border: 2px solid #eee;
+    background: #fff;
+
+    &::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
+
+    &::-webkit-scrollbar:vertical {
+        width: 11px;
+    }
+
+    &::-webkit-scrollbar:horizontal {
+        height: 11px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        border: 2px solid #fff;
+        background-color: rgba(0, 0, 0, .25);
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #fff;
+        border-radius: 8px;
+    }
+
+    h3 {
+        margin-top: 0;
+        padding-top: 10px;
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    h4 {
+        font-size: 18px;
+    }
+
+    header {
+        h2 {
+            font-size: 12px;
+            float: right;
+            background: #eee;
+            color: #555;
+            margin: 0;
+            padding: 5px @box-padding;
+
+            a {
+                color: #555;
+            }
+        }
+    }
+
+    ul {
+        list-style: disc;
+        margin-left: 1.5em;
+        padding: 0;
+    }
+
+    &-body {
+        height: auto;
+        min-height: 100%;
+        padding-bottom: 35px;
+        margin-bottom: -35px; /* for the footer */
+
+        .subtitle {
+            font-weight: bold;
+        }
+
+    }
+
+    footer {
+        text-align: right;
+
+        p {
+            padding-right: @box-padding;
+        }
+    }
+
+    .hover {
+        background:#f6f6f6;
+    }
+
+    .wrap {
+        padding-left: @box-padding;
+        padding-right: @box-padding;
+    }
+
+    &-admin {
+        position:absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,.25);
+
+        &-buttons {
+            width: 60%;
+            margin-top: 20%;
+            .center-block();
+        }
+    }
+
+    &-picture {
+        .box-body .white-wrap, footer {
+            background: rgba(255,255,255,.90);
+        }
+    }
+
+    &-video {
+        position: relative;
+        background-size: 100% auto;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+
+        a {
+            @box-video-a-size: 42px;
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            font-size: @box-video-a-size;
+            width: @box-video-a-size;
+            height: @box-video-a-size;
+            margin: (@box-video-a-size / -2) 0 0 (@box-video-a-size / -2);
+        }
+    }
+}
+
+.prototype-admin {
+    .row;
+
+    background: #f6f6f6;
+    border-bottom: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 2em;
+    position: relative;
+
+    &:before {
+        position: absolute;
+        top: -14px;
+        right: 14px;
+        content: "";
+        display: block;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-color: transparent;
+        border-bottom-color: #f6f6f6;
+        border-width: 0 14px 14px;
+    }
+
+    ul {
+        list-style: none;
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .nav-pills .active a {
+        font-weight: bold;
+
+        &:before {
+            position: absolute;
+            top: 2px;
+            right: -17px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-color: transparent;
+            border-left-color: #428BCA;
+            border-width: 18px 0 18px 19px;
+            content: "";
+        }
+    }
+
+    .tab-pane {
+        .clearfix;
+
+        .active {
+            background-color: #ddd;
+            font-weight: bold;
+        }
+    }
+
+    .box-drop {
+        border: 4px dotted #ddd;
+        background: #eee;
+
+        p {
+            text-align: center;
+            padding: 8em 0 0;
+            font-style: italic;
+            font-size: 16px;
+
+            .glyphicon {
+                font-size: 36px;
+            }
+        }
+    }
+}
+
+.hamburger {
+    /*font-size: 24px;
+
+    a {
+        color: #999
+    }*/
+}
+
+.plus {
+    text-align: center;
+    margin: 2em 0;
+
+    a {
+        display: inline-block;
+        border: 2px solid #eee;
+        border-radius: 30px;
+        font-size: 24px;
+        padding: 6px 8px 4px 10px;
+        color: #999;
+    }
+}

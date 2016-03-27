@@ -1,0 +1,142 @@
+{%- extends config.BASE_TEMPLATE %}
+
+{% block page_body %}
+
+<section class="entrypoint_collections">
+  <div class="tab-content">
+    <div class="tab-pane fade {%  if exp not in exp_names %}in active{% endif%}" id="general">
+      <section class="subcollection_desc experiments">
+        <div class="container">
+          <p class="lead">
+            For education purposes, the complex primary data need to be
+            processed into a format (examples below) that is good for simple
+            applications. Get in touch if you wish to build your own
+            applications similar to those shown here.
+          </p>
+          <ul class="row">
+          {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+          {% for cols in exp_colls %}
+            {% for pb in cols.portalboxes %}
+              {% if (pb.portalbox.title == 'description') %}
+                {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+              {% elif (pb.portalbox.title == 'image') %}
+                {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+              {% endif %}
+            {% endfor %}
+            <li class="col-xs-12">
+              <div class="subcollection_exp">
+              {#
+                <a href="{{ url_for((request.path|splitthem)[1]+'/'+cols['name']) }}"><div class="coll-thumb col-xs-2">
+                  <img class="center-block" src="{{ url_for('static', filename='img/'+coll_portalboxes['image']) }}" alt="">
+                </div></a>
+                <div class="coll-desc col-xs-10">
+                  {{ coll_portalboxes['desc']|replace('#$#$#','')|safe }}
+                </div>
+                <div class="coll-button">
+                    <a href="{{url_for('.education', exp = cols.name)}}" class="btn">Explore {{cols.name_ln}} <span class="fa fa-chevron-right"></span></a>
+                </div>
+              #}
+              </div>
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+      </section>
+      <section class="learn">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <img src="{{ url_for('static', filename='img/edu_img_1.png') }}" alt="" class="img-responsive img-circle center-block">
+            </div>
+            <div class="col-md-4">
+              <img src="{{ url_for('static', filename='img/edu_img_2.jpg') }}" alt="" class="img-responsive img-circle center-block">
+            </div>
+            <div class="col-md-4">
+              <img src="{{ url_for('static', filename='img/edu_img_3.png') }}" alt="" class="img-responsive img-circle center-block">
+            </div>
+          </div>
+        </div>
+        <div class="_slogan container">
+          <!-- Info text can go here -->
+        </div>
+      </section>
+    </div>
+    
+    {#
+    {% import 'search/collections/CMS_education_apps.html' as b with context %}
+    #}
+    {% for e in config.OPENDATA_EXPERIMENTS %}
+    <div class="tab-pane fade {%  if experiment == e %}in active{% endif%}" id="{{e}}">
+      <section class="subcollection_apps subcollection_desc">
+        <div class="container">
+          <div class="row">
+          {{ e }}
+          {#
+          {% if ('templates/search/collections/'+e.name+'_education_apps.html')|file_exists %}
+          <div class="col-sm-12 col-md-6">
+            <div class="row">
+              {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+              {% for pb in e.portalboxes %}
+              {% if (pb.portalbox.title == 'description') %}
+              {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+              {% elif (pb.portalbox.title == 'image') %}
+              {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+              {% endif %}
+              {% endfor %}
+              <div class="coll-desc">
+                {{ coll_portalboxes['desc']|replace('#$#$#', '')|safe }}
+              </div>
+            </div>
+          </div>  
+          <div class="col-sm-12 col-md-6">{% include ('search/collections/'+e.name+'_education_apps.html') ignore missing %}</div>
+          {% else %}
+          <div class="col-md-12">
+            <div class="row">
+              {% set coll_portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
+              {% for pb in e.portalboxes %}
+              {% if (pb.portalbox.title == 'description') %}
+              {% if coll_portalboxes.update({'desc': pb.portalbox.body}) %}{% endif %}
+              {% elif (pb.portalbox.title == 'image') %}
+              {% if coll_portalboxes.update({'image': pb.portalbox.body}) %}{% endif %}
+              {% endif %}
+              {% endfor %}
+              <div class="coll-desc">
+                {{ coll_portalboxes['desc']|replace('#$#$#', '')|safe }}
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          #}
+          </div> 
+        </div>
+      </section>
+      {% with exp_collection = e %}
+        {# include "helpers/collections_educate.html" #}
+      {% endwith %}
+    </div>      
+    {% endfor %}
+  </div>
+
+</section>
+{% endblock page_body %}
+
+{%- block javascript %}
+{{super()}}
+<script>
+$(document).ready(function() {
+  // add a hash to the URL when the user clicks on a tab
+  $('a[data-toggle="tab"]').on('click', function(e) {
+    history.pushState(null, null, $(this).attr('href'));
+  });
+  // navigate to a tab when the history changes
+  window.addEventListener("popstate", function(e) {
+    var activeTab = $('[href="' + location.pathname + '"][data-toggle="tab"]');
+    if (activeTab.length) {
+      activeTab.tab('show');
+    } else {
+      $('.nav-tabs a:first').tab('show');
+    }
+  });
+});
+</script>
+{% endblock %}

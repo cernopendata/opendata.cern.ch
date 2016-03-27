@@ -1,0 +1,142 @@
+{% extends 'page.html' %}
+
+{% bundles 'od_records.js','od_records_utils.js' %}
+
+{#
+{% set title = title %}
+#}
+{% block title %}
+{% endblock title %}
+
+{% block head_links %}
+  {{ super() }}
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
+  </script>
+  <script type="text/javascript" src="{{ url_for('static', filename='vendors/MathJax/MathJax.js', config='TeX-AMS_HTML') }}"></script>
+{% endblock %}
+
+{% block body %}
+  {% import 'helpers/general.html' as gen_utils %}
+
+  {% include 'search/form/index.html' %}
+
+  <section class="infobar">
+    <div class="container">
+      {{ gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names) }}
+    </div>
+  </section>
+
+  {% block record_restriction_flag %}
+    {% if g.bibrec.is_restricted %}
+      <div class="alert alert-danger">
+        <div class="container"><b>{{ _('Restricted') }}</b>
+          {%- if g.bibrec.is_processed %}
+          {{ _('Processed Record') }}
+          {%- endif -%}
+        </div>
+      </div>
+    {% endif %}
+  {% endblock %}
+  <section id="record_primary" class="content record">
+    <div class="container">
+      <div class="record-content clearfix">
+        <div class="col-md-12 col-sm-12 main clearfix">
+          {% include [ 'records/' + collection.name + '_metadata.html', 'records/'+((collection.name)|splitthem('-',-1))[-1:][0]+'_metadata.html', 'records/metadata_base.html' ] %}
+        </div>
+        <div class="col-md-12 col-sm-12 sidebar clearfix">
+          {% include [ 'records/' + collection.name + '_dedicated.html', 'records/'+((collection.name)|splitthem('-',-1))[-1:][0]+'_dedicated.html', 'records/dedicated_base.html' ] %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block javascript %}
+  {{ super() }}
+
+  {% block show_more_js %}
+  <script>  
+    $('#showmore-button-next').click(function(){
+      button = $(this);
+      page = $("#showmore-authors-page");
+      page_n = parseInt(page.text());
+      page_n = parseInt(page.val());
+      last = parseInt($("#showmore-page-total").text());
+      p_total_n = Math.ceil(last/50);
+
+      if (page_n < p_total_n) {
+        $('#showmore-button-prev').prop("disabled", false);
+        page_n++;
+        page.val(page_n);
+        page.trigger("change");
+      }
+
+      if(page_n == p_total_n){
+        button.prop("disabled",true);
+      } 
+    });
+
+
+    $('#showmore-button-prev').click(function(){
+      button = $(this);
+      page = $("#showmore-authors-page");
+      page_n = parseInt(page.val());
+
+      if(page_n > 1 ){
+        $('#showmore-button-next').prop("disabled", false);
+        page_n--;
+        page.val(page_n);
+        page.trigger("change");
+      }
+
+      if(page_n == 1){
+        button.prop("disabled",true);
+      }
+    });
+
+    $('#showmore-authors-page').bind("keyup input change",function(){
+      page = parseInt($(this).val());
+      last = parseInt($("#showmore-page-total").text());
+      last_p = Math.ceil(last/50);
+      b_next = $('#showmore-button-prev');
+      b_prev = $('#showmore-button-prev');
+      start_f = $('#showmore-page-start');
+      end_f = $('#showmore-page-end');
+
+      if( !isNaN(page)){
+        if( page >=1 && page <= last_p ) {
+          start = (parseInt(page)-1)*50;
+          end = (parseInt(page)*50);
+          end = (end > last) ? last : end;
+
+          start_f.text(start+1);
+          end_f.text(end);
+
+          $.get( '{{ url_for('.load_authors', recid = record.recid )}}'+start+'/to/'+end)
+          .done(function(data){
+            $('#authors-list').html(data);
+          });
+          if (page < last_p) {
+            b_next.prop("disabled", false);
+          }
+          
+          if ( page > 1){
+            b_prev.prop("disabled", false);
+          }
+        }
+      }
+    });
+  </script>
+  {% endblock %}
+
+{% endblock %}

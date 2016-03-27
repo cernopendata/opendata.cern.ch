@@ -1,0 +1,68 @@
+<header id="od-header">
+  <nav class="navbarOutter navbar navbar-static-top" role="navigation">
+    <!--            <div class="topnav">
+    <div class="container">
+    <div class="inner">
+    <ul>
+    <ul>
+    <li class="active">EN</li>
+    <a href="#"><li>FR</li></a>
+    <a href="#"><li>DE</li></a>
+    <a href="#"><li>..</li></a>
+    </ul>
+    </ul>
+    </div>
+    <div class="social">
+    {% if not (current_user.is_guest) %}
+      <a  class="logoutBut" href="{{ url_for('webaccount.logout') }}">LOGOUT</a>
+    {% endif %}
+    <a href="#"><span class="fa fa-facebook"></span></a>
+    <a href="#"><span class="fa fa-twitter"></span></a>
+    <a href="#"><span class="fa fa-youtube-play"></span></a>
+    </div>
+    </div>
+    </div> -->
+    <div class="midnav">
+      <div class="container">
+        <div class="row">
+          <div class="logo col-xs-12 col-sm-4  col-md-5">
+            <a href="{{ url_for('cernopendata.middle') }}">
+              <img src="{{ url_for('static', filename='img/home/opendata_logo.svg') }}" alt="" style="margin-left:-40px;margin-top:-10px;height:60px;">
+            </a>
+            <div id="st-trigger-effects" class="pull-right mob-toggle visible-xs visible-sm">
+              <button  type="button" class="navbar-toggle" data-effect="st-effect-3" data-toggle="collapse" data-target="[id*='navbarCollapse']">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+          <img src="{{ url_for('static', filename='img/demo.png') }}" alt="" style="position:absolute;left:40%;top:0;width:200px;">
+          <div  class="innernav col-md-7">
+            <!-- Collection of nav links and other content for toggling -->
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav pull-right">
+                <li class="dropdown">
+                  <a href="{{ url_for('about') }}" data-toggle="dropdown" class="disabled">ABOUT</a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li class="col-md-12" role="presentation"><a href="{{ url_for('about') }}">This Portal</a></li>
+                    <li class="col-md-12" role="presentation"><a href="{{ url_for('about/CMS') }}">CMS Open Data</a></li>
+                    <li class="col-md-12" role="presentation"><a href="{{ url_for('about/ALICE') }}">ALICE Open Data</a></li>
+                    <li class="col-md-12" role="presentation"><a href="{{ url_for('about/ATLAS') }}">ATLAS Open Data</a></li>
+                    <li class="col-md-12" role="presentation"><a href="{{ url_for('about/LHCb') }}">LHCb Open Data</a></li>
+                    <li class="col-md-12" role="presentation"><a href="{{ url_for('cernopendata.glossary') }}">Glossary</a></li>
+                    <li class="col-md-12" role="presentation"><a href="{{ url_for('cernopendata.news') }}">News</a></li>
+                  </ul>
+                </li>
+                <li><a href="{{ url_for('search') }}">SEARCH</a></li>
+                <li><a href="{% if home==true %}#education" onclick="history.pushState({},'','education')" {%else%}{{ url_for('cernopendata.education') }}"{% endif %}>EDUCATION</a></li>
+                <li><a href="{% if home==true %}#research" onclick="history.pushState({},'','research')" {%else%}{{ url_for('cernopendata.research') }}"{%endif%}">RESEARCH</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

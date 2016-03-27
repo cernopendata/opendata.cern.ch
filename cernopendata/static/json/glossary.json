@@ -1,0 +1,589 @@
+[
+	{
+		"term": "AOD",
+		"anchor": "AOD",
+		"category": "specific",
+		"type": "0",
+		"definition": "Stands for “Analysis Object Data”, a format that contains all information needed for a CMS analysis. It contains reconstructed “physics objects” such as electrons, photons and muons.",
+		"experiment": [
+			{
+				"name": "CMS"
+			}
+		],
+		"see_also": [
+			{
+				"term": "primary"
+			},
+			{
+				"term": "reconstruction"
+			},
+			{
+				"term": "tag"
+			}
+		],
+		"links": [
+			{
+				"text": "Read more in the CMS WorkBook",
+				"url": "https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookDataFormats#AoD"
+			},
+			{
+				"text": "Read more on the “About CMS” page on this portal",
+				"url": "http://opendata.cern.ch/about/CMS"
+			}
+		]
+	},
+	{
+		"term": "CMSSW",
+		"anchor": "CMSSW",
+		"category": "specific",
+		"type": "0",
+		"definition": "Stands for CMS Software and refers to (1) the so-called “Offline” software needed to simulate, reconstruct and analyse CMS data, and (2) the “Online” software needed for data selection and storage.",
+		"experiment": [
+			{
+				"name": "CMS"
+			}
+		],
+		"links": [
+			{
+				"text": "See the CMSSW codebase on GitHub",
+				"url": "https://github.com/cms-sw/cmssw"
+			}
+		],
+		"see_also": [
+			{
+				"term": "PAT"
+			}
+		]
+	},
+	{
+		"term": ["Condition Data","Condition Database"],
+		"anchor": "condition",
+		"category": "generic",
+		"type": "0",
+		"definition": "Condition data include non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for the simulation/reconstruction/analysis software.",
+		"see_also": [
+			{
+				"term": "generator"
+			},
+			{
+				"term": "montecarlo"
+			},
+			{
+				"term": "primary"
+			},
+			{
+				"term": "derived"
+			}
+		]
+	},
+	{
+		"term": ["Derived Dataset","Derived Datasets"],
+		"anchor": "derived",
+		"category": "specific",
+		"type": "0",
+		"definition": "Contains data that have been derived from the primary datasets. The data may be reduced in the sense that (a) only part of the information is kept or (b) only part of the events are selected.",
+		"experiment": [
+			{
+				"name": "CMS"
+			},
+			{
+				"name": "ATLAS"
+			},
+			{
+				"name": "ALICE"
+			},
+			{
+				"name": "LHCb"
+			}
+		],
+		"see_also": [
+			{
+				"term": "primary"
+			},
+			{
+				"term": "tag"
+			},
+			{
+				"term": "condition"
+			}
+		],
+		"links": [
+			{
+				"text": "See all the “Derived datasets” collections on this portal",
+				"url": "http://opendata.cern.ch/search?ln=en&p=+%28collection%3AALICE-Derived-Datasets+OR+collection%3ACMS-Derived-Datasets+OR+collection%3AATLAS-Derived-Datasets+OR+collection%3ALHCb-Derived-Datasets%29&action_search="
+			}
+		]
+	},
+	{
+		"term": ["Electron","Electrons"],
+		"anchor": "electron",
+		"category": "generic",
+		"type": "0",
+		"definition": "A stable elementary particle belonging to the first generation of the “lepton” family of particles. It has a $-$1 electrical charge, while its anti-particle, the anti-electron or positron, has a +1 electrical charge. Atoms are made of electrons orbiting positively charged nuclei. An electron has a mass of ~0.5 MeV/c$^2$, or about 1/1836 times the mass of a proton.",
+		"links": [
+			{
+				"text": "Read more on Wikipedia",
+				"url": "https://en.wikipedia.org/wiki/Electron"
+			}
+		],
+		"see_also": [
+			{
+				"term": "muon"
+			},
+			{
+				"term": "proton"
+			},
+			{
+				"term": "neutrino"
+			}
+		]
+	},
+	{
+		"term": ["Event generator","Event generators","Generator","Generators"],
+		"anchor": "generator",
+		"category": "generic",
+		"type": "0",
+		"definition": "Simulation programs used to generate particle collisions.",
+		"links": [
+			{
+				"text": "Read more on Wikipedia",
+				"url": "https://en.wikipedia.org/wiki/Event_generator"
+			}
+		],
+		"see_also": [
+			{
+				"term": "montecarlo"
+			},
+			{
+				"term": "primary"
+			},
+			{
+				"term": "derived"
+			},
+			{
+				"term": "condition"
+			}
+		]
+	},
+	{
+		"term": ["Gluon","Gluons"],
+		"anchor": "gluon",
+		"category": "generic",
+		"type": "0",
+		"definition": "An elementary particle belonging to the “boson” family of particles. It is the carrier of the strong force that binds quarks together to form hadrons. It is massless and has no electrical charge but has a property known as “colour charge”.",
+		"links": [
+			{
+				"text": "Read more on Wikipedia",
+				"url": "https://en.wikipedia.org/wiki/Gluon"
+			}
+		],
+		"see_also": [
+			{
+				"term": "quark"
+			},
+			{
+				"term": "photon"
+			}
+		]
+	},
+	{
+		"term": ["Hadron","Hadrons"],
+		"anchor": "hadron",
+		"category": "generic",
+		"type": "0",
+		"definition": "A composite particle made of two or more quarks. There are two sub-categories of hadrons: “baryons” such as protons and neutrons are made of three quarks (or three anti-quarks), while “mesons” are made of a quark and an anti-quark. Atomic nuclei can also be considered hadrons, since they are also fundamentally made of quarks. The LHC collides two species of hadrons: protons and lead nuclei (also called lead ions). Hadrons produced in collisions typically cluster together to form particle jets in the detectors.",
+		"links": [
+			{
+				"text": "Read more on Wikipedia",
+				"url": "https://en.wikipedia.org/wiki/Hadron"
+			}
+		],
+		"see_also": [
+			{
+				"term": "proton"
+			},
+			{
+				"term": "quark"
+			},
+			{
+				"term": "jet"
+			},
+			{
+				"term": "ion"
+			}
+		]
+	},
+	{
+		"term": ["Ion","Ions"],
+		"anchor": "ion",
+		"category": "generic",
+		"type": "0",
+		"definition": "An ion is an atom or a molecule in which the number of electrons is not the same as the number of protons. In the context of the LHC, the term “heavy ion” refers to the nuclei of heavy atoms such as lead.",
+		"links": [
+			{
+				"text": "Read more about heavy-ion physics on the CERN website",
+				"url": "http://home.web.cern.ch/about/physics/heavy-ions-and-quark-gluon-plasma"
+			}
+		],
+		"see_also": [
+			{
+				"term": "proton"
+			},
+			{
+				"term": "quark"
+			},
+			{
+				"term": "jet"
+			},
+			{
+				"term": "ion"
+			}
+		]
+	},
+	{
+		"term": ["Monte Carlo"],
+		"anchor": "montecarlo",
+		"category": "generic",
+		"type": "0",
+		"definition": "Refers to computational algorithms based on numerical random samplings that is used in simulation programs for generating the particle collisions and for simulating of particle interactions in the detector material. Often used as a synonym for simulated data.",
+		"links": [
+			{
+				"text": "Read more on Wikipedia",
+				"url": "https://en.wikipedia.org/wiki/Monte_Carlo_method"
+			}
+		],
+		"see_also": [
+			{
+				"term": "generator"
+			},
+			{
+				"term": "primary"
+			},
+			{
+				"term": "derived"
+			},
+			{
+				"term": "condition"
+			}
+		]
+	},
+	{
+		"term": ["Muon","Muons"],
+		"anchor": "muon",
+		"type": "0",
+		"category": "generic",
+    "definition": "An elementary particle belonging to the second generation of the “lepton” family of particles. It has a $-$1 electrical charge, while its anti-particle, the anti-muon, has a +1 electrical charge. A muon’s properties are similar to those of an electron but it is around 200 times more massive. It is represented by the Greek letter “$\\mu$”.",
+		"links": [
+			{
+				"text": "Read more on Wikipedia",
+				"url": "https://en.wikipedia.org/wiki/Muon"
+			}
+		],
+		"see_also": [
+			{
+				"term": "electron"
+			},
+			{
+				"term": "neutrino"
+			}
+		]
+	},
+	{
+		"term": ["Neutrino","Neutrinos"],
+		"anchor": "neutrino",
+		"category": "generic",
+		"type": "0",
+		"definition": "An elementary particle belonging to the “lepton” family of particles. Neutrinos and their anti-particles, anti-neutrinos, have no charge, although measurements show that they are not massless. Neutrinos rarely interact with matter: they can fly through lightyears of lead without coming to a stop. Therefore, they cannot be detected directly by the particle detectors at the LHC: their presence has to be inferred by detecting and measuring every other particle produced in the collisions and then applying conservation laws. Neutrinos are recorded as “missing transverse energy” or MET, although MET could also be a sign of previously undiscovered, non-interacting particles.",
+		"links": [
+			{
+				"text": "Read more on Wikipedia",
+				"url": "https://en.wikipedia.org/wiki/Neutrino"
+			}
+		],
+		"see_also": [
+			{
+				"term": "muon"
+			},
+			{
+				"term": "neutrino"
+			}
+		]
+	},
+	{
+		"term": ["Particle jet","Particle jets"],
+		"anchor": "jet",
+		"category": "generic",
+		"type": "0",
+		"definition": "A jet is a shower of hadrons, which originate from a quark or a gluon, clustered together after being produced in particle collisions.",
+		"links": [
+			{
+				"text": "Read more on Wikipedia",
+				"url": "https://en.wikipedia.org/wiki/Jet_%28particle_physics%29"
+			}
+		],
+		"see_also": [
+			{
+				"term": "proton"
+			},
+			{
+				"term": "quark"
+			},
+			{
+				"term": "hadron"
+			}
+		]
+	},
+	{
+		"term": "PAT",
+		"anchor": "PAT",
+		"category": "specific",
+		"type": "0",
+		"definition": "Stands for Physics Analysis Toolkit, and provides easy access to algorithms developed by the CMS Physics Object Groups (POGs) in the framework of CMS Software (CMSSW), suitable for most CMS analyses.",
+		"experiment": [
+			{
+				"name": "CMS"
+			}
+		],
+		"see_also": [
+			{
+				"term": "CMSSW"
+			}
+		],
+		"links": [
+			{
+				"text": "Read more in the CMS Software guide",
+				"url": "https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuidePAT"
+			}
+		]
+	},
+	{
+		"term": ["Photon","Photons"],
+		"anchor": "photon",
+		"category": "generic",
+		"type": "0",
+    "definition": "A stable elementary particle belonging to the “boson” family of particles. Called the “quantum” of light, the photon is the carrier of the electromagnetic force and is massless with no electrical charge. It is represented by the Greek letter “$\\gamma$”.",
+		"links": [
+			{
+				"text": "Read more on Wikipedia",
+				"url": "https://en.wikipedia.org/wiki/Photon"
+			}
+		],
+		"see_also": [
+			{
+				"term": "gluon"
+			}
+		]
+	},
+	{
+		"term": ["Primary Dataset","Primary Datasets"],
+		"anchor": "primary",
+		"definition": "Datasets prepared after trigger selections, with no further selection criteria applied. On this portal, primary datasets refer to “reconstructed data”.",
+		"type": "0",
+		"category": "specific",
+		"experiment": [
+			{
+				"name": "CMS"
+			},
+			{
+				"name": "ATLAS"
+			},
+			{
+				"name": "ALICE"
+			},
+			{
+				"name": "LHCb"
+			}
+		],
+		"see_also": [
+			{
+				"term": "AOD"
+			},
+			{
+				"term": "reconstruction"
+			},
+			{
+				"term": "tag"
+			},
+			{
+				"term": "derived"
+			},
+			{
+				"term": "trigger"
+			},
+			{
+				"term": "condition"
+			}
+		],
+		"links": [
+			{
+				"text": "Read more on the CMS website",
+				"url": "http://cern.ch/cms"
+			}
+		]
+	},
+	{
+		"term": ["Proton","Protons"],
+		"anchor": "proton",
+		"category": "generic",
+		"type": "0",
+		"definition": "A stable composite particle belonging to the “hadron” family of particles, made of two up quarks and a down quark. It has a +1 electrical charge and is found in the nuclei of atoms. A proton has a mass of ~938 MeV/c<sup>2</sup>, or about 1836 times the mass of an electron. Protons are one of the species of particles collided at the LHC.",
+		"links": [
+			{
+				"text": "Read more on Wikipedia",
+				"url": "https://en.wikipedia.org/wiki/Proton"
+			}
+		],
+		"see_also": [
+			{
+				"term": "hadron"
+			},
+			{
+				"term": "electron"
+			},
+			{
+				"term": "jet"
+			}
+		]
+	},
+	{
+		"term": ["Quark","Quarks"],
+		"anchor": "quark",
+		"category": "generic",
+		"type": "0",
+		"definition": "An elementary particle that comes in six flavours: up, charm and top (all with +2/3 electrical charge) and down, strange and bottom (all with $-$1/3 electrical charge). Quarks also have a property known as “colour charge” and cannot exist freely because of a phenomenon called “colour confinement”: they are held together by gluons to form hadrons.",
+		"links": [
+			{
+				"text": "Read more on Wikipedia",
+				"url": "https://en.wikipedia.org/wiki/Quark"
+			}
+		],
+		"see_also": [
+			{
+				"term": "hadron"
+			},
+			{
+				"term": "proton"
+			},
+			{
+				"term": "jet"
+			},
+			{
+				"term": "gluon"
+			}
+		]
+	},
+	{
+		"term": ["Reconstruction","Reconstructions"],
+		"anchor": "reconstruction",
+		"definition": "Fragmented data from various sub-detectors are processed or “reconstructed” to provide coherent information about individual physics objects such as electrons or particle jets. Reconstruction involves putting together information from different sub-detectors into a coherent representation of every particle collision. However, the format for the first tier of reconstructed data is often too huge for meaningful analysis, and is converted into a lighter format, such as the AOD format for CMS.",
+		"type": "0",
+		"category": "specific",
+		"experiment": [
+			{
+				"name": "CMS"
+			},
+			{
+				"name": "ATLAS"
+			},
+			{
+				"name": "ALICE"
+			},
+			{
+				"name": "LHCb"
+			}
+		],
+		"see_also": [
+			{
+				"term": "AOD"
+			},
+			{
+				"term": "primary"
+			},
+			{
+				"term": "tag"
+			}
+		],
+		"links": [
+			{
+				"text": "Read more in the CMS WorkBook",
+				"url": "https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookDataFormats#RecO"
+			}
+		]
+	},
+	{
+		"term": ["Run","RunA","RunB","RunC","RunD"],
+		"anchor": "Run",
+		"type": "0",
+		"category": "specific",
+		"definition": "The data collected by CMS in a given year are divided into sets called “Runs”. For example, the data from 2010 were divided into “RunA” and “RunB”, the latter being from the second part of the year.",
+		"experiment": [
+			{
+				"name": "CMS"
+			}
+		],
+		"see_also": [
+			{
+				"term": "AOD"
+			}
+		],
+		"links": [
+			{
+				"text": "Read more about CMS Luminosity records",
+				"url": "https://twiki.cern.ch/twiki/bin/view/CMSPublic/LumiPublicResults"
+			}
+		]
+	},
+	{
+		"term": ["Tag","Tags","Global Tag","Global Tags"],
+		"anchor": "tag",
+		"category": "specific",
+		"type": "0",
+		"definition": "A Tag is a record of additional data needed by the reconstruction and analysis software. A Global Tag is a coherent collection of Tags.",
+		"experiment": [
+			{
+				"name": "CMS"
+			}
+		],
+		"links": [
+			{
+				"text": "Read more about CMS Global Tags",
+				"url": "https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideFrontierConditions"
+			}
+		],
+		"see_also": [
+			{
+				"term": "reconstruction"
+			},
+			{
+				"term": "AOD"
+			},
+			{
+				"term": "primary"
+			}
+		]
+	},
+	{
+		"term": ["Trigger","Triggers"],
+		"anchor": "trigger",
+		"category": "generic",
+		"type": "0",
+		"definition": "A system that determines which particle collisions are stored in primary datasets and which ones are discarded. The triggering is done first by a lower-level hardware-based trigger and then by the High-Level Trigger on a computing farm.",
+		"links": [
+			{
+				"text": "Read more on Wikipedia",
+				"url": "https://en.wikipedia.org/wiki/Trigger_%28particle_physics%29"
+			}
+		],
+		"see_also": [
+			{
+				"term": "generator"
+			},
+			{
+				"term": "primary"
+			},
+			{
+				"term": "derived"
+			}
+		]
+	}
+]

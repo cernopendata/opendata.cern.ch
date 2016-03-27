@@ -1,0 +1,67 @@
+  <div id="event-display-howto" class="col-md-12">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>How to use the event display</h2>
+        <div>
+          <p>
+            The CMS event display (called iSpy) can be used to visualise in your browser collision data recorded by the CMS detector. Files of a custom type called <kbd>.ig</kbd> can be opened using iSpy. Each <kbd>.ig</kbd> file is in fact a collection containing numerous individual collision events.
+          </p>
+          <p>
+            This guide will take you through some of the basic functionality of the event display.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Top-row buttons</h3>
+        <p>
+          Each button comes with a tool-tip: hover over the button to know its functionality.
+        </p>
+        <p>
+          <ul class="row">
+            <li class="col-sm-6">
+              <i class="fa fa-folder-open"></i> Open <kbd>.ig</kbd> files from the server.<br /><img class="screen-s" src="{{ url_for('static', filename='img/iSpy-Online-graphics/open.gif') }}">
+            </li>
+            <li class="col-sm-6">
+                <i class="fa fa-step-backward"></i> and <i class="fa fa-step-forward"></i> Navigate to previous and next events in the <kbd>.ig</kbd> file you loaded.<br /><img class="screen-s" src="{{ url_for('static', filename='img/iSpy-Online-graphics/prevnext.gif')}}">
+            </li>
+            <li class="col-sm-6">
+                <i class="fa fa-home"></i> Returns the event display to its initial orientation. <i class="fa fa-search-plus"></i> and <i class="fa fa-search-minus"></i> Zoom in and out.<br /><img class="screen-s" src="{{ url_for('static', filename='img/iSpy-Online-graphics/start.gif')}}">
+            </li>
+            <li class="col-sm-6">
+              <img src="{{ url_for('static', filename='img/iSpy-Online-graphics/z-plane.png')}}">, <img src="{{ url_for('static', filename='img/iSpy-Online-graphics/y-plane.png')}}"> and <img src="{{ url_for('static', filename='img/iSpy-Online-graphics/x-plane.png')}}"> View the collision event along one of three axes.<br /><img class="screen-s" src="{{ url_for('static', filename='img/iSpy-Online-graphics/axes.gif')}}">
+            </li>
+            <li class="col-sm-6">
+              <img src="{{ url_for('static', filename='img/iSpy-Online-graphics/perspective-projection.png')}}"> and <img src="{{ url_for('static', filename='img/iSpy-Online-graphics/orthographic-projection.png')}}"> Switch between a perspective projection and an orthographic projection.<br /><img class="screen-s" src="{{ url_for('static', filename='img/iSpy-Online-graphics/projection.gif')}}">
+            </li>
+            <li class="col-sm-6">
+              <i class="fa fa-gear"></i> Use the settings button to invert the colours of the display or display the frame rate.<br /><img  class="screen-s" src="{{ url_for('static', filename='img/iSpy-Online-graphics/settings.gif')}}">
+            </li>
+          </ul>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Sidebar</h3>
+        <p>
+          <ul class="row">
+            <!--
+            <li>
+              <img src="../img/iSpy-Online-graphics/help-small.png"> Learn more about the various options presented.<br /><img src="../img/iSpy-Online-graphics/help.gif">
+            </li>
+             -->
+            <li class="col-sm-6">
+              Click on the checkboxes to show or hide the CMS sub-detectors, particle tracks and hits, and more.<br /><img class="screen-s" src="{{ url_for('static', filename='img/iSpy-Online-graphics/detector.gif')}}">
+            </li>
+            <!--
+            <li>
+              <img src="../img/iSpy-Online-graphics/range-selector.png"> Select the energy range for the .<br /><img src="../img/iSpy-Online-graphics/range.gif">
+            </li>
+            -->
+          </ul>
+        </p>
+      </div>
+    </div>
+  </div>

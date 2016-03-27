@@ -1,0 +1,101 @@
+# -*- coding: utf-8 -*-
+#
+# This file is part of CERN Open Data Portal.
+# Copyright (C) 2015, 2016 CERN.
+#
+# CERN Open Data Portal is free software; you can redistribute it
+# and/or modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# CERN Open Data Portal is distributed in the hope that it will be
+# useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with CERN Open Data Portal; if not, write to the
+# Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,
+# MA 02111-1307, USA.
+#
+# In applying this license, CERN does not
+# waive the privileges and immunities granted to it by virtue of its status
+# as an Intergovernmental Organization or submit itself to any jurisdiction.
+
+web:
+  restart: "always"
+  build: .
+  command: /bin/bash -c "cernopendata --debug run -h 0.0.0.0"
+  environment:
+    - PATH=/home/invenio/.virtualenvs/cernopendata/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    - VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+    - INVENIO_WEB_HOST=127.0.0.1
+    - INVENIO_WEB_INSTANCE=cernopendata
+    - INVENIO_WEB_VENV=cernopendata
+    - INVENIO_USER_EMAIL=info@inveniosoftware.org
+    - INVENIO_USER_PASS=uspass123
+    - INVENIO_POSTGRESQL_HOST=postgresql
+    - INVENIO_POSTGRESQL_DBNAME=cernopendata
+    - INVENIO_POSTGRESQL_DBUSER=cernopendata
+    - INVENIO_POSTGRESQL_DBPASS=dbpass123
+    - INVENIO_REDIS_HOST=redis
+    - INVENIO_ELASTICSEARCH_HOST=elasticsearch
+    - INVENIO_RABBITMQ_HOST=rabbitmq
+    - INVENIO_WORKER_HOST=127.0.0.1
+  volumes_from:
+    - static
+  links:
+    - postgresql
+    - redis
+    - elasticsearch
+    - rabbitmq
+  ports:
+    - "5000:5000"
+
+postgresql:
+  restart: "always"
+  image: postgres
+  environment:
+    - POSTGRES_USER=cernopendata
+    - POSTGRES_DB=cernopendata
+    - POSTGRES_PASSWORD=dbpass123
+  ports:
+    - "25432:5432"
+
+redis:
+  restart: "always"
+  image: redis
+  ports:
+    - "26379:6379"
+
+elasticsearch:
+  restart: "always"
+  image: elasticsearch
+  ports:
+    - "29200:9200"
+    - "29300:9300"
+
+rabbitmq:
+  restart: "always"
+  image: rabbitmq
+  ports:
+    - "24369:4369"
+    - "45672:25672"
+
+nginx:
+  restart: "always"
+  build: ./nginx
+  ports:
+    - "80:80"
+  volumes_from:
+    - static
+  links:
+    - web
+
+static:
+  restart: "no"
+  build: .
+  volumes:
+    - /home/invenio/.virtualenvs/cernopendata/var/cernopendata-instance/static
+    - .:/code
+  user: invenio

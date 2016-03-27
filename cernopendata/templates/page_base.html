@@ -1,0 +1,161 @@
+{#
+# This file is part of CERN Open Data Portal.
+# Copyright (C) 2012, 2013, 2014 CERN.
+#
+# CERN Open Data Portal is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# CERN Open Data Portal is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Invenio; if not, write to the Free Software Foundation, Inc.,
+# 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+#}
+
+{%- from "_macros.html" import flashed_messages with context -%}
+
+{%- block global_bundles %}
+  {%- include "base/bundles.html" %}
+{%- endblock %}
+
+{%- block page -%}
+{%- if not no_pageheader -%}
+{%- block page_top -%}
+<!DOCTYPE html>
+<html
+{%- if g.ln %} lang="{{ g.ln|safe }}"
+  {%- if is_language_rtl(g.ln) %} dir="rtl"{% endif %}
+{%- endif %}>
+<head>
+  {%- block head %}
+  {%- block head_meta %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>{{ title+' - ' if title }}{{ config.CFG_SITE_NAME_INTL[g.ln] }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {%- if description %}<meta name="description" content="{{ description }}" />{% endif %}
+  {%- if keywords %}<meta name="keywords" content="{{ keywords }}" />{% endif %}
+  {%- if config.get('CFG_GOOGLE_SITE_VERIFICATION', None) %}
+    {%- for google_id in config.CFG_GOOGLE_SITE_VERIFICATION %}
+  <meta name="google-site-verification" content="{{google_id}}"/>
+    {%- endfor %}
+  {%- endif %}
+  {%- endblock head_meta %}
+
+  {%- block head_links %}
+  <link rel="author" href="mailto:{{ config.CFG_SITE_SUPPORT_EMAIL }}"/>
+  <link rel="canonical" href="{{ canonical_url }}"/>
+  {%- block head_links_langs %}{%- for alt_ln, alternate_url in alternate_urls.items() %}
+  <link rel="alternate" hreflang="{{ alt_ln }}" href="{{ alternate_url }}"/>
+  {%- endfor %}{%- endblock %}
+  <link rel="alternate" type="application/rss+xml"
+        {{- ' ' -}}
+        title="{{ config.CFG_SITE_NAME }} RSS"
+        {{- ' ' -}}
+        href="{{ url_for('rss') }}" />
+  <link rel="search" type="application/opensearchdescription+xml"
+        {{- ' ' -}}
+        href="{{ url_for('opensearchdescription') }}"
+        {{- ' ' -}}
+        title="{{ config.CFG_SITE_NAME }}"/>
+  <link rel="unapi-server" type="application/xml" title="unAPI"
+        {{- ' ' -}}
+        href="{{ url_for('unapi') }}"/>
+  {%- if linkbackTrackbackLink %}{{ linkbackTrackbackLink }}{%- endif %}
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"/>
+  {%- block head_apple_icons %}
+  {%- for size in [144, 114, 72, 57] %}
+    {%- set icon_name = 'apple-touch-icon-%d-precomposed.png' | format(size) %}
+  <link rel="apple-touch-icon-precomposed" sizes="{{ size }}x{{ size }}"
+        {{- ' ' -}}
+        href="{{ url_for('static', filename=icon_name) }}"/>
+  {%- endfor %}
+  {%- endblock head_apple_icons %}
+  {%- endblock head_links %}
+
+  {%- block header %}
+    {{- metaheaderadd | safe }}
+    {%- block metaheader %}{% endblock metaheader %}
+  {%- endblock header %}
+
+  {%- block _top_assets %}
+    {%- block global_stylesheets %}
+      {%- include "base/stylesheets.html" %}
+    {%- endblock %}
+  {%- endblock %}
+  {%- block css %}{% endblock %}
+  {%- endblock head %}
+</head>
+<body{% if body_css_classes %} class="{{ body_css_classes|join(' ') }}"{% endif %}{% if g.ln %} lang="{{ g.ln.split('_', 1)[0]|safe }}"{% if rtl_direction %} {{ rtl_direction|safe }}{% endif %}{% endif %} itemscope itemtype="http://schema.org/WebPage" {% block body_attributes %}{% endblock %}>
+{%- block body_start %}{% endblock body_start %}
+{%- block page_header -%}
+  <div id="wrap">
+    <header>
+      <!-- replaced page header -->
+      {% block headerbox %}
+        {% include 'header.html' %}
+      {% endblock headerbox %}
+      <!-- end replaced page header -->
+      {% block breadcrumb %}
+      {%- include 'breadcrumbs.html' -%}
+      {% endblock breadcrumb %}
+      {% block pageheaderadd %}{{ pageheaderadd|safe }}{% endblock pageheaderadd %}
+    </header>
+{%- endblock page_header -%}
+{%- endblock page_top -%}
+{%- endif -%}
+
+{%- if not no_pagebody -%}
+{%- block page_body -%}
+    <div class="container">
+      {% block title %}
+        {% if title %}
+          <div class="page-header">
+            <h1>{{ title }}</h1>
+          </div>
+        {% endif %}
+      {% endblock title %}
+      {{ flashed_messages() }}
+      {%- block body %}
+        {{ body }}
+      {%- endblock body %}
+    </div>
+{%- endblock page_body %}
+{%- endif %}
+
+{%- if not no_pagefooter -%}
+{%- block page_bottom -%}
+{%- block page_footer %}
+    <div id="push"></div>
+  </div>{# end wrap #}
+<footer id="footer">
+  <div class="container">
+    {%- block pagefooteradd %}
+      {{- pagefooteradd | safe }}
+    {%- endblock pagefooteradd %}
+  </div>
+  {# replaced page footer #}
+  {%- include 'footer.html' %}
+</footer>
+{%- endblock page_footer %}
+{%- block _bottom_assets %}
+  {% block global_scripts %}
+    {%- include "base/scripts.html" %}
+  {% endblock %}
+{%- endblock %}
+{%- block javascript %}{% endblock %}
+{%- block body_end %}{% endblock %}
+</body>
+</html>
+{%- endblock page_bottom -%}
+{%- endif -%}
+{%- endblock page -%}
