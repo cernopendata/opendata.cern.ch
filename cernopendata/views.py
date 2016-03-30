@@ -4,11 +4,14 @@
 
 from __future__ import absolute_import, print_function
 
-from flask import Blueprint, current_app, escape, render_template, request
+import functools
+
+from flask import Blueprint, current_app, escape, render_template, request, url_for
 from flask_babelex import lazy_gettext as _
 from flask_breadcrumbs import default_breadcrumb_root, register_breadcrumb
 from flask_menu import register_menu
 from speaklater import make_lazy_string
+from werkzeug import secure_filename
 
 
 blueprint = Blueprint(
@@ -128,9 +131,7 @@ def visualise_histo(experiment='CMS'):
 @blueprint.route('/getting-started', defaults={'experiment': None, 'year': None})
 @blueprint.route('/getting-started/<string:experiment>',defaults={'year': None})
 @blueprint.route('/getting-started/<string:experiment>/<string:year>')
-@register_breadcrumb(blueprint, '.get_started', 'Get Started', \
-                        dynamic_list_constructor = (lambda :\
-                        [{'url':'.get_started','text':'Getting started'}]))
+@register_breadcrumb(blueprint, '.get_started', 'Get Started')
 def get_started(experiment, year):
     def splitting(value, delimiter='/'):
         return value.split(delimiter)
@@ -192,16 +193,48 @@ def val_report(experiment):
         return abort(404)
 
 
+def about_menu(*args):
+    """Generate menu decorator."""
+    def decorator(f):
+        for order, key in enumerate(args):
+            def arguments(key):
+                return lambda: {'page': key}
+            f = register_menu(
+                blueprint, 'main.about.{0}'.format(key),
+                _('%(experiment)s Open Data', experiment=key), order=order+1,
+                endpoint_arguments_constructor=arguments(key)
+            )(f)
+        return f
+    return decorator
+
+
+def about_breadcrumbs():
+    """Generate breadcrumbs for about pages."""
+    key = request.view_args.get('page')
+    breadcrumbs = [{'url': url_for('cernopendata.about'), 'text': _('About')}]
+    if key:
+        breadcrumbs.append({
+            'url': url_for('cernopendata.about', experiment=key),
+            'text': _('%(experiment)s Open Data', experiment=key),
+        })
+    return breadcrumbs
+
+
 @blueprint.route('/about')
 @blueprint.route('/about/<page>')
 @register_menu(blueprint, 'main.about', _('About'), order=1)
+@register_menu(blueprint, 'main.about.this', _('This Portal'), order=0)
+@about_menu('CMS', 'ALICE', 'ATLAS', 'LHCb')
 @register_breadcrumb(blueprint, '.about', _('About'),
-                     dynamic_list_constructor=lambda: [
-                         {'url': '.about', 'text': 'About'}])
-def about(page=None):
+                     dynamic_list_constructor=about_breadcrumbs)
+def about(page='index'):
     """Render about page."""
-    return render_template('cernopendata/about/index.html')
-    # @blueprint.route('/about/CMS-Physics-Objects')
+    return render_template([
+        'cernopendata/about/{0}.html'.format(
+            secure_filename(page.lower()).replace('/', '-')
+        ),
+        'cernopendata/about/index.html',
+    ])
 
 
 @blueprint.route('/terms-of-use')
@@ -235,6 +268,7 @@ def collections():
 
 
 @blueprint.route('/glossary', methods=['GET', 'POST'])
+@register_menu(blueprint, 'main.about.glossary', _('Glossary'), order=90)
 @register_breadcrumb(blueprint, '.glossary', 'Glossary', \
                         dynamic_list_constructor = (lambda :\
                         [{'url':'.education', 'text':'Education'},\
@@ -252,6 +286,7 @@ def glossary():
 
 
 @blueprint.route('/news')
+@register_menu(blueprint, 'main.about.news', _('News'), order=91)
 @register_breadcrumb(blueprint,'.news','News', dynamic_list_constructor=(
     lambda: [{'url':'.news','text':'News'}]
 ))

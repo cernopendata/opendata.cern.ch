@@ -104,6 +104,7 @@ set -o errexit
 # set -o nounset
 
 # sphinxdoc-install-instance-begin
+pip install psycopg2
 pip install -e .
 pip install -r requirements-devel.txt
 # sphinxdoc-install-instance-end

@@ -1,7 +1,9 @@
 {%- extends "invenio_theme/header.html" %}
 
 {%- block breadcrumbs %}
+<section class="bg-info pull-row-up">
 {% if request.path != '/' %}
   {{ super() }}
 {% endif %}
+</section>
 {%- endblock %}

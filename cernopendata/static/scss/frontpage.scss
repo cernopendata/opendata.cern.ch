@@ -3,7 +3,32 @@
   padding-top: 0px!important;
 }
 
-nav ul.navbar-nav li a {
+.navbar-form .input-group-btn button {
+    height: 34px;
+}
+
+.breadcrumb {
+    margin-bottom: 0px;
+}
+
+.breadcrumb a {
+    color: $text-white;
+}
+
+.breadcrumb .active {
+    font-weight: bold;
+}
+
+.pull-row-up {
+    margin-top: -($navbar-margin-bottom);
+    margin-bottom: $navbar-margin-bottom;
+}
+
+header nav.navbar-static-top {
+    border-bottom: none;
+}
+
+nav ul.navbar-nav > li > a {
   text-transform: uppercase;
 }
 
@@ -34,6 +59,9 @@ nav ul.navbar-nav li a {
   height: 40vh;
 }
 
-.navbar-form .input-group-btn button {
-    height: 34px;
+footer a img {
+    height: (4*$line-height-computed);
+}
+footer a+a {
+    padding-left: $line-height-computed;
 }

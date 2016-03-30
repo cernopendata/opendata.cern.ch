@@ -1,114 +1,132 @@
-{% extends 'page.html' %}
+{% extends config.BASE_TEMPLATE %}
 
-{% block body %}
+{% block page_body %}
+<section class="general content">
+  <div class="container">
+    <h2>About CMS</h2>
+    <p class="lead">
+      The Compact Muon Solenoid (CMS) Experiment is one of the large particle
+      detectors at CERN's Large Hadron Collider. The CMS Collaboration
+      consists of more than 3000 scientists, engineers, technicians and
+      students from 180+ institutes and universities from 40+ countries. You
+      can find more information about the CMS <a
+      href="http://cms.web.cern.ch/news/cms-detector-design">detector
+      design</a> and <a
+      href="http://cms.web.cern.ch/news/detector-overview">overview</a> on
+      the official <a href="http://cern.ch/cms">CMS website</a>.
+    </p>
 
-{% import 'helpers/general.html' as gen_utils %}
+    <h2>About CMS data</h2>
 
-  <section class="infobar">
-    <div class="container">
-      {{gen_utils.get_breadcrumbs(breadcrumbs)}}
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title" id="tools">Data and analysis tools</h3>
+      </div>
+      <div class="panel-body">
+        <p>The following are provided through this portal:</p>
+        <ul>
+          <li>Downloadable datasets
+            <ul>
+              <li><a href="{{ url_for('invenio_collections.collection', name = 'CMS-Primary-Datasets') }}">Primary datasets</a>: full reconstructed data with no other selections. The data here are referred to as "reconstructed data": fragmented data from various sub-detectors are processed or "reconstructed" to provide coherent information about individual <a href="{{ url_for('.about', page='physics') }}">physics objects</a> such as electrons or particle jets</li>
+              <li>Examples of <a href="{{ url_for('invenio_collections.collection', name='CMS-Derived-Datasets') }}">simplified datasets</a> derived from the primary ones for use in different applications and analyses</li>
+            </ul>
+          </li>
+          <li>Tools
+            <ul>
+              <li>A downloadable <a href="{{ url_for('.data_vms', experiment='CMS') }}">Virtual Machine (VM)</a> image with the CMS software environment through which the primary datasets can be accessed</li>
+              <li>An <a href="{{ url_for('.get_started', experiment='CMS') }}">analysis example chain</a>, reading the primary dataset and producing intermediate derived data for the final analysis</li>
+              <li>Ready-to-use online applications, such as <a href="{{ url_for('.visualise_events', experiment='CMS') }}">an event display</a> and <a href="{{ url_for('.visualise_histo', experiment='CMS') }}">simple histogramming software</a></li>
+              <li>Source code for the various examples and applications, available in the <a href="/search?q=collection:CMS-Tools">CMS Tools</a> collection</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
-  </section>
 
-  <section class="general content">
-    <div class="container">
-      <div id="CMS" class="row">
-        <div class="gen-header">
-          <h1 class="col-md-12">About CMS</h1>
-          <p class="col-md-12">The Compact Muon Solenoid (CMS) Experiment is one of the large particle detectors at CERN's Large Hadron Collider. The CMS Collaboration consists of more than 3000 scientists, engineers, technicians and students from 180+ institutes and universities from 40+ countries. You can find more information about the CMS <a href="http://cms.web.cern.ch/news/cms-detector-design">detector design</a> and <a href="http://cms.web.cern.ch/news/detector-overview">overview</a> on the official <a href="http://cern.ch/cms">CMS website</a>.</p>
-          <h1 class="col-md-12">About CMS data</h1>
-          <div class="col-md-12">
-            <div class="gen-box">
-              <h2 id="tools">Data and analysis tools</h2>
-              <p class="col-md-12 no-padding">The following are provided through this portal:</p>
-              <ul class="col-md-12">
-                <li>Downloadable datasets
-                  <ul class="col-md-12">
-                    <li><a href="{{ url_for('.collection', name = 'CMS-Primary-Datasets') }}">Primary datasets</a>: full reconstructed data with no other selections. The data here are referred to as "reconstructed data": fragmented data from various sub-detectors are processed or "reconstructed" to provide coherent information about individual <a href="{{ url_for('.about_physics') }}">physics objects</a> such as electrons or particle jets</li>
-                    <li>Examples of <a href="{{ url_for('.collection', name='CMS-Derived-Datasets') }}">simplified datasets</a> derived from the primary ones for use in different applications and analyses</li>
-                  </ul>
-                </li>
-                <li>Tools
-                  <ul class="col-md-12">
-                    <li>A downloadable <a href="{{ url_for('.data_vms', exp = 'CMS') }}">Virtual Machine (VM)</a> image with the CMS software environment through which the primary datasets can be accessed</li>
-                    <li>An <a href="{{ url_for('.get_started', exp = 'CMS') }}">analysis example chain</a>, reading the primary dataset and producing intermediate derived data for the final analysis</li>
-                    <li>Ready-to-use online applications, such as <a href="{{ url_for('.visualise_events', exp='CMS') }}">an event display</a> and <a href="{{ url_for('.visualise_histo', exp='CMS') }}">simple histogramming software</a></li>
-                    <li>Source code for the various examples and applications, available in the <a href="/search?cc=CMS-Tools">CMS Tools</a> collection</li>
-                  </ul>
-                </li>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 id="primary-datasets" class="panel-title">Primary datasets</h3>
+      </div>
+      <div class="panel-body">
+        <ul class="col-md-12 no-padding">
+          <li>Data in the primary datasets are in a format known as AOD or Analysis Object Data for collision data and AODSIM for simulated data.</li>
+          <li>AOD files contain the information that is needed for analysis:
+            <div>
+              <ul>
+                <li>all the high-level <a href="{{ url_for('.about', page='physics') }}">physics objects</a> (such as muons, electrons, etc.);</li>
+                <li>tracks with associated hits, calorimetric clusters with associated hits, vertices; and</li>
+                <li>information about event selection (triggers), data needed for further selection and identification criteria for the physics objects.</li>
               </ul>
             </div>
+          </li>
+          <li>An AOD file is not the final event interpretation with a simple list of particles.
+            <div>
+              <ul>
+                <li>It contains several instances of the same physics object (i.e. a jet reconstructed with different algorithms).</li>
+                <li>It may have double-counting (i.e. a physics object may appear as a single object of its own type, but it may also be part of a jet).</li>
+                <li>Additional knowledge is needed to define a "good" physics object.</li>
+                <li>Definition of same objects is different in each analysis.</li>
+              </ul>
+            </div>
+          </li>
+          <li>AOD files can be read in <a href="http://root.cern.ch/">ROOT</a>, but they cannot be opened (and understood) as simple data tables.</li>
+          <li>Only the runs that are validated by data quality monitoring should be used in any analysis. The <a href="{{ url_for('invenio_collections.collection', name= 'CMS-Validation-Utilities') }}">list of the validated runs</a> is provided.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 id="disclaimer" class="panel-title">Disclaimer</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <li>The open data are released under the <a href="http://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 waiver</a>. Neither CMS or nor CERN endorse any works, scientific or otherwise, produced using these data.</li>
+          <li>All datasets will have a unique DOI that you are requested to cite in any applications or publications.</li>
+          <li>Despite being processed, the high-level primary datasets remain complex and selection criteria need to be applied in order to analyse them, requiring some understanding of particle physics and detector functioning. The data cannot be viewed in simple data tables for spreadsheet-based analyses.
+          </li>
+          <li>No further development is foreseen for either the data released or the software version needed to analyse them.
+            <div>
+              <ul>
+                <li>The methods have evolved since the released data were recorded.</li>
+                <li>More advanced techniques are used with recent data but the software is not compatible out-of-the-box with older data samples.</li>
+              </ul>
+            </div>
+          </li>
+          <li>The release of 2010 data is not accompanied by any simulated data. The release of 2011 data includes simulated data. However, this is not a full set of simulations, but only those datasets that have been reprocessed with a software release compatible with the 2011 collision data.</li>
+          <li>If you are interested in more, please contact nearest <a href="http://cms.web.cern.ch/content/cms-collaboration">CMS university/institute</a>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 id="policies" class="panel-title">Other CMS Open Data</h3>
           </div>
-        </div>
-        <div class="col-md-12">
-          <div class="gen-box">
-            <h2 id="primary-datasets">Primary datasets</h2>
-            <ul class="col-md-12 no-padding">
-              <li>Data in the primary datasets are in a format known as AOD or Analysis Object Data for collision data and AODSIM for simulated data.</li>
-              <li>AOD files contain the information that is needed for analysis:
-                <div>
-                  <ul>
-                    <li>all the high-level <a href="{{ url_for('.about_physics') }}">physics objects</a> (such as muons, electrons, etc.);</li>
-                    <li>tracks with associated hits, calorimetric clusters with associated hits, vertices; and</li>
-                    <li>information about event selection (triggers), data needed for further selection and identification criteria for the physics objects.</li>
-                  </ul>
-                </div>
-              </li>
-              <li>An AOD file is not the final event interpretation with a simple list of particles.
-                <div>
-                  <ul>
-                    <li>It contains several instances of the same physics object (i.e. a jet reconstructed with different algorithms).</li>
-                    <li>It may have double-counting (i.e. a physics object may appear as a single object of its own type, but it may also be part of a jet).</li>
-                    <li>Additional knowledge is needed to define a "good" physics object.</li>
-                    <li>Definition of same objects is different in each analysis.</li>
-                  </ul>
-                </div>
-              </li>
-              <li>AOD files can be read in <a href="http://root.cern.ch/">ROOT</a>, but they cannot be opened (and understood) as simple data tables.</li>
-              <li>Only the runs that are validated by data quality monitoring should be used in any analysis. The <a href="{{ url_for('.collection', name= 'CMS-Validation-Utilities') }}">list of the validated runs</a> is provided.</li>
+          <div class="panel-body">
+            <ul>
+              <li>All <a href="http://cds.cern.ch/collection/CMS?ln=en">CMS publications</a> are open access.</li>
+              <li><a href="https://inspirehep.net/search?p=collaboration%3A%27CMS%27+and+520__9%3Ahepdata">Some of the papers also include open data</a> in the form of additional tables, plots, graphs and <a href="https://rivet.hepforge.org/">Rivet</a> packages.</li>
             </ul>
           </div>
         </div>
-          <div class="col-md-12">
-            <div class="gen-box">
-              <h2 id="disclaimer">Disclaimer</h2>
-              <ul class="col-md-12 no-padding">
-                <li>The open data are released under the <a href="http://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 waiver</a>. Neither CMS or nor CERN endorse any works, scientific or otherwise, produced using these data.</li>
-                <li>All datasets will have a unique DOI that you are requested to cite in any applications or publications.</li>
-                <li>Despite being processed, the high-level primary datasets remain complex and selection criteria need to be applied in order to analyse them, requiring some understanding of particle physics and detector functioning. The data cannot be viewed in simple data tables for spreadsheet-based analyses.
-                </li>
-                <li>No further development is foreseen for either the data released or the software version needed to analyse them.
-                  <div>
-                    <ul>
-                      <li>The methods have evolved since the released data were recorded.</li>
-                      <li>More advanced techniques are used with recent data but the software is not compatible out-of-the-box with older data samples.</li>
-                    </ul>
-                  </div>
-                </li>
-                <li>The release of 2010 data is not accompanied by any simulated data. The release of 2011 data includes simulated data. However, this is not a full set of simulations, but only those datasets that have been reprocessed with a software release compatible with the 2011 collision data.</li>
-                <li>If you are interested in more, please contact nearest <a href="http://cms.web.cern.ch/content/cms-collaboration">CMS university/institute</a>.</li>
-              </ul>
-            </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 id="policies" class="panel-title">Policies</h3>
           </div>
-          <div class="col-md-6">
-            <div class="gen-box">
-              <h2 id="policies">Other CMS open data</h2>
-              <ul class="col-md-12 no-padding">
-                <li>All <a href="http://cds.cern.ch/collection/CMS?ln=en">CMS publications</a> are open access.</li>
-                <li><a href="https://inspirehep.net/search?p=collaboration%3A%27CMS%27+and+520__9%3Ahepdata">Some of the papers also include open data</a> in the form of additional tables, plots, graphs and <a href="https://rivet.hepforge.org/">Rivet</a> packages.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="gen-box">
-              <h2 id="policies">Policies</h2>
-              <ul class="col-md-12 no-padding">
-                <li><a href="https://cms-docdb.cern.ch/cgi-bin/PublicDocDB/ShowDocument?docid=6032">Data preservation and open access policy</a></li>
-                <li><a href="https://cms-docdb.cern.ch/cgi-bin/DocDB/ShowDocument?docid=12242">Papers by CMS members using public data [internal]</a></li>
-              </ul>
-            </div>
+          <div class="panel-body">
+            <ul>
+              <li><a href="https://cms-docdb.cern.ch/cgi-bin/PublicDocDB/ShowDocument?docid=6032">Data preservation and open access policy</a></li>
+              <li><a href="https://cms-docdb.cern.ch/cgi-bin/DocDB/ShowDocument?docid=12242">Papers by CMS members using public data [internal]</a></li>
+            </ul>
           </div>
         </div>
-  </section>
-
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}
