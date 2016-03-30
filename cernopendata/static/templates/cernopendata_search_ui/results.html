@@ -1,0 +1,22 @@
+<div class="row record-elem" ng-repeat="record in vm.invenioSearchResults.hits.hits track by $index">
+  <div class="col-xs-12">
+    <h4>
+      <a target="_self" ng-href="/record/{{record.id}}">
+        {{ record.metadata.title_statement.title }}
+      </a>
+      <br/>
+      <small>
+        {{ record.metadata.main_entry_personal_name[0].personal_name }}
+      </small>
+    </h4>
+    <p>
+      {{ record.metadata.summary[0].summary }}
+    </p>
+    <p>
+      <span class="label label-default" ng-repeat="collection in record.metadata.collections">
+        {{ collection.primary ? 'Collection' : 'Category' }}: {{ collection.primary ? collection.primary : collection.secondary }}
+      </span>
+    </p>
+    <hr />
+  </div>
+</div>

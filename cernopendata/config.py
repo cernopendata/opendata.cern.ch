@@ -83,6 +83,8 @@ RECORDS_REST_FACETS = dict(
 SEARCH_UI_SEARCH_API = "/api/records/"
 #: Default template for search UI.
 SEARCH_UI_BASE_TEMPLATE = 'cernopendata/page.html'
+#: Default template for search UI.
+SEARCH_UI_SEARCH_TEMPLATE = "cernopendata/search.html"
 #: Default Elasticsearch document type.
 SEARCH_DOC_TYPE_DEFAULT = None
 #: Do not map any keywords.

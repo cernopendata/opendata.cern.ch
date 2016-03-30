@@ -22,27 +22,26 @@
         </a>
       </div>
     </div>
-    <div class="row">
-      <div class="small text-center col-md-push-3 col-md-6">
-        <br/>
+    <br/>
+    <div class="row small">
+      <div class="text-center col-md-push-3 col-md-6">
         <ul class="list-inline" style="display: inline;">
           <li>© 2014, 2015, 2016 CERN</li>
           <li><a href="{{ url_for('cernopendata.terms') }}">Terms of Use</a></li>
           <li><a href="{{ url_for('cernopendata.privacy') }}">Privacy Policy</a></li>
           <li><a href="mailto:opendata-support@cern.ch">Contact</a></li>
         </ul>
-        <span class="col-md-pull-3 col-md-3 col-xs-6">
-          {% trans link="http://inveniosoftware.org" %}Powered by <a href="{{link}}">Invenio</a>{% endtrans %}
-        </span>
-        <ul class="col-md-3 col-xs-6">
-          {% if config.I18N_LANGUAGES %}
-            {% from "invenio_i18n/macros/language_selector.html" import language_selector %}
-            <li>
-              {{ language_selector() }}
-            </li>
-          {% endif %}
-        </ul>
+      </div>
+      <div class="col-md-pull-6 col-md-3 col-xs-6">
+        {% trans link="http://inveniosoftware.org" %}Powered by <a href="{{link}}">Invenio</a>{% endtrans %}
+      </div>
+      <div class="text-right col-md-3 col-xs-6">
+        {% if config.I18N_LANGUAGES %}
+          {% from "invenio_i18n/macros/language_selector.html" import language_selector %}
+          {{ language_selector() }}
+        {% endif %}
       </div>
     </div>
+    <br/>
   </div>
 </footer>

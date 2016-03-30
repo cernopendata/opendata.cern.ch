@@ -105,8 +105,8 @@ set -o errexit
 
 # sphinxdoc-install-instance-begin
 pip install psycopg2
-pip install -e .
 pip install -r requirements-devel.txt
+pip install -e .
 # sphinxdoc-install-instance-end
 
 # sphinxdoc-customise-instance-begin
@@ -169,7 +169,7 @@ EOF
 echo "${RECORDS_UI_CONF}" >> var/${INVENIO_WEB_INSTANCE}-instance/${INVENIO_WEB_INSTANCE}.cfg
 JSONSCHEMAS_CONF=`cat <<EOF
 JSONSCHEMAS_ENDPOINT='/schema'
-JSONSCHEMAS_HOST='http://${INVENIO_WEB_HOST}:5000'
+JSONSCHEMAS_HOST='http://opendata.cern.ch'
 EOF
 `
 echo "${JSONSCHEMAS_CONF}" >> var/${INVENIO_WEB_INSTANCE}-instance/${INVENIO_WEB_INSTANCE}.cfg
