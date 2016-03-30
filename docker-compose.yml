@@ -50,7 +50,7 @@ web:
     - elasticsearch
     - rabbitmq
   ports:
-    - "5000:5000"
+    - "5000"
 
 postgresql:
   restart: "always"
@@ -60,27 +60,27 @@ postgresql:
     - POSTGRES_DB=cernopendata
     - POSTGRES_PASSWORD=dbpass123
   ports:
-    - "25432:5432"
+    - "5432"
 
 redis:
   restart: "always"
   image: redis
   ports:
-    - "26379:6379"
+    - "6379"
 
 elasticsearch:
   restart: "always"
   image: elasticsearch
   ports:
-    - "29200:9200"
-    - "29300:9300"
+    - "9200"
+    - "9300"
 
 rabbitmq:
   restart: "always"
   image: rabbitmq
   ports:
-    - "24369:4369"
-    - "45672:25672"
+    - "4369"
+    - "25672"
 
 nginx:
   restart: "always"

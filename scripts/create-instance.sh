@@ -105,7 +105,7 @@ set -o errexit
 
 # sphinxdoc-install-instance-begin
 pip install psycopg2
-pip install -r requirements-devel.txt
+pip install -e git+https://github.com/inveniosoftware/invenio-collections.git#egg=invenio-collections
 pip install -e .
 # sphinxdoc-install-instance-end
 
