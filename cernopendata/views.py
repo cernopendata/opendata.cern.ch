@@ -5,6 +5,8 @@
 from __future__ import absolute_import, print_function
 
 import functools
+import json
+import pkg_resources
 
 from flask import Blueprint, current_app, escape, render_template, request, url_for
 from flask_babelex import lazy_gettext as _
@@ -125,38 +127,26 @@ def visualise_histo(experiment='CMS'):
         return abort(404)
 
 
-@blueprint.route('/getstarted', defaults={'experiment': None})
+@blueprint.route('/getstarted')
 @blueprint.route('/<string:experiment>/getstarted')
 @blueprint.route('/getstarted/<string:experiment>')
-@blueprint.route('/getting-started', defaults={'experiment': None, 'year': None})
-@blueprint.route('/getting-started/<string:experiment>',defaults={'year': None})
+@blueprint.route('/getting-started')
+@blueprint.route('/getting-started/<string:experiment>')
 @blueprint.route('/getting-started/<string:experiment>/<string:year>')
-@register_breadcrumb(blueprint, '.get_started', 'Get Started')
-def get_started(experiment, year):
-    def splitting(value, delimiter='/'):
-        return value.split(delimiter)
-    exp_names = get_collection_names()
-    current_app.jinja_env.filters['splitthem'] = splitting
-
-    try:
-        return render_template('get_started.html', experiment=experiment,exp_names=exp_names, year=year)
-    except TemplateNotFound:
-        return abort(404)
+@register_breadcrumb(blueprint, '.get_started', _('Get Started'))
+def get_started(experiment=None, year=None):
+    """Render getting started tutorials."""
+    return render_template(
+        'get_started.html', experiment=experiment, year=year
+    )
 
 
-@blueprint.route('/resources/<string:experiment>')
-@blueprint.route('/resources', defaults={'experiment': None})
-@register_breadcrumb(blueprint, '.resources', 'Learning Resources', \
-                        dynamic_list_constructor = (lambda :\
-                        [{'url':'.education','text':'Education'},\
-                        {'url':'.resources','text':'Learning Resources'}]) )
-def resources(experiment):
-    exp_names = get_collection_names()
-
-    try:
-        return render_template('resources.html', experiment=experiment, exp_names=exp_names)
-    except TemplateNotFound:
-        return abort(404)
+@blueprint.route('/resources')
+@register_breadcrumb(blueprint, '.education.resources',
+                     _('Learning Resources'))
+def resources():
+    """Render index of resources."""
+    return render_template('cernopendata/resources.html')
 
 
 @blueprint.route('/VM', defaults={'experiment': None, 'year': None})
@@ -238,13 +228,17 @@ def about(page='index'):
 
 
 @blueprint.route('/terms-of-use')
+@register_breadcrumb(blueprint, '.terms', _('Terms of Use'))
 def terms():
-    return render_template('termsofuse.html')
+    """Render terms of use."""
+    return render_template('cernopendata/terms_of_use.html')
 
 
 @blueprint.route('/privacy-policy')
+@register_breadcrumb(blueprint, '.privacy', _('Privacy Policy'))
 def privacy():
-    return render_template('privacy.html')
+    """Render privacy policy."""
+    return render_template('cernopendata/privacy_policy.html')
 
 
 @blueprint.route('/experiments')
@@ -269,20 +263,16 @@ def collections():
 
 @blueprint.route('/glossary', methods=['GET', 'POST'])
 @register_menu(blueprint, 'main.about.glossary', _('Glossary'), order=90)
-@register_breadcrumb(blueprint, '.glossary', 'Glossary', \
-                        dynamic_list_constructor = (lambda :\
-                        [{'url':'.education', 'text':'Education'},\
-                        {'url':'.glossary','text':'Glossary'}]) )
+@register_breadcrumb(blueprint, '.education.glossary', _('Glossary'))
 def glossary():
-    import json, pkg_resources
-    filepath = pkg_resources.resource_filename('cernopendata.base', 'static/json/glossary.json')
+    """Display glossary."""
+    filepath = pkg_resources.resource_filename(
+        'cernopendata', 'static/json/glossary.json'
+    )
     with open(filepath,'r') as f:
         glossary = json.load(f)
 
-    try:
-        return render_template('glossary.html', glossary = glossary)
-    except TemplateNotFound:
-        return abort('404')
+    return render_template('cernopendata/glossary.html', glossary=glossary)
 
 
 @blueprint.route('/news')

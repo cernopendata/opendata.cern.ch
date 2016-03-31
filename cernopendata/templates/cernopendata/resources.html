@@ -1,0 +1,34 @@
+{%- extends config.BASE_TEMPLATE %}
+
+{%- block page_body %}
+<section class="general">
+  <div class="container">
+    <p class="lead">
+      The collections below list resources for teaching and learning about
+      particle physics, built using CERN Open Data. Please note that these are
+      external resources: they are not hosted on the CERN Open Data portal.
+    </p>
+    <div class="row">
+      {% for e in config.OPENDATA_EXPERIMENTS %}
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <a href="{{ url_for('invenio_collections.collection',
+                              name=e+"-Learning-Resources" ) }}">
+            <div class="panel-body">
+                <img src="{{ url_for('static', filename='img/'+e+'.gif') }}" alt=""
+                    class="img-cirle center-block" style="height: 15vh;">
+            </div>
+            <div class="panel-footer">
+              <h3 class="text-center">
+                {{ _('%(experiment)s Learning Resources', experiment=e) }}
+              </h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

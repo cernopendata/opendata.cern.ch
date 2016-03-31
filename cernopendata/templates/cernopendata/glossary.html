@@ -1,0 +1,57 @@
+{%- extends config.BASE_TEMPLATE %}
+
+{%- block page_body %}
+<section id="glossary" class="general content">
+  <div class="container">
+    <div class="row">
+      <div class="page-header">
+        <h2>Glossary Terms</h1>
+      </div>
+      {% for i in glossary %}
+        {% if i.status != "WIP" %}
+        <div>
+          <h3 id="{{ i.anchor }}">
+            <a href="#{{ i.anchor }}">
+              <i class="fa fa-anchor pull-right"></i>
+              {%- if i.term is string %}
+                {{- i.term }}
+              {%- else %}
+                {{- i.term[0]}}
+              {%- endif %}
+            </a>
+            {% if i.see_also %}
+            <br/>
+            <small>
+              <em>see also:
+              {% for s in i.see_also %}
+                <a href="#{{s.term}}">{{ s.term }}</a>{{', ' if not loop.last}}
+              {% endfor %}
+              </em>
+            </small>
+            {% endif %}
+          </h3>
+        </div>
+        <p>
+          {{ i.definition }}
+        </p>
+        <p>
+          {% for e in i.experiment %}
+            <a class="label label-primary" href="#">{{e.name}}</a>
+          {% endfor %}
+        </p>
+        {% if i.links %}
+        <p>
+          {% for l in i.links %}
+          <a href="{{l.url}}">{{l.text}}</a>
+          {% endfor %}
+        </p>
+        {% endif %}
+        {% if not loop.last %}
+          <hr/>
+        {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
