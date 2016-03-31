@@ -25,6 +25,9 @@ setup(
             'cernopendata = '
             'cernopendata.cli:cli',
         ],
+        'dojson.contrib.marc21': [
+            'cernopendata = cernopendata.rules',
+        ],
         'invenio_assets.bundles': [
             'cernopendata_theme_css = cernopendata.bundles:css',
         ],
