@@ -48,5 +48,8 @@ ENV PATH=/home/invenio/.virtualenvs/cernopendata/bin:/usr/local/sbin:/usr/local/
 ENV VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 RUN echo "source /usr/local/bin/virtualenvwrapper.sh\nworkon cernopendata" >> ~/.bashrc
 
+VOLUME /code
+VOLUME /home/invenio
+
 # Start the CERN Open Data Portal application:
 CMD ["/bin/bash", "-c", "cernopendata run -h 0.0.0.0"]

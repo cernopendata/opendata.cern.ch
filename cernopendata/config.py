@@ -29,6 +29,7 @@ THEME_SITENAME = _('CERN Open Data Portal')
 THEME_LOGO = 'img/home/opendata_logo.svg'
 
 # JSONSchemas
+JSONSCHEMAS_ENDPOINT = '/schema'
 JSONSCHEMAS_HOST = 'http://opendata.cern.ch'
 
 # Records
@@ -37,7 +38,7 @@ RECORDS_UI_ENDPOINTS = dict(
     recid=dict(
         pid_type='recid',
         route='/record/<pid_value>',
-        template='invenio_records_ui/detail.html',
+        template='invenio_marc21/detail.html',
         permission_factory_imp=None,
     ),
 )

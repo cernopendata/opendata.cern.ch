@@ -96,5 +96,6 @@ static:
   restart: "no"
   build: .
   volumes:
-    - /home/invenio/.virtualenvs/cernopendata/var/cernopendata-instance/static
+    - /home/invenio
+    - /code
   user: invenio
