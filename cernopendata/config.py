@@ -28,6 +28,12 @@ SECRET_KEY = 'yG7PxDUon2NM8rhsXXyzd2dl3O6ce9NatOXBOs4bK6Fq1a8uQ9fgozNyaCs0r6Sxjx
 THEME_SITENAME = _('CERN Open Data Portal')
 THEME_LOGO = 'img/home/opendata_logo.svg'
 
+# Cache
+CACHE_TYPE = 'redis'
+
+# Celery
+CELERY_ACCEPT_CONTENT = ['json', 'msgpack', 'yaml']
+
 # JSONSchemas
 JSONSCHEMAS_ENDPOINT = '/schema'
 JSONSCHEMAS_HOST = 'http://opendata.cern.ch'

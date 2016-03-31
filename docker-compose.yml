@@ -29,19 +29,13 @@ web:
   environment:
     - PATH=/home/invenio/.virtualenvs/cernopendata/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
     - VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-    - INVENIO_WEB_HOST=127.0.0.1
-    - INVENIO_WEB_INSTANCE=cernopendata
-    - INVENIO_WEB_VENV=cernopendata
-    - INVENIO_USER_EMAIL=info@inveniosoftware.org
-    - INVENIO_USER_PASS=uspass123
-    - INVENIO_POSTGRESQL_HOST=postgresql
-    - INVENIO_POSTGRESQL_DBNAME=cernopendata
-    - INVENIO_POSTGRESQL_DBUSER=cernopendata
-    - INVENIO_POSTGRESQL_DBPASS=dbpass123
-    - INVENIO_REDIS_HOST=redis
-    - INVENIO_ELASTICSEARCH_HOST=elasticsearch
-    - INVENIO_RABBITMQ_HOST=rabbitmq
-    - INVENIO_WORKER_HOST=127.0.0.1
+    - APP_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://cernopendata:dbpass123@postgresql:5432/cernopendata
+    - APP_CACHE_REDIS_HOST=redis
+    - APP_CACHE_REDIS_URL=redis://redis:6379/0
+    - APP_ACCOUNTS_SESSION_REDIS_URL=redis://redis:6379/1
+    - APP_BROKER_URL=amqp://guest:guest@$rabbitmq:5672//
+    - APP_CELERY_RESULT_BACKEND=redis://redis:6379/2
+    - APP_SEARCH_ELASTIC_HOSTS=elasticsearch
   volumes_from:
     - static
   links:
