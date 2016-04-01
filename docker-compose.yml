@@ -33,7 +33,7 @@ web:
     - APP_CACHE_REDIS_HOST=redis
     - APP_CACHE_REDIS_URL=redis://redis:6379/0
     - APP_ACCOUNTS_SESSION_REDIS_URL=redis://redis:6379/1
-    - APP_BROKER_URL=amqp://guest:guest@$rabbitmq:5672//
+    - APP_BROKER_URL=amqp://guest:guest@$rabbitmq:5672/
     - APP_CELERY_RESULT_BACKEND=redis://redis:6379/2
     - APP_SEARCH_ELASTIC_HOSTS=elasticsearch
   volumes_from:
@@ -74,7 +74,7 @@ rabbitmq:
   image: rabbitmq
   ports:
     - "4369"
-    - "25672"
+    - "5672"
 
 nginx:
   restart: "always"
