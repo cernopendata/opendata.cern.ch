@@ -1,0 +1,34 @@
+{%- extends config.BASE_TEMPLATE %}
+
+{%- block page_body %}
+<section class="general">
+  <div class="container">
+    <p class="lead">
+      CERN Virtual Machines allow you to run Scientific Linux on any operating
+      system and access the CERN working environments and software tools.
+    </p>
+    <div class="row">
+      {% for e in config.OPENDATA_EXPERIMENTS %}
+      {% if e != 'ATLAS' %}
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <a href="{{ url_for('cernopendata.vm_experiment', experiment=e) }}">
+            <div class="panel-body">
+                <img src="{{ url_for('static', filename='img/'+e+'.gif') }}" alt=""
+                    class="center-block" style="height: 15vh;">
+            </div>
+            <div class="panel-footer">
+              <h3 class="text-center">
+                {{ _('%(experiment)s Virtual Machines', experiment=e) }}
+              </h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

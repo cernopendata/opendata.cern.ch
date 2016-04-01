@@ -1,0 +1,31 @@
+{%- extends config.BASE_TEMPLATE %}
+
+{%- block page_body %}
+<section class="general">
+  <div class="container">
+    <p class="lead">
+      Familiarise yourself with the working environments and tools needed to
+      analyse the data provided on this portal.
+    </p>
+    <div class="row">
+      {% for e in config.OPENDATA_EXPERIMENTS %}
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <a href="{{ url_for('cernopendata.get_started_experiment', experiment=e) }}">
+            <div class="panel-body">
+                <img src="{{ url_for('static', filename='img/'+e+'.gif') }}" alt=""
+                    class="img-cirle center-block" style="height: 15vh;">
+            </div>
+            <div class="panel-footer">
+              <h3 class="text-center">
+                {{ _('%(experiment)s Getting Started', experiment=e) }}
+              </h3>
+            </div>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{%- endblock %}

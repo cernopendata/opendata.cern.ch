@@ -17,6 +17,7 @@ I18N_LANGUAGES = [
 ]
 
 BASE_TEMPLATE = 'cernopendata/page.html'
+HEADER_TEMPLATE = 'cernopendata/header.html'
 COVER_TEMPLATE = 'invenio_theme/page_cover.html'
 SETTINGS_TEMPLATE = 'invenio_theme/settings/content.html'
 
@@ -89,7 +90,7 @@ RECORDS_REST_FACETS = dict(
 #: Default API endpoint for search UI.
 SEARCH_UI_SEARCH_API = "/api/records/"
 #: Default template for search UI.
-SEARCH_UI_BASE_TEMPLATE = 'cernopendata/page.html'
+# SEARCH_UI_BASE_TEMPLATE = 'cernopendata/page.html'
 #: Default template for search UI.
 SEARCH_UI_SEARCH_TEMPLATE = "cernopendata/search.html"
 #: Default Elasticsearch document type.

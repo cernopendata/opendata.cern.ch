@@ -2,18 +2,18 @@
 
 <div class="row">
   <div class="about">
-    <h1>{{ text.about_cms_msg(url_for('getting-started/CMS')) }}</h1>
+    <h1>{{ text.about_cms_msg('/getting-started/CMS') }}</h1>
   </div>
   <div class="col-md-12">
     <ol class="gen-menu">
       <li>
-        <a href="#install2011">1. How to install a CERN VM</a>
+        <a href="#install2011">How to install a CERN VM</a>
       </li>
       <li>
-        <a href="#issues2011">2. Issues & Limitations</a>
+        <a href="#issues2011">Issues  &amp; Limitations</a>
       </li>
       <li>
-        <a href="#testvalidate2011">3. How to Test & Validate?</a>
+        <a href="#testvalidate2011">How to Test  &amp; Validate?</a>
       </li>
     </ol>
   </div>
@@ -22,13 +22,13 @@
     <div class="gen-box">{{ text.cms_install_2011_s1() }}</div>
   </div>
   <div class="col-sm-12">
-    <div class="gen-box">{{ text.cms_install_2011_s2(url_for('.metadata', recid = 252)) }}</div>
+    <div class="gen-box">{{ text.cms_install_2011_s2('/record/252') }}</div>
   </div>
 
-  <h1 id="testvalidate2011" class="col-sm-12">How to Test & Validate?</h1>
+  <h1 id="testvalidate2011" class="col-sm-12">How to Test  &amp; Validate?</h1>
   <div class="col-sm-12">
     <div class="gen-box">
-      {{ text.cms_validate_intro_2011(url_for('getting-started/CMS')) }}
+      {{ text.cms_validate_intro_2011('/getting-started/CMS') }}
     </div>
   </div>
   <div class="col-sm-12">
@@ -37,10 +37,10 @@
     </div>
   </div>
 
-  <h1 id="issues2011" class="col-sm-12">Known Issues & Limitations</h1>
+  <h1 id="issues2011" class="col-sm-12">Known Issues  &amp; Limitations</h1>
   <div class="col-sm-12">
     <div class="gen-box">
-      {{ text.cms_validate_2011_s2(url_for('VM/CMS/validation/report')) }}
+      {{ text.cms_validate_2011_s2('/VM/CMS/validation/report') }}
     </div>
   </div>
   <div class="col-sm-12">

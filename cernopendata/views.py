@@ -8,10 +8,11 @@ import functools
 import json
 import pkg_resources
 
-from flask import Blueprint, current_app, escape, render_template, request, url_for
+from flask import Blueprint, abort, current_app, escape, render_template, request, url_for
 from flask_babelex import lazy_gettext as _
 from flask_breadcrumbs import default_breadcrumb_root, register_breadcrumb
 from flask_menu import register_menu
+from jinja2.exceptions import TemplateNotFound
 from speaklater import make_lazy_string
 from werkzeug import secure_filename
 
@@ -24,6 +25,13 @@ blueprint = Blueprint(
 )
 
 default_breadcrumb_root(blueprint, '.')
+
+@blueprint.errorhandler(TemplateNotFound)
+def template_not_found(err):
+    """Log missing template."""
+    current_app.logger.exception('Please check missing template.')
+    abort(404)
+    # return 'Template not found!', 404
 
 
 def lazy_title(text, *args):
@@ -90,16 +98,11 @@ def research(experiment=None):
     exp_colls, exp_names = get_collections()
 
     if experiment not in exp_names :
-        try:
-            return render_template('index_scrollspy.html', entry = 'research', exp_colls = exp_colls, exp_names = exp_names)
-        except TemplateNotFound:
-            return abort(404)
+        return render_template('index_scrollspy.html', entry = 'research', exp_colls = exp_colls, exp_names = exp_names)
 
-    try:
-        return render_template('research.html',
-                               experiment=experiment, exp_colls = exp_colls, exp_names = exp_names)
-    except TemplateNotFound:
-        return abort(404)
+    return render_template('research.html',
+                            experiment=experiment, exp_colls = exp_colls, exp_names = exp_names)
+
 
 @blueprint.route('/visualise/events/<string:experiment>')
 def visualise_events(experiment = 'CMS'):
@@ -127,17 +130,25 @@ def visualise_histo(experiment='CMS'):
         return abort(404)
 
 
-@blueprint.route('/getstarted')
-@blueprint.route('/<string:experiment>/getstarted')
-@blueprint.route('/getstarted/<string:experiment>')
 @blueprint.route('/getting-started')
+@register_breadcrumb(blueprint, '.get_started', _('Get Started'))
+def get_started():
+    """Render index of getting started tutorials."""
+    return render_template('cernopendata/get_started/index.html')
+
+
 @blueprint.route('/getting-started/<string:experiment>')
 @blueprint.route('/getting-started/<string:experiment>/<string:year>')
-@register_breadcrumb(blueprint, '.get_started', _('Get Started'))
-def get_started(experiment=None, year=None):
+@register_breadcrumb(blueprint, '.get_started.experiment',
+                     lazy_title('%(experiment)s', 'experiment'),
+                     endpoint_arguments_constructor=lambda: {
+                         'experiment': request.view_args['experiment']})
+def get_started_experiment(experiment=None, year=None):
     """Render getting started tutorials."""
     return render_template(
-        'get_started.html', experiment=experiment, year=year
+        'cernopendata/get_started/experiment_{0}.html'.format(
+            experiment.lower()
+        ), experiment=experiment, year=year,
     )
 
 
@@ -149,38 +160,40 @@ def resources():
     return render_template('cernopendata/resources.html')
 
 
-@blueprint.route('/VM', defaults={'experiment': None, 'year': None})
+@blueprint.route('/VM')
+@blueprint.route('/VM/')
+@register_breadcrumb(blueprint, '.vm', _('Virtual Machines'))
+def vm():
+    """Display experiment VMs."""
+    return render_template('cernopendata/vm/index.html')
+
+
 @blueprint.route('/VM/<string:experiment>', defaults={'year': None})
 @blueprint.route('/VM/<string:experiment>/<string:year>')
-@register_breadcrumb(blueprint, '.data_vms', 'Virtual Machines' , \
-                        dynamic_list_constructor = (lambda :\
-                        [{'url':'.data_vms','text':'Virtual Machines'}]) )
-def data_vms(experiment, year):
-    exp_names = get_collection_names(['ATLAS'])
-    if experiment not in exp_names and experiment is not None:
-        return render_template('404.html')
+@register_breadcrumb(blueprint, '.vm.experiment',
+                     lazy_title('%(experiment)s', 'experiment'),
+                     endpoint_arguments_constructor=lambda: {
+                         'experiment': request.view_args['experiment']})
+def vm_experiment(experiment, year):
+    """Display details about experiment VMs."""
+    return render_template(
+        'cernopendata/vm/experiment_{0}.html'.format(experiment.lower()),
+        year=year,
+    )
 
-    def splitting(value, delimiter='/'):
-        return value.split(delimiter)
-    current_app.jinja_env.filters['splitthem'] = splitting
 
-    try:
-        return render_template('data_vms.html', experiment=experiment, exp_names=exp_names, year=year)
-    except TemplateNotFound:
-        return abort(404)
-
-@blueprint.route('/VM/experiment/validation/report')
-@register_breadcrumb(blueprint, '.val_report', 'VM', \
-                        dynamic_list_constructor = (lambda :\
-                        [{'url':'.data_vms','text':'Virtual Machines'},\
-                        {'url':'.data_vms','text':'Validation Report'}]) )
-def val_report(experiment):
-    exp_names = get_collection_names()
-
-    try:
-        return render_template([experiment+'_VM_validation.html', 'data_vms.html'], experiment=experiment,exp_names=exp_names)
-    except TemplateNotFound:
-        return abort(404)
+@blueprint.route('/VM/<string:experiment>/validation/report')
+@register_breadcrumb(blueprint, '.vm.validation_report',
+                     lazy_title('%(experiment)s Validation Report',
+                                'experiment'),
+                     endpoint_arguments_constructor=lambda: {
+                         'experiment': request.view_args['experiment']})
+def validation_report(experiment):
+    """Display default abourt experiment validation report."""
+    return render_template([
+        'cernopendata/vm/validation_{0}.html'.format(experiment.lower()),
+        'cernopendata/vm/validation.html',
+    ], experiment=experiment)
 
 
 def about_menu(*args):
@@ -255,10 +268,7 @@ def collections():
 
     exp_colls, exp_names = get_collections()
 
-    try:
-        return render_template('index_scrollspy.html', testimonials = testimonials, exp_colls = exp_colls, exp_names = exp_names)
-    except TemplateNotFound:
-        return abort(404)
+    return render_template('index_scrollspy.html', testimonials = testimonials, exp_colls = exp_colls, exp_names = exp_names)
 
 
 @blueprint.route('/glossary', methods=['GET', 'POST'])

@@ -118,7 +118,7 @@
             <div class="modal-body">
                 <p>Please note that the file you are going to download {{ '('+name+')'|safe  if name }} is {{ ('<b>'+size+' bytes</b>')|safe if size else 'very'}} big. On an average ADSL connection, it may take {{ 'several hours' if (((size|int)/131072) > 3600) else 'long' }} to download it (about {{ (size|int)|get_download_time }} at 1Mbps).
                 </p>
-                <p>Moreover, if you use one of the provided <a href="{{url_for('.data_vms', exp = exp)}}">Virtual Machines</a> to perform your analyses, then you don't need to download datasets manually, because the VM will fetch all the necessary file chunks via the XRootD protocol.
+                <p>Moreover, if you use one of the provided <a href="{{url_for('cernopendata.vm_experiment', experiment=exp)}}">Virtual Machines</a> to perform your analyses, then you don't need to download datasets manually, because the VM will fetch all the necessary file chunks via the XRootD protocol.
                 </p>
                 <p>Manual download of files via HTTP is only necessary if you would prefer not to use the XRootD protocol for one reason or another.
                 </p>

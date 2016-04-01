@@ -33,7 +33,7 @@
           </li>
           <li>Tools
             <ul>
-              <li>A downloadable <a href="{{ url_for('.data_vms', experiment='CMS') }}">Virtual Machine (VM)</a> image with the CMS software environment through which the primary datasets can be accessed</li>
+              <li>A downloadable <a href="{{ url_for('cernopendata.vm_experiment', experiment='CMS') }}">Virtual Machine (VM)</a> image with the CMS software environment through which the primary datasets can be accessed</li>
               <li>An <a href="{{ url_for('.get_started', experiment='CMS') }}">analysis example chain</a>, reading the primary dataset and producing intermediate derived data for the final analysis</li>
               <li>Ready-to-use online applications, such as <a href="{{ url_for('.visualise_events', experiment='CMS') }}">an event display</a> and <a href="{{ url_for('.visualise_histo', experiment='CMS') }}">simple histogramming software</a></li>
               <li>Source code for the various examples and applications, available in the <a href="/search?q=collection:CMS-Tools">CMS Tools</a> collection</li>

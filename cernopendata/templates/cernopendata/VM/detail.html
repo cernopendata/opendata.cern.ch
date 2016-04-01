@@ -1,0 +1,31 @@
+{%- extends config.BASE_TEMPLATE %}
+
+{%- block page_body %}
+<div class="container">
+  {%- block vm_detail %}
+    {%- set year = year|default(years[-1], True) %}
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      {% for y in years %}
+      <li role="presentation" class="{{ 'active' if y == year -}}">
+        <a href="#year{{ y }}" aria-controls="settings" role="tab" data-toggle="tab">
+          {{ y }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      {%- for y in years %}
+      <div role="tabpanel" class="tab-pane fade{{ ' in active' if y == year }}"
+          id="year{{ y }}">
+        {% include 'cernopendata/vm/experiment_%(e)s_%(y)s.html'|format(
+          e=request.view_args['experiment']|lower, y=y
+        ) %}
+      </div>
+      {%- endfor %}
+    </div>
+  {%- endblock %}
+</div>
+{% endblock %}

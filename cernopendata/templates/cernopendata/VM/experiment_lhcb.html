@@ -1,14 +1,17 @@
+{%- extends 'cernopendata/VM/detail.html' %}
+
+{% block vm_detail %}
 <div class="row">
   <div class="about">
     <h1 class="col-sm-12">LHCb Virtual Machines: How to install</h1>
   </div>
   <div class="col-sm-12">
     <ol class="gen-menu">
-      <li><a href="#vbox">1. How to install VirtualBox</a></li>
-      <li><a href="#download">2. Download a LHCb virtual machine and run!</a></li>
+      <li><a href="#vbox">How to install VirtualBox</a></li>
+      <li><a href="#download">Download a LHCb virtual machine and run!</a></li>
     </ol>
   </div>
-  
+
   <div class="col-sm-12">
     <div class="gen-box">
       <h2 id="vbox">Step 1: Installing VirtualBox</h2>
@@ -17,7 +20,7 @@
       <p>Note: the latest tested version of VirtualBox working with CernVM is 4.3.14. If you have troubles with the latest verion of VirtualBox, pick that one: the full history of VirtualBox versions is available <a href="https://www.VirtualBox.org/wiki/Download_Old_Builds">on a different page.</a></p>
     </div>
   </div>
-  
+
   <div class="col-sm-12">
     <div class="gen-box">
       <h2 id="download">Step 2: Download a LHCb virtual machine and run</h2>
@@ -30,3 +33,4 @@
     </div>
   </div>
 </div>
+{% endblock %}
