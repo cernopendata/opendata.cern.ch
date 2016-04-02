@@ -23,7 +23,7 @@ from invenio.modules.jsonalchemy.jsonext.functions.util_merge_fields_info_list \
 
 def sync_meeting_names(self, field_name, connected_field, action):  # pylint: disable=W0613
     """
-    Sync corparate names content only when `__setitem__` or similar is used
+    Sync corporate names content only when `__setitem__` or similar is used
     """
     if action == 'set':
         if field_name == 'corporate_names' and self.get('corporate_names'):
