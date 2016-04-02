@@ -31,7 +31,7 @@ echo '
   <lfn-to-pfn protocol="xrootd-eu" destination-match=".*"
     path-match="(.*)" result="root://xrootd.ba.infn.it/$1"/>
   <!-- combine all fallbacks into 1 rule, cmssw can only have 1 fallback -->
-  <!-- server chain stops when one server responds - even if it doesnt have
+  <!-- server chain stops when one server responds - even if it doesn't have
 the file -->
   <lfn-to-pfn protocol="fallbacks" destination-match=".*"
    path-match="(.*)"
