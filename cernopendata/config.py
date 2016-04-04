@@ -40,7 +40,6 @@ JSONSCHEMAS_ENDPOINT = '/schema'
 JSONSCHEMAS_HOST = 'http://opendata.cern.ch'
 
 # Records
-RECORDS_UI_DEFAULT_PERMISSION_FACTORY = None
 RECORDS_UI_ENDPOINTS = dict(
     recid=dict(
         pid_type='recid',
