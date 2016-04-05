@@ -47,7 +47,7 @@
 <div class="col-md-12">
   <div class="gen-box">
     <h2 id="jetmet2011">Jets and missing transverse energy (MET)<div class="phys-item-illust"><img src="{{url_for('static', filename='img/physics-objects-GIFs/jet.svg')}}" alt=""></div></h2>
-    <p>(N.B.: b-jets described separately <a href="#bjet">below</a>)</p>
+    <p>(N.B.: b-jets described separately <a href="#bjet2011">below</a>)</p>
     <p>The most commonly used variants of jets and missing E<sub>T</sub> are:
       <ul>
         <li><code>recoPFJets_ak5PFJets__RECO</code> (collection of objects of type <code>reco::PFJet</code>)</li>
@@ -57,8 +57,8 @@
     <p>The jets typically require Jet Energy Correction (JEC) to be applied, and the preference for MET is to apply so-called type-I corrections, which propagate the JEC to MET. The jets should have a JEC stored, although this is often re-run for analysis with the latest version of JEC constants. The 2011 AOD should have a reasonable JEC, although there may have been slight changes to JEC in later re-reco versions that we have not propagated all the way.</p>
     <p>For most educational purposes, the PF jets and MET are ready to use after JEC and type-I, since the corrections are relatively small (typically &lt; 5% and mostly &lt; 10%) and the changes in the corrections would have been even smaller (typically &lt; 2% level). The jets are validated for corrected p<sub>T</sub>&gt;10 GeV and |&eta;|&lt;4.7 (this is used in type-I MET), but for most physics analyses we recommend corrected p<sub>T</sub>&gt;30 GeV and |&eta;|&lt;2.5, where the jet reconstruction and calibrations are the most reliable.</p>
     <div class="remember">
-      <h2 data-toggle="collapse" data-target="#rm-jets"  class="title collapsed">Jets — Things to remember<span class="fa fa-chevron-down"></span><span class="fa fa-chevron-up"></span></h2>
-      <div id="rm-jets" class="collapse">
+      <h2 data-toggle="collapse" data-target="#rm-jets2011"  class="title collapsed">Jets — Things to remember<span class="fa fa-chevron-down"></span><span class="fa fa-chevron-up"></span></h2>
+      <div id="rm-jets2011" class="collapse">
         <ul class="row">
           <li>1. JEC: jets should be corrected for JEC, the knowledge of which is the dominant jet systematic; the JEC uncertainties may also be available in AOD</li>
           <li>2. JetID: jet quality cuts should be used to avoid detector problems; there should be tight and loose flags for this</li>
@@ -67,8 +67,8 @@
       </div>
     </div>
     <div class="remember">
-      <h2 data-toggle="collapse" data-target="#rm-met"  class="title collapsed">MET — Things to remember<span class="fa fa-chevron-down"></span><span class="fa fa-chevron-up"></span></h2>
-      <div id="rm-met" class="collapse">
+      <h2 data-toggle="collapse" data-target="#rm-met2011"  class="title collapsed">MET — Things to remember<span class="fa fa-chevron-down"></span><span class="fa fa-chevron-up"></span></h2>
+      <div id="rm-met2011" class="collapse">
         <ul class="row">
           <li>1. Quality flags: MET should be cleaned for detector problems; there should be several flags for these</li>
           <li>2. Type-I: whether or not JEC is propagated to MET, the JEC is an important systematic</li>
