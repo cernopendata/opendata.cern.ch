@@ -331,15 +331,16 @@ def about_lhcb():
     except TemplateNotFound:
         return abort(404)
 
-@blueprint.route('about/CMS-Physics-Objects')
+@blueprint.route('about/CMS-Physics-Objects', defaults={'year': None})
+@blueprint.route('about/CMS-Physics-Objects/<string:year>')
 @register_breadcrumb(blueprint, '.about_physics', 'CMSS', \
                         dynamic_list_constructor = (lambda :\
                         [{"url":".about", "text":"About"},\
                         {"url":".about_cms", "text":"CMS"},\
                         {"url":".about_physics","text":"Physics Objects"}]) )
-def about_physics():
+def about_physics(year):
     try:
-        return render_template('about_physics_objects_overview.html')
+        return render_template('about_physics_objects_overview.html', year = year)
     except TemplateNotFound:
         return abort(404)
 

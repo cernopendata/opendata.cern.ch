@@ -12,22 +12,22 @@
               <ul>
                 <li><strong>2010: </strong></li>
                 <li>
-                    <a href="#electron" goto="year2010">Electrons</a>
+                    <a href="#electron2010" goto="year2010">Electrons</a>
                 </li>
                 <li>
-                    <a href="#photon" goto="year2010">Photons</a>
+                    <a href="#photon2010" goto="year2010">Photons</a>
                 </li>
                 <li>
-                    <a href="#muon" goto="year2010">Muons</a>
+                    <a href="#muon2010" goto="year2010">Muons</a>
                 </li>
                 <li>
-                    <a href="#jetmet" goto="year2010">Jets and missing transverse energy (MET)</a>
+                    <a href="#jetmet2010" goto="year2010">Jets and missing transverse energy (MET)</a>
                 </li>
                 <li>
-                    <a href="#bjet" goto="year2010">b-jets</a>
+                    <a href="#bjet2010" goto="year2010">b-jets</a>
                 </li>
                 <li>
-                    <a href="#tau" goto="year2010">Taus</a>
+                    <a href="#tau2010" goto="year2010">Taus</a>
                 </li>
               </ul>
             </li>
@@ -84,18 +84,18 @@
     <div id="sticky-anchor"></div>
     <div id="sticky">
         <div class="yeartabs tabs">
-          <div><a data-toggle="tab"  data-target="#year2010" href="{{url_for('.get_started', exp='CMS', year='2010')}}">2010</a></div>
-          <div class="in active"><a data-toggle="tab" data-target="#year2011" href="{{url_for('.get_started', exp='CMS', year='2011')}}">2011</a></div>
+          <div class="{% if year == '2010' %} active in {% endif %}"><a data-toggle="tab"  data-target="#year2010" href="{{url_for('.about_physics', year='2010')}}">2010</a></div>
+          <div class="{% if year == '2011' or year==None %} active in {% endif %}"><a data-toggle="tab" data-target="#year2011" href="{{url_for('.about_physics', year='2011')}}">2011</a></div>
         </div>
     </div>
   </div>
 </div>
 
 <div class="tab-content">
-  <div id="year2010" class="tab-pane fade">
+  <div id="year2010" class="tab-pane fade {% if year == '2010' %} active in {% endif %}">
     {% include 'helpers/text/about_CMS_physics_objects_2010.html' ignore missing %}
   </div>
-  <div id="year2011" class="tab-pane fade in active">
+  <div id="year2011" class="tab-pane fade {% if year == '2011' or year==None %} active in {% endif %}">
     {% include 'helpers/text/about_CMS_physics_objects_2011.html'  %}
   </div>
 </div>
