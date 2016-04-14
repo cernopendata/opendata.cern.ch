@@ -7,10 +7,10 @@
     <div class="rec_title_info">
       {% block record_title %}
       <div class="title col-md-12">
-        {# Show title + additional_title + imprint date #}
+        {# Show title + additional_title + publication date #}
         {% if record.get('title_additional', '') %}
           {{ record.get('title_additional',{}).get('title','') }}
-          <span>{{ record.get('imprint', {}).get('date', '') }}</span>
+          <span>{{ record.get('publication', {}).get('date', '') }}</span>
           <div class="additional_title">{{ record.get('title',{}).get('title','') }}</div>
         {% elif record.get('title',{}).get('title','') %}
           {{ record.get('title',{}).get('title','') }}
@@ -43,7 +43,7 @@
     <div class="col-md-12 ">
       {% if record.get('doi','') %}
         <div class="rec_thumb rec_doi">
-          <div class="n no-glossary"><div class="t" style="margin-right:0;">Cite as:</div>  
+          <div class="n no-glossary"><div class="t" style="margin-right:0;">Cite as:</div>
         {% if record['authors'] %}
           {% for author in (record['authors'])[:5] %}
             {% if loop.first %}{% elif loop.last and not (record['authors'])[5] %}<span> <i>&</i> </span>{% else %}<span> , </span>{% endif %}<a href="{{ url_for('search', p='author:"' + author.get('full_name', '')|urlencode + '"') }}">{{ author.get('last_name', '')+', '+author.get('first_name', '')[0]}}.</a>
@@ -52,7 +52,7 @@
             <span> <i>et al</i></span>
           {% endif %}
         {% endif %}
-        {{ record['_first_corporate_name']['name'] if record['_first_corporate_name']}} ({{ record.get('imprint', {}).get('date', '') }}). {% if record.get('title_additional', '') %}{{ record.get('title_additional',{}).get('title','') }}{% elif record.get('title',{}).get('title','') %}{{ record.get('title',{}).get('title','') }}{% endif %}. CERN Open Data Portal. DOI: <a class="clean" href="http://doi.org/{{ record.get('doi','') }}">{{ record.get('doi','') }}</a></div>
+        {{ record['_first_corporate_name']['name'] if record['_first_corporate_name']}} ({{ record.get('publication', {}).get('date', '') }}). {% if record.get('title_additional', '') %}{{ record.get('title_additional',{}).get('title','') }}{% elif record.get('title',{}).get('title','') %}{{ record.get('title',{}).get('title','') }}{% endif %}. CERN Open Data Portal. DOI: <a class="clean" href="http://doi.org/{{ record.get('doi','') }}">{{ record.get('doi','') }}</a></div>
         </div>
       {% endif %}
       <div class="rec_thumb rec_parentcol">
@@ -76,8 +76,8 @@
           </a>
         {% endif %}
       {% endif %}
-      {% if record.get('collision_energy', '') %}
-        {% set rr = record.get('collision_energy', '').replace('Collision energy: ', '') %}
+      {% if record.get('collision_information', '').get('collision_energy', '') %}
+        {% set rr = record.get('collision_information', '').get('collision_energy', '').replace('Collision energy: ', '') %}
         <a href="{{ url_for('search.search', p=rr) }}">
           <div class="rec_thumb rec_parentcol">
             <div class="n no-glossary"><div class="t">Collision Energy</div>{{ rr }}</div>
@@ -125,9 +125,9 @@
     </div>
   </div>
   {% endblock %}
-  
+
   {% block record_comment_note %}
-  {% if record.get('comment') %}    
+  {% if record.get('comment') %}
   <div class="rec_metadata rec_comment_note">
     <div class="row">
       <div class="col-md-12">
@@ -243,7 +243,7 @@
                       <a href="{{url_for('.metadata', recid = r )}}">{{ r|get_record_name }}</a>
                     {% endfor %}
                   {% endif %}
-                {% endif %}                
+                {% endif %}
               {% endfor %}
             </div>
           </div>
@@ -297,7 +297,7 @@
               {% endif %}
               {% if record.get('other_relationship_entry', {}).get('other_item_identifier', '') %}
                 <a href="{{ record.get('other_relationship_entry', {}).get('other_item_identifier', '') }}">{{ record.get('other_relationship_entry', {}).get('other_item_identifier', '') }}</a><br>
-              {% endif %}              
+              {% endif %}
               {% if record.get('other_relationship_entry', {}).get('recid', '') %}
                 {% if record.get('other_relationship_entry', {}).get('recid', '') is string %}
                   <a href="{{url_for('.metadata', recid = record.get('other_relationship_entry', {}).get('recid', '') )}}">{{ (record.get('other_relationship_entry', {}).get('recid', ''))|get_record_name }}</a>
@@ -391,8 +391,8 @@
                         {% endfor %}
                       {% else %}
                         <a class="col-md-12" href="{{ i.get('url','') }}">{{ i.get('url','') }}</a>
-                      {% endif %}                    
-                    {% endfor %}                    
+                      {% endif %}
+                    {% endfor %}
                 {% endif %}
 
 
