@@ -76,8 +76,8 @@
           </a>
         {% endif %}
       {% endif %}
-      {% if record.get('collision_information', '').get('collision_energy', '') %}
-        {% set rr = record.get('collision_information', '').get('collision_energy', '').replace('Collision energy: ', '') %}
+      {% if record.get('collision_information', {}).get('collision_energy', '') %}
+        {% set rr = record.get('collision_information', {}).get('collision_energy', '').replace('Collision energy: ', '') %}
         <a href="{{ url_for('search.search', p=rr) }}">
           <div class="rec_thumb rec_parentcol">
             <div class="n no-glossary"><div class="t">Collision Energy</div>{{ rr }}</div>
