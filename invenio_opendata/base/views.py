@@ -180,6 +180,8 @@ def research(exp = None):
 def visualise_events(exp = 'CMS'):
 
     exp_names = get_collection_names(['ALICE', 'LHCb', 'ATLAS'])
+    if exp not in exp_names and exp is not None:
+        return render_template("404.html")
 
     breadcrumbs = [{},{"url":".educate","text":"Education"},\
                         {"url":".educate","text":"Visualise Events"}]
@@ -192,6 +194,9 @@ def visualise_events(exp = 'CMS'):
 @blueprint.route('visualise/histograms/<string:exp>')
 def visualise_histo(exp = 'CMS'):
     exp_colls, exp_names = get_collections()
+    exp_names = get_collection_names(['ALICE', 'LHCb', 'ATLAS'])
+    if exp not in exp_names and exp is not None:
+        return render_template("404.html")
 
     breadcrumbs = [{},{"url":".educate","text":"Education"},\
                         {"url":".educate","text":"Visualise Histograms"}]
@@ -214,7 +219,10 @@ def visualise_histo(exp = 'CMS'):
 def get_started(exp, year):
     def splitting(value, delimiter='/'):
         return value.split(delimiter)
-    exp_names = get_collection_names()
+    exp_names = get_collection_names(['ATLAS'])
+    if exp not in exp_names and exp is not None:
+        return render_template("404.html")
+
     current_app.jinja_env.filters['splitthem'] = splitting
 
     try:
@@ -231,6 +239,8 @@ def get_started(exp, year):
                         {"url":".resources","text":"Learning Resources"}]) )
 def resources(exp):
     exp_names = get_collection_names()
+    if exp not in exp_names and exp is not None:
+        return render_template("404.html")
 
     try:
         return render_template('resources.html', exp=exp, exp_names=exp_names)
@@ -264,7 +274,9 @@ def data_vms(exp, year):
                         [{"url":".data_vms","text":"Virtual Machines"},\
                         {"url":".data_vms","text":"Validation Report"}]) )
 def val_report(exp):
-    exp_names = get_collection_names()
+    exp_names = get_collection_names(['ALICE', 'LHCb', 'ATLAS'])
+    if exp not in exp_names and exp is not None:
+        return render_template("404.html")
 
     try:
         return render_template([exp+'_VM_validation.html', 'data_vms.html'], exp=exp,exp_names=exp_names)
