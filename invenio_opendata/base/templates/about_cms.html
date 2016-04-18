@@ -24,7 +24,8 @@
               <ul class="col-md-12">
                 <li>Downloadable datasets
                   <ul class="col-md-12">
-                    <li><a href="{{ url_for('.collection', name = 'CMS-Primary-Datasets') }}">Primary datasets</a>: full reconstructed data with no other selections. The data here are referred to as "reconstructed data": fragmented data from various sub-detectors are processed or "reconstructed" to provide coherent information about individual <a href="{{ url_for('.about_physics') }}">physics objects</a> such as electrons or particle jets</li>
+                    <li><a href="{{ url_for('.collection', name = 'CMS-Primary-Datasets') }}">Primary datasets</a>:full reconstructed collision data with no other selections. The data here are referred to as "reconstructed data": fragmented data from various sub-detectors are processed or "reconstructed" to provide coherent information about individual <a href="{{ url_for('.about_physics') }}">physics objects</a> such as electrons or particle jets</li>
+                    <li>Simulation data (for data from 2011)</li>
                     <li>Examples of <a href="{{ url_for('.collection', name='CMS-Derived-Datasets') }}">simplified datasets</a> derived from the primary ones for use in different applications and analyses</li>
                   </ul>
                 </li>
@@ -42,10 +43,10 @@
         </div>
         <div class="col-md-12">
           <div class="gen-box">
-            <h2 id="primary-datasets">Primary datasets</h2>
+            <h2 id="primary-datasets">Primary and simulated datasets</h2>
             <ul class="col-md-12 no-padding">
-              <li>Data in the primary datasets are in a format known as AOD or Analysis Object Data for collision data and AODSIM for simulated data.</li>
-              <li>AOD files contain the information that is needed for analysis:
+              <li>Collision data in the primary datasets are in a format known as AOD or Analysis Object Data, while simulated data are in a format called AODSIM.</li>
+              <li>AOD/AODSIM files contain the information that is needed for analysis:
                 <div>
                   <ul>
                     <li>all the high-level <a href="{{ url_for('.about_physics') }}">physics objects</a> (such as muons, electrons, etc.);</li>
@@ -54,7 +55,7 @@
                   </ul>
                 </div>
               </li>
-              <li>An AOD file is not the final event interpretation with a simple list of particles.
+              <li>The file is not the final event interpretation with a simple list of particles.
                 <div>
                   <ul>
                     <li>It contains several instances of the same physics object (i.e. a jet reconstructed with different algorithms).</li>
@@ -64,7 +65,7 @@
                   </ul>
                 </div>
               </li>
-              <li>AOD files can be read in <a href="http://root.cern.ch/">ROOT</a>, but they cannot be opened (and understood) as simple data tables.</li>
+              <li>The files can be read in <a href="http://root.cern.ch/">ROOT</a>, but they cannot be opened (and understood) as simple data tables.</li>
               <li>Only the runs that are validated by data quality monitoring should be used in any analysis. The <a href="{{ url_for('.collection', name= 'CMS-Validation-Utilities') }}">list of the validated runs</a> is provided.</li>
             </ul>
           </div>
