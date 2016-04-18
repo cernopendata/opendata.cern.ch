@@ -339,6 +339,9 @@ rsync -a invenio_opendata/testsuite/data/cms/cms-vm-contextualisation-scripts-Ru
 # CMS CSV files:
 rsync -a invenio_opendata/testsuite/data/cms/cms-csv-files/ $OUTDIR/cms-csv-files/
 
+# CMS plots:
+rsync -a invenio_opendata/testsuite/data/cms/cms-plots/ $OUTDIR/cms-plots/
+
 # CMS configuration files:
 rsync -a invenio_opendata/testsuite/data/cms/cms-configuration-files/ $OUTDIR/cms-configuration-files/
 
