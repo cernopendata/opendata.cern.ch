@@ -356,6 +356,29 @@ def about_physics(year):
     except TemplateNotFound:
         return abort(404)
 
+@blueprint.route('about/CMS-Simulated-Dataset-Names')
+@register_breadcrumb(blueprint, '.sim_dataset_names', 'CMS', \
+                        dynamic_list_constructor = (lambda :\
+                        [{"url":".about", "text":"About"},\
+                        {"url":".about_cms", "text":"CMS"},\
+                        {"url":".sim_dataset_names","text":"Simulated Dataset Names"}]) )
+def sim_dataset_names():
+    try:
+        return render_template('cms_simulated_dataset_names.html')
+    except TemplateNotFound:
+        return abort(404)
+
+@blueprint.route('about/CMS-Pileup-Simulation')
+@register_breadcrumb(blueprint, '.cms_pileup_simulation', 'CMS', \
+                        dynamic_list_constructor = (lambda :\
+                        [{"url":".about", "text":"About"},\
+                        {"url":".about_cms", "text":"CMS"},\
+                        {"url":".cms_pileup_simulation","text":"Pileup Simulation"}]) )
+def cms_pileup_simulation():
+    try:
+        return render_template('cms_pileup_simulation.html')
+    except TemplateNotFound:
+        return abort(404)
 
 @blueprint.route('terms-of-use')
 def terms():
