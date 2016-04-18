@@ -145,14 +145,20 @@
         {% do show_previewer.update({'show':true, 'first_file':file.get('full_name')}) %}
       {% endif %}
 
-      {% if (file.get('url','')[-3:] == 'txt') or (file.get('url','')[-4:] == 'json') %}
+      {% if (((file.get('url','')[-3:] == 'txt') or (file.get('url','')[-4:] == 'json'))) and ( file.get('url', '').find("index") >= 0) %}
         {% if not show_previewer['file_title'] %}
           {% do show_previewer.update({'file_title':'i'}) %}
         {% elif show_previewer['file_title'] == 'f' %}
           {% do show_previewer.update({'file_title':'fi'}) %}
         {% endif %}
+      {% elif (((file.get('url','')[-3:] == 'txt') or (file.get('url','')[-4:] == 'json'))) and (  file.get('url', '').find("index") < 0) %}
+        {% if (not show_previewer['file_title']) %}
+          {% do show_previewer.update({'file_title':'f'}) %}
+        {% elif show_previewer['file_title'] == 'i' %}
+          {% do show_previewer.update({'file_title':'fi'}) %}
+        {% endif %}
       {% else %}
-        {% if not show_previewer['file_title'] %}
+        {% if not show_previewer['file_title']  %}
           {% do show_previewer.update({'file_title':'f'}) %}
         {% elif show_previewer['file_title'] == 'i' %}
           {% do show_previewer.update({'file_title':'fi'}) %}

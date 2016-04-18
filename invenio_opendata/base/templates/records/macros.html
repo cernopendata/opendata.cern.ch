@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="col-xs-6 col-sm-4">
                                     <div class="right-side">
-                                        {% if file["url"][-3:] == 'txt' or file["url"][-4:] == 'json' %}
+                                        {% if (((file.get('url','')[-3:] == 'txt') or (file.get('url','')[-4:] == 'json'))) and ( file.get('url', '').find("index") >= 0) %}
                                         <button class="col-xs-12 {{ 'col-sm-6' if with_preview else 'col-sm-12'}} btn" onClick="window.location.href='{{file["url"]}}'">Download index</button>
                                         {% else %}
                                         <button class="col-xs-12 {{ 'col-sm-6' if with_preview else 'col-sm-12'}} btn" onClick="window.location.href='{{file["url"]}}'">Download</button>
