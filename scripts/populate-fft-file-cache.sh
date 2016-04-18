@@ -334,6 +334,7 @@ rsync -a invenio_opendata/testsuite/data/atlas/atlas-higgs-challenge-2014/ $OUTD
 
 # CMS VM contextualisation scripts:
 rsync -a invenio_opendata/testsuite/data/cms/cms-vm-contextualisation-scripts/ $OUTDIR/cms-vm-contextualisation-scripts/
+rsync -a invenio_opendata/testsuite/data/cms/cms-vm-contextualisation-scripts-Run2011A/ $OUTDIR/cms-vm-contextualisation-scripts-Run2011A/
 
 # CMS CSV files:
 rsync -a invenio_opendata/testsuite/data/cms/cms-csv-files/ $OUTDIR/cms-csv-files/
