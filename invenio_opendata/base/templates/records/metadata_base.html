@@ -24,14 +24,12 @@
         {% for author in record['authors'] %}
           <a href="{{ url_for('search', p='author:"' + author.get('full_name', '')|urlencode + '"') }}">{{ author.get('full_name', '') }}</a>{{ '; ' if not loop.last }}
         {% endfor %}
-        {% if record['_first_corporate_name'] %}
-          {% set collaborations = ['CMS collaboration'] %}
-          {% set collaboration_recid = ['450'] %}
-          {% for c in collaborations %}
-            {% if record['_first_corporate_name']['name'] == c %}
-              <a class="collaboration_tag" href="{{ url_for('.metadata', recid = collaboration_recid[loop.index-1] ) }}">{{ record['_first_corporate_name']['name'] }}</a>
-            {% endif %}
-          {% endfor %}
+        {% if record.get('_first_corporate_name', {}).get('name', None) %}
+          {% if record.get('_first_corporate_name', {}).get('recid', None) %}
+            <a class="collaboration_tag" href="{{ url_for('.metadata', recid = record.get('_first_corporate_name', {}).get('recid', None) ) }}">{{ record.get('_first_corporate_name', {}).get('name', None) }}</a>
+          {% else %}
+            <a class="collaboration_tag" style="pointer-events: none;">{{ record.get('_first_corporate_name', {}).get('name', None) }}</a>
+          {% endif %}
         {% endif %}
       </div>
       {% endblock %}
