@@ -75,9 +75,9 @@
 </div>
 
 <div class="gen-box">
-  <h2>Analysing the primary dataset</h2>
+  <h2>1. Analysing the primary dataset</h2>
     <p>
-      As mentioned above, you do not typically perform an analysis directly on the AOD files. However, there may be cases when you need to do so. Therefore, we have provided an example analysis to take you through the steps that you may need on the rare occassions that you want to analyse the AOD files directly. You can find the files and instructions in <a href="http://opendata.cern.ch/record/560">this CMS Tools entry</a>.
+      As mentioned above, you do not typically perform an analysis directly on the AOD files. However, there may be cases when you can do so. Therefore, we have provided an example analysis to take you through the steps that you may need on the occassions that you want to analyse the AOD files directly. You can find the files and instructions in <a href="http://opendata.cern.ch/record/560">this CMS Tools entry</a>.
     </p>
     <p>
       <strong>Before you proceed</strong>: Not that this example is tailored to the CMS data from 2010. In order to run the same analysis on 2011 data, you need to make the following adjustments to the workflow:
@@ -96,7 +96,7 @@
 </div>
 
 <div class="gen-box no-margin">
-  <h2>Analysing reduced datasets</h2>
+  <h2>2. Analysing reduced datasets</h2>
     <p>
       We start by applying selection cuts via the configuration file and reduce the AOD files into a format known as PATtuple. You can find more information about this data format (which gets its name from the CMS Physics Analysis Toolkit, or PAT) on the <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookPAT">CMSSW PAT WorkBook</a>.
     </p>
@@ -113,16 +113,24 @@
       Note also how only the validated runs are selected on lines:
     </p>
     <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>import FWCore.ParameterSet.Config as cms
-      import FWCore.PythonUtilities.LumiList as LumiList
-      myLumis = LumiList.LumiList(filename='Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt').getCMSSWString().split(',')
-      process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange()
-      process.source.lumisToProcess.extend(myLumis)</span></span></span></div></pre>
+    import FWCore.PythonUtilities.LumiList as LumiList
+    myLumis = LumiList.LumiList(filename='Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt').getCMSSWString().split(',')
+    process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange()
+    process.source.lumisToProcess.extend(myLumis)</span></span></span></div></pre>
     <p>
       This selection must always be applied to any analysis on CMS open data, and to do so you must have the validation file downloaded to your local area.
     </p>
     <p>
-      You can also see the steps needed to use the condition data. First, as shown in the <kbd>README</kbd>, you have to set the symbolic links to the condition database. Then, the correct set of condition data are defined by mentioning the Global Tag on lines 46–48 in the file <kbd>PAT_data_repo.py</kbd>.
+      You can also see the steps needed to use the condition data. First, as shown in the <kbd>README</kbd>, you have to set the symbolic links to the condition database.
     </p>
+    <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>ln -sf /cvmfs/cms-opendata-conddb.cern.ch/FT_53_LV5_AN1_RUNA FT_53_LV5_AN1
+    ln -sf /cvmfs/cms-opendata-conddb.cern.ch/FT_53_LV5_AN1_RUNA.db FT_53_LV5_AN1_RUNA.db</span></span></span></div></pre>
+    <p>
+      Then, the correct set of condition data are defined by mentioning the Global Tag on lines 46–48 in the file <kbd>PAT_data_repo.py</kbd>.
+    </p>
+    <pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>#globaltag
+    process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/FT_53_LV5_AN1_RUNA.db')
+    process.GlobalTag.globaltag = 'FT_53_LV5_AN1::All'</span></span></span></div></pre>
     <p>
       <strong>Important</strong>: If you plan on running the code to produce the PATtuples needed for this analysis, note that the first time you run the job, the CERN Virtual Machine will read the condition data from the remote database. This process will take time (an example run of a 10 Mb/s line took 45 mins), but it will only happen once as the files will then be cached on your VM. The job will not produce any output during this time. However, you can check the ongoing processes with the command <kbd>top</kbd> and you can monitor the progress of reading the condition data to the local cache with the command <kbd>df</kbd>.
     </p>
