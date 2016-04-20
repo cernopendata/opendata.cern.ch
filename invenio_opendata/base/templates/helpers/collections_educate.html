@@ -5,7 +5,7 @@
         <div class="coll-overview row">
             <ul>
                 {% for collection in exp_collection.collection_children_r recursive %}
-                {% if collection.name not in ['CMS-Primary-Datasets', 'CMS-Simulated-Datasets', 'CMS-Validated-Runs', 'CMS-Validation-Utilities'] %}
+                {% if collection.name not in ['CMS-Primary-Datasets', 'CMS-Simulated-Datasets', 'CMS-Validated-Runs', 'CMS-Validation-Utilities', 'CMS-Condition-Data', 'CMS-Configuration-Files', 'CMS-Trigger-Information'] %}
                 {% set portalboxes = {'desc': 'Description goes here..', 'image': 'default.png'} %}
                 {% for pb in collection.portalboxes %}
                 {% if (pb.portalbox.title == 'description') %}
