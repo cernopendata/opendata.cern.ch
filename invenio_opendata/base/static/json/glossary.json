@@ -56,27 +56,6 @@
 		]
 	},
 	{
-		"term": ["Condition Data","Condition Database"],
-		"anchor": "condition",
-		"category": "generic",
-		"type": "0",
-		"definition": "Condition data include non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for the simulation/reconstruction/analysis software.",
-		"see_also": [
-			{
-				"term": "generator"
-			},
-			{
-				"term": "montecarlo"
-			},
-			{
-				"term": "primary"
-			},
-			{
-				"term": "derived"
-			}
-		]
-	},
-	{
 		"term": ["Derived Dataset","Derived Datasets"],
 		"anchor": "derived",
 		"category": "specific",
@@ -162,6 +141,35 @@
 			},
 			{
 				"term": "condition"
+			}
+		]
+	},
+	{
+		"term": ["Global Tag","Global Tags","Condition Data","Condition Database"],
+		"anchor": "tag",
+		"category": "specific",
+		"type": "0",
+		"definition": "A Global Tag is a coherent collection of records of additional data needed by the reconstruction and analysis software. These records are stored in the Condition Database. Condition data include non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for the simulation/reconstruction/analysis software.",
+		"experiment": [
+			{
+				"name": "CMS"
+			}
+		],
+		"links": [
+			{
+				"text": "Read more about CMS Global Tags",
+				"url": "https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideFrontierConditions"
+			}
+		],
+		"see_also": [
+			{
+				"term": "reconstruction"
+			},
+			{
+				"term": "AOD"
+			},
+			{
+				"term": "primary"
 			}
 		]
 	},
@@ -534,40 +542,11 @@
 		]
 	},
 	{
-		"term": ["Tag","Tags","Global Tag","Global Tags"],
-		"anchor": "tag",
-		"category": "specific",
-		"type": "0",
-		"definition": "A Tag is a record of additional data needed by the reconstruction and analysis software. A Global Tag is a coherent collection of Tags.",
-		"experiment": [
-			{
-				"name": "CMS"
-			}
-		],
-		"links": [
-			{
-				"text": "Read more about CMS Global Tags",
-				"url": "https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideFrontierConditions"
-			}
-		],
-		"see_also": [
-			{
-				"term": "reconstruction"
-			},
-			{
-				"term": "AOD"
-			},
-			{
-				"term": "primary"
-			}
-		]
-	},
-	{
-		"term": ["Trigger","Triggers"],
+		"term": ["Trigger","Triggers","L1","HLT"],
 		"anchor": "trigger",
 		"category": "generic",
 		"type": "0",
-		"definition": "A system that determines which particle collisions are stored in primary datasets and which ones are discarded. The triggering is done first by a lower-level hardware-based trigger and then by the High-Level Trigger on a computing farm.",
+		"definition": "A system that determines which particle collisions are stored in primary datasets and which ones are discarded. The triggering is done first by a lower-level hardware-based trigger (L1) and then by the High-Level Trigger (HLT) on a computing farm.",
 		"links": [
 			{
 				"text": "Read more on Wikipedia",
