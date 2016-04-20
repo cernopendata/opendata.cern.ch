@@ -360,6 +360,9 @@ rsync -a invenio_opendata/testsuite/data/cms/cms-vm-images/ $OUTDIR/cms-vm-image
 # CMS validation code Run2011B
 rsync -a invenio_opendata/testsuite/data/cms/cms-validation-code-Run2010B/ $OUTDIR/cms-validation-code-Run2010B/
 
+# CMS L1 trigger information files:
+rsync -a invenio_opendata/testsuite/data/cms/cms-l1-trigger-information-Run2011A/ $OUTDIR/cms-l1-trigger-information-Run2011A/
+
 # finally, make symlink to FFT cache from tmp:
 if [ ! -L "/tmp/$(basename $OUTDIR)" ]; then
     ln -s $OUTDIR /tmp

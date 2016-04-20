@@ -136,6 +136,7 @@ populate *all* collections, you can use::
     -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana-Run2011A.xml \
     -f invenio_opendata/testsuite/data/cms/cms-author-list-Run2011A.xml \
     -f invenio_opendata/testsuite/data/cms/cms-validation-code-Run2010B.xml \
+    -f invenio_opendata/testsuite/data/cms/cms-l1-trigger-information-Run2011A.xml \
     -f invenio_opendata/testsuite/data/lhcb/lhcb-derived-datasets.xml \
     -f invenio_opendata/testsuite/data/lhcb/lhcb-learning-resources.xml \
     -f invenio_opendata/testsuite/data/lhcb/lhcb-tools.xml \
