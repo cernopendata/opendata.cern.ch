@@ -15,12 +15,222 @@
       <div class="row">
         <div class="col-sm-12">
           <h2>CMS Simulated Dataset Names</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h3>What is the “simulated dataset” name?</h3>
+            <p>It’s the part of the dataset name before the second 'slash', i.e. for the dataset</p>
+            <p><kbd>/DiPhotonBorn_Pt10to25/Summer09-MC_31X_V3_7TeV_TrackingParticles-v1/GEN-SIM-RAW</kbd></p>
+            <p>the dataset name is</p>
+            <p><kbd>DiPhotonBorn_Pt10to25</kbd>.</p>
+            <h3>Convention</h3>
+            <p>CMS uses the following convention for this name:</p>
+            <p><kbd>PROCESS_RANGETYPE-RANGELOWtoRANGEHIGH_FILTER_TUNE_COMMENT_COMENERGY-GENERATOR</kbd>,</p>
+            <p>where</p>
+            <ul>
+                <li><kbd>PROCESS</kbd> is the physics process in the sample, e.g. <kbd>QCD</kbd>, <kbd>TT</kbd>, <kbd>W</kbd>, <kbd>DY</kbd></li>
+                <li><kbd>RANGETYPE</kbd> is the variable the sample is binned in, e.g. <kbd>PT</kbd>, <kbd>M</kbd></li>
+                <li><kbd>RANGELOW</kbd> is the lower bound of that range in GeV, e.g. <kbd>0</kbd>, <kbd>10</kbd>, <kbd>200</kbd></li>
+                <li><kbd>RANGEHIGH</kbd> is the upper bound</li>
+                <li><kbd>FILTER</kbd> denotes information on additional filters applied</li>
+                <li><kbd>TUNE</kbd> is the underlying-event tune (e.g. <kbd>TuneZ2Star</kbd>)</li>
+                <li><kbd>COMMENT</kbd> for additional comments</li>
+                <li><kbd>COMENERGY</kbd> is the centre-of-mass collision energy, e.g. <kbd>7TeV</kbd>, <kbd>10TeV</kbd></li>
+                <li><kbd>GENERATOR</kbd> is the generator used, e.g. <kbd>pythia6</kbd>, <kbd>herwigpp</kbd>, <kbd>sherpa</kbd></li>
+            </ul>
+            <p>Some details on all these parts are below.</p>
+            <h4>PROCESS</h4>
+            <p>To unify this part CMS uses the following conventions:</p>
+            <ul>
+                <li>all ‘particles’ start with capital letters, followed by minor letters, e.g. <kbd>W</kbd>, <kbd>Z</kbd>, <kbd>Mu</kbd>, <kbd>Tau</kbd>, <kbd>E</kbd>, <kbd>Nu</kbd>, <kbd>Wplus</kbd>, <kbd>H</kbd>, <kbd>Jets</kbd>, <kbd>Tbar</kbd>, <kbd>B</kbd>, <kbd>Bbar</kbd></li>
+                <li>if a specific decay is simulated, this is specified using the keyword <kbd>To</kbd>, e.g. <kbd>WToENu</kbd>, <kbd>HToWWTo2L2Nu</kbd></li>
+                <li>initial-state particles are only specified if needed to distinguish between other processes, e.g. <kbd>GluGluToWW</kbd> with respect to <kbd>WW</kbd></li>
+                <li>charge for a particle is only specified if relevant, i.e. <kbd>Wplus</kbd> is used if only W<sup>+</sup> is in the sample, and <kbd>Tbar</kbd> if an anti-top is present; <kbd>WplusWminus</kbd> <strong>is not</strong> used for W-pair production and a top-antitop pair is represented with <kbd>TT</kbd></li>
+                <li>if there is (a) more then one particle of the same kind and (b) more then two particles in total, say, <kbd>2E2Nu</kbd> is used rather then <kbd>EENuNu</kbd></li>
+            </ul>
+            <p>The following conventions are applied for the most common particles:</p>
+            <table>
+                <thead>
+                    <tr class="header">
+                        <th align="left">Particle</th>
+                        <th align="left">Keyword</th>
+                        <th align="left">modifications if needed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd">
+                        <td align="left">electron/positron</td>
+                        <td align="left"><kbd>E</kbd></td>
+                        <td align="left"><kbd>Eminus</kbd>, <kbd>Eplus</kbd></td>
+                    </tr>
+                    <tr class="even">
+                        <td align="left">muon</td>
+                        <td align="left"><kbd>Mu</kbd></td>
+                        <td align="left"><kbd>Muplus</kbd>, <kbd>Muminus</kbd></td>
+                    </tr>
+                    <tr class="odd">
+                        <td align="left">tau</td>
+                        <td align="left"><kbd>Tau</kbd></td>
+                        <td align="left"><kbd>Tauplus</kbd>, <kbd>Tauminus</kbd></td>
+                    </tr>
+                    <tr class="even">
+                        <td align="left">charged lepton</td>
+                        <td align="left"><kbd>L</kbd></td>
+                        <td align="left"></td>
+                    </tr>
+                    <tr class="odd">
+                        <td align="left">neutrino</td>
+                        <td align="left"><kbd>Nu</kbd></td>
+                        <td align="left"><kbd>Nue</kbd>, <kbd>Numu</kbd>, <kbd>Nutau</kbd>, <kbd>Nuebar</kbd>,…</td>
+                    </tr>
+                    <tr class="even">
+                        <td align="left">W</td>
+                        <td align="left"><kbd>W</kbd></td>
+                        <td align="left"><kbd>Wplus</kbd>, <kbd>Wminus</kbd>, <kbd>Wprime</kbd></td>
+                    </tr>
+                    <tr class="odd">
+                        <td align="left">Z (no photon)</td>
+                        <td align="left"><kbd>Z</kbd></td>
+                        <td align="left"><kbd>Zprime</kbd></td>
+                    </tr>
+                    <tr class="even">
+                        <td align="left">Z/photon (Drell-Yan)</td>
+                        <td align="left"><kbd>DY</kbd></td>
+                        <td align="left"></td>
+                    </tr>
+                    <tr class="odd">
+                        <td align="left">photon</td>
+                        <td align="left"><kbd>G</kbd></td>
+                        <td align="left"></td>
+                    </tr>
+                    <tr class="even">
+                        <td align="left">gluon</td>
+                        <td align="left"><kbd>Glu</kbd></td>
+                    </tr>
+                    <tr class="odd">
+                        <td align="left">top</td>
+                        <td align="left"><kbd>T</kbd></td>
+                        <td align="left"><kbd>Tbar</kbd>, <kbd>Tprime</kbd></td>
+                    </tr>
+                    <tr class="even">
+                        <td align="left">bottom</td>
+                        <td align="left"><kbd>B</kbd></td>
+                        <td align="left"><kbd>Bbar</kbd>, <kbd>Bprime</kbd></td>
+                    </tr>
+                    <tr class="odd">
+                        <td align="left">quark</td>
+                        <td align="left"><kbd>Q</kbd></td>
+                        <td align="left"><kbd>Qbar</kbd></td>
+                    </tr>
+                    <tr class="even">
+                        <td align="left">jet</td>
+                        <td align="left"><kbd>Jet</kbd></td>
+                        <td align="left"><kbd>Jets</kbd> for more than one (inclusive); <kbd>1Jet</kbd>, <kbd>2Jets</kbd>, … for exclusive</td>
+                    </tr>
+                    <tr class="odd">
+                        <td align="left">jet</td>
+                        <td align="left"><kbd>J</kbd></td>
+                        <td align="left">for decay products, if both quarks and gluons are produced</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h4 id="rangetype-rangelow-rangehigh">RANGETYPE, RANGELOW, RANGEHIGH</h4>
+            <p>This part denotes the variable (if at all) in which the sample is binned. Typical possibilities are <kbd>Pt</kbd> (pthat), <kbd>M</kbd> (inv. mass), as well as the range for this variable. This part of the name may also be used togther with <kbd>M</kbd> to specify the mass of a particle that is used as a parameter (e.g. Higgs mass, Z′ mass, …). Examples are</p>
+            <ul>
+                <li><kbd>Pt-100To200</kbd> for binning in pthat from 100 GeV to 200 GeV</li>
+                <li><kbd>Pt-50</kbd> if there is only a lower cut on pthat</li>
+                <li><kbd>M-30</kbd> as a lower inv. mass cut (e.g. in Drell-Yan)</li>
+                <li><kbd>M-160</kbd> for Higgs mass of 160 GeV</li>
+            </ul>
+            <p>If needed, the variable may be accompanied by specification of the particle in the process on which the cut is applied:</p>
+            <ul>
+                <li><kbd>PtW-300<kbd> if there is a lower cut on the W pthat</li>
+            </ul>
+            <p>This part of the dataset name may be dropped if there is no binning, inv. mass cuts etc.</p>
+            <h4 id="filter">FILTER</h4>
+            <p>This part specifies a GEN-level filter for the production, if present. The part is however not standardised; here a few examples:</p>
+            <ul>
+                <li><kbd>EMEnriched</kbd>: some filter — enriching the sample with electrons/photons — is applied</li>
+                <li><kbd>MuEnriched</kbd>: GEN-level filter on Muons</li>
+                <li><kbd>MuEnrichedPt5</kbd>: cut on GEN-level muons of 5 GeV</li>
+            </ul>
+            <h4 id="comment">COMMENT</h4>
+            <p>Used only if necessary information could not be put in any of the other fields. e.g. only QCD or only EWK production, special selections etc.</p>
+            <h4 id="comenergy-and-generator">COMENERGY and GENERATOR</h4>
+            <p>Units are added to integers in <kbd>COMENERGY</kbd>, i.e. <kbd>7TeV</kbd>, <kbd>10TeV</kbd>, <kbd>900GeV</kbd>, <kbd>2360GeV</kbd> and so on.</p>
+            <p>The generators used are:</p>
+            <table>
+                <thead>
+                    <tr class="header">
+                        <th align="left">Generator</th>
+                        <th align="left">Keyword</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd">
+                        <td align="left">Pythia6</td>
+                        <td align="left"><kbd>pythia6</kbd></td>
+                    </tr>
+                    <tr class="even">
+                        <td align="left">Pythia8</td>
+                        <td align="left"><kbd>pythia8</kbd></td>
+                    </tr>
+                    <tr class="odd">
+                        <td align="left">Herwig6</td>
+                        <td align="left"><kbd>herwig6</kbd></td>
+                    </tr>
+                    <tr class="even">
+                        <td align="left">Herwig++</td>
+                        <td align="left"><kbd>herwigpp</kbd></td>
+                    </tr>
+                    <tr class="odd">
+                        <td align="left">Sherpa</td>
+                        <td align="left"><kbd>sherpa</kbd></td>
+                    </tr>
+                    <tr class="even">
+                        <td align="left">MadGraph</td>
+                        <td align="left"><kbd>madgraph</kbd></td>
+                    </tr>
+                    <tr class="odd">
+                        <td align="left">MadGraph <strong>not showered with Pythia6</strong></td>
+                        <td align="left"><kbd>madgraph-herwigpp</kbd>, …</td>
+                    </tr>
+                    <tr class="even">
+                        <td align="left">Alpgen</td>
+                        <td align="left"><kbd>alpgen</kbd></td>
+                    </tr>
+                    <tr class="odd">
+                        <td align="left">Alpgen <strong>not showered with Pythia6</strong></td>
+                        <td align="left"><kbd>alpgen-herwig6</kbd>, …</td>
+                    </tr>
+                    <tr class="even">
+                        <td align="left">MC@NLO</td>
+                        <td align="left"><kbd>mcatnlo</kbd></td>
+                    </tr>
+                    <tr class="odd">
+                        <td align="left">MC@NLO <strong>not showered with Herwig6</strong></td>
+                        <td align="left"><kbd>mcatnlo-pythia6<kbd>, …</td>
+                    </tr>
+                    <tr class="even">
+                            <td align="left">POWHEG</td>
+                            <td align="left"><kbd>powheg</kbd></td>
+                    </tr>
+                    <tr class="odd">
+                            <td align="left">POWHEG <strong>not showered with Pythia6</strong></td>
+                            <td align="left"><kbd>powheg-pythia8</kbd>, …</td>
+                    </tr>
+                    <tr class="even">
+                            <td align="left">HARDCOL</td>
+                            <td align="left"><kbd>hardcol</kbd></td>
+                    </tr>
+                    <tr class="odd">
+                            <td align="left">BCVEGPY 2</td>
+                            <td align="left"><kbd>bcvegpy2</kbd></td>
+                    </tr>
+                    <tr class="even">
+                            <td align="left">…</td>
+                            <td align="left">…</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>If a specialised decay tool was used, it was appended to the name, e.g. if EvtGen was used after Pythia6, the keyword would be <kbd>…-pythia6-evtgen</kbd>.</p>
         </div>
       </div>
     </div>
