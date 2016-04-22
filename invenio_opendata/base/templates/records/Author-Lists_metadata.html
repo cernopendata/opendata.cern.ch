@@ -25,19 +25,17 @@
 			</div>
 		<div class="col-xs-12" style="margin-top: 20px;font-size: 16px;color: #606D75;font-weight: 100;">
 				<div class="author_item row">
-					<div class="col-xs-12 col-md-4 author_name"><a class="sort" data-sort="author_name"><b>Name</b></a></div>
-					<div class="col-xs-6 col-md-4 author_affiliaton"><a class="sort" data-sort="author_affiliaton"><b>Affiliation</b></a></div>
-					<div class="col-xs-3 col-md-2 author_ccid"><a class="sort" data-sort="author_ccid"><b>CCID</b></a></div>
-					<div class="col-xs-3 col-md-2 author_inspire"><a class="sort" data-sort="author_inspire"><b>INSPIRE number</b></a></div>
-				</div>					
+					<div class="col-xs-6 col-md-6 author_name"><a class="sort" data-sort="author_name"><b>Name</b></a></div>
+					<div class="col-xs-6 col-md-6 author_affiliaton"><a class="sort" data-sort="author_affiliaton"><b>Affiliation</b></a></div>
+				</div>
 			</div>
 			<div id="authors_list_box" class="col-xs-12" style="margin-top: 20px;font-size: 16px;color: #606D75;font-weight: 100;">
 				<ul id="authors-list" class="list row">
 					{% for a in record['authors'][:50] %}
 					<li class="col-xs-12 {{loop.cycle('odd','even')}}">
 						<div class="author_item row">
-							<div class="col-xs-12 col-md-4 author_name">{{a['last_name']+' '+a['first_name']}}</div>
-							<div class="col-xs-6 col-md-4 author_affiliaton">
+							<div class="col-xs-6 col-md-6 author_name">{{a['last_name']+' '+a['first_name']}}</div>
+							<div class="col-xs-6 col-md-6 author_affiliaton">
 								{% if a['affiliation'] is string%}
 								{{a['affiliation']}}
 								{%else%}
@@ -46,8 +44,6 @@
 								{% endfor %}
 								{%endif%}
 							</div>
-							<div class="col-xs-3 col-md-2 author_ccid">{{a['CCID']}}</div>
-							<div class="col-xs-3 col-md-2 author_inspire">{{a['INSPIRE_number']}}</div>
 						</div>
 					</li>
 					{% endfor %}
