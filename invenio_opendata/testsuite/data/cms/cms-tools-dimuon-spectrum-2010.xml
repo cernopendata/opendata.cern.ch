@@ -19,12 +19,12 @@
       <subfield code="c">2016</subfield>
     </datafield>
     <datafield tag="516" ind1=" " ind2=" ">
-      <subfield code="a"><![CDATA[ <p>Use this with 2010 Mu primary datasets or any other 2010 primary datasets containing muons (see detailed instructions in code). You can also run this analysis on 2011 data, but please be aware that that the code has not been optimised for these data. Please consult <a href="to produce the di-muon spectrum from a CMS primary dataset from 2010">Getting started with CMS 2011 data</a> for more information.</p> ]]></subfield>
+      <subfield code="a"><![CDATA[ <p>Use this with 2010 Mu primary datasets or any other 2010 primary datasets containing muons (see detailed instructions in code). You can also run this analysis on 2011 data, but please be aware that that the code has not been optimised for these data. Please consult <a href="http://opendata.cern.ch/getting-started/CMS/2011">Getting started with CMS 2011 data</a> for more information.</p> ]]></subfield>
       <subfield code="u">http://opendata.cern.ch/record/14</subfield>
     </datafield>
     <datafield tag="520" ind1=" " ind2=" ">
       <subfield code="a"><![CDATA[ <p>This simple analysis example is set up at Research level, i.e. it requires university-student-level programming experience.
-      Minimal acquaintance with Linux and the ROOT analysis package (<a href="https://root.cern.ch/">https://root.cern.ch/</a>) as well as a basic text editor is needed.</p>]]></subfield>
+      Minimal acquaintance with Linux and the ROOT analysis package (<a href="https://root.cern.ch/">https://root.cern.ch/</a>) as well as a basic text editor is needed.</p> ]]></subfield>
     </datafield>
     <datafield tag="538" ind1=" " ind2=" ">
       <subfield code="a">Software release: CMSSW_4_2_8</subfield>
@@ -52,8 +52,8 @@
       <li>Replace the three files
       <code>BuildFile.xml</code>,
       <code>demoanalyzer_cfg.py</code>,
-      <code>src/Demoanalyzer.cc</code>
-      with the ones from this record and read the comments in <code>Demoanalyzer.cc</code> if you want to understand what the program does.</li>
+      <code>src/DemoAnalyzer.cc</code>
+      with the ones from this record and read the comments in <code>DemoAnalyzer.cc</code> if you want to understand what the program does.</li>
       <li>Recompile (<kbd>scram b</kbd>) and rerun (<kbd>cmsRun ...</kbd>) exactly as shown before in <a href="/VM/CMS/2010#testvalidate2010">How to Test & Validate</a>.
       <li>You should get an output file <kbd>Mu.root</kbd>, which contains histograms for 10000 input events (a small subset of the data).
       These can be looked at using a ROOT Browser (see above, under Description). The most interesting histogram is <kbd>GM_mass_log</kbd>.
