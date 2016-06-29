@@ -20,7 +20,7 @@ process.options = cms.untracked.PSet( wantSummary = cms.untracked.bool(True) )
 #    according to need and wish                                        *
 #    default is preset to 10000 events                                 *
 # **********************************************************************
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(10000) )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(20000000) )
 
 # set the number of events to be skipped (if any) at end of file below
 
@@ -52,7 +52,7 @@ files2010data = FileUtils.loadListFromFile ('/home/cms-opendata/CMSSW_4_2_8/src/
 # *** MuMonitor data set ***
 #files2010data = FileUtils.loadListFromFile ('/home/cms-opendata/CMSSW_4_2_8/src/Demo/DemoAnalyzer/datasets/CMS_Run2010B_MuMonitor_AOD_Apr21ReReco-v1_0000_file_index.txt')
 # *** Commissioning data set ***
-#files2010data = FileUtils.loadListFromFile ('/home/cms-opendata/CMSSW_4_2_8/src/Demo/DemoAnalyzer/datasets/CMS_Run2010B_MuMonitor_AOD_Apr21ReReco-v1_0000_file_index.txt')
+#files2010data = FileUtils.loadListFromFile ('/home/cms-opendata/CMSSW_4_2_8/src/Demo/DemoAnalyzer/datasets/CMS_Run2010B_Commissioning_AOD_Apr21ReReco-v1_0000_file_index.txt')
 process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring(*files2010data    
     )
