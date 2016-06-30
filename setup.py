@@ -35,7 +35,7 @@ setup(
     url='https://github.com/cernopendata/opendata.cern.ch',
     license='GPLv2',
     author='CERN',
-    author_email='info@invenio-software.org',
+    author_email='info@inveniosoftware.org',
     description=__doc__,
     long_description=open('README.rst', 'rt').read(),
     packages=find_packages(),
