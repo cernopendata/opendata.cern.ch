@@ -100,6 +100,8 @@ populate *all* collections, you can use::
     -f invenio_opendata/testsuite/data/alice/alice-reconstructed-data.xml \
     -f invenio_opendata/testsuite/data/alice/alice-vm-image.xml \
     -f invenio_opendata/testsuite/data/atlas/atlas-derived-datasets.xml \
+    -f invenio_opendata/testsuite/data/atlas/atlas-all-samples.xml \
+    -f invenio_opendata/testsuite/data/atlas/atlas-simulated-datasets.xml \
     -f invenio_opendata/testsuite/data/atlas/atlas-higgs-challenge-2014.xml \
     -f invenio_opendata/testsuite/data/atlas/atlas-learning-resources.xml \
     -f invenio_opendata/testsuite/data/atlas/atlas-tools.xml \
