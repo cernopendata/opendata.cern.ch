@@ -238,6 +238,14 @@ class CollectionData(DataSet):
             ('en', 'ln'): u'CMS Configuration Files',
         }
 
+    class ATLASSimulatedDatasets(siteCollection):
+        id = 30
+        name = 'ATLAS-Simulated-Datasets'
+        dbquery = '980__a:"ATLAS-Simulated-Datasets"'
+        names = {
+            ('en', 'ln'): u'ATLAS Simulated Datasets',
+        }
+
 
 class CollectionCollectionData(DataSet):
 
@@ -529,6 +537,18 @@ class CollectionCollectionData(DataSet):
         score = 21
         type = 'r'
 
+    class siteCollection_ATLASSimulatedDatasets:
+        dad = CollectionData.siteCollection
+        son = CollectionData.ATLASSimulatedDatasets
+        score = 22
+        type = 'r'
+
+    class ATLAS_ATLASSimulatedDatasets:
+        dad = CollectionData.ATLAS
+        son = CollectionData.ATLASSimulatedDatasets
+        score = 4
+        type = 'r'
+
 
 class CollectiondetailedrecordpagetabsData(DataSet):
 
@@ -805,6 +825,11 @@ class PortalboxData(DataSet):
     class Portalbox_48:
         body = u'This collection contains the configuration files that were used in different steps of the data processing.'
         id = 48
+        title = u'description'
+
+    class Portalbox_49:
+        body = u'This collection contains ATLAS simulated datasets.'
+        id = 49
         title = u'description'
 
 
@@ -1145,6 +1170,13 @@ class CollectionPortalboxData(DataSet):
         id_portalbox = PortalboxData.Portalbox_48.ref('id')
         score = 100
         id_collection = CollectionData.CMSConfigurationFiles.ref('id')
+
+    class CollectionPortalbox_30_49_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_49.ref('id')
+        score = 100
+        id_collection = CollectionData.ATLASSimulatedDatasets.ref('id')
 
 
 class FacetCollectionData(DataSet):
