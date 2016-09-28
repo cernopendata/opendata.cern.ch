@@ -7,7 +7,7 @@ from invenio_assets import NpmBundle
 
 css = NpmBundle(
     'scss/styles.scss',
-    filters='scss, cleancss',
+    filters='node-scss, cleancss',
     depends=('scss/*.scss', ),
     output='gen/cernopendata.%(version)s.css',
     npm={
