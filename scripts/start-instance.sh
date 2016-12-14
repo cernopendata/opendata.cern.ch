@@ -102,3 +102,16 @@ set -o nounset
 # sphinxdoc-start-application-begin
 ${INVENIO_WEB_INSTANCE} run -h 0.0.0.0 &
 # sphinxdoc-start-application-end
+
+# runs as root or needs sudo?
+if [[ "$EUID" -ne 0 ]]; then
+    sudo='sudo'
+else
+    sudo=''
+fi
+
+if [ ! -f /.dockerinit -a ! -f /.dockerenv ]; then
+    # sphinxdoc-start-nginx-begin
+    $sudo service nginx restart
+    # sphinxdoc-start-nginx-end
+fi

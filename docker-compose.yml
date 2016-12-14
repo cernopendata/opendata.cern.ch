@@ -25,7 +25,7 @@
 web:
   restart: "always"
   build: .
-  command: /bin/bash -c "cernopendata --debug run -h 0.0.0.0"
+  command: /bin/bash -c "cernopendata run -h 0.0.0.0"
   environment:
     - PATH=/home/invenio/.virtualenvs/cernopendata/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
     - VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
@@ -33,7 +33,7 @@ web:
     - APP_CACHE_REDIS_HOST=redis
     - APP_CACHE_REDIS_URL=redis://redis:6379/0
     - APP_ACCOUNTS_SESSION_REDIS_URL=redis://redis:6379/1
-    - APP_BROKER_URL=amqp://guest:guest@$rabbitmq:5672/
+    - APP_BROKER_URL=amqp://guest:guest@rabbitmq:5672/
     - APP_CELERY_RESULT_BACKEND=redis://redis:6379/2
     - APP_SEARCH_ELASTIC_HOSTS=elasticsearch
   volumes_from:
@@ -44,7 +44,7 @@ web:
     - elasticsearch
     - rabbitmq
   ports:
-    - "5000"
+    - "5000:5000"
 
 postgresql:
   restart: "always"
@@ -64,10 +64,11 @@ redis:
 
 elasticsearch:
   restart: "always"
-  image: elasticsearch
+  build: .
+  dockerfile: ./elasticsearch/Dockerfile
   ports:
-    - "9200"
-    - "9300"
+    - "9200:9200"
+    - "9300:9200"
 
 rabbitmq:
   restart: "always"
@@ -90,6 +91,5 @@ static:
   restart: "no"
   build: .
   volumes:
-    - /home/invenio
-    - /code
+    - /home/invenio/.virtualenvs/cernopendata/var/cernopendata-instance/static
   user: invenio

@@ -28,16 +28,16 @@ set -o errexit
 # quit on unbound symbols:
 set -o nounset
 
-provision_rabbitmq_ubuntu_trusty () {
+provision_rabbitmq_ubuntu14 () {
 
-    # sphinxdoc-install-rabbitmq-trusty-begin
+    # sphinxdoc-install-rabbitmq-ubuntu14-begin
     # update list of available packages:
     sudo DEBIAN_FRONTEND=noninteractive apt-get -y update
 
     # install RabbitMQ server:
     sudo DEBIAN_FRONTEND=noninteractive apt-get -y install \
          rabbitmq-server
-    # sphinxdoc-install-rabbitmq-trusty-end
+    # sphinxdoc-install-rabbitmq-ubuntu14-end
 
 }
 
@@ -79,10 +79,10 @@ setup_firewall_redis_centos7 () {
     # sphinxdoc-setup-firewall-redis-centos7-end
 }
 
-cleanup_rabbitmq_ubuntu_trusty () {
-    # sphinxdoc-install-rabbitmq-cleanup-trusty-begin
+cleanup_rabbitmq_ubuntu14 () {
+    # sphinxdoc-install-rabbitmq-cleanup-ubuntu14-begin
     sudo apt-get -y autoremove && sudo apt-get -y clean
-    # sphinxdoc-install-rabbitmq-cleanup-trusty-end
+    # sphinxdoc-install-rabbitmq-cleanup-ubuntu14-end
 }
 
 cleanup_rabbitmq_centos7 () {
@@ -96,10 +96,10 @@ main () {
     # detect OS distribution and release version:
     if hash lsb_release 2> /dev/null; then
         os_distribution=$(lsb_release -i | cut -f 2)
-        os_release=$(lsb_release -r | cut -f 2)
+        os_release=$(lsb_release -r | cut -f 2 | grep -oE '[0-9]+\.' | cut -d. -f1 | head -1)
     elif [ -e /etc/redhat-release ]; then
-        os_distribution=$(cat /etc/redhat-release | cut -d ' ' -f 1)
-        os_release=$(cat /etc/redhat-release | grep -oE '[0-9]+\.' | cut -d. -f1 | head -1)
+        os_distribution=$(cut -d ' ' -f 1 /etc/redhat-release)
+        os_release=$(grep -oE '[0-9]+\.' /etc/redhat-release | cut -d. -f1 | head -1)
     else
         os_distribution="UNDETECTED"
         os_release="UNDETECTED"
@@ -107,9 +107,8 @@ main () {
 
     # call appropriate provisioning functions:
     if [ "$os_distribution" = "Ubuntu" ]; then
-        if [ "$os_release" = "14.04" ]; then
-            provision_rabbitmq_ubuntu_trusty
-            cleanup_rabbitmq_ubuntu_trusty
+        if [ "$os_release" = "14" ]; then
+            provision_rabbitmq_ubuntu14
         else
             echo "[ERROR] Sorry, unsupported release ${os_release}."
             exit 1
@@ -117,7 +116,6 @@ main () {
     elif [ "$os_distribution" = "CentOS" ]; then
         if [ "$os_release" = "7" ]; then
             provision_rabbitmq_centos7
-            cleanup_rabbitmq_centos7
         else
             echo "[ERROR] Sorry, unsupported release ${os_release}."
             exit 1

@@ -28,6 +28,9 @@ set -o errexit
 # quit on unbound symbols:
 set -o nounset
 
+# detect pathname of this script:
+scriptpathname=$(cd "$(dirname $0)" && pwd)
+
 # sphinxdoc-install-detect-sudo-begin
 # runs as root or needs sudo?
 if [[ "$EUID" -ne 0 ]]; then
@@ -40,9 +43,9 @@ fi
 # unattended installation:
 export DEBIAN_FRONTEND=noninteractive
 
-provision_web_common_ubuntu_trusty () {
+provision_web_common_ubuntu14 () {
 
-    # sphinxdoc-install-useful-system-tools-trusty-begin
+    # sphinxdoc-install-useful-system-tools-ubuntu14-begin
     # update list of available packages:
     $sudo apt-get -y update
 
@@ -53,15 +56,15 @@ provision_web_common_ubuntu_trusty () {
          rlwrap \
          screen \
          vim
-    # sphinxdoc-install-useful-system-tools-trusty-end
+    # sphinxdoc-install-useful-system-tools-ubuntu14-end
 
-    # sphinxdoc-add-nodejs-external-repository-trusty-begin
+    # sphinxdoc-add-nodejs-external-repository-ubuntu14-begin
     if [[ ! -f /etc/apt/sources.list.d/nodesource.list ]]; then
         curl -sL https://deb.nodesource.com/setup_4.x | $sudo bash -
     fi
-    # sphinxdoc-add-nodejs-external-repository-trusty-end
+    # sphinxdoc-add-nodejs-external-repository-ubuntu14-end
 
-    # sphinxdoc-install-web-common-trusty-begin
+    # sphinxdoc-install-web-common-ubuntu14-begin
     $sudo apt-get -y install \
          libffi-dev \
          libfreetype6-dev \
@@ -74,15 +77,15 @@ provision_web_common_ubuntu_trusty () {
          nodejs \
          python-dev \
          python-pip
-    # sphinxdoc-install-web-common-trusty-end
+    # sphinxdoc-install-web-common-ubuntu14-end
 }
 
-provision_web_libpostgresql_ubuntu_trusty () {
+provision_web_libpostgresql_ubuntu14 () {
 
-    # sphinxdoc-install-web-libpostgresql-trusty-begin
+    # sphinxdoc-install-web-libpostgresql-ubuntu14-begin
     $sudo apt-get -y install \
          libpq-dev
-    # sphinxdoc-install-web-libpostgresql-trusty-end
+    # sphinxdoc-install-web-libpostgresql-ubuntu14-end
 }
 
 provision_web_common_centos7 () {
@@ -133,7 +136,7 @@ setup_npm_and_css_js_filters () {
 
     # sphinxdoc-install-npm-and-css-js-filters-begin
     $sudo su -c "npm install -g npm"
-    $sudo su -c "npm install -g node-sass clean-css requirejs uglify-js"
+    $sudo su -c "npm install -g node-sass@3.8.0 clean-css requirejs uglify-js"
     # sphinxdoc-install-npm-and-css-js-filters-end
 
 }
@@ -145,7 +148,7 @@ setup_virtualenvwrapper () {
     set +o nounset
 
     # sphinxdoc-install-virtualenvwrapper-begin
-    $sudo pip install -U virtualenvwrapper pip
+    $sudo pip install -U virtualenvwrapper setuptools pip
     if ! grep -q virtualenvwrapper ~/.bashrc; then
         mkdir -p $HOME/.virtualenvs
         echo "export WORKON_HOME=$HOME/.virtualenvs" >> $HOME/.bashrc
@@ -161,10 +164,43 @@ setup_virtualenvwrapper () {
 
 }
 
-cleanup_web_ubuntu_trusty () {
-    # sphinxdoc-install-web-cleanup-trusty-begin
+setup_nginx_ubuntu14 () {
+    # sphinxdoc-install-web-nginx-ubuntu14-begin
+    # install Nginx web server:
+    $sudo apt-get install -y nginx
+
+    # configure Nginx web server:
+    $sudo cp -f $scriptpathname/../nginx/invenio3.conf /etc/nginx/sites-available/
+    $sudo sed -i "s,/home/invenio/,/home/$(whoami)/,g" /etc/nginx/sites-available/invenio3.conf
+    $sudo rm /etc/nginx/sites-enabled/default
+    $sudo ln -s /etc/nginx/sites-available/invenio3.conf /etc/nginx/sites-enabled/
+    $sudo /usr/sbin/service nginx restart
+    # sphinxdoc-install-web-nginx-ubuntu14-end
+}
+
+setup_nginx_centos7 () {
+    # sphinxdoc-install-web-nginx-centos7-begin
+    # install Nginx web server:
+    $sudo yum install -y nginx
+
+    # configure Nginx web server:
+    $sudo cp $scriptpathname/../nginx/invenio3.conf /etc/nginx/conf.d/
+    $sudo sed -i "s,/home/invenio/,/home/$(whoami)/,g" /etc/nginx/conf.d/invenio3.conf
+    $sudo sed -i 's,80,8888,g' /etc/nginx/nginx.conf
+    $sudo chmod go+rx /home/$(whoami)/
+    $sudo /sbin/service nginx restart
+
+    # open firewall:
+    $sudo firewall-cmd --permanent --zone=public --add-service=http
+    $sudo firewall-cmd --permanent --zone=public --add-service=https
+    $sudo firewall-cmd --reload
+    # sphinxdoc-install-web-nginx-centos7-end
+}
+
+cleanup_web_ubuntu14 () {
+    # sphinxdoc-install-web-cleanup-ubuntu14-begin
     $sudo apt-get -y autoremove && $sudo apt-get -y clean
-    # sphinxdoc-install-web-cleanup-trusty-end
+    # sphinxdoc-install-web-cleanup-ubuntu14-end
 }
 
 cleanup_web_centos7 () {
@@ -178,30 +214,30 @@ main () {
     # detect OS distribution and release version:
     if hash lsb_release 2> /dev/null; then
         os_distribution=$(lsb_release -i | cut -f 2)
-        os_release=$(lsb_release -r | cut -f 2)
+        os_release=$(lsb_release -r | cut -f 2 | grep -oE '[0-9]+\.' | cut -d. -f1 | head -1)
     elif [ -e /etc/redhat-release ]; then
-        os_distribution=$(cat /etc/redhat-release | cut -d ' ' -f 1)
-        os_release=$(cat /etc/redhat-release | grep -oE '[0-9]+\.' | cut -d. -f1 | head -1)
+        os_distribution=$(cut -d ' ' -f 1 /etc/redhat-release)
+        os_release=$(grep -oE '[0-9]+\.' /etc/redhat-release | cut -d. -f1 | head -1)
     else
         os_distribution="UNDETECTED"
         os_release="UNDETECTED"
     fi
 
     # call appropriate provisioning functions:
-    if [ -f /.dockerinit ]; then
+    if [ -f /.dockerinit -o -f /.dockerenv ]; then
         # running inside Docker
-        provision_web_common_ubuntu_trusty
-        provision_web_libpostgresql_ubuntu_trusty
+        provision_web_common_ubuntu14
+        provision_web_libpostgresql_ubuntu14
         setup_npm_and_css_js_filters
         setup_virtualenvwrapper
-        cleanup_web_ubuntu_trusty
+        cleanup_web_ubuntu14
     elif [ "$os_distribution" = "Ubuntu" ]; then
-        if [ "$os_release" = "14.04" ]; then
-            provision_web_common_ubuntu_trusty
-            provision_web_libpostgresql_ubuntu_trusty
+        if [ "$os_release" = "14" ]; then
+            provision_web_common_ubuntu14
+            provision_web_libpostgresql_ubuntu14
             setup_npm_and_css_js_filters
             setup_virtualenvwrapper
-            cleanup_web_ubuntu_trusty
+            setup_nginx_ubuntu14
         else
             echo "[ERROR] Sorry, unsupported release ${os_release}."
             exit 1
@@ -212,7 +248,7 @@ main () {
             provision_web_libpostgresql_centos7
             setup_npm_and_css_js_filters
             setup_virtualenvwrapper
-            cleanup_web_centos7
+            setup_nginx_centos7
         else
             echo "[ERROR] Sorry, unsupported release ${os_release}."
             exit 1

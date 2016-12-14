@@ -107,6 +107,13 @@ ${INVENIO_WEB_INSTANCE} db init
 ${INVENIO_WEB_INSTANCE} db create
 # sphinxdoc-create-database-end
 
+# sphinxdoc-create-user-account-begin
+# ${INVENIO_WEB_INSTANCE} users create \
+#        ${INVENIO_USER_EMAIL} \
+#        --password ${INVENIO_USER_PASS} \
+#        --active
+# sphinxdoc-create-user-account-end
+
 # sphinxdoc-populate-with-demo-records-begin
 ${INVENIO_WEB_INSTANCE} fixtures collections
 
@@ -119,7 +126,6 @@ for x in $RECORDS; do
     # schema $SCHEMA
 done
 ${INVENIO_WEB_INSTANCE} fixtures pids
-
 # sphinxdoc-populate-with-demo-records-end
 
 # sphinxdoc-index-all-records-begin

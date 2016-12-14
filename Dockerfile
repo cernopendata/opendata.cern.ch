@@ -40,16 +40,29 @@ RUN adduser --uid 1000 --disabled-password --gecos '' invenio && \
     chown -R invenio:invenio /code
 USER invenio
 
+# Configure CERN Open Data Portal instance:
+ENV INVENIO_WEB_HOST=web
+ENV INVENIO_WEB_INSTANCE=cernopendata
+ENV INVENIO_WEB_VENV=cernopendata
+ENV INVENIO_USER_EMAIL=info@inveniosoftware.org
+ENV INVENIO_USER_PASS=uspass123
+ENV INVENIO_POSTGRESQL_HOST=postgresql
+ENV INVENIO_POSTGRESQL_DBNAME=cernopendata
+ENV INVENIO_POSTGRESQL_DBUSER=cernopendata
+ENV INVENIO_POSTGRESQL_DBPASS=dbpass123
+ENV INVENIO_REDIS_HOST=redis
+ENV INVENIO_ELASTICSEARCH_HOST=elasticsearch
+ENV INVENIO_RABBITMQ_HOST=rabbitmq
+ENV INVENIO_WORKER_HOST=127.0.0.1
+
 # Create CERN Open Data Portal instance:
-RUN . /code/.inveniorc-docker; /code/scripts/create-instance.sh --devel
+RUN /code/scripts/create-instance.sh
 
 # Make given VENV default:
 ENV PATH=/home/invenio/.virtualenvs/cernopendata/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ENV VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-RUN echo "source /usr/local/bin/virtualenvwrapper.sh\nworkon cernopendata" >> ~/.bashrc
-
-VOLUME /code
-VOLUME /home/invenio
+RUN echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
+RUN echo "workon cernopendata" >> ~/.bashrc
 
 # Start the CERN Open Data Portal application:
 CMD ["/bin/bash", "-c", "cernopendata run -h 0.0.0.0"]

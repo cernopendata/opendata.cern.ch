@@ -29,6 +29,9 @@ SECRET_KEY = 'yG7PxDUon2NM8rhsXXyzd2dl3O6ce9NatOXBOs4bK6Fq1a8uQ9fgozNyaCs0r6Sxjx
 THEME_SITENAME = _('CERN Open Data Portal')
 THEME_LOGO = 'img/home/opendata_logo.svg'
 
+# Static file
+COLLECT_STORAGE='flask_collect.storage.file'
+
 # Cache
 CACHE_TYPE = 'redis'
 
@@ -38,6 +41,10 @@ CELERY_ACCEPT_CONTENT = ['json', 'msgpack', 'yaml']
 # JSONSchemas
 JSONSCHEMAS_ENDPOINT = '/schema'
 JSONSCHEMAS_HOST = 'http://opendata.cern.ch'
+
+# OAI Server
+OAISERVER_RECORD_INDEX='marc21'
+OAISERVER_ID_PREFIX='oai:cernopendata:recid/'
 
 # Records
 RECORDS_UI_ENDPOINTS = dict(
@@ -49,27 +56,8 @@ RECORDS_UI_ENDPOINTS = dict(
     ),
 )
 
-RECORDS_REST_ENDPOINTS = dict(
-    recid=dict(
-        pid_type='recid',
-        pid_minter='recid',
-        pid_fetcher='recid',
-        search_index='_all',
-        search_type=None,
-        record_serializers={
-            'application/json': ('invenio_records_rest.serializers'
-                                 ':json_v1_response'),
-        },
-        search_serializers={
-            'application/json': ('invenio_records_rest.serializers'
-                                 ':json_v1_search'),
-        },
-        list_route='/records/',
-        item_route='/records/<pid_value>',
-        default_media_type='application/json',
-        max_result_window=10000,
-    ),
-)
+from invenio_marc21.config import MARC21_REST_ENDPOINTS as RECORDS_REST_ENDPOINTS
+RECORDS_REST_ENDPOINTS['recid']['search_index'] = '_all'
 
 from invenio_records_rest.facets import terms_filter
 RECORDS_REST_FACETS = dict(
