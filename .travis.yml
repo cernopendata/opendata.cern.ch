@@ -30,24 +30,7 @@ addons:
     packages:
     - libxml2-utils
 
-before_install:
-  - travis_retry pip install kwalitee --pre
-  - echo ${TRAVIS_COMMIT_RANGE}
-  - |
-       # inspiration from https://github.com/trevp/tlslite/blob/master/.travis.yml
-       # workaround for https://github.com/travis-ci/travis-ci/issues/2666
-       if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
-         URL="https://github.com/${TRAVIS_REPO_SLUG}/pull/${TRAVIS_PULL_REQUEST}.patch"
-         PR_FIRST=$(curl --silent --show-error --location $URL | head -1 | grep -o -E '\b[0-9a-f]{40}\b' | tr -d '\n')
-         TRAVIS_COMMIT_RANGE=$PR_FIRST^..$TRAVIS_COMMIT
-       fi
-  - echo ${TRAVIS_COMMIT_RANGE}
-
 install: true
-
-before_script:
-  - travis_retry pip install kwalitee GitPython --pre
-  - kwalitee check message -s ${TRAVIS_COMMIT_RANGE}
 
 script:
   - "./run-tests.sh"

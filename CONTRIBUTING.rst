@@ -30,12 +30,12 @@ We follow typical `GitHub flow
    say ``fix-event-display-icons``.
 3. Test your branch on a local site.  If everything works as expected,
    please `sign your commits
-   <http://inveniosoftware.org/wiki/Tools/Git/Workflow#R2.Remarksoncommitlogmessages>`_
+   <https://invenio.readthedocs.io/en/latest/technology/git.html#r2-remarks-on-commit-log-messages>`_
    to indicate its quality.
 4. Create `logically separate commits for logically separate things
-   <http://inveniosoftware.org/wiki/Tools/Git/Workflow#R1.Remarksoncommithistory>`_.
+   <https://invenio.readthedocs.io/en/latest/technology/git.html#r1-remarks-on-commit-history>`_.
    Check out our usual `development practices
-   <http://inveniosoftware.org/wiki/Development/Contributing>`_.
+   <https://invenio-github.readthedocs.io/en/latest/contributing.html>`_.
 5. Please add any ``(closes #123)`` directives in your commit log
    message if your pull request closes an open issue.
 6. Issue a pull request.  If the branch is not quite ready yet, please
