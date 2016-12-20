@@ -123,6 +123,9 @@
           {% if record.get('abstract',{}).get('url', '') %}
             <a href="{{ record.get('abstract',{}).get('url','') }}">{{ record.get('abstract',{}).get('url','') }}</a>
           {% endif %}
+          {% if record.get('abstract',{}).get('recid', '') %}
+            <a href="{{ url_for('record.metadata', recid=record.get('abstract',{}).get('recid','')) }}">{{ record.get('abstract',{}).get('recid','') | get_record_name }}</a>
+          {% endif %}
         </div>
       </div>
     </div>
