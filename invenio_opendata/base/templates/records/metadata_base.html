@@ -282,6 +282,9 @@
               {% if record.get('system_details', {}).get('note', '') %}
                 {{record.get('system_details', {}).get('note', '')}}<br>
               {% endif %}
+              {% if record.get('system_details',{}).get('url','') %}
+                <a href="{{ record.get('system_details',{}).get('url','') }}">{{ record.get('system_details',{}).get('url','') }}</a><br>
+              {% endif %}
               {% if record.get('system_details', {}).get('recid', '') %}
                 <a href="{{url_for('.metadata', recid = record.get('system_details', {}).get('recid', '') )}}">{{(record.get('system_details', {}).get('recid', ''))|get_record_name }}</a>
               {% endif %}
