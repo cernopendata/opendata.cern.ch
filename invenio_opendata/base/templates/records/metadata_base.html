@@ -118,7 +118,12 @@
         <div class="rec_title title">Description</div>
       </div>
       <div class="col-md-12">
-        <div class="rec_desc">{{record.get('abstract',{}).get('summary','')|safe}}</div>
+        <div class="rec_desc">
+          {{record.get('abstract',{}).get('summary','')|safe}}
+          {% if record.get('abstract',{}).get('url', '') %}
+            <a href="{{ record.get('abstract',{}).get('url','') }}">{{ record.get('abstract',{}).get('url','') }}</a>
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>
