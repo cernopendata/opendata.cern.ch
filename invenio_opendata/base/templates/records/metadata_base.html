@@ -118,8 +118,31 @@
         <div class="rec_title title">Description</div>
       </div>
       <div class="col-md-12">
-        <div class="rec_desc">{{record.get('abstract',{}).get('summary','')|safe}}</div>
+        <div class="rec_desc">
+          {{record.get('abstract',{}).get('summary','')|safe}}
+          {% if record.get('abstract',{}).get('url', '') %}
+            <a href="{{ record.get('abstract',{}).get('url','') }}">{{ record.get('abstract',{}).get('url','') }}</a>
+          {% endif %}
+          {% if record.get('abstract',{}).get('recid', '') %}
+            <a href="{{ url_for('record.metadata', recid=record.get('abstract',{}).get('recid','')) }}">{{ record.get('abstract',{}).get('recid','') | get_record_name }}</a>
+          {% endif %}
+        </div>
       </div>
+      {% if record.get('data_source_entry',{}) %}
+        <div class="col-md-12">
+          <div class="rec_title title">Related datasets</div>
+        </div>
+        <div class="col-md-12">
+          <div class="rec_desc">
+            {% if record.get('data_source_entry',{}).get('heading', '') %}
+              {{ record.get('data_source_entry',{}).get('heading','') }}
+            {% endif %}
+            {% if record.get('data_source_entry',{}).get('recid', '') %}
+              <a href="{{ url_for('record.metadata', recid=record.get('data_source_entry',{}).get('recid','')) }}">{{ record.get('data_source_entry',{}).get('recid','') | get_record_name }}</a>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
     </div>
   </div>
   {% endblock %}
@@ -273,6 +296,9 @@
               {% endif %}
               {% if record.get('system_details', {}).get('note', '') %}
                 {{record.get('system_details', {}).get('note', '')}}<br>
+              {% endif %}
+              {% if record.get('system_details',{}).get('url','') %}
+                <a href="{{ record.get('system_details',{}).get('url','') }}">{{ record.get('system_details',{}).get('url','') }}</a><br>
               {% endif %}
               {% if record.get('system_details', {}).get('recid', '') %}
                 <a href="{{url_for('.metadata', recid = record.get('system_details', {}).get('recid', '') )}}">{{(record.get('system_details', {}).get('recid', ''))|get_record_name }}</a>
