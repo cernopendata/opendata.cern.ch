@@ -116,19 +116,7 @@ ${INVENIO_WEB_INSTANCE} db create
 
 # sphinxdoc-populate-with-demo-records-begin
 pip install -e git+https://github.com/cernopendata/cernopendata-fixtures.git#egg=cernopendata-fixtures
-${INVENIO_WEB_INSTANCE} fixtures collections
-
-SCHEMA="http://opendata.cern.ch/schema/marc21/bibliographic/bd-v1.0.0.json"
-
-DATA=`python -c "from __future__ import print_function; import pkg_resources; print(pkg_resources.resource_filename('cernopendata', 'data'))"`
-
-RECORDS=`ls ${DATA}/*.xml ${DATA}/*/*.xml`
-
-for x in $RECORDS; do
-    dojson -i $x -l marcxml do marc21 | cernopendata records create;
-    # schema $SCHEMA
-done
-${INVENIO_WEB_INSTANCE} fixtures pids
+${INVENIO_WEB_INSTANCE} fixtures collections records pids
 pip uninstall cernopendata-fixtures
 # sphinxdoc-populate-with-demo-records-end
 
