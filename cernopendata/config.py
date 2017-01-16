@@ -4,6 +4,10 @@
 
 from __future__ import absolute_import, print_function
 
+from invenio_marc21.config import \
+    MARC21_REST_ENDPOINTS as RECORDS_REST_ENDPOINTS
+from invenio_records_rest.facets import terms_filter
+
 
 # Identity function for string extraction
 def _(x):
@@ -21,16 +25,14 @@ HEADER_TEMPLATE = 'cernopendata/header.html'
 COVER_TEMPLATE = 'invenio_theme/page_cover.html'
 SETTINGS_TEMPLATE = 'invenio_theme/settings/content.html'
 
-# WARNING: Do not share the secret key - especially do not commit it to
-# version control.
-SECRET_KEY = 'yG7PxDUon2NM8rhsXXyzd2dl3O6ce9NatOXBOs4bK6Fq1a8uQ9fgozNyaCs0r6SxjxQUCPhhJI3uYtDkZJa3qnTR38eCbEybEjNpdtPeUfQErxUlszcJbCrv7MrwQRszCeFkkqPWbG9zl8JX8NdL0O8RQEtLXcw6XHuVlE6dgyuq22PoP4FlJbxHn46yvHI8wsQ5E2uuQBjJNye2KsKl58TYbrJrwq21Ljcqx8tMvPvaSv0CWrp3IFlYcAUGzK9x'
+SECRET_KEY = 'changeme'
 
 # Theme
 THEME_SITENAME = _('CERN Open Data Portal')
 THEME_LOGO = 'img/home/opendata_logo.svg'
 
 # Static file
-COLLECT_STORAGE='flask_collect.storage.file'
+COLLECT_STORAGE = 'flask_collect.storage.file'
 
 # Cache
 CACHE_TYPE = 'redis'
@@ -43,8 +45,8 @@ JSONSCHEMAS_ENDPOINT = '/schema'
 JSONSCHEMAS_HOST = 'http://opendata.cern.ch'
 
 # OAI Server
-OAISERVER_RECORD_INDEX='marc21'
-OAISERVER_ID_PREFIX='oai:cernopendata:recid/'
+OAISERVER_RECORD_INDEX = 'marc21'
+OAISERVER_ID_PREFIX = 'oai:cernopendata:recid/'
 
 # Records
 RECORDS_UI_ENDPOINTS = dict(
@@ -56,10 +58,8 @@ RECORDS_UI_ENDPOINTS = dict(
     ),
 )
 
-from invenio_marc21.config import MARC21_REST_ENDPOINTS as RECORDS_REST_ENDPOINTS
 RECORDS_REST_ENDPOINTS['recid']['search_index'] = '_all'
 
-from invenio_records_rest.facets import terms_filter
 RECORDS_REST_FACETS = dict(
     _all=dict(
         aggs=dict(
@@ -104,9 +104,9 @@ OPENDATA_EDUCATION = [
      'The CMS (Compact Muon Solenoid) experiment is one of two large '
      'general-purpose particle physics detectors built on the Large Hadron '
      'Collider (LHC) at CERN in Switzerland and France. The goal of CMS is to '
-     'investigate a wide range of physics, including properties of the recently '
-     'discovered Higgs boson as well as searches for extra dimensions and '
-     'particles that could make up dark matter.',
+     'investigate a wide range of physics, including properties of the '
+     'recently discovered Higgs boson as well as searches for extra '
+     'dimensions and particles that could make up dark matter.',
      True),
     ('ALICE',
      '<a href="http://aliceinfo.cern.ch/Public/Welcome.html">'
@@ -118,10 +118,10 @@ OPENDATA_EDUCATION = [
      'where a phase of matter called <a href="http://home.web.cern.ch'
      '/about/physics/heavy-ions-and-quark-gluon-plasma">'
      '<span class="external-link-l"></span>quark-gluon plasma</a> forms.<br/>'
-     'The ALICE collaboration uses the 10,000-tonne ALICE detector - 26 m long, '
-     '16 m high, and 16 m wide - to study quark-gluon plasma. The detector sits '
-     'in a vast cavern 56 m below ground close to the village of '
-     'Saint Genis-Pouilly in France, receiving beams from the LHC. '
+     'The ALICE collaboration uses the 10,000-tonne ALICE detector - 26 m '
+     'long, 16 m high, and 16 m wide - to study quark-gluon plasma. '
+     'The detector sits in a vast cavern 56 m below ground close to the '
+     'village of Saint Genis-Pouilly in France, receiving beams from the LHC. '
      'More than 1000 scientists are part of the collaboration.',
      True),
     ('ATLAS',
@@ -137,9 +137,9 @@ OPENDATA_RESEARCH = [
      'The CMS (Compact Muon Solenoid) experiment is one of two large '
      'general-purpose particle physics detectors built on the Large Hadron '
      'Collider (LHC) at CERN in Switzerland and France. The goal of CMS is to '
-     'investigate a wide range of physics, including properties of the recently '
-     'discovered Higgs boson as well as searches for extra dimensions and '
-     'particles that could make up dark matter.',
+     'investigate a wide range of physics, including properties of the '
+     'recently discovered Higgs boson as well as searches for extra '
+     'dimensions and particles that could make up dark matter.',
      True),
     ('ALICE',
      '',

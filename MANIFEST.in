@@ -1,0 +1,30 @@
+include *.rst
+include *.sh
+include *.txt
+include *.yml
+include .dockerignore
+include .editorconfig
+include .inveniorc
+include Dockerfile
+include LICENSE
+include babel.ini
+include elasticsearch
+include elasticsearch/Dockerfile
+include nginx/Dockerfile
+include pytest.ini
+recursive-include cernopendata *.css
+recursive-include cernopendata *.gif
+recursive-include cernopendata *.html
+recursive-include cernopendata *.ico
+recursive-include cernopendata *.jpeg
+recursive-include cernopendata *.jpg
+recursive-include cernopendata *.js
+recursive-include cernopendata *.json
+recursive-include cernopendata *.less
+recursive-include cernopendata *.png
+recursive-include cernopendata *.scss
+recursive-include cernopendata *.svg
+recursive-include cernopendata *.tpl
+recursive-include nginx *.conf
+recursive-include scripts *.cfg
+recursive-include scripts *.sh

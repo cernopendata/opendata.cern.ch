@@ -1,21 +1,21 @@
 # -*- coding: utf-8 -*-
 
-"""cernopendata base Invenio configuration."""
+"""CERN Open Data views."""
 
 from __future__ import absolute_import, print_function
 
 import functools
 import json
-import pkg_resources
 
-from flask import Blueprint, abort, current_app, escape, render_template, request, url_for
+import pkg_resources
+from flask import Blueprint, abort, current_app, escape, render_template, \
+    request, url_for
 from flask_babelex import lazy_gettext as _
 from flask_breadcrumbs import default_breadcrumb_root, register_breadcrumb
 from flask_menu import register_menu
 from jinja2.exceptions import TemplateNotFound
 from speaklater import make_lazy_string
 from werkzeug import secure_filename
-
 
 blueprint = Blueprint(
     'cernopendata',
@@ -25,6 +25,7 @@ blueprint = Blueprint(
 )
 
 default_breadcrumb_root(blueprint, '.')
+
 
 @blueprint.errorhandler(TemplateNotFound)
 def template_not_found(err):
@@ -75,7 +76,6 @@ def education(experiment=None):
                            experiment=experiment)
 
 
-
 @blueprint.route('/research')
 @blueprint.route('/research/<string:experiment>')
 @register_breadcrumb(blueprint, '.research.experiment',
@@ -83,10 +83,13 @@ def education(experiment=None):
                      endpoint_arguments_constructor=lambda: {
                          'experiment': request.view_args['experiment']})
 def research(experiment=None):
-    import os.path, pkg_resources
+    """Display research pages."""
+    import os.path
+    import pkg_resources
 
     def file_exists(filename):
-        filepath = pkg_resources.resource_filename('cernopendata.base', filename)
+        filepath = pkg_resources.resource_filename(
+            'cernopendata.base', filename)
         return os.path.isfile(filepath)
 
     def splitting(value, delimiter='/'):
@@ -97,35 +100,51 @@ def research(experiment=None):
 
     exp_colls, exp_names = get_collections()
 
-    if experiment not in exp_names :
-        return render_template('index_scrollspy.html', entry = 'research', exp_colls = exp_colls, exp_names = exp_names)
+    if experiment not in exp_names:
+        return render_template(
+            'index_scrollspy.html',
+            entry='research',
+            exp_colls=exp_colls,
+            exp_names=exp_names)
 
-    return render_template('research.html',
-                            experiment=experiment, exp_colls = exp_colls, exp_names = exp_names)
+    return render_template(
+        'research.html',
+        experiment=experiment,
+        exp_colls=exp_colls,
+        exp_names=exp_names)
 
 
 @blueprint.route('/visualise/events/<string:experiment>')
-def visualise_events(experiment = 'CMS'):
-
+def visualise_events(experiment='CMS'):
+    """Visualise events."""
     exp_names = get_collection_names(['ALICE', 'LHCb', 'ATLAS'])
 
-    breadcrumbs = [{},{'url':'.education','text':'Education'},\
-                        {'url':'.education','text':'Visualise Events'}]
+    breadcrumbs = [{}, {'url': '.education', 'text': 'Education'},
+                   {'url': '.education', 'text': 'Visualise Events'}]
     try:
-        return render_template('visualise_events.html', experiment = experiment, exp_names = exp_names, breadcrumbs = breadcrumbs)
+        return render_template(
+            'visualise_events.html',
+            experiment=experiment,
+            exp_names=exp_names,
+            breadcrumbs=breadcrumbs)
     except TemplateNotFound:
         return abort(404)
 
 
 @blueprint.route('/visualise/histograms/<string:experiment>')
 def visualise_histo(experiment='CMS'):
+    """Display histograms."""
     exp_colls, exp_names = get_collections()
 
-    breadcrumbs = [{}, {'url':'.education','text':'Education'},
-                        {'url':'.education','text':'Visualise Histograms'}]
+    breadcrumbs = [{}, {'url': '.education', 'text': 'Education'},
+                   {'url': '.education', 'text': 'Visualise Histograms'}]
 
     try:
-        return render_template('visualise_histograms.html', experiment = experiment, exp_names = exp_names, breadcrumbs = breadcrumbs)
+        return render_template(
+            'visualise_histograms.html',
+            experiment=experiment,
+            exp_names=exp_names,
+            breadcrumbs=breadcrumbs)
     except TemplateNotFound:
         return abort(404)
 
@@ -204,7 +223,7 @@ def about_menu(*args):
                 return lambda: {'page': key}
             f = register_menu(
                 blueprint, 'main.about.{0}'.format(key),
-                _('%(experiment)s Open Data', experiment=key), order=order+1,
+                _('%(experiment)s Open Data', experiment=key), order=order + 1,
                 endpoint_arguments_constructor=arguments(key)
             )(f)
         return f
@@ -256,9 +275,12 @@ def privacy():
 
 @blueprint.route('/experiments')
 def collections():
-    import json, pkg_resources
-    filepath = pkg_resources.resource_filename('cernopendata.base', 'templates/helpers/text/testimonials.json')
-    with open(filepath,'r') as f:
+    """Display experiments."""
+    import json
+    import pkg_resources
+    filepath = pkg_resources.resource_filename(
+        'cernopendata.base', 'templates/helpers/text/testimonials.json')
+    with open(filepath, 'r') as f:
         testimonials = json.load(f)
 
     def splitting(value, delimiter='/'):
@@ -268,7 +290,11 @@ def collections():
 
     exp_colls, exp_names = get_collections()
 
-    return render_template('index_scrollspy.html', testimonials = testimonials, exp_colls = exp_colls, exp_names = exp_names)
+    return render_template(
+        'index_scrollspy.html',
+        testimonials=testimonials,
+        exp_colls=exp_colls,
+        exp_names=exp_names)
 
 
 @blueprint.route('/glossary', methods=['GET', 'POST'])
@@ -279,7 +305,7 @@ def glossary():
     filepath = pkg_resources.resource_filename(
         'cernopendata', 'static/json/glossary.json'
     )
-    with open(filepath,'r') as f:
+    with open(filepath, 'r') as f:
         glossary = json.load(f)
 
     return render_template('cernopendata/glossary.html', glossary=glossary)
@@ -287,8 +313,8 @@ def glossary():
 
 @blueprint.route('/news')
 @register_menu(blueprint, 'main.about.news', _('News'), order=91)
-@register_breadcrumb(blueprint,'.news','News', dynamic_list_constructor=(
-    lambda: [{'url':'.news','text':'News'}]
+@register_breadcrumb(blueprint, '.news', 'News', dynamic_list_constructor=(
+    lambda: [{'url': '.news', 'text': 'News'}]
 ))
 def news():
     """Render news."""
