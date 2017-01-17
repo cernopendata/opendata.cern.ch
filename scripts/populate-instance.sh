@@ -105,6 +105,8 @@ set -o nounset
 # sphinxdoc-create-database-begin
 ${INVENIO_WEB_INSTANCE} db init
 ${INVENIO_WEB_INSTANCE} db create
+${INVENIO_WEB_INSTANCE} index init
+sleep 20
 # sphinxdoc-create-database-end
 
 # sphinxdoc-create-user-account-begin
@@ -116,14 +118,14 @@ ${INVENIO_WEB_INSTANCE} db create
 
 # sphinxdoc-populate-with-demo-records-begin
 pip install -e git+https://github.com/cernopendata/cernopendata-fixtures.git#egg=cernopendata-fixtures
-${INVENIO_WEB_INSTANCE} fixtures collections records pids
+${INVENIO_WEB_INSTANCE} fixtures collections
+${INVENIO_WEB_INSTANCE} fixtures records
+${INVENIO_WEB_INSTANCE} fixtures pids
 pip uninstall cernopendata-fixtures
 # sphinxdoc-populate-with-demo-records-end
 
 # sphinxdoc-index-all-records-begin
 # indexing
-${INVENIO_WEB_INSTANCE} index init
-sleep 20
 ${INVENIO_WEB_INSTANCE} index queue init
 ${INVENIO_WEB_INSTANCE} index reindex --yes-i-know
 ${INVENIO_WEB_INSTANCE} index run
