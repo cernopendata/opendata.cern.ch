@@ -42,13 +42,19 @@ CELERY_ACCEPT_CONTENT = ['json', 'msgpack', 'yaml']
 
 # JSONSchemas
 JSONSCHEMAS_ENDPOINT = '/schema'
-JSONSCHEMAS_HOST = 'http://opendata.cern.ch'
+JSONSCHEMAS_HOST = 'opendata.cern.ch'
 
 # OAI Server
 OAISERVER_RECORD_INDEX = 'marc21'
 OAISERVER_ID_PREFIX = 'oai:cernopendata:recid/'
 
 # Records
+# Add tuple as array type on record validation
+# http://python-jsonschema.readthedocs.org/en/latest/validate/#validating-types
+RECORDS_VALIDATION_TYPES = {
+    'array': (list, tuple),
+}
+
 RECORDS_UI_ENDPOINTS = dict(
     recid=dict(
         pid_type='recid',
@@ -63,10 +69,24 @@ RECORDS_REST_ENDPOINTS['recid']['search_index'] = '_all'
 RECORDS_REST_FACETS = dict(
     _all=dict(
         aggs=dict(
-            collections=dict(terms=dict(field='collections.primary'))
+            category=dict(terms=dict(field='collections.secondary')),
+            collections=dict(terms=dict(field='collections.primary')),
+            run=dict(terms=dict(
+                field='production_publication_distribution_manufacture_and_'
+                      'copyright_notice.'
+                      'date_of_production_publication_distribution_'
+                      'manufacture_or_copyright_notice'
+            )),
         ),
         post_filters=dict(
             collections=terms_filter('collections.primary'),
+            category=terms_filter('collections.category'),
+            run=terms_filter(
+                'production_publication_distribution_manufacture_and_'
+                'copyright_notice.'
+                'date_of_production_publication_distribution_'
+                'manufacture_or_copyright_notice'
+            ),
         )
     )
 )
