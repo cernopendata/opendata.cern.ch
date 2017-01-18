@@ -79,8 +79,8 @@ RECORDS_REST_FACETS = dict(
             )),
         ),
         post_filters=dict(
+            category=terms_filter('collections.secondary'),
             collections=terms_filter('collections.primary'),
-            category=terms_filter('collections.category'),
             run=terms_filter(
                 'production_publication_distribution_manufacture_and_'
                 'copyright_notice.'
