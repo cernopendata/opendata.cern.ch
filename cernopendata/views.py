@@ -260,6 +260,7 @@ def about(page='index'):
 
 
 @blueprint.route('/terms-of-use')
+@register_menu(blueprint, 'footer.terms', _('Terms of Use'), order=1)
 @register_breadcrumb(blueprint, '.terms', _('Terms of Use'))
 def terms():
     """Render terms of use."""
@@ -267,6 +268,7 @@ def terms():
 
 
 @blueprint.route('/privacy-policy')
+@register_menu(blueprint, 'footer.privacy', _('Privacy Policy'), order=2)
 @register_breadcrumb(blueprint, '.privacy', _('Privacy Policy'))
 def privacy():
     """Render privacy policy."""
