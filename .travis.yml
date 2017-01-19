@@ -1,0 +1,75 @@
+# -*- coding: utf-8 -*-
+#
+# This file is part of CERN Open Data Portal.
+# Copyright (C) 2017 CERN.
+#
+# CERN Open Data Portal is free software; you can redistribute it
+# and/or modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# CERN Open Data Portal is distributed in the hope that it will be
+# useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with CERN Open Data Portal; if not, write to the
+# Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,
+# MA 02111-1307, USA.
+#
+# In applying this license, CERN does not
+# waive the privileges and immunities granted to it by virtue of its status
+# as an Intergovernmental Organization or submit itself to any jurisdiction.
+
+
+notifications:
+  email: false
+
+sudo: false
+
+language: python
+
+matrix:
+  fast_finish: true
+
+cache:
+  - pip
+
+env:
+  - REQUIREMENTS=lowest
+  - REQUIREMENTS=release
+  - REQUIREMENTS=devel
+
+python:
+  - "2.7"
+  - "3.5"
+
+before_install:
+  - "travis_retry pip install --upgrade pip setuptools py"
+  - "travis_retry pip install twine wheel coveralls requirements-builder"
+  - "requirements-builder --level=min setup.py > .travis-lowest-requirements.txt"
+  - "requirements-builder --level=pypi setup.py > .travis-release-requirements.txt"
+  - "requirements-builder --level=dev --req requirements-devel.txt setup.py > .travis-devel-requirements.txt"
+
+install:
+  - "travis_retry pip install -r .travis-${REQUIREMENTS}-requirements.txt"
+  - "travis_retry pip install -e .[all]"
+
+script:
+  - "./run-tests.sh"
+
+after_success:
+  - coveralls
+
+deploy:
+  provider: pypi
+  user: jirikuncar
+  password:
+    secure: UWIAUi+XFuWu2hWeQtP5N1TOiGORJfgce2aK94WHs5Vp11ZYVCpqJaCmKC6kENu8quc+gHS5/Nu84RiLgZktlzkJX5gFBrVQMrVsg97LCMhPmYMWUH5x9Z3vcMXJBNCFdythhj/8Vyl6YJDa1WS4KOCxqa2735kuyKBx0Zc8VCB/X7xRPOgGuM0cJrkXqDVF+b5g55fl/mloYsWI0TF9s0mgHdoh14WxRnfJJF/JQmVt8Vt86G62HPEG7TrjXAChKbWzEoUOeTMSh2H/r93BOQzzzBW0UqFJpSfK8UCpYBld4NxhlWYeS4d2TKxLvPWpuHZnblm5Whn144VspPfTV4iDKl5x7hOQ/rKZadMKJ4VLB7Ka1vNEdmgTkass3DKznBhFffQf7sdjMbX5Mwrys3VfMK+Mo2BdZBApHBGqrBglvtR8eM7eGZkbcOnQ9Cv4Bxm2p/lG1o3DMKbmEoqsFaXkHcbgMS1n8gUqq5x3WHZk3vJjr6v/744SZuvyKnSXXPXTHC5/zzrSuW6+NyexpcskYAFeIFhxKBENNYk8EEQIV+Br2OQM01dvC7luRK4Iy0MTJX8pjC1rsPPnTAjSEsNVu2W7uBD8s+6pbsKyvmPatH1dGXC61Hjj8oWopTOFmOVsLldShprbilcxSXeK2yfVVNayxJwwuU9uIHp7n10=
+  distributions: "sdist bdist_wheel"
+  on:
+    tags: true
+    repo: cernopendata/cernopendata-pages
+    python: "2.7"
+    condition: $REQUIREMENTS = release

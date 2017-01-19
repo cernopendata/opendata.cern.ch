@@ -9,13 +9,42 @@
         {{ record.metadata.main_entry_personal_name[0].personal_name }}
       </small>
     </h4>
+    <p ng-bind-html="record.metadata.summary[0].summary | unsafe"></p>
     <p>
-      {{ record.metadata.summary[0].summary }}
-    </p>
-    <p>
-      <span class="label label-default" ng-repeat="collection in record.metadata.collections">
-        {{ collection.primary ? 'Collection' : 'Category' }}: {{ collection.primary ? collection.primary : collection.secondary }}
-      </span>
+      <div class="btn-toolbar">
+        <div class="btn-group btn-group-xs" ng-repeat="collection in record.metadata.collections">
+          <span class="btn btn-primary">
+            {{ collection.primary ? 'Collection' : 'Category' }}
+          </span>
+          <span class="btn btn-default">
+            {{ collection.primary ? collection.primary : collection.secondary }}
+          </span>
+        </div>
+
+        <div class="btn-group btn-group-xs" ng-repeat="identifier in record.metadata.other_standard_identifier">
+          <span class="btn btn-primary">
+            {{ identifier.source_of_number_or_code }}
+          </span>
+          <span class="btn btn-default">
+            {{ identifier.standard_number_or_code }}
+          </span>
+        </div>
+
+        <div class="btn-group btn-group-xs" ng-if="record.metadata.main_entry_personal_name.personal_name">
+          <span class="btn btn-primary">
+            Author
+          </span>
+          <span class="btn btn-default">
+            {{ record.metadata.main_entry_personal_name.personal_name }};
+            <span ng-repeat="author in record.metadata.added_entry_personal_name | limitTo: 2">
+              {{ author.personal_name }};
+            </span>
+            <i ng-if="record.metadata.added_entry_personal_name.length > 2">
+              et al
+            </i>
+          </span>
+        </div>
+      </div>
     </p>
     <hr />
   </div>

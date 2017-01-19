@@ -94,7 +94,7 @@ elasticsearch:
   dockerfile: ./elasticsearch/Dockerfile
   ports:
     - "9200:9200"
-    - "9300:9200"
+    - "9300:9300"
 
 rabbitmq:
   restart: "always"

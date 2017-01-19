@@ -1,4 +1,26 @@
 # -*- coding: utf-8 -*-
+#
+# This file is part of CERN Open Data Portal.
+# Copyright (C) 2017 CERN.
+#
+# CERN Open Data Portal is free software; you can redistribute it
+# and/or modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# CERN Open Data Portal is distributed in the hope that it will be
+# useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with CERN Open Data Portal; if not, write to the
+# Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,
+# MA 02111-1307, USA.
+#
+# In applying this license, CERN does not
+# waive the privileges and immunities granted to it by virtue of its status
+# as an Intergovernmental Organization or submit itself to any jurisdiction.
 
 """CERN Open Data Portal instance."""
 
@@ -26,7 +48,6 @@ tests_require = [
     'pytest-cov>=1.8.0',
     'pytest-pep8>=1.0.6',
     'pytest>=2.8.0',
-    'invenio-config>=1.0.0b1',
 ]
 
 extras_require = {
@@ -45,7 +66,9 @@ setup_requires = [
 ]
 
 install_requires = [
-    'invenio-assets>=1.0.0a11',
+    'Flask-CeleryExt>=0.2.2',
+    'cernopendata-theme>=1.0.0',
+    'cernopendata-pages>=1.0.0',
     'invenio-base>=1.0.0a9',
     'invenio-celery>=1.0.0b1',
     'invenio-collections>=1.0.0a1',
@@ -61,7 +84,6 @@ install_requires = [
     'invenio-records>=1.0.0b1',
     'invenio-search-ui>=1.0.0a2',
     'invenio-search>=1.0.0a9',
-    'invenio-theme>=1.0.0a16',
 ]
 
 packages = find_packages()
@@ -87,9 +109,6 @@ setup(
         ],
         'dojson.contrib.marc21': [
             'cernopendata = cernopendata.rules',
-        ],
-        'invenio_assets.bundles': [
-            'cernopendata_theme_css = cernopendata.bundles:css',
         ],
         'invenio_base.blueprints': [
             'cernopendata = '
