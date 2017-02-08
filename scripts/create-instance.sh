@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # This file is part of Invenio.
-# Copyright (C) 2015, 2016 CERN.
+# Copyright (C) 2015, 2016, 2017 CERN.
 #
 # Invenio is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -103,12 +103,14 @@ mkvirtualenv ${INVENIO_WEB_VENV}
 set -o errexit
 # set -o nounset
 
-pip install -e .
+# install development requirements:
+pip install -r requirements-devel.txt
+pip install -e .[all]
 
 # sphinxdoc-customise-instance-begin
 cdvirtualenv
 mkdir -p var/${INVENIO_WEB_INSTANCE}-instance/
-pip install jinja2-cli
+pip install jinja2-cli[yaml]
 echo '{}' | jinja2 ${scriptpathname}/instance.cfg > var/${INVENIO_WEB_INSTANCE}-instance/${INVENIO_WEB_INSTANCE}.cfg
 # sphinxdoc-customise-instance-end
 

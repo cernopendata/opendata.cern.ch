@@ -77,7 +77,8 @@ install_requires = [
     'invenio-indexer>=1.0.0a1',
     'invenio-jsonschemas>=1.0.0a2',
     'invenio-marc21>=1.0.0a1',
-    'invenio-oaiserver>=1.0.0a9',
+    # FIXME invenio-oaiserver 1.0.0a10, 1.0.0a11 lead to functools32 troubles
+    'invenio-oaiserver>=1.0.0a9,<1.0.0a10',
     'invenio-pidstore>=1.0.0b1',
     'invenio-records-rest>=1.0.0a9',
     'invenio-records-ui>=1.0.0a8',

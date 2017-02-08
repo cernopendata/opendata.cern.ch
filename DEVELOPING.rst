@@ -8,13 +8,18 @@
 Installation
 ============
 
-The installation process is very similar to standard Invenio
-installation:
+You can run a local CERN Open Data instance for development purposes using
+Docker:
 
-* http://invenio.readthedocs.org/en/latest/developers/docker.html
+.. code-block:: console
 
-Please note that populating the site with records might take
-considerable time (30 minutes or more).
+   $ docker-compose build
+   $ docker-compose up
+   $ docker-compose run --rm web ./scripts/populate-instance.sh
+   $ firefox http://127.0.0.1/
+
+Please note that populating the site with all example records is an optional
+step that may take considerable time (30 minutes or more).
 
 Appendix: Git workflow
 ======================
