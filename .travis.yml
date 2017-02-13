@@ -39,7 +39,8 @@ cache:
 env:
   - REQUIREMENTS=lowest
   - REQUIREMENTS=release
-  - REQUIREMENTS=devel
+  - REQUIREMENTS=devel-cernopendata
+  - REQUIREMENTS=devel-all
 
 python:
   - "2.7"
@@ -50,7 +51,9 @@ before_install:
   - "travis_retry pip install twine wheel coveralls requirements-builder"
   - "requirements-builder --level=min setup.py > .travis-lowest-requirements.txt"
   - "requirements-builder --level=pypi setup.py > .travis-release-requirements.txt"
-  - "requirements-builder --level=dev --req requirements-devel.txt setup.py > .travis-devel-requirements.txt"
+  - "requirements-builder --level=dev --req requirements-devel-cernopendata.txt setup.py > .travis-devel-cernopendata-requirements.txt"
+  - "cat requirements-devel-cernopendata.txt requirements-devel-invenio.txt > /tmp/requirements-devel-all.txt"
+  - "requirements-builder --level=dev --req /tmp/requirements-devel-all.txt setup.py > .travis-devel-all-requirements.txt"
 
 install:
   - "travis_retry pip install -r .travis-${REQUIREMENTS}-requirements.txt"

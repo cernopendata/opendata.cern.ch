@@ -103,8 +103,7 @@ mkvirtualenv ${INVENIO_WEB_VENV}
 set -o errexit
 # set -o nounset
 
-# install development requirements:
-pip install -r requirements-devel.txt
+# install CERN Open Data instance packages:
 pip install -e .[all]
 
 # sphinxdoc-customise-instance-begin
