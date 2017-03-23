@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2012, 2013, 2014, 2015 CERN.
+# Copyright (C) 2012, 2013, 2014, 2015, 2016 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -18,8 +18,9 @@
 # 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
 
 from fixture import DataSet
-#from invenio.modules.search.fixtures import FormatData
+# from invenio.modules.search.fixtures import FormatData
 from invenio.modules.search import fixtures as default
+
 
 class CollectionData(DataSet):
 
@@ -197,6 +198,54 @@ class CollectionData(DataSet):
             ('en', 'ln'): u'ATLAS Higgs Challenge 2014',
         }
 
+    class CMSSimulatedDatasets(siteCollection):
+        id = 25
+        name = 'CMS-Simulated-Datasets'
+        dbquery = '980__a:"CMS-Simulated-Datasets"'
+        names = {
+            ('en', 'ln'): u'CMS Simulated Datasets',
+        }
+
+    class CMSValidationUtilities(siteCollection):
+        id = 26
+        name = 'CMS-Validation-Utilities'
+        dbquery = '980__a:"CMS-Validation-Utilities"'
+        names = {
+            ('en', 'ln'): u'CMS Validation Utilities',
+        }
+
+    class CMSTriggerInformation(siteCollection):
+        id = 27
+        name = 'CMS-Trigger-Information'
+        dbquery = '980__a:"CMS-Trigger-Information"'
+        names = {
+            ('en', 'ln'): u'CMS Trigger Information',
+        }
+
+    class CMSConditionData(siteCollection):
+        id = 28
+        name = 'CMS-Condition-Data'
+        dbquery = '980__a:"CMS-Condition-Data"'
+        names = {
+            ('en', 'ln'): u'CMS Condition Data',
+        }
+
+    class CMSConfigurationFiles(siteCollection):
+        id = 29
+        name = 'CMS-Configuration-Files'
+        dbquery = '980__a:"CMS-Configuration-Files"'
+        names = {
+            ('en', 'ln'): u'CMS Configuration Files',
+        }
+
+    class ATLASSimulatedDatasets(siteCollection):
+        id = 30
+        name = 'ATLAS-Simulated-Datasets'
+        dbquery = '980__a:"ATLAS-Simulated-Datasets"'
+        names = {
+            ('en', 'ln'): u'ATLAS Simulated Datasets',
+        }
+
 
 class CollectionCollectionData(DataSet):
 
@@ -212,28 +261,58 @@ class CollectionCollectionData(DataSet):
         score = 0
         type = 'r'
 
+    class CMS_CMSSimulatedDatasets:
+        dad = CollectionData.CMS
+        son = CollectionData.CMSSimulatedDatasets
+        score = 1
+        type = 'r'
+
     class CMS_CMSDerivedDatasets:
         dad = CollectionData.CMS
         son = CollectionData.CMSDerivedDatasets
-        score = 1
+        score = 2
         type = 'r'
 
     class CMS_CMSTools:
         dad = CollectionData.CMS
         son = CollectionData.CMSTools
-        score = 2
+        score = 3
         type = 'r'
 
-    class CMS_CMSValidatedRuns:
+    class CMS_CMSValidationUtilities:
         dad = CollectionData.CMS
-        son = CollectionData.CMSValidatedRuns
-        score = 3
+        son = CollectionData.CMSValidationUtilities
+        score = 4
         type = 'r'
 
     class CMS_CMSLearningResources:
         dad = CollectionData.CMS
         son = CollectionData.CMSLearningResources
-        score = 4
+        score = 5
+        type = 'r'
+
+    class CMS_CMSOpenDataInstructions:
+        dad = CollectionData.CMS
+        son = CollectionData.CMSOpenDataInstructions
+        score = 6
+        type = 'r'
+
+    class CMS_CMSTriggerInformation:
+        dad = CollectionData.CMS
+        son = CollectionData.CMSTriggerInformation
+        score = 7
+        type = 'r'
+
+    class CMS_CMSConditionData:
+        dad = CollectionData.CMS
+        son = CollectionData.CMSConditionData
+        score = 8
+        type = 'r'
+
+    class CMS_CMSConfigurationFiles:
+        dad = CollectionData.CMS
+        son = CollectionData.CMSConfigurationFiles
+        score = 9
         type = 'r'
 
     class siteCollection_CMSPrimaryDatasets:
@@ -254,9 +333,9 @@ class CollectionCollectionData(DataSet):
         score = 2
         type = 'r'
 
-    class siteCollection_CMSValidatedRuns:
+    class siteCollection_CMSValidationUtilities:
         dad = CollectionData.siteCollection
-        son = CollectionData.CMSValidatedRuns
+        son = CollectionData.CMSValidationUtilities
         score = 3
         type = 'r'
 
@@ -416,12 +495,6 @@ class CollectionCollectionData(DataSet):
         score = 14
         type = 'r'
 
-    class CMS_CMSOpenDataInstructions:
-        dad = CollectionData.CMS
-        son = CollectionData.CMSOpenDataInstructions
-        score = 5
-        type = 'r'
-
     class siteCollection_AuthorLists:
         dad = CollectionData.siteCollection
         son = CollectionData.AuthorLists
@@ -440,6 +513,42 @@ class CollectionCollectionData(DataSet):
         score = 17
         type = 'r'
 
+    class siteCollection_CMSSimulatedDatasets:
+        dad = CollectionData.siteCollection
+        son = CollectionData.CMSSimulatedDatasets
+        score = 18
+        type = 'r'
+
+    class siteCollection_CMSTriggerInformation:
+        dad = CollectionData.siteCollection
+        son = CollectionData.CMSTriggerInformation
+        score = 19
+        type = 'r'
+
+    class siteCollection_CMSConditionData:
+        dad = CollectionData.siteCollection
+        son = CollectionData.CMSConditionData
+        score = 20
+        type = 'r'
+
+    class siteCollection_CMSConfigurationFiles:
+        dad = CollectionData.siteCollection
+        son = CollectionData.CMSConfigurationFiles
+        score = 21
+        type = 'r'
+
+    class siteCollection_ATLASSimulatedDatasets:
+        dad = CollectionData.siteCollection
+        son = CollectionData.ATLASSimulatedDatasets
+        score = 22
+        type = 'r'
+
+    class ATLAS_ATLASSimulatedDatasets:
+        dad = CollectionData.ATLAS
+        son = CollectionData.ATLASSimulatedDatasets
+        score = 4
+        type = 'r'
+
 
 class CollectiondetailedrecordpagetabsData(DataSet):
 
@@ -452,27 +561,27 @@ class CollectionFormatData(DataSet):
 
     class CollectionFormat_1_1:
         score = 100
-        id_format = 1 # FormatData.Format_1.ref('id')
+        id_format = 1  # FormatData.Format_1.ref('id')
         id_collection = CollectionData.siteCollection.ref('id')
 
     class CollectionFormat_1_2:
         score = 90
-        id_format = 2 # FormatData.Format_2.ref('id')
+        id_format = 2  # FormatData.Format_2.ref('id')
         id_collection = CollectionData.siteCollection.ref('id')
 
     class CollectionFormat_1_3:
         score = 80
-        id_format = 3 # FormatData.Format_3.ref('id')
+        id_format = 3  # FormatData.Format_3.ref('id')
         id_collection = CollectionData.siteCollection.ref('id')
 
     class CollectionFormat_1_4:
         score = 70
-        id_format = 4 # FormatData.Format_4.ref('id')
+        id_format = 4  # FormatData.Format_4.ref('id')
         id_collection = CollectionData.siteCollection.ref('id')
 
     class CollectionFormat_1_5:
         score = 60
-        id_format = 5 # FormatData.Format_5.ref('id')
+        id_format = 5  # FormatData.Format_5.ref('id')
         id_collection = CollectionData.siteCollection.ref('id')
 
 
@@ -489,7 +598,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_3:
-        body = u'<a href="http://aliceinfo.cern.ch/Public/Welcome.html">ALICE</a> (A Large Ion Collider Experiment) is a heavy-ion <a href="http://home.web.cern.ch/about/how-detector-works">detector</a> designed to study the physics of strongly interacting matter at extreme energy densities, where a phase of matter called <a href="http://home.web.cern.ch/about/physics/heavy-ions-and-quark-gluon-plasma">quark-gluon plasma</a> forms.</br>The ALICE collaboration uses the 10,000-tonne ALICE detector – 26 m long, 16 m high, and 16 m wide – to study quark-gluon plasma. The detector sits in a vast cavern 56 m below ground close to the village of St Genis-Pouilly in France, receiving beams from the LHC. More than 1000 scientists are part of the collaboration.'
+        body = u'<a href="http://aliceinfo.cern.ch/Public/Welcome.html">ALICE</a> (A Large Ion Collider Experiment) is a heavy-ion <a href="http://home.web.cern.ch/about/how-detector-works">detector</a> designed to study the physics of strongly interacting matter at extreme energy densities, where a phase of matter called <a href="http://home.web.cern.ch/about/physics/heavy-ions-and-quark-gluon-plasma">quark-gluon plasma</a> forms.</br>The ALICE collaboration uses the 10,000-tonne ALICE detector – 26 m long, 16 m high and 16 m wide – to study quark-gluon plasma. The detector sits in a vast cavern 56 m below ground close to the village of St Genis-Pouilly in France, receiving beams from the LHC. More than 1000 scientists are part of the collaboration.'
         id = 3
         title = u'description'
 
@@ -539,7 +648,7 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_13:
-        body = u'This collection includes tools, with which the CMS open data can be accessed and used#$#$#. It contains the VM image of the CMS environment through which the datasets can be read. It includes the software with which the derived datasets were produced, and analysis examples. It also contains the source code for the online applications deployed on this site.'
+        body = u'This collection includes tools with which the CMS open data can be accessed and used#$#$#. It contains the VM image of the CMS environment through which the datasets can be read. It includes the software with which the derived datasets were produced, and analysis examples. It also contains the source code for the online applications deployed on this site.'
         id = 13
         title = u'description'
 
@@ -559,24 +668,24 @@ class PortalboxData(DataSet):
         title = u'description'
 
     class Portalbox_17:
-        body = u'CMS is releasing data in the same format as used in data analysis by CMS physicists. A CMS-specific analysis framework is needed, and it is provided as a Virtual Machine image with the CMS analysis environment. The data can be accessed directly through the VM image. Basic information of the data contents is provided in <a href="http://opendata.cern.ch/about/CMS">About CMS</a> and in <a href="http://opendata.cern.ch/about/CMS-Physics-Objects">About CMS Physics Objects</a>. The original data are in primary datasets, i.e. no selection nor identification criteria have been applied (apart from the trigger decision), and these have to be applied in the subsequent analysis step. For the first release, no simulated Monte Carlo datasets are provided'
+        body = u'CMS Open Data are available in the same format as used in analysis by CMS physicists. A CMS-specific analysis framework is needed, and it is provided as a Virtual Machine image with the CMS analysis environment. The data can be accessed directly through the VM image. Basic information of the data contents is provided in <a href="http://opendata.cern.ch/about/CMS">About CMS</a> and in <a href="http://opendata.cern.ch/about/CMS-Physics-Objects">About CMS Physics Objects</a>. The original data are in primary datasets, i.e. no selection nor identification criteria have been applied (apart from the trigger decision), and these have to be applied in the subsequent analysis step. The 2011 data release includes simulated Monte Carlo datasets, but no simulated datasets are provided for the 2010 release.'
         id = 17
         title = u'research_description'
 
     class Portalbox_18:
-        body = u'These ALICE datasets contain a sample of events from the p-p an PbPb LHC runs in 2010, in the ESD (event summary data) format of the ALICE reconstruction program. The events are unbiased and are not a result of event selections and this format is directly usable by the analysis done by ALICE physicists. The data can be downloaded and used from a specific ALICE virtual machine image which can be installed using this procedure (link) and which demonstrates some ALICE analysis and event display examples. A single dataset is exposed in the form of a custom VSD (V0 summary data) format which is not usable in normal analysis but just by a set of masterclasses available also from the ALICE VM. For the first release, no simulated Monte Carlo datasets are provided.'
+        body = u'These ALICE datasets contain a sample of events from the pp and PbPb LHC runs in 2010, in the ESD (event summary data) format of the ALICE reconstruction program. The events are unbiased and are not a result of event selections and this format is directly usable by the analysis done by ALICE physicists. The data can be downloaded and used from a specific ALICE virtual machine image which can be installed using this procedure (link) and which demonstrates some ALICE analysis and event display examples. A single dataset is exposed in the form of a custom VSD (V0 summary data) format which is not usable in normal analysis but just by a set of masterclasses available also from the ALICE VM. For the first release, no simulated Monte Carlo datasets are provided.'
         id = 18
         title = u'research_description'
 
     class Portalbox_19:
-        body = u'ATLAS.svg'
+        body = u'The ATLAS (A Toroidal LHC ApparatuS) experiment is a general purpose detector exploring topics like the properties of the Higgs-like particle, extra dimensions of space, unification of fundamental forces, and evidence for dark matter candidates in the Universe.'
         id = 19
-        title = u'image'
+        title = u'description'
 
     class Portalbox_20:
-        body = u'The ATLAS (A Toroidal LHC ApparatuS) experiment is a general purpose detector exploring topics like the properties of the Higgs-like particle, extra dimensions of space, unification of fundamental forces, and evidence for dark matter candidates in the Universe.'
+        body = u'ATLAS.svg'
         id = 20
-        title = u'description'
+        title = u'image'
 
     class Portalbox_21:
         body = u'This collection includes learning resources that use ATLAS public data#$#$#. The items in this collection are suitable for education purposes.'
@@ -584,7 +693,7 @@ class PortalboxData(DataSet):
         title = u'description'
 
     class Portalbox_22:
-        body = u'This collection includes tools, with which the ATLAS open data can be accessed and used#$#$#.'
+        body = u'This collection includes tools with which the ATLAS open data can be accessed and used#$#$#.'
         id = 22
         title = u'description'
 
@@ -644,7 +753,7 @@ class PortalboxData(DataSet):
         title = u'short_description_e'
 
     class Portalbox_34:
-        body = u'The ATLAS (A Toroidal LHC ApparatuS) experiment is a general purpose detector exploring topics like the properties of the Higgs-like particle, extra dimensions of space, unification of fundamental forces, and evidence for dark matter candidates in the Universe.'
+        body = u'The ATLAS (A Toroidal LHC ApparatuS) experiment is a general-purpose detector exploring topics like the properties of the Higgs-like particle, extra dimensions of space, unification of fundamental forces and evidence for dark matter candidates in the Universe.'
         id = 34
         title = u'short_description_e'
 
@@ -654,7 +763,7 @@ class PortalboxData(DataSet):
         title = u'short_description_e'
 
     class Portalbox_36:
-        body = u'To analyse CMS data, a Virtual Machine with the CMS analysis environment is provided. The data can be accessed directly through the VM. In the primary datasets, no selection nor identification criteria have been applied. For this release, no simulated Monte Carlo datasets are provided.'
+        body = u'To analyse CMS data, a Virtual Machine with the CMS analysis environment is provided. The data can be accessed directly through the VM. In the primary datasets, no selection nor identification criteria have been applied. The 2011 data release includes simulated Monte Carlo datasets, but no simulated datasets are provided for the 2010 release.'
         id = 36
         title = u'short_description_r'
 
@@ -674,7 +783,7 @@ class PortalboxData(DataSet):
         title = u'short_description_r'
 
     class Portalbox_40:
-        body = u'According to the LHCb External Data Access Policy, reconstructed data will be made openly accessible 5 years after the data is taken. For the data that have already been taken, the 5 years are counted from the date of ratification of the experiment’s policy. Thus, the first release of LHCb data will happen in 2018.'
+        body = u'According to the LHCb External Data Access Policy, reconstructed data will be made openly accessible 5 years after the data are taken. For the data that have already been taken, the 5 years are counted from the date of ratification of the experiment’s policy. Thus, the first release of LHCb data will happen in 2018.'
         id = 40
         title = u'research_description'
 
@@ -691,6 +800,36 @@ class PortalboxData(DataSet):
     class Portalbox_43:
         body = u'This collection contains ATLAS Higgs Machine Learning Challenge 2014.'
         id = 43
+        title = u'description'
+
+    class Portalbox_44:
+        body = u'This collection contains CMS Simulated Datasets.'
+        id = 44
+        title = u'description'
+
+    class Portalbox_45:
+        body = u'This collection contains CMS Validation Utilities.'
+        id = 45
+        title = u'description'
+
+    class Portalbox_46:
+        body = u'This collection contains CMS Trigger Information.'
+        id = 46
+        title = u'description'
+
+    class Portalbox_47:
+        body = u'This collection contains CMS Condition Data.'
+        id = 47
+        title = u'description'
+
+    class Portalbox_48:
+        body = u'This collection contains the configuration files that were used in different steps of the data processing.'
+        id = 48
+        title = u'description'
+
+    class Portalbox_49:
+        body = u'This collection contains ATLAS simulated datasets.'
+        id = 49
         title = u'description'
 
 
@@ -996,6 +1135,49 @@ class CollectionPortalboxData(DataSet):
         id_portalbox = PortalboxData.Portalbox_43.ref('id')
         score = 100
         id_collection = CollectionData.ATLASHiggsChallenge2014.ref('id')
+
+    class CollectionPortalbox_25_44_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_44.ref('id')
+        score = 100
+        id_collection = CollectionData.CMSSimulatedDatasets.ref('id')
+
+    class CollectionPortalbox_26_45_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_45.ref('id')
+        score = 100
+        id_collection = CollectionData.CMSValidationUtilities.ref('id')
+
+    class CollectionPortalbox_27_46_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_46.ref('id')
+        score = 100
+        id_collection = CollectionData.CMSTriggerInformation.ref('id')
+
+    class CollectionPortalbox_28_47_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_47.ref('id')
+        score = 100
+        id_collection = CollectionData.CMSConditionData.ref('id')
+
+    class CollectionPortalbox_29_48_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_48.ref('id')
+        score = 100
+        id_collection = CollectionData.CMSConfigurationFiles.ref('id')
+
+    class CollectionPortalbox_30_49_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_49.ref('id')
+        score = 100
+        id_collection = CollectionData.ATLASSimulatedDatasets.ref('id')
+
 
 class FacetCollectionData(DataSet):
 

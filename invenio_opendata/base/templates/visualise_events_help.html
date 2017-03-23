@@ -4,7 +4,7 @@
         <h2>How to use the event display</h2>
         <div>
           <p>
-            The CMS event display (called iSpy Online) can be used to visualise in your browser collision data recorded by the CMS detector. Files of a custom type called <kbd>.ig</kbd> can be opened using iSpy Online. Each <kbd>.ig</kbd> file is in fact a collection containing numerous individual collision events.
+            The CMS event display (called iSpy) can be used to visualise in your browser collision data recorded by the CMS detector. Files of a custom type called <kbd>.ig</kbd> can be opened using iSpy. Each <kbd>.ig</kbd> file is in fact a collection containing numerous individual collision events.
           </p>
           <p>
             This guide will take you through some of the basic functionality of the event display.
@@ -21,16 +21,13 @@
         <p>
           <ul class="row">
             <li class="col-sm-6">
-              <img src="{{ url_for('static', filename='img/iSpy-Online-graphics/open.png')}}"> Open <kbd>.ig</kbd> files from the server.<br /><img class="screen-s" src="{{ url_for('static', filename='img/iSpy-Online-graphics/open.gif') }}">
+              <i class="fa fa-folder-open"></i> Open <kbd>.ig</kbd> files from the server.<br /><img class="screen-s" src="{{ url_for('static', filename='img/iSpy-Online-graphics/open.gif') }}">
             </li>
             <li class="col-sm-6">
-              <img src="{{ url_for('static', filename='img/iSpy-Online-graphics/prev-event.png')}}"> and <img src="{{ url_for('static', filename='img/iSpy-Online-graphics/next-event.png')}}"> Navigate to previous and next events in the <kbd>.ig</kbd> file you loaded.<br /><img class="screen-s" src="{{ url_for('static', filename='img/iSpy-Online-graphics/prevnext.gif')}}">
+                <i class="fa fa-step-backward"></i> and <i class="fa fa-step-forward"></i> Navigate to previous and next events in the <kbd>.ig</kbd> file you loaded.<br /><img class="screen-s" src="{{ url_for('static', filename='img/iSpy-Online-graphics/prevnext.gif')}}">
             </li>
             <li class="col-sm-6">
-              <img src="{{ url_for('static', filename='img/iSpy-Online-graphics/home.png')}}"> Returns the event display to its initial orientation.<br /><img class="screen-s" src="{{ url_for('static', filename='img/iSpy-Online-graphics/start.gif')}}">
-            </li>
-            <li>
-              <img src="{{ url_for('static', filename='img/iSpy-Online-graphics/zoom_in_24.png')}}"> and <img src="{{ url_for('static', filename='img/iSpy-Online-graphics/zoom_out_24.png')}}"> Zoom in and out.
+                <i class="fa fa-home"></i> Returns the event display to its initial orientation. <i class="fa fa-search-plus"></i> and <i class="fa fa-search-minus"></i> Zoom in and out.<br /><img class="screen-s" src="{{ url_for('static', filename='img/iSpy-Online-graphics/start.gif')}}">
             </li>
             <li class="col-sm-6">
               <img src="{{ url_for('static', filename='img/iSpy-Online-graphics/z-plane.png')}}">, <img src="{{ url_for('static', filename='img/iSpy-Online-graphics/y-plane.png')}}"> and <img src="{{ url_for('static', filename='img/iSpy-Online-graphics/x-plane.png')}}"> View the collision event along one of three axes.<br /><img class="screen-s" src="{{ url_for('static', filename='img/iSpy-Online-graphics/axes.gif')}}">
@@ -39,10 +36,7 @@
               <img src="{{ url_for('static', filename='img/iSpy-Online-graphics/perspective-projection.png')}}"> and <img src="{{ url_for('static', filename='img/iSpy-Online-graphics/orthographic-projection.png')}}"> Switch between a perspective projection and an orthographic projection.<br /><img class="screen-s" src="{{ url_for('static', filename='img/iSpy-Online-graphics/projection.gif')}}">
             </li>
             <li class="col-sm-6">
-              <img src="{{ url_for('static', filename='img/iSpy-Online-graphics/settings.png')}}"> Use the settings button to invert the colours of the display or display the frame rate.<br /><img  class="screen-s" src="{{ url_for('static', filename='img/iSpy-Online-graphics/settings.gif')}}">
-            </li>
-            <li class="col-sm-6">
-              <img src="{{ url_for('static', filename='img/iSpy-Online-graphics/help2.png')}}"> Displays information about iSpy Online.
+              <i class="fa fa-gear"></i> Use the settings button to invert the colours of the display or display the frame rate.<br /><img  class="screen-s" src="{{ url_for('static', filename='img/iSpy-Online-graphics/settings.gif')}}">
             </li>
           </ul>
         </p>
@@ -71,6 +65,3 @@
       </div>
     </div>
   </div>
-
-
-

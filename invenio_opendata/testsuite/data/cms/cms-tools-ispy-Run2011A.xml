@@ -1,0 +1,68 @@
+<collection xmlns="http://www.loc.gov/MARC21/slim">
+  <record>
+    <controlfield tag="001">551</controlfield>
+    <datafield tag="100" ind1=" " ind2=" ">
+      <subfield code="a">McCauley, Thomas</subfield>
+    </datafield>
+    <datafield tag="245" ind1=" " ind2=" ">
+      <subfield code="a">Software to extract the event display format from the CMS primary dataset for 2011 data taking</subfield>
+    </datafield>
+    <datafield tag="260" ind1=" " ind2=" ">
+      <subfield code="b">CERN Open Data Portal</subfield>
+      <subfield code="c">2016</subfield>
+    </datafield>
+    <datafield tag="264" ind1=" " ind2="0">
+      <subfield code="c">2016</subfield>
+    </datafield>
+    <datafield tag="516" ind1=" " ind2=" ">
+      <subfield code="a">Use this with any of the CMS primary datasets for 2011 data taking</subfield>
+    </datafield>
+    <datafield tag="520" ind1=" " ind2=" ">
+      <subfield code="a">Software to extract the data for the browser-based event display for the CMS Experiment</subfield>
+    </datafield>
+    <datafield tag="538" ind1=" " ind2=" ">
+      <subfield code="a">Software release: CMSSW_5_3_32</subfield>
+      <subfield code="i">Use this code with the CMS Open Data VM environment</subfield>
+      <subfield code="w">252</subfield>
+    </datafield>
+    <datafield tag="540" ind1=" " ind2=" ">
+      <subfield code="a">GNU General Public License (GPL) version 3</subfield>
+    </datafield>
+    <datafield tag="567" ind1=" " ind2=" ">
+      <subfield code="a">The software produces the objects to be displayed. The configuration file https://github.com/cms-outreach/ispy-analyzers/blob/Run2011A/python/ISpy_AOD_Producer_cff.py defines the objects to write out, which is done in the corresponding cc files in the src directory. No event selection, apart from accepting only the validated runs, is applied.</subfield>
+    </datafield>
+    <datafield tag="583" ind1=" " ind2=" ">
+      <subfield code="a">Only the list of validated runs for 2011 data taking are accepted:</subfield>
+      <subfield code="w">1001</subfield>
+    </datafield>
+    <datafield tag="693" ind1=" " ind2=" ">
+      <subfield code="a">CERN-LHC</subfield>
+      <subfield code="e">CMS</subfield>
+    </datafield>
+    <datafield tag="581" ind1=" " ind2=" ">
+      <subfield code="a">See the run instructions in</subfield>
+      <subfield code="u">https://github.com/cms-outreach/ispy-analyzers/blob/Run2011A/README.md</subfield>
+      <subfield code="y">GitHub</subfield>
+    </datafield>
+    <datafield tag="787" ind1=" " ind2=" ">
+      <subfield code="a">The output are files in json format such as</subfield>
+      <subfield code="n">More information on the format can be found at</subfield>
+      <subfield code="u">http://cms-outreach.github.io/ispy/#what-is-an-ig-file</subfield>
+      <subfield code="y">http://cms-outreach.github.io/ispy/#what-is-an-ig-file</subfield>
+      <subfield code="w">629</subfield>
+    </datafield>
+    <datafield tag="856" ind1="4" ind2=" ">
+      <subfield code="u">https://github.com/cms-outreach/ispy-analyzers/tree/Run2011A</subfield>
+      <subfield code="u">https://github.com/cms-outreach/ispy-webgl</subfield>
+    </datafield>
+    <datafield tag="964" ind1=" " ind2="0">
+      <subfield code="c">Run2011A</subfield>
+    </datafield>
+    <datafield tag="980" ind1=" " ind2=" ">
+      <subfield code="a">CMS-Tools</subfield>
+    </datafield>
+    <datafield tag="980" ind1=" " ind2=" ">
+      <subfield code="b">Research</subfield>
+    </datafield>
+  </record>
+</collection>

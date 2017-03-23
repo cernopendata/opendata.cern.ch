@@ -1,0 +1,137 @@
+# Auto generated configuration file
+# using: 
+# Revision: 1.381.2.28 
+# Source: /local/reps/CMSSW/CMSSW/Configuration/PyReleaseValidation/python/ConfigBuilder.py,v 
+# with command line options: Configuration/GenProduction/python/SevenTeV/TT_7TeV_powheg_herwig_cff.py --filein dbs:/TT_weights_CT10_7TeV-powheg/Summer11LegwmLHE-START53_LV4-v2/GEN --fileout file:TOP-Summer11Leg-00028.root --mc --eventcontent RAWSIM --customise SimG4Core/Application/reproc2011_2012_cff.customiseG4,Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM --conditions START53_LV4::All --beamspot Realistic7TeV2011CollisionV2 --step GEN,SIM --python_filename /afs/cern.ch/cms/PPD/PdmV/work/McM/submit/TOP-Summer11Leg-00028/TOP-Summer11Leg-00028_1_cfg.py --no_exec -n 13
+import FWCore.ParameterSet.Config as cms
+
+process = cms.Process('SIM')
+
+# import of standard configurations
+process.load('Configuration.StandardSequences.Services_cff')
+process.load('SimGeneral.HepPDTESSource.pythiapdt_cfi')
+process.load('FWCore.MessageService.MessageLogger_cfi')
+process.load('Configuration.EventContent.EventContent_cff')
+process.load('SimGeneral.MixingModule.mixNoPU_cfi')
+process.load('Configuration.StandardSequences.GeometryRecoDB_cff')
+process.load('Configuration.StandardSequences.GeometrySimDB_cff')
+process.load('Configuration.StandardSequences.MagneticField_38T_cff')
+process.load('Configuration.StandardSequences.Generator_cff')
+process.load('IOMC.EventVertexGenerators.VtxSmearedRealistic7TeV2011CollisionV2_cfi')
+process.load('GeneratorInterface.Core.genFilterSummary_cff')
+process.load('Configuration.StandardSequences.SimIdeal_cff')
+process.load('Configuration.StandardSequences.EndOfProcess_cff')
+process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
+
+process.maxEvents = cms.untracked.PSet(
+    input = cms.untracked.int32(13)
+)
+
+# Input source
+process.source = cms.Source("PoolSource",
+    secondaryFileNames = cms.untracked.vstring(),
+    fileNames = cms.untracked.vstring('/store/generator/Summer11LegwmLHE/TT_weights_CT10_7TeV-powheg/GEN/START53_LV4-v2/10000/0200262E-AD66-E411-9E6C-00E081B705C6.root', 
+        '/store/generator/Summer11LegwmLHE/TT_weights_CT10_7TeV-powheg/GEN/START53_LV4-v2/10000/020502C0-B063-E411-8545-B8CA3A709648.root', 
+        '/store/generator/Summer11LegwmLHE/TT_weights_CT10_7TeV-powheg/GEN/START53_LV4-v2/10000/02E59548-AC66-E411-B15C-003048BE50AA.root', 
+        '/store/generator/Summer11LegwmLHE/TT_weights_CT10_7TeV-powheg/GEN/START53_LV4-v2/10000/0AFC8387-AE63-E411-BDD4-0025905938B4.root', 
+        '/store/generator/Summer11LegwmLHE/TT_weights_CT10_7TeV-powheg/GEN/START53_LV4-v2/10000/0C19B5B3-AC66-E411-A3ED-00E081B705C6.root', 
+        '/store/generator/Summer11LegwmLHE/TT_weights_CT10_7TeV-powheg/GEN/START53_LV4-v2/10000/0C5E3213-AE66-E411-8213-00E081B705C6.root', 
+        '/store/generator/Summer11LegwmLHE/TT_weights_CT10_7TeV-powheg/GEN/START53_LV4-v2/10000/14E0BA58-AE63-E411-BF2C-0025905A60BC.root', 
+        '/store/generator/Summer11LegwmLHE/TT_weights_CT10_7TeV-powheg/GEN/START53_LV4-v2/10000/14F982C9-B163-E411-8A04-0002C90F8036.root', 
+        '/store/generator/Summer11LegwmLHE/TT_weights_CT10_7TeV-powheg/GEN/START53_LV4-v2/10000/18BCD7C2-AB63-E411-AF44-02163E00E86B.root', 
+        '/store/generator/Summer11LegwmLHE/TT_weights_CT10_7TeV-powheg/GEN/START53_LV4-v2/10000/1A635C95-AD66-E411-AC93-605040302010.root')
+)
+
+process.options = cms.untracked.PSet(
+
+)
+
+# Production Info
+process.configurationMetadata = cms.untracked.PSet(
+    version = cms.untracked.string('$Revision: 1.3 $'),
+    annotation = cms.untracked.string('Showering of Powheg TTbar events with Herwig+Jimmy, 7 TeV, AUET2'),
+    name = cms.untracked.string('$Source: /local/reps/CMSSW/CMSSW/Configuration/GenProduction/python/SevenTeV/TT_7TeV_powheg_herwig_cff.py,v $')
+)
+
+# Output definition
+
+process.RAWSIMoutput = cms.OutputModule("PoolOutputModule",
+    splitLevel = cms.untracked.int32(0),
+    eventAutoFlushCompressedSize = cms.untracked.int32(5242880),
+    outputCommands = process.RAWSIMEventContent.outputCommands,
+    fileName = cms.untracked.string('file:TOP-Summer11Leg-00028.root'),
+    dataset = cms.untracked.PSet(
+        filterName = cms.untracked.string(''),
+        dataTier = cms.untracked.string('GEN-SIM')
+    ),
+    SelectEvents = cms.untracked.PSet(
+        SelectEvents = cms.vstring('generation_step')
+    )
+)
+
+# Additional output definition
+
+# Other statements
+process.genstepfilter.triggerConditions=cms.vstring("generation_step")
+from Configuration.AlCa.GlobalTag import GlobalTag
+process.GlobalTag = GlobalTag(process.GlobalTag, 'START53_LV4::All', '')
+
+process.generator = cms.EDFilter("Herwig6HadronizerFilter",
+    HerwigParameters = cms.PSet(
+        herwigParams = cms.vstring('RMASS(5) = 4.8       ! Set b mass.', 
+            'RMASS(6) = 172.5     ! Set top mass.', 
+            'SOFTME   = 0         ! Do not use soft matrix-element corrections.'),
+        parameterSets = cms.vstring('herwigParams', 
+            'herwigAUET2settings'),
+        herwigAUET2settings = cms.vstring('MODPDF(1)  = 10042      ! PDF set according to LHAGLUE', 
+            'MODPDF(2)  = 10042      ! CTEQ6L1', 
+            'ISPAC      = 2', 
+            'QSPAC      = 2.5', 
+            'PTRMS      = 1.2', 
+            'PTJIM      = 4.412      ! 3.224 * (runArgs.ecmEnergy/1800.)**0.231 @ 7 TeV', 
+            'JMRAD(73)  = 2.386      ! inverse proton radius squared', 
+            'PRSOF      = 0.0        ! prob. of a soft underlying event', 
+            'MAXER      = 1000000    ! max error')
+    ),
+    doMPInteraction = cms.bool(True),
+    useJimmy = cms.bool(True),
+    herwigHepMCVerbosity = cms.untracked.bool(False),
+    filterEfficiency = cms.untracked.double(1.0),
+    herwigVerbosity = cms.untracked.int32(0),
+    emulatePythiaStatusCodes = cms.untracked.bool(True),
+    comEnergy = cms.double(7000.0),
+    lhapdfSetPath = cms.untracked.string(''),
+    printCards = cms.untracked.bool(False),
+    crossSection = cms.untracked.double(149.6),
+    maxEventsToPrint = cms.untracked.int32(0)
+)
+
+
+# Path and EndPath definitions
+process.generation_step = cms.Path(process.pgen)
+process.simulation_step = cms.Path(process.psim)
+process.genfiltersummary_step = cms.EndPath(process.genFilterSummary)
+process.endjob_step = cms.EndPath(process.endOfProcess)
+process.RAWSIMoutput_step = cms.EndPath(process.RAWSIMoutput)
+
+# Schedule definition
+process.schedule = cms.Schedule(process.generation_step,process.genfiltersummary_step,process.simulation_step,process.endjob_step,process.RAWSIMoutput_step)
+# filter all path with the production filter sequence
+for path in process.paths:
+	getattr(process,path)._seq = process.generator * getattr(process,path)._seq 
+
+# customisation of the process.
+
+# Automatic addition of the customisation function from Configuration.DataProcessing.Utils
+from Configuration.DataProcessing.Utils import addMonitoring 
+
+#call to customisation function addMonitoring imported from Configuration.DataProcessing.Utils
+process = addMonitoring(process)
+
+# Automatic addition of the customisation function from SimG4Core.Application.reproc2011_2012_cff
+from SimG4Core.Application.reproc2011_2012_cff import customiseG4 
+
+#call to customisation function customiseG4 imported from SimG4Core.Application.reproc2011_2012_cff
+process = customiseG4(process)
+
+# End of customisation functions

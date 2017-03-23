@@ -1,0 +1,98 @@
+<collection xmlns="http://www.loc.gov/MARC21/slim">
+  <record>
+    <controlfield tag="001">560</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">DOI</subfield>
+      <subfield code="a">10.7483/OPENDATA.CMS.TF26.KG2D</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2=" ">
+      <subfield code="a">Geiser, Achim</subfield>
+    </datafield>
+    <datafield tag="245" ind1=" " ind2=" ">
+      <subfield code="a">Example code to produce the di-muon spectrum from a CMS 2010 primary dataset</subfield>
+    </datafield>
+    <datafield tag="260" ind1=" " ind2=" ">
+      <subfield code="b">CERN Open Data Portal</subfield>
+      <subfield code="c">2016</subfield>
+    </datafield>
+    <datafield tag="264" ind1=" " ind2="0">
+      <subfield code="c">2016</subfield>
+    </datafield>
+    <datafield tag="516" ind1=" " ind2=" ">
+      <subfield code="a"><![CDATA[ <p>Use this with 2010 Mu primary datasets or any other 2010 primary datasets containing muons (see detailed instructions in code). You can also run this analysis on 2011 data, but please be aware that that the code has not been optimised for these data. Please consult <a href="http://opendata.cern.ch/getting-started/CMS/2011">Getting started with CMS 2011 data</a> for more information.</p> ]]></subfield>
+      <subfield code="u">http://opendata.cern.ch/record/14</subfield>
+    </datafield>
+    <datafield tag="520" ind1=" " ind2=" ">
+      <subfield code="a"><![CDATA[ <p>This simple analysis example is set up at Research level, i.e. it requires university-student-level programming experience.
+      Minimal acquaintance with Linux and the ROOT analysis package (<a href="https://root.cern.ch/">https://root.cern.ch/</a>) as well as a basic text editor is needed.</p> ]]></subfield>
+    </datafield>
+    <datafield tag="538" ind1=" " ind2=" ">
+      <subfield code="a">Software release: CMSSW_4_2_8</subfield>
+      <subfield code="i">Use this code with the CMS Open Data VM environment</subfield>
+      <subfield code="w">250</subfield>
+    </datafield>
+    <datafield tag="540" ind1=" " ind2=" ">
+      <subfield code="a">GNU General Public License (GPL) version 3</subfield>
+    </datafield>
+    <datafield tag="583" ind1=" " ind2=" ">
+      <subfield code="a">Only the list of validated runs are accepted:</subfield>
+      <subfield code="w">1000</subfield>
+    </datafield>
+    <datafield tag="693" ind1=" " ind2=" ">
+      <subfield code="a">CERN-LHC</subfield>
+      <subfield code="e">CMS</subfield>
+    </datafield>
+    <datafield tag="581" ind1=" " ind2=" ">
+      <subfield code="a"><![CDATA[ <p>If you do not have the CERN Virtual Machine for 2010 CMS data installed, follow the instructions in step 1 at <a href="/VM/CMS/2010">How to install a CERN Virtual Machine</a>.
+      Then install and run the Demo (demo analyzer) program following the instructions at <a href="/VM/CMS/2010#testvalidate2010">How to Test & Validate</a>.</p>
+      <p>To run the "di-muon spectrum" demo: <ol> <li>Create directory <code>datasets</code> under <code>Demo/DemoAnalyzer</code>.</li><li>Download the index files for the <a href="/record/14">/Mu/Run2010B-Apr21ReReco-v1/AOD</a>
+      primary datasets and store them in <code>Demo/DemoAnalyzer/datasets/</code>.</li>
+      <li>Download the JSON file from <a href="http://opendata.cern.ch/record/1000">CMS Validated Runs</a>
+      and save it to the <code>Demo/DemoAnalyzer/datasets</code> directory.</li>
+      <li>Replace the three files
+      <code>BuildFile.xml</code>,
+      <code>demoanalyzer_cfg.py</code>,
+      <code>src/DemoAnalyzer.cc</code>
+      with the ones from this record and read the comments in <code>DemoAnalyzer.cc</code> if you want to understand what the program does.</li>
+      <li>Recompile (<kbd>scram b</kbd>) and rerun (<kbd>cmsRun ...</kbd>) exactly as shown before in <a href="/VM/CMS/2010#testvalidate2010">How to Test & Validate</a>.
+      <li>You should get an output file <kbd>Mu.root</kbd>, which contains histograms for 10000 input events (a small subset of the data).
+      These can be looked at using a ROOT Browser (see above, under Description). The most interesting histogram is <kbd>GM_mass_log</kbd>.
+      In order to compare it with the invariant-mass spectrum of di-muons in <a href="https://inspirehep.net/record/1118729/plots">MUO-10-004</a>, it should be viewed with the <kbd>logy</kbd> option. Of course with 10000 events
+      the comparison is poor, but the J/&psi; (at log10(mass)=0.5), &Upsilon; (at log10(mass=0.98))
+      and Z (at log10(mass)=1.95, one event only) peaks should be visible.</li>
+      <li>Finally, to run over more or even the full data, edit the relevant parts of
+      the Python file <kbd>demoanalyzer_cfg.py</kbd> (see comments therein) and rerun.
+      Add up the output histograms from different (non-overlapping) input index files using ROOT tools.</li></ol></p> ]]></subfield>
+    </datafield>
+    <datafield tag="700" ind1=" " ind2=" ">
+      <subfield code="a">Dutta, Irene</subfield>
+    </datafield>
+    <datafield tag="700" ind1=" " ind2=" ">
+      <subfield code="a">Hirvonsalo, Harri</subfield>
+    </datafield>
+    <datafield tag="700" ind1=" " ind2=" ">
+      <subfield code="a">Sheeran, Bridget</subfield>
+    </datafield>
+    <datafield tag="964" ind1=" " ind2="0">
+      <subfield code="c">Run2010B</subfield>
+    </datafield>
+    <datafield tag="980" ind1=" " ind2=" ">
+      <subfield code="a">CMS-Tools</subfield>
+    </datafield>
+    <datafield tag="980" ind1=" " ind2=" ">
+      <subfield code="b">Research</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1=" " ind2=" ">
+      <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-tools-dimuon-spectrum-2010/BuildFile.xml</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1=" " ind2=" ">
+      <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-tools-dimuon-spectrum-2010/DemoAnalyzer.cc</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1=" " ind2=" ">
+      <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-tools-dimuon-spectrum-2010/demoanalyzer_cfg.py</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1=" " ind2=" ">
+      <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-tools-dimuon-spectrum-2010/Mudemo.root</subfield>
+    </datafield>
+  </record>
+</collection>

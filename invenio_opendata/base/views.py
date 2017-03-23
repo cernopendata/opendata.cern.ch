@@ -180,6 +180,8 @@ def research(exp = None):
 def visualise_events(exp = 'CMS'):
 
     exp_names = get_collection_names(['ALICE', 'LHCb', 'ATLAS'])
+    if exp not in exp_names and exp is not None:
+        return render_template("404.html")
 
     breadcrumbs = [{},{"url":".educate","text":"Education"},\
                         {"url":".educate","text":"Visualise Events"}]
@@ -192,6 +194,9 @@ def visualise_events(exp = 'CMS'):
 @blueprint.route('visualise/histograms/<string:exp>')
 def visualise_histo(exp = 'CMS'):
     exp_colls, exp_names = get_collections()
+    exp_names = get_collection_names(['ALICE', 'LHCb', 'ATLAS'])
+    if exp not in exp_names and exp is not None:
+        return render_template("404.html")
 
     breadcrumbs = [{},{"url":".educate","text":"Education"},\
                         {"url":".educate","text":"Visualise Histograms"}]
@@ -205,19 +210,23 @@ def visualise_histo(exp = 'CMS'):
 @blueprint.route('getstarted', defaults={'exp': None})
 @blueprint.route('<string:exp>/getstarted')
 @blueprint.route('getstarted/<string:exp>')
-@blueprint.route('getting-started', defaults={'exp': None})
-@blueprint.route('getting-started/<string:exp>')
+@blueprint.route('getting-started', defaults={'exp': None, 'year': None})
+@blueprint.route('getting-started/<string:exp>',defaults={'year': None})
+@blueprint.route('getting-started/<string:exp>/<string:year>')
 @register_breadcrumb(blueprint, '.get_started', 'Get Started', \
                         dynamic_list_constructor = (lambda :\
                         [{"url":".get_started","text":"Getting started"}]))
-def get_started(exp):
+def get_started(exp, year):
     def splitting(value, delimiter='/'):
         return value.split(delimiter)
-    exp_names = get_collection_names()
+    exp_names = get_collection_names(['ATLAS'])
+    if exp not in exp_names and exp is not None:
+        return render_template("404.html")
+
     current_app.jinja_env.filters['splitthem'] = splitting
 
     try:
-        return render_template('get_started.html', exp=exp,exp_names=exp_names)
+        return render_template('get_started.html', exp=exp,exp_names=exp_names, year=year)
     except TemplateNotFound:
         return abort(404)
 
@@ -230,6 +239,8 @@ def get_started(exp):
                         {"url":".resources","text":"Learning Resources"}]) )
 def resources(exp):
     exp_names = get_collection_names()
+    if exp not in exp_names and exp is not None:
+        return render_template("404.html")
 
     try:
         return render_template('resources.html', exp=exp, exp_names=exp_names)
@@ -237,12 +248,13 @@ def resources(exp):
         return abort(404)
 
 
-@blueprint.route('VM', defaults={'exp': None})
-@blueprint.route('VM/<string:exp>')
+@blueprint.route('VM', defaults={'exp': None, 'year': None})
+@blueprint.route('VM/<string:exp>', defaults={'year': None})
+@blueprint.route('VM/<string:exp>/<string:year>')
 @register_breadcrumb(blueprint, '.data_vms', 'Virtual Machines' , \
                         dynamic_list_constructor = (lambda :\
                         [{"url":".data_vms","text":"Virtual Machines"}]) )
-def data_vms(exp):
+def data_vms(exp, year):
     exp_names = get_collection_names(['ATLAS'])
     if exp not in exp_names and exp is not None:
         return render_template("404.html")
@@ -252,7 +264,7 @@ def data_vms(exp):
     current_app.jinja_env.filters['splitthem'] = splitting
 
     try:
-        return render_template('data_vms.html', exp=exp, exp_names=exp_names)
+        return render_template('data_vms.html', exp=exp, exp_names=exp_names, year=year)
     except TemplateNotFound:
         return abort(404)
 
@@ -262,7 +274,9 @@ def data_vms(exp):
                         [{"url":".data_vms","text":"Virtual Machines"},\
                         {"url":".data_vms","text":"Validation Report"}]) )
 def val_report(exp):
-    exp_names = get_collection_names()
+    exp_names = get_collection_names(['ALICE', 'LHCb', 'ATLAS'])
+    if exp not in exp_names and exp is not None:
+        return render_template("404.html")
 
     try:
         return render_template([exp+'_VM_validation.html', 'data_vms.html'], exp=exp,exp_names=exp_names)
@@ -329,18 +343,42 @@ def about_lhcb():
     except TemplateNotFound:
         return abort(404)
 
-@blueprint.route('about/CMS-Physics-Objects')
+@blueprint.route('about/CMS-Physics-Objects', defaults={'year': None})
+@blueprint.route('about/CMS-Physics-Objects/<string:year>')
 @register_breadcrumb(blueprint, '.about_physics', 'CMSS', \
                         dynamic_list_constructor = (lambda :\
                         [{"url":".about", "text":"About"},\
                         {"url":".about_cms", "text":"CMS"},\
                         {"url":".about_physics","text":"Physics Objects"}]) )
-def about_physics():
+def about_physics(year):
     try:
-        return render_template('about_physics_objects.html')
+        return render_template('about_physics_objects_overview.html', year = year)
     except TemplateNotFound:
         return abort(404)
 
+@blueprint.route('about/CMS-Simulated-Dataset-Names')
+@register_breadcrumb(blueprint, '.sim_dataset_names', 'CMS', \
+                        dynamic_list_constructor = (lambda :\
+                        [{"url":".about", "text":"About"},\
+                        {"url":".about_cms", "text":"CMS"},\
+                        {"url":".sim_dataset_names","text":"Simulated Dataset Names"}]) )
+def sim_dataset_names():
+    try:
+        return render_template('cms_simulated_dataset_names.html')
+    except TemplateNotFound:
+        return abort(404)
+
+@blueprint.route('about/CMS-Pileup-Simulation')
+@register_breadcrumb(blueprint, '.cms_pileup_simulation', 'CMS', \
+                        dynamic_list_constructor = (lambda :\
+                        [{"url":".about", "text":"About"},\
+                        {"url":".about_cms", "text":"CMS"},\
+                        {"url":".cms_pileup_simulation","text":"Pileup Simulation"}]) )
+def cms_pileup_simulation():
+    try:
+        return render_template('cms_pileup_simulation.html')
+    except TemplateNotFound:
+        return abort(404)
 
 @blueprint.route('terms-of-use')
 def terms():
@@ -563,7 +601,7 @@ def no_accounts():
                         {"url":".glossary","text":"Glossary"}]) )
 def glossary():
     import json, pkg_resources
-    filepath = pkg_resources.resource_filename('invenio_opendata.base', 'templates/helpers/text/glossary.json')
+    filepath = pkg_resources.resource_filename('invenio_opendata.base', 'static/json/glossary.json')
     with open(filepath,'r') as f:
         glossary = json.load(f)
 

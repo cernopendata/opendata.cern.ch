@@ -58,7 +58,7 @@
       {% set pp = record.get('edition_statement', '').get('statement', '').replace('Release: ', '') %}
       <a href="{{url_for('search.search', p=pp) }}">
         <div class="rec_thumb_brief rec_footer_thumb  rec_release pull-right">
-          <div class="n"><div class="t">Release</div>{{ pp }}</div>
+          <div class="n no-glossary"><div class="t">Release</div>{{ pp }}</div>
         </div>
       </a> 
     {% endif %}
@@ -66,7 +66,7 @@
       {% set rr = record.get('edition_statement', '').get('remainder', '').replace('Global tag: ', '') %}
       <a href="{{ url_for('search.search', p=rr) }}">
         <div class="rec_thumb_brief rec_footer_thumb  rec_release pull-right">
-          <div class="n"><div class="t">Global tag</div>{{ rr }}</div>
+          <div class="n no-glossary"><div class="t">Global tag</div>{{ rr }}</div>
         </div>
       </a> 
     {% endif %}

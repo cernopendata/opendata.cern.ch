@@ -1,4 +1,106 @@
 <collection>
+  <record>
+  <controlfield tag="001">554</controlfield>
+  <datafield tag="024" ind1="7" ind2=" ">
+    <subfield code="2">DOI</subfield>
+    <subfield code="a">10.7483/OPENDATA.CMS.GACK.GEJA</subfield>
+  </datafield>
+  <datafield tag="100" ind1=" " ind2=" ">
+    <subfield code="a">Duarte, Javier</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Example CSV output file for SUSYBSMAnalysis-RazorFilter</subfield>
+  </datafield>
+  <datafield tag="256" ind1=" " ind2=" ">
+    <subfield code="a">Dataset</subfield>
+    <subfield code="f">1</subfield>
+    <subfield code="t">file</subfield>
+  </datafield>
+  <datafield tag="256" ind1=" " ind2=" ">
+    <subfield code="b">2725994</subfield>
+    <subfield code="t">bytes</subfield>
+  </datafield>
+  <datafield tag="256" ind1=" " ind2=" ">
+    <subfield code="e">21726</subfield>
+    <subfield code="t">events</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="b">CERN Open Data Portal</subfield>
+    <subfield code="c">2015</subfield>
+  </datafield>
+  <datafield tag="264" ind1=" " ind2="0">
+    <subfield code="c">2010</subfield>
+  </datafield>
+  <datafield tag="505" ind1=" " ind2=" ">
+    <subfield code="t">Run</subfield>
+    <subfield code="g">The run number of the event.</subfield>
+  </datafield>
+  <datafield tag="505" ind1=" " ind2=" ">
+    <subfield code="t">Lumi</subfield>
+    <subfield code="g">The lumi section of the event.</subfield>
+  </datafield>
+  <datafield tag="505" ind1=" " ind2=" ">
+    <subfield code="t">Event</subfield>
+    <subfield code="g">The event number of the event.</subfield>
+  </datafield>
+  <datafield tag="505" ind1=" " ind2=" ">
+    <subfield code="t">E1,Px1,Py1,Pz1</subfield>
+    <subfield code="g">The four-vector of the leading megajet (with the largest transverse momentum).</subfield>
+  </datafield>
+  <datafield tag="505" ind1=" " ind2=" ">
+    <subfield code="t">E2,Px2,Py2,Pz2</subfield>
+    <subfield code="g">The four-vector of the subleading megajet (with the largest transverse momentum).</subfield>
+  </datafield>
+  <datafield tag="505" ind1=" " ind2=" ">
+    <subfield code="t">HT</subfield>
+    <subfield code="g">The scalar sum of the transverse momentum of the jets.</subfield>
+  </datafield>
+  <datafield tag="505" ind1=" " ind2=" ">
+    <subfield code="t">MET</subfield>
+    <subfield code="g">The magnitude of the vector sum of the transverse energy of the particles in the event.</subfield>
+  </datafield>
+  <datafield tag="505" ind1=" " ind2=" ">
+    <subfield code="t">nJets</subfield>
+    <subfield code="g">The number of jets with transverse momentum above 40 GeV.</subfield>
+  </datafield>
+  <datafield tag="505" ind1=" " ind2=" ">
+    <subfield code="t">nBJets</subfield>
+    <subfield code="g">The number of b-tagged jets with transverse momentum above 40 GeV.</subfield>
+  </datafield>
+  <datafield tag="520" ind1=" " ind2=" ">
+    <subfield code="a"><![CDATA[ <p> This file contains events from the MultiJet primary dataset from the CMS open data release, and computes the razor variables MR and Rsq, used in supersymmetric particle searches. More details on the razor variables can be found in <a href=“http://dx.doi.org/10.1103/PhysRevD.90.112001">Phys. Rev. D 90, 112001</a> </p> ]]></subfield>
+  </datafield>
+  <datafield tag="567" ind1=" " ind2=" ">
+    <subfield code="a">The code that applies the selection and produces the csv files can be found here:</subfield>
+    <subfield code="w">553</subfield>
+  </datafield>
+  <datafield tag="693" ind1=" " ind2=" ">
+    <subfield code="a">CERN-LHC</subfield>
+    <subfield code="e">CMS</subfield>
+  </datafield>
+  <datafield tag="581" ind1=" " ind2=" ">
+    <subfield code="a">Comma-Separated-Value (csv) files can be used in online applications such as the one found here</subfield>
+    <subfield code="u">http://opendata.cern.ch/visualise/histograms/CMS</subfield>
+  </datafield>
+  <datafield tag="772" ind1=" " ind2=" ">
+    <subfield code="a">/MultiJet/Run2010B-Apr21ReReco-v1/AOD</subfield>
+    <subfield code="o">10.7483/OPENDATA.CMS.QAJC.TR8V</subfield>
+    <subfield code="w">11</subfield>
+  </datafield>
+  <datafield tag="964" ind1=" " ind2="0">
+    <subfield code="c">Run2010B</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">CMS-Derived-Datasets</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="b">Research</subfield>
+  </datafield>
+  <datafield tag="FFT" ind1="" ind2="">
+    <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-csv-files/MultiJetRun2010B.csv.gz</subfield>
+    <subfield code="n">MultiJetRun2010B</subfield>
+</datafield>
+  </record>
 <record>
 <controlfield tag="001">700</controlfield>
 <datafield tag="024" ind1="7" ind2="">
@@ -16,6 +118,9 @@
 <datafield tag="260" ind1=" " ind2=" ">
  <subfield code="b">CERN Open Data Portal</subfield>
  <subfield code="c">2014</subfield>
+</datafield>
+<datafield tag="264" ind1=" " ind2="0">
+  <subfield code="c">2010</subfield>
 </datafield>
 <datafield tag="100" ind1="" ind2="">
   <subfield code="a">McCauley, Thomas</subfield>
@@ -35,7 +140,7 @@
   <subfield code="w">552</subfield>
 </datafield>
 <datafield tag="581" ind1="" ind2="">
-  <subfield code="a">Comma-Separated-Value (csv) files can be used in online applications such as the one found here</subfield>
+  <subfield code="a">comma-separated value (csv) files can be used in online applications such as the one found here</subfield>
   <subfield code="u">http://opendata.cern.ch/visualise/histograms/CMS</subfield>
 </datafield>
 <datafield tag="583" ind1="" ind2="">
@@ -50,6 +155,9 @@
   <subfield code="a">/Mu/Run-2010B-Apr21ReReco-v1/AOD</subfield>
   <subfield code="o">10.7483/OPENDATA.CMS.B8MR.C4A2</subfield>
   <subfield code="w">14</subfield>
+</datafield>
+<datafield tag="964" ind1=" " ind2="0">
+  <subfield code="c">Run2010B</subfield>
 </datafield>
 <datafield tag="980" ind1=" " ind2=" ">
  <subfield code="a">CMS-Derived-Datasets</subfield>

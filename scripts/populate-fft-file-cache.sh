@@ -29,13 +29,13 @@ set -o nounset
 # make sure the output directory exists:
 mkdir -p $OUTDIR
 
-# firstly, mirror EOS files existing in the repository:
+# mirror EOS files existing in the repository:
 rsync -a invenio_opendata/testsuite/data/cms/eos-file-indexes/ $OUTDIR/cms-eos-file-indexes/
 rsync -a invenio_opendata/testsuite/data/alice/eos-file-indexes/ $OUTDIR/alice-eos-file-indexes/
 rsync -a invenio_opendata/testsuite/data/lhcb/eos-file-indexes/ $OUTDIR/lhcb-eos-file-indexes/
 rsync -a invenio_opendata/testsuite/data/atlas/eos-file-indexes/ $OUTDIR/atlas-eos-file-indexes/
 
-# secondly, download CMS DocDB files: (if not already existing)
+# download CMS DocDB files: (if not already existing)
 mkdir -p $OUTDIR/cms-docdb-files
 $WGET -O $OUTDIR/cms-docdb-files/Run2010B_Mu_AOD_Apr21ReReco-v1-dimuon_0.csv "$DOCDB?docid=12450&amp;filename=Run2010B_Mu_AOD_Apr21ReReco-v1-dimuon_0.csv"
 $WGET -O $OUTDIR/cms-docdb-files/Run2010B_Mu_AOD_Apr21ReReco-v1-dimuon.csv "$DOCDB?docid=12450&amp;filename=Run2010B_Mu_AOD_Apr21ReReco-v1-dimuon.csv"
@@ -273,16 +273,37 @@ $WGET -O $OUTDIR/cms-docdb-files/masterclass_9.ig "$DOCDB?docid=12154&amp;filena
 $WGET -O $OUTDIR/cms-docdb-files/masterclass_10.ig "$DOCDB?docid=12154&amp;filename=masterclass_10.ig"
 $WGET -O $OUTDIR/cms-docdb-files/masterclass_11-leptons.csv "$DOCDB?docid=12154&amp;filename=masterclass_11-leptons.csv"
 $WGET -O $OUTDIR/cms-docdb-files/masterclass-2014.xls "$DOCDB?docid=12154&amp;filename=masterclass-2014.xls"
+$WGET -O $OUTDIR/cms-docdb-files/BTag_Run2011A.ig "$DOCDB?docid=12752&amp;filename=BTag_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/DoubleElectron_Run2011A.ig "$DOCDB?docid=12752&amp;filename=DoubleElectron_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/DoubleMu_Run2011A.ig "$DOCDB?docid=12752&amp;filename=DoubleMu_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/ElectronHad_Run2011A.ig "$DOCDB?docid=12752&amp;filename=ElectronHad_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/HT_Run2011A.ig "$DOCDB?docid=12752&amp;filename=HT_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/Jet_Run2011A.ig "$DOCDB?docid=12752&amp;filename=Jet_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/METBTag_Run2011A.ig "$DOCDB?docid=12752&amp;filename=METBTag_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/MET_Run2011A.ig "$DOCDB?docid=12752&amp;filename=MET_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/MinimumBias_Run2011A.ig "$DOCDB?docid=12752&amp;filename=MinimumBias_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/MuEG_Run2011A.ig "$DOCDB?docid=12752&amp;filename=MuEG_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/MuHad_Run2011A.ig "$DOCDB?docid=12752&amp;filename=MuHad_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/MuOnia_Run2011A.ig "$DOCDB?docid=12752&amp;filename=MuOnia_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/MultiJet_Run2011A.ig "$DOCDB?docid=12752&amp;filename=MultiJet_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/PhotonHad_Run2011A.ig "$DOCDB?docid=12752&amp;filename=PhotonHad_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/Photon_Run2011A.ig "$DOCDB?docid=12752&amp;filename=Photon_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/SingleElectron_Run2011A.ig "$DOCDB?docid=12752&amp;filename=SingleElectron_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/SingleMu_Run2011A.ig "$DOCDB?docid=12752&amp;filename=SingleMu_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/TauPlusX_Run2011A.ig "$DOCDB?docid=12752&amp;filename=TauPlusX_Run2011A.ig"
+$WGET -O $OUTDIR/cms-docdb-files/Tau_Run2011A.ig "$DOCDB?docid=12752&amp;filename=Tau_Run2011A.ig"
 
-# thirdly, cernvm files:
+
+# cernvm files:
 mkdir -p $OUTDIR/cernvm-files
 $WGET -O $OUTDIR/cernvm-files/CMS-OpenData-1.0.0-rc4.ova "http://cernvm.cern.ch/releases/CMS-OpenData-1.0.0-rc4.ova"
 $WGET -O $OUTDIR/cernvm-files/CMS-OpenData-1.0.0-rc6.ova "http://cernvm.cern.ch/releases/CMS-OpenData-1.0.0-rc6.ova"
 $WGET -O $OUTDIR/cernvm-files/CMS-OpenData-1.0.0-rc7.ova "http://cernvm.cern.ch/releases/CMS-OpenData-1.0.0-rc7.ova"
 
-# fourthly, github files
+# github files
 mkdir -p $OUTDIR/github-files
 $WGET -O $OUTDIR/github-files/Cert_136033-149442_7TeV_Apr21ReReco_Collisions10_JSON_v2.txt "https://raw.githubusercontent.com/ayrodrig/pattuples2010/master/Cert_136033-149442_7TeV_Apr21ReReco_Collisions10_JSON_v2.txt"
+$WGET -O $OUTDIR/github-files/Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt "https://raw.githubusercontent.com/cms-outreach/ispy-analyzers/Run2011A/Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt"
 $WGET -O $OUTDIR/github-files/pattuples2012-1.0.0.tar.gz https://github.com/ayrodrig/pattuples2010/archive/v1.0.0.tar.gz
 $WGET -O $OUTDIR/github-files/pattuples2012-1.0.2.tar.gz https://github.com/ayrodrig/pattuples2010/archive/v1.0.2.tar.gz
 $WGET -O $OUTDIR/github-files/OutreachExercise2010-1.0.0.tar.gz https://github.com/ayrodrig/OutreachExercise2010/archive/v1.0.0.tar.gz
@@ -290,29 +311,60 @@ $WGET -O $OUTDIR/github-files/dimuon-filter-1.0.0.tar.gz https://github.com/tpmc
 $WGET -O $OUTDIR/github-files/HiggsML2014-1.0.tar.gz https://github.com/ATLAS-outreach/HiggsML2014/archive/v1.0.tar.gz
 $WGET -O $OUTDIR/github-files/SUSYBSMAnalysis-RazorFilter-1.0.0.tar.gz https://github.com/jmduarte/SUSYBSMAnalysis-RazorFilter/archive/1.0.0.tar.gz
 
-# fifthly, CMS Hamburg files:
+# CMS Hamburg files:
 mkdir -p $OUTDIR/cms-hamburg-files
 $WGET -O $OUTDIR/cms-hamburg-files/HEPTutorial_0.tar http://ippog.web.cern.ch/sites/ippog.web.cern.ch/files/HEPTutorial_0.tar
 (cd $OUTDIR/cms-hamburg-files && tar xf HEPTutorial_0.tar HEPTutorial/files/)
 
-# sixthly, experiment data policies:
+# experiment data policies:
 mkdir -p $OUTDIR/data-policies
 $WGET -O $OUTDIR/data-policies/CMS-Data-Policy.pdf "$DOCDB?docid=6032&amp;version=1&amp;filename=CMSDataPolicy.pdf"
 $WGET -O $OUTDIR/data-policies/ATLAS-Data-Policy.pdf https://twiki.cern.ch/twiki/pub/AtlasPublic/AtlasPolicyDocuments/A78_ATLAS_Data_Access_Policy.pdf
 $WGET -O $OUTDIR/data-policies/LHCb-Data-Policy.pdf http://cds.cern.ch/record/1543410/files/LHCb-PUB-2013-003.pdf
 
-# seventhly, Ana's video:
+# Ana's video:
 mkdir -p $OUTDIR/cms-open-data-instructions
 $WGET -O $OUTDIR/cms-open-data-instructions/OutreachExercise2010.m4v http://193.146.75.147/Outreach%20Exercise%202010.m4v
 
-# eightly, ALICE data policy:
+# ALICE data policy:
 rsync -a invenio_opendata/testsuite/data/alice/alice-data-policy/ $OUTDIR/alice-data-policy/
 
-# ninthly, ATLAS Higgs Challenge 2014:
+# ATLAS Higgs Challenge 2014:
 rsync -a invenio_opendata/testsuite/data/atlas/atlas-higgs-challenge-2014/ $OUTDIR/atlas-higgs-challenge-2014/
 
-# tenthly, CVM VM contextualisation scripts:
+# CMS VM contextualisation scripts:
 rsync -a invenio_opendata/testsuite/data/cms/cms-vm-contextualisation-scripts/ $OUTDIR/cms-vm-contextualisation-scripts/
+rsync -a invenio_opendata/testsuite/data/cms/cms-vm-contextualisation-scripts-Run2011A/ $OUTDIR/cms-vm-contextualisation-scripts-Run2011A/
+
+# CMS CSV files:
+rsync -a invenio_opendata/testsuite/data/cms/cms-csv-files/ $OUTDIR/cms-csv-files/
+
+# CMS plots:
+rsync -a invenio_opendata/testsuite/data/cms/cms-plots/ $OUTDIR/cms-plots/
+
+# CMS configuration files:
+rsync -a invenio_opendata/testsuite/data/cms/cms-configuration-files/ $OUTDIR/cms-configuration-files/
+
+# CMS HLT 2011 configuration files:
+rsync -a invenio_opendata/testsuite/data/cms/cms-hlt-2011-configuration-files/ $OUTDIR/cms-hlt-2011-configuration-files/
+
+# CMS pileup configuration files:
+rsync -a invenio_opendata/testsuite/data/cms/cms-pileup-configuration-files/ $OUTDIR/cms-pileup-configuration-files/
+
+# CMS dimuon spectrum 2010 files:
+rsync -a invenio_opendata/testsuite/data/cms/cms-tools-dimuon-spectrum-2010/ $OUTDIR/cms-tools-dimuon-spectrum-2010/
+
+# CMS VM image files:
+rsync -a invenio_opendata/testsuite/data/cms/cms-vm-images/ $OUTDIR/cms-vm-images/
+
+# CMS validation code Run2011B
+rsync -a invenio_opendata/testsuite/data/cms/cms-validation-code-Run2010B/ $OUTDIR/cms-validation-code-Run2010B/
+
+# CMS L1 trigger information files:
+rsync -a invenio_opendata/testsuite/data/cms/cms-l1-trigger-information-Run2011A/ $OUTDIR/cms-l1-trigger-information-Run2011A/
+
+# CMS authorlist files:
+rsync -a invenio_opendata/testsuite/data/cms/cms-authorlist-files/ $OUTDIR/cms-authorlist-files/
 
 # finally, make symlink to FFT cache from tmp:
 if [ ! -L "/tmp/$(basename $OUTDIR)" ]; then

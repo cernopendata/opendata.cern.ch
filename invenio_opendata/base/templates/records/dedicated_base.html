@@ -52,11 +52,11 @@
     {% endif %}
     {% block record_disclaimer %}
       {% if not record['license'] %}
-        {{ record_disclaimer(title = 'Disclaimer', exp = record.get('accelerator_experiment','')['experiment']) }}
+        {{ record_disclaimer( exp = record.get('accelerator_experiment','')['experiment'], title = 'Disclaimer')}}
       {% elif record['license'].get('license') == 'CC0' %}
-        {{ record_disclaimer(title = 'Disclaimer', exp = record.get('accelerator_experiment','')['experiment']) }}
+        {{ record_disclaimer( exp = record.get('accelerator_experiment','')['experiment'], title = 'Disclaimer')}}
       {% else %}
-        {{ record_disclaimer(title = 'Disclaimer', body = record['license'].get('license', '') , exp = record.get('accelerator_experiment','')['experiment']) }}
+        {{ record_disclaimer(exp = record.get('accelerator_experiment','')['experiment'], title = 'Disclaimer', body = record['license'].get('license', '')) }}
       <div class="rec_dedicated_details_in rdd-disclaimer panel">
         <div class="title"></div>
         <div id="disclaimer" class="info">

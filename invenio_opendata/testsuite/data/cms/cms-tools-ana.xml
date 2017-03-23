@@ -9,7 +9,7 @@
       <subfield code="a">Rodriguez Marrero, Ana</subfield>
     </datafield>
     <datafield tag="245" ind1=" " ind2=" ">
-      <subfield code="a">Software to preprocess the Muon and Electron datasets for the two-lepton/four-lepton analysis example</subfield>
+      <subfield code="a">Software to preprocess the CMS 2010 Muon and Electron datasets for the two-lepton/four-lepton analysis example of CMS open data</subfield>
     </datafield>
     <datafield tag="256" ind1=" " ind2=" ">
       <subfield code="a">Software</subfield>
@@ -24,13 +24,16 @@
       <subfield code="b">CERN Open Data Portal</subfield>
       <subfield code="c">2014</subfield>
     </datafield>
+    <datafield tag="264" ind1=" " ind2="0">
+      <subfield code="c">2010</subfield>
+    </datafield>
     <datafield tag="516" ind1=" " ind2=" ">
       <subfield code="a">Use this with the following datasets:</subfield>
       <subfield code="w">4</subfield>
       <subfield code="w">14</subfield>
     </datafield>
     <datafield tag="520" ind1=" " ind2=" ">
-      <subfield code="a">Software to produce the intermediate data files, derived from the primary datasets, for a simple analysis on Z decays to two leptons and the ZZ decays to four leptons. </subfield>
+      <subfield code="a">Software to produce the intermediate data files, derived from the primary datasets, for a simple analysis on Z decays to two leptons and ZZ decays to four leptons, of CMS open data. </subfield>
     </datafield>
     <datafield tag="538" ind1=" " ind2=" ">
       <subfield code="a">Software release: CMSSW_4_2_8</subfield>
@@ -44,7 +47,7 @@
       <subfield code="a">Only muon and electron collections are kept. Processing the full primary datasets took 220 hours.</subfield>
     </datafield>
     <datafield tag="567" ind1=" " ind2=" ">
-      <subfield code="a">The software produces the physics object in PAT candidate format. Only muon and electron PAT candidate collections are stored. No further selection, apart accepting only the validated runs, is applied.</subfield>
+      <subfield code="a">The software produces the physics object in PAT candidate format. Only muon and electron PAT candidate collections are stored. No further selection, apart from accepting only the validated runs, is applied.</subfield>
     </datafield>
     <datafield tag="581" ind1=" " ind2=" ">
       <subfield code="a">See the run instructions in</subfield>
@@ -67,6 +70,9 @@
     <datafield tag="856" ind1="4" ind2=" ">
       <subfield code="u">https://github.com/ayrodrig/pattuples2010</subfield>
     </datafield>
+    <datafield tag="964" ind1=" " ind2="0">
+      <subfield code="c">Run2010B</subfield>
+    </datafield>
     <datafield tag="980" ind1=" " ind2=" ">
       <subfield code="a">CMS-Tools</subfield>
     </datafield>
@@ -87,7 +93,7 @@
       <subfield code="a">Rodriguez Marrero, Ana</subfield>
     </datafield>
     <datafield tag="245" ind1=" " ind2=" ">
-      <subfield code="a">Two-lepton/four-lepton analysis example</subfield>
+      <subfield code="a">Two-lepton/four-lepton analysis example of CMS 2010 open data</subfield>
     </datafield>
     <datafield tag="256" ind1=" " ind2=" ">
       <subfield code="a">Software</subfield>
@@ -102,13 +108,16 @@
       <subfield code="b">CERN Open Data Portal</subfield>
       <subfield code="c">2014</subfield>
     </datafield>
+    <datafield tag="264" ind1=" " ind2="0">
+      <subfield code="c">2010</subfield>
+    </datafield>
     <datafield tag="516" ind1=" " ind2=" ">
       <subfield code="a">Use this with the following datasets:</subfield>
       <subfield code="w">202</subfield>
       <subfield code="w">201</subfield>
     </datafield>
     <datafield tag="520" ind1=" " ind2=" ">
-      <subfield code="a">Example code for a simple analysis on Z decays to two leptons and the ZZ decays to four leptons.</subfield>
+      <subfield code="a">Example code for a simple analysis on Z decays to two leptons and ZZ decays to four leptons.  Please see below the details on data selection and the generated example plots.</subfield>
     </datafield>
     <datafield tag="538" ind1=" " ind2=" ">
       <subfield code="a">Software release: CMSSW_4_2_8</subfield>
@@ -119,15 +128,17 @@
       <subfield code="a">GNU General Public License (GPL) version 3</subfield>
     </datafield>
     <datafield tag="556" ind1=" " ind2=" ">
-      <subfield code="a">Processing the preprocessed datasets takes several hours.</subfield>
+      <subfield code="a">Running the analysis code on the pre-processed datasets takes several hours.</subfield>
     </datafield>
     <datafield tag="567" ind1=" " ind2=" ">
-      <subfield code="a"><![CDATA[ <p> An event selection applied in the two analysis cases: In the Z analysis at least two leptons with opposite charge, with invariant mass mll between 12 GeV and 120 GeV are required. The pair with the invariant mass closest to the Z boson mass is selected as the Z candidate. In the ZZ analysis two Z candidates are required, and for both candidates, two leptons with opposite charge are required. The first Z candidate is required to have higher lepton momentum: 20 GeV for the first lepton and 10 GeV for the second lepton. The invariant mass is required to be in the range 40 GeV to 120 GeV. The second candidate is required to have an invariant mass higher then 4 GeV. The first candidate is the one with the invariant mass closest to the Z boson mass.</p>
+      <subfield code="a"><![CDATA[ <p> An event selection is applied in the two analysis cases:
+      <ol class="text"><li>In the Z analysis at least two leptons with opposite charge, with invariant mass ”mll” between 12 GeV and 120 GeV are required. The pair with the invariant mass closest to the Z boson mass is selected as the Z candidate.</li>
+      <li>In the ZZ analysis two Z candidates are required, and for both candidates, two leptons with opposite charge are required. The first Z candidate is required to have higher lepton momentum: 20 GeV for the first lepton and 10 GeV for the second lepton. The invariant mass is required to be in the range 40 GeV to 120 GeV. The second candidate is required to have an invariant mass higher then 4 GeV. The first candidate is the one with the invariant mass closest to the Z boson mass.</li></ol></p>
       <p>Selection criteria for electron candidates:
       <ul class="text"><li>pT > 7 GeV and |η| &lt; 2.5;</li>
       <li>Distance between the electron z-vertex and the interaction z-vertex &lt; 0.02 cm;</li>
       <li>Transverse impact parameter w.r.t. the beam spot &lt; 0.04 cm;</li>
-      <li>Symmetrized impact parameter w.r.t. the beam sport &lt; 4 cm;</li>
+      <li>Symmetrised impact parameter w.r.t. the beam sport &lt; 4 cm;</li>
       <li>Photon conversion rejection: number of lost hits in the tracker &lt; 1;</li>
       <li>Electron identification: eIDLoose;</li>
       <li>Electron Isolation depends on the η region, regions with <i>1.44 &lt; η 0.09; electron.dr03EcalRecHitSumEt()/electron.pt() &gt; 0.07; and electron.dr03HcalTowerSumEt()/electron.pt() > 0.10.</i> If <i>η &gt; 1.57: electron.dr03TkSumPt()/electron.pt() &gt; 0.04; electron.dr03EcalRecHitSumEt()/electron.pt() &gt; 0.05; and electron.dr03HcalTowerSumEt()/electron.pt() &gt; 0.025.</i> Each component is computed from Isodeposits in a cone of 0.3 around the electron direction.</li></ul></p>
@@ -139,7 +150,7 @@
       <li>Number of valid hits in the inner tracker &gt; 10;</li>
       <li>χ2 /ndo f &lt; 10 for the global muon fit;</li>
       <li>Transverse impact parameter w.r.t. the beam spot &lt; 0.02 cm;</li>
-      <li>Symmetrized impact parameter w.r.t. the beam sport &lt; 4 cm;</li>
+      <li>Symmetrised impact parameter w.r.t. the beam sport &lt; 4 cm;</li>
       <li>Relative Muon Isolation (RMI) &lt; 0.15, with RMI = (ChargedHadronIso + NeutralHadronIso + PhotonIso)/pT(µ)</li></ul>
       <br/>Each component is computed from Isodeposits in a cone of 0.3 around the muon direction. </p> ]]></subfield>
     </datafield>
@@ -156,12 +167,11 @@
       <subfield code="a">CERN-LHC</subfield>
       <subfield code="e">CMS</subfield>
     </datafield>
-    <datafield tag="787" ind1=" " ind2=" ">
-      <subfield code="a">The expected output is a histogram file such as</subfield>
-      <subfield code="o">http://opendata.cern.ch/visualise/histograms/CMS</subfield>
-    </datafield>
     <datafield tag="856" ind1="4" ind2=" ">
       <subfield code="u">https://github.com/ayrodrig/OutreachExercise2010</subfield>
+    </datafield>
+    <datafield tag="964" ind1=" " ind2="0">
+      <subfield code="c">Run2010B</subfield>
     </datafield>
     <datafield tag="980" ind1=" " ind2=" ">
       <subfield code="a">CMS-Tools</subfield>
@@ -171,6 +181,12 @@
     </datafield>
     <datafield tag="FFT" ind1=" " ind2=" ">
       <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/github-files/OutreachExercise2010-1.0.0.tar.gz</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1=" " ind2=" ">
+      <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-plots/OutreachExercise2010-massZ.png</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1=" " ind2=" ">
+      <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-plots/OutreachExercise2010-massZZ.png</subfield>
     </datafield>
   </record>
 </collection>

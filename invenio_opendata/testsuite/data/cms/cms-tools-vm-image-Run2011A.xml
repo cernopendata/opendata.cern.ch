@@ -1,0 +1,116 @@
+<collection xmlns="http://www.loc.gov/MARC21/slim">
+  <record>
+    <controlfield tag="001">252</controlfield>
+    <datafield tag="110" ind1=" " ind2=" ">
+      <subfield code="a">CMS Collaboration</subfield>
+      <subfield code="w">451</subfield>
+    </datafield>
+    <datafield tag="245" ind1=" " ind2=" ">
+      <subfield code="a">CMS VM Image, for 2011 CMS open data</subfield>
+    </datafield>
+    <datafield tag="260" ind1=" " ind2=" ">
+      <subfield code="b">CERN Open Data Portal</subfield>
+      <subfield code="c">2016</subfield>
+    </datafield>
+    <datafield tag="264" ind1=" " ind2="0">
+      <subfield code="c">2011</subfield>
+    </datafield>
+    <datafield tag="520" ind1=" " ind2=" ">
+      <subfield code="a">The virtual machine image is based on CernVM (cernvm.cern.ch), with Scientific Linux CERN 6 (slc6), which is the environment needed for the CMSSW release
+      to be used with the 2011 CMS open data. It gets the CMS software (CMSSW) from /cvmfs/cms.cern.ch and the jobs running on the CMS open data VM read the condition data from /cvmfs/cms-opendata-conddb.cern.ch. Access to the data is through XRootD.</subfield>
+    </datafield>
+    <datafield tag="556" ind1=" " ind2=" ">
+      <subfield code="a">For known issues and limitations see</subfield>
+      <subfield code="u">/VM/CMS#2011</subfield>
+      <subfield code="y">CMS Virtual Machines - Known Issues and Limitations</subfield>
+    </datafield>
+    <datafield tag="567" ind1=" " ind2=" ">
+      <subfield code="a">The contextualisation scripts used for setting up the CMS VM images are available at</subfield>
+      <subfield code="w">251</subfield>
+    </datafield>
+    <datafield tag="581" ind1=" " ind2=" ">
+      <subfield code="a">Please follow the tutorial on how to use the CMS Virtual Machine</subfield>
+      <subfield code="u">/VM/CMS#how</subfield>
+      <subfield code="y">CMS Virtual Machines: How to install</subfield>
+    </datafield>
+    <datafield tag="583" ind1=" " ind2=" ">
+      <subfield code="a">A validation report of the CMS VM can be found at</subfield>
+      <subfield code="u">/VM/CMS/validation/report#2011</subfield>
+      <subfield code="y">Testing the CernVM</subfield>
+    </datafield>
+    <datafield tag="693" ind1=" " ind2=" ">
+      <subfield code="a">CERN-LHC</subfield>
+      <subfield code="e">CMS</subfield>
+    </datafield>
+    <datafield tag="964" ind1=" " ind2="0">
+      <subfield code="c">Run2011A</subfield>
+    </datafield>
+    <datafield tag="980" ind1=" " ind2=" ">
+      <subfield code="a">CMS-Tools</subfield>
+    </datafield>
+    <datafield tag="980" ind1=" " ind2=" ">
+      <subfield code="b">Research</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1=" " ind2=" ">
+      <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-vm-images/CMS-Open-Data-1.2.0.ova</subfield>
+    </datafield>
+  </record>
+  <record>
+    <controlfield tag="001">251</controlfield>
+    <datafield tag="100" ind1=" " ind2=" ">
+      <subfield code="a">Huffman, Adam</subfield>
+    </datafield>
+    <datafield tag="245" ind1=" " ind2=" ">
+      <subfield code="a">Contextualisation scripts to create the CMS VM Image, for 2011 data release</subfield>
+    </datafield>
+    <datafield tag="260" ind1=" " ind2=" ">
+      <subfield code="b">CERN Open Data Portal</subfield>
+      <subfield code="c">2016</subfield>
+    </datafield>
+    <datafield tag="264" ind1=" " ind2="0">
+      <subfield code="c">2011</subfield>
+    </datafield>
+    <datafield tag="520" ind1=" " ind2=" ">
+      <subfield code="a">The scripts provided create the CMS virtual machine image based on CernVM (cernvm.cern.ch), with Scientific Linux CERN 6 (slc6).</subfield>
+    </datafield>
+    <datafield tag="538" ind1=" " ind2=" ">
+      <subfield code="a">Use this with a Micro-CernVM available at</subfield>
+      <subfield code="u">http://cernvm.cern.ch/portal/downloads</subfield>
+    </datafield>
+    <datafield tag="581" ind1=" " ind2=" ">
+      <subfield code="a"><![CDATA[ <p> First, you need to run a normal Micro-CernVM, using your own context so you can login. Copy the attached files to the running VM and then
+      login.</p><p>Inside the VM, you first need a copy of the latest Micro-CernVM release as a template for the Open Data image. Download it, inside the running VM, from:
+      http://cernvm.cern.ch/releases/testing/ucernvm-prod.2.5-2.cernvm.x86_64.hdd <br/>placing it in the same directory as the other files.<br/>Run
+      the script:<br/>./cernvm-script <br/>which will produce some output on the terminal, and then finish.
+      <p>The result should be a file with the title coming from the -n field in the script. In this case, the file we're interested in is:
+      <br/>CMS-OpenData-1.2.0.ova
+      <br/>which can be copied from the running VM to elsewhere. </p> ]]></subfield>
+    </datafield>
+    <datafield tag="693" ind1=" " ind2=" ">
+      <subfield code="a">CERN-LHC</subfield>
+      <subfield code="e">CMS</subfield>
+    </datafield>
+    <datafield tag="787" ind1=" " ind2=" ">
+      <subfield code="a">The final CERN VM image can be found here:</subfield>
+      <subfield code="w">252</subfield>
+    </datafield>
+    <datafield tag="964" ind1=" " ind2="0">
+      <subfield code="c">Run2011A</subfield>
+    </datafield>
+    <datafield tag="980" ind1=" " ind2=" ">
+      <subfield code="a">CMS-Tools</subfield>
+    </datafield>
+    <datafield tag="980" ind1=" " ind2=" ">
+      <subfield code="b">Research</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1=" " ind2=" ">
+      <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-vm-contextualisation-scripts-Run2011A/cernvm-script</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1=" " ind2=" ">
+      <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-vm-contextualisation-scripts-Run2011A/cms-user-data.txt</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1=" " ind2=" ">
+      <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-vm-contextualisation-scripts-Run2011A/opendata-desktop-settings</subfield>
+    </datafield>
+  </record>
+</collection>

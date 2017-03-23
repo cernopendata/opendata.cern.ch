@@ -1,0 +1,174 @@
+# Auto generated configuration file
+# using: 
+# Revision: 1.381.2.28 
+# Source: /local/reps/CMSSW/CMSSW/Configuration/PyReleaseValidation/python/ConfigBuilder.py,v 
+# with command line options: Configuration/GenProduction/python/Hadronizer_MgmMatchTuneZ2_7TeV_madgraph_tauola_cff.py --dbsquery find file where dataset=/W3Jets_TuneZ2_7TeV-madgraph-tauola/Summer11LegpLHE-START53_LV4-v1/GEN --fileout file:step1.root --mc --eventcontent RAWSIM --customise SimG4Core/Application/reproc2011_2012_cff.customiseG4 --datatier GEN-SIM --conditions START53_LV4::All --beamspot Realistic7TeV2011CollisionV2 --step GEN,SIM --python_filename /afs/cern.ch/cms/PPD/PdmV/work/McM/submit/TOP-Summer11Leg-00008/TOP-Summer11Leg-00008_1_cfg.py --no_exec -n 6
+import FWCore.ParameterSet.Config as cms
+
+process = cms.Process('SIM')
+
+# import of standard configurations
+process.load('Configuration.StandardSequences.Services_cff')
+process.load('SimGeneral.HepPDTESSource.pythiapdt_cfi')
+process.load('FWCore.MessageService.MessageLogger_cfi')
+process.load('Configuration.EventContent.EventContent_cff')
+process.load('SimGeneral.MixingModule.mixNoPU_cfi')
+process.load('Configuration.StandardSequences.GeometryRecoDB_cff')
+process.load('Configuration.StandardSequences.GeometrySimDB_cff')
+process.load('Configuration.StandardSequences.MagneticField_38T_cff')
+process.load('Configuration.StandardSequences.Generator_cff')
+process.load('IOMC.EventVertexGenerators.VtxSmearedRealistic7TeV2011CollisionV2_cfi')
+process.load('GeneratorInterface.Core.genFilterSummary_cff')
+process.load('Configuration.StandardSequences.SimIdeal_cff')
+process.load('Configuration.StandardSequences.EndOfProcess_cff')
+process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
+
+process.maxEvents = cms.untracked.PSet(
+    input = cms.untracked.int32(6)
+)
+
+# Input source
+process.source = cms.Source("PoolSource",
+    secondaryFileNames = cms.untracked.vstring(),
+    fileNames = cms.untracked.vstring('/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/FAEEDE68-4815-E311-B050-02163E0099D5.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/FA3F2D87-4415-E311-B0D9-003048CF92C6.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/FA040CDB-4C15-E311-8294-003048F0E2C0.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/F273280B-4915-E311-BC1C-D8D385FF5C60.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/EE600E48-4215-E311-A081-02163E0078CE.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/E6879E1B-4715-E311-992E-02163E009997.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/D0C8B55C-5015-E311-9C1C-003048F0108E.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/C6E0FC78-3E15-E311-8DB2-003048FEB9FA.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/B8281219-3B15-E311-9820-003048F1C550.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/9CD0E11C-4A15-E311-9808-003048CFACC6.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/96A16D79-4115-E311-96D4-003048F16F7C.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/862C7766-3E15-E311-B548-003048F16AE6.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/582F4787-4B15-E311-A489-003048F0E39C.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/54B679B5-4915-E311-8E0D-02163E009997.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/4084528D-3E15-E311-95DF-003048D3759A.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/38297906-3E15-E311-A839-001D09F25267.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/28CAC01D-3F15-E311-9D41-02163E008C05.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/2284C646-7015-E311-8A4D-02163E00A0CC.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/10AD1F1A-5F15-E311-BF97-003048CFC624.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/0E092AA7-4515-E311-8701-02163E0078CE.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/0A1C93BC-3F15-E311-8F7D-02163E009021.root', 
+        '/store/generator/Summer11LegpLHE/W3Jets_TuneZ2_7TeV-madgraph-tauola/GEN/START53_LV4-v1/00000/04E6968F-4015-E311-9C59-003048FEB9EE.root')
+)
+
+process.options = cms.untracked.PSet(
+
+)
+
+# Production Info
+process.configurationMetadata = cms.untracked.PSet(
+    version = cms.untracked.string('$Revision: 1.381.2.28 $'),
+    annotation = cms.untracked.string('Configuration/GenProduction/python/Hadronizer_MgmMatchTuneZ2_7TeV_madgraph_tauola_cff.py nevts:6'),
+    name = cms.untracked.string('PyReleaseValidation')
+)
+
+# Output definition
+
+process.RAWSIMoutput = cms.OutputModule("PoolOutputModule",
+    splitLevel = cms.untracked.int32(0),
+    eventAutoFlushCompressedSize = cms.untracked.int32(5242880),
+    outputCommands = process.RAWSIMEventContent.outputCommands,
+    fileName = cms.untracked.string('file:step1.root'),
+    dataset = cms.untracked.PSet(
+        filterName = cms.untracked.string(''),
+        dataTier = cms.untracked.string('GEN-SIM')
+    ),
+    SelectEvents = cms.untracked.PSet(
+        SelectEvents = cms.vstring('generation_step')
+    )
+)
+
+# Additional output definition
+
+# Other statements
+process.genstepfilter.triggerConditions=cms.vstring("generation_step")
+from Configuration.AlCa.GlobalTag import GlobalTag
+process.GlobalTag = GlobalTag(process.GlobalTag, 'START53_LV4::All', '')
+
+process.generator = cms.EDFilter("Pythia6HadronizerFilter",
+    ExternalDecays = cms.PSet(
+        Tauola = cms.untracked.PSet(
+            UseTauolaPolarization = cms.bool(True),
+            InputCards = cms.PSet(
+                mdtau = cms.int32(0),
+                pjak2 = cms.int32(0),
+                pjak1 = cms.int32(0)
+            )
+        ),
+        parameterSets = cms.vstring('Tauola')
+    ),
+    UseExternalGenerators = cms.untracked.bool(True),
+    pythiaPylistVerbosity = cms.untracked.int32(1),
+    pythiaHepMCVerbosity = cms.untracked.bool(True),
+    comEnergy = cms.double(7000.0),
+    jetMatching = cms.untracked.PSet(
+        MEMAIN_showerkt = cms.double(0),
+        MEMAIN_maxjets = cms.int32(-1),
+        MEMAIN_minjets = cms.int32(-1),
+        MEMAIN_qcut = cms.double(-1),
+        MEMAIN_excres = cms.string(''),
+        MEMAIN_etaclmax = cms.double(-1),
+        MEMAIN_nqmatch = cms.int32(5),
+        outTree_flag = cms.int32(0),
+        scheme = cms.string('Madgraph'),
+        mode = cms.string('auto')
+    ),
+    maxEventsToPrint = cms.untracked.int32(0),
+    PythiaParameters = cms.PSet(
+        pythiaUESettings = cms.vstring('MSTU(21)=1     ! Check on possible errors during program execution', 
+            'MSTJ(22)=2     ! Decay those unstable particles', 
+            'PARJ(71)=10 .  ! for which ctau  10 mm', 
+            'MSTP(33)=0     ! no K factors in hard cross sections', 
+            'MSTP(2)=1      ! which order running alphaS', 
+            'MSTP(51)=10042 ! structure function chosen (external PDF CTEQ6L1)', 
+            'MSTP(52)=2     ! work with LHAPDF', 
+            'PARP(82)=1.832 ! pt cutoff for multiparton interactions', 
+            'PARP(89)=1800. ! sqrts for which PARP82 is set', 
+            'PARP(90)=0.275 ! Multiple interactions: rescaling power', 
+            'MSTP(95)=6     ! CR (color reconnection parameters)', 
+            'PARP(77)=1.016 ! CR', 
+            'PARP(78)=0.538 ! CR', 
+            'PARP(80)=0.1   ! Prob. colored parton from BBR', 
+            'PARP(83)=0.356 ! Multiple interactions: matter distribution parameter', 
+            'PARP(84)=0.651 ! Multiple interactions: matter distribution parameter', 
+            'PARP(62)=1.025 ! ISR cutoff', 
+            'MSTP(91)=1     ! Gaussian primordial kT', 
+            'PARP(93)=10.0  ! primordial kT-max', 
+            'MSTP(81)=21    ! multiple parton interactions 1 is Pythia default', 
+            'MSTP(82)=4     ! Defines the multi-parton model'),
+        processParameters = cms.vstring('MSEL=0         ! User defined processes', 
+            'PMAS(5,1)=4.8   ! b quark mass', 
+            'PMAS(6,1)=172.5 ! t quark mass', 
+            'MSTJ(1)=1       ! Fragmentation/hadronization on or off', 
+            'MSTP(61)=1      ! Parton showering on or off'),
+        parameterSets = cms.vstring('pythiaUESettings', 
+            'processParameters')
+    )
+)
+
+
+# Path and EndPath definitions
+process.generation_step = cms.Path(process.pgen)
+process.simulation_step = cms.Path(process.psim)
+process.genfiltersummary_step = cms.EndPath(process.genFilterSummary)
+process.endjob_step = cms.EndPath(process.endOfProcess)
+process.RAWSIMoutput_step = cms.EndPath(process.RAWSIMoutput)
+
+# Schedule definition
+process.schedule = cms.Schedule(process.generation_step,process.genfiltersummary_step,process.simulation_step,process.endjob_step,process.RAWSIMoutput_step)
+# filter all path with the production filter sequence
+for path in process.paths:
+	getattr(process,path)._seq = process.generator * getattr(process,path)._seq 
+
+# customisation of the process.
+
+# Automatic addition of the customisation function from SimG4Core.Application.reproc2011_2012_cff
+from SimG4Core.Application.reproc2011_2012_cff import customiseG4 
+
+#call to customisation function customiseG4 imported from SimG4Core.Application.reproc2011_2012_cff
+process = customiseG4(process)
+
+# End of customisation functions

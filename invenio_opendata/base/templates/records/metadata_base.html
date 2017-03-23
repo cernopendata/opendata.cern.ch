@@ -7,10 +7,10 @@
     <div class="rec_title_info">
       {% block record_title %}
       <div class="title col-md-12">
-        {# Show title + additional_title + imprint date #}
+        {# Show title + additional_title + publication date #}
         {% if record.get('title_additional', '') %}
           {{ record.get('title_additional',{}).get('title','') }}
-          <span>{{ record.get('imprint', {}).get('date', '') }}</span>
+          <span>{{ record.get('publication', {}).get('date', '') }}</span>
           <div class="additional_title">{{ record.get('title',{}).get('title','') }}</div>
         {% elif record.get('title',{}).get('title','') %}
           {{ record.get('title',{}).get('title','') }}
@@ -24,14 +24,12 @@
         {% for author in record['authors'] %}
           <a href="{{ url_for('search', p='author:"' + author.get('full_name', '')|urlencode + '"') }}">{{ author.get('full_name', '') }}</a>{{ '; ' if not loop.last }}
         {% endfor %}
-        {% if record['_first_corporate_name'] %}
-          {% set collaborations = ['CMS collaboration'] %}
-          {% set collaboration_recid = ['450'] %}
-          {% for c in collaborations %}
-            {% if record['_first_corporate_name']['name'] == c %}
-              <a class="collaboration_tag" href="{{ url_for('.metadata', recid = collaboration_recid[loop.index-1] ) }}">{{ record['_first_corporate_name']['name'] }}</a>
-            {% endif %}
-          {% endfor %}
+        {% if record.get('_first_corporate_name', {}).get('name', None) %}
+          {% if record.get('_first_corporate_name', {}).get('recid', None) %}
+            <a class="collaboration_tag" href="{{ url_for('.metadata', recid = record.get('_first_corporate_name', {}).get('recid', None) ) }}">{{ record.get('_first_corporate_name', {}).get('name', None) }}</a>
+          {% else %}
+            <a class="collaboration_tag" style="pointer-events: none;">{{ record.get('_first_corporate_name', {}).get('name', None) }}</a>
+          {% endif %}
         {% endif %}
       </div>
       {% endblock %}
@@ -43,7 +41,7 @@
     <div class="col-md-12 ">
       {% if record.get('doi','') %}
         <div class="rec_thumb rec_doi">
-          <div class="n"><div class="t" style="margin-right:0;">Cite as:</div>  
+          <div class="n no-glossary"><div class="t" style="margin-right:0;">Cite as:</div>
         {% if record['authors'] %}
           {% for author in (record['authors'])[:5] %}
             {% if loop.first %}{% elif loop.last and not (record['authors'])[5] %}<span> <i>&</i> </span>{% else %}<span> , </span>{% endif %}<a href="{{ url_for('search', p='author:"' + author.get('full_name', '')|urlencode + '"') }}">{{ author.get('last_name', '')+', '+author.get('first_name', '')[0]}}.</a>
@@ -52,18 +50,18 @@
             <span> <i>et al</i></span>
           {% endif %}
         {% endif %}
-        {{ record['_first_corporate_name']['name'] if record['_first_corporate_name']}} ({{ record.get('imprint', {}).get('date', '') }}). {% if record.get('title_additional', '') %}{{ record.get('title_additional',{}).get('title','') }}{% elif record.get('title',{}).get('title','') %}{{ record.get('title',{}).get('title','') }}{% endif %}. CERN Open Data Portal. DOI: <a class="clean" href="http://doi.org/{{ record.get('doi','') }}">{{ record.get('doi','') }}</a></div>
+        {{ record['_first_corporate_name']['name'] if record['_first_corporate_name']}} ({{ record.get('publication', {}).get('date', '') }}). {% if record.get('title_additional', '') %}{{ record.get('title_additional',{}).get('title','') }}{% elif record.get('title',{}).get('title','') %}{{ record.get('title',{}).get('title','') }}{% endif %}. CERN Open Data Portal. DOI: <a class="clean" href="http://doi.org/{{ record.get('doi','') }}">{{ record.get('doi','') }}</a></div>
         </div>
       {% endif %}
       <div class="rec_thumb rec_parentcol">
-        <a href="{{ url_for('collection/'+collection.name) }}"><div class="n"><div class="t">Collection</div>{{ collection.name_ln }}</div></a>
+        <a href="{{ url_for('collection/'+collection.name) }}"><div class="n no-glossary"><div class="t">Collection</div>{{ collection.name_ln }}</div></a>
       </div>
       {% if record.get('edition_statement','')  %}
         {% if record.get('edition_statement', '').get('statement', '') %}
           {% set pp = record.get('edition_statement', '').get('statement', '').replace('Release: ', '') %}
           <a href="{{ url_for('search.search', p=pp) }}">
             <div class="rec_thumb rec_parentcol">
-              <div class="n"><div class="t">Release</div>{{ pp }}</div>
+              <div class="n no-glossary"><div class="t">Release</div>{{ pp }}</div>
             </div>
           </a>
         {% endif %}
@@ -71,28 +69,28 @@
           {% set rr = record.get('edition_statement', '').get('remainder', '').replace('Global tag: ', '') %}
           <a href="{{ url_for('search.search', p=rr) }}">
             <div class="rec_thumb rec_parentcol">
-              <div class="n"><div class="t">Global tag</div>{{ rr }}</div>
+              <div class="n no-glossary"><div class="t">Global tag</div>{{ rr }}</div>
             </div>
           </a>
         {% endif %}
       {% endif %}
-      {% if record.get('collision_energy', '') %}
-        {% set rr = record.get('collision_energy', '').replace('Collision energy: ', '') %}
+      {% if record.get('collision_information', {}).get('collision_energy', '') %}
+        {% set rr = record.get('collision_information', {}).get('collision_energy', '').replace('Collision energy: ', '') %}
         <a href="{{ url_for('search.search', p=rr) }}">
           <div class="rec_thumb rec_parentcol">
-            <div class="n"><div class="t">Collision Energy</div>{{ rr }}</div>
+            <div class="n no-glossary"><div class="t">Collision Energy</div>{{ rr }}</div>
           </div>
         </a>
       {% endif %}
       {% if record.get('accelerator_experiment','') %}
         <a href="{{ url_for('search.search', p=record.get('accelerator_experiment','').get('accelerator', '')) }}">
           <div class="rec_thumb rec_parentcol">
-            <div class="n"><div class="t">Accelerator</div>{{ record.get('accelerator_experiment','').get('accelerator', '') }}</div>
+            <div class="n no-glossary"><div class="t">Accelerator</div>{{ record.get('accelerator_experiment','').get('accelerator', '') }}</div>
           </div>
         </a>
         <a href="{{ url_for('search.search', p=record.get('accelerator_experiment','').get('experiment', '')) }}">
           <div class="rec_thumb rec_parentcol">
-            <div class="n"><div class="t">Experiment</div>{{ record.get('accelerator_experiment','').get('experiment', '') }}</div>
+            <div class="n no-glossary"><div class="t">Experiment</div>{{ record.get('accelerator_experiment','').get('experiment', '') }}</div>
           </div>
         </a>
       {% endif %}
@@ -100,7 +98,7 @@
         {% if record.get('supplement_parent_entry','').get('recid','') and record.get('supplement_parent_entry','').get('heading','') %}
         <a href="{{ url_for('record.metadata', recid=record.get('supplement_parent_entry','').get('recid', '')) }}">
           <div class="rec_thumb rec_parentcol">
-            <div class="n"><div class="t">Parent Dataset</div>{{ record.get('supplement_parent_entry','').get('heading', '') }}</div>
+            <div class="n no-glossary"><div class="t">Parent Dataset</div>{{ record.get('supplement_parent_entry','').get('heading', '') }}</div>
           </div>
         </a>
         {% endif %}
@@ -120,14 +118,37 @@
         <div class="rec_title title">Description</div>
       </div>
       <div class="col-md-12">
-        <div class="rec_desc">{{record.get('abstract',{}).get('summary','')|safe}}</div>
+        <div class="rec_desc">
+          {{record.get('abstract',{}).get('summary','')|safe}}
+          {% if record.get('abstract',{}).get('url', '') %}
+            <a href="{{ record.get('abstract',{}).get('url','') }}">{{ record.get('abstract',{}).get('url','') }}</a>
+          {% endif %}
+          {% if record.get('abstract',{}).get('recid', '') %}
+            <a href="{{ url_for('record.metadata', recid=record.get('abstract',{}).get('recid','')) }}">{{ record.get('abstract',{}).get('recid','') | get_record_name }}</a>
+          {% endif %}
+        </div>
       </div>
+      {% if record.get('data_source_entry',{}) %}
+        <div class="col-md-12">
+          <div class="rec_title title">Related datasets</div>
+        </div>
+        <div class="col-md-12">
+          <div class="rec_desc">
+            {% if record.get('data_source_entry',{}).get('heading', '') %}
+              {{ record.get('data_source_entry',{}).get('heading','') }}
+            {% endif %}
+            {% if record.get('data_source_entry',{}).get('recid', '') %}
+              <a href="{{ url_for('record.metadata', recid=record.get('data_source_entry',{}).get('recid','')) }}">{{ record.get('data_source_entry',{}).get('recid','') | get_record_name }}</a>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
     </div>
   </div>
   {% endblock %}
-  
+
   {% block record_comment_note %}
-  {% if record.get('comment') %}    
+  {% if record.get('comment') %}
   <div class="rec_metadata rec_comment_note">
     <div class="row">
       <div class="col-md-12">
@@ -147,14 +168,20 @@
         {% do show_previewer.update({'show':true, 'first_file':file.get('full_name')}) %}
       {% endif %}
 
-      {% if (file.get('url','')[-3:] == 'txt') or (file.get('url','')[-3:] == 'csv') or (file.get('url','')[-4:] == 'json') %}
+      {% if (((file.get('url','')[-3:] == 'txt') or (file.get('url','')[-4:] == 'json'))) and ( file.get('url', '').find("index") >= 0) %}
         {% if not show_previewer['file_title'] %}
           {% do show_previewer.update({'file_title':'i'}) %}
         {% elif show_previewer['file_title'] == 'f' %}
           {% do show_previewer.update({'file_title':'fi'}) %}
         {% endif %}
+      {% elif (((file.get('url','')[-3:] == 'txt') or (file.get('url','')[-4:] == 'json'))) and (  file.get('url', '').find("index") < 0) %}
+        {% if (not show_previewer['file_title']) %}
+          {% do show_previewer.update({'file_title':'f'}) %}
+        {% elif show_previewer['file_title'] == 'i' %}
+          {% do show_previewer.update({'file_title':'fi'}) %}
+        {% endif %}
       {% else %}
-        {% if not show_previewer['file_title'] %}
+        {% if not show_previewer['file_title']  %}
           {% do show_previewer.update({'file_title':'f'}) %}
         {% elif show_previewer['file_title'] == 'i' %}
           {% do show_previewer.update({'file_title':'fi'}) %}
@@ -243,7 +270,7 @@
                       <a href="{{url_for('.metadata', recid = r )}}">{{ r|get_record_name }}</a>
                     {% endfor %}
                   {% endif %}
-                {% endif %}                
+                {% endif %}
               {% endfor %}
             </div>
           </div>
@@ -269,6 +296,9 @@
               {% endif %}
               {% if record.get('system_details', {}).get('note', '') %}
                 {{record.get('system_details', {}).get('note', '')}}<br>
+              {% endif %}
+              {% if record.get('system_details',{}).get('url','') %}
+                <a href="{{ record.get('system_details',{}).get('url','') }}">{{ record.get('system_details',{}).get('url','') }}</a><br>
               {% endif %}
               {% if record.get('system_details', {}).get('recid', '') %}
                 <a href="{{url_for('.metadata', recid = record.get('system_details', {}).get('recid', '') )}}">{{(record.get('system_details', {}).get('recid', ''))|get_record_name }}</a>
@@ -297,7 +327,7 @@
               {% endif %}
               {% if record.get('other_relationship_entry', {}).get('other_item_identifier', '') %}
                 <a href="{{ record.get('other_relationship_entry', {}).get('other_item_identifier', '') }}">{{ record.get('other_relationship_entry', {}).get('other_item_identifier', '') }}</a><br>
-              {% endif %}              
+              {% endif %}
               {% if record.get('other_relationship_entry', {}).get('recid', '') %}
                 {% if record.get('other_relationship_entry', {}).get('recid', '') is string %}
                   <a href="{{url_for('.metadata', recid = record.get('other_relationship_entry', {}).get('recid', '') )}}">{{ (record.get('other_relationship_entry', {}).get('recid', ''))|get_record_name }}</a>
@@ -391,8 +421,8 @@
                         {% endfor %}
                       {% else %}
                         <a class="col-md-12" href="{{ i.get('url','') }}">{{ i.get('url','') }}</a>
-                      {% endif %}                    
-                    {% endfor %}                    
+                      {% endif %}
+                    {% endfor %}
                 {% endif %}
 
 

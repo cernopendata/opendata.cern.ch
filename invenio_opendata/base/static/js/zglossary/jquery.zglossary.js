@@ -146,11 +146,7 @@
 							// Find term in text
 							var item = data[i];
 							if (item.category == 'specific') {
-								console.log('## '+' == '+exp+' : '+ item.term );
-								console.log(item.experiment);
-
 								item.experiment.forEach(function(e, i, a) {
-									console.log('-- '+e.name+' == '+exp+' : '+ item.term  +'////'+ e)
 									if( e.name == exp ){
 										move_on = true;
 									}

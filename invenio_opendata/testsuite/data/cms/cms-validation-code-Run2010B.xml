@@ -1,0 +1,321 @@
+<collection xmlns="http://www.loc.gov/MARC21/slim">
+	<record>
+		<controlfield tag="001">460</controlfield>
+		<datafield tag="024" ind1="7" ind2=" ">
+			<subfield code="2">DOI</subfield>
+			<subfield code="a">10.7483/OPENDATA.CMS.A8CP.HBJQ</subfield>
+		</datafield>
+		<datafield tag="100" ind1=" " ind2=" ">
+			<subfield code="a">Geiser, Achim</subfield>
+		</datafield>
+		<datafield tag="245" ind1=" " ind2=" ">
+			<subfield code="a">Validation code for 2010 Mu and MuMonitor datasets, based on dimuon mass spectrum</subfield>
+		</datafield>
+		<datafield tag="260" ind1=" " ind2=" ">
+			<subfield code="b">CERN Open Data Portal</subfield>
+			<subfield code="c">2016</subfield>
+		</datafield>
+		<datafield tag="264" ind1=" " ind2="0">
+			<subfield code="c">2016</subfield>
+		</datafield>
+		<datafield tag="516" ind1=" " ind2=" ">
+			<subfield code="a">Use this with 2010 Mu and/or MuMonitor primary datasets (see detailed instructions in readme.txt and code).</subfield>
+			<subfield code="w">14</subfield>
+			<subfield code="w">9</subfield>
+		</datafield>
+		<datafield tag="520" ind1=" " ind2=" ">
+			<subfield code="a"><![CDATA[ <p>This code for validation and benchmarking of the Mu and MuMonitor datasets is set up at Research level, i.e. it requires university-student-level programming experience.
+	        Minimal acquaintance with Linux and the ROOT analysis package (<a href="https://root.cern.ch/">https://root.cern.ch/</a>) as well as a basic text editor is needed. Note that the code in this category is not meant to be a pedagogical example but is a validation tool. </p>]]></subfield>
+		</datafield>
+		<datafield tag="538" ind1=" " ind2=" ">
+			<subfield code="a">Software release: CMSSW_4_2_8</subfield>
+			<subfield code="i">Use this code with the CMS Open Data VM environment</subfield>
+			<subfield code="w">250</subfield>
+		</datafield>
+		<datafield tag="540" ind1=" " ind2=" ">
+			<subfield code="a">GNU General Public License (GPL) version 3</subfield>
+		</datafield>
+		<datafield tag="583" ind1=" " ind2=" ">
+			<subfield code="a">Only the list of validated runs are accepted:</subfield>
+			<subfield code="w">1000</subfield>
+		</datafield>
+		<datafield tag="693" ind1=" " ind2=" ">
+			<subfield code="a">CERN-LHC</subfield>
+			<subfield code="e">CMS</subfield>
+		</datafield>
+		<datafield tag="581" ind1=" " ind2=" ">
+			<subfield code="a"><![CDATA[ <p>If you do not have the CERN Virtual Machine for 2010 CMS data installed, follow the instructions in step 1 at <a href="/VM/CMS/2010">How to install a CERN Virtual Machine</a>.
+			Then install and run the Demo (demo analyzer) program following the instructions at <a href="/VM/CMS/2010#testvalidate2010">How to Test & Validate</a>.</p>
+			<p>To run the Mu and/or MuMonitor sample validation, follow the instructions in the file readme.txt above.</p> ]]></subfield>
+		</datafield>
+		<datafield tag="700" ind1=" " ind2=" ">
+			<subfield code="a">Dutta, Irene</subfield>
+		</datafield>
+		<datafield tag="700" ind1=" " ind2=" ">
+			<subfield code="a">Hirvonsalo, Harri</subfield>
+		</datafield>
+		<datafield tag="700" ind1=" " ind2=" ">
+			<subfield code="a">Sheeran, Bridget</subfield>
+		</datafield>
+		<datafield tag="787" ind1=" " ind2=" ">
+			<subfield code="a">The default output of the code below is a ROOT file Mu00val.root</subfield>
+		</datafield>
+		<datafield tag="964" ind1=" " ind2="0">
+      			<subfield code="c">Run2010B</subfield>
+    		</datafield>
+		<datafield tag="980" ind1=" " ind2=" ">
+			<subfield code="a">CMS-Validation-Utilities</subfield>
+		</datafield>
+		<datafield tag="980" ind1=" " ind2=" ">
+			<subfield code="b">Research</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Mu/readme.txt</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Mu/BuildFile.xml</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Mu/DemoAnalyzer.cc</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Mu/demoanalyzer_cfg.py</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Mu/mergeMu.C</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Mu/Mu00val.root</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Mu/Mu01val.root</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Mu/Mu02val.root</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Mu/Mu03val.root</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Mu/Mu04val.root</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Mu/Mu05val.root</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Mu/MuAllval.root</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Mu/MuMonitorval.root</subfield>
+		</datafield>
+	</record>
+	<record>
+		<controlfield tag="001">461</controlfield>
+		<datafield tag="024" ind1="7" ind2=" ">
+			<subfield code="2">DOI</subfield>
+			<subfield code="a">10.7483/OPENDATA.CMS.W26R.J96R</subfield>
+		</datafield>
+		<datafield tag="100" ind1=" " ind2=" ">
+			<subfield code="a">Geiser, Achim</subfield>
+		</datafield>
+		<datafield tag="245" ind1=" " ind2=" ">
+			<subfield code="a">Validation code for 2010 Commissioning dataset, based on dimuon mass spectrum</subfield>
+		</datafield>
+		<datafield tag="260" ind1=" " ind2=" ">
+			<subfield code="b">CERN Open Data Portal</subfield>
+			<subfield code="c">2016</subfield>
+		</datafield>
+		<datafield tag="264" ind1=" " ind2="0">
+			<subfield code="c">2016</subfield>
+		</datafield>
+		<datafield tag="516" ind1=" " ind2=" ">
+			<subfield code="a">Use this with 2010 Commissioning primary dataset (see detailed instructions in readme.txt and code).</subfield>
+			<subfield code="w">2</subfield>
+		</datafield>
+		<datafield tag="520" ind1=" " ind2=" ">
+			<subfield code="a"><![CDATA[ <p>This code for validation and benchmarking of the Commissioning dataset is set up at Research level, i.e. it requires university-student-level programming experience.
+	        Minimal acquaintance with Linux and the ROOT analysis package (<a href="https://root.cern.ch/">https://root.cern.ch/</a>) as well as a basic text editor is needed. Note that the code in this category is not meant to be a pedagogical example but is a validation tool. </p>]]></subfield>
+		</datafield>
+		<datafield tag="538" ind1=" " ind2=" ">
+			<subfield code="a">Software release: CMSSW_4_2_8</subfield>
+			<subfield code="i">Use this code with the CMS Open Data VM environment</subfield>
+			<subfield code="w">250</subfield>
+		</datafield>
+		<datafield tag="540" ind1=" " ind2=" ">
+			<subfield code="a">GNU General Public License (GPL) version 3</subfield>
+		</datafield>
+		<datafield tag="583" ind1=" " ind2=" ">
+			<subfield code="a">Only the list of validated runs are accepted:</subfield>
+			<subfield code="w">1000</subfield>
+		</datafield>
+		<datafield tag="693" ind1=" " ind2=" ">
+			<subfield code="a">CERN-LHC</subfield>
+			<subfield code="e">CMS</subfield>
+		</datafield>
+		<datafield tag="581" ind1=" " ind2=" ">
+			<subfield code="a"><![CDATA[ <p>If you do not have the CERN Virtual Machine for 2010 CMS data installed, follow the instructions in step 1 at <a href="/VM/CMS/2010">How to install a CERN Virtual Machine</a>.
+			Then install and run the Demo (demo analyzer) program following the instructions at <a href="/VM/CMS/2010#testvalidate2010">How to Test & Validate</a>.</p>
+			<p>To run the Commissioning sample validation, follow the instructions in the file readme.txt above.</p> ]]></subfield>
+		</datafield>
+		<datafield tag="700" ind1=" " ind2=" ">
+			<subfield code="a">Dutta, Irene</subfield>
+		</datafield>
+		<datafield tag="700" ind1=" " ind2=" ">
+			<subfield code="a">Hirvonsalo, Harri</subfield>
+		</datafield>
+		<datafield tag="700" ind1=" " ind2=" ">
+			<subfield code="a">Sheeran, Bridget</subfield>
+		</datafield>
+		<datafield tag="787" ind1=" " ind2=" ">
+			<subfield code="a">The default output of the code below is a ROOT file Mu00val.root</subfield>
+		</datafield>
+		<datafield tag="964" ind1=" " ind2="0">
+      			<subfield code="c">Run2010B</subfield>
+    		</datafield>
+		<datafield tag="980" ind1=" " ind2=" ">
+			<subfield code="a">CMS-Validation-Utilities</subfield>
+		</datafield>
+		<datafield tag="980" ind1=" " ind2=" ">
+			<subfield code="b">Research</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Commissioning/readme.txt</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Commissioning/BuildFile.xml</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Commissioning/DemoAnalyzer.cc</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Commissioning/demoanalyzer_cfg.py</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Commissioning/mergeCommissioning.C</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Commissioning/Commissioning00val.root</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Commissioning/Commissioning02val.root</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Commissioning/Commissioning03val.root</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Commissioning/Commissioning04val.root</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/Commissioning/CommissioningAllval.root</subfield>
+		</datafield>
+	</record>
+	<record>
+		<controlfield tag="001">462</controlfield>
+		<datafield tag="024" ind1="7" ind2=" ">
+			<subfield code="2">DOI</subfield>
+			<subfield code="a">10.7483/OPENDATA.CMS.GBZR.7F2A</subfield>
+		</datafield>
+		<datafield tag="100" ind1=" " ind2=" ">
+			<subfield code="a">Geiser, Achim</subfield>
+		</datafield>
+		<datafield tag="245" ind1=" " ind2=" ">
+			<subfield code="a">Validation code for 2010 MinimumBias dataset, based on track and vertex spectra</subfield>
+		</datafield>
+		<datafield tag="260" ind1=" " ind2=" ">
+			<subfield code="b">CERN Open Data Portal</subfield>
+			<subfield code="c">2016</subfield>
+		</datafield>
+		<datafield tag="264" ind1=" " ind2="0">
+			<subfield code="c">2016</subfield>
+		</datafield>
+		<datafield tag="516" ind1=" " ind2=" ">
+			<subfield code="a">Use this with 2010 MinimumBias primary dataset (see detailed instructions in readme.txt and code).</subfield>
+			<subfield code="w">8</subfield>
+		</datafield>
+		<datafield tag="520" ind1=" " ind2=" ">
+			<subfield code="a"><![CDATA[ <p>This code for validation and benchmarking of the MinimumBias dataset is set up at Research level, i.e. it requires university-student-level programming experience.
+	        Minimal acquaintance with Linux and the ROOT analysis package (<a href="https://root.cern.ch/">https://root.cern.ch/</a>) as well as a basic text editor is needed. Note that the code in this category is not meant to be a pedagogical example but is a validation tool. </p>]]></subfield>
+		</datafield>
+		<datafield tag="538" ind1=" " ind2=" ">
+			<subfield code="a">Software release: CMSSW_4_2_8</subfield>
+			<subfield code="i">Use this code with the CMS Open Data VM environment</subfield>
+			<subfield code="w">250</subfield>
+		</datafield>
+		<datafield tag="540" ind1=" " ind2=" ">
+			<subfield code="a">GNU General Public License (GPL) version 3</subfield>
+		</datafield>
+		<datafield tag="583" ind1=" " ind2=" ">
+			<subfield code="a">Only the list of validated runs are accepted:</subfield>
+			<subfield code="w">1000</subfield>
+		</datafield>
+		<datafield tag="693" ind1=" " ind2=" ">
+			<subfield code="a">CERN-LHC</subfield>
+			<subfield code="e">CMS</subfield>
+		</datafield>
+		<datafield tag="581" ind1=" " ind2=" ">
+			<subfield code="a"><![CDATA[ <p>If you do not have the CERN Virtual Machine for 2010 CMS data installed, follow the instructions in step 1 at <a href="/VM/CMS/2010">How to install a CERN Virtual Machine</a>.
+			Then install and run the Demo (demo analyzer) program following the instructions at <a href="/VM/CMS/2010#testvalidate2010">How to Test & Validate</a>.</p>
+			<p>To run the MinimumBias sample validation, follow the instructions in the file readme.txt above.</p> ]]></subfield>
+		</datafield>
+		<datafield tag="700" ind1=" " ind2=" ">
+			<subfield code="a">Dutta, Irene</subfield>
+		</datafield>
+		<datafield tag="700" ind1=" " ind2=" ">
+			<subfield code="a">Hirvonsalo, Harri</subfield>
+		</datafield>
+		<datafield tag="700" ind1=" " ind2=" ">
+			<subfield code="a">Sheeran, Bridget</subfield>
+		</datafield>
+		<datafield tag="787" ind1=" " ind2=" ">
+			<subfield code="a">The default output of the code below is a ROOT file Mu00val.root</subfield>
+		</datafield>
+		<datafield tag="964" ind1=" " ind2="0">
+      			<subfield code="c">Run2010B</subfield>
+    		</datafield>
+		<datafield tag="980" ind1=" " ind2=" ">
+			<subfield code="a">CMS-Validation-Utilities</subfield>
+		</datafield>
+		<datafield tag="980" ind1=" " ind2=" ">
+			<subfield code="b">Research</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/MinimumBias/readme.txt</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/MinimumBias/BuildFile.xml</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/MinimumBias/DemoAnalyzer.cc</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/MinimumBias/demoanalyzer_cfg.py</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/MinimumBias/mergeMinBias.C</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/MinimumBias/MinBias00val.root</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/MinimumBias/MinBias01val.root</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/MinimumBias/MinBias02val.root</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/MinimumBias/MinBias03val.root</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/MinimumBias/MinBias04val.root</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/MinimumBias/MinBias05val.root</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/MinimumBias/MinBias06val.root</subfield>
+		</datafield>
+		<datafield tag="FFT" ind1=" " ind2=" ">
+			<subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-validation-code-Run2010B/MinimumBias/MinBiasAllval.root</subfield>
+		</datafield>
+	</record>
+</collection>

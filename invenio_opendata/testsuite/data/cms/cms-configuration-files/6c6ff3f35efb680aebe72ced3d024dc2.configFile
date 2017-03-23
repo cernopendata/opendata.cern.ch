@@ -1,0 +1,69 @@
+# Auto generated configuration file
+# using: 
+# Revision: 1.381.2.28 
+# Source: /local/reps/CMSSW/CMSSW/Configuration/PyReleaseValidation/python/ConfigBuilder.py,v 
+# with command line options: step1 --filein lhe:5430 --mc --eventcontent LHE --datatier GEN --conditions START53_LV4::All --step NONE --python_filename /afs/cern.ch/cms/PPD/PdmV/work/McM/submit/HIG-Summer11LegpLHE-00005/HIG-Summer11LegpLHE-00005_1_cfg.py --no_exec -n 1
+import FWCore.ParameterSet.Config as cms
+
+process = cms.Process('LHE')
+
+# import of standard configurations
+process.load('FWCore.MessageService.MessageLogger_cfi')
+process.load('Configuration.EventContent.EventContent_cff')
+process.load('SimGeneral.MixingModule.mixNoPU_cfi')
+process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
+
+process.maxEvents = cms.untracked.PSet(
+    input = cms.untracked.int32(1)
+)
+
+# Input source
+process.source = cms.Source("LHESource",
+    fileNames = cms.untracked.vstring('/store/lhe/5430/7TeV_z4jets_smzerobmass_M-10To50_run1001to100999_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5430/7TeV_z4jets_smzerobmass_M-10To50_run108001to207999_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5430/7TeV_z4jets_smzerobmass_M-10To50_run208001to307999_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5430/7TeV_z4jets_smzerobmass_M-10To50_run308001to407999_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5430/7TeV_z4jets_smzerobmass_M-10To50_run408001to507999_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5430/7TeV_z4jets_smzerobmass_M-10To50_run508001to607999_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5430/7TeV_z4jets_smzerobmass_M-10To50_run608001to707999_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5430/7TeV_z4jets_smzerobmass_M-10To50_run708001to807999_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5430/7TeV_z4jets_smzerobmass_M-10To50_run809001to908999_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5430/7TeV_z4jets_smzerobmass_M-10To50_run931001to1030999_1processes_unweighted_events_qcut12.5_mgPostv2.lhe')
+)
+
+process.options = cms.untracked.PSet(
+
+)
+
+# Production Info
+process.configurationMetadata = cms.untracked.PSet(
+    version = cms.untracked.string('$Revision: 1.381.2.28 $'),
+    annotation = cms.untracked.string('step1 nevts:1'),
+    name = cms.untracked.string('PyReleaseValidation')
+)
+
+# Output definition
+
+process.LHEoutput = cms.OutputModule("PoolOutputModule",
+    splitLevel = cms.untracked.int32(0),
+    eventAutoFlushCompressedSize = cms.untracked.int32(5242880),
+    outputCommands = process.LHEEventContent.outputCommands,
+    fileName = cms.untracked.string('step1_NONE.root'),
+    dataset = cms.untracked.PSet(
+        filterName = cms.untracked.string(''),
+        dataTier = cms.untracked.string('GEN')
+    )
+)
+
+# Additional output definition
+
+# Other statements
+from Configuration.AlCa.GlobalTag import GlobalTag
+process.GlobalTag = GlobalTag(process.GlobalTag, 'START53_LV4::All', '')
+
+# Path and EndPath definitions
+process.LHEoutput_step = cms.EndPath(process.LHEoutput)
+
+# Schedule definition
+process.schedule = cms.Schedule(process.LHEoutput_step)
+

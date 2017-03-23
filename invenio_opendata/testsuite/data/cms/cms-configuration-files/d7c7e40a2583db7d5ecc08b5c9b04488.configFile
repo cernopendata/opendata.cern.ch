@@ -1,0 +1,105 @@
+# Auto generated configuration file
+# using: 
+# Revision: 1.381.2.28 
+# Source: /local/reps/CMSSW/CMSSW/Configuration/PyReleaseValidation/python/ConfigBuilder.py,v 
+# with command line options: step1 --filein lhe:5214 --mc --eventcontent LHE --datatier GEN --conditions START53_LV4::All --step NONE --python_filename /afs/cern.ch/cms/PPD/PdmV/work/McM/submit/HIG-Summer11LegpLHE-00002/HIG-Summer11LegpLHE-00002_1_cfg.py --no_exec -n 1
+import FWCore.ParameterSet.Config as cms
+
+process = cms.Process('LHE')
+
+# import of standard configurations
+process.load('FWCore.MessageService.MessageLogger_cfi')
+process.load('Configuration.EventContent.EventContent_cff')
+process.load('SimGeneral.MixingModule.mixNoPU_cfi')
+process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
+
+process.maxEvents = cms.untracked.PSet(
+    input = cms.untracked.int32(1)
+)
+
+# Input source
+process.source = cms.Source("LHESource",
+    fileNames = cms.untracked.vstring('/store/lhe/5214/7TeV_Z2jetsM10_50_run10001to10019_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10021to10039_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10041to10059_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10061to10079_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10081to10099_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10101to10119_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10121to10139_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10141to10159_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10161to10179_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10181to10199_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10201to10219_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10221to10239_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10241to10259_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10261to10279_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10281to10299_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10301to10319_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10321to10339_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10341to10359_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10361to10379_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10381to10399_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10401to10419_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10421to10439_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10441to10459_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10461to10479_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10481to10499_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10501to10519_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10521to10539_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10541to10559_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10561to10579_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run10581to10599_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run250003to250021_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run250023to250041_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run250043to250061_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run250063to250081_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run250083to250101_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run250143to250161_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run250163to250181_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run250183to250201_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run250203to250221_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run250224to250242_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run250244to250262_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run250264to250282_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run250284to250302_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run250304to250322_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run250325to250343_1processes_unweighted_events_qcut12.5_mgPostv2.lhe', 
+        '/store/lhe/5214/7TeV_Z2jetsM10_50_run250345to250363_1processes_unweighted_events_qcut12.5_mgPostv2.lhe')
+)
+
+process.options = cms.untracked.PSet(
+
+)
+
+# Production Info
+process.configurationMetadata = cms.untracked.PSet(
+    version = cms.untracked.string('$Revision: 1.381.2.28 $'),
+    annotation = cms.untracked.string('step1 nevts:1'),
+    name = cms.untracked.string('PyReleaseValidation')
+)
+
+# Output definition
+
+process.LHEoutput = cms.OutputModule("PoolOutputModule",
+    splitLevel = cms.untracked.int32(0),
+    eventAutoFlushCompressedSize = cms.untracked.int32(5242880),
+    outputCommands = process.LHEEventContent.outputCommands,
+    fileName = cms.untracked.string('step1_NONE.root'),
+    dataset = cms.untracked.PSet(
+        filterName = cms.untracked.string(''),
+        dataTier = cms.untracked.string('GEN')
+    )
+)
+
+# Additional output definition
+
+# Other statements
+from Configuration.AlCa.GlobalTag import GlobalTag
+process.GlobalTag = GlobalTag(process.GlobalTag, 'START53_LV4::All', '')
+
+# Path and EndPath definitions
+process.LHEoutput_step = cms.EndPath(process.LHEoutput)
+
+# Schedule definition
+process.schedule = cms.Schedule(process.LHEoutput_step)
+

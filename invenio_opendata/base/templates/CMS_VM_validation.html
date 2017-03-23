@@ -74,7 +74,7 @@
 
 <section class="infobar">
 	<div class="container">
-      {{ gen_utils.get_breadcrumbs(breadcrumbs, exp, exp) }}
+      {{ gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names) }}
 	</div>
 </section>
 
@@ -96,7 +96,7 @@
 				</div>
 				<div>
 					<h4>Tested Environments</h4>
-					<p>The tested hardware and software has basically depended on availability. Software-wise there has been some limitations mainly due to licensing issues and delays in getting the licenses. These include some delays on testing proprietary operating systems, usually when they have to be installed on new hardware. Also testing of Vmware virtualization software have been very limited in comparison to Virtualbox mainly due to licensing and differences in the testing process, of course lack of time has its part to play aswell. Also, one of the main things that affect the choices when deciding what to prioritize is the size of the user base. For these reasons I've mainly tested the image on Virtualbox when it comes to hypervisors, and that's also the suggested software to be used with the image. Same goes for example for testing outdated/unsupported versions of operating systems.</p>
+					<p>The tested hardware and software has basically depended on availability. Software-wise there has been some limitations mainly due to licensing issues and delays in getting the licenses. These include some delays on testing proprietary operating systems, usually when they have to be installed on new hardware. Also testing of Vmware virtualisation software have been very limited in comparison to VirtualBox mainly due to licensing and differences in the testing process, of course lack of time has its part to play as well. Also, one of the main things that affect the choices when deciding what to prioritise is the size of the user base. For these reasons I've mainly tested the image on VirtualBox when it comes to hypervisors, and that's also the suggested software to be used with the image. Same goes for example for testing outdated/unsupported versions of operating systems.</p>
 					<p>When it comes to hardware, there hasn't been limitations other than the availability. I've tested several processor and motherboard combinations and a lot of GPUs. Also the amount of RAM has been easy to increase or decrease on some combinations.</p>
 				</div>
 				<div class="test-env-listings">
@@ -120,7 +120,7 @@
 					<p>DPI can easily be adjusted from Xfce menu -> Preferences -> Appearance -> Fonts -> DPI. This enhances the readability and general usability significantly.</p>
 				</div>
 				<div>
-					<h4>Hardware virtualization support</h4>
+					<h4>Hardware virtualisation support</h4>
 					<p>Enabling the "virtual technology" on some hardware combinations is necessary. This can be done from the BIOS/UEFI when host machine is booting by accessing the settings. User should refer to the documentation of the host machine or the documentation of the motherboard to access these settings. Common terms for these are Intel VT-x or AMD-V depending on motherboard.</p>
 				</div>
 				<div>
@@ -148,7 +148,7 @@
 				</div>
 				<div>
 					<h4>Conflicts between applications</h4>
-					<p>There has been issues in the latest releases of Virtualbox (4.3.14) when used on a host with an antivirus software. The problem is the Virtualbox build, not the antivirus software of choice, and is currently being worked on by Oracle. Upgrading to latest version or to a test build fixes some of these issues and will continue to do so in the future, so highlighting the importance of having the latest version of Virtualbox to the user is important. These problems also seem to rise only when it's a new virtual machine.</p>
+					<p>There has been issues in the latest releases of VirtualBox (4.3.14) when used on a host with an antivirus software. The problem is the VirtualBox build, not the antivirus software of choice, and is currently being worked on by Oracle. Upgrading to latest version or to a test build fixes some of these issues and will continue to do so in the future, so highlighting the importance of having the latest version of VirtualBox to the user is important. These problems also seem to rise only when it's a new virtual machine.</p>
 				</div>
 				<div>
 					<h4>Host modules</h4>
