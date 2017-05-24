@@ -25,6 +25,12 @@
     <datafield tag="520" ind1=" " ind2=" ">
       <subfield code="a">This file describes which luminosity sections in which runs are considered good and should be processed.</subfield>
     </datafield>
+    <datafield tag="556" ind1=" " ind2=" ">
+      <subfield code="a">This list covers all p-p data taking in 2010. The public data (RunB) is part of this list, between run numbers 146428 and 149294</subfield>
+    </datafield>    
+    <datafield tag="567" ind1=" " ind2=" ">
+      <subfield code="a">The integrated luminosity for validated runs and luminosity sections of the 2010 public data (RunB) is available in the attached table "2010RunBlumi". (The integrated luminosity for validated runs and luminosity sections of all 2010 p-p data taking is available in the attached table "2010lumi".) In your estimate for the integrated luminosity, check for which runs the trigger you have selected is active and sum the values for those runs. The uncertainty in the luminosity measurement of 2010 data should be considered as 11% (see CMS PAS EWK-10-004).</subfield>
+    </datafield>
     <datafield tag="581" ind1=" " ind2=" ">
       <subfield code="a"><![CDATA[ Add the following lines in the configuration file for a cmsRun job: <br />import FWCore.ParameterSet.Config as cms <br /> import FWCore.PythonUtilities.LumiList as LumiList <br /> goodJSON = 'Cert_136033-149442_7TeV_Apr21ReReco_Collisions10_JSON_v2.txt' <br /> myLumis = LumiList.LumiList(filename = goodJSON).getCMSSWString().split(',') <br /> process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange() <br /> process.source.lumisToProcess.extend(myLumis) ]]></subfield>
     </datafield>
@@ -57,6 +63,15 @@
     <datafield tag="FFT" ind1=" " ind2=" ">
       <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/github-files/Cert_136033-149442_7TeV_Apr21ReReco_Collisions10_JSON_v2.txt</subfield>
     </datafield>
+    <datafield tag="FFT" ind1=" " ind2=" ">
+      <subfield code="a">FIXME (add 2010RunBlumi.txt)</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1=" " ind2=" ">
+      <subfield code="a">FIXME (add 2010lumi.txt)</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1=" " ind2=" ">
+      <subfield code="a">FIXME (add https://cds.cern.ch/record/1279145/files/EWK-10-004-pas.pdf)</subfield>
+    </datafield>
   </record>
    <record>
     <controlfield tag="001">1001</controlfield>
@@ -83,6 +98,12 @@
     </datafield>
     <datafield tag="520" ind1=" " ind2=" ">
       <subfield code="a">This file describes which luminosity sections in which runs are considered good and should be processed.</subfield>
+    </datafield>
+     <datafield tag="556" ind1=" " ind2=" ">
+      <subfield code="a">The list covers all p-p data taking in 2011. The public data (RunA) is part of this list, between run numbers 160431 to 173692</subfield>
+    </datafield>
+    <datafield tag="567" ind1=" " ind2=" ">
+      <subfield code="a">The integrated luminosity for validated runs and luminosity sections of the 2011 public data (RunA) is available in the attached table "2011RunAlumi". (The integrated luminosity for validated runs and luminosity sections of all 2010 p-p data taking is available in the attached table "2011lumi".) In your estimate for the integrated luminosity, check for which runs the trigger you have selected is active and sum the values for those runs. The uncertainty in the luminosity measurement of 2011 data should be considered as 2.2% (see CMS PAS SMP-12-008).</subfield>
     </datafield>
     <datafield tag="581" ind1=" " ind2=" ">
       <subfield code="a"><![CDATA[ Add the following lines in the configuration file for a cmsRun job: <br />import FWCore.ParameterSet.Config as cms <br /> import FWCore.PythonUtilities.LumiList as LumiList <br /> goodJSON = 'Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt' <br /> myLumis = LumiList.LumiList(filename = goodJSON).getCMSSWString().split(',') <br /> process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange() <br /> process.source.lumisToProcess.extend(myLumis) ]]></subfield>
@@ -115,6 +136,15 @@
     </datafield>
     <datafield tag="FFT" ind1=" " ind2=" ">
       <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/github-files/Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1=" " ind2=" ">
+      <subfield code="a">FIXME (add 2011RunAlumi.txt)</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1=" " ind2=" ">
+      <subfield code="a">FIXME (add 2011lumi.txt)</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1=" " ind2=" ">
+      <subfield code="a">FIXME (add https://cds.cern.ch/record/1434360/files/SMP-12-008-pas.pdf)</subfield>
     </datafield>
   </record>
 </collection>
