@@ -885,6 +885,22 @@ class PortalboxData(DataSet):
         id = 52
         title = u'description'
 
+    class Portalbox_53:
+        body = u'The Oscillation Project with Emulsion-tRacking Apparatus (OPERA) is a scientific experiment for detecting tau neutrinos from muon neutrino oscillations. The experiment is a collaboration between CERN in Geneva, Switzerland, and the Laboratori Nazionali del Gran Sasso (LNGS) in Gran Sasso, Italy.'
+        id = 53
+        title = u'short_description_e'
+
+    class Portalbox_54:
+        body = u'The Oscillation Project with Emulsion-tRacking Apparatus (OPERA) is a scientific experiment for detecting tau neutrinos from muon neutrino oscillations. The experiment is a collaboration between CERN in Geneva, Switzerland, and the Laboratori Nazionali del Gran Sasso (LNGS) in Gran Sasso, Italy.'
+        id = 54
+        title = u'short_description_r'
+
+    class Portalbox_55:
+        body = u'OPERA.gif'
+        id = 55
+        title = u'image'
+
+
 class CollectionPortalboxData(DataSet):
 
     class CollectionPortalbox_2_1_en:
@@ -1237,6 +1253,27 @@ class CollectionPortalboxData(DataSet):
         score = 100
         id_collection = CollectionData.OPERA.ref('id')
 
+    class CollectionPortalbox_31_53_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_53.ref('id')
+        score = 100
+        id_collection = CollectionData.OPERA.ref('id')
+
+    class CollectionPortalbox_31_54_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_54.ref('id')
+        score = 100
+        id_collection = CollectionData.OPERA.ref('id')
+
+    class CollectionPortalbox_31_55_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_55.ref('id')
+        score = 100
+        id_collection = CollectionData.OPERA.ref('id')
+
     class CollectionPortalbox_32_51_en:
         ln = u'en'
         position = u'r'
@@ -1250,6 +1287,7 @@ class CollectionPortalboxData(DataSet):
         id_portalbox = PortalboxData.Portalbox_52.ref('id')
         score = 100
         id_collection = CollectionData.OPERAEmulsionDetectorDatasets.ref('id')
+
 
 class FacetCollectionData(DataSet):
 

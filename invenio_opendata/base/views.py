@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2013, 2014 CERN.
+# Copyright (C) 2013, 2014, 2017 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -343,6 +343,18 @@ def about_lhcb():
     except TemplateNotFound:
         return abort(404)
 
+@blueprint.route('about/opera')
+@blueprint.route('about/OPERA')
+@register_breadcrumb(blueprint, '.about_opera', 'OPERA', \
+                        dynamic_list_constructor = (lambda :\
+                        [{"url":".about", "text":"About"},\
+                        {"url":".about_opera","text":"OPERA Open Data"}]) )
+def about_opera():
+    try:
+        return render_template('about_opera.html')
+    except TemplateNotFound:
+        return abort(404)
+
 @blueprint.route('about/CMS-Physics-Objects', defaults={'year': None})
 @blueprint.route('about/CMS-Physics-Objects/<string:year>')
 @register_breadcrumb(blueprint, '.about_physics', 'CMSS', \
@@ -619,4 +631,3 @@ def news():
         return render_template('news.html')
     except TemplateNotFound:
         return abort(404)
-

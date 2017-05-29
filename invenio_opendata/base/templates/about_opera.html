@@ -1,0 +1,33 @@
+{% extends 'page.html' %}
+
+{% block body %}
+
+{% import 'helpers/general.html' as gen_utils %}
+
+  <section class="infobar">
+    <div class="container">
+      {{gen_utils.get_breadcrumbs(breadcrumbs)}}
+    </div>
+  </section>
+
+  <section id="about-alice" class="general content">
+    <div class="container">
+      <div id="OPERA" class="row">
+        <div class="gen-header">
+          <h1 class="col-md-12" >About OPERA</h1>
+          <p  class="col-md-12">The Oscillation Project with Emulsion-tRacking Apparatus (OPERA) is a scientific experiment for detecting tau neutrinos from muon neutrino oscillations. The experiment is a collaboration between CERN in Geneva, Switzerland, and the Laboratori Nazionali del Gran Sasso (LNGS) in Gran Sasso, Italy.</p>
+        </div>
+        <div class="col-md-12">
+          <div class="gen-box">
+            <h2>Disclaimer</h2>
+            <ul>
+              <li>The open data are released under the <a href="http://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 waiver</a>. Neither OPERA nor CERN endorse any works, scientific or otherwise, produced using these data.</li>
+              <li>All released data samples will have a unique DOI that you are requested to cite in any applications or publications.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
