@@ -29,7 +29,8 @@ Quick installation instructions for an impatient Invenio developer::
    # now populate demo site with some records
    docker exec -i -t -u invenio opendatacernch_web_1 \
      inveniomanage demosite populate --packages=invenio_opendata.base \
-       -f invenio_opendata/testsuite/data/lhcb/lhcb-derived-datasets.xml \
+       -f invenio_opendata/testsuite/data/opera/opera-ecc-datasets.xml \
+       -f invenio_opendata/testsuite/data/opera/opera-ed-datasets.xml \
        -e force-recids --yes-i-know
    firefox http://127.0.0.1:28080/
 
@@ -142,6 +143,8 @@ populate *all* collections, you can use::
     -f invenio_opendata/testsuite/data/lhcb/lhcb-derived-datasets.xml \
     -f invenio_opendata/testsuite/data/lhcb/lhcb-learning-resources.xml \
     -f invenio_opendata/testsuite/data/lhcb/lhcb-tools.xml \
+    -f invenio_opendata/testsuite/data/opera/opera-ecc-datasets.xml \
+    -f invenio_opendata/testsuite/data/opera/opera-ed-datasets.xml \
     -f invenio_opendata/testsuite/data/data-policies.xml \
     -e force-recids --yes-i-know
 
