@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2012, 2013, 2014, 2015, 2016 CERN.
+# Copyright (C) 2012, 2013, 2014, 2015, 2016, 2017 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -244,6 +244,27 @@ class CollectionData(DataSet):
         dbquery = '980__a:"ATLAS-Simulated-Datasets"'
         names = {
             ('en', 'ln'): u'ATLAS Simulated Datasets',
+        }
+
+    class OPERA(siteCollection):
+        id = 31
+        name = 'OPERA'
+        dbquery = None
+
+    class OPERAElectronicDetectorDatasets(siteCollection):
+        id = 32
+        name = 'OPERA-Electronic-Detector-Datasets'
+        dbquery = '980__a:"OPERA-Electronic-Detector-Datasets"'
+        names = {
+            ('en', 'ln'): u'OPERA Electronic Detector Datasets',
+        }
+
+    class OPERAEmulsionDetectorDatasets(siteCollection):
+        id = 33
+        name = 'OPERA-Emulsion-Detector-Datasets'
+        dbquery = '980__a:"OPERA-Emulsion-Detector-Datasets"'
+        names = {
+            ('en', 'ln'): u'OPERA Emulsion Detector Datasets',
         }
 
 
@@ -549,6 +570,23 @@ class CollectionCollectionData(DataSet):
         score = 4
         type = 'r'
 
+    class siteCollection_OPERA:
+        dad = CollectionData.siteCollection
+        son = CollectionData.OPERA
+        score = 4
+        type = 'v'
+
+    class OPERA_OPERAElectronicDetectorDatasets:
+        dad = CollectionData.OPERA
+        son = CollectionData.OPERAElectronicDetectorDatasets
+        score = 0
+        type = 'r'
+
+    class OPERA_OPERAEmulsionDetectorDatasets:
+        dad = CollectionData.OPERA
+        son = CollectionData.OPERAEmulsionDetectorDatasets
+        score = 1
+        type = 'r'
 
 class CollectiondetailedrecordpagetabsData(DataSet):
 
@@ -832,6 +870,20 @@ class PortalboxData(DataSet):
         id = 49
         title = u'description'
 
+    class Portalbox_50:
+        body = u'The Oscillation Project with Emulsion-tRacking Apparatus (OPERA) is a scientific experiment for detecting tau neutrinos from muon neutrino oscillations. The experiment is a collaboration between CERN in Geneva, Switzerland, and the Laboratori Nazionali del Gran Sasso (LNGS) in Gran Sasso, Italy.'
+        id = 50
+        title = u'description'
+
+    class Portalbox_51:
+        body = u'This collection contains OPERA Electronic Detectors (ED) datasets.'
+        id = 51
+        title = u'description'
+
+    class Portalbox_52:
+        body = u'This collection contains OPERA Emulsion Cloud Chamber (ECC) datasets.'
+        id = 52
+        title = u'description'
 
 class CollectionPortalboxData(DataSet):
 
@@ -1178,6 +1230,26 @@ class CollectionPortalboxData(DataSet):
         score = 100
         id_collection = CollectionData.ATLASSimulatedDatasets.ref('id')
 
+    class CollectionPortalbox_31_50_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_50.ref('id')
+        score = 100
+        id_collection = CollectionData.OPERA.ref('id')
+
+    class CollectionPortalbox_32_51_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_51.ref('id')
+        score = 100
+        id_collection = CollectionData.OPERAElectronicDetectorDatasets.ref('id')
+
+    class CollectionPortalbox_33_52_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_52.ref('id')
+        score = 100
+        id_collection = CollectionData.OPERAEmulsionDetectorDatasets.ref('id')
 
 class FacetCollectionData(DataSet):
 
