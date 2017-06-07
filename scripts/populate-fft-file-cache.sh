@@ -292,7 +292,10 @@ $WGET -O $OUTDIR/cms-docdb-files/SingleElectron_Run2011A.ig "$DOCDB?docid=12752&
 $WGET -O $OUTDIR/cms-docdb-files/SingleMu_Run2011A.ig "$DOCDB?docid=12752&amp;filename=SingleMu_Run2011A.ig"
 $WGET -O $OUTDIR/cms-docdb-files/TauPlusX_Run2011A.ig "$DOCDB?docid=12752&amp;filename=TauPlusX_Run2011A.ig"
 $WGET -O $OUTDIR/cms-docdb-files/Tau_Run2011A.ig "$DOCDB?docid=12752&amp;filename=Tau_Run2011A.ig"
-
+$WGET -O $OUTDIR/cms-docdb-files/Wenu_SingleElectron_Run2011A.csv "$DOCDB?docid=13329&amp;filename=Wenu_SingleElectron_Run2011A.csv"
+$WGET -O $OUTDIR/cms-docdb-files/Wmunu_SingleMu_Run2011A.csv "$DOCDB?docid=13329&amp;filename=Wmunu_SingleMu_Run2011A.csv"
+$WGET -O $OUTDIR/cms-docdb-files/Zee_DoubleElectron_Run2011A.csv "$DOCDB?docid=13329&amp;filename=Zee_DoubleElectron_Run2011A.csv"
+$WGET -O $OUTDIR/cms-docdb-files/Zmumu_DoubleMu_Run2011A.csv "$DOCDB?docid=13329&amp;filename=Zmumu_DoubleMu_Run2011A.csv"
 
 # cernvm files:
 mkdir -p $OUTDIR/cernvm-files
