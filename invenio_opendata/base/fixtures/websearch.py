@@ -267,6 +267,21 @@ class CollectionData(DataSet):
             ('en', 'ln'): u'OPERA Emulsion Detector Datasets',
         }
 
+    class OPERAElectronicDetectorEvents(siteCollection):
+        id = 34
+        name = 'OPERA-Electronic-Detector-Events'
+        dbquery = '980__a:"OPERA-Electronic-Detector-Events"'
+        names = {
+            ('en', 'ln'): u'OPERA Electronic Detector Events',
+        }
+
+    class OPERAEmulsionDetectorEvents(siteCollection):
+        id = 35
+        name = 'OPERA-Emulsion-Detector-Events'
+        dbquery = '980__a:"OPERA-Emulsion-Detector-Events"'
+        names = {
+            ('en', 'ln'): u'OPERA Emulsion Detector Events',
+        }
 
 class CollectionCollectionData(DataSet):
 
@@ -588,6 +603,19 @@ class CollectionCollectionData(DataSet):
         score = 1
         type = 'r'
 
+    class OPERA_OPERAElectronicDetectorEvents:
+        dad = CollectionData.OPERA
+        son = CollectionData.OPERAElectronicDetectorEvents
+        score = 2
+        type = 'r'
+
+    class OPERA_OPERAEmulsionDetectorEvents:
+        dad = CollectionData.OPERA
+        son = CollectionData.OPERAEmulsionDetectorEvents
+        score = 3
+        type = 'r'
+
+
 class CollectiondetailedrecordpagetabsData(DataSet):
 
     class Collectiondetailedrecordpagetabs_1:
@@ -876,7 +904,7 @@ class PortalboxData(DataSet):
         title = u'description'
 
     class Portalbox_51:
-        body = u'This collection contains OPERA Electronic Detectors (ED) datasets.'
+        body = u'This collection contains OPERA Electronic Detector (ED) datasets.'
         id = 51
         title = u'description'
 
@@ -899,6 +927,17 @@ class PortalboxData(DataSet):
         body = u'OPERA.gif'
         id = 55
         title = u'image'
+
+    class Portalbox_56:
+        body = u'This collection contains OPERA Electronic Detector (ED) events.'
+        id = 56
+        title = u'description'
+
+    class Portalbox_57:
+        body = u'This collection contains OPERA Emulsion Cloud Chamber (ECC) events.'
+        id = 57
+        title = u'description'
+
 
 
 class CollectionPortalboxData(DataSet):
@@ -1287,6 +1326,20 @@ class CollectionPortalboxData(DataSet):
         id_portalbox = PortalboxData.Portalbox_52.ref('id')
         score = 100
         id_collection = CollectionData.OPERAEmulsionDetectorDatasets.ref('id')
+
+    class CollectionPortalbox_34_56_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_56.ref('id')
+        score = 100
+        id_collection = CollectionData.OPERAElectronicDetectorEvents.ref('id')
+
+    class CollectionPortalbox_35_57_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_57.ref('id')
+        score = 100
+        id_collection = CollectionData.OPERAEmulsionDetectorEvents.ref('id')
 
 
 class FacetCollectionData(DataSet):
