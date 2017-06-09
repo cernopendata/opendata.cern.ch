@@ -635,6 +635,30 @@ class CollectionCollectionData(DataSet):
         score = 23
         type = 'r'
 
+    class siteCollection_OPERAElectronicDetectorDatasets:
+        dad = CollectionData.siteCollection
+        son = CollectionData.OPERAElectronicDetectorDatasets
+        score = 24
+        type = 'r'
+
+    class siteCollection_OPERAEmulsionDetectorDatasets:
+        dad = CollectionData.siteCollection
+        son = CollectionData.OPERAEmulsionDetectorDatasets
+        score = 25
+        type = 'r'
+
+    class siteCollection_OPERAElectronicDetectorEvents:
+        dad = CollectionData.siteCollection
+        son = CollectionData.OPERAElectronicDetectorEvents
+        score = 26
+        type = 'r'
+
+    class siteCollection_OPERAEmulsionDetectorEvents:
+        dad = CollectionData.siteCollection
+        son = CollectionData.OPERAEmulsionDetectorEvents
+        score = 27
+        type = 'r'
+
 
 class CollectiondetailedrecordpagetabsData(DataSet):
 
