@@ -246,6 +246,15 @@ class CollectionData(DataSet):
             ('en', 'ln'): u'ATLAS Simulated Datasets',
         }
 
+    class CMSLuminosityInformation(siteCollection):
+        id = 36
+        name = 'CMS-Luminosity-Information'
+        dbquery = '980__a:"CMS-Luminosity-Information"'
+        names = {
+            ('en', 'ln'): u'CMS Luminosity Information',
+        }
+
+
 
 class CollectionCollectionData(DataSet):
 
@@ -313,6 +322,12 @@ class CollectionCollectionData(DataSet):
         dad = CollectionData.CMS
         son = CollectionData.CMSConfigurationFiles
         score = 9
+        type = 'r'
+
+    class CMS_CMSLuminosityInformation:
+        dad = CollectionData.CMS
+        son = CollectionData.CMSLuminosityInformation
+        score = 10
         type = 'r'
 
     class siteCollection_CMSPrimaryDatasets:
@@ -547,6 +562,12 @@ class CollectionCollectionData(DataSet):
         dad = CollectionData.ATLAS
         son = CollectionData.ATLASSimulatedDatasets
         score = 4
+        type = 'r'
+
+    class siteCollection_CMSLuminosityInformation:
+        dad = CollectionData.siteCollection
+        son = CollectionData.CMSLuminosityInformation
+        score = 23
         type = 'r'
 
 
@@ -830,6 +851,11 @@ class PortalboxData(DataSet):
     class Portalbox_49:
         body = u'This collection contains ATLAS simulated datasets.'
         id = 49
+        title = u'description'
+
+    class Portalbox_58:
+        body = u'This collection contains CMS luminosity information.'
+        id = 58
         title = u'description'
 
 
@@ -1177,6 +1203,13 @@ class CollectionPortalboxData(DataSet):
         id_portalbox = PortalboxData.Portalbox_49.ref('id')
         score = 100
         id_collection = CollectionData.ATLASSimulatedDatasets.ref('id')
+
+    class CollectionPortalbox_36_58_en:
+        ln = u'en'
+        position = u'r'
+        id_portalbox = PortalboxData.Portalbox_58.ref('id')
+        score = 100
+        id_collection = CollectionData.CMSLuminosityInformation.ref('id')
 
 
 class FacetCollectionData(DataSet):
