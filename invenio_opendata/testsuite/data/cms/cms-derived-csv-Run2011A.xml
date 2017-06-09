@@ -23,20 +23,30 @@
     </datafield>
     <datafield tag="567" ind1="" ind2="">
       <subfield code="a">
-      <p><strong>Wmunu</strong>
+      <p>
+        <p><strong>Wmunu</strong></p>
         <p>An event was selected if there was one (and only one) global muon in the event that satisfies: pT > 25.0 GeV and |eta| < 2.1. Furthermore, the event was rejected if there was another global muon in the event with pT > 10 GeV in the acceptance region |eta| < 2.4.</p>
       </p>
-      <p><strong>Wenu</strong>
+      <p>
+        <p><strong>Wenu</strong></p>
         <p>An event was selected if there is was one electron in the event with pT > 25.0 GeV. Furthermore, the event was rejected if there was a second electron present with pT > 20 GeV.</p>
       </p>
-      <p><strong>Zee</strong>
+      <p>
+        <p><strong>Zee</strong></p>
         <p>
           An event was selected if there were two electrons in the event with pT > 25 GeV and the invariant mass of the two electrons was > 60 GeV and < 120 GeV.
         </p>
       </p>
-      <p><strong>Zmumu</strong>
+      <p>
+        <p><strong>Zmumu</strong></p>
         <p>
           An event was selected if there were two muons in the event with pT > 20 GeV and |eta| < 2.1 and the invariant mass of the two muons was > 60 GeV and < 120 GeV.
+        </p>
+      </p>
+      <p>
+        <p><strong>Dimuon</strong></p>
+        <p>
+          An event was selected if there were two muons in the event, both with |eta| < 2.4, at least one muon was a global muon, and the invariant mass of the two muons was > 2 GeV and < 110 GeV.
         </p>
       </p>
       </subfield>
@@ -74,6 +84,10 @@
     <datafield tag="FFT" ind1="" ind2="">
       <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-docdb-files/Zee_SingleElectron_Run2011A.csv</subfield>
       <subfield code="n">Zee</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1="" ind2="">
+      <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-docdb-files/Dimuon_SingleMu_Run2011A.csv</subfield>
+      <subfield code="n">Dimuon</subfield>
     </datafield>
   </record>
 </collection>
