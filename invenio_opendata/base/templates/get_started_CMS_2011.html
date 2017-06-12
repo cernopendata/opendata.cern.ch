@@ -80,11 +80,14 @@
       As mentioned above, you do not typically perform an analysis directly on the AOD files. However, there may be cases when you can do so. Therefore, we have provided an example analysis to take you through the steps that you may need on the occassions that you want to analyse the AOD files directly. You can find the files and instructions in <a href="http://opendata.cern.ch/record/560">this CMS Tools entry</a>.
     </p>
     <p>
-      <strong>Before you proceed</strong>: Not that this example is tailored to the CMS data from 2010. In order to run the same analysis on 2011 data, you need to make the following adjustments to the workflow:
+      <strong>Before you proceed</strong>: Note that this example is tailored to the CMS data from 2010. In order to run the same analysis on 2011 data, you need to make the following adjustments to the workflow:
     </p>
     <ol>
       <li>
-          Make sure you're using the appropriate CERN Virtual Machine image for analysing the data from 2011, and change all instances of CMSSW to the correct version for these datasets.
+          Different CMS VM image versions should be used for analysing 2010 and 2011 data. For 2011 data, use <a href="http://opendata.cern.ch/record/252">CMS VM image for 2011 data</a>.
+      </li>
+      <li>
+          Change all instances of CMSSW to the correct version (<kbd>CMSSW_5_3_32</kbd> for 2011 datasets).
       </li>
       <li>
           In the <kbd>demoanalyzer_cfg.py</kbd> file, replace <kbd>PhysicsTools.PythonAnalysis.LumiList</kbd> with <kbd>FWCore.PythonUtilities.LumiList</kbd> on line 4.
