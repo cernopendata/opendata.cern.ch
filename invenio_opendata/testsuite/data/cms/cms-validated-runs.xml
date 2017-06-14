@@ -25,6 +25,9 @@
     <datafield tag="520" ind1=" " ind2=" ">
       <subfield code="a">This file describes which luminosity sections in which runs are considered good and should be processed.</subfield>
     </datafield>
+    <datafield tag="556" ind1=" " ind2=" ">
+      <subfield code="a">This list covers all p-p data taking in 2010. The public data (RunB) is part of this list, between run numbers 146428 and 149294.</subfield>
+    </datafield>
     <datafield tag="581" ind1=" " ind2=" ">
       <subfield code="a"><![CDATA[ Add the following lines in the configuration file for a cmsRun job: <br />import FWCore.ParameterSet.Config as cms <br /> import FWCore.PythonUtilities.LumiList as LumiList <br /> goodJSON = 'Cert_136033-149442_7TeV_Apr21ReReco_Collisions10_JSON_v2.txt' <br /> myLumis = LumiList.LumiList(filename = goodJSON).getCMSSWString().split(',') <br /> process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange() <br /> process.source.lumisToProcess.extend(myLumis) ]]></subfield>
     </datafield>
@@ -83,6 +86,9 @@
     </datafield>
     <datafield tag="520" ind1=" " ind2=" ">
       <subfield code="a">This file describes which luminosity sections in which runs are considered good and should be processed.</subfield>
+    </datafield>
+     <datafield tag="556" ind1=" " ind2=" ">
+      <subfield code="a">The list covers all p-p data taking in 2011. The public data (RunA) is part of this list, between run numbers 160431 and 173692.</subfield>
     </datafield>
     <datafield tag="581" ind1=" " ind2=" ">
       <subfield code="a"><![CDATA[ Add the following lines in the configuration file for a cmsRun job: <br />import FWCore.ParameterSet.Config as cms <br /> import FWCore.PythonUtilities.LumiList as LumiList <br /> goodJSON = 'Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt' <br /> myLumis = LumiList.LumiList(filename = goodJSON).getCMSSWString().split(',') <br /> process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange() <br /> process.source.lumisToProcess.extend(myLumis) ]]></subfield>

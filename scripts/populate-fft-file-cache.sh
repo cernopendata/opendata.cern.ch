@@ -366,6 +366,9 @@ rsync -a invenio_opendata/testsuite/data/cms/cms-l1-trigger-information-Run2011A
 # CMS authorlist files:
 rsync -a invenio_opendata/testsuite/data/cms/cms-authorlist-files/ $OUTDIR/cms-authorlist-files/
 
+# CMS luminosity information:
+rsync -a invenio_opendata/testsuite/data/cms/cms-luminosity-information/ $OUTDIR/cms-luminosity-information/
+
 # finally, make symlink to FFT cache from tmp:
 if [ ! -L "/tmp/$(basename $OUTDIR)" ]; then
     ln -s $OUTDIR /tmp
