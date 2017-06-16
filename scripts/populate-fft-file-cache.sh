@@ -298,6 +298,8 @@ $WGET -O $OUTDIR/cms-docdb-files/Zee_DoubleElectron_Run2011A.csv "$DOCDB?docid=1
 $WGET -O $OUTDIR/cms-docdb-files/Zmumu_DoubleMu_Run2011A.csv "$DOCDB?docid=13329&amp;filename=Zmumu_DoubleMu_Run2011A.csv"
 $WGET -O $OUTDIR/cms-docdb-files/Dimuon_SingleMu_Run2011A.csv "$DOCDB?docid=13329&amp;filename=Dimuon_SingleMu_Run2011A.csv"
 $WGET -O $OUTDIR/cms-docdb-files/Dimuon_DoubleMu_Run2011A.csv "$DOCDB?docid=13329&amp;filename=Dimuon_DoubleMu_Run2011A.csv"
+$WGET -O $OUTDIR/cms-docdb-files/Jpsimumu_DoubleMu_Run2011A.csv "$DOCDB?docid=13329&amp;filename=Jpsimumu_DoubleMu_Run2011A.csv"
+$WGET -O $OUTDIR/cms-docdb-files/Ymumu_DoubleMu_Run2011A.csv "$DOCDB?docid=13329&amp;filename=Ymumu_DoubleMu_Run2011A.csv"
 
 # cernvm files:
 mkdir -p $OUTDIR/cernvm-files
