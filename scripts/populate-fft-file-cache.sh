@@ -372,6 +372,10 @@ rsync -a invenio_opendata/testsuite/data/cms/cms-luminosity-information/ $OUTDIR
 # OPERA authorlist files:
 rsync -a invenio_opendata/testsuite/data/opera/opera-authorlist-files/ $OUTDIR/opera-authorlist-files/
 
+# OPERA dataset files:
+rsync -a invenio_opendata/testsuite/data/opera/opera-ecc-datasets/ $OUTDIR/opera-ecc-datasets/
+rsync -a invenio_opendata/testsuite/data/opera/opera-ed-datasets/ $OUTDIR/opera-ed-datasets/
+
 # finally, make symlink to FFT cache from tmp:
 if [ ! -L "/tmp/$(basename $OUTDIR)" ]; then
     ln -s $OUTDIR /tmp
