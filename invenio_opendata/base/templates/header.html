@@ -38,6 +38,7 @@
               </button>
             </div>
           </div>
+          <img src="{{ url_for('static', filename='img/demo.png') }}" alt="" style="position:absolute;left:40%;top:0;width:200px;">
           <div  class="innernav col-md-7">
             <!-- Collection of nav links and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse">
@@ -50,6 +51,7 @@
                     <li class="col-md-12" role="presentation"><a href="{{ url_for('about/ALICE') }}">ALICE Open Data</a></li>
                     <li class="col-md-12" role="presentation"><a href="{{ url_for('about/ATLAS') }}">ATLAS Open Data</a></li>
                     <li class="col-md-12" role="presentation"><a href="{{ url_for('about/LHCb') }}">LHCb Open Data</a></li>
+                    <li class="col-md-12" role="presentation"><a href="{{ url_for('about/OPERA') }}">OPERA Open Data</a></li>
                     <li class="col-md-12" role="presentation"><a href="{{ url_for('invenio_opendata.glossary') }}">Glossary</a></li>
                     <li class="col-md-12" role="presentation"><a href="{{ url_for('invenio_opendata.news') }}">News</a></li>
                   </ul>
