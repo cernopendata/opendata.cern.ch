@@ -943,7 +943,7 @@ class PortalboxData(DataSet):
         title = u'description'
 
     class Portalbox_50:
-        body = u'The Oscillation Project with Emulsion-tRacking Apparatus (OPERA) is a scientific experiment for detecting tau neutrinos from muon neutrino oscillations. The experiment is a collaboration between CERN in Geneva, Switzerland, and the Laboratori Nazionali del Gran Sasso (LNGS) in Gran Sasso, Italy.'
+        body = u'The OPERA experiment (Oscillation Project with Emulsion-tRacking Apparatus) has been taking data from 2008 to 2012 at the Gran Sasso INFN Laboratory on the CNGS muon neutrino beam produced at CERN. The experiment was aiming at demonstrating the tau neutrino appearance in a muon neutrino beam due to neutrino oscillations. This goal was achieved in 2015 when the observation of five tau neutrino candidates was reported and the discovery of tau neutrino appearance was published with a significance larger than 5 sigma. The experiment is unique in its capability of detecting all three neutrino flavours. Tau neutrinos are identified through their charged-current interactions where the short-lived tau lepton is produced and its decay vertex is detected. This challenging goal is achieved thanks to the Emulsion Cloud Chamber technology based on nuclear emulsion films with the unsurpassed sub-micrometric accuracy, readout by fully-automated and high-speed optical microscopes. The OPERA Collaboration includes about 150 physicists from 26 Institutes in 11 Countries.'
         id = 50
         title = u'description'
 
