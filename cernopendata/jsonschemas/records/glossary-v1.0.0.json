@@ -1,0 +1,79 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"description": "Describe information needed for glossary entity.",
+	"properties": {
+		"id": {
+      "type": "string",
+      "title": "id"
+    },
+    "term": {
+			"type": "array",
+      "title": "Term",
+      "items": {
+        "type": "string"
+      }
+		},
+		"anchor": {
+			"type": "string",
+      "title": "Anchor"
+		},
+		"category": {
+			"type": "string",
+      "title": "Category"
+		},
+		"type": {
+			"type": "string",
+      "title": "Type"
+		},
+		"definition": {
+			"type": "string",
+      "title": "Definition"
+		},
+		"experiment": {
+			"type": "array",
+      "title": "Experiment",
+			"items": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"title": "Name",
+						"type": "string"
+					}
+				}
+			}
+		},
+		"see_also": {
+			"type": "array",
+      "title": "See also",
+			"items": {
+				"type": "object",
+				"properties": {
+					"term": {
+						"title": "Term",
+						"type": "string"
+					}
+				}
+			}
+		},
+		"links": {
+      "title": "Links",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"text": {
+						"title": "Text",
+						"type": "string"
+					},
+					"url": {
+						"title": "Url",
+						"type": "string"
+					}
+				}
+			}
+		}
+
+	},
+	"title": "Glossary Schema.",
+	"type": "object"
+}

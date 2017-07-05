@@ -36,6 +36,10 @@ web:
     - APP_BROKER_URL=amqp://guest:guest@rabbitmq:5672/
     - APP_CELERY_RESULT_BACKEND=redis://redis:6379/2
     - APP_SEARCH_ELASTIC_HOSTS=elasticsearch
+  volumes:
+    - ../devmodules:/devmodules
+    - ./cernopendata:/code/cernopendata
+    - ./scripts:/code/scripts
   volumes_from:
     - static
   links:
@@ -60,6 +64,10 @@ worker:
     - APP_BROKER_URL=amqp://guest:guest@rabbitmq:5672/
     - APP_CELERY_RESULT_BACKEND=redis://redis:6379/2
     - APP_SEARCH_ELASTIC_HOSTS=elasticsearch
+  volumes:
+    - ../devmodules:/devmodules
+    - ./cernopendata:/code/cernopendata
+    - ./scripts:/code/scripts
   volumes_from:
     - static
   links:

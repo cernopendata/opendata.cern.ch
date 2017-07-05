@@ -44,7 +44,8 @@ CELERY_ACCEPT_CONTENT = ['json', 'msgpack', 'yaml']
 
 # JSONSchemas
 JSONSCHEMAS_ENDPOINT = '/schema'
-JSONSCHEMAS_HOST = 'opendata.cern.ch'
+JSONSCHEMAS_HOST = '127.0.0.1'
+#JSONSCHEMAS_URL_SCHEME = 'http'
 
 # OAI Server
 OAISERVER_RECORD_INDEX = 'marc21'
@@ -64,9 +65,36 @@ RECORDS_UI_ENDPOINTS = dict(
         template='invenio_marc21/detail.html',
         permission_factory_imp=None,
     ),
+    glossid=dict(
+        pid_type='termid',
+        route='/records/glossary/<pid_value>',
+        template='invenio_records_ui/detail.html',
+        permission_factory_imp=None,
+    )
 )
 
+
+
 RECORDS_REST_ENDPOINTS['recid']['search_index'] = '_all'
+RECORDS_REST_ENDPOINTS['termid'] = {
+    'pid_type': 'termid',
+    # 'pid_minter': 'recid',
+    # 'pid_fetcher': 'recid',
+    'pid_minter': 'cernopendata_glossid_minter',
+    'pid_fetcher': 'cernopendata_glossid_fetcher',
+    'default_media_type': 'application/json',
+    'max_result_window': 10000,
+    'item_route': '/records/glossary/<pid(termid):pid_value>',
+    'list_route': '/records/glossary/',
+    'record_serializers': {
+        'application/json': ('invenio_records_rest.serializers'
+                             ':json_v1_response'),
+    },
+    'search_serializers': {
+        'application/json': ('invenio_records_rest.serializers'
+                             ':json_v1_search'),
+    },
+}
 
 RECORDS_REST_FACETS = dict(
     _all=dict(

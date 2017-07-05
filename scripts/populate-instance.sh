@@ -121,6 +121,7 @@ pip install -e git+https://github.com/cernopendata/cernopendata-fixtures.git#egg
 ${INVENIO_WEB_INSTANCE} fixtures collections
 ${INVENIO_WEB_INSTANCE} fixtures records
 ${INVENIO_WEB_INSTANCE} fixtures pids
+${INVENIO_WEB_INSTANCE} fixtures glossary
 pip uninstall -y cernopendata-fixtures
 # sphinxdoc-populate-with-demo-records-end
 
