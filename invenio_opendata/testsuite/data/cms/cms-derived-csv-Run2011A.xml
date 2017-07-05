@@ -1,0 +1,201 @@
+<collection>
+  <record>
+    <controlfield tag="001">545</controlfield>
+    <datafield tag="245" ind1="" ind2="">
+      <subfield code="a">Datasets derived from the Run2011A SingleElectron, SingleMu, DoubleElectron, and DoubleMu primary datasets</subfield>
+    </datafield>
+    <datafield tag="260" ind1=" " ind2=" ">
+      <subfield code="b">CERN Open Data Portal</subfield>
+      <subfield code="c">2017</subfield>
+    </datafield>
+    <datafield tag="100" ind1="" ind2="">
+      <subfield code="a">McCauley, Thomas</subfield>
+    </datafield>
+    <datafield tag="520" ind1="" ind2="">
+      <subfield code="a">These data were selected from the primary datasets in order to obtain candidate J/psi and Y events, candidate W and Z boson events, and general di-electron and dimuon spectra.</subfield>
+    </datafield>
+    <datafield tag="540" ind1=" " ind2=" ">
+      <subfield code="a">CC0</subfield>
+    </datafield>
+    <datafield tag="567" ind1="" ind2="">
+      <subfield code="a"><![CDATA[
+      <p>
+        <p><strong>Wmunu</strong></p>
+        <p>An event was selected if there was one (and only one) global muon in the event that satisfies: pT > 25.0 GeV and |eta| < 2.1. Furthermore, the event was rejected if there was another global muon in the event with pT > 10 GeV in the acceptance region |eta| < 2.4.</p>
+      </p>
+      <p>
+        <p><strong>Wenu</strong></p>
+        <p>An event was selected if there is was one electron in the event with pT > 25.0 GeV. Furthermore, the event was rejected if there was a second electron present with pT > 20 GeV.</p>
+      </p>
+      <p>
+        <p><strong>Zee</strong></p>
+        <p>
+          An event was selected if there were two electrons in the event with pT > 25 GeV and the invariant mass of the two electrons was > 60 GeV and < 120 GeV.
+        </p>
+      </p>
+      <p>
+        <p><strong>Zmumu</strong></p>
+        <p>
+          An event was selected if there were two muons in the event with pT > 20 GeV and |eta| < 2.1 and the invariant mass of the two muons was > 60 GeV and < 120 GeV.
+        </p>
+      </p>
+      <p>
+        <p><strong>Dimuon</strong></p>
+        <p>
+          An event was selected if there were two muons in the event, both with |eta| < 2.4, at least one muon was a global muon, the invariant mass of the two muons was > 0.3 GeV and < 300 GeV, and they have opposite-sign charge.
+        </p>
+      </p>
+      <p>
+        <p><strong>Jpsimumu</strong></p>
+        <p>
+          An event was selected if there were two muons in the event, both with |eta| < 2.4, at least one muon was a global muon, the invariant mass of the two muons was > 2 GeV and < 5 GeV, and they have opposite-sign charge.
+        </p>
+      </p>
+      <p>
+        <p><strong>Ymumu</strong></p>
+        <p>
+          An event was selected if there were two muons in the event, both with |eta| < 2.4, at least one muon was a global muon, the invariant mass of the two muons was > 8 GeV and < 12 GeV, and they have opposite-sign charge.
+        </p>
+      </p>
+      ]]></subfield>
+    </datafield>
+    <datafield tag="556" ind1="" ind2="">
+      <subfield code="a">These data were selected for use in education and outreach and contain a subset of the total event information. They are not suitable for a full physics analysis.</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">Run</subfield>
+      <subfield code="g">The run number of the event.</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">Event</subfield>
+      <subfield code="g">The event number.</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">E,px,py,pz</subfield>
+      <subfield code="g">For a lepton, either a muon or an electron, the total energy and components of the momemtum (in GeV).</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">pt</subfield>
+      <subfield code="g">The transverse momentum of the lepton (in units of GeV), either a muon or an electron.</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">eta</subfield>
+      <subfield code="g">The pseudorapidity of the lepton, either a muon or an electron.</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">phi</subfield>
+      <subfield code="g">The phi angle (in radians) of the lepton, either a muon or an electron.</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">Q</subfield>
+      <subfield code="g">The charge of the lepton, either a muon or an electron.</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">M</subfield>
+      <subfield code="g">The invariant mass (in GeV) of either two muons or two electrons.</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">chiSq</subfield>
+      <subfield code="g">The chi-squared per degree-of-freedom of the lepton, either a muon or an electron.</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">dxy</subfield>
+      <subfield code="g">The impact parameter in the transverse plane with respect to the vertex of the muon or electron.</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">iso</subfield>
+      <subfield code="g">The combined isolation (Itrack + Iecal + Ihcal) of the muon.</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">MET</subfield>
+      <subfield code="g">The missing transverse momentum of the event (in units of GeV).</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">phiMET</subfield>
+      <subfield code="g">The phi angle (in radians) of the missing transverse momentum.</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">type</subfield>
+      <subfield code="g">For an electron, either EB or EE: whether the electron is in the barrel or in the endcap.</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">type</subfield>
+      <subfield code="g">For a muon, either T or G: whether the muon is a tracker or global muon.</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">delEta</subfield>
+      <subfield code="g">The difference in eta (in radians) between the electron track and the associated cluster in the ECAL.</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">delPhi</subfield>
+      <subfield code="g">The difference in phi (in radians) between the electron track and the associated cluster in the ECAL.</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">sigmaEtaEta</subfield>
+      <subfield code="g">The weighted cluster rms along eta for an electron.</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">HoverE</subfield>
+      <subfield code="g">The energy of the electron in the HCAL divided by the energy of the electron in the ECAL. </subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">isoTrack</subfield>
+      <subfield code="g">The isolation variable for the electron in the tracker.</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">isoEcal</subfield>
+      <subfield code="g">The isolation variable for the electron in the ECAL.</subfield>
+    </datafield>
+    <datafield tag="505" ind1=" " ind2=" ">
+      <subfield code="t">isoHcal</subfield>
+      <subfield code="g">The isolation variable for the electron in the HCAL.</subfield>
+    </datafield>
+    <datafield tag="581" ind1=" " ind2=" ">
+      <subfield code="a">The data can be analyzed using a Jupyter notebook:</subfield>
+      <subfield code="u">https://github.com/cmsopendata-finland/kurssimateriaali</subfield>
+      <subfield code="y">CMS Open Data Finland</subfield>
+    </datafield>
+    <datafield tag="693" ind1=" " ind2=" ">
+      <subfield code="a">CERN-LHC</subfield>
+      <subfield code="e">CMS</subfield>
+    </datafield>
+    <datafield tag="964" ind1=" " ind2="0">
+      <subfield code="c">Run2011A</subfield>
+    </datafield>
+    <datafield tag="980" ind1=" " ind2=" ">
+      <subfield code="a">CMS-Derived-Datasets</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1="" ind2="">
+      <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-docdb-files/Wmunu_SingleMu_Run2011A.csv</subfield>
+      <subfield code="n">Wmunu</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1="" ind2="">
+      <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-docdb-files/Wenu_SingleElectron_Run2011A.csv</subfield>
+      <subfield code="n">Wenu</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1="" ind2="">
+      <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-docdb-files/Zmumu_DoubleMu_Run2011A.csv</subfield>
+      <subfield code="n">Zmumu</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1="" ind2="">
+      <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-docdb-files/Zee_DoubleElectron_Run2011A.csv</subfield>
+      <subfield code="n">Zee</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1="" ind2="">
+      <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-docdb-files/Dimuon_SingleMu_Run2011A.csv</subfield>
+      <subfield code="n">Dimuon SingleMu</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1="" ind2="">
+      <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-docdb-files/Dimuon_DoubleMu_Run2011A.csv</subfield>
+      <subfield code="n">Dimuon DoubleMu</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1="" ind2="">
+      <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-docdb-files/Jpsimumu_DoubleMu_Run2011A.csv</subfield>
+      <subfield code="n">Jpsimumu</subfield>
+    </datafield>
+    <datafield tag="FFT" ind1="" ind2="">
+      <subfield code="a">/tmp/opendata.cern.ch-fft-file-cache/cms-docdb-files/Ymumu_DoubleMu_Run2011A.csv</subfield>
+      <subfield code="n">Ymumu</subfield>
+    </datafield>
+  </record>
+</collection>

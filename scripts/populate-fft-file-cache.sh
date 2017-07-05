@@ -292,7 +292,14 @@ $WGET -O $OUTDIR/cms-docdb-files/SingleElectron_Run2011A.ig "$DOCDB?docid=12752&
 $WGET -O $OUTDIR/cms-docdb-files/SingleMu_Run2011A.ig "$DOCDB?docid=12752&amp;filename=SingleMu_Run2011A.ig"
 $WGET -O $OUTDIR/cms-docdb-files/TauPlusX_Run2011A.ig "$DOCDB?docid=12752&amp;filename=TauPlusX_Run2011A.ig"
 $WGET -O $OUTDIR/cms-docdb-files/Tau_Run2011A.ig "$DOCDB?docid=12752&amp;filename=Tau_Run2011A.ig"
-
+$WGET -O $OUTDIR/cms-docdb-files/Wenu_SingleElectron_Run2011A.csv "$DOCDB?docid=13329&amp;filename=Wenu_SingleElectron_Run2011A.csv"
+$WGET -O $OUTDIR/cms-docdb-files/Wmunu_SingleMu_Run2011A.csv "$DOCDB?docid=13329&amp;filename=Wmunu_SingleMu_Run2011A.csv"
+$WGET -O $OUTDIR/cms-docdb-files/Zee_DoubleElectron_Run2011A.csv "$DOCDB?docid=13329&amp;filename=Zee_DoubleElectron_Run2011A.csv"
+$WGET -O $OUTDIR/cms-docdb-files/Zmumu_DoubleMu_Run2011A.csv "$DOCDB?docid=13329&amp;filename=Zmumu_DoubleMu_Run2011A.csv"
+$WGET -O $OUTDIR/cms-docdb-files/Dimuon_SingleMu_Run2011A.csv "$DOCDB?docid=13329&amp;filename=Dimuon_SingleMu_Run2011A.csv"
+$WGET -O $OUTDIR/cms-docdb-files/Dimuon_DoubleMu_Run2011A.csv "$DOCDB?docid=13329&amp;filename=Dimuon_DoubleMu_Run2011A.csv"
+$WGET -O $OUTDIR/cms-docdb-files/Jpsimumu_DoubleMu_Run2011A.csv "$DOCDB?docid=13329&amp;filename=Jpsimumu_DoubleMu_Run2011A.csv"
+$WGET -O $OUTDIR/cms-docdb-files/Ymumu_DoubleMu_Run2011A.csv "$DOCDB?docid=13329&amp;filename=Ymumu_DoubleMu_Run2011A.csv"
 
 # cernvm files:
 mkdir -p $OUTDIR/cernvm-files
@@ -322,8 +329,8 @@ $WGET -O $OUTDIR/data-policies/CMS-Data-Policy.pdf "$DOCDB?docid=6032&amp;versio
 $WGET -O $OUTDIR/data-policies/ATLAS-Data-Policy.pdf https://twiki.cern.ch/twiki/pub/AtlasPublic/AtlasPolicyDocuments/A78_ATLAS_Data_Access_Policy.pdf
 $WGET -O $OUTDIR/data-policies/LHCb-Data-Policy.pdf http://cds.cern.ch/record/1543410/files/LHCb-PUB-2013-003.pdf
 
-# Ana's video:
-mkdir -p $OUTDIR/cms-open-data-instructions
+# CMS open data instructions:
+rsync -a --exclude '*.m4v' invenio_opendata/testsuite/data/cms/cms-open-data-instructions/ $OUTDIR/cms-open-data-instructions/
 $WGET -O $OUTDIR/cms-open-data-instructions/OutreachExercise2010.m4v http://193.146.75.147/Outreach%20Exercise%202010.m4v
 
 # ALICE data policy:
