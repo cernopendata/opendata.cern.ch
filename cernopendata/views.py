@@ -34,3 +34,9 @@ blueprint = Blueprint(
     template_folder='templates',
     static_folder='static',
 )
+
+
+@blueprint.route('/ping', methods=['HEAD', 'GET'])
+def ping():
+    """Load balancer ping view."""
+    return 'OK'
