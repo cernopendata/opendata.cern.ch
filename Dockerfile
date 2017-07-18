@@ -25,6 +25,9 @@
 # Use CentOS7:
 FROM centos:7
 
+# Configure virtualenvwrapper root directory
+ENV WORKON_HOME=/usr/local/var
+ENV PROJECT_HOME=/usr/local/var
 # Prepare provisioning script:
 COPY scripts/provision-web.sh /tmp/
 
@@ -35,13 +38,8 @@ RUN /tmp/provision-web.sh
 WORKDIR /code
 ADD . /code
 
-# Run container as user `invenio` with UID `1000`, which should match
-# current host user in most situations:
-RUN adduser --uid 1000 invenio && \
-    chown -R invenio:invenio /code
-USER invenio
-
 # Configure CERN Open Data Portal instance:
+ENV INVENIO_INSTANCE_PATH=/usr/local/var/cernopendata/var/cernopendata-instance
 ENV INVENIO_WEB_HOST=web
 ENV INVENIO_WEB_INSTANCE=cernopendata
 ENV INVENIO_WEB_VENV=cernopendata
@@ -55,15 +53,23 @@ ENV INVENIO_REDIS_HOST=redis
 ENV INVENIO_ELASTICSEARCH_HOST=elasticsearch
 ENV INVENIO_RABBITMQ_HOST=rabbitmq
 ENV INVENIO_WORKER_HOST=127.0.0.1
+ENV APP_COLLECT_STORAGE=flask_collect.storage.file
 
 # Create CERN Open Data Portal instance:
 RUN /code/scripts/create-instance.sh
 
 # Make given VENV default:
-ENV PATH=/home/invenio/.virtualenvs/cernopendata/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ENV PATH=/usr/local/var/cernopendata/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ENV VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-RUN echo "source /usr/bin/virtualenvwrapper.sh" >> ~/.bashrc
-RUN echo "workon cernopendata" >> ~/.bashrc
+RUN chgrp -R 0 ${INVENIO_INSTANCE_PATH} && \
+    chmod -R g=u ${INVENIO_INSTANCE_PATH} && \
+    chmod g=u /etc/passwd && \
+    chmod ug+x /code/scripts/docker-entrypoint.sh
+
+RUN adduser --uid 1001 invenio --gid 0 && \
+    chown -R invenio:root /code
+USER 1001
+ENTRYPOINT [ "/code/scripts/docker-entrypoint.sh" ]
 
 # Start the CERN Open Data Portal application:
-CMD ["/bin/bash", "-c", "cernopendata run -h 0.0.0.0"]
+CMD ["cernopendata", "run", "-h" ,"0.0.0.0"]

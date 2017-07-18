@@ -163,12 +163,14 @@ setup_virtualenvwrapper () {
 
     # sphinxdoc-install-virtualenvwrapper-begin
     $sudo pip install -U virtualenvwrapper setuptools pip
+    VENV_WORKON_HOME=${WORKON_HOME:-$HOME/.virtualenvs}
+    VENV_PROJECT_HOME=${PROJECT_HOME:-$HOME/.virtualenvs}
     if ! grep -q virtualenvwrapper ~/.bashrc; then
-        mkdir -p $HOME/.virtualenvs
-        echo "export WORKON_HOME=$HOME/.virtualenvs" >> $HOME/.bashrc
+        mkdir -p $VENV_PROJECT_HOME
+        echo "export WORKON_HOME=$VENV_WORKON_HOME" >> $HOME/.bashrc
         echo "source $(which virtualenvwrapper.sh)" >> $HOME/.bashrc
     fi
-    export WORKON_HOME=$HOME/.virtualenvs
+    export WORKON_HOME=$VENV_WORKON_HOME
     source $(which virtualenvwrapper.sh)
     # sphinxdoc-install-virtualenvwrapper-end
 
