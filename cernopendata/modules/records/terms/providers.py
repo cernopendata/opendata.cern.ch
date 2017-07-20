@@ -2,12 +2,12 @@
 
 from __future__ import absolute_import, print_function
 
-from invenio_pidstore.providers.base import BaseProvider
 from invenio_pidstore.models import PIDStatus, RecordIdentifier
+from invenio_pidstore.providers.base import BaseProvider
 
 
-class GlossaryUUIDProvider(BaseProvider):
-    """Record identifier provider."""
+class TermUUIDProvider(BaseProvider):
+    """Term identifier provider."""
 
     pid_type = 'termid'
     """Type of persistent identifier."""
@@ -18,7 +18,7 @@ class GlossaryUUIDProvider(BaseProvider):
     provide any additional features besides creation of record ids.
     """
 
-    default_status = PIDStatus.RESERVED
+    default_status = PIDStatus.REGISTERED
     """Record IDs are by default registered immediately.
     Default: :attr:`invenio_pidstore.models.PIDStatus.RESERVED`
     """

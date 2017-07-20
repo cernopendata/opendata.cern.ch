@@ -2,15 +2,16 @@
 
 from __future__ import absolute_import, print_function
 
-from .providers import GlossaryUUIDProvider
+from .providers import TermUUIDProvider
 
 
-def cernopendata_glossid_minter(record_uuid, data):
+def cernopendata_termid_minter(record_uuid, data):
     """Mint deposit's PID."""
-    provider = GlossaryUUIDProvider.create(
+    provider = TermUUIDProvider.create(
         object_type='rec',
+        pid_type='termid',
         object_uuid=record_uuid,
-        pid_value=data['term']
+        pid_value=str(data['anchor'])
     )
 
     data['control_number'] = provider.pid.pid_value
