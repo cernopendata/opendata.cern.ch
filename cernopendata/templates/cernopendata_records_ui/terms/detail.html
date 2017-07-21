@@ -1,0 +1,36 @@
+{%- extends "invenio_records_ui/detail.html" %}
+
+{%- block page_body %}
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 style="display: inline;">
+        {{record.anchor | capitalize}}
+        <h4>
+          <span class="label label-success">{{record.category}}</span>
+        </h4>
+      </h2>
+    </div>
+    <div class="panel-body">
+      <p>{{ record.definition }}</p>
+      <div>
+        <span>
+          <strong>Links: </strong>
+          {% for r in record.links %}
+            <a target="_blank" href="{{r.url}}">{{r.url}}</a>
+        {% endfor %}
+        </span>
+      </div>
+      <div>
+        <span>
+          <strong>See also: </strong>
+          {% for term in record.see_also%}
+            <span class="label label-info">{{term.term}}</span>
+        {% endfor %}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+{%- endblock %}
+

@@ -34,6 +34,10 @@ from invenio_marc21.config import \
     MARC21_REST_ENDPOINTS as RECORDS_REST_ENDPOINTS
 from invenio_records_rest.facets import terms_filter
 
+# Debug
+DEBUG = True
+TEMPLATES_AUTO_RELOAD = True
+
 # Static file
 COLLECT_STORAGE = 'flask_collect.storage.file'
 # COLLECT_STORAGE = 'flask_collect.storage.link'
@@ -70,11 +74,10 @@ RECORDS_UI_ENDPOINTS = dict(
     termid=dict(
         pid_type='termid',
         route='/terms/<pid_value>',
-        template='invenio_records_ui/detail.html',
+        template='cernopendata_records_ui/terms/detail.html',
         permission_factory_imp=None,
     )
 )
-
 
 RECORDS_REST_ENDPOINTS['recid']['search_index'] = '_all'
 RECORDS_REST_ENDPOINTS['termid'] = {
