@@ -267,20 +267,12 @@ class CollectionData(DataSet):
             ('en', 'ln'): u'OPERA Emulsion Detector Datasets',
         }
 
-    class OPERAElectronicDetectorEvents(siteCollection):
+    class OPERADetectorEvents(siteCollection):
         id = 34
-        name = 'OPERA-Electronic-Detector-Events'
-        dbquery = '980__a:"OPERA-Electronic-Detector-Events"'
+        name = 'OPERA-Detector-Events'
+        dbquery = '980__a:"OPERA-Detector-Events"'
         names = {
-            ('en', 'ln'): u'OPERA Electronic Detector Events',
-        }
-
-    class OPERAEmulsionDetectorEvents(siteCollection):
-        id = 35
-        name = 'OPERA-Emulsion-Detector-Events'
-        dbquery = '980__a:"OPERA-Emulsion-Detector-Events"'
-        names = {
-            ('en', 'ln'): u'OPERA Emulsion Detector Events',
+            ('en', 'ln'): u'OPERA Detector Events',
         }
 
     class CMSLuminosityInformation(siteCollection):
@@ -618,16 +610,11 @@ class CollectionCollectionData(DataSet):
         score = 1
         type = 'r'
 
-    class OPERA_OPERAElectronicDetectorEvents:
+    class OPERA_OPERADetectorEvents:
         dad = CollectionData.OPERA
-        son = CollectionData.OPERAElectronicDetectorEvents
+        son = CollectionData.OPERADetectorEvents
         score = 2
         type = 'r'
-
-    class OPERA_OPERAEmulsionDetectorEvents:
-        dad = CollectionData.OPERA
-        son = CollectionData.OPERAEmulsionDetectorEvents
-        score = 3
 
     class siteCollection_CMSLuminosityInformation:
         dad = CollectionData.siteCollection
@@ -647,16 +634,10 @@ class CollectionCollectionData(DataSet):
         score = 25
         type = 'r'
 
-    class siteCollection_OPERAElectronicDetectorEvents:
+    class siteCollection_OPERADetectorEvents:
         dad = CollectionData.siteCollection
-        son = CollectionData.OPERAElectronicDetectorEvents
+        son = CollectionData.OPERADetectorEvents
         score = 26
-        type = 'r'
-
-    class siteCollection_OPERAEmulsionDetectorEvents:
-        dad = CollectionData.siteCollection
-        son = CollectionData.OPERAEmulsionDetectorEvents
-        score = 27
         type = 'r'
 
 
@@ -973,13 +954,8 @@ class PortalboxData(DataSet):
         title = u'image'
 
     class Portalbox_56:
-        body = u'This collection contains OPERA Electronic Detector (ED) events.'
+        body = u'This collection contains OPERA detector events.'
         id = 56
-        title = u'description'
-
-    class Portalbox_57:
-        body = u'This collection contains OPERA Emulsion Cloud Chamber (ECC) events.'
-        id = 57
         title = u'description'
 
     class Portalbox_58:
@@ -1380,14 +1356,7 @@ class CollectionPortalboxData(DataSet):
         position = u'r'
         id_portalbox = PortalboxData.Portalbox_56.ref('id')
         score = 100
-        id_collection = CollectionData.OPERAElectronicDetectorEvents.ref('id')
-
-    class CollectionPortalbox_35_57_en:
-        ln = u'en'
-        position = u'r'
-        id_portalbox = PortalboxData.Portalbox_57.ref('id')
-        score = 100
-        id_collection = CollectionData.OPERAEmulsionDetectorEvents.ref('id')
+        id_collection = CollectionData.OPERADetectorEvents.ref('id')
 
     class CollectionPortalbox_36_58_en:
         ln = u'en'

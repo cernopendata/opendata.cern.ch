@@ -128,18 +128,22 @@
           {% endif %}
         </div>
       </div>
-      {% if record.get('data_source_entry',{}) %}
+      {% if record.get('data_source_entry', '') %}
         <div class="col-md-12">
           <div class="rec_title title">Related datasets</div>
         </div>
         <div class="col-md-12">
-          <div class="rec_desc">
-            {% if record.get('data_source_entry',{}).get('heading', '') %}
-              {{ record.get('data_source_entry',{}).get('heading','') }}
-            {% endif %}
-            {% if record.get('data_source_entry',{}).get('recid', '') %}
-              <a href="{{ url_for('record.metadata', recid=record.get('data_source_entry',{}).get('recid','')) }}">{{ record.get('data_source_entry',{}).get('recid','') | get_record_name }}</a>
-            {% endif %}
+            <div class="rec_desc">
+                {% for dse in record.get('data_source_entry', '') %}
+                  <p>
+                    {% if dse.get('heading', '') %}
+                      {{ dse.get('heading','') }}
+                    {% endif %}
+                    {% if dse.get('recid', '') %}
+                      <a href="{{ url_for('record.metadata', recid=dse.get('recid','')) }}">{{ dse.get('recid','') | get_record_name }}</a>
+                    {% endif %}
+                  </p>
+                {% endfor %}
           </div>
         </div>
       {% endif %}

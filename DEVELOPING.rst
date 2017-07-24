@@ -31,6 +31,7 @@ Quick installation instructions for an impatient Invenio developer::
      inveniomanage demosite populate --packages=invenio_opendata.base \
        -f invenio_opendata/testsuite/data/opera/opera-ecc-datasets.xml \
        -f invenio_opendata/testsuite/data/opera/opera-ed-datasets.xml \
+       -f invenio_opendata/testsuite/data/opera/opera-detector-events.xml \
        -e force-recids --yes-i-know
    firefox http://127.0.0.1:28080/
 
@@ -146,9 +147,8 @@ populate *all* collections, you can use::
     -f invenio_opendata/testsuite/data/lhcb/lhcb-learning-resources.xml \
     -f invenio_opendata/testsuite/data/lhcb/lhcb-tools.xml \
     -f invenio_opendata/testsuite/data/opera/opera-ecc-datasets.xml \
-    -f invenio_opendata/testsuite/data/opera/opera-ecc-events.xml \
     -f invenio_opendata/testsuite/data/opera/opera-ed-datasets.xml \
-    -f invenio_opendata/testsuite/data/opera/opera-ed-events.xml \
+    -f invenio_opendata/testsuite/data/opera/opera-detector-events.xml \
     -f invenio_opendata/testsuite/data/opera/opera-author-list.xml \
     -f invenio_opendata/testsuite/data/data-policies.xml \
     -e force-recids --yes-i-know
