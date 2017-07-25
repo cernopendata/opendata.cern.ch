@@ -176,17 +176,26 @@ def research(exp = None):
     except TemplateNotFound:
         return abort(404)
 
+@blueprint.route('visualise/events')
 @blueprint.route('visualise/events/<string:exp>')
-def visualise_events(exp = 'CMS'):
+def visualise_events(exp=''):
+
+    def splitting(value, delimiter='/'):
+        return value.split(delimiter)
+
+    current_app.jinja_env.filters['splitthem'] = splitting
+
+    if exp == '':
+        return render_template("visualise_events.html")
 
     exp_names = get_collection_names(['ALICE', 'LHCb', 'ATLAS'])
-    if exp not in exp_names and exp is not None:
-        return render_template("404.html")
+    if exp not in exp_names:
+            return render_template("404.html")
 
     breadcrumbs = [{},{"url":".educate","text":"Education"},\
-                        {"url":".educate","text":"Visualise Events"}]
+                        {"url":".visualise_events","text":"Visualise Events"}]
     try:
-        return render_template('visualise_events.html', exp = exp, exp_names = exp_names, breadcrumbs = breadcrumbs)
+        return render_template('visualise_events_%s.html' % exp.lower(), exp = exp, exp_names = exp_names, breadcrumbs = breadcrumbs)
     except TemplateNotFound:
         return abort(404)
 

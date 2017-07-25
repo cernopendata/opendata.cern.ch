@@ -1,0 +1,25 @@
+{% extends "page.html" %}
+{% block body %}
+{% import 'helpers/general.html' as gen_utils %}
+
+<style>
+</style>
+
+<section class="infobar">
+  <div class="container">
+    {{gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names)}}
+  </div>
+</section>
+
+<section id="vis-events" class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 pg-header">
+        <h3>Explore OPERA open data and visualise detector events</h3>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+{% endblock %}
