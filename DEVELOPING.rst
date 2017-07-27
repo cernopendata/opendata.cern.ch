@@ -25,6 +25,9 @@ Quick installation instructions for an impatient Invenio developer::
    docker-compose -f docker-compose-dev.yml build
    docker-compose -f docker-compose-dev.yml up
    # now wait until all daemons are fully up and running
+   docker exec -i -t opendatacernch_web_1 \
+      cp /usr/local/var/invenio.base-instance/static/vendors/jquery-form/dist/jquery.form.min.js \
+         /usr/local/var/invenio.base-instance/static/vendors/jquery-form/jquery.form.js
    firefox http://127.0.0.1:28080/
    # now populate demo site with some records
    docker exec -i -t -u invenio opendatacernch_web_1 \
@@ -75,8 +78,15 @@ containers::
   docker-compose -f docker-compose-dev.yml build
   docker-compose -f docker-compose-dev.yml up
 
-Wait until all daemons are fully up and running.  Now you should be
-able to see the empty site::
+Wait until all daemons are fully up and running.
+
+Note that you may need the following workaround for JQuery-Form versions::
+
+  docker exec -i -t opendatacernch_web_1 \
+     cp /usr/local/var/invenio.base-instance/static/vendors/jquery-form/dist/jquery.form.min.js \
+        /usr/local/var/invenio.base-instance/static/vendors/jquery-form/jquery.form.js
+
+Now you should be able to see the empty site::
 
   firefox http://127.0.0.1:28080/
 
