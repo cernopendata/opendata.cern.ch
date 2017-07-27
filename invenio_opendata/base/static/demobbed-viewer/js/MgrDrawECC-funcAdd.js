@@ -85,7 +85,7 @@ dmECC.initGroupOfAxesAndTrackTitles = function() {
   dmECC.groupOfAxes().add(bz.getObject3D());
 
   const font_loader = new THREE.FontLoader();
-  font_loader.load('./fonts/helvetiker_regular.typeface.json', function(font) {
+  font_loader.load('/demobbed-viewer/fonts/helvetiker_regular.typeface.json', function(font) {
 
     // init axes titles
 
@@ -320,7 +320,7 @@ dmECC.drawTracks = function() {
 
     }
 
-    const trackLine = new three3DExtras.tubeLine(trBeg, trEnd, trPars.width, trPars.color); 
+    const trackLine = new three3DExtras.tubeLine(trBeg, trEnd, trPars.width, trPars.color);
 
     dmECC.groupOfTrackLines().add(trackLine.getObject3D());
 
@@ -419,7 +419,7 @@ dmECC.drawECC = function(showECC) {
 
   demobbed.showECC(showECC);
 
-  dmECC.onEventChange();  
+  dmECC.onEventChange();
 
 };
 //------------------------------------------------------------------------------

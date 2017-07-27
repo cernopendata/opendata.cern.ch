@@ -1,13 +1,6 @@
-<!doctype html>
-<html>
-
-  <head>
-
-    <title>OPERA demobbed-viewer</title>
-
-    <meta charset="utf-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "page_no_script_assets.html" %}
+{% block body %}
+{% import 'helpers/general.html' as gen_utils %}
 
     <link rel="stylesheet" href="/demobbed-viewer/css/demobbed.css">
 
@@ -35,10 +28,20 @@
     <script src="/demobbed-viewer/js/MgrDrawED-funcAdd.js"></script>
     <script src="/demobbed-viewer/js/MgrDrawECC-funcAdd.js"></script>
 
-  </head>
+<section class="infobar">
+  <div class="container">
+    {{gen_utils.get_breadcrumbs(breadcrumbs, exp, exp_names)}}
+  </div>
+</section>
 
-  <body id="demobbed-viewer">
+<section id="vis-events" class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 pg-header">
+        <h3>Visualise OPERA detector events</h3>
+      </div>
 
+    <div id="demobbed-viewer"
     <div class="container-fluid">
 
       <div class="row">
@@ -51,10 +54,6 @@
             <td>
 
               <table>
-
-                <tr>
-                  <td id="titlebar" height="25">OPERA demobbed-viewer</td>
-                </tr>
 
                 <tr>
                   <td colspan="2">
@@ -231,6 +230,6 @@
       <script id="scrLoadEvent" src="/demobbed-viewer/js/nuEventsData/loadEvent10120009376.js"> </script>
     </div>
 
-  </body>
+</section>
 
-</html>
+{% endblock %}
