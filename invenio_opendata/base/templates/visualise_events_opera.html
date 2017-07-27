@@ -227,7 +227,11 @@
     <!-- ----------------------------------------- -->
 
     <div id="divScrLoadEvent">
-      <script id="scrLoadEvent" src="/demobbed-viewer/js/nuEventsData/loadEvent10120009376.js"> </script>
+        {% if eventid == 0 %}
+        <script id="scrLoadEvent" src="/demobbed-viewer/js/nuEventsData/loadEvent10120009376.js"> </script>
+        {% else %}
+        <script id="scrLoadEvent" src="/demobbed-viewer/js/nuEventsData/loadEvent{{ eventid }}.js"> </script>
+        {% endif %}
     </div>
 
 </section>

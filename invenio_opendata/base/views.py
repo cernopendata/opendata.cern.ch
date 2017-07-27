@@ -178,7 +178,8 @@ def research(exp = None):
 
 @blueprint.route('visualise/events')
 @blueprint.route('visualise/events/<string:exp>')
-def visualise_events(exp=''):
+@blueprint.route('visualise/events/<string:exp>/<int:eventid>')
+def visualise_events(exp='', eventid=0):
 
     def splitting(value, delimiter='/'):
         return value.split(delimiter)
@@ -195,7 +196,7 @@ def visualise_events(exp=''):
     breadcrumbs = [{},{"url":".educate","text":"Education"},\
                         {"url":".visualise_events","text":"Visualise Events"}]
     try:
-        return render_template('visualise_events_%s.html' % exp.lower(), exp = exp, exp_names = exp_names, breadcrumbs = breadcrumbs)
+        return render_template('visualise_events_%s.html' % exp.lower(), exp = exp, eventid = eventid, exp_names = exp_names, breadcrumbs = breadcrumbs)
     except TemplateNotFound:
         return abort(404)
 
