@@ -1,0 +1,111 @@
+{% extends config.SEARCH_UI_BASE_TEMPLATE %}
+
+{%- block css %}
+    {{ super() }}
+    {% assets "invenio_search_ui_search_css" %}<link href="{{ ASSET_URL }}" rel="stylesheet">{% endassets %}
+{%- endblock css %}
+
+{%- block javascript %}
+  {{ super() }}
+  {% assets "invenio_search_ui_search_js" %}<script src="{{ ASSET_URL }}"></script>{% endassets %}
+{%- endblock javascript %}
+
+{%- block body_inner %}
+<div id="invenio-search">
+  <invenio-search
+   search-endpoint="api/terms"
+   search-hidden-params='{% if search_hidden_params %}{{search_hidden_params|tojson}}{% endif %}'
+   search-headers='{"Accept": "{{ config.SEARCH_UI_SEARCH_MIMETYPE|default('application/json')}}"}'
+  >
+  {{super()}}
+  </invenio-search>
+</div>
+{%- endblock body_inner %}
+
+{%- block page_header %}
+{% include "invenio_search_ui/header.html" %}
+{%- endblock page_header %}
+
+{%- block page_body %}
+<div class="container search-page">
+  <div class="row">
+    {%- block search_body %}
+    <div class="col-xs-12 col-md-12">
+      {%- block search_header %}
+      <div class="row">
+        {%- block search_count %}
+        <div class="col-md-3 col-sm-12">
+          <invenio-search-count
+           template="{{ url_for('static', filename=config.SEARCH_UI_JSTEMPLATE_COUNT) }}">
+          </invenio-search-count>
+        </div>
+        {%- endblock search_count %}
+        {%- block search_pagination_top %}
+        <div class="col-md-6 col-sm-12 text-center">
+          <invenio-search-pagination
+            template="{{ url_for('static', filename=config.SEARCH_UI_JSTEMPLATE_PAGINATION) }}">
+          </invenio-search-pagination>
+        </div>
+        {%- endblock search_pagination_top %}
+        {%- block search_sort %}
+        {%- set sort_options = config.get('RECORDS_REST_SORT_OPTIONS', {}).get(config.SEARCH_UI_SEARCH_INDEX) %}
+        {%- if sort_options %}
+        <div class="col-md-3 col-sm-12 text-right">
+          {%- block search_sort_select scoped %}
+          Sort by:
+          <invenio-search-select-box
+             sort-key="sort"
+             available-options='{{ sort_options|format_sortoptions|safe }}'
+             template="{{ url_for('static', filename=config.SEARCH_UI_JSTEMPLATE_SELECT_BOX) }}"
+            >
+          </invenio-search-select-box>
+          {%- endblock search_sort_select %}
+          {%- block search_sort_order scoped %}
+          <invenio-search-sort-order
+           sort-key="sort"
+           template="{{ url_for('static', filename=config.SEARCH_UI_JSTEMPLATE_SORT_ORDER) }}"
+          >
+          </invenio-search-sort-order>
+          {%- endblock search_sort_order %}
+        </div>
+        {%- endif %}
+        {%- endblock search_sort %}
+      </div>
+      <hr class="no-margin-top" />
+      {%- endblock search_header %}
+      {%- block search_error %}
+      <invenio-search-error
+       template="{{ url_for('static', filename=config.SEARCH_UI_JSTEMPLATE_ERROR) }}"
+       message="{{ _('Search failed.') }}">
+      </invenio-search-error>
+      {%- endblock search_error %}
+      {%- block search_loading %}
+      <invenio-search-loading
+       template="{{ url_for('static', filename=config.SEARCH_UI_JSTEMPLATE_LOADING) }}"
+       message="{{ _('Loading...') }}">
+      </invenio-search-loading>
+      {%- endblock search_loading %}
+      {%- block search_results %}
+      <invenio-search-results
+       template="{{ url_for('static', filename='templates/cernopendata_terms_ui/results.html') }}">
+      </invenio-search-results>
+      {%- endblock search_results %}
+      {%- block search_pagination_bottom %}
+      <div align="center">
+        <invenio-search-pagination
+         template="{{ url_for('static', filename=config.SEARCH_UI_JSTEMPLATE_PAGINATION) }}">
+        </invenio-search-pagination>
+      </div>
+      {%- endblock search_pagination_bottom %}
+    </div>
+    {%- endblock search_body %}
+    {%- block search_facets %}
+    <div class="col-md-3 col-md-pull-9 col-xs-12">
+      <invenio-search-facets
+       template="{{ url_for('static', filename=config.SEARCH_UI_JSTEMPLATE_FACETS) }}">
+      </invenio-search-facets>
+    </div>
+    {%- endblock search_facets %}
+  </div>
+</div>
+{%- endblock page_body -%}

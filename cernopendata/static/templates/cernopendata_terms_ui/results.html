@@ -1,0 +1,11 @@
+<div class="row record-elem" ng-repeat="record in vm.invenioSearchResults.hits.hits track by $index">
+  <div class="col-xs-12">
+      <h4>
+        <a target="_self" ng-href="/terms/{{record.metadata.control_number}}">
+          {{ record.metadata.anchor }}
+        </a>
+      </h4>
+      <p>{{ record.metadata.definition }}</p>
+   <hr/>
+  </div>
+</div>
