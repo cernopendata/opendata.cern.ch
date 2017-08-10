@@ -92,6 +92,7 @@ RECORDS_REST_ENDPOINTS['termid'] = {
         'application/json': ('invenio_records_rest.serializers'
                              ':json_v1_response'),
     },
+    'search_index': 'records-term-v1.0.0',
     'search_serializers': {
         'application/json': ('invenio_records_rest.serializers'
                              ':json_v1_search'),
