@@ -22,6 +22,27 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
--e git+https://github.com/cernopendata/cernopendata-fixtures.git#egg=cernopendata-fixtures
+"""Default configuration for CERN Open Data theme."""
 
--e .[all]
+from __future__ import absolute_import, print_function
+
+
+def _(x):
+    """Identity function for string extraction."""
+    return x
+
+# Default language and timezone
+BABEL_DEFAULT_LANGUAGE = 'en'
+BABEL_DEFAULT_TIMEZONE = 'Europe/Zurich'
+I18N_LANGUAGES = [
+    ('en', _('English')),
+]
+
+BASE_TEMPLATE = 'cernopendata_theme/page.html'
+HEADER_TEMPLATE = 'cernopendata_theme/header.html'
+COVER_TEMPLATE = 'invenio_theme/page_cover.html'
+SETTINGS_TEMPLATE = 'invenio_theme/settings/content.html'
+
+# Theme
+THEME_SITENAME = _('CERN Open Data Portal')
+THEME_LOGO = 'img/cernopendata.svg'

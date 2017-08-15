@@ -1,0 +1,67 @@
+.navbar-brand {
+  padding-bottom: 0px!important;
+  padding-top: 0px!important;
+}
+
+.navbar-form .input-group-btn button {
+    height: 34px;
+}
+
+.breadcrumb {
+    margin-bottom: 0px;
+}
+
+.breadcrumb a {
+    color: $text-white;
+}
+
+.breadcrumb .active {
+    font-weight: bold;
+}
+
+.pull-row-up {
+    margin-top: -($navbar-margin-bottom);
+    margin-bottom: $navbar-margin-bottom;
+}
+
+header nav.navbar-static-top {
+    border-bottom: none;
+}
+
+nav ul.navbar-nav > li > a {
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  nav ul.navbar-nav {
+    float: right!important;
+  }
+}
+
+#main {
+    height: 100vh;
+    margin-top: -$navbar-height;
+    background-color: #CFE1EB;
+    background-image: url(/static/img/background.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+}
+
+#main > .container > .row {
+  margin-top: 20vh;
+}
+
+#main > .container > .row .panel-body {
+  height: 40vh;
+}
+
+footer a img {
+    height: (4*$line-height-computed);
+}
+footer a+a {
+    margin-left: $line-height-computed;
+}

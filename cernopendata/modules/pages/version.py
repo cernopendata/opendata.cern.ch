@@ -22,6 +22,12 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
--e git+https://github.com/cernopendata/cernopendata-fixtures.git#egg=cernopendata-fixtures
+"""Version information for cernopendata-pages.
 
--e .[all]
+This file is imported by ``cernopendata_pages.__init__``,
+and parsed by ``setup.py``.
+"""
+
+from __future__ import absolute_import, print_function
+
+__version__ = "1.0.1.dev20170120"

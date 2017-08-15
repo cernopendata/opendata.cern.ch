@@ -1,0 +1,48 @@
+<footer id="footer">
+  <hr/>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <a href="http://www.cern.ch">
+          <img src="{{ url_for('static', filename='img/cern-logo-large.png') }}" alt="CERN">
+        </a>
+      </div>
+      <div class="text-right col-md-6">
+        <a href="http://alice.cern.ch">
+          <img src="{{ url_for('static', filename='img/ALICE.gif') }}" alt="ALICE">
+        </a>
+        <a href="http://atlas.ch">
+          <img src="{{ url_for('static', filename='img/ATLAS.gif') }}" alt="ATLAS">
+        </a>
+        <a href="http://cms.cern.ch">
+          <img src="{{ url_for('static', filename='img/CMS.gif') }}" alt="CMS">
+        </a>
+        <a href="http://lhcb.cern.ch">
+          <img src="{{ url_for('static', filename='img/LHCb.gif') }}" alt="LHCb">
+        </a>
+      </div>
+    </div>
+    <br/>
+    <div class="row small">
+      <div class="text-center col-md-push-3 col-md-6">
+        <ul class="list-inline" style="display: inline;">
+          <li>© 2014, 2015, 2016, 2017 CERN</li>
+          {%- for item in current_menu.submenu('main').children|sort(attribute='order') if item.visible %}
+          <li><a href="{{ item.url }}">{{ item.text|safe }}</a></li>
+          {%- endfor %}
+          <li><a href="mailto:opendata-support@cern.ch">{{ _('Contact') }}</a></li>
+        </ul>
+      </div>
+      <div class="col-md-pull-6 col-md-3 col-xs-6">
+        {% trans link="http://inveniosoftware.org" %}Powered by <a href="{{link}}">Invenio</a>{% endtrans %}
+      </div>
+      <div class="text-right col-md-3 col-xs-6">
+        {% if config.I18N_LANGUAGES %}
+          {% from "invenio_i18n/macros/language_selector.html" import language_selector %}
+          {{ language_selector() }}
+        {% endif %}
+      </div>
+    </div>
+    <br/>
+  </div>
+</footer>

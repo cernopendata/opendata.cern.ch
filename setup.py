@@ -66,8 +66,14 @@ setup_requires = [
 
 install_requires = [
     'Flask-CeleryExt>=0.2.2',
-    'cernopendata-theme>=1.0.0',
-    'cernopendata-pages>=1.0.0',
+    'Flask-BabelEx>=0.9.2',
+    'Flask-Breadcrumbs>=0.4.0',
+    'Flask-Menu>=0.4.0',
+    'Flask>=0.11.1',
+    'invenio-app>=1.0.0b1',
+    'invenio-assets>=1.0.0b6',
+    'invenio-i18n>=1.0.0b1',
+    'invenio-theme==1.0.0b2',
     'invenio-base>=1.0.0a9',
     'invenio-celery>=1.0.0b1',
     'invenio-collections>=1.0.0a1',
@@ -110,9 +116,17 @@ setup(
         'dojson.contrib.marc21': [
             'cernopendata = cernopendata.rules',
         ],
+        'invenio_assets.bundles': [
+            'cernopendata_theme_css = cernopendata.modules.theme.bundles:css',
+        ],
         'invenio_base.blueprints': [
-            'cernopendata = '
-            'cernopendata.views:blueprint',
+            'cernopendata_pages = '
+            'cernopendata.modules.pages.views:blueprint',
+            'cernopendata_theme = '
+            'cernopendata.modules.theme.views:blueprint',
+        ],
+        'invenio_config.module': [
+                'cernopendata = cernopendata.config',
         ],
         'invenio_pidstore.minters': [
             'cernopendata_termid_minter = '

@@ -1,0 +1,33 @@
+{%- extends "invenio_theme/header.html" %}
+
+{%- block breadcrumbs %}
+{% if request.path != '/' and breadcrumbs|length > 1 %}
+<section class="bg-info pull-row-up">
+  {{ super() }}
+</section>
+{% endif %}
+{%- endblock %}
+
+{%- block navbar_nav %}
+{% block navbar_search %}
+  {{ super() }}
+{% endblock navbar_search %}
+
+<ul class="nav navbar-nav">
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">About <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <li><a href="#">This Portal</a></li>
+      <li><a href="#">CMS Open Data</a></li>
+      <li><a href="#">ALICE Open Data</a></li>
+      <li><a href="#">ATLAS Open Data</a></li>
+      <li><a href="#">LHCb Open Data</a></li>
+      <li><a href="/terms">Glossary</a></li>
+      <li><a href="#">News</a></li>
+    </ul>
+  </li>
+  <li><a href="/lib/python2.7/site-packages#education">Education</a></li>
+  <li><a href="/lib/python2.7/site-packages#research">Research</a></li>
+</ul>
+{%- endblock navbar_nav %}
+

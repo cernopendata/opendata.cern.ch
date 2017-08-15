@@ -22,6 +22,15 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
--e git+https://github.com/cernopendata/cernopendata-fixtures.git#egg=cernopendata-fixtures
+"""CERN Open Data theme."""
 
--e .[all]
+from __future__ import absolute_import, print_function
+
+from flask import Blueprint
+
+blueprint = Blueprint(
+    'cernopendata_theme',
+    __name__,
+    template_folder='templates',
+    static_folder='static',
+)
