@@ -27,10 +27,9 @@
       <div class="text-center col-md-push-3 col-md-6">
         <ul class="list-inline" style="display: inline;">
           <li>© 2014, 2015, 2016, 2017 CERN</li>
-          {%- for item in current_menu.submenu('main').children|sort(attribute='order') if item.visible %}
-          <li><a href="{{ item.url }}">{{ item.text|safe }}</a></li>
-          {%- endfor %}
-          <li><a href="mailto:opendata-support@cern.ch">{{ _('Contact') }}</a></li>
+          <li><a href="/terms-of-use">Terms of Use</a></li>
+          <li><a href="/privacy-policy">Privacy Policy</a></li>
+          <li><a href="mailto:opendata-support@cern.ch">Contact</a></li>
         </ul>
       </div>
       <div class="col-md-pull-6 col-md-3 col-xs-6">
