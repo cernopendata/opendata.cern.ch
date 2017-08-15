@@ -28,11 +28,12 @@ from __future__ import absolute_import, print_function
 
 import os
 
-from cernopendata.modules.pages.config import *
-from cernopendata.modules.theme.config  import *
 from invenio_marc21.config import \
     MARC21_REST_ENDPOINTS as RECORDS_REST_ENDPOINTS
 from invenio_records_rest.facets import terms_filter
+
+from cernopendata.modules.pages.config import *
+from cernopendata.modules.theme.config import *
 
 # Debug
 DEBUG = True
@@ -124,10 +125,6 @@ RECORDS_REST_FACETS = dict(
     )
 )
 """Facets per index for the default facets factory."""
-
-from invenio_app.config import APP_DEFAULT_SECURE_HEADERS
-APP_DEFAULT_SECURE_HEADERS['content_security_policy'] = {}
-
 
 # Search
 # ======

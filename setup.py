@@ -65,10 +65,11 @@ setup_requires = [
 ]
 
 install_requires = [
+    'idna==2.5',
     'Flask-CeleryExt>=0.2.2',
-    'Flask-BabelEx>=0.9.2',
+    'Flask-BabelEx>=0.9.3',
     'Flask-Breadcrumbs>=0.4.0',
-    'Flask-Menu>=0.4.0',
+    'Flask-Menu>=0.5.0',
     'Flask>=0.11.1',
     'invenio-assets>=1.0.0b6',
     'invenio-i18n>=1.0.0b1',
@@ -119,6 +120,7 @@ setup(
             'cernopendata_theme_css = cernopendata.modules.theme.bundles:css',
         ],
         'invenio_base.blueprints': [
+            'cernopendata = cernopendata.views:blueprint',
             'cernopendata_pages = '
             'cernopendata.modules.pages.views:blueprint',
             'cernopendata_theme = '
