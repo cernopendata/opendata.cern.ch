@@ -30,6 +30,7 @@ import functools
 import json
 
 import pkg_resources
+
 from flask import Blueprint, abort, current_app, escape, render_template, \
     request, url_for
 from flask_babelex import lazy_gettext as _
@@ -283,6 +284,17 @@ def about():
 def about_atlas():
     """Render about atlas template."""
     return render_template('cernopendata_pages/about/about_atlas.html')
+
+
+@blueprint.route('/about/lhcb')
+@register_breadcrumb(blueprint, '.about_lhcb', 'LHCb',
+                     dynamic_list_constructor=(
+                         lambda: [{"url": ".about", "text": "About"},
+                                  {"url": ".about_lhcb",
+                                   "text": "LHCb Open Data"}]))
+def about_lhcb():
+    """Render about lhcb template."""
+    return render_template('cernopendata_pages/about/about_lhcb.html')
 
 
 @blueprint.route('/terms-of-use')
