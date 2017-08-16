@@ -30,7 +30,6 @@ import functools
 import json
 
 import pkg_resources
-
 from flask import Blueprint, abort, current_app, escape, render_template, \
     request, url_for
 from flask_babelex import lazy_gettext as _
@@ -269,29 +268,28 @@ def about_breadcrumbs():
 
 
 @blueprint.route('/about')
+@register_breadcrumb(blueprint, '.about', _('About'))
 def about():
     """Render view for general about page."""
     return render_template('cernopendata_pages/about/index.html')
 
 
+@blueprint.route('/about/alice')
+@register_breadcrumb(blueprint, '.about_alice', _('About ALICE Open Data'))
+def about_alice():
+    """Render about ALICE template."""
+    return render_template('cernopendata_pages/about/about_alice.html')
+
+
 @blueprint.route('/about/atlas')
-@register_breadcrumb(blueprint, '.about_atlas', 'ATLAS',
-                     dynamic_list_constructor=(lambda:
-                                               [{"url": ".about",
-                                                 "text": "About"},
-                                                {"url": ".about_atlas",
-                                                 "text": "ATLAS Open Data"}]))
+@register_breadcrumb(blueprint, '.about_atlas', _('About ATLAS Open Data'))
 def about_atlas():
     """Render about atlas template."""
     return render_template('cernopendata_pages/about/about_atlas.html')
 
 
 @blueprint.route('/about/lhcb')
-@register_breadcrumb(blueprint, '.about_lhcb', 'LHCb',
-                     dynamic_list_constructor=(
-                         lambda: [{"url": ".about", "text": "About"},
-                                  {"url": ".about_lhcb",
-                                   "text": "LHCb Open Data"}]))
+@register_breadcrumb(blueprint, '.about_lhcb', _('About LHCb Open Data'))
 def about_lhcb():
     """Render about lhcb template."""
     return render_template('cernopendata_pages/about/about_lhcb.html')
