@@ -296,6 +296,18 @@ def about_cms():
     return render_template('cernopendata_pages/about/about_cms.html')
 
 
+@blueprint.route('/about/cms-pileup-simulation')
+@register_breadcrumb(blueprint, '.cms_pileup_simulation', 'CMS',
+                     dynamic_list_constructor=(
+                         lambda: [{"url": "cms", "text": "CMS"},
+                                  {"url": "cms_pileup_simulation",
+                                   "text": "Pileup Simulation"}]))
+def cms_pileup_simulation():
+    """Render cms pileup simulation template."""
+    return render_template(
+        'cernopendata_pages/about/cms_pileup_simulation.html')
+
+
 @blueprint.route('/about/lhcb')
 @register_breadcrumb(blueprint, '.about_lhcb', _('About LHCb Open Data'))
 def about_lhcb():
