@@ -273,6 +273,18 @@ def about():
     return render_template('cernopendata_pages/about/index.html')
 
 
+@blueprint.route('/about/atlas')
+@register_breadcrumb(blueprint, '.about_atlas', 'ATLAS',
+                     dynamic_list_constructor=(lambda:
+                                               [{"url": ".about",
+                                                 "text": "About"},
+                                                {"url": ".about_atlas",
+                                                 "text": "ATLAS Open Data"}]))
+def about_atlas():
+    """Render about atlas template."""
+    return render_template('cernopendata_pages/about/about_atlas.html')
+
+
 @blueprint.route('/terms-of-use')
 @register_breadcrumb(blueprint, '.terms', _('Terms of Use'))
 def terms():
