@@ -268,20 +268,9 @@ def about_breadcrumbs():
 
 
 @blueprint.route('/about')
-@blueprint.route('/about/<page>')
-@register_menu(blueprint, 'main.about', _('About'), order=1)
-@register_menu(blueprint, 'main.about.this', _('This Portal'), order=0)
-@about_menu('CMS', 'ALICE', 'ATLAS', 'LHCb')
-@register_breadcrumb(blueprint, '.about', _('About'),
-                     dynamic_list_constructor=about_breadcrumbs)
-def about(page='index'):
-    """Render about page."""
-    return render_template([
-        'cernopendata/about/{0}.html'.format(
-            secure_filename(page.lower()).replace('/', '-')
-        ),
-        'cernopendata/about/index.html',
-    ])
+def about():
+    """Render view for general about page."""
+    return render_template('cernopendata_pages/about/index.html')
 
 
 @blueprint.route('/terms-of-use')
