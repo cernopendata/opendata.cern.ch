@@ -30,6 +30,7 @@ import functools
 import json
 
 import pkg_resources
+
 from flask import Blueprint, abort, current_app, escape, render_template, \
     request, url_for
 from flask_babelex import lazy_gettext as _
@@ -286,6 +287,13 @@ def about_alice():
 def about_atlas():
     """Render about atlas template."""
     return render_template('cernopendata_pages/about/about_atlas.html')
+
+
+@blueprint.route('/about/cms')
+@register_breadcrumb(blueprint, '.about_cms', 'About CMS Open Data')
+def about_cms():
+    """Render about cms template."""
+    return render_template('cernopendata_pages/about/about_cms.html')
 
 
 @blueprint.route('/about/lhcb')
