@@ -28,8 +28,7 @@ from __future__ import absolute_import, print_function
 
 import os
 
-from invenio_marc21.config import \
-    MARC21_REST_ENDPOINTS as RECORDS_REST_ENDPOINTS
+from invenio_records_rest.config import RECORDS_REST_ENDPOINTS
 from invenio_records_rest.facets import terms_filter
 
 from cernopendata.modules.pages.config import *
@@ -68,8 +67,9 @@ RECORDS_VALIDATION_TYPES = {
 RECORDS_UI_ENDPOINTS = dict(
     recid=dict(
         pid_type='recid',
-        route='/record/<pid_value>',
-        template='invenio_marc21/detail.html',
+        route='/records/<pid_value>',
+        # template='invenio_marc21/detail.html',
+        template='invenio_records_ui/detail.html',
         permission_factory_imp=None,
     ),
     termid=dict(
@@ -87,6 +87,12 @@ RECORDS_UI_ENDPOINTS = dict(
 )
 
 RECORDS_REST_ENDPOINTS['recid']['search_index'] = '_all'
+
+RECORDS_REST_ENDPOINTS['recid'].update({
+    'pid_minter': 'cernopendata_recid_minter',
+    'pid_fetcher': 'cernopendata_recid_fetcher',
+})
+
 RECORDS_REST_ENDPOINTS['termid'] = {
     'pid_type': 'termid',
     'pid_minter': 'cernopendata_termid_minter',

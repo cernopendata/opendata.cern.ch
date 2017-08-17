@@ -1,0 +1,110 @@
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "collections": {
+          "tokenizer": "keyword"
+        }
+      }
+    }
+  },
+  "mappings": {
+    "data-policies-v1.0.0": {
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "copy_to": "facet_schema"
+        },
+        "facet_schema": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "id": {
+          "type": "string"
+        },
+        "identifiers": {
+          "properties": {
+              "_type": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            }
+        },
+        "title": {
+          "type": "string"
+        },
+        "collaboration": {
+          "type": "string"
+        },
+        "experiment": {
+          "type": "string"
+        },
+        "accelerator": {
+          "type": "string"
+        },
+        "collections": {
+          "properties": {
+            "primary": {
+              "type": "string",
+              "analyzer": "collections"
+            },
+            "secondary": {
+              "type": "string",
+              "analyzer": "collections"
+            }
+          }
+        },
+        "authors": {
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "affiliation": {
+              "type": "string"
+            }
+          }
+        },
+        "description": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "year": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "issued": {
+          "properties": {
+            "location": {
+              "type": "string"
+            },
+            "institute": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            }
+          }
+        },
+        "_files": {
+          "properties": {
+            "_type": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -131,6 +131,9 @@ setup(
                 'cernopendata = cernopendata.config',
         ],
         'invenio_pidstore.minters': [
+            'cernopendata_recid_minter = '
+            ' cernopendata.modules.records.minters.recid:'
+            'cernopendata_recid_minter',
             'cernopendata_termid_minter = '
             ' cernopendata.modules.records.minters.termid:'
             'cernopendata_termid_minter',
@@ -139,6 +142,9 @@ setup(
             'cernopendata_articleid_minter',
         ],
         'invenio_pidstore.fetchers': [
+            'cernopendata_recid_fetcher = '
+            ' cernopendata.modules.records.fetchers.recid:'
+            'cernopendata_recid_fetcher',
             'cernopendata_termid_fetcher = '
             ' cernopendata.modules.records.fetchers.termid:'
             'cernopendata_termid_fetcher',
