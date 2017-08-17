@@ -319,6 +319,13 @@ def about_lhcb():
     return render_template('cernopendata_pages/about/about_lhcb.html')
 
 
+@blueprint.route('/about/opera')
+@register_breadcrumb(blueprint, '.about.about_opera', _('OPERA'))
+def about_opera():
+    """Render about opera template."""
+    return render_template('cernopendata_pages/about/about_opera.html')
+
+
 @blueprint.route('/terms-of-use')
 @register_breadcrumb(blueprint, '.terms', _('Terms of Use'))
 def terms():
