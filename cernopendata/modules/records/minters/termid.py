@@ -2,7 +2,7 @@
 
 from __future__ import absolute_import, print_function
 
-from .providers import TermUUIDProvider
+from ..providers.termid import TermUUIDProvider
 
 
 def cernopendata_termid_minter(record_uuid, data):

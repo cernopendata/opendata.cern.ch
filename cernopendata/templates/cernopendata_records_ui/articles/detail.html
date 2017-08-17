@@ -1,0 +1,31 @@
+{%- extends "invenio_records_ui/detail.html" %}
+
+{%- block page_body %}
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 style="display: inline;">
+        {{record.title}}
+        <h4>
+          {% for collection in record.collections%}
+            <span class="label label-success">{{collection}}</span>
+          {% endfor %}
+        </h4>
+      </h2>
+    </div>
+    <div class="panel-body">
+      {{record.body |safe}}
+      <hr>
+      <div>
+        <span>
+          <strong>Links: </strong>
+          {% for r in record.links %}
+            <a target="_blank" href="{{r.url}}">{{r.url}}</a>
+        {% endfor %}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+{%- endblock %}
+

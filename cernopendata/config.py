@@ -77,6 +77,12 @@ RECORDS_UI_ENDPOINTS = dict(
         route='/terms/<pid_value>',
         template='cernopendata_records_ui/terms/detail.html',
         permission_factory_imp=None,
+    ),
+    artid=dict(
+        pid_type='artid',
+        route='/articles/<pid_value>',
+        template='cernopendata_records_ui/articles/detail.html',
+        permission_factory_imp=None,
     )
 )
 
@@ -94,6 +100,25 @@ RECORDS_REST_ENDPOINTS['termid'] = {
                              ':json_v1_response'),
     },
     'search_index': 'records-term-v1.0.0',
+    'search_serializers': {
+        'application/json': ('invenio_records_rest.serializers'
+                             ':json_v1_search'),
+    },
+}
+
+RECORDS_REST_ENDPOINTS['artid'] = {
+    'pid_type': 'artid',
+    'pid_minter': 'cernopendata_articleid_minter',
+    'pid_fetcher': 'cernopendata_articleid_fetcher',
+    'default_media_type': 'application/json',
+    'max_result_window': 10000,
+    'item_route': '/articles/<pid(artid):pid_value>',
+    'list_route': '/articles',
+    'record_serializers': {
+        'application/json': ('invenio_records_rest.serializers'
+                             ':json_v1_response'),
+    },
+    'search_index': 'records-article-v1.0.0',
     'search_serializers': {
         'application/json': ('invenio_records_rest.serializers'
                              ':json_v1_search'),

@@ -2,7 +2,7 @@
 
 from collections import namedtuple
 
-from .providers import TermUUIDProvider
+from ..providers.termid import TermUUIDProvider
 
 FetchedPID = namedtuple('FetchedPID', ['provider', 'pid_type', 'pid_value'])
 

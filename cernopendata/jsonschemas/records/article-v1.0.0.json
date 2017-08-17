@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Describe information needed for article entity.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "title": "id"
+    },
+    "title": {
+      "type": "string",
+      "title": "Title"
+    },
+    "type": {
+      "type": "string",
+      "title": "Type"
+    },
+    "collections": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "title": "Collection"
+      }
+    },
+    "body": {
+      "type": "string",
+      "title": "Body"
+    },
+    "created": {
+      "type": "string"
+    },
+    "files": {
+      "type": "array",
+      "title": "Files",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "uri": {
+            "title": "URI",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "title": "Article Schema.",
+  "type": "object"
+}

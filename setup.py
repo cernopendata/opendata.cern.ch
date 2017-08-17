@@ -71,6 +71,7 @@ install_requires = [
     'Flask-Breadcrumbs>=0.4.0',
     'Flask-Menu>=0.5.0',
     'Flask>=0.11.1',
+    'python-slugify>=1.2.4',
     'invenio-assets>=1.0.0b6',
     'invenio-i18n>=1.0.0b1',
     'invenio-theme==1.0.0b2',
@@ -131,13 +132,19 @@ setup(
         ],
         'invenio_pidstore.minters': [
             'cernopendata_termid_minter = '
-            ' cernopendata.modules.records.terms.minters:'
+            ' cernopendata.modules.records.minters.termid:'
             'cernopendata_termid_minter',
+            'cernopendata_articleid_minter = '
+            ' cernopendata.modules.records.minters.artid:'
+            'cernopendata_articleid_minter',
         ],
         'invenio_pidstore.fetchers': [
             'cernopendata_termid_fetcher = '
-            ' cernopendata.modules.records.terms.fetchers:'
+            ' cernopendata.modules.records.fetchers.termid:'
             'cernopendata_termid_fetcher',
+            'cernopendata_articleid_fetcher = '
+            ' cernopendata.modules.records.fetchers.artid:'
+            'cernopendata_articleid_fetcher',
         ],
         'invenio_search.mappings': [
             'records = cernopendata.mappings',
