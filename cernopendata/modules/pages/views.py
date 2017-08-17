@@ -30,7 +30,6 @@ import functools
 import json
 
 import pkg_resources
-
 from flask import Blueprint, abort, current_app, escape, render_template, \
     request, url_for
 from flask_babelex import lazy_gettext as _
@@ -276,40 +275,45 @@ def about():
 
 
 @blueprint.route('/about/alice')
-@register_breadcrumb(blueprint, '.about_alice', _('About ALICE Open Data'))
+@register_breadcrumb(blueprint, '.about.about_alice', _('ALICE'))
 def about_alice():
     """Render about ALICE template."""
     return render_template('cernopendata_pages/about/about_alice.html')
 
 
 @blueprint.route('/about/atlas')
-@register_breadcrumb(blueprint, '.about_atlas', _('About ATLAS Open Data'))
+@register_breadcrumb(blueprint, '.about.about_atlas', _('ATLAS'))
 def about_atlas():
     """Render about atlas template."""
     return render_template('cernopendata_pages/about/about_atlas.html')
 
 
 @blueprint.route('/about/cms')
-@register_breadcrumb(blueprint, '.about_cms', 'About CMS Open Data')
+@register_breadcrumb(blueprint, '.about.about_cms', 'CMS')
 def about_cms():
     """Render about cms template."""
     return render_template('cernopendata_pages/about/about_cms.html')
 
 
 @blueprint.route('/about/cms-pileup-simulation')
-@register_breadcrumb(blueprint, '.cms_pileup_simulation', 'CMS',
-                     dynamic_list_constructor=(
-                         lambda: [{"url": "cms", "text": "CMS"},
-                                  {"url": "cms_pileup_simulation",
-                                   "text": "Pileup Simulation"}]))
+@register_breadcrumb(blueprint, '.about.about_cms.about_cms_pileup',
+                     'Pileup Simulation')
 def cms_pileup_simulation():
     """Render cms pileup simulation template."""
     return render_template(
         'cernopendata_pages/about/cms_pileup_simulation.html')
 
 
+@blueprint.route('/about/cms-simulated-dataset-names')
+@register_breadcrumb(blueprint, '.about.about_cms.about_cms_dataset_names',
+                     'Simulated Dataset Names')
+def about_cms_dataset_names():
+    """Render about CMS simulated dataset names template."""
+    return render_template('cernopendata_pages/about/cms_dataset_names.html')
+
+
 @blueprint.route('/about/lhcb')
-@register_breadcrumb(blueprint, '.about_lhcb', _('About LHCb Open Data'))
+@register_breadcrumb(blueprint, '.about.about_lhcb', _('LHCb'))
 def about_lhcb():
     """Render about lhcb template."""
     return render_template('cernopendata_pages/about/about_lhcb.html')
