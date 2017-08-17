@@ -1,0 +1,21 @@
+
+<h4>
+  <a target="_self" ng-href="/articles/{{record.metadata.control_number}}">
+    {{ record.metadata.title }}
+  </a>
+  <span class="btn btn-primary pull-right">Article</span>
+</h4>
+<p>{{record.metadata.body}}</p>
+<div class="text-right">
+  <ul class="list-inline">
+    <li>
+      <a ng-click="showSource=!showSource">
+        {{ showSource ? 'Hide source' : 'Show source' }}
+      </a>
+    </li>
+  </ul>
+</div>
+<div ng-hide="!showSource">
+  <pre>{{ record | json }}</pre>
+</div>
+<hr/>

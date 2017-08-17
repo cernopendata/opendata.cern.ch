@@ -38,6 +38,15 @@ from cernopendata.modules.theme.config import *
 DEBUG = True
 TEMPLATES_AUTO_RELOAD = True
 
+
+# Assets
+# ======
+#: Switch of assets debug.
+# ASSETS_DEBUG = True
+#: Switch of automatic building.
+# ASSETS_AUTO_BUILD = True
+
+
 # Static file
 # COLLECT_STORAGE = 'flask_collect.storage.file'
 COLLECT_STORAGE = 'flask_collect.storage.link'

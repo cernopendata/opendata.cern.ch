@@ -119,6 +119,8 @@ setup(
         ],
         'invenio_assets.bundles': [
             'cernopendata_theme_css = cernopendata.modules.theme.bundles:css',
+            'cernopendata_search_js = cernopendata.modules.theme.bundles'
+            ':search_js',
         ],
         'invenio_base.blueprints': [
             'cernopendata = cernopendata.views:blueprint',

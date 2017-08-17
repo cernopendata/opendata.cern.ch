@@ -6,6 +6,7 @@
   <script>
     angular.module('invenioSearch').filter('unsafe', function($sce) { return $sce.trustAsHtml; });
   </script>
+  {% assets "cernopendata_search_js" %}<script src="{{ ASSET_URL }}"></script>{% endassets %}
 {%- endblock javascript %}
 
 {%- block search_results %}
@@ -14,7 +15,7 @@
 </invenio-search-results>
 {%- endblock search_results %}
 
-{# FIXME
+
 {%- block search_facets %}
 <div class="col-md-3 col-md-pull-9 col-xs-12">
   <invenio-search-facets
@@ -22,4 +23,3 @@
   </invenio-search-facets>
 </div>
 {%- endblock search_facets %}
-#}

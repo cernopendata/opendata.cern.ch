@@ -52,3 +52,13 @@ css = NpmBundle(
     }
 )
 """Default CSS bundle."""
+
+search_js = NpmBundle(
+    'node_modules/angular-sanitize/angular-sanitize.js',
+    'js/components/resultsBrief.js',
+    output='gen/codp_search.%(version)s.js',
+    npm={
+        'angular': '~1.4.10',
+        'angular-sanitize': '~1.4.14'
+    },
+)
