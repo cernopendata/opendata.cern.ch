@@ -40,8 +40,8 @@ DEBUG = True
 TEMPLATES_AUTO_RELOAD = True
 
 # Static file
-COLLECT_STORAGE = 'flask_collect.storage.file'
-# COLLECT_STORAGE = 'flask_collect.storage.link'
+# COLLECT_STORAGE = 'flask_collect.storage.file'
+COLLECT_STORAGE = 'flask_collect.storage.link'
 
 # Cache
 CACHE_TYPE = 'redis'
