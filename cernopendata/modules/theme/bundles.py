@@ -32,14 +32,14 @@ from invenio_assets import NpmBundle
 css = NpmBundle(
     Bundle(
         'scss/styles.scss',
-        filters='node-scss, cleancss',
+        filters='node-scss, cleancssurl',
     ),
     Bundle(
         'node_modules/angular-loading-bar/build/loading-bar.css',
         'node_modules/typeahead.js-bootstrap-css/typeaheadjs.css',
         # 'node_modules/bootstrap-switch/dist/css/bootstrap3'
         # '/bootstrap-switch.css',
-        filters='cleancss',
+        filters='cleancssurl',
     ),
     depends=('scss/*.scss', ),
     output='gen/cernopendata.%(version)s.css',
