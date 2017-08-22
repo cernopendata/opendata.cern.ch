@@ -12,10 +12,27 @@
     <![endif]-->
 {%- endblock css %}
 
-{%- block page_header %}
-{% include 'cernopendata_theme/header.html' %}
-{%- endblock page_header %}
 
-{%- block page_footer %}
-{% include "cernopendata_theme/footer.html" %}
-{%- endblock page_footer %}
+{%- block body_inner %}
+  <!--Wrapper for page content to push down footer-->
+  <div id="footer_wrap">
+    <!-- Begin page content -->
+    {%- block page_header %}
+    {% include 'cernopendata_theme/header.html' %}
+    {%- endblock page_header %}
+
+    {%- block page_body %}
+    {%- endblock page_body %}
+
+    <!-- End page content -->
+    <div id="footer_push"></div> <!-- Make room for footer -->
+
+  </div>
+
+  {%- block page_footer %}
+  {% include "cernopendata_theme/footer.html" %}
+  {%- endblock page_footer %}
+
+{%- endblock body_inner %}
+
+
