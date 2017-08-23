@@ -123,6 +123,10 @@ setup(
         ],
         'invenio_assets.bundles': [
             'cernopendata_theme_css = cernopendata.modules.theme.bundles:css',
+            'cernopendata_visualise_css = '
+            'cernopendata.modules.theme.bundles:visualise_css',
+            'cernopendata_visualise_js = '
+            'cernopendata.modules.theme.bundles:visualise_js',
             'cernopendata_search_js = cernopendata.modules.theme.bundles'
             ':search_js',
         ],

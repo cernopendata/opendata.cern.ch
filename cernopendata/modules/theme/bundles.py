@@ -62,3 +62,25 @@ search_js = NpmBundle(
         'angular-sanitize': '~1.4.14'
     },
 )
+
+
+visualise_js = NpmBundle(
+    'node_modules/d3/d3.min.js',
+    'node_modules/flot/jquery.flot.js',
+    'node_modules/flot/jquery.flot.selection.js',
+    'js/visualise/visualise_histograms.js',
+    output='gen/cernopendata.%(version)s.js',
+    npm={
+        'd3': '^3.3.13',
+        'flot': '~0.8.0-alpha',
+    },
+)
+
+visualise_css = NpmBundle(
+    'scss/visualise.scss',
+    filters='node-scss, cleancss',
+    output='gen/cernopendata.vis.%(version)s.css',
+    npm={
+        "bootstrap-sass": "~3.3.5",
+    }
+)

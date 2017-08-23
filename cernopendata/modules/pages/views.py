@@ -156,16 +156,13 @@ def visualise_events(experiment='CMS'):
 @blueprint.route('/visualise/histograms/<string:experiment>')
 def visualise_histo(experiment='CMS'):
     """Display histograms."""
-    exp_colls, exp_names = get_collections()
-
     breadcrumbs = [{}, {'url': '.education', 'text': 'Education'},
                    {'url': '.education', 'text': 'Visualise Histograms'}]
 
     try:
         return render_template(
-            'visualise_histograms.html',
+            'cernopendata_pages/visualise_histograms.html',
             experiment=experiment,
-            exp_names=exp_names,
             breadcrumbs=breadcrumbs)
     except TemplateNotFound:
         return abort(404)
