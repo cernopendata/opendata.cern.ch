@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # This file is part of Invenio.
-# Copyright (C) 2015, 2016 CERN.
+# Copyright (C) 2015, 2016, 2017 CERN.
 #
 # Invenio is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -117,12 +117,10 @@ sleep 20
 # sphinxdoc-create-user-account-end
 
 # sphinxdoc-populate-with-demo-records-begin
-pip install -e git+https://github.com/cernopendata/cernopendata-fixtures.git#egg=cernopendata-fixtures
 ${INVENIO_WEB_INSTANCE} fixtures collections
 ${INVENIO_WEB_INSTANCE} fixtures records
 ${INVENIO_WEB_INSTANCE} fixtures pids
 ${INVENIO_WEB_INSTANCE} fixtures terms
-pip uninstall -y cernopendata-fixtures
 # sphinxdoc-populate-with-demo-records-end
 
 # sphinxdoc-index-all-records-begin
