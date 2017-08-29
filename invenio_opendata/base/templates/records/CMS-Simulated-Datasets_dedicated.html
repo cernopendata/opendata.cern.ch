@@ -1,8 +1,0 @@
-{% extends 'records/dedicated_base.html' %}
-
-{% block methodology_note %}
-  {{ record_methodology_note(record.get('methodology_note', ''), 'How were these data generated?') }}
-  {% if record.get('supplement_special_issue_entry',{}).get('displaytext','') %}
-    {{ record.get('supplement_special_issue_entry',{}).get('displaytext','') | safe}}
-  {% endif %}
-{% endblock %}
