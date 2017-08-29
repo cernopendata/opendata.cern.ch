@@ -104,7 +104,7 @@ setup(
     license='GPLv2',
     author='CERN',
     author_email='info@inveniosoftware.org',
-    url='https://github.com/cernopendata/cernopendata',
+    url='https://github.com/cernopendata/opendata.cern.ch',
     packages=packages,
     zip_safe=False,
     include_package_data=True,

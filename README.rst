@@ -1,13 +1,13 @@
-.. image:: https://travis-ci.org/cernopendata/cernopendata.png?branch=pu
-   :target: https://travis-ci.org/cernopendata/cernopendata
-.. image:: http://issuestats.com/github/cernopendata/cernopendata/badge/pr?style=flat
-   :target: http://issuestats.com/github/cernopendata/cernopendata
-.. image:: http://issuestats.com/github/cernopendata/cernopendata/badge/issue?style=flat
-   :target: http://issuestats.com/github/cernopendata/cernopendata
+.. image:: https://travis-ci.org/cernopendata/opendata.cern.ch.png?branch=pu
+   :target: https://travis-ci.org/cernopendata/opendata.cern.ch
+.. image:: http://issuestats.com/github/cernopendata/opendata.cern.ch/badge/pr?style=flat
+   :target: http://issuestats.com/github/cernopendata/opendata.cern.ch
+.. image:: http://issuestats.com/github/cernopendata/opendata.cern.ch/badge/issue?style=flat
+   :target: http://issuestats.com/github/cernopendata/opendata.cern.ch
 .. image:: https://img.shields.io/badge/licence-GPL_2-green.svg?style=flat
-   :target: https://raw.githubusercontent.com/cernopendata/cernopendata/pu/COPYING
+   :target: https://raw.githubusercontent.com/cernopendata/opendata.cern.ch/master/LICENSE
 .. image:: https://badges.gitter.im/Join%20Chat.svg
-   :target: https://gitter.im/cernopendata/cernopendata?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge
+   :target: https://gitter.im/cernopendata/opendata.cern.ch?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge
 
 About
 -----
