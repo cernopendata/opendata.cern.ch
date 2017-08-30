@@ -4,11 +4,10 @@
 
 from __future__ import absolute_import, print_function
 
-import click
-from flask import current_app
 from invenio_base.app import create_cli
-from sqlalchemy.orm.attributes import flag_modified
 
 from .factory import create_app
+from .modules.fixtures.cli import fixtures
 
 cli = create_cli(create_app=create_app)
+cli.add_command(fixtures)

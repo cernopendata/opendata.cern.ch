@@ -117,10 +117,6 @@ setup(
         'dojson.contrib.marc21': [
             'cernopendata = cernopendata.rules',
         ],
-        'flask.commands': [
-            'fixtures = '
-            'cernopendata.modules.fixtures.cli:fixtures',
-        ],
         'invenio_assets.bundles': [
             'cernopendata_theme_css = cernopendata.modules.theme.bundles:css',
             'cernopendata_visualise_css = '
