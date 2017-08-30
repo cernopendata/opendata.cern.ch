@@ -121,6 +121,8 @@ ${INVENIO_WEB_INSTANCE} fixtures collections
 ${INVENIO_WEB_INSTANCE} fixtures records
 ${INVENIO_WEB_INSTANCE} fixtures pids
 ${INVENIO_WEB_INSTANCE} fixtures terms
+${INVENIO_WEB_INSTANCE} fixtures news
+${INVENIO_WEB_INSTANCE} fixtures data_policies
 # sphinxdoc-populate-with-demo-records-end
 
 # sphinxdoc-index-all-records-begin
