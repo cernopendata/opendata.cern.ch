@@ -69,7 +69,9 @@ install_requires = [
     'Flask-CeleryExt>=0.2.2',
     'Flask-BabelEx>=0.9.3',
     'Flask-Breadcrumbs>=0.4.0',
+    'Flask-Markdown>=0.3.0',
     'Flask-Menu>=0.5.0',
+    'Flask-Mistune>=0.1.1',
     'Flask>=0.11.1',
     'python-slugify>=1.2.4',
     'invenio-assets>=1.0.0b6',
@@ -91,6 +93,9 @@ install_requires = [
     'invenio-records>=1.0.0b1',
     'invenio-search-ui>=1.0.0a2',
     'invenio-search>=1.0.0a9',
+    'mistune>=0.7.4',
+    'py-gfm>=0.1.3',
+    'pymdown-extensions>=3.5',
 ]
 
 packages = find_packages()
@@ -132,6 +137,12 @@ setup(
             'cernopendata.modules.pages.views:blueprint',
             'cernopendata_theme = '
             'cernopendata.modules.theme.views:blueprint',
+        ],
+        'invenio_base.apps': [  # Wrappers for init of certain extensions.
+            # 'cod_md = '
+            # 'cernopendata.modules.markdown.ext:CernopendataMarkdown',
+            'cod_mistune = '
+            'cernopendata.modules.mistune.ext:CernopendataMistune',
         ],
         'invenio_config.module': [
                 'cernopendata = cernopendata.config',
