@@ -31,7 +31,7 @@ import json
 
 import pkg_resources
 from flask import Blueprint, abort, current_app, escape, render_template, \
-    request, url_for
+    request, url_for, jsonify
 from flask_babelex import lazy_gettext as _
 from flask_breadcrumbs import default_breadcrumb_root, register_breadcrumb
 from flask_menu import register_menu
@@ -366,6 +366,16 @@ def collections():
 def glossary():
     """Display glossary terms."""
     return render_template('cernopendata/terms.html')
+
+
+@blueprint.route('/glossary/json')
+def glossary_json():
+    """Fetch glossary json."""
+    filepath = pkg_resources.resource_filename(
+        'cernopendata.modules.fixtures', 'data/terms/terms.json')
+    with open(filepath, 'r') as f:
+        glossary = json.load(f)
+    return jsonify(glossary)
 
 
 @blueprint.route('/news')

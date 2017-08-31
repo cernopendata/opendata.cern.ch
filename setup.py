@@ -125,6 +125,11 @@ setup(
             'cernopendata.modules.theme.bundles:visualise_js',
             'cernopendata_search_js = cernopendata.modules.theme.bundles'
             ':search_js',
+            'cernopendata_glossary_js = cernopendata.modules.theme.bundles'
+            ':glossary_js',
+            'cernopendata_glossary_css = cernopendata.modules.theme.bundles'
+            ':glossary_css',
+
         ],
         'invenio_base.blueprints': [
             'cernopendata = cernopendata.views:blueprint',

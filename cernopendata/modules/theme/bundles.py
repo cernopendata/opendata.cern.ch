@@ -84,3 +84,18 @@ visualise_css = NpmBundle(
         "bootstrap-sass": "~3.3.5",
     }
 )
+
+glossary_js = NpmBundle(
+    'js/glossary/jquery.zglossary.js',
+    output='gen/glossary.%(version)s.js',
+    npm={},
+)
+
+glossary_css = NpmBundle(
+    'js/glossary/jquery.zglossary.css',
+    filters='node-scss, cleancss',
+    output='gen/cernopendata.glossary.%(version)s.css',
+    npm={
+        "bootstrap-sass": "~3.3.5",
+    }
+)
