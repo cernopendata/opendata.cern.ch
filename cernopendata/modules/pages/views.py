@@ -137,17 +137,17 @@ def research(experiment=None):
 
 
 @blueprint.route('/visualise/events/<string:experiment>')
-def visualise_events(experiment='CMS'):
+@blueprint.route('/visualise/events/<string:experiment>/<int:eventid>')
+def visualise_events(experiment='CMS', eventid=None):
     """Display visualisations."""
-    exp_names = get_collection_names(['ALICE', 'LHCb', 'ATLAS'])
-
     breadcrumbs = [{}, {'url': '.education', 'text': 'Education'},
                    {'url': '.education', 'text': 'Visualise Events'}]
     try:
         return render_template(
-            'visualise_events.html',
+            'cernopendata_pages/visualise_events_{}.html'.format(
+                experiment.lower()),
+            eventid=eventid,
             experiment=experiment,
-            exp_names=exp_names,
             breadcrumbs=breadcrumbs)
     except TemplateNotFound:
         return abort(404)

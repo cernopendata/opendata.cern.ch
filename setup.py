@@ -129,7 +129,10 @@ setup(
             ':glossary_js',
             'cernopendata_glossary_css = cernopendata.modules.theme.bundles'
             ':glossary_css',
-
+            'opera_js = cernopendata.modules.theme.bundles'
+            ':opera_js',
+            'opera_css = cernopendata.modules.theme.bundles'
+            ':opera_css',
         ],
         'invenio_base.blueprints': [
             'cernopendata = cernopendata.views:blueprint',

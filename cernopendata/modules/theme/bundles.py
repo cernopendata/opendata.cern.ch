@@ -41,7 +41,7 @@ css = NpmBundle(
         # '/bootstrap-switch.css',
         filters='cleancssurl',
     ),
-    depends=('scss/*.scss', ),
+    depends=('scss/*.scss',),
     output='gen/cernopendata.%(version)s.css',
     npm={
         'angular-loading-bar': '~0.9.0',
@@ -62,7 +62,6 @@ search_js = NpmBundle(
         'angular-sanitize': '~1.4.14'
     },
 )
-
 
 visualise_js = NpmBundle(
     'node_modules/d3/d3.min.js',
@@ -97,5 +96,43 @@ glossary_css = NpmBundle(
     output='gen/cernopendata.glossary.%(version)s.css',
     npm={
         "bootstrap-sass": "~3.3.5",
+    }
+)
+
+opera_js = NpmBundle(
+    'node_modules/demobbed-viewer/js/lib/d3.js',
+    'node_modules/demobbed-viewer/js/lib/jquery.js',
+    'node_modules/demobbed-viewer/js/lib/three.js',
+    'node_modules/demobbed-viewer/js/lib/three3DExtras.min.js',
+    'node_modules/demobbed-viewer/js/DetCfg-def.js',
+    'node_modules/demobbed-viewer/js/Utils-def.js',
+    'node_modules/demobbed-viewer/js/Hits-defs.js',
+    'node_modules/demobbed-viewer/js/Vertex-def.js',
+    'node_modules/demobbed-viewer/js/TrackECC-def.js',
+    'node_modules/demobbed-viewer/js/Event-def.js',
+    'node_modules/demobbed-viewer/js/loadEvent.js',
+    'node_modules/demobbed-viewer/js/DetElems-defs.js',
+    'node_modules/demobbed-viewer/js/MgrGeomED-def.js',
+    'node_modules/demobbed-viewer/js/MgrDrawED-def.js',
+    'node_modules/demobbed-viewer/js/MgrDrawECC-def.js',
+    'node_modules/demobbed-viewer/js/Demobbed-def.js',
+    'node_modules/demobbed-viewer/js/init.js',
+    'node_modules/demobbed-viewer/js/Demobbed-fills.js',
+    'node_modules/demobbed-viewer/js/MgrGeomED-fills.js',
+    'node_modules/demobbed-viewer/js/MgrGeomED-funcAdd.js',
+    'node_modules/demobbed-viewer/js/MgrDrawED-funcAdd.js',
+    'node_modules/demobbed-viewer/js/MgrDrawECC-funcAdd.js',
+    output='gen/cernopendata.opera.%(version)s.js',
+    npm={
+        "demobbed-viewer": "~1.0.2"
+    },
+)
+
+opera_css = NpmBundle(
+    'node_modules/demobbed-viewer/css/demobbed.css',
+    filters='node-scss, cleancss',
+    output='gen/cernopendata.opera.%(version)s.css',
+    npm={
+        "demobbed-viewer": "~1.0.2"
     }
 )
