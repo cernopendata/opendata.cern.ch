@@ -19,6 +19,8 @@
 
 """Define fixtures."""
 
+
+# TOFIX Remove this when invenio-collections is completely gone
 COLLECTIONS = [dict(
     name='CERN Open Data Portal',
     dbquery=None,

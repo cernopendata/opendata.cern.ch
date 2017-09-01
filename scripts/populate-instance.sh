@@ -117,7 +117,6 @@ sleep 20
 # sphinxdoc-create-user-account-end
 
 # sphinxdoc-populate-with-demo-records-begin
-${INVENIO_WEB_INSTANCE} fixtures collections
 ${INVENIO_WEB_INSTANCE} fixtures records
 ${INVENIO_WEB_INSTANCE} fixtures pids
 ${INVENIO_WEB_INSTANCE} fixtures terms
