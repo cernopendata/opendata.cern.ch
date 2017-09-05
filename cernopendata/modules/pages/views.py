@@ -138,17 +138,16 @@ def research(experiment=None):
 
 @blueprint.route('/visualise/events/<string:experiment>')
 @blueprint.route('/visualise/events/<string:experiment>/<int:eventid>')
+@register_breadcrumb(blueprint, '.visualise_events', _('Visualise Events'))
 def visualise_events(experiment='CMS', eventid=None):
     """Display visualisations."""
-    breadcrumbs = [{}, {'url': '.education', 'text': 'Education'},
-                   {'url': '.education', 'text': 'Visualise Events'}]
     try:
         return render_template(
             'cernopendata_pages/visualise_events_{}.html'.format(
                 experiment.lower()),
             eventid=eventid,
             experiment=experiment,
-            breadcrumbs=breadcrumbs)
+            )
     except TemplateNotFound:
         return abort(404)
 
