@@ -14,7 +14,7 @@
         <h3>Visualise OPERA detector events</h3>
       </div>
 
-    <div id="demobbed-viewer"
+    <div id="demobbed-viewer">
     <div class="container-fluid">
 
       <div class="row">
@@ -50,7 +50,7 @@
 
                       <!-- ----------------------------------------- -->
 
-                      <img src="/static/node_modules/demobbed-viewer/graphics/draw-ECC.png" onclick="demobbed.mgrDrawECC().drawECC(1);" alt="Draw ECC tracks" height="32">
+                      <a data-toggle="modal" data-target="#3dTracks"><img src="/static/node_modules/demobbed-viewer/graphics/draw-ECC.png" onclick="demobbed.mgrDrawECC().drawECC(1);" alt="Draw ECC tracks" height="32"></a>
 
                     </div>
 
@@ -148,10 +148,15 @@
               </td>
 
               <td>
-                <table>
-
-                  <tr>
-                    <td>
+                <div class="modal fade" id="3dTracks" role="dialog">
+                <div class="modal-dialog">
+                  <!--Move inline css to corresponding file when final version of previewer is merged-->
+                  <div class="modal-content" style="height:500px;">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" onclick="demobbed.mgrDrawECC().drawECC(0);" >&times;</button>
+                      <h4 class="modal-title">3D Tracks</h4>
+                    </div>
+                    <div class="modal-body">
                       <div id="toolbarECC">
 
                         <img src="/static/node_modules/demobbed-viewer/graphics/event-prev.png"   onclick="demobbed.loadPrevOrNextEvent(-1);" alt="Prev. event"  height="32">
@@ -161,15 +166,10 @@
                         <img src="/static/node_modules/demobbed-viewer/graphics/anim-decel.png" onclick="demobbed.mgrDrawECC().decelerateAnimation();" alt="Pause animation" height="32">
                         <img src="/static/node_modules/demobbed-viewer/graphics/anim-accel.png" onclick="demobbed.mgrDrawECC().accelerateAnimation();" alt="Start animation" height="32">
 
-                        <img src="/static/node_modules/demobbed-viewer/graphics/close-ECC.png" onclick="demobbed.mgrDrawECC().drawECC(0);" alt="Erase ECC tracks" height="32">
+                        <a data-dismiss="modal"><img src="/static/node_modules/demobbed-viewer/graphics/close-ECC.png" onclick="demobbed.mgrDrawECC().drawECC(0);" alt="Erase ECC tracks" height="32"></a>
 
                       </div>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-                      <div id="div-canvas-ECC">
+                      <div id="div-canvas-ECC" style="margin-top: 25px;">
 
                         <span id="canvas-ECC-title" class="canvas-title"></span>
 
@@ -182,10 +182,13 @@
                         <canvas id="canvas-ECC" class="canvas-bordered"></canvas>
 
                       </div>
-                    </td>
-                  </tr>
+                    </div>
+                    <div class="modal-footer"></div>
+                  </div>
 
-                </table>
+                </div>
+              </div>
+
               </td>
 
             </tr>
@@ -197,7 +200,7 @@
 
     </div> <!-- "container-fluid" -->
     <!-- ----------------------------------------- -->
-
+    </div>
     <div id="divScrLoadEvent">
         {% if not eventid %}
         <script id="scrLoadEvent" src="/static/node_modules/demobbed-viewer/js/nuEventsData/loadEvent10120009376.js"> </script>
@@ -205,7 +208,7 @@
         <script id="scrLoadEvent" src="/static/node_modules/demobbed-viewer/js/nuEventsData/loadEvent{{ eventid }}.js"> </script>
         {% endif %}
     </div>
-
+  </div>
+</div>
 </section>
-
 {% endblock %}
