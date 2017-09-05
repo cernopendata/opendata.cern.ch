@@ -25,7 +25,7 @@
         <span>
           <strong>See also: </strong>
           {% for term in record.see_also%}
-            <span class="label label-info">{{term.term}}</span>
+            <a href="/terms/{{term.term}}"><span class="label label-info">{{term.term}}</span></a>
         {% endfor %}
         </span>
       </div>
@@ -33,4 +33,10 @@
   </div>
 </div>
 {%- endblock %}
+
+{%- block javascript %}
+  {{super()}}
+  {%- block javascript_glossary %}
+  {% endblock %}
+{% endblock %}
 

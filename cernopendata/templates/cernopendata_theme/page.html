@@ -41,10 +41,12 @@
 {%- block javascript %}
   {{super()}}
   {% assets "cernopendata_glossary_js" %}<script src="{{ ASSET_URL }}"></script>{% endassets %}
-  <script>
-    $(document).ready(function () {
-      $('body').glossary('/glossary/json');
-    });
-  </script>
+  {%- block javascript_glossary %}
+    <script>
+      $(document).ready(function () {
+        $('body').glossary('/glossary/json');
+      });
+    </script>
+  {% endblock %}
 {% endblock %}
 

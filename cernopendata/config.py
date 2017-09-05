@@ -38,7 +38,6 @@ from cernopendata.modules.theme.config import *
 DEBUG = True
 TEMPLATES_AUTO_RELOAD = True
 
-
 # Assets
 # ======
 #: Switch of assets debug.
@@ -138,6 +137,21 @@ RECORDS_REST_ENDPOINTS['artid'] = {
         'application/json': ('invenio_records_rest.serializers'
                              ':json_v1_search'),
     },
+}
+
+RECORDS_REST_SORT_OPTIONS = {
+    "records-term-v1.0.0": {
+        'anchor': dict(fields=['anchor'],
+                       title='Title',
+                       default_order='asc',
+                       order=1),
+    }
+}
+
+RECORDS_REST_DEFAULT_SORT = {
+    'records-term-v1.0.0': {
+        'noquery': 'anchor'
+    }
 }
 
 RECORDS_REST_FACETS = dict(
