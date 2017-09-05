@@ -29,6 +29,11 @@ from __future__ import absolute_import, print_function
 from flask_assets import Bundle
 from invenio_assets import NpmBundle
 
+from invenio_search_ui.bundles import js as _js
+
+# Override d3 version from search-ui
+_js.npm['d3'] = '~3.3.13'
+
 css = NpmBundle(
     Bundle(
         'scss/styles.scss',
