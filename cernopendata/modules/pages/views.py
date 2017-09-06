@@ -136,6 +136,17 @@ def research(experiment=None):
         exp_names=exp_names)
 
 
+@blueprint.route('/visualise/events')
+@register_breadcrumb(blueprint, '.visualise_events', _('Visualise Events'))
+def visualise_events_landing():
+    """Display landing page."""
+    try:
+        return render_template(
+            'cernopendata_pages/visualise_events.html')
+    except TemplateNotFound:
+        return abort(404)
+
+
 @blueprint.route('/visualise/events/<string:experiment>')
 @blueprint.route('/visualise/events/<string:experiment>/<int:eventid>')
 @register_breadcrumb(blueprint, '.visualise_events', _('Visualise Events'))
