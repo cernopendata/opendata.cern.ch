@@ -26,7 +26,7 @@
 
 #: Information on homepage.
 OPENDATA_EXPERIMENTS = [
-    'CMS', 'ALICE', 'ATLAS', 'LHCb',
+    'CMS', 'ALICE', 'ATLAS', 'LHCb', 'OPERA',
 ]
 
 OPENDATA_EDUCATION = [
@@ -68,9 +68,10 @@ OPENDATA_EDUCATION = [
      True),
     ('OPERA',
      'The Oscillation Project with Emulsion-tRacking Apparatus (OPERA) is a '
-     'scientific experiment for detecting tau neutrinos from muon neutrino oscillations. '
-     'The experiment is a collaboration between CERN in Geneva, Switzerland, '
-     'and the Laboratori Nazionali del Gran Sasso (LNGS) in Gran Sasso, Italy.',
+     'scientific experiment for detecting tau neutrinos from muon '
+     'neutrino oscillations. The experiment is a collaboration between '
+     'CERN in Geneva, Switzerland, and the Laboratori Nazionali del '
+     'Gran Sasso (LNGS) in Gran Sasso, Italy.',
      True),
 ]
 
@@ -96,8 +97,9 @@ OPENDATA_RESEARCH = [
      False),
     ('OPERA',
      'The Oscillation Project with Emulsion-tRacking Apparatus (OPERA) is a '
-     'scientific experiment for detecting tau neutrinos from muon neutrino oscillations. '
-     'The experiment is a collaboration between CERN in Geneva, Switzerland, '
-     'and the Laboratori Nazionali del Gran Sasso (LNGS) in Gran Sasso, Italy.',
+     'scientific experiment for detecting tau neutrinos from muon '
+     'neutrino oscillations. The experiment is a collaboration between '
+     'CERN in Geneva, Switzerland, and the Laboratori Nazionali del '
+     'Gran Sasso (LNGS) in Gran Sasso, Italy.',
      False),
 ]
