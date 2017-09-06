@@ -66,6 +66,12 @@ OPENDATA_EDUCATION = [
      'B mesons. The detector is designed to gather information about the '
      'identity, trajectory, momentum and energy of each particle.',
      True),
+    ('OPERA',
+     'The Oscillation Project with Emulsion-tRacking Apparatus (OPERA) is a '
+     'scientific experiment for detecting tau neutrinos from muon neutrino oscillations. '
+     'The experiment is a collaboration between CERN in Geneva, Switzerland, '
+     'and the Laboratori Nazionali del Gran Sasso (LNGS) in Gran Sasso, Italy.',
+     True),
 ]
 
 OPENDATA_RESEARCH = [
@@ -88,9 +94,10 @@ OPENDATA_RESEARCH = [
      'According to the ATLAS Data Access Policy, reconstructed data and '
      'accompanying tools will be released after reasonable embargo periods.',
      False),
-    ('LHCb',
-     'According to the LHCb External Data Access Policy, reconstructed data '
-     'and accompanying tools will be released after reasonable embargo '
-     'periods.',
+    ('OPERA',
+     'The Oscillation Project with Emulsion-tRacking Apparatus (OPERA) is a '
+     'scientific experiment for detecting tau neutrinos from muon neutrino oscillations. '
+     'The experiment is a collaboration between CERN in Geneva, Switzerland, '
+     'and the Laboratori Nazionali del Gran Sasso (LNGS) in Gran Sasso, Italy.',
      False),
 ]
