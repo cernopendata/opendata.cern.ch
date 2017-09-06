@@ -99,17 +99,22 @@
         },
       }
     },
-    "_files": {
+    "files": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "type": {
-            "title": "type",
+          "uri": {
+            "title": "uri",
             "type": "string"
           },
-          "path": {
-            "title": "path",
+          "size": {
+            "title": "size",
+            "type": "integer",
+            "minimum": 0
+          },
+          "checksum": {
+            "title": "checksum",
             "type": "string"
           }
         }
