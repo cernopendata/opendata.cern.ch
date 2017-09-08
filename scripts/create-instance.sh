@@ -122,4 +122,5 @@ CI=true npm install
 # sphinxdoc-collect-and-build-assets-begin
 ${INVENIO_WEB_INSTANCE} collect -v
 ${INVENIO_WEB_INSTANCE} assets build
+${INVENIO_WEB_INSTANCE} files location local var/data --default
 # sphinxdoc-collect-and-build-assets-end

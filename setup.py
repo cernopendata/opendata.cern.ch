@@ -60,6 +60,11 @@ extras_require['all'] = []
 for reqs in extras_require.values():
     extras_require['all'].extend(reqs)
 
+extras_require['xrootd'] = [
+    'invenio-xrootd>=1.0.0a4',
+    'xrootdpyfs>=0.1.4',
+]
+
 setup_requires = [
     'pytest-runner>=2.6.2',
 ]
@@ -88,6 +93,7 @@ install_requires = [
     'invenio-pidstore>=1.0.0b1',
     'invenio-records-rest>=1.0.0a9',
     'invenio-records-ui>=1.0.0a8',
+    'invenio-records-files>=1.0.0a9',
     'invenio-records>=1.0.0b1',
     'invenio-search-ui>=1.0.0a2',
     'invenio-search>=1.0.0a9',
@@ -134,6 +140,12 @@ setup(
             'opera_css = cernopendata.modules.theme.bundles'
             ':opera_css',
         ],
+        'invenio_base.apps': [
+            'cernopendata_xrootd = cernopendata.modules.xrootd:CODPXRootD'
+        ],
+        'invenio_base.api_apps': [
+            'cernopendata_xrootd = cernopendata.modules.xrootd:CODPXRootD'
+        ],
         'invenio_base.blueprints': [
             'cernopendata = cernopendata.views:blueprint',
             'cernopendata_pages = '
@@ -142,7 +154,7 @@ setup(
             'cernopendata.modules.theme.views:blueprint',
         ],
         'invenio_config.module': [
-                'cernopendata = cernopendata.config',
+            'cernopendata = cernopendata.config',
         ],
         'invenio_pidstore.minters': [
             'cernopendata_recid_minter = '

@@ -99,22 +99,30 @@
         },
       }
     },
-    "files": {
+    "_files": {
       "type": "array",
       "items": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
+        "title": "File schema.",
+        "description": "Describe information needed for files in records.",
         "properties": {
           "uri": {
-            "title": "uri",
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "bucket": {
+            "type": "string"
+          },
+          "checksum": {
             "type": "string"
           },
           "size": {
-            "title": "size",
-            "type": "integer",
-            "minimum": 0
+            "type": "integer"
           },
-          "checksum": {
-            "title": "checksum",
+          "version_id": {
             "type": "string"
           }
         }

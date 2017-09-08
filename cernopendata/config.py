@@ -28,8 +28,10 @@ from __future__ import absolute_import, print_function
 
 import os
 
+from invenio_records_files.api import _Record
 from invenio_records_rest.config import RECORDS_REST_ENDPOINTS
 from invenio_records_rest.facets import terms_filter
+from invenio_records_rest.utils import allow_all
 
 from cernopendata.modules.pages.config import *
 from cernopendata.modules.theme.config import *
@@ -98,12 +100,15 @@ RECORDS_REST_ENDPOINTS['recid']['search_index'] = '_all'
 RECORDS_REST_ENDPOINTS['recid'].update({
     'pid_minter': 'cernopendata_recid_minter',
     'pid_fetcher': 'cernopendata_recid_fetcher',
+    'record_class': _Record,
+    'links_factory_imp': 'cernopendata.modules.records.links:links_factory'
 })
 
 RECORDS_REST_ENDPOINTS['termid'] = {
     'pid_type': 'termid',
     'pid_minter': 'cernopendata_termid_minter',
     'pid_fetcher': 'cernopendata_termid_fetcher',
+    'record_class': _Record,
     'default_media_type': 'application/json',
     'max_result_window': 10000,
     'item_route': '/terms/<pid(termid):pid_value>',
@@ -123,6 +128,7 @@ RECORDS_REST_ENDPOINTS['artid'] = {
     'pid_type': 'artid',
     'pid_minter': 'cernopendata_articleid_minter',
     'pid_fetcher': 'cernopendata_articleid_fetcher',
+    'record_class': _Record,
     'default_media_type': 'application/json',
     'max_result_window': 10000,
     'item_route': '/articles/<pid(artid):pid_value>',
@@ -178,6 +184,12 @@ RECORDS_REST_FACETS = dict(
     )
 )
 """Facets per index for the default facets factory."""
+
+
+# Files
+# ======
+#: Permission factory to control the files access from the REST interface.
+FILES_REST_PERMISSION_FACTORY = allow_all
 
 # Search
 # ======

@@ -179,6 +179,11 @@ def data_policies():
     from cernopendata.modules.records.minters.recid import \
         cernopendata_recid_minter
 
+    from six import BytesIO
+    from invenio_files_rest.models import \
+        Bucket, FileInstance, ObjectVersion
+    from invenio_records_files.models import RecordsBuckets
+
     indexer = RecordIndexer()
     schema = current_app.extensions['invenio-jsonschemas'].path_to_url(
         'records/data-policies-v1.0.0.json'
@@ -190,10 +195,30 @@ def data_policies():
     for filename in data_policies_json:
         with open(filename, 'rb') as source:
             for data in json.load(source):
+                files = data.pop('files', None)
+
                 id = uuid.uuid4()
                 cernopendata_recid_minter(id, data)
                 record = Record.create(data, id_=id)
                 record['$schema'] = schema
+                bucket = Bucket.create()
+                record_buckets = RecordsBuckets.create(
+                    record=record.model, bucket=bucket)
+
+                for file in files:
+                    assert 'uri' in file
+                    assert 'size' in file
+                    assert 'checksum' in file
+
+                    f = FileInstance.create()
+                    filename = file.get("uri").split('/')[-1:][0]
+                    f.set_uri(file.get("uri"), file.get(
+                        "size"), file.get("checksum"))
+                    ObjectVersion.create(
+                        bucket,
+                        filename,
+                        _file_id=f.id
+                    )
                 db.session.commit()
                 indexer.index(record)
                 db.session.expunge_all()
