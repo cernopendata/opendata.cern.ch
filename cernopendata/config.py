@@ -76,8 +76,7 @@ RECORDS_UI_ENDPOINTS = dict(
     recid=dict(
         pid_type='recid',
         route='/records/<pid_value>',
-        # template='invenio_marc21/detail.html',
-        template='invenio_records_ui/detail.html',
+        template='cernopendata_records_ui/records/detail.html',
         permission_factory_imp=None,
     ),
     termid=dict(
