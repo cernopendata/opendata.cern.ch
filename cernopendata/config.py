@@ -300,3 +300,38 @@ SQLALCHEMY_DATABASE_URI = os.environ.get(
     'APP_SQLALCHEMY_DATABASE_URI',
     'postgresql+psycopg2://localhost/cernopendata'
 )
+
+# DataCite
+# ========
+#: DataCite API - URL endpoint.
+PIDSTORE_DATACITE_URL = "https://mds.datacite.org"
+
+#: DataCite API - Disable test mode (we however use the test prefix).
+PIDSTORE_DATACITE_TESTMODE = os.environ.get(
+    "APP_PIDSTORE_DATACITE_TESTMODE",
+    False
+)
+
+#: DataCite API - Prefix for minting DOIs in (10.5072 is a test prefix).
+PIDSTORE_DATACITE_DOI_PREFIX = os.environ.get(
+    "APP_PIDSTORE_DATACITE_DOI_PREFIX",
+    "10.5072"
+)
+
+#: DataCite MDS username.
+PIDSTORE_DATACITE_USERNAME = os.environ.get(
+    "APP_PIDSTORE_DATACITE_USERNAME",
+    "CERN.OPENDATA"
+)
+
+#: DataCite MDS password.
+PIDSTORE_DATACITE_PASSWORD = os.environ.get(
+    "APP_PIDSTORE_DATACITE_PASSWORD",
+    "CHANGE_ME"
+)
+
+#: Base URL for landing page
+PIDSTORE_LANDING_BASE_URL = os.environ.get(
+    "APP_PIDSTORE_LANDING_BASE_URL",
+    "http://opendata.cern.ch/records"
+)

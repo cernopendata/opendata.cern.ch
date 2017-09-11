@@ -73,6 +73,8 @@ install_requires = [
     'Flask-Mistune>=0.1.1',
     'Flask>=0.11.1',
     'idna==2.5',
+    'python-slugify>=1.2.4',
+    'datacite>=0.3.0',
     'invenio-assets>=1.0.0b6',
     'invenio-base>=1.0.0a9',
     'invenio-celery>=1.0.0b1',

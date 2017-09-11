@@ -37,6 +37,11 @@ web:
     - APP_CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 4
     - APP_CELERY_RESULT_BACKEND=redis://redis:6379/2
     - APP_SEARCH_ELASTIC_HOSTS=elasticsearch
+    - APP_PIDSTORE_DATACITE_TESTMODE=False
+    - APP_PIDSTORE_DATACITE_DOI_PREFIX=10.5072
+    - APP_PIDSTORE_DATACITE_USERNAME=CERN.OPENDATA
+    - APP_PIDSTORE_DATACITE_PASSWORD=CHANGE_ME
+    - APP_PIDSTORE_LANDING_BASE_URL=http://opendata.cern.ch/records/
   volumes:
     - ../devmodules:/devmodules
     - ./cernopendata:/code/cernopendata
