@@ -28,20 +28,18 @@
 
 {%- block page_body %}
 <div class="container search-page">
+  <h1>
+    Glossary
+  </h1>
   <div class="row">
     {%- block search_body %}
     <div class="col-xs-12 col-md-12">
       {%- block search_header %}
       <div class="row">
         {%- block search_count %}
-        <div class="col-md-3 col-sm-12">
-          <invenio-search-count
-           template="{{ url_for('static', filename=config.SEARCH_UI_JSTEMPLATE_COUNT) }}">
-          </invenio-search-count>
-        </div>
         {%- endblock search_count %}
         {%- block search_pagination_top %}
-        <div class="col-md-6 col-sm-12 text-center">
+        <div class="col-md-12 col-sm-12 text-center">
           <invenio-search-pagination
             template="{{ url_for('static', filename=config.SEARCH_UI_JSTEMPLATE_PAGINATION) }}">
           </invenio-search-pagination>

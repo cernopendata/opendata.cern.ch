@@ -373,6 +373,7 @@ def collections():
 
 @blueprint.route('/terms')
 @blueprint.route('/glossary')
+@register_breadcrumb(blueprint, '.about.glossary', _('Glossary'))
 def glossary():
     """Display glossary terms."""
     return render_template('cernopendata/terms.html')
