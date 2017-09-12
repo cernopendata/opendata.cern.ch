@@ -26,10 +26,10 @@
 
 from __future__ import absolute_import, print_function
 
-import functools
 import json
 
 import pkg_resources
+from .utils import FrontpageRecordsSearch
 from flask import Blueprint, abort, current_app, escape, render_template, \
     request, url_for, jsonify
 from flask_babelex import lazy_gettext as _
@@ -37,7 +37,6 @@ from flask_breadcrumbs import default_breadcrumb_root, register_breadcrumb
 from flask_menu import register_menu
 from jinja2.exceptions import TemplateNotFound
 from speaklater import make_lazy_string
-from werkzeug import secure_filename
 
 blueprint = Blueprint(
     'cernopendata_pages',
@@ -80,7 +79,9 @@ def lazy_title(text, *args):
                          '_anchor': 'education'})
 def index():
     """Home Page."""
-    return render_template('cernopendata_pages/index.html')
+    results = FrontpageRecordsSearch()[:6].execute()
+    return render_template('cernopendata_pages/index.html',
+                           records=results.hits.hits)
 
 
 @blueprint.route('/education')
@@ -200,11 +201,10 @@ def get_started_experiment(experiment=None, year=None):
     )
 
 
-@blueprint.route('/resources')
-@register_breadcrumb(blueprint, '.education.resources',
-                     _('Learning Resources'))
-def resources():
-    """Render index of resources."""
+@blueprint.route('/resources/articles')
+@register_breadcrumb(blueprint, '.index', _('Learning Resources'))
+def resources_articles():
+    """Render index of articles resources."""
     return render_template('cernopendata_pages/resources.html')
 
 

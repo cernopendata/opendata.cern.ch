@@ -15,7 +15,8 @@
                         {% endif %}
                         <h4>
                             {% for collection in record.collections%}
-                            <span class="label label-success">{{collection}}</span>
+                                <span class="label label-success">{{collection.primary}}</span>
+                                <span class="label label-success">{{collection.secondary}}</span>
                             {% endfor %}
                         </h4>
                     </h2>

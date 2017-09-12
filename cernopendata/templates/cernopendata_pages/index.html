@@ -1,158 +1,143 @@
 {%- extends config.BASE_TEMPLATE %}
 
-{% macro experiment_panel(name, description, endpoint, show_link) %}
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <div class="col-md-2">
-        <a href="{{ url_for(endpoint, experiment=name) if show_link else '#' }}">
-          <img src="{{ url_for('static', filename='img/' + name + '.gif') }}"
-                alt="{{ name }}" style="width: 100%;">
-        </a>
-      </div>
-      <div class="col-md-10">
-        {{ description|safe }}
-      </div>
-    </div>
-    <div class="panel-footer text-right">
-    {%- if show_link %}
-      <a href="{{ url_for(endpoint, experiment=name) }}"
-          class="btn btn-sm btn-default">
-        {{ _('Explore %(name)s', name=name) }}
-        <i class="fa fa-chevron-right"></i>
-      </a>
-    {%- else %}
-      <span class="small text-muted">{{ _('Not yet available') }}</span>
-    {%- endif %}
-    </div>
-  </div>
-{% endmacro %}
 
-{% macro img_panel(url, src, text) %}
-<div class="panel panel-default">
-  <a href="{{ url }}">
-    <div style="background-image: url({{ src }}); background-position: center; background-size: 100% 100%; background-repeat: no-repeat; height: 24vh; width: 100%;"></div>
-  </a>
-  <div class="panel-footer">
-    <a href="{{ url }}" class="btn btn-default btn-block">
-      {{ text }} <i class="fa fa-chevron-right"></i>
-    </a>
-  </div>
-</div>
-{% endmacro %}
+{%- block css %}
+{{ super() }}
+{% assets "invenio_search_ui_search_css" %}
+<link href="{{ ASSET_URL }}" rel="stylesheet">{% endassets %}
+{%- endblock css %}
+
+{%- block javascript %}
+{{ super() }}
+{% assets "invenio_search_ui_search_js" %}
+<script src="{{ ASSET_URL }}"></script>{% endassets %}
+{%- endblock javascript %}
+
 
 {%- block page_body %}
-  <section id="main" class="homepage-frame">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <div id="edu" class="panel panel-default">
-            <div class="panel-body">
-              <h2>{{ _('Education') }}</h2>
-              <hr/>
-              <p class="lead">
-                {{ _('Visualise events, check reconstructed data, run tools or build your own!') }}
-              </p>
-            </div>
-            <div class="panel-footer">
-              <a class="btn btn-primary btn-lg btn-block" href="#education">{{ _('Start learning') }}</a>
+<!--Move style when homepage is completely ready-->
+<style>
+  #myCarousel .carousel-caption {
+    left: 0;
+    right: 0;
+    text-align: left;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.6);
+    text-shadow: none;
+  }
+
+  #myCarousel .list-group {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 0px;
+  }
+
+  #myCarousel .carousel-inner {
+
+  }
+
+  #myCarousel .list-group-item {
+    border-radius: 0px;
+    cursor: pointer;
+
+  }
+
+  #myCarousel .list-group .active {
+    border-color: #ddd;
+    background-color: #f5f5f5;
+    color: #333333;
+  }
+
+  @media (min-width: 992px) {
+    #myCarousel {
+
+    }
+
+  }
+
+  @media (max-width: 991px) {
+    .carousel-caption p,
+    #myCarousel .list-group {
+      display: none;
+    }
+  }
+</style>
+<div class="row" style="margin-top: -2%;">
+  <div class="col-md-12">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        {% for r in records %}
+        <div class="item {% if loop.index0 == 0 %} active   {% elif loop.index0 != 0 %} '' {% endif %}">
+          <img src="{{url_for('static', filename='img/event.png')}}" style="width: 100%;">
+          <div class="carousel-caption">
+
+            <h3><a href="/articles/{{r['_source']['control_number']}}">{{r['_source']['title']}}</a>
+              {% for collection in r['_source']['collections']%}
+              <span>
+                    <span class="label label-primary">{{collection.primary}}</span>
+                    <span class="label label-success">{{collection.secondary}}</span>
+                  </span>
+              {% endfor %}
+            </h3>
+          </div>
+        </div><!-- End Item -->
+        {% endfor %}
+      </div><!-- End Carousel Inner -->
+    </div><!-- End Carousel -->
+  </div>
+</div>
+<div class="container">
+  <div class="row" style="margin-top: 3%;">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4>The CERN Open Data portal is the access point to a growing range of data produced
+          through the research
+          performed at CERN. It disseminates the preserved output from various research activities, including
+          accompanying
+          software and documentation which is needed to understand and analyse the data being shared.</h4></div>
+      </div>
+    </div>
+  </div>
+  <p></p>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2>Visualise</h2>
+        </div>
+        <div class="panel-body">
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img src="{{url_for('static', filename='img/CMS.gif')}}">
+              <div class="caption">
+                <h3 class="text-center">Visualise CMS detector events</h3>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="col-md-4 col-md-offset-4">
-          <div id="rsch" class="panel panel-default">
-            <div class="panel-body">
-              <h2>{{ _('Research') }}</h2>
-              <hr/>
-              <p class="lead">
-                {{ _('Get the genuine working environments, virtual machines and datasets to start your research.') }}
-              </p>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img src="{{url_for('static', filename='img/OPERA.gif')}}">
+              <div class="caption">
+                <h3 class="text-center"><a href="{{url_for('.visualise_events', experiment='OPERA')}}">Visualise OPERA
+                  detector events</a></h3>
+              </div>
             </div>
-            <div class="panel-footer">
-              <a class="btn btn-info btn-lg btn-block" href="#research">{{ _('Start analysing') }}</a>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img style="height: 153px;" src="{{url_for('static', filename='img/visualisation/histogram.png')}}">
+              <div class="caption">
+                <h3 class="text-center"><a href="{{url_for('.visualise_histo', experiment='CMS')}}">Visualise
+                  histograms</a></h3>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-
-  <section id="education" class="homepage-frame">
-    <div class="entry-frame-header">
-      <h1><div class="container">Education</div></h1>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6 col-xs-12">
-          {% for name, description, show_link in config.OPENDATA_EDUCATION %}
-            {{ experiment_panel(name, description, '.education', show_link) }}
-          {% endfor %}
-        </div>
-        <div class="col-sm-6 col-xs-12">
-          <p>
-            {{ _('For education purposes, the complex primary data need to be processed into a format (examples below) that is good for simple applications.Get in touch if you wish to build your own applications similar to those shown here.') }}
-          </p>
-          <div class="row">
-            <div class="col-md-6">
-              {{ img_panel(
-                url_for('.visualise_events_landing'),
-                url_for('static', filename='img/visualisation/event.png'),
-                _('Visualise events')
-              ) }}
-            </div>
-            <div class="col-md-6">
-              {{ img_panel(
-                url_for('.visualise_histo', experiment='CMS'),
-                url_for('static', filename='img/visualisation/histogram.png'),
-                _('Visualise histograms')
-              ) }}
-            </div>
-            <div class="col-md-12">
-              {{ img_panel(
-                url_for('.resources'),
-                url_for('static', filename='img/resources/learning.jpg'),
-                _('Learning Resources')
-              ) }}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="research" class="homepage-frame">
-    <div class="entry-frame-header">
-      <h1><div class="container">{{ _('Research') }}</div></h1>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6 col-xs-12">
-          {% for name, description, show_link in config.OPENDATA_RESEARCH %}
-            {{ experiment_panel(name, description, '.research', show_link) }}
-          {% endfor %}
-        </div>
-        <div class="col-sm-6 col-xs-12">
-          <p>
-            {{ _('For research purposes, specific software environments and tools need to be deployed to analyse these complex primary data. In addition to the data below, you will find instructions for setting up your working environments here.') }}
-          </p>
-          <div class="row">
-            <div class="col-md-12">
-              {{ img_panel(
-                url_for('.vm'),
-                url_for('static', filename='img/resources/VMs.jpg'),
-                _('Install your Virtual Machine')
-              ) }}
-            </div>
-            <div class="col-md-12">
-              {{ img_panel(
-                url_for('.get_started'),
-                url_for('static', filename='img/default.png'),
-                _('Start analysing the data')
-              ) }}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
+</div>
 {%- endblock %}
+
