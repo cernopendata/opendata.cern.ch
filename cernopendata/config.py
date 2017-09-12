@@ -79,6 +79,12 @@ RECORDS_UI_ENDPOINTS = dict(
         template='cernopendata_records_ui/records/detail.html',
         permission_factory_imp=None,
     ),
+    termid=dict(
+        pid_type='termid',
+        route='/terms/<pid_value>',
+        template='cernopendata_records_ui/terms/detail.html',
+        permission_factory_imp=None,
+    ),
     artid=dict(
         pid_type='artid',
         route='/articles/<pid_value>',
