@@ -159,9 +159,9 @@ RECORDS_REST_DEFAULT_SORT = {
     }
 }
 
-RECORDS_REST_FACETS = dict(
-    _all=dict(
-        aggs=dict(
+RECORDS_REST_FACETS = {
+    '_all': {
+        'aggs': dict(
             category=dict(terms=dict(field='collections.secondary')),
             collections=dict(terms=dict(field='collections.primary')),
             run=dict(terms=dict(
@@ -171,7 +171,7 @@ RECORDS_REST_FACETS = dict(
                       'manufacture_or_copyright_notice'
             )),
         ),
-        post_filters=dict(
+        'post_filters': dict(
             category=terms_filter('collections.secondary'),
             collections=terms_filter('collections.primary'),
             run=terms_filter(
@@ -181,8 +181,17 @@ RECORDS_REST_FACETS = dict(
                 'manufacture_or_copyright_notice'
             ),
         )
-    )
-)
+    },
+    'records-article-v1.0.0': {
+        'aggs': dict(
+            category=dict(terms=dict(field='collections.secondary'))
+        ),
+        'post_filters': dict(
+            category=terms_filter('collections.secondary')
+        )
+    }
+
+}
 """Facets per index for the default facets factory."""
 
 

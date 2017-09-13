@@ -1,0 +1,16 @@
+<div class="panel-body" style="max-height: 728px; overflow-y: scroll;">
+  <div ng-repeat="record in vm.invenioSearchResults.hits.hits track by $index">
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3><a ng-href="/articles/{{record.metadata.control_number}}">{{record.metadata.title}}<a/></h3>
+          <span ng-repeat="collection in  record.metadata.collections">
+              <span class="label label-primary">{{collection.primary}}</span>
+              <span class="label label-success">{{collection.secondary}}</span>
+            </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
