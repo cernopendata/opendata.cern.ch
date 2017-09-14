@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2015, 2016 CERN.
+# Copyright (C) 2015, 2016, 2017 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -22,9 +22,10 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
-# Use Python-2.7:
-FROM python:2.7-slim
+# Use CentOS7:
+FROM centos:7
 
+# Prepare provisioning script:
 COPY scripts/provision-web.sh /tmp/
 
 # Install CERN Open Data Portal web node pre-requisites:
@@ -36,7 +37,7 @@ ADD . /code
 
 # Run container as user `invenio` with UID `1000`, which should match
 # current host user in most situations:
-RUN adduser --uid 1000 --disabled-password --gecos '' invenio && \
+RUN adduser --uid 1000 invenio && \
     chown -R invenio:invenio /code
 USER invenio
 

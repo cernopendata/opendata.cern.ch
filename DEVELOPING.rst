@@ -16,7 +16,7 @@ Docker:
    $ docker-compose build
    $ docker-compose up
    $ docker-compose run --rm web ./scripts/populate-instance.sh
-   $ firefox http://127.0.0.1/
+   $ firefox http://0.0.0.0:5000/
 
 Please note that populating the site with all example records is an optional
 step that may take considerable time (30 minutes or more).

@@ -60,48 +60,45 @@ extras_require['all'] = []
 for reqs in extras_require.values():
     extras_require['all'].extend(reqs)
 
-extras_require['xrootd'] = [
-    'invenio-xrootd>=1.0.0a4',
-    'xrootdpyfs>=0.1.4',
-]
-
 setup_requires = [
     'pytest-runner>=2.6.2',
 ]
 
 install_requires = [
-    'idna==2.5',
-    'Flask-CeleryExt>=0.2.2',
     'Flask-BabelEx>=0.9.3',
     'Flask-Breadcrumbs>=0.4.0',
+    'Flask-CeleryExt>=0.2.2',
     'Flask-Markdown>=0.3.0',
     'Flask-Menu>=0.5.0',
     'Flask-Mistune>=0.1.1',
     'Flask>=0.11.1',
-    'python-slugify>=1.2.4',
+    'idna==2.5',
     'invenio-assets>=1.0.0b6',
-    'invenio-i18n>=1.0.0b1',
-    'invenio-theme==1.0.0b2',
     'invenio-base>=1.0.0a9',
     'invenio-celery>=1.0.0b1',
     'invenio-collections>=1.0.0a1',
     'invenio-config>=1.0.0b1',
     'invenio-db[versioning,postgresql]>=1.0.0b3',
+    'invenio-i18n>=1.0.0b1',
     'invenio-indexer>=1.0.0a1',
     'invenio-jsonschemas>=1.0.0a2',
     'invenio-marc21>=1.0.0a1',
+    'invenio-xrootd>=1.0.0a4',
     # FIXME invenio-oaiserver 1.0.0a10, 1.0.0a11 lead to functools32 troubles
     'invenio-oaiserver>=1.0.0a9,<1.0.0a10',
     'invenio-pidstore>=1.0.0b1',
+    'invenio-records-files>=1.0.0a9',
     'invenio-records-rest>=1.0.0a9',
     'invenio-records-ui>=1.0.0a8',
-    'invenio-records-files>=1.0.0a9',
     'invenio-records>=1.0.0b1',
     'invenio-search-ui>=1.0.0a2',
     'invenio-search>=1.0.0a9',
+    'invenio-theme==1.0.0b2',
     'mistune>=0.7.4',
     'py-gfm>=0.1.3',
     'pymdown-extensions>=3.5',
+    'python-slugify>=1.2.4',
+    'xrootdpyfs>=0.1.4',
 ]
 
 packages = find_packages()

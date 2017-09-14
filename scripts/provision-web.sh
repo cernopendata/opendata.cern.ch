@@ -119,9 +119,22 @@ provision_web_common_centos7 () {
          libxslt-devel \
          npm \
          python-devel \
-         python-pip
+         python-pip \
+         python-virtualenvwrapper
     # sphinxdoc-install-web-common-centos7-end
 
+}
+
+provision_web_xrootd_ubuntu14 () {
+    echo "[ERROR] XRootD provisioning for Ubuntu14 is not yet implemented."
+    exit 1
+}
+
+provision_web_xrootd_centos7 () {
+    $sudo yum install -y \
+          xrootd \
+          xrootd-client \
+          xrootd-python
 }
 
 provision_web_libpostgresql_centos7 () {
@@ -226,15 +239,17 @@ main () {
     # call appropriate provisioning functions:
     if [ -f /.dockerinit -o -f /.dockerenv ]; then
         # running inside Docker
-        provision_web_common_ubuntu14
-        provision_web_libpostgresql_ubuntu14
+        provision_web_common_centos7
+        provision_web_libpostgresql_centos7
+        provision_web_xrootd_centos7
         setup_npm_and_css_js_filters
         setup_virtualenvwrapper
-        cleanup_web_ubuntu14
+        cleanup_web_centos7
     elif [ "$os_distribution" = "Ubuntu" ]; then
         if [ "$os_release" = "14" ]; then
             provision_web_common_ubuntu14
             provision_web_libpostgresql_ubuntu14
+            provision_web_xrootd_ubuntu14
             setup_npm_and_css_js_filters
             setup_virtualenvwrapper
             setup_nginx_ubuntu14
@@ -246,6 +261,7 @@ main () {
         if [ "$os_release" = "7" ]; then
             provision_web_common_centos7
             provision_web_libpostgresql_centos7
+            provision_web_xrootd_centos7
             setup_npm_and_css_js_filters
             setup_virtualenvwrapper
             setup_nginx_centos7

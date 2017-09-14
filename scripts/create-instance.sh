@@ -96,12 +96,16 @@ source $(which virtualenvwrapper.sh)
 scriptpathname=$(cd "$(dirname $0)" && pwd)
 
 # sphinxdoc-create-virtual-environment-begin
-mkvirtualenv ${INVENIO_WEB_VENV}
+mkvirtualenv --system-site-packages ${INVENIO_WEB_VENV}
 # sphinxdoc-create-virtual-environment-end
 
 # quit on errors and unbound symbols:
 set -o errexit
 # set -o nounset
+
+# FIXME using personal forks until upstream PRs are issued and merged:
+pip install git+https://github.com/pamfilos/invenio-files-rest.git@eos-storage#egg=invenio-files-rest
+pip install git+https://github.com/pamfilos/invenio-xrootd.git@eos-storage#egg=invenio-xrootd
 
 # install CERN Open Data instance packages:
 pip install -e .[all]
@@ -122,5 +126,4 @@ CI=true npm install
 # sphinxdoc-collect-and-build-assets-begin
 ${INVENIO_WEB_INSTANCE} collect -v
 ${INVENIO_WEB_INSTANCE} assets build
-${INVENIO_WEB_INSTANCE} files location local var/data --default
 # sphinxdoc-collect-and-build-assets-end
