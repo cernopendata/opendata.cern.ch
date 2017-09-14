@@ -32,6 +32,14 @@
             "secondary": {
               "type": "string",
               "analyzer": "collections"
+            },
+            "experiment": {
+              "type": "string",
+              "analyzer": "collections"
+            },
+            "year": {
+              "type": "string",
+              "analyzer": "collections"
             }
           }
         },
@@ -41,11 +49,20 @@
         "title": {
           "type": "string"
         },
-        "type": {
+        "author": {
           "type": "string"
         },
+        "short_description": {
+          "properties": {
+            "format": {"type": "string"},
+            "content": {"type": "string"}
+          }
+        },
         "body": {
-          "type": "string"
+          "properties": {
+            "format": {"type": "string"},
+            "content": {"type": "string"}
+          }
         },
         "files": {
           "properties": {

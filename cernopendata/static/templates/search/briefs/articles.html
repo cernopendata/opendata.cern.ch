@@ -5,7 +5,8 @@
   </a>
   <span class="btn btn-primary pull-right">Article</span>
 </h4>
-<p>{{record.metadata.body}}</p>
+<p ng-if="record.metadata.short_description.content">{{record.metadata.short_description.content}}</p>
+<p ng-if="!record.metadata.short_description.content">{{record.metadata.body.content | limitTo: 200}}</p>
 <div class="text-right">
   <ul class="list-inline">
     <li>

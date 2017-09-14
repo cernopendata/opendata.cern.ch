@@ -10,10 +10,6 @@
       "type": "string",
       "title": "Title"
     },
-    "type": {
-      "type": "string",
-      "title": "Type"
-    },
     "collections": {
       "type": "array",
       "items": {
@@ -21,25 +17,58 @@
         "title": "Collection"
       }
     },
+    "short_description": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type":"string"
+        },
+        "content": {
+          "type":"string"
+        }
+      }
+    },
     "body": {
-      "type": "string",
-      "title": "Body"
+      "type": "object",
+      "properties": {
+        "type": {
+          "type":"string"
+        },
+        "content": {
+          "type":"string"
+        }
+      }
+    },
+    "author": {
+      "type": "string"
     },
     "created": {
       "type": "string"
     },
-    "files": {
+    "_files": {
       "type": "array",
-      "title": "Files",
       "items": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
+        "title": "File schema.",
+        "description": "Describe information needed for files in records.",
         "properties": {
-          "name": {
-            "title": "Name",
+          "uri": {
             "type": "string"
           },
-          "uri": {
-            "title": "URI",
+          "key": {
+            "type": "string"
+          },
+          "bucket": {
+            "type": "string"
+          },
+          "checksum": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer"
+          },
+          "version_id": {
             "type": "string"
           }
         }

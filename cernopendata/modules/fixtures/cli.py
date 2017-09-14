@@ -33,6 +33,16 @@ from flask.cli import with_appcontext
 from sqlalchemy.orm.attributes import flag_modified
 
 
+def get_jsons_from_dir(dir):
+    """Get JSON files inside a dir."""
+    res = []
+    for root, dirs, files in os.walk(dir):
+        for file in files:
+            if file.endswith(".json"):
+                res.append(os.path.join(root, file))
+    return res
+
+
 @click.group(chain=True)
 def fixtures():
     """Automate site bootstrap process and testing."""
@@ -132,8 +142,8 @@ def terms():
 
 @fixtures.command()
 @with_appcontext
-def news():
-    """Load demo news records."""
+def articles():
+    """Load demo article records."""
     from invenio_db import db
     from invenio_records import Record
     from invenio_indexer.api import RecordIndexer
@@ -145,16 +155,29 @@ def news():
         'records/article-v1.0.0.json'
     )
     data = pkg_resources.resource_filename('cernopendata',
-                                           'modules/fixtures/data')
-    articles_json = glob.glob(os.path.join(data, 'articles', 'news', '*.json'))
+                                           'modules/fixtures/data/articles')
+
+    articles_json = get_jsons_from_dir(data)
 
     for filename in articles_json:
         with open(filename, 'rb') as source:
             for data in json.load(source):
+
+                # Replace body with responding content
+                assert data["body"]["content"]
+                content_filename = os.path.join(
+                    *(
+                        ["/", ] +
+                        filename.split('/')[:-1] +
+                        [data["body"]["content"], ]
+                    )
+                )
+
+                with open(content_filename) as body_field:
+                    data["body"]["content"] = body_field.read()
                 if "collections" not in data and \
                    not isinstance(data.get("collections", None), basestring):
                     data["collections"] = []
-                data["collections"].append({"primary": "News"})
                 id = uuid.uuid4()
                 cernopendata_articleid_minter(id, data)
                 record = Record.create(data, id_=id)
@@ -171,15 +194,9 @@ def data_policies():
     from invenio_db import db
     from invenio_records import Record
     from invenio_indexer.api import RecordIndexer
-    from invenio_pidstore.errors import PIDDoesNotExistError, \
-        PersistentIdentifierError
-    from invenio_pidstore.models import PIDStatus, PersistentIdentifier
-    from invenio_pidstore.fetchers import recid_fetcher
-    from invenio_pidstore.minters import recid_minter
     from cernopendata.modules.records.minters.recid import \
         cernopendata_recid_minter
 
-    from six import BytesIO
     from invenio_files_rest.models import \
         Bucket, FileInstance, ObjectVersion
     from invenio_records_files.models import RecordsBuckets
@@ -202,7 +219,7 @@ def data_policies():
                 record = Record.create(data, id_=id)
                 record['$schema'] = schema
                 bucket = Bucket.create()
-                record_buckets = RecordsBuckets.create(
+                RecordsBuckets.create(
                     record=record.model, bucket=bucket)
 
                 for file in files:
@@ -231,11 +248,9 @@ def pids():
     from invenio_db import db
     from invenio_oaiserver.fetchers import oaiid_fetcher
     from invenio_oaiserver.minters import oaiid_minter
-    from invenio_pidstore.errors import PIDDoesNotExistError, \
-        PersistentIdentifierError
+    from invenio_pidstore.errors import PIDDoesNotExistError
     from invenio_pidstore.models import PIDStatus, PersistentIdentifier
     from invenio_pidstore.fetchers import recid_fetcher
-    from invenio_pidstore.minters import recid_minter
     from invenio_records.models import RecordMetadata
 
     recids = [r.id for r in RecordMetadata.query.all()]

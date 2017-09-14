@@ -6,6 +6,11 @@
     <div class="panel-heading">
       <h2 style="display: inline;">
         {{record.title}}
+        {% if record.get("author", None) %}
+        <h5>
+          <strong>Author:</strong> {{record.author}}
+        </h5>
+        {% endif %}
         <h4>
           {% for collection in record.collections%}
             <span class="label label-success">{{collection}}</span>
@@ -14,14 +19,18 @@
       </h2>
     </div>
     <div class="panel-body">
-      {{record.body |safe}}
+      {% if record.get("body", {}).get("format", None) == "html" %}
+        {{record.get("body", {}).get("content", None) |safe}}
+      {% elif record.get("body", {}).get("format", None) == "md" %}
+        {{record.get("body", {}).get("content", None) | markdown | safe}}
+      {% endif %}
       <hr>
       <div>
         <span>
           <strong>Links: </strong>
           {% for r in record.links %}
             <a target="_blank" href="{{r.url}}">{{r.url}}</a>
-        {% endfor %}
+          {% endfor %}
         </span>
       </div>
     </div>
