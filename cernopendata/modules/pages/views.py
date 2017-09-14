@@ -83,6 +83,34 @@ def index():
     return render_template('cernopendata_pages/index.html')
 
 
+@blueprint.route('/md/getting-started/CMS', methods=['HEAD', 'GET'])
+def md_getting_started_cms():
+    """Test Markdown rendering of Getting Started page."""
+    f = open('cernopendata/static/md/getting_started_cms.md', 'r')
+    # return render_template_string(
+    #     u"{{ text|markdown }}", text=f.read().decode("utf-8"))
+    return render_template('cernopendata_pages/md_template.html',
+                           content=f.read().decode("utf-8"))
+
+
+@blueprint.route('/md/VM/CMS', methods=['HEAD', 'GET'])
+def md_vm_cms():
+    """Test Markdown rendering of CMS VM page."""
+    f = open('cernopendata/static/md/vm_cms_2010.md', 'r')
+    # return render_template_string(
+    #     u"{{ text|markdown }}", text=f.read().decode("utf-8"))
+    return render_template('cernopendata_pages/md_template.html',
+                           content=f.read().decode("utf-8"))
+
+
+@blueprint.route('/md/about/CMS', methods=['HEAD', 'GET'])
+def md_about_cms():
+    """Test Markdown rendering of CMS about page."""
+    f = open('cernopendata/static/md/about_cms.md', 'r')
+    return render_template('cernopendata_pages/md_template.html',
+                           content=f.read().decode("utf-8"))
+
+
 @blueprint.route('/education')
 @blueprint.route('/education/<string:experiment>')
 @register_breadcrumb(blueprint, '.education.experiment',
