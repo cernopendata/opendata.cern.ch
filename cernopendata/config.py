@@ -162,8 +162,10 @@ RECORDS_REST_DEFAULT_SORT = {
 RECORDS_REST_FACETS = {
     '_all': {
         'aggs': dict(
+            experiment=dict(terms=dict(field='collections.experiment')),
             category=dict(terms=dict(field='collections.secondary')),
             collections=dict(terms=dict(field='collections.primary')),
+            year=dict(terms=dict(field='collections.year')),
             run=dict(terms=dict(
                 field='production_publication_distribution_manufacture_and_'
                       'copyright_notice.'
@@ -172,8 +174,10 @@ RECORDS_REST_FACETS = {
             )),
         ),
         'post_filters': dict(
+            experiment=terms_filter('collections.experiment'),
             category=terms_filter('collections.secondary'),
             collections=terms_filter('collections.primary'),
+            year=terms_filter('collections.year'),
             run=terms_filter(
                 'production_publication_distribution_manufacture_and_'
                 'copyright_notice.'
@@ -184,10 +188,14 @@ RECORDS_REST_FACETS = {
     },
     'records-article-v1.0.0': {
         'aggs': dict(
+            experiment=dict(terms=dict(field='collections.experiment')),
+            year=dict(terms=dict(field='collections.year')),
             category=dict(terms=dict(field='collections.secondary'))
         ),
         'post_filters': dict(
-            category=terms_filter('collections.secondary')
+            experiment=terms_filter('collections.experiment'),
+            year=terms_filter('collections.year'),
+            category=terms_filter('collections.secondary'),
         )
     }
 
