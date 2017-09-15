@@ -2,93 +2,104 @@
 
 {%- block page_body %}
 <div class="container">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h2 style="display: inline;">
-        {{record.title}}
-      </h2>
-      <div class="row">
-        <div class="col-md-12">
-          {% for author in record.authors %}
-          <small>{{author.name}}</small>
-          {% endfor %}
-          <span class="label label-success">{{record.collaboration}}</span>
-          <span class="label label-success">{{record.year}} Run</span>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 style="display: inline;">
+                        {{record.title}}
+                    </h2>
+                    <div class="row">
+                        <div class="col-md-12">
+                            {% for author in record.authors %}
+                            <small>{{author.name}}</small>
+                            {% endfor %}
+                            <span class="label label-success">{{record.collaboration}}</span>
+                            <span class="label label-success">{{record.year}} Run</span>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Cite as:</label>
+                            {% for author in record.authors %}
+                            <span>{{author.name}}.</span>
+                            {% endfor %}
+                            <span>{{record.collaboration}} ({{record.year}}). {{record.title}}. CERN Open Data Portal.
+                                {% for id in record.identifiers %}
+                                <label>{{id.type}}:</label>
+                                <a href="http://doi.org/{{id.id}}">{{id.id}}</a>
+                                {% endfor %}
+                            </span>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Experiment:</label>
+                            <span><a href="/search?q=CERN+LHC">{{record.experiment}}</a></span>
+                            <label>Accelerator:</label>
+                            <span><a href="/search?q=LHCb">{{record.accelerator}}</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>Description</h3>
+                            <p>{{record.summary}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span>
+                                <h3>Files</h3>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Filename</th>
+                                            <th>Size</th>
+                                            <th>Download</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for file in record.files %}
+                                        <tr>
+                                            <td>{{file.uri.split('/')[-1]}}</td>
+                                            <td>{{file.size | filesizeformat}}</td>
+                                            <td><a href="#"><i class="fa fa-download" aria-hidden="true"></i></a></td>
+                                        </tr>
+                                        <p></p>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>Disclaimer</h3>
+                            <p>The open data are released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative
+                                Commons CC0 waiver</a>. Neither LHCb nor CERN endorse any
+                            works, scientific or otherwise, produced using these data.
+                            All releases will have a unique DOI that you are requested to cite in any applications or
+                            publications.
+                            </p>
+                            <img src="{{url_for('static', filename='img/cc-zero.svg')}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <p></p>
-      <div class="row">
-        <div class="col-md-12">
-          <label>Cite as:</label>
-          {% for author in record.authors %}
-            <span>{{author.name}}.</span>
-          {% endfor %}
-          <span>{{record.collaboration}} ({{record.year}}). {{record.title}}. CERN Open Data Portal.
-            {% for id in record.identifiers %}
-              <label>{{id.type}}:</label>
-              <a href="http://doi.org/{{id.id}}">{{id.id}}</a>
-            {% endfor %}
-          </span>
+        <div class="col-md-2">
+            <div class="well">
+                <h4> Export </h4>
+                <ul class="list-inline">
+                    <li><a href="{{ url_for('invenio_records_ui.recid_export', pid_value=pid.pid_value, format='json') }}">JSON</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
-      <p></p>
-      <div class="row">
-        <div class="col-md-12">
-          <label>Experiment:</label>
-          <span><a href="/search?q=CERN+LHC">{{record.experiment}}</a></span>
-          <label>Accelerator:</label>
-          <span><a href="/search?q=LHCb">{{record.accelerator}}</a></span>
-        </div>
-      </div>
     </div>
-    <div class="panel-body">
-      <div class="row">
-        <div class="col-md-12">
-          <h3>Description</h3>
-          <p>{{record.summary}}</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-        <span>
-          <h3>Files</h3>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Filename</th>
-                <th>Size</th>
-                <th>Download</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for file in record.files %}
-                <tr>
-                  <td>{{file.uri.split('/')[-1]}}</td>
-                  <td>{{file.size | filesizeformat}}</td>
-                  <td><a href="#"><i class="fa fa-download" aria-hidden="true"></i></a></td>
-                </tr>
-                <p></p>
-              {% endfor %}
-            </tbody>
-          </table>
-        </span>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <h3>Disclaimer</h3>
-          <p>The open data are released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative
-            Commons CC0 waiver</a>. Neither LHCb nor CERN endorse any
-            works, scientific or otherwise, produced using these data.
-            All releases will have a unique DOI that you are requested to cite in any applications or
-            publications.
-          </p>
-          <img src="{{url_for('static', filename='img/cc-zero.svg')}}">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 </div>
 {%- endblock %}
 

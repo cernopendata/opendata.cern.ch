@@ -74,12 +74,34 @@ RECORDS_VALIDATION_TYPES = {
     'array': (list, tuple),
 }
 
+
+RECORDS_UI_EXPORT_FORMATS = dict(
+    artid=dict(
+        json=dict(
+            title='JSON',
+            serializer='cernopendata.modules.records.serializers.json',
+        )
+    ),
+    recid=dict(
+        json=dict(
+            title='JSON',
+            serializer='cernopendata.modules.records.serializers.json',
+        )
+    )
+)
+
 RECORDS_UI_ENDPOINTS = dict(
     recid=dict(
         pid_type='recid',
         route='/records/<pid_value>',
         template='cernopendata_records_ui/records/detail.html',
         permission_factory_imp=None,
+    ),
+    recid_export=dict(
+        pid_type="recid",
+        route="/records/<pid_value>/export/<format>",
+        view_imp="invenio_records_ui.views.export",
+        template="cernopendata_records_ui/default_export.html",
     ),
     termid=dict(
         pid_type='termid',
@@ -92,7 +114,13 @@ RECORDS_UI_ENDPOINTS = dict(
         route='/articles/<pid_value>',
         template='cernopendata_records_ui/articles/detail.html',
         permission_factory_imp=None,
-    )
+    ),
+    artid_export=dict(
+        pid_type="artid",
+        route="/articles/<pid_value>/export/<format>",
+        view_imp="invenio_records_ui.views.export",
+        template="cernopendata_records_ui/default_export.html",
+    ),
 )
 
 RECORDS_REST_ENDPOINTS['recid']['search_index'] = '_all'
@@ -168,9 +196,9 @@ RECORDS_REST_FACETS = {
             year=dict(terms=dict(field='collections.year')),
             run=dict(terms=dict(
                 field='production_publication_distribution_manufacture_and_'
-                      'copyright_notice.'
-                      'date_of_production_publication_distribution_'
-                      'manufacture_or_copyright_notice'
+                'copyright_notice.'
+                'date_of_production_publication_distribution_'
+                'manufacture_or_copyright_notice'
             )),
         ),
         'post_filters': dict(
