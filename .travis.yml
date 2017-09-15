@@ -36,29 +36,19 @@ matrix:
 cache:
   - pip
 
-env:
-  - REQUIREMENTS=lowest
-  - REQUIREMENTS=release
-  - REQUIREMENTS=devel
-
-
 python:
   - "2.7"
-  - "3.5"
 
-before_install:
-  - "travis_retry pip install --upgrade pip setuptools py"
-  - "travis_retry pip install twine wheel coveralls requirements-builder"
-  - "requirements-builder --level=min setup.py > .travis-lowest-requirements.txt"
-  - "requirements-builder --level=pypi setup.py > .travis-release-requirements.txt"
-  - "requirements-builder --level=dev --req requirements-devel-invenio.txt setup.py > .travis-devel-requirements.txt"
+services:
+  - docker
 
 install:
-  - "travis_retry pip install -r .travis-${REQUIREMENTS}-requirements.txt"
-  - "travis_retry pip install -e .[all]"
+  - "docker-compose build"
 
 script:
-  - "./run-tests.sh"
+  - "docker-compose run --rm web pydocstyle cernopendata"
+  - "docker-compose run --rm web isort -rc -c -df **/*.py"
+  - "docker-compose run --rm web python setup.py test"
 
 after_success:
   - coveralls
