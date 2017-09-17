@@ -243,6 +243,114 @@ def data_policies():
 
 @fixtures.command()
 @with_appcontext
+def datasets():
+    """Load demo datasets records."""
+    from invenio_db import db
+    from invenio_records import Record
+    from invenio_indexer.api import RecordIndexer
+    from cernopendata.modules.records.minters.recid import \
+        cernopendata_recid_minter
+
+    from invenio_files_rest.models import \
+        Bucket, FileInstance, ObjectVersion
+    from invenio_records_files.models import RecordsBuckets
+
+    indexer = RecordIndexer()
+    schema = current_app.extensions['invenio-jsonschemas'].path_to_url(
+        'records/datasets-v1.0.0.json'
+    )
+    data = pkg_resources.resource_filename('cernopendata',
+                                           'modules/fixtures/data/datasets')
+    datasets_json = glob.glob(os.path.join(data, '*.json'))
+
+    for filename in datasets_json:
+        with open(filename, 'rb') as source:
+            for data in json.load(source):
+                files = data.pop('files', None)
+
+                id = uuid.uuid4()
+                cernopendata_recid_minter(id, data)
+                record = Record.create(data, id_=id)
+                record['$schema'] = schema
+                bucket = Bucket.create()
+                RecordsBuckets.create(
+                    record=record.model, bucket=bucket)
+
+                for file in files:
+                    assert 'uri' in file
+                    assert 'size' in file
+                    assert 'checksum' in file
+
+                    f = FileInstance.create()
+                    filename = file.get("uri").split('/')[-1:][0]
+                    f.set_uri(file.get("uri"), file.get(
+                        "size"), file.get("checksum"))
+                    ObjectVersion.create(
+                        bucket,
+                        filename,
+                        _file_id=f.id
+                    )
+                db.session.commit()
+                indexer.index(record)
+                db.session.expunge_all()
+
+
+@fixtures.command()
+@with_appcontext
+def software():
+    """Load demo software records."""
+    from invenio_db import db
+    from invenio_records import Record
+    from invenio_indexer.api import RecordIndexer
+    from cernopendata.modules.records.minters.recid import \
+        cernopendata_recid_minter
+
+    from invenio_files_rest.models import \
+        Bucket, FileInstance, ObjectVersion
+    from invenio_records_files.models import RecordsBuckets
+
+    indexer = RecordIndexer()
+    schema = current_app.extensions['invenio-jsonschemas'].path_to_url(
+        'records/software-v1.0.0.json'
+    )
+    data = pkg_resources.resource_filename('cernopendata',
+                                           'modules/fixtures/data/software')
+    software_json = glob.glob(os.path.join(data, '*.json'))
+
+    for filename in software_json:
+        with open(filename, 'rb') as source:
+            for data in json.load(source):
+                files = data.pop('files', None)
+
+                id = uuid.uuid4()
+                cernopendata_recid_minter(id, data)
+                record = Record.create(data, id_=id)
+                record['$schema'] = schema
+                bucket = Bucket.create()
+                RecordsBuckets.create(
+                    record=record.model, bucket=bucket)
+
+                for file in files:
+                    assert 'uri' in file
+                    assert 'size' in file
+                    assert 'checksum' in file
+
+                    f = FileInstance.create()
+                    filename = file.get("uri").split('/')[-1:][0]
+                    f.set_uri(file.get("uri"), file.get(
+                        "size"), file.get("checksum"))
+                    ObjectVersion.create(
+                        bucket,
+                        filename,
+                        _file_id=f.id
+                    )
+                db.session.commit()
+                indexer.index(record)
+                db.session.expunge_all()
+
+
+@fixtures.command()
+@with_appcontext
 def pids():
     """Fetch and register PIDs."""
     from invenio_db import db

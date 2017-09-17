@@ -126,6 +126,8 @@ ${INVENIO_WEB_INSTANCE} fixtures pids
 ${INVENIO_WEB_INSTANCE} fixtures terms
 ${INVENIO_WEB_INSTANCE} fixtures articles
 ${INVENIO_WEB_INSTANCE} fixtures data_policies
+${INVENIO_WEB_INSTANCE} fixtures datasets
+${INVENIO_WEB_INSTANCE} fixtures software
 # sphinxdoc-populate-with-demo-records-end
 
 # sphinxdoc-index-all-records-begin

@@ -248,14 +248,22 @@
           "type": "string"
         }
       },
-      "files": {
+      "_files": {
         "type": "array",
-        "minItems": 1,
         "uniqueItems": true,
         "items": {
           "type": "object",
           "properties": {
             "uri": {
+              "type": "string"
+            },
+            "key": {
+              "type": "string"
+            },
+            "bucket": {
+              "type": "string"
+            },
+            "version_id": {
               "type": "string"
             },
             "size": {
