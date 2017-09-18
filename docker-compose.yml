@@ -114,6 +114,10 @@ nginx:
   build: ./nginx
   ports:
     - "80:80"
+  volumes:
+    - ../devmodules:/devmodules
+    - ./cernopendata:/code/cernopendata
+    - ./scripts:/code/scripts
   volumes_from:
     - static
   links:
