@@ -20,6 +20,7 @@
   #myCarousel .carousel-caption {
     left: 0;
     right: 0;
+    bottom: 0;
     text-align: left;
     padding: 12px;
     background: rgba(0, 0, 0, 0.6);
@@ -63,7 +64,19 @@
     }
   }
 </style>
-<div class="row" style="margin-top: -2%;">
+<div class="container">
+  <div class="row" style="margin-top: 3%;">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4>The CERN Open Data portal is the access point to a growing range of data produced
+          through the research
+          performed at CERN. It disseminates the preserved output from various research activities, including
+          accompanying
+          software and documentation which is needed to understand and analyse the data being shared.</h4></div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top: -2%;">
   <div class="col-md-12">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Wrapper for slides -->
@@ -81,6 +94,7 @@
                   </span>
               {% endfor %}
             </h3>
+            <p>{{r['_source']['body']['content'] | truncate(150)}}</p>
           </div>
         </div><!-- End Item -->
         {% endfor %}
@@ -88,18 +102,6 @@
     </div><!-- End Carousel -->
   </div>
 </div>
-<div class="container">
-  <div class="row" style="margin-top: 3%;">
-    <div class="col-md-12">
-      <div class="panel panel-default">
-        <div class="panel-heading"><h4>The CERN Open Data portal is the access point to a growing range of data produced
-          through the research
-          performed at CERN. It disseminates the preserved output from various research activities, including
-          accompanying
-          software and documentation which is needed to understand and analyse the data being shared.</h4></div>
-      </div>
-    </div>
-  </div>
   <p></p>
   <div class="row">
     <div class="col-md-12">

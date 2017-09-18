@@ -13,14 +13,17 @@
     </div>
     <div class="panel-body">
       <p>{{ record.definition }}</p>
+      {% if record.links %}
       <div>
         <span>
           <strong>Links: </strong>
           {% for r in record.links %}
-            <a target="_blank" href="{{r.url}}">{{r.url}}</a>
+            <a target="_blank" href="{{r.url}}">{{r.text}}</a>
         {% endfor %}
         </span>
       </div>
+      {% endif %}
+      {% if record.see_also %}
       <div>
         <span>
           <strong>See also: </strong>
@@ -29,6 +32,7 @@
         {% endfor %}
         </span>
       </div>
+      {% endif %}
     </div>
   </div>
 </div>
