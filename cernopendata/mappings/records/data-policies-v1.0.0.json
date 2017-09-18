@@ -48,7 +48,8 @@
           "properties": {
             "primary": {
               "type": "string",
-              "analyzer": "collections"
+              "analyzer": "collections",
+              "index": "not_analyzed"
             },
             "secondary": {
               "type": "string",

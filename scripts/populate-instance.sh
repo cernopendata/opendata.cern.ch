@@ -130,8 +130,8 @@ ${INVENIO_WEB_INSTANCE} fixtures data_policies
 
 # sphinxdoc-index-all-records-begin
 # indexing
-${INVENIO_WEB_INSTANCE} index queue init
-${INVENIO_WEB_INSTANCE} index reindex -t recid --yes-i-know
-${INVENIO_WEB_INSTANCE} index run
+#${INVENIO_WEB_INSTANCE} index queue init
+#${INVENIO_WEB_INSTANCE} index reindex -t recid --yes-i-know
+#${INVENIO_WEB_INSTANCE} index run
 sleep 25
 # sphinxdoc-index-all-records-end
