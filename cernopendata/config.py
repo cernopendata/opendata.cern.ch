@@ -199,7 +199,7 @@ RECORDS_REST_DEFAULT_SORT = {
 RECORDS_REST_FACETS = {
     '_all': {
         'aggs': dict(
-            experiment=dict(terms=dict(field='collections.experiment')),
+            experiment=dict(terms=dict(field='experiment')),
             category=dict(terms=dict(field='collections.secondary')),
             type=dict(terms=dict(field='type'),
                       aggs=dict(subtype=dict(terms=dict(field="subtype")))),
@@ -213,7 +213,7 @@ RECORDS_REST_FACETS = {
             )),
         ),
         'post_filters': dict(
-            experiment=terms_filter('collections.experiment'),
+            experiment=terms_filter('experiment'),
             category=terms_filter('collections.secondary'),
             type=terms_filter('type'),
             subtype=terms_filter('subtype'),
@@ -229,12 +229,12 @@ RECORDS_REST_FACETS = {
     },
     'records-article-v1.0.0': {
         'aggs': dict(
-            experiment=dict(terms=dict(field='collections.experiment')),
+            experiment=dict(terms=dict(field='experiment')),
             year=dict(terms=dict(field='collections.year')),
             category=dict(terms=dict(field='collections.secondary'))
         ),
         'post_filters': dict(
-            experiment=terms_filter('collections.experiment'),
+            experiment=terms_filter('experiment'),
             year=terms_filter('collections.year'),
             category=terms_filter('collections.secondary'),
         )

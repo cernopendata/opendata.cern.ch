@@ -25,12 +25,12 @@
                     "properties": {
                         "name": {"type": "string"}
                     }
-                }, 
+                },
                 "distribution": {
                     "properties": {
                         "formats": {"type": "string"}
                     }
-                }, 
+                },
                 "title": {
                     "type": "string"
                 },
@@ -41,7 +41,8 @@
                     "type": "string"
                 },
                 "experiment": {
-                    "type": "string"
+                    "type": "string",
+                    "index": "not_analyzed"
                 },
                 "abstract": {
                     "type": "string"
