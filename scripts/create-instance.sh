@@ -121,6 +121,8 @@ echo '{}' | jinja2 ${scriptpathname}/instance.cfg > var/${INVENIO_WEB_INSTANCE}-
 ${INVENIO_WEB_INSTANCE} npm
 cdvirtualenv var/${INVENIO_WEB_INSTANCE}-instance/static
 CI=true npm install
+npm install d3@3.3.13
+
 # sphinxdoc-run-npm-end
 
 # sphinxdoc-collect-and-build-assets-begin
