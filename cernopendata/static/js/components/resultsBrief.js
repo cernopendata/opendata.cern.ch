@@ -3,7 +3,9 @@
 var defaultTemplate = "default.html";
 var templateMap = {
   "term-v1.0.0.json": 'terms.html',
-  "article-v1.0.0.json": 'articles.html'
+  "article-v1.0.0.json": 'articles.html',
+  "datasets-v1.0.0.json": 'dataset.html',
+  "software-v1.0.0.json": 'software.html'
 }
 
 angular.module('invenioSearch').directive('resultsBrief', function() {

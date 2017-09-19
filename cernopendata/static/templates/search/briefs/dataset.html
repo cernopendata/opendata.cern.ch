@@ -1,0 +1,31 @@
+<!-- FIXME find a better way to set the record url -->
+<h4>
+  <a target="_self" ng-href="/datasets/{{ record.id }}">{{ record.metadata.title }}</a>
+  <span class="btn btn-primary pull-right">Dataset</span>
+</h4>
+<p>{{ record.metadata.summary }}</p>
+<div class="text-right">
+  <ul class="list-inline">
+    <li ng-show="record.metadata.added_entry_personal_name.length > 0">
+      <a ng-click="showAuthors=!showAuthors">
+        {{ showAuthors ? 'Hide authors' : 'Show authors' }}
+      </a>
+    </li>
+    <li>
+      <a ng-click="showSource=!showSource">
+        {{ showSource ? 'Hide source' : 'Show source' }}
+      </a>
+    </li>
+  </ul>
+</div>
+<div ng-hide="!showAuthors">
+  <ul>
+    <div ng-repeat='author in record.metadata.added_entry_personal_name'>
+      <li>{{ author.personal_name }}</li>
+    </div>
+  </ul>
+</div>
+<div ng-hide="!showSource">
+  <pre>{{ record | json }}</pre>
+</div>
+<hr />

@@ -104,6 +104,20 @@ RECORDS_UI_ENDPOINTS = dict(
         view_imp='invenio_records_files.utils:file_download_ui',
         record_class='invenio_records_files.api:Record',
     ),
+    datid=dict(
+        pid_type='recid',
+        route='/datasets/<pid_value>',
+        template='cernopendata_records_ui/records/dataset_detail.html',
+        record_class='invenio_records_files.api:Record',
+        permission_factory_imp=None,
+    ),
+    softid=dict(
+        pid_type='recid',
+        route='/software/<pid_value>',
+        template='cernopendata_records_ui/records/software_detail.html',
+        record_class='invenio_records_files.api:Record',
+        permission_factory_imp=None,
+    ),
     recid_export=dict(
         pid_type="recid",
         route="/records/<pid_value>/export/<format>",
