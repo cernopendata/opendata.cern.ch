@@ -15,55 +15,6 @@
 
 
 {%- block page_body %}
-<!--Move style when homepage is completely ready-->
-<style>
-  #myCarousel .carousel-caption {
-    left: 0;
-    right: 0;
-    bottom: 0;
-    text-align: left;
-    padding: 12px;
-    background: rgba(0, 0, 0, 0.6);
-    text-shadow: none;
-  }
-
-  #myCarousel .list-group {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding-right: 0px;
-  }
-
-  #myCarousel .carousel-inner {
-
-  }
-
-  #myCarousel .list-group-item {
-    border-radius: 0px;
-    cursor: pointer;
-
-  }
-
-  #myCarousel .list-group .active {
-    border-color: #ddd;
-    background-color: #f5f5f5;
-    color: #333333;
-  }
-
-  @media (min-width: 992px) {
-    #myCarousel {
-
-    }
-
-  }
-
-  @media (max-width: 991px) {
-    .carousel-caption p,
-    #myCarousel .list-group {
-      display: none;
-    }
-  }
-</style>
 <div class="container">
   <div class="row" style="margin-top: 3%;">
     <div class="col-md-12">
@@ -76,33 +27,35 @@
       </div>
     </div>
   </div>
-  <div class="row" style="margin-top: -2%;">
-  <div class="col-md-12">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-        {% for r in records %}
-        <div class="item {% if loop.index0 == 0 %} active   {% elif loop.index0 != 0 %} '' {% endif %}">
-          <img src="{{url_for('static', filename='img/event.png')}}" style="width: 100%;">
-          <div class="carousel-caption">
-
-            <h3><a href="/articles/{{r['_source']['control_number']}}">{{r['_source']['title']}}</a>
-              {% for collection in r['_source']['collections']%}
-              <span>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2>News</h2>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            {% for r in records %}
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail" style="height: 140px;">
+                <div class="caption">
+                  <h3><a href="/articles/{{r['_source']['control_number']}}">{{r['_source']['title']}}</a></h3>
+                  {% for collection in r['_source']['collections']%}
+                  <p>
                     <span class="label label-primary">{{collection.primary}}</span>
                     <span class="label label-success">{{collection.secondary}}</span>
-                  </span>
-              {% endfor %}
-            </h3>
-            <p>{{r['_source']['body']['content'] | truncate(150)}}</p>
+                  </p>
+                  {% endfor %}
+
+                </div>
+              </div>
+            </div>
+            {% endfor %}
           </div>
-        </div><!-- End Item -->
-        {% endfor %}
-      </div><!-- End Carousel Inner -->
-    </div><!-- End Carousel -->
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-  <p></p>
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
@@ -112,7 +65,7 @@
         <div class="panel-body">
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-              <img src="{{url_for('static', filename='img/CMS.gif')}}">
+              <img  style="height: 126px;"  src="{{url_for('static', filename='img/cms_vis.png')}}">
               <div class="caption">
                 <h3 class="text-center">Visualise CMS detector events</h3>
               </div>
@@ -120,7 +73,7 @@
           </div>
           <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-              <img src="{{url_for('static', filename='img/OPERA.gif')}}">
+              <img style="height: 126px;" src="{{url_for('static', filename='img/opera_vis.png')}}">
               <div class="caption">
                 <h3 class="text-center"><a href="{{url_for('.visualise_events', experiment='OPERA')}}">Visualise OPERA
                   detector events</a></h3>
