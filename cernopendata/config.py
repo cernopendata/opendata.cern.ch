@@ -96,12 +96,20 @@ RECORDS_UI_ENDPOINTS = dict(
         route='/records/<pid_value>',
         template='cernopendata_records_ui/records/detail.html',
         permission_factory_imp=None,
+        record_class='invenio_records_files.api:Record',
+    ),
+    recid_files=dict(
+        pid_type='recid',
+        route='/records/<pid_value>/files/<path:filename>',
+        view_imp='invenio_records_files.utils:file_download_ui',
+        record_class='invenio_records_files.api:Record',
     ),
     recid_export=dict(
         pid_type="recid",
         route="/records/<pid_value>/export/<format>",
         view_imp="invenio_records_ui.views.export",
         template="cernopendata_records_ui/default_export.html",
+        record_class='invenio_records_files.api:Record',
     ),
     termid=dict(
         pid_type='termid',
@@ -114,6 +122,7 @@ RECORDS_UI_ENDPOINTS = dict(
         route='/articles/<pid_value>',
         template='cernopendata_records_ui/articles/detail.html',
         permission_factory_imp=None,
+        record_class='invenio_records_files.api:Record',
     ),
     artid_export=dict(
         pid_type="artid",

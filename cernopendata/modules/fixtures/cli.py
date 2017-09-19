@@ -192,7 +192,6 @@ def articles():
 def data_policies():
     """Load demo Data Policy records."""
     from invenio_db import db
-    from invenio_records import Record
     from invenio_indexer.api import RecordIndexer
     from cernopendata.modules.records.minters.recid import \
         cernopendata_recid_minter
@@ -200,6 +199,8 @@ def data_policies():
     from invenio_files_rest.models import \
         Bucket, FileInstance, ObjectVersion
     from invenio_records_files.models import RecordsBuckets
+    from invenio_records_files.api import Record
+    from invenio_records.models import RecordMetadata
 
     indexer = RecordIndexer()
     schema = current_app.extensions['invenio-jsonschemas'].path_to_url(

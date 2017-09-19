@@ -65,9 +65,9 @@
                                     <tbody>
                                         {% for file in record.files %}
                                         <tr>
-                                            <td>{{file.uri.split('/')[-1]}}</td>
-                                            <td>{{file.size | filesizeformat}}</td>
-                                            <td><a href="#"><i class="fa fa-download" aria-hidden="true"></i></a></td>
+                                            <td>{{file.key}}</td>
+                                            <td>{#file.size#}</td>
+                                            <td><a href="/api/files/{{file.bucket}}/{{file.key}}"><i class="fa fa-download" aria-hidden="true"></i></a></td>
                                         </tr>
                                         <p></p>
                                         {% endfor %}
