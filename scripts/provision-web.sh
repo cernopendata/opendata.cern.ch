@@ -134,6 +134,7 @@ provision_web_xrootd_centos7 () {
     $sudo yum install -y \
           xrootd \
           xrootd-client \
+          xrootd-client-devel \
           xrootd-python
 }
 

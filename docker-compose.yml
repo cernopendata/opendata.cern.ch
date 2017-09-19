@@ -28,7 +28,7 @@ web:
   command: /bin/bash -c "cernopendata run -h 0.0.0.0"
   environment:
     - PATH=/home/invenio/.virtualenvs/cernopendata/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-    - VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+    - VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
     - APP_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://cernopendata:dbpass123@postgresql:5432/cernopendata
     - APP_CACHE_REDIS_HOST=redis
     - APP_CACHE_REDIS_URL=redis://redis:6379/0
@@ -57,7 +57,7 @@ worker:
   command: "celery worker -A cernopendata.celery --loglevel=INFO"
   environment:
     - PATH=/home/invenio/.virtualenvs/cernopendata/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-    - VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+    - VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
     - APP_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://cernopendata:dbpass123@postgresql:5432/cernopendata
     - APP_CACHE_REDIS_HOST=redis
     - APP_CACHE_REDIS_URL=redis://redis:6379/0

@@ -96,12 +96,15 @@ source $(which virtualenvwrapper.sh)
 scriptpathname=$(cd "$(dirname $0)" && pwd)
 
 # sphinxdoc-create-virtual-environment-begin
-mkvirtualenv --system-site-packages ${INVENIO_WEB_VENV}
+mkvirtualenv ${INVENIO_WEB_VENV}
 # sphinxdoc-create-virtual-environment-end
 
 # quit on errors and unbound symbols:
 set -o errexit
 # set -o nounset
+
+# install XRootD:
+pip install git+https://github.com/xrootd/xrootd-python.git#egg=pyxrootd
 
 # FIXME using personal forks until upstream PRs are issued and merged:
 pip install git+https://github.com/pamfilos/invenio-files-rest.git@eos-storage#egg=invenio-files-rest

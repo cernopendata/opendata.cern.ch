@@ -61,8 +61,8 @@ RUN /code/scripts/create-instance.sh
 
 # Make given VENV default:
 ENV PATH=/home/invenio/.virtualenvs/cernopendata/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-ENV VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-RUN echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
+ENV VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+RUN echo "source /usr/bin/virtualenvwrapper.sh" >> ~/.bashrc
 RUN echo "workon cernopendata" >> ~/.bashrc
 
 # Start the CERN Open Data Portal application:
