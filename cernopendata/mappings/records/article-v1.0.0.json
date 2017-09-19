@@ -1,88 +1,96 @@
 {
-  "settings": {
-    "analysis": {
-      "analyzer": {
-        "collections": {
-          "tokenizer": "keyword"
-        }
-      }
-    }
-  },
-  "mappings": {
-    "article-v1.0.0": {
-      "properties": {
-        "$schema": {
-          "type": "string",
-          "copy_to": "facet_schema"
-        },
-        "facet_schema": {
-          "type": "string",
-          "index": "not_analyzed"
-        },
-        "collections": {
-          "properties": {
-            "primary": {
-              "type": "string",
-              "copy_to": "collections.facet_collections_primary"
-            },
-            "facet_collections_primary": {
-              "type": "string",
-              "index": "not_analyzed"
-            },
-            "secondary": {
-              "type": "string",
-              "analyzer": "collections"
-            },
-            "experiment": {
-              "type": "string",
-              "index": "not_analyzed"
-            },
-            "year": {
-              "type": "string",
-              "analyzer": "collections"
+    "settings": {
+        "analysis": {
+            "analyzer": {
+                "collections": {
+                    "tokenizer": "keyword"
+                }
             }
-          }
-        },
-        "id": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string",
-          "index": "not_analyzed"
-        },
-        "subtype": {
-          "type": "string",
-          "index": "not_analyzed"
-        },
-        "author": {
-          "type": "string"
-        },
-        "short_description": {
-          "properties": {
-            "format": {"type": "string"},
-            "content": {"type": "string"}
-          }
-        },
-        "body": {
-          "properties": {
-            "format": {"type": "string"},
-            "content": {"type": "string"}
-          }
-        },
-        "files": {
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "uri": {
-              "type": "string"
-            }
-          }
         }
-      }
+    },
+    "mappings": {
+        "article-v1.0.0": {
+            "properties": {
+                "$schema": {
+                    "type": "string",
+                    "copy_to": "facet_schema"
+                },
+                "facet_schema": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "collections": {
+                    "properties": {
+                        "primary": {
+                            "type": "string",
+                            "copy_to": "collections.facet_collections_primary"
+                        },
+                        "facet_collections_primary": {
+                            "type": "string",
+                            "index": "not_analyzed"
+                        },
+                        "secondary": {
+                            "type": "string",
+                            "analyzer": "collections"
+                        },
+                        "experiment": {
+                            "type": "string",
+                            "index": "not_analyzed"
+                        },
+                        "year": {
+                            "type": "string",
+                            "analyzer": "collections"
+                        }
+                    }
+                },
+                "experiment": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "tags": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "subtype": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "author": {
+                    "type": "string"
+                },
+                "short_description": {
+                    "properties": {
+                        "format": {"type": "string"},
+                        "content": {"type": "string"}
+                    }
+                },
+                "body": {
+                    "properties": {
+                        "format": {"type": "string"},
+                        "content": {"type": "string"}
+                    }
+                },
+                "files": {
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "uri": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
     }
-  }
 }

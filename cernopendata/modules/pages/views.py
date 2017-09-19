@@ -29,14 +29,16 @@ from __future__ import absolute_import, print_function
 import json
 
 import pkg_resources
-from .utils import FrontpageRecordsSearch
-from flask import Blueprint, abort, current_app, escape, render_template, \
-    request, url_for, jsonify
+from flask import Blueprint, abort, current_app, escape, jsonify, \
+    render_template, request, url_for
 from flask_babelex import lazy_gettext as _
 from flask_breadcrumbs import default_breadcrumb_root, register_breadcrumb
 from flask_menu import register_menu
 from jinja2.exceptions import TemplateNotFound
 from speaklater import make_lazy_string
+
+from .decorators import param_values
+from .utils import FrontpageRecordsSearch
 
 blueprint = Blueprint(
     'cernopendata_pages',
@@ -176,28 +178,6 @@ def visualise_histograms(experiment='CMS'):
         )
     except TemplateNotFound:
         return abort(404)
-
-
-@blueprint.route('/getting-started')
-@register_breadcrumb(blueprint, '.get_started', _('Get Started'))
-def get_started():
-    """Render index of getting started tutorials."""
-    return render_template('cernopendata_pages/get_started/index.html')
-
-
-@blueprint.route('/getting-started/<string:experiment>')
-@blueprint.route('/getting-started/<string:experiment>/<string:year>')
-@register_breadcrumb(blueprint, '.get_started.experiment',
-                     lazy_title('%(experiment)s', 'experiment'),
-                     endpoint_arguments_constructor=lambda: {
-                         'experiment': request.view_args['experiment']})
-def get_started_experiment(experiment=None, year=None):
-    """Render getting started tutorials."""
-    return render_template(
-        'cernopendata/get_started/experiment_{0}.html'.format(
-            experiment.lower()
-        ), experiment=experiment, year=year,
-    )
 
 
 @blueprint.route('/resources/articles')
@@ -395,3 +375,23 @@ def glossary_json():
 def news():
     """Render news."""
     return render_template('cernopendata_pages/pages/news.html')
+
+
+@blueprint.route('/getting-started')
+@register_breadcrumb(blueprint, '.getting-started', _('Getting Started'))
+def getting_started():
+    """Getting started pages."""
+    return render_template('cernopendata_pages/getstarted.html')
+
+
+@blueprint.route('/getting-started/<experiment>')
+@register_breadcrumb(blueprint, '.getting-started.experiment',
+                     lazy_title('%(experiment)s', 'experiment'),
+                     endpoint_arguments_constructor=lambda: {
+                         'experiment': request.view_args['experiment']})
+@param_values('experiment',
+              ['CMS', 'LHCb', 'ALICE', 'OPERA', 'ATLAS'])
+def getting_started_experiment(experiment=None):
+    """Getting started experiment pages."""
+    return render_template('cernopendata_pages/getstarted.html',
+                           experiment=experiment)

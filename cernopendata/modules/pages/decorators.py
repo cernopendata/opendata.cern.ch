@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2015, 2016, 2017 CERN.
+# Copyright (C) 2017 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -22,36 +22,24 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
-[aliases]
-test = pytest
+"""CERN Open Data decorators."""
 
-[build_sphinx]
-source-dir = docs/
-build-dir = docs/_build
-all_files = 1
+from functools import wraps
 
-[bdist_wheel]
-universal = 1
+from flask import abort
 
-[compile_catalog]
-directory = cernopendata/translations/
 
-[extract_messages]
-copyright_holder = CERN
-msgid_bugs_address = info@invenio-software.org
-mapping-file = babel.ini
-output-file = cernopendata/translations/messages.pot
+def param_values(param_name, options_list):
+    """Check if request param is in available options, 404 otherwise."""
+    def decorator(fn):
+        @wraps(fn)
+        def wrap(*args, **kwargs):
+            param = kwargs.get(param_name, None)
 
-[init_catalog]
-input-file = cernopendata/translations/messages.pot
-output-dir = cernopendata/translations/
-
-[update_catalog]
-input-file = cernopendata/translations/messages.pot
-output-dir = cernopendata/translations/
-
-[pytest]
-addopts = --pep8 --ignore=docs --cov=cernopendata --cov-report=term-missing --cov-config .coveragerc
-
-[pydocstyle]
-add_ignore = D401
+            # check if parameter value is in available options
+            if param not in options_list:
+                abort(404)
+            else:
+                return fn(*args, **kwargs)
+        return wrap
+    return decorator

@@ -226,6 +226,10 @@ RECORDS_REST_FACETS = {
                 'manufacture_or_copyright_notice'
             )),
         ),
+        'filters': dict(
+            tags_pre=terms_filter('tags'),
+            experiment_pre=terms_filter('experiment'),
+        ),
         'post_filters': dict(
             experiment=terms_filter('experiment'),
             category=terms_filter('collections.secondary'),
@@ -245,7 +249,7 @@ RECORDS_REST_FACETS = {
         'aggs': dict(
             experiment=dict(terms=dict(field='experiment')),
             year=dict(terms=dict(field='collections.year')),
-            category=dict(terms=dict(field='collections.secondary'))
+            category=dict(terms=dict(field='collections.secondary')),
         ),
         'post_filters': dict(
             experiment=terms_filter('experiment'),
