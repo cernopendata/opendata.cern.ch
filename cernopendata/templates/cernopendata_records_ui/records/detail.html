@@ -7,29 +7,34 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h2 style="display: inline;">
-                        {{record.title}}
+                        {{record.additional_title}} <small>{{record.date_published}}</small>
                     </h2>
                     <div class="row">
+                        <div class="col-md-12">
+                            {{record.title}}
+                        </div>
                         <div class="col-md-12">
                             {% for author in record.authors %}
                             <small>{{author.name}}</small>
                             {% endfor %}
-                            <span class="label label-success">{{record.collaboration}}</span>
+                            <span class="label label-success">{{record.collaboration.name}}</span>
+                            {% if record.year %}
                             <span class="label label-success">{{record.year}} Run</span>
+                            {% endif %}
                         </div>
                     </div>
                     <p></p>
-                    <div class="row">
+                    <div class="well well-sm">
                         <div class="col-md-12">
                             <label>Cite as:</label>
                             {% for author in record.authors %}
                             <span>{{author.name}}.</span>
                             {% endfor %}
-                            <span>{{record.collaboration}} ({{record.year}}). {{record.title}}. CERN Open Data Portal.
-                                {% for id in record.identifiers %}
-                                <label>{{id.type}}:</label>
-                                <a href="http://doi.org/{{id.id}}">{{id.id}}</a>
-                                {% endfor %}
+                            <span>{{record.collaboration.name}} ({{record.date_published}}). {{record.additional_title}}. CERN Open Data Portal.
+                                {% if record.doi %}
+                                <label>{{record.type}}:</label>
+                                <a href="http://doi.org/{{record.doi}}">{{record.doi}}</a>
+                                {% endif %}
                             </span>
                         </div>
                     </div>
@@ -44,12 +49,14 @@
                     </div>
                 </div>
                 <div class="panel-body">
+                    {% if record.abstract %}
                     <div class="row">
                         <div class="col-md-12">
                             <h3>Description</h3>
-                            <p>{{record.summary}}</p>
+                            <p>{{record.abstract}}</p>
                         </div>
                     </div>
+                    {% endif %}
                     <div class="row">
                         <div class="col-md-12">
                             <span>
@@ -81,9 +88,9 @@
                             <h3>Disclaimer</h3>
                             <p>The open data are released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative
                                 Commons CC0 waiver</a>. Neither LHCb nor CERN endorse any
-                            works, scientific or otherwise, produced using these data.
-                            All releases will have a unique DOI that you are requested to cite in any applications or
-                            publications.
+                                works, scientific or otherwise, produced using these data.
+                                All releases will have a unique DOI that you are requested to cite in any applications or
+                                publications.
                             </p>
                             <img src="{{url_for('static', filename='img/cc-zero.svg')}}">
                         </div>
