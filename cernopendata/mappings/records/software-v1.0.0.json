@@ -1,0 +1,38 @@
+{
+  "mappings": {
+    "software-v1.0.0": {
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "copy_to": "facet_schema"
+        },
+        "facet_schema": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "type": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "subtype": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "title": {
+          "type": "string"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "abstract": {
+          "type": "string"
+        },
+        "authors": {
+          "properties": {
+            "name": {"type": "string"}
+          }
+        }
+      }
+    }
+  }
+}

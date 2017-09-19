@@ -201,7 +201,9 @@ RECORDS_REST_FACETS = {
         'aggs': dict(
             experiment=dict(terms=dict(field='collections.experiment')),
             category=dict(terms=dict(field='collections.secondary')),
-            collections=dict(terms=dict(field='collections.primary')),
+            type=dict(terms=dict(field='type'),
+                      aggs=dict(subtype=dict(terms=dict(field="subtype")))),
+            file_type=dict(terms=dict(field='distribution.formats')),
             year=dict(terms=dict(field='collections.year')),
             run=dict(terms=dict(
                 field='production_publication_distribution_manufacture_and_'
@@ -213,8 +215,10 @@ RECORDS_REST_FACETS = {
         'post_filters': dict(
             experiment=terms_filter('collections.experiment'),
             category=terms_filter('collections.secondary'),
-            collections=terms_filter('collections.primary'),
+            type=terms_filter('type'),
+            subtype=terms_filter('subtype'),
             year=terms_filter('collections.year'),
+            file_type=terms_filter('distribution.formats'),
             run=terms_filter(
                 'production_publication_distribution_manufacture_and_'
                 'copyright_notice.'
