@@ -1,5 +1,7 @@
 {%- extends "invenio_records_ui/detail.html" %}
 
+{% from 'cernopendata_records_ui/records/macros/files_box.html' import files_box %}
+
 {%- block page_body %}
 <div class="container">
     <div class="row">
@@ -49,40 +51,20 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    {% if record.abstract %}
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3>Description</h3>
-                            <p>{{record.abstract}}</p>
+                    {% block metadata_block %}
+                        {% if record.abstract %}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>Description</h3>
+                                <p>{{record.abstract}}</p>
+                            </div>
                         </div>
-                    </div>
-                    {% endif %}
-                    <div class="row">
-                        <div class="col-md-12">
-                            <span>
-                                <h3>Files</h3>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Filename</th>
-                                            <th>Size</th>
-                                            <th>Download</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% for file in record.files %}
-                                        <tr>
-                                            <td>{{file.key}}</td>
-                                            <td>{#file.size#}</td>
-                                            <td><a href="/api/files/{{file.bucket}}/{{file.key}}"><i class="fa fa-download" aria-hidden="true"></i></a></td>
-                                        </tr>
-                                        <p></p>
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
-                            </span>
-                        </div>
-                    </div>
+                        {% endif %}
+                    {% endblock metadata_block %}
+
+                    {% block files_block %}
+                        {{ files_box(record.files) }}
+                    {% endblock files_block %}
                     <div class="row">
                         <div class="col-md-12">
                             <h3>Disclaimer</h3>
@@ -109,4 +91,24 @@
     </div>
 </div>
 {%- endblock %}
+
+{% block javascript %}
+  {{ super() }}
+
+  {% if record.files %}
+  <script>
+    $('#download_caution').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget)
+      var file_uri = button.data('download-uri')
+      var file_key = button.data('download-key')
+      var file_size = button.data('download-size')
+
+      var modal = $(this)
+      modal.find('#download-msg-filename').text(file_key)
+      modal.find('#download-msg-size').text(file_size)
+      modal.find('#download-msg-uri').attr("href", file_uri)
+    })
+  </script>
+  {% endif %}
+{% endblock javascript %}
 

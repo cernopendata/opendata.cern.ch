@@ -1,0 +1,83 @@
+{% macro files_box(files) %}
+  {% if files %}
+  <div class="row">
+    <div class="col-md-12">
+      <span>
+        <h3>Files</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Filename</th>
+              <th>Size</th>
+              <th>Download</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for file in files %}
+            <tr>
+              {% set _file = file.dumps() %}
+              <td>{{ _file.key }}</td>
+              <td>{{ _file.size | filesizeformat }}</td>
+              <td>{{ download_btn(file) }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </span>
+    </div>
+  </div>
+  {{ downlaod_caution_modal() }}
+  {% endif %}
+{% endmacro %}
+
+
+
+{% macro download_btn(file, icon='fa-download') %}
+  {% set download_uri = '/api/files/'+file.bucket | string+'/'+file.key %}
+  {% if file.mimetype != 'application/octet-stream' %}
+    <a href="{{download_uri}}">
+      <i class="fa {{icon}}" aria-hidden="true"></i>
+    </a>
+  {% else %}
+    <a
+      href="#"
+      data-toggle="modal"
+      data-target="#download_caution"
+      data-download-uri="{{download_uri}}"
+      data-download-key="{{file.key}}"
+      data-download-size="{{file.size}}"
+      >
+      <i class="fa {{icon}}" aria-hidden="true"></i>
+    </a>
+  {% endif %}
+{% endmacro %}
+
+
+{% macro downlaod_caution_modal() %}
+  <div class="modal fade" id="download_caution" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          {{ download_caution_msg() }}
+        </div>
+        <div class="modal-footer">
+          <button id="download-msg-dismiss" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <a id="download-msg-uri" href="#" type="button" class="btn btn-primary">Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro download_caution_msg() %}
+  <p>
+    Please note that the file you are going to download (<span id="download-msg-filename"></span>) is <b><span id="download-msg-size"></span> bytes</b> big. On an average ADSL connection, it may take several hours to download it (about 2 hours  at 1Mbps).
+  </p>
+  <p>
+    Moreover, if you use one of the provided <a href="/VM/CMS">Virtual Machines</a> to perform your analyses, then you don't need to download datasets manually, because the VM will fetch all the necessary file chunks via the XRootD protocol.
+  </p>
+  <p>
+    Manual download of files via HTTP is only necessary if you would prefer not to use the XRootD protocol for one reason or another.
+  </p>
+{% endmacro %}
+
