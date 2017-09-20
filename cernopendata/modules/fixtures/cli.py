@@ -50,30 +50,6 @@ def fixtures():
 
 @fixtures.command()
 @with_appcontext
-def collections():
-    """Load default collections."""
-    from invenio_db import db
-    from invenio_collections.models import Collection
-
-    from .fixtures import COLLECTIONS
-
-    def load(collections, parent=None):
-        """Create new collection."""
-        for data in collections or []:
-            collection = Collection(
-                name=data['name'], dbquery=data.get('dbquery'),
-                parent=parent
-            )
-            db.session.add(collection)
-            db.session.flush()
-            load(data.get('children'), parent=collection)
-
-    load(COLLECTIONS)
-    db.session.commit()
-
-
-@fixtures.command()
-@with_appcontext
 def records():
     """Load demo records."""
     from dojson.contrib.marc21.utils import load
@@ -128,7 +104,8 @@ def terms():
         with open(filename, 'rb') as source:
             for data in json.load(source):
                 if "collections" not in data and \
-                   not isinstance(data.get("collections", None), basestring):
+                    not isinstance(
+                        data.get("collections", None), basestring):
                     data["collections"] = []
                 data["collections"].append({"primary": "Terms"})
                 id = uuid.uuid4()
@@ -176,7 +153,8 @@ def articles():
                 with open(content_filename) as body_field:
                     data["body"]["content"] = body_field.read()
                 if "collections" not in data and \
-                   not isinstance(data.get("collections", None), basestring):
+                    not isinstance(
+                        data.get("collections", None), basestring):
                     data["collections"] = []
                 id = uuid.uuid4()
                 cernopendata_articleid_minter(id, data)
