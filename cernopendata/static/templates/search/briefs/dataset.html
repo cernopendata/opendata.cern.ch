@@ -1,7 +1,7 @@
 <!-- FIXME find a better way to set the record url -->
 <div>
     <h4>
-        <a target="_self" ng-href="/datasets/{{ record.id }}">{{ record.metadata.title }}</a>
+      <a target="_self" ng-href="/datasets/{{ record.metadata.control_number }}">{{ record.metadata.title }}</a>
     </h4>
     <p style="margin-top: 1%;">{{ record.metadata.abstract | limitTo : 200}}...</p>
     <div class="tags-box">

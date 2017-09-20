@@ -74,7 +74,6 @@ RECORDS_VALIDATION_TYPES = {
     'array': (list, tuple),
 }
 
-
 RECORDS_UI_EXPORT_FORMATS = dict(
     artid=dict(
         json=dict(
@@ -83,6 +82,12 @@ RECORDS_UI_EXPORT_FORMATS = dict(
         )
     ),
     recid=dict(
+        json=dict(
+            title='JSON',
+            serializer='cernopendata.modules.records.serializers.json',
+        )
+    ),
+    datid=dict(
         json=dict(
             title='JSON',
             serializer='cernopendata.modules.records.serializers.json',
@@ -110,12 +115,25 @@ RECORDS_UI_ENDPOINTS = dict(
         view_imp='invenio_previewer.views:preview',
         record_class='invenio_records_files.api:Record',
     ),
+    recid_export=dict(
+        pid_type="recid",
+        route="/records/<pid_value>/export/<format>",
+        view_imp="invenio_records_ui.views.export",
+        template="cernopendata_records_ui/default_export.html",
+        record_class='invenio_records_files.api:Record',
+    ),
     datid=dict(
-        pid_type='recid',
-        route='/datasets/<pid_value>',
+        pid_type='datid',
+        route='/datasets/<path:pid_value>',
         template='cernopendata_records_ui/records/dataset_detail.html',
         record_class='invenio_records_files.api:Record',
         permission_factory_imp=None,
+    ),
+    datid_export=dict(
+        pid_type="datid",
+        route="/datasets/<path:pid_value>/export/<format>",
+        view_imp="invenio_records_ui.views.export",
+        template="cernopendata_records_ui/default_export.html",
     ),
     softid=dict(
         pid_type='recid',
@@ -124,13 +142,7 @@ RECORDS_UI_ENDPOINTS = dict(
         record_class='invenio_records_files.api:Record',
         permission_factory_imp=None,
     ),
-    recid_export=dict(
-        pid_type="recid",
-        route="/records/<pid_value>/export/<format>",
-        view_imp="invenio_records_ui.views.export",
-        template="cernopendata_records_ui/default_export.html",
-        record_class='invenio_records_files.api:Record',
-    ),
+
     termid=dict(
         pid_type='termid',
         route='/glossary/<pid_value>',
@@ -201,6 +213,26 @@ RECORDS_REST_ENDPOINTS['artid'] = {
     },
 }
 
+RECORDS_REST_ENDPOINTS['datid'] = {
+    'pid_type': 'datid',
+    'pid_minter': 'cernopendata_datasetid_minter',
+    'pid_fetcher': 'cernopendata_datasetid_fetcher',
+    'record_class': _Record,
+    'default_media_type': 'application/json',
+    'max_result_window': 10000,
+    'item_route': '/datasets/<pidpath(datid):pid_value>',
+    'list_route': '/datasets',
+    'record_serializers': {
+        'application/json': ('invenio_records_rest.serializers'
+                             ':json_v1_response'),
+    },
+    'search_index': 'records-datasets-v1.0.0',
+    'search_serializers': {
+        'application/json': ('invenio_records_rest.serializers'
+                             ':json_v1_search'),
+    },
+}
+
 RECORDS_REST_SORT_OPTIONS = {
     "records-glossary-term-v1.0.0": {
         'anchor': dict(fields=['anchor'],
@@ -227,9 +259,9 @@ RECORDS_REST_FACETS = {
             year=dict(terms=dict(field='collections.year')),
             run=dict(terms=dict(
                 field='production_publication_distribution_manufacture_and_'
-                'copyright_notice.'
-                'date_of_production_publication_distribution_'
-                'manufacture_or_copyright_notice'
+                      'copyright_notice.'
+                      'date_of_production_publication_distribution_'
+                      'manufacture_or_copyright_notice'
             )),
         ),
         'filters': dict(
@@ -269,7 +301,6 @@ RECORDS_REST_FACETS = {
 
 }
 """Facets per index for the default facets factory."""
-
 
 # Files
 # ======

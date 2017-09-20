@@ -130,7 +130,16 @@
       </div>
     </div>
     {% block export %}
-    {{super()}}
+    <div class="col-md-2">
+      <div class="well">
+        <h4> Export </h4>
+        <ul class="list-inline">
+          <li><a
+            href="{{ url_for('invenio_records_ui.datid_export', pid_value=pid.pid_value, format='json') }}">JSON</a>
+          </li>
+        </ul>
+      </div>
+    </div>
     {% endblock export %}
   </div>
 </div>

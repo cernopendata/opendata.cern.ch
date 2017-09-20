@@ -227,6 +227,8 @@ def datasets():
     from invenio_indexer.api import RecordIndexer
     from cernopendata.modules.records.minters.recid import \
         cernopendata_recid_minter
+    from cernopendata.modules.records.minters.datasetid import \
+        cernopendata_datasetid_minter
 
     from invenio_files_rest.models import \
         Bucket, FileInstance, ObjectVersion
@@ -246,7 +248,12 @@ def datasets():
                 files = data.pop('files', None)
 
                 id = uuid.uuid4()
-                cernopendata_recid_minter(id, data)
+                # (TOFIX) Remove if statement in production
+                # as every dataset record should have a doi
+                if data.get('doi', None):
+                    cernopendata_datasetid_minter(id, data)
+                else:
+                    cernopendata_recid_minter(id, data)
                 record = Record.create(data, id_=id)
                 record['$schema'] = schema
                 bucket = Bucket.create()

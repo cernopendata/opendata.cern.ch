@@ -6,10 +6,10 @@ from invenio_pidstore.models import PIDStatus
 from invenio_pidstore.providers.base import BaseProvider
 
 
-class RecordUUIDProvider(BaseProvider):
-    """Record identifier provider."""
+class DatasetUUIDProvider(BaseProvider):
+    """Dataset identifier provider."""
 
-    pid_type = 'recid'
+    pid_type = 'datid'
     """Type of persistent identifier."""
 
     pid_provider = None

@@ -34,7 +34,7 @@ history = open('CHANGES.rst').read()
 # Get the version string. Cannot be done with import!
 g = {}
 with open(os.path.join('cernopendata', 'version.py'), 'rt') as fp:
-    exec(fp.read(), g)
+    exec (fp.read(), g)
     version = g['__version__']
 
 tests_require = [
@@ -176,6 +176,9 @@ setup(
             'cernopendata_articleid_minter = '
             ' cernopendata.modules.records.minters.artid:'
             'cernopendata_articleid_minter',
+            'cernopendata_datasetid_minter = '
+            'cernopendata.modules.records.minters.datasetid:'
+            'cernopendata_datasetid_minter',
         ],
         'invenio_pidstore.fetchers': [
             'cernopendata_recid_fetcher = '
@@ -187,6 +190,9 @@ setup(
             'cernopendata_articleid_fetcher = '
             ' cernopendata.modules.records.fetchers.artid:'
             'cernopendata_articleid_fetcher',
+            'cernopendata_datasetid_fetcher = '
+            'cernopendata.modules.records.fetchers.datasetid:'
+            'cernopendata_datasetid_fetcher',
         ],
         'invenio_search.mappings': [
             'records = cernopendata.mappings',
