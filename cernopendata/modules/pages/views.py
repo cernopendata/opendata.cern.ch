@@ -165,16 +165,15 @@ def visualise_events(experiment='CMS', eventid=None):
 
 
 @blueprint.route('/visualise/histograms/<string:experiment>')
-def visualise_histo(experiment='CMS'):
+@register_breadcrumb(blueprint, '.visualise_histograms',
+                     _('Visualise Histograms'))
+def visualise_histograms(experiment='CMS'):
     """Display histograms."""
-    breadcrumbs = [{}, {'url': '.education', 'text': 'Education'},
-                   {'url': '.education', 'text': 'Visualise Histograms'}]
-
     try:
         return render_template(
             'cernopendata_pages/visualise_histograms.html',
             experiment=experiment,
-            breadcrumbs=breadcrumbs)
+        )
     except TemplateNotFound:
         return abort(404)
 
