@@ -28,8 +28,8 @@
         <span>
           <strong>See also: </strong>
           {% for term in record.see_also%}
-            <a href="/terms/{{term.term}}"><span class="label label-info">{{term.term}}</span></a>
-        {% endfor %}
+            <a href="/glossary/{{term.term}}"><span class="label label-info">{{term.term}}</span></a>
+          {% endfor %}
         </span>
       </div>
       {% endif %}

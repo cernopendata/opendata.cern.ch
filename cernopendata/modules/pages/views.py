@@ -371,12 +371,11 @@ def collections():
         exp_names=exp_names)
 
 
-@blueprint.route('/terms')
 @blueprint.route('/glossary')
 @register_breadcrumb(blueprint, '.about.glossary', _('Glossary'))
 def glossary():
     """Display glossary terms."""
-    return render_template('cernopendata/terms.html')
+    return render_template('cernopendata/glossary_terms.html')
 
 
 @blueprint.route('/glossary/json')

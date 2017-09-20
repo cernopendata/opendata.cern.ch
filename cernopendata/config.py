@@ -127,7 +127,7 @@ RECORDS_UI_ENDPOINTS = dict(
     ),
     termid=dict(
         pid_type='termid',
-        route='/terms/<pid_value>',
+        route='/glossary/<pid_value>',
         template='cernopendata_records_ui/terms/detail.html',
         permission_factory_imp=None,
     ),
@@ -162,13 +162,13 @@ RECORDS_REST_ENDPOINTS['termid'] = {
     'record_class': _Record,
     'default_media_type': 'application/json',
     'max_result_window': 10000,
-    'item_route': '/terms/<pid(termid):pid_value>',
-    'list_route': '/terms',
+    'item_route': '/glossary/<pid(termid):pid_value>',
+    'list_route': '/glossary',
     'record_serializers': {
         'application/json': ('invenio_records_rest.serializers'
                              ':json_v1_response'),
     },
-    'search_index': 'records-term-v1.0.0',
+    'search_index': 'records-glossary-term-v1.0.0',
     'search_serializers': {
         'application/json': ('invenio_records_rest.serializers'
                              ':json_v1_search'),
@@ -196,7 +196,7 @@ RECORDS_REST_ENDPOINTS['artid'] = {
 }
 
 RECORDS_REST_SORT_OPTIONS = {
-    "records-term-v1.0.0": {
+    "records-glossary-term-v1.0.0": {
         'anchor': dict(fields=['anchor'],
                        title='Title',
                        default_order='asc',
@@ -205,7 +205,7 @@ RECORDS_REST_SORT_OPTIONS = {
 }
 
 RECORDS_REST_DEFAULT_SORT = {
-    'records-term-v1.0.0': {
+    'records-glossary-term-v1.0.0': {
         'noquery': 'anchor'
     }
 }

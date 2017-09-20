@@ -108,7 +108,7 @@ def records():
 
 @fixtures.command()
 @with_appcontext
-def terms():
+def glossary_terms():
     """Load demo terms records."""
     from invenio_db import db
     from invenio_records import Record
@@ -118,13 +118,13 @@ def terms():
 
     indexer = RecordIndexer()
     schema = current_app.extensions['invenio-jsonschemas'].path_to_url(
-        'records/term-v1.0.0.json'
+        'records/glossary-term-v1.0.0.json'
     )
     data = pkg_resources.resource_filename('cernopendata',
                                            'modules/fixtures/data')
-    terms_json = glob.glob(os.path.join(data, 'terms', '*.json'))
+    glossary_terms_json = glob.glob(os.path.join(data, 'terms', '*.json'))
 
-    for filename in terms_json:
+    for filename in glossary_terms_json:
         with open(filename, 'rb') as source:
             for data in json.load(source):
                 if "collections" not in data and \

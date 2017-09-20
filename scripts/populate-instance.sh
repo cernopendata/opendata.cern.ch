@@ -121,9 +121,9 @@ ${INVENIO_WEB_INSTANCE} files location local var/data --default
 
 # sphinxdoc-populate-with-demo-records-begin
 ${INVENIO_WEB_INSTANCE} fixtures collections
-${INVENIO_WEB_INSTANCE} fixtures records
-${INVENIO_WEB_INSTANCE} fixtures pids
-${INVENIO_WEB_INSTANCE} fixtures terms
+# ${INVENIO_WEB_INSTANCE} fixtures records
+# ${INVENIO_WEB_INSTANCE} fixtures pids
+${INVENIO_WEB_INSTANCE} fixtures glossary_terms
 ${INVENIO_WEB_INSTANCE} fixtures articles
 ${INVENIO_WEB_INSTANCE} fixtures data_policies
 ${INVENIO_WEB_INSTANCE} fixtures datasets
