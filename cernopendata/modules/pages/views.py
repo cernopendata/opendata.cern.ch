@@ -187,40 +187,40 @@ def resources_articles():
     return render_template('cernopendata_pages/resources.html')
 
 
-@blueprint.route('/VM')
-@blueprint.route('/VM/')
-@register_breadcrumb(blueprint, '.vm', _('Virtual Machines'))
-def vm():
-    """Display experiment VMs."""
-    return render_template('cernopendata_pages/vm/index.html')
-
-
-@blueprint.route('/VM/<string:experiment>', defaults={'year': None})
-@blueprint.route('/VM/<string:experiment>/<string:year>')
-@register_breadcrumb(blueprint, '.vm.experiment',
-                     lazy_title('%(experiment)s', 'experiment'),
-                     endpoint_arguments_constructor=lambda: {
-                         'experiment': request.view_args['experiment']})
-def vm_experiment(experiment, year):
-    """Display details about experiment VMs."""
-    return render_template(
-        'cernopendata/vm/experiment_{0}.html'.format(experiment.lower()),
-        year=year,
-    )
-
-
-@blueprint.route('/VM/<string:experiment>/validation/report')
-@register_breadcrumb(blueprint, '.vm.validation_report',
-                     lazy_title('%(experiment)s Validation Report',
-                                'experiment'),
-                     endpoint_arguments_constructor=lambda: {
-                         'experiment': request.view_args['experiment']})
-def validation_report(experiment):
-    """Display default abourt experiment validation report."""
-    return render_template([
-        'cernopendata/vm/validation_{0}.html'.format(experiment.lower()),
-        'cernopendata/vm/validation.html',
-    ], experiment=experiment)
+# @blueprint.route('/VM')
+# @blueprint.route('/VM/')
+# @register_breadcrumb(blueprint, '.vm', _('Virtual Machines'))
+# def vm():
+#     """Display experiment VMs."""
+#     return render_template('cernopendata_pages/vm/index.html')
+#
+#
+# @blueprint.route('/VM/<string:experiment>', defaults={'year': None})
+# @blueprint.route('/VM/<string:experiment>/<string:year>')
+# @register_breadcrumb(blueprint, '.vm.experiment',
+#                      lazy_title('%(experiment)s', 'experiment'),
+#                      endpoint_arguments_constructor=lambda: {
+#                          'experiment': request.view_args['experiment']})
+# def vm_experiment(experiment, year):
+#     """Display details about experiment VMs."""
+#     return render_template(
+#         'cernopendata/vm/experiment_{0}.html'.format(experiment.lower()),
+#         year=year,
+#     )
+#
+#
+# @blueprint.route('/VM/<string:experiment>/validation/report')
+# @register_breadcrumb(blueprint, '.vm.validation_report',
+#                      lazy_title('%(experiment)s Validation Report',
+#                                 'experiment'),
+#                      endpoint_arguments_constructor=lambda: {
+#                          'experiment': request.view_args['experiment']})
+# def validation_report(experiment):
+#     """Display default abourt experiment validation report."""
+#     return render_template([
+#         'cernopendata/vm/validation_{0}.html'.format(experiment.lower()),
+#         'cernopendata/vm/validation.html',
+#     ], experiment=experiment)
 
 
 def about_menu(*args):
@@ -367,7 +367,7 @@ def glossary_json():
     return jsonify(glossary)
 
 
-@blueprint.route('/<any("getting-started"):page>')
+@blueprint.route('/<any("getting-started", "VM"):page>')
 @blueprint.route('/<any("getting-started"):page>'
                  '/<any("CMS","LHCb","OPERA","ALICE","ATLAS"):experiment>')
 def faceted_search(page=None, experiment=None):
@@ -379,6 +379,7 @@ def faceted_search(page=None, experiment=None):
     """
     filter_map = {
         'getting-started': ('tags_pre', 'Getting Started'),
+        'VM': ('tags_pre', 'VM'),
     }
 
     facets = {filter_map[page][0]: filter_map[page][1]}
