@@ -367,7 +367,7 @@ def glossary_json():
     return jsonify(glossary)
 
 
-@blueprint.route('/<any("getting-started", "VM"):page>')
+@blueprint.route('/<any("getting-started","VM","news"):page>')
 @blueprint.route('/<any("getting-started"):page>'
                  '/<any("CMS","LHCb","OPERA","ALICE","ATLAS"):experiment>')
 def faceted_search(page=None, experiment=None):
@@ -379,6 +379,7 @@ def faceted_search(page=None, experiment=None):
     """
     filter_map = {
         'getting-started': ('tags_pre', 'Getting Started'),
+        'news': ('type_pre', 'News'),
         'VM': ('tags_pre', 'VM'),
     }
 
