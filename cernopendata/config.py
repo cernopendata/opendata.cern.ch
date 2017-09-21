@@ -229,6 +229,8 @@ RECORDS_REST_FACETS = {
         'filters': dict(
             tags_pre=terms_filter('tags'),
             experiment_pre=terms_filter('experiment'),
+            type_pre=terms_filter('type'),
+            subtype_pre=terms_filter('subtype'),
         ),
         'post_filters': dict(
             experiment=terms_filter('experiment'),

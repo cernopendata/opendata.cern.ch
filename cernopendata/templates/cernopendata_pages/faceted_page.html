@@ -19,7 +19,7 @@
   <div class="row">
     <div id="invenio-search">
       <invenio-search
-         search-endpoint="/api/records?tags_pre=Getting Started{% if experiment %}&experiment_pre={{experiment}}{% endif %}"
+         search-endpoint={{search_endpoint}}
         search-headers='{"Accept": "{{ config.SEARCH_UI_SEARCH_MIMETYPE|default(' application/json')}}"}'
       >
       <div class="col-md-3">
@@ -29,7 +29,7 @@
       </div>
       <div class="col-md-9">
       <invenio-search-results
-        template="{{ url_for('static', filename='templates/getstarted/results.html') }}">
+        template="{{ url_for('static', filename='templates/faceted_results.html') }}">
       </invenio-search-results>
         </div>
       </invenio-search>

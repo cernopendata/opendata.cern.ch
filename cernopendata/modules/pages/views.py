@@ -27,6 +27,7 @@
 from __future__ import absolute_import, print_function
 
 import json
+import urllib
 
 import pkg_resources
 from flask import Blueprint, abort, current_app, escape, jsonify, \
@@ -37,7 +38,6 @@ from flask_menu import register_menu
 from jinja2.exceptions import TemplateNotFound
 from speaklater import make_lazy_string
 
-from .decorators import param_values
 from .utils import FrontpageRecordsSearch
 
 blueprint = Blueprint(
@@ -367,31 +367,26 @@ def glossary_json():
     return jsonify(glossary)
 
 
-@blueprint.route('/news')
-@register_menu(blueprint, 'main.about.news', _('News'), order=91)
-@register_breadcrumb(blueprint, '.news', 'News', dynamic_list_constructor=(
-    lambda: [{'url': '.news', 'text': 'News'}]
-))
-def news():
-    """Render news."""
-    return render_template('cernopendata_pages/pages/news.html')
+@blueprint.route('/<any("getting-started"):page>')
+@blueprint.route('/<any("getting-started"):page>'
+                 '/<any("CMS","LHCb","OPERA","ALICE","ATLAS"):experiment>')
+def faceted_search(page=None, experiment=None):
+    """Faceted search view.
 
+    To add a new page:
+        add new urls option to blueprint.route
+        add mapping, which (filter,val) should be use to filter record
+    """
+    filter_map = {
+        'getting-started': ('tags_pre', 'Getting Started'),
+    }
 
-@blueprint.route('/getting-started')
-@register_breadcrumb(blueprint, '.getting-started', _('Getting Started'))
-def getting_started():
-    """Getting started pages."""
-    return render_template('cernopendata_pages/getstarted.html')
+    facets = {filter_map[page][0]: filter_map[page][1]}
 
+    if experiment:
+        facets['experiment_pre'] = experiment
 
-@blueprint.route('/getting-started/<experiment>')
-@register_breadcrumb(blueprint, '.getting-started.experiment',
-                     lazy_title('%(experiment)s', 'experiment'),
-                     endpoint_arguments_constructor=lambda: {
-                         'experiment': request.view_args['experiment']})
-@param_values('experiment',
-              ['CMS', 'LHCb', 'ALICE', 'OPERA', 'ATLAS'])
-def getting_started_experiment(experiment=None):
-    """Getting started experiment pages."""
-    return render_template('cernopendata_pages/getstarted.html',
-                           experiment=experiment)
+    url = '/api/records?' + urllib.urlencode(facets)
+
+    return render_template('cernopendata_pages/faceted_page.html',
+                           search_endpoint=url)
