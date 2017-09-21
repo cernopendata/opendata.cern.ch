@@ -76,7 +76,6 @@ install_requires = [
     'invenio-assets>=1.0.0b6',
     'invenio-base>=1.0.0a9',
     'invenio-celery>=1.0.0b1',
-    'invenio-collections>=1.0.0a1',
     'invenio-config>=1.0.0b1',
     'invenio-db[versioning,postgresql]>=1.0.0b3',
     'invenio-i18n>=1.0.0b1',
