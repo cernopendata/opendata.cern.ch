@@ -367,9 +367,10 @@ def glossary_json():
     return jsonify(glossary)
 
 
-@blueprint.route('/<any("getting-started","VM","news"):page>')
+@blueprint.route('/collection/<any("data-policies"):page>')
+@blueprint.route('/<any("getting-started","vm","news"):page>')
 @blueprint.route('/<any("getting-started"):page>'
-                 '/<any("CMS","LHCb","OPERA","ALICE","ATLAS"):experiment>')
+                 '/<any("cms","lhcb","opera","alice","atlas"):experiment>')
 def faceted_search(page=None, experiment=None):
     """Faceted search view.
 
@@ -380,13 +381,15 @@ def faceted_search(page=None, experiment=None):
     filter_map = {
         'getting-started': ('tags_pre', 'Getting Started'),
         'news': ('type_pre', 'News'),
-        'VM': ('tags_pre', 'VM'),
+        'vm': ('tags_pre', 'VM'),
+        'data-policies': ('subtype_pre', 'Data policy'),
     }
 
     facets = {filter_map[page][0]: filter_map[page][1]}
 
     if experiment:
-        facets['experiment_pre'] = experiment
+        facets['experiment_pre'] = 'LHCb' if experiment == 'lhcb' \
+                                          else experiment.upper()
 
     url = '/api/records?' + urllib.urlencode(facets)
 
