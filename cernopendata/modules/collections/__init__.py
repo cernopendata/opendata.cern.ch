@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2015, 2016, 2017 CERN.
+# Copyright (C) 2016, 2017 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -22,36 +22,4 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
-[aliases]
-test = pytest
-
-[build_sphinx]
-source-dir = docs/
-build-dir = docs/_build
-all_files = 1
-
-[bdist_wheel]
-universal = 1
-
-[compile_catalog]
-directory = cernopendata/translations/
-
-[extract_messages]
-copyright_holder = CERN
-msgid_bugs_address = info@invenio-software.org
-mapping-file = babel.ini
-output-file = cernopendata/translations/messages.pot
-
-[init_catalog]
-input-file = cernopendata/translations/messages.pot
-output-dir = cernopendata/translations/
-
-[update_catalog]
-input-file = cernopendata/translations/messages.pot
-output-dir = cernopendata/translations/
-
-[pytest]
-addopts = --pep8 --ignore=docs --ignore=cernopendata/modules/collections/descriptions.py --cov=cernopendata --cov-report=term-missing --cov-config .coveragerc
-
-[pydocstyle]
-add_ignore = D401
+"""Collections module for CERN Open Data."""

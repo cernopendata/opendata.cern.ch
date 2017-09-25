@@ -38,6 +38,8 @@ from flask_menu import register_menu
 from jinja2.exceptions import TemplateNotFound
 from speaklater import make_lazy_string
 
+from cernopendata.modules.collections.descriptions import descriptions
+
 from .utils import FrontpageRecordsSearch
 
 blueprint = Blueprint(
@@ -370,14 +372,17 @@ def glossary_json():
     return jsonify(glossary)
 
 
-@blueprint.route('/collection/<any("data-policies"):page>')
+@blueprint.route('/collection'
+                 '/<any("cms","lhcb","opera","alice","atlas","data-policies")'
+                 ':collection>')
 @blueprint.route('/<any("getting-started","vm","news"):page>')
 @blueprint.route('/<any("getting-started"):page>'
                  '/<any("cms","lhcb","opera","alice","atlas"):experiment>')
-def faceted_search(page=None, experiment=None):
+def faceted_search(page=None, experiment=None, collection=None):
     """Faceted search view.
 
     To add a new page:
+        add url to blueprint.route
         add mapping, which (filter,val) should be use to filter record
     """
     facets = [x for x in locals().values() if x]
@@ -398,7 +403,9 @@ def faceted_search(page=None, experiment=None):
         _filter = filter_map.get(facet) or abort(404)
         filters[_filter[0]] = _filter[1]
 
+    description = descriptions.get(collection, None)
     url = '/api/records?' + urllib.urlencode(filters)
 
     return render_template('cernopendata_pages/faceted_page.html',
-                           search_endpoint=url)
+                           search_endpoint=url,
+                           description=description)
