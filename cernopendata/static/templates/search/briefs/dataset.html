@@ -1,31 +1,30 @@
 <!-- FIXME find a better way to set the record url -->
-<div class="row">
-  <div class="col-md-7">
+<div>
     <h4>
-      <a target="_self" ng-href="/datasets/{{ record.id }}">{{ record.metadata.title }}</a>
+        <a target="_self" ng-href="/datasets/{{ record.id }}">{{ record.metadata.title }}</a>
     </h4>
-  </div>
-  <div class="col-md-5">
-      <span class="pull-right">
-        <span class="btn btn-primary">{{record.metadata.type}}</span>
-        <span class="btn btn-primary">{{record.metadata.subtype}}</span>
-      </span>
-  </div>
+    <p style="margin-top: 1%;">{{ record.metadata.abstract | limitTo : 200}}...</p>
+    <div class="tags-box">
+        <a href="/search?type_pre={{record.metadata.type}}">
+            <span class="label label-primary">
+                {{ record.metadata.type }} 
+            </span>
+        </a>
+        <a ng-if="record.subtype" href="/search?subtype_pre={{record.metadata.subtype}}"> 
+            <span class="label label-info">
+                {{ record.metadata.subtype }}
+            </span>
+        </a> 
+        <a ng-repeat="tag in record.metadata.tags" href="/search?tags_pre={{tag}}"> 
+            <span class="label label-default">
+                {{ tag }} 
+            </span>
+        </a>
+        <a href="/search?experiment_pre={{record.metadata.experiment}}">
+            <span class="label label-warning">
+                {{ record.metadata.experiment }} 
+            </span>
+        </a>
+    </div>
+    <hr/>
 </div>
-<p style="margin-top: 1%;">{{ record.metadata.abstract | limitTo : 200}}...</p>
-<div class="row">
-  <div class="col-md-8">
-    <span class="label label-success">{{record.metadata.experiment}}</span>
-  </div>
-  <div class="col-md-4">
-    <span class="pull-right">
-      <a ng-click="showSource=!showSource">
-        {{ showSource ? 'Hide source' : 'Show source' }}
-      </a>
-    </span>
-  </div>
-</div>
-<div ng-hide="!showSource" style="margin-top: 2%">
-  <pre>{{ record | json }}</pre>
-</div>
-<hr/>

@@ -1,22 +1,32 @@
-
-<h4>
-  <a target="_self" ng-href="/articles/{{record.metadata.control_number}}">
-    {{ record.metadata.title }}
-  </a>
-  <span class="btn btn-primary pull-right">Article</span>
-</h4>
-<p ng-if="record.metadata.short_description.content">{{record.metadata.short_description.content}}</p>
-<p ng-if="!record.metadata.short_description.content">{{record.metadata.body.content | limitTo: 200}}</p>
-<div class="text-right">
-  <ul class="list-inline">
-    <li>
-      <a ng-click="showSource=!showSource">
-        {{ showSource ? 'Hide source' : 'Show source' }}
-      </a>
-    </li>
-  </ul>
+<div>
+    <h4>
+        <a target="_self" ng-href="/articles/{{record.metadata.control_number}}">
+            {{ record.metadata.title }}
+        </a>
+    </h4>
+    <p ng-if="record.metadata.short_description.content">{{record.metadata.short_description.content}}</p>
+    <p ng-if="!record.metadata.short_description.content">{{record.metadata.body.content | limitTo: 200}}</p>
+    <div class="tags-box">
+        <a href="/search?type_pre={{record.metadata.type}}">
+            <span class="label label-primary">
+                {{ record.metadata.type }} 
+            </span>
+        </a>
+        <a ng-if="record.subtype" href="/search?subtype_pre={{record.metadata.subtype}}"> 
+            <span class="label label-info">
+                {{ record.metadata.subtype }}
+            </span>
+        </a> 
+        <a ng-repeat="tag in record.metadata.tags" href="/search?tags_pre={{tag}}"> 
+            <span class="label label-default">
+                {{ tag }} 
+            </span>
+        </a>
+        <a href="/search?experiment_pre={{record.metadata.experiment}}">
+            <span class="label label-warning">
+                {{ record.metadata.experiment }} 
+            </span>
+        </a>
+    </div>
+    <hr/>
 </div>
-<div ng-hide="!showSource">
-  <pre>{{ record | json }}</pre>
-</div>
-<hr/>

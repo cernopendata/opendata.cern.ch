@@ -1,31 +1,46 @@
 <!-- FIXME find a better way to set the record url -->
-<h4>
-  <a target="_self" ng-href="/records/{{ record.id }}">{{ record.metadata.title }}</a>
-  <span class="btn btn-primary pull-right">Record</span>
-</h4>
-<p>{{ record.metadata.summary }}</p>
-<div class="text-right">
-  <ul class="list-inline">
-    <li ng-show="record.metadata.added_entry_personal_name.length > 0">
-      <a ng-click="showAuthors=!showAuthors">
-        {{ showAuthors ? 'Hide authors' : 'Show authors' }}
-      </a>
-    </li>
-    <li>
-      <a ng-click="showSource=!showSource">
-        {{ showSource ? 'Hide source' : 'Show source' }}
-      </a>
-    </li>
-  </ul>
-</div>
-<div ng-hide="!showAuthors">
-  <ul>
-    <div ng-repeat='author in record.metadata.added_entry_personal_name'>
-      <li>{{ author.personal_name }}</li>
+<div>
+    <h4>
+        <a target="_self" ng-href="/records/{{ record.id }}">{{ record.metadata.title }}</a>
+    </h4>
+    <p>{{ record.metadata.summary }}</p>
+    <div class="text-right">
+        <ul class="list-inline">
+            <li ng-show="record.metadata.added_entry_personal_name.length > 0">
+                <a ng-click="showAuthors=!showAuthors">
+                    {{ showAuthors ? 'Hide authors' : 'Show authors' }}
+                </a>
+            </li>
+        </ul>
     </div>
-  </ul>
+    <div ng-hide="!showAuthors">
+        <ul>
+            <div ng-repeat='author in record.metadata.added_entry_personal_name'>
+                <li>{{ author.personal_name }}</li>
+            </div>
+        </ul>
+    </div>
+    <div class="tags-box">
+        <a href="/search?type_pre={{record.metadata.type}}">
+            <span class="label label-primary">
+                {{ record.metadata.type }} 
+            </span>
+        </a>
+        <a ng-if="record.subtype" href="/search?subtype_pre={{record.metadata.subtype}}"> 
+            <span class="label label-info">
+                {{ record.metadata.subtype }}
+            </span>
+        </a> 
+        <a ng-repeat="tag in record.metadata.tags" href="/search?tags_pre={{tag}}"> 
+            <span class="label label-default">
+                {{ tag }} 
+            </span>
+        </a>
+        <a href="/search?experiment_pre={{record.metadata.experiment}}">
+            <span class="label label-warning">
+                {{ record.metadata.experiment }} 
+            </span>
+        </a>
+    </div>
+    <hr/>
 </div>
-<div ng-hide="!showSource">
-  <pre>{{ record | json }}</pre>
-</div>
-<hr />
