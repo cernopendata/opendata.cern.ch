@@ -66,9 +66,9 @@ RUN chgrp -R 0 ${INVENIO_INSTANCE_PATH} && \
     chmod g=u /etc/passwd && \
     chmod ug+x /code/scripts/docker-entrypoint.sh
 
-RUN adduser --uid 1001 invenio --gid 0 && \
+RUN adduser --uid 1000 invenio --gid 0 && \
     chown -R invenio:root /code
-USER 1001
+USER 1000
 ENTRYPOINT [ "/code/scripts/docker-entrypoint.sh" ]
 
 # Start the CERN Open Data Portal application:
