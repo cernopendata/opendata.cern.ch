@@ -238,6 +238,7 @@ RECORDS_REST_FACETS = {
             type=terms_filter('type'),
             subtype=terms_filter('subtype'),
             year=terms_filter('collections.year'),
+            tags=terms_filter('tags'),
             file_type=terms_filter('distribution.formats'),
             run=terms_filter(
                 'production_publication_distribution_manufacture_and_'
