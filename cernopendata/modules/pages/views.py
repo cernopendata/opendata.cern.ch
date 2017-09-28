@@ -184,7 +184,10 @@ def visualise_histograms(experiment='CMS'):
 @register_breadcrumb(blueprint, '.index', _('Learning Resources'))
 def resources_articles():
     """Render index of articles resources."""
-    return render_template('cernopendata_pages/resources.html')
+    url = '/api/articles'
+
+    return render_template('cernopendata_pages/faceted_page.html',
+                           search_endpoint=url)
 
 
 # @blueprint.route('/VM')
@@ -375,23 +378,27 @@ def faceted_search(page=None, experiment=None):
     """Faceted search view.
 
     To add a new page:
-        add new urls option to blueprint.route
         add mapping, which (filter,val) should be use to filter record
     """
+    facets = [x for x in locals().values() if x]
+
     filter_map = {
         'getting-started': ('tags_pre', 'Getting Started'),
         'news': ('type_pre', 'News'),
         'vm': ('tags_pre', 'VM'),
         'data-policies': ('subtype_pre', 'Data policy'),
+        'cms': ('experiment_pre', 'CMS'),
+        'alice': ('experiment_pre', 'ALICE'),
+        'atlas': ('experiment_pre', 'ATLAS'),
+        'lhcb': ('experiment_pre', 'LHCb'),
     }
 
-    facets = {filter_map[page][0]: filter_map[page][1]}
+    filters = {}
+    for facet in facets:
+        _filter = filter_map.get(facet) or abort(404)
+        filters[_filter[0]] = _filter[1]
 
-    if experiment:
-        facets['experiment_pre'] = 'LHCb' if experiment == 'lhcb' \
-                                          else experiment.upper()
-
-    url = '/api/records?' + urllib.urlencode(facets)
+    url = '/api/records?' + urllib.urlencode(filters)
 
     return render_template('cernopendata_pages/faceted_page.html',
                            search_endpoint=url)
