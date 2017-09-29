@@ -11,7 +11,6 @@ def cernopendata_eos_storage_factory(**kwargs):
     """File storage factory for EOS."""
     return pyfs_storage_factory(
         filestorage_class=EOSFileStorage,
-        create_dir=False,
         **kwargs
     )
 

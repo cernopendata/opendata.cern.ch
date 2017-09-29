@@ -223,7 +223,7 @@ def data_policies():
 def datasets():
     """Load demo datasets records."""
     from invenio_db import db
-    from invenio_records import Record
+    from invenio_records_files.api import Record
     from invenio_indexer.api import RecordIndexer
     from cernopendata.modules.records.minters.recid import \
         cernopendata_recid_minter
@@ -262,6 +262,7 @@ def datasets():
                     filename = file.get("uri").split('/')[-1:][0]
                     f.set_uri(file.get("uri"), file.get(
                         "size"), file.get("checksum"))
+
                     ObjectVersion.create(
                         bucket,
                         filename,
@@ -277,7 +278,7 @@ def datasets():
 def software():
     """Load demo software records."""
     from invenio_db import db
-    from invenio_records import Record
+    from invenio_records_files.api import Record
     from invenio_indexer.api import RecordIndexer
     from cernopendata.modules.records.minters.recid import \
         cernopendata_recid_minter
