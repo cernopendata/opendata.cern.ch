@@ -75,6 +75,8 @@
           {% endif %}
           {% endblock metadata_block %}
 
+          {% include 'cernopendata_records_ui/records/components/previewer.html' %}
+
           {% block files_block %}
           {{ files_box(record) }}
           {% endblock files_block %}

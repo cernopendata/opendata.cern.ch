@@ -27,6 +27,9 @@ from invenio_records.errors import MissingModelError
 
 from invenio_records_files.utils import record_file_factory
 
+from invenio_previewer.views import blueprint as previewer_blueprint
+from invenio_previewer.proxies import current_previewer
+
 
 def file_download_ui(pid, record, _record_file_factory=None, **kwargs):
     """File download view for a given record.
@@ -74,3 +77,10 @@ def file_download_ui(pid, record, _record_file_factory=None, **kwargs):
         },
         create_dir=False
     )
+
+
+@previewer_blueprint.app_template_test('previewable_file')
+def is_previewable_file(file):
+    """Test if a file can be previewed checking its extension."""
+    extension = file.get('key', ".").split(".")[-1:][0]
+    return extension in current_previewer.previewable_extensions
