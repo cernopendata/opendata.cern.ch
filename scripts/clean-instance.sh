@@ -106,4 +106,4 @@ set -o nounset
 ${INVENIO_WEB_INSTANCE} db destroy --yes-i-know
 
 # destroy indexes:
-curl -X DELETE "${INVENIO_ELASTICSEARCH_HOST}:9200/_all"
+${INVENIO_WEB_INSTANCE} index destroy --force --yes-i-know
