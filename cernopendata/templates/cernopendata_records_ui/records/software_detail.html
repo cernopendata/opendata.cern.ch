@@ -1,4 +1,4 @@
-{%- extends "invenio_records_ui/detail.html" %}
+{%- extends "cernopendata_records_ui/records/detail.html" %}
 
 {%- block page_body %}
 <div class="container">
@@ -77,34 +77,7 @@
                             {% endfor %}
                         </div>
                     </div>
-                    {% if record.files %}
-                    <div class="row">
-                        <div class="col-md-12">
-                            <span>
-                                <h3>Files</h3>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Filename</th>
-                                            <th>Size</th>
-                                            <th>Download</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% for file in record.files %}
-                                        <tr>
-                                            <td>{{file.key}}</td>
-                                            <td>{#file.size#}</td>
-                                            <td><a href="/api/files/{{file.bucket}}/{{file.key}}"><i class="fa fa-download" aria-hidden="true"></i></a></td>
-                                        </tr>
-                                        <p></p>
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
-                            </span>
-                        </div>
-                    </div>
-                    {% endif %}
+                    {% block files_block %} {{ super() }} {% endblock files_block %}
                     <div class="row">
                         <div class="col-md-12">
                             <h3>How were these data validated?</h3>

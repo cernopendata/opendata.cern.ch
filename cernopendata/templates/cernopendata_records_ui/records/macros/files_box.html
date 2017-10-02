@@ -1,5 +1,5 @@
-{% macro files_box(files) %}
-  {% if files %}
+{% macro files_box(record) %}
+  {% if record.files %}
   <div class="row">
     <div class="col-md-12">
       <span>
@@ -13,12 +13,12 @@
             </tr>
           </thead>
           <tbody>
-            {% for file in files %}
+            {% for file in record.files %}
             <tr>
               {% set _file = file.dumps() %}
               <td>{{ _file.key }}</td>
               <td>{{ _file.size | filesizeformat }}</td>
-              <td>{{ download_btn(file) }}</td>
+              <td>{{ download_btn(record.control_number, file) }}</td>
             </tr>
             {% endfor %}
           </tbody>
@@ -32,8 +32,8 @@
 
 
 
-{% macro download_btn(file, icon='fa-download') %}
-  {% set download_uri = '/api/files/'+file.bucket | string+'/'+file.key %}
+{% macro download_btn(record_id, file, icon='fa-download') %}
+  {% set download_uri = url_for("invenio_records_ui.recid_files", pid_value=record_id, filename=file.key) %}
   {% if file.mimetype != 'application/octet-stream' %}
     <a href="{{download_uri}}">
       <i class="fa {{icon}}" aria-hidden="true"></i>
