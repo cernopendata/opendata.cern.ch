@@ -35,8 +35,12 @@
       "title": "Title"
     },
     "collaboration": {
-      "type": "string",
-      "title": "Collaboration"
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
     },
     "experiment": {
       "type": "string",
