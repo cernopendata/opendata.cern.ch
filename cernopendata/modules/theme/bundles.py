@@ -29,6 +29,20 @@ from __future__ import absolute_import, print_function
 from flask_assets import Bundle
 from invenio_assets import NpmBundle
 
+js = NpmBundle(
+    'node_modules/angular/angular.js',
+    'node_modules/jquery/jquery.js',
+    'node_modules/popper.js/dist/umd/popper.js',
+    'node_modules/bootstrap/dist/js/bootstrap.js',
+    output='gen/cernopendata.theme.%(version)s.js',
+    npm={
+        'angular': '~1.4.9',
+        'jquery': '~1.9.1',
+        'popper.js': '~1.11.0',
+        'bootstrap': '~4.0.0-beta',
+    },
+)
+
 css = NpmBundle(
     Bundle(
         'scss/styles.scss',

@@ -1,48 +1,62 @@
 {%- extends "invenio_theme/header.html" %}
+{%- block navbar %}
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='assets/img/logo-long.svg')}}" width="200" alt=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="oi" data-glyph="menu" style="color:white;"></span>
+  </button>
 
-{%- block breadcrumbs %}
-{% if request.path != '/' and breadcrumbs|length > 1 %}
-<section class="bg-info pull-row-up">
-  {{ super() }}
-</section>
-{% endif %}
-{%- endblock %}
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-{%- block navbar_nav %}
-{% block navbar_search %}
-  {{ super() }}
-{% endblock navbar_search %}
-<img src="{{ url_for('static', filename='img/demo.png') }}" alt="" style="position:absolute;left:40%;top:0;width:200px;">
-<ul class="nav navbar-nav">
-  <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">About <b class="caret"></b></a>
-    <ul class="dropdown-menu">
-      <li><a href="/about">This Portal</a></li>
-      <li><a href="#">CERN</a></li>
-      <li><a href="/glossary">Glossary</a></li>
-      <li><a href="/privacy-policy">Privacy</a></li>
+    <form class="form-inline my-2 my-lg-0" action="{{config.THEME_SEARCH_ENDPOINT}}">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" aria-label="Search">
+      <button class="btn btn-info my-2 my-sm-0" type="submit"><span class="oi" data-glyph="magnifying-glass"></span>
+      </button>
+    </form>
+
+
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">About
+          <b class="caret"></b></a>
+        <ul class="dropdown-menu" >
+          <li><a class="dropdown-item" href="/about">This Portal</a></li>
+          <li><a class="dropdown-item" href="#">CERN</a></li>
+          <li><a class="dropdown-item" href="/glossary">Glossary</a></li>
+          <li><a class="dropdown-item" href="/privacy-policy">Privacy</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Explore
+          <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Datasets</a></li>
+          <li><a class="dropdown-item" href="{{url_for('cernopendata_pages.resources_articles')}}">Learning resources</a></li>
+          <li><a class="dropdown-item" href="#">Tools</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Collaborations
+          <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="{{url_for('cernopendata_pages.about_alice')}}">ALICE</a></li>
+          <li><a class="dropdown-item" href="{{url_for('cernopendata_pages.about_atlas')}}">ATLAS</a></li>
+          <li><a class="dropdown-item" href="{{url_for('cernopendata_pages.about_cms')}}">CMS</a></li>
+          <li><a class="dropdown-item" href="{{url_for('cernopendata_pages.about_lhcb')}}">LHCb</a></li>
+          <li><a class="dropdown-item" href="{{url_for('cernopendata_pages.about_opera')}}">OPERA</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">Help</a>
+      </li>
+
     </ul>
-  </li>
-  <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Explore <b class="caret"></b></a>
-    <ul class="dropdown-menu">
-      <li><a href="#">Datasets</a></li>
-      <li><a href="{{url_for('cernopendata_pages.resources_articles')}}">Learning resources</a></li>
-      <li><a href="#">Tools</a></li>
-    </ul>
-  </li>
-  <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Collaborations <b class="caret"></b></a>
-    <ul class="dropdown-menu">
-      <li><a href="/about/alice">ALICE</a></li>
-      <li><a href="/about/atlas">ATLAS</a></li>
-      <li><a href="/about/cms">CMS</a></li>
-      <li><a href="/about/lhcb">LHCb</a></li>
-      <li><a href="/about/opera">OPERA</a></li>
-    </ul>
-  </li>
 
-  <li><a href="#">Help</a></li>
-</ul>
-{%- endblock navbar_nav %}
+  </div>
+</nav>
 
+{%- endblock navbar %}

@@ -1,48 +1,214 @@
-@import "variables";
+//@import "variables";
+//
+//// Setting the path to fonts files.
+//$icon-font-path: "/static/node_modules/bootstrap-sass/assets/fonts/";
+//$fa-font-path: "/static/node_modules/font-awesome/fonts";
+//
+//@import "../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap";
+//@import "../node_modules/font-awesome/scss/font-awesome";
+//
+//@import "footer";
+//@import "frontpage";
+//@import "visualise";
+//@import "pygments_friendly";
+//
+//html, body {
+//  /* The html and body elements cannot have any padding or margin. */
+//  height: 100%;
+//}
+//
+//results-brief {
+//  li {
+//    list-style-type: none;
+//  }
+//}
+//
+//.record-box {
+//    position: relative;
+//    margin: 15px;
+//    height: 100%;
+//}
+//
+//.tags-box {
+//    position: absolute;
+//    bottom: 0;
+//    right: 0;
+//    margin-bottom: 30px;
+//    font-size: 0.9em;
+//}
+//
+//.tags-box a {
+//    text-decoration: None;
+//}
+//
+//.label {
+//    display: inline-block;
+//    padding: .3em .5em .4em
+//}
 
-// Setting the path to fonts files.
-$icon-font-path: "/static/node_modules/bootstrap-sass/assets/fonts/";
-$fa-font-path: "/static/node_modules/font-awesome/fonts";
-
-@import "../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap";
-@import "../node_modules/font-awesome/scss/font-awesome";
-
-@import "footer";
-@import "frontpage";
-@import "visualise";
-@import "pygments_friendly";
-
-html, body {
-  /* The html and body elements cannot have any padding or margin. */
-  height: 100%;
+body {
+  font-family: 'Montserrat', sans-serif;
 }
 
-results-brief {
-  li {
-    list-style-type: none;
-  }
+section {
+  min-height: 100vh;
+  color: #2c3e50;
+  padding: 2em;
 }
 
-.record-box {
-    position: relative;
-    margin: 15px;
-    height: 100%;
+section.main {
+  background: #283747 url('static/assets/img/header-image.svg') 50% 50% no-repeat;
+  color: white;
+  height: calc(100vh - 5vh);
+  background-size: 100%;
 }
 
-.tags-box {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin-bottom: 30px;
-    font-size: 0.9em;
-    text-align: right;
+section.research {
+  border-top: 2px solid #eee;
+  background-color: #f6f7f6;
 }
 
-.tags-box a {
-    text-decoration: None;
+section.main a {
+  color: #3b97d3;
+  font-weight: bolder;
 }
 
-.label {
-    display: inline-block;
-    padding: .3em .5em .4em
+section.footer {
+  border-top: 2px solid #eee;
+  min-height: 100px;
 }
+
+.header-text-section {
+  position: absolute;
+  bottom: 30px;
+}
+
+.header-links-section {
+  position: absolute;
+  bottom: 30px;
+  right: 0;
+  text-align: center;
+}
+
+.header-link {
+  height: 180px;
+}
+
+.header-link.education {
+  background: url('static/assets/img/top-education-link.svg') 50% 0% no-repeat;
+  background-size: 200px;
+  padding-top: 130px;
+}
+
+.header-link.education .btn-info {
+  background-color: #e57e25;
+  border: none;
+  cursor: pointer;
+}
+
+.header-link.research .btn-info {
+  background-color: #3b97d3;
+  border: none;
+  cursor: pointer;
+}
+
+.header-link.education .btn-info:hover {
+  background-color: #d17322;
+}
+
+.header-link.research .btn-info:hover {
+  background-color: #388ec7;
+}
+
+.header-link.research {
+  background: url('static/assets/img/top-research-link.svg') 50% 0% no-repeat;
+  background-size: 200px;
+  padding-top: 130px;
+}
+
+.navbar-custom {
+  background-color: #283747 !important;
+  border-bottom: 2px solid #35495e;
+
+}
+
+.navbar-custom a {
+  color: white;
+}
+
+.od-icon {
+  min-height: 140px;
+  padding: 10px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.od-teaching {
+  background-image: url('static/assets/img/teaching.svg');
+  background-size: 23%;
+}
+
+.od-visualize {
+  background-image: url('static/assets/img/visualize.svg');
+  background-size: 45%;
+}
+
+.od-db-education {
+  background-image: url('static/assets/img/db-education.svg');
+  background-size: 30%;
+}
+
+.od-model {
+  background-image: url('static/assets/img/model.svg');
+  background-size: 30%;
+}
+
+.od-vm {
+  background-image: url('static/assets/img/vm.svg');
+  background-size: 60%;
+}
+
+.od-db-research {
+  background-image: url('static/assets/img/db-research.svg');
+  background-size: 30%;
+}
+
+.info-block {
+  padding: 10px;
+}
+
+.info-block.education a {
+  color: #e57e25;
+}
+
+.info-block.research a {
+  color: #3b97d3;
+}
+
+.info-block h4 {
+  font-weight: bolder;
+  font-size: 1.4em;
+}
+
+.info-block ul {
+  list-style: none;
+  text-align: left;
+}
+
+.info-block ul li {
+  padding: 20px 0 5px 0;
+}
+
+.info-block ul li a {
+  font-weight: bolder;
+  font-size: 1.2em;
+}
+
+.dropdown-item {
+  color: #3b97d3!important;
+  display: block;
+  //padding: 3px 20px;
+  line-height: 1.42857;
+  white-space: nowrap;
+}
+

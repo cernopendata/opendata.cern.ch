@@ -15,112 +15,90 @@
 
 
 {%- block page_body %}
-<div class="container">
-    <div class="row" style="margin-top: 3%;">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading"><h4>The CERN Open Data portal is the access point to a growing range of data produced
-                        through the research
-                        performed at CERN. It disseminates the preserved output from various research activities, including
-                        accompanying
-                        software and documentation which is needed to understand and analyse the data being shared.</h4></div>
-            </div>
-        </div>
-    </div>
+<section class="main">
+  <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h2>News</h2>
-                </div>
-                <div class="panel-body">
-                    <div class="row">
-                        {% for record in records %}
-                        {% set record = record._source %}
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail" style="height: 180px;">
-                                <div class="record-box">
-                                    <h3><a href="/articles/{{record.control_number}}">{{ record.title }}</a></h3>
-                                    {% if record.created or record.author %}
-                                    <h6 style="text-align: right">
-                                        {{ record.created }} 
-                                        {% if record.author %}
-                                        by {{ record.author }}
-                                        {% endif %}
-                                    </h6>
-                                    {% endif %}
-                                    <div class="tags-box">
-                                        <a href="/search?type={{record.type}}">
-                                            <span class="label label-primary">
-                                                {{ record.type }} 
-                                            </span>
-                                        </a>
-                                        {% if record.subtype %}
-                                        <a href="/search?subtype={{record.subtype}}"> 
-                                            <span class="label label-info">
-                                                {{ record.subtype }}
-                                            </span>
-                                        </a> 
-                                        {% endif %}
-                                        {% for tag in record.tags %}
-                                        <a href="/search?tags={{tag}}"> 
-                                            <span class="label label-default">
-                                                {{ tag }} 
-                                            </span>
-                                        </a>
-                                        {% endfor %}
-                                        <a href="/search?experiment={{record.experiment}}">
-                                            <span class="label label-warning">
-                                                {{ record.experiment }} 
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div class="col-md-3 header-text-section">
+        <p>
+          The CERN Open Data Portal is the access point to a growing range of data produced through the research
+          performed at <a href="http://home.cern" target="_blank">CERN</a>.
+        </p>
+        <p>
+          It disseminates the preserved output from various research
+          activities, including accompanying software and documentation which is needed to understand and analyse the
+          data being shared.
+        </p>
+      </div>
+      <div class="col-md-6"></div>
     </div>
+  </div>
+</section>
+<section class="education">
+  <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h2>Visualise</h2>
-                </div>
-                <div class="panel-body">
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img  style="height: 126px;"  src="{{url_for('static', filename='img/cms_vis.png')}}">
-                            <div class="caption">
-                                <h3 class="text-center">Visualise CMS detector events</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img style="height: 126px;" src="{{url_for('static', filename='img/opera_vis.png')}}">
-                            <div class="caption">
-                                <h3 class="text-center"><a href="{{url_for('.visualise_events', experiment='OPERA')}}">Visualise OPERA
-                                        detector events</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img style="height: 153px;" src="{{url_for('static', filename='img/visualisation/histogram.png')}}">
-                            <div class="caption">
-                                <h3 class="text-center"><a href="{{url_for('.visualise_histograms', experiment='CMS')}}">Visualise
-                                        histograms</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div class="col-md-12 text-center">
+        <br/><br/>
+        <p>
+          For education purposes, the complex primary data need to be processed into
+          a format (examples below) that is good for simple applications. Get in touch if you
+          wish to build your own applications similar to those shown here
+        </p>
+      </div>
     </div>
-</div>
-{%- endblock %}
 
+    <div class="row">
+      <br/><br/>
+      <div class="col-md-6 text-center info-block education">
+        <div class="od-icon od-teaching"></div>
+        <h4>News</h4>
+
+        <ul>
+          {% for record in records %}
+          {% set record = record._source %}
+          <li>
+            <a href="/articles/{{record.control_number}}">{{record.title}}</a>
+            <p>
+              {% if record.created or record.author %}
+              {{ record.created }}
+              {% if record.author %}
+              by {{ record.author }}
+              {% endif %}
+            {% endif %}
+            </p>
+          </li>
+          {% endfor %}
+
+        </ul>
+      </div>
+
+      <div class="col-md-6 text-center info-block education">
+        <div class="od-icon od-visualize"></div>
+
+        <h4>Visualise CERN Data</h4>
+
+        <ul>
+          <li>
+            <a href="#">CMS detector events</a>
+            <p>Analyse CMS data in detail with our interactive visualization tool</p>
+          </li>
+
+          <li>
+            <a href="{{url_for('.visualise_events', experiment='OPERA')}}">OPERA detector events</a>
+            <p>Analyse OPERA data in detail with our interactive visualization tool</p>
+          </li>
+
+          <li>
+            <a href="{{url_for('.visualise_histograms', experiment='CMS')}}">Visualise histrograms</a>
+            <p>Visualise events from our detectors, including the Higgs events</p>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+{%- endblock %}
