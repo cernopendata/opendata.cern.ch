@@ -1,45 +1,29 @@
-<footer id="footer">
-  <hr/>
-  <div class="container">
+<section class="footer">
+  <div class="container-fluid">
     <div class="row">
-      <div class="text-center col-md-1 col-sm-1 col-xs-12">
-        <a href="http://www.cern.ch">
-          <img src="{{ url_for('static', filename='img/cern-logo-large.png') }}" alt="CERN">
-        </a>
+      <div class="col-md-1">
+        <img src="{{url_for('static', filename='assets/img/atlas-color.svg')}}" width="80px"/>
       </div>
-      <div class="text-center col-lg-6 col-md-5 col-sm-3"></div>
-      <div class="text-center col-lg-5 col-md-6 col-sm-8 col-xs-12">
-        <a href="http://alice.cern.ch">
-          <img src="{{ url_for('static', filename='img/ALICE.gif') }}" alt="ALICE">
-        </a>
-        <a href="http://atlas.ch">
-          <img src="{{ url_for('static', filename='img/ATLAS.gif') }}" alt="ATLAS">
-        </a>
-        <a href="http://cms.cern.ch">
-          <img src="{{ url_for('static', filename='img/CMS.gif') }}" alt="CMS">
-        </a>
-        <a href="http://lhcb.cern.ch">
-          <img src="{{ url_for('static', filename='img/LHCb.gif') }}" alt="LHCb">
-        </a>
-        <a href="http://operaweb.lngs.infn.it/">
-          <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/OPERA.png')}}" alt="Nu beam" width="64">
-        </a>
+
+      <div class="col-md-1">
+        <img src="{{url_for('static', filename='assets/img/alice-color.svg')}}" width="80px"/>
       </div>
-    </div>
-    <br/>
-    <div class="row small">
-      <div class="col-lg-push-4 col-md-push-4 col-sm-push-3 col-lg-8 col-md-6 col-sm-8 col-xs-12 text-xs-center" >
-        <ul class="list-inline">
-          <li>© 2017 CERN</li>
-          <li><a href="/terms-of-use">Terms of Use</a></li>
-          <li><a href="/privacy-policy">Privacy Policy</a></li>
-          <li><a href="mailto:opendata-support@cern.ch">Contact</a></li>
-        </ul>
+
+      <div class="col-md-1">
+        <img src="{{url_for('static', filename='assets/img/cms-color.svg')}}" width="80px"/>
       </div>
-      <div class="col-lg-pull-8 col-md-pull-6 col-sm-pull-8 col-lg-2 col-md-3 col-sm-2 col-xs-6">
-        {% trans link="http://inveniosoftware.org" %}Powered by <a href="{{link}}">Invenio</a>{% endtrans %}
+
+      <div class="col-md-1">
+        <img src="{{url_for('static', filename='assets/img/lhcb-color.svg')}}" width="80px"/>
+      </div>
+
+      <div class="col-md-6">
+
+      </div>
+
+      <div class="col-md-2">
+        <img src="{{url_for('static', filename='assets/img/cern.svg')}}" width="80px"/>
       </div>
     </div>
-    <br/>
   </div>
-</footer>
+</section>

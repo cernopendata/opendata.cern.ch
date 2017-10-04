@@ -1,7 +1,11 @@
 {% extends 'invenio_theme/page.html' %}
 
 {% block css %}
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700,400italic" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+        integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic.css"/>
+
     {%- assets "cernopendata_theme_css" %}
     <link href="{{ ASSET_URL }}" rel="stylesheet">
     {%- endassets %}
@@ -39,6 +43,7 @@
 {%- endblock body_inner %}
 
 {%- block javascript %}
+  {% assets "cernopendata_theme_js" %}<script src="{{ ASSET_URL }}"></script>{% endassets %}
   {{super()}}
   {% assets "cernopendata_glossary_js" %}<script src="{{ ASSET_URL }}"></script>{% endassets %}
   {%- block javascript_glossary %}
