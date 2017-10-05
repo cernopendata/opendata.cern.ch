@@ -16,7 +16,7 @@
 
 {%- block page_body %}
 <div class="container">
-
+    {% if description %}
     {% if description.img %}
     <img src="{{description.img}}"/>
     {% endif %}
@@ -26,6 +26,7 @@
     </div>
     <hr>
     <br>
+    {% endif %}
     {% endif %}
     <div class="row">
         <div id="invenio-search">

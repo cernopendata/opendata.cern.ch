@@ -6,8 +6,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10">
-      <div class="panel panel-default">
-        <div class="panel-heading">
+      <div class="card">
+        <div class="card-header">
           {% block heading %}
           <h2 style="display: inline;">
             {{record.additional_title}}
@@ -21,18 +21,18 @@
               {% for author in record.authors %}
               <small>{{author.name}}</small>
               {% endfor %}
-              <span class="label label-success">{{record.collaboration.name}}</span>
+              <span class="badge badge-success">{{record.collaboration.name}}</span>
               {% if record.year %}
-              <span class="label label-success">{{record.year}} Run</span>
+              <span class="badge badge-success">{{record.year}} Run</span>
               {% endif %}
             </div>
           </div>
           <p></p>
 
           <div class="col-md-12">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
                   <label>Cite as:</label>
                   {% for author in record.authors %}
                   <span>{{author.name}}.</span>
@@ -63,7 +63,7 @@
           </div>
           {% endblock heading %}
         </div>
-        <div class="panel-body">
+        <div class="card-body">
           {% block metadata_block %}
           {% if record.abstract %}
           <div class="row">

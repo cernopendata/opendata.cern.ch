@@ -33,28 +33,22 @@
     </div>
   </div>
 </section>
-<section class="education">
+<section class="education" style="min-height: auto;">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12 text-center">
+        <div class="od-icon od-teaching" style="background-size: 10%;"></div>
+        <h4 style="font-weight: bolder;font-size: 1.4em;">News</h4>
         <br/><br/>
-        <p>
-          For education purposes, the complex primary data need to be processed into
-          a format (examples below) that is good for simple applications. Get in touch if you
-          wish to build your own applications similar to those shown here
-        </p>
       </div>
     </div>
 
     <div class="row">
       <br/><br/>
-      <div class="col-md-6 text-center info-block education">
-        <div class="od-icon od-teaching"></div>
-        <h4>News</h4>
-
+      {% for record in records %}
+      {% set record = record._source %}
+      <div class="col-md-4 text-center info-block education">
         <ul>
-          {% for record in records %}
-          {% set record = record._source %}
           <li>
             <a href="/articles/{{record.control_number}}">{{record.title}}</a>
             <p>
@@ -63,30 +57,56 @@
               {% if record.author %}
               by {{ record.author }}
               {% endif %}
-            {% endif %}
+              {% endif %}
             </p>
+            <div class="tags-box">
+              <a href="/search?type_pre={{record.type}}" class="badge badge-pill badge-success" style="font-size: small; color: #fff;">{{ record.type }}</a>
+              {% if record.subtype %}
+              <a href="/search?subtype_pre={{record.subtype}}" class="badge badge-pill badge-info" style="font-size: small; color: #fff;">{{ record.subtype }}</a>
+              {% endif %}
+              {% for tag in record.tags %}
+                <a href="/search?tags_pre={{tag}}" class="badge badge-pill badge-secondary" style="font-size: small; color: #fff;">{{ tag }}</a>
+              {% endfor %}
+              <a href="/search?experiment_pre={{record.experiment}}" class="badge badge-pill badge-warning" style="font-size: small; color: #fff;">{{ record.experiment }}</a>
+            </div>
           </li>
-          {% endfor %}
-
         </ul>
       </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="research" style="min-height: auto;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="od-icon od-visualize" style="background-size: 20%;"></div>
+        <h4 style="font-weight: bolder;font-size: 1.4em;">Visualise CERN Data</h4>
+        <br/><br/>
+      </div>
+    </div>
 
-      <div class="col-md-6 text-center info-block education">
-        <div class="od-icon od-visualize"></div>
-
-        <h4>Visualise CERN Data</h4>
-
+    <div class="row">
+      <br/><br/>
+      <div class="col-md-4 text-center info-block education">
         <ul>
           <li>
             <a href="#">CMS detector events</a>
             <p>Analyse CMS data in detail with our interactive visualization tool</p>
           </li>
-
+        </ul>
+      </div>
+      <div class="col-md-4 text-center info-block education">
+        <ul>
           <li>
             <a href="{{url_for('.visualise_events', experiment='OPERA')}}">OPERA detector events</a>
             <p>Analyse OPERA data in detail with our interactive visualization tool</p>
           </li>
+        </ul>
 
+      </div>
+      <div class="col-md-4 text-center info-block education">
+        <ul>
           <li>
             <a href="{{url_for('.visualise_histograms', experiment='CMS')}}">Visualise histrograms</a>
             <p>Visualise events from our detectors, including the Higgs events</p>
@@ -95,7 +115,6 @@
         </ul>
 
       </div>
-
     </div>
 
   </div>

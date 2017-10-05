@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10">
-            <div class="panel panel-default">
-                <div class="panel-heading">
+            <div class="card">
+                <div class="card-header">
                     <h2 style="display: inline;">
                         {{record.title}}
                     </h2>
@@ -14,8 +14,8 @@
                             {% for author in record.authors %}
                             <small>{{author.name}}</small>
                             {% endfor %}
-                            <span class="label label-success">{{record.collaboration}}</span>
-                            <span class="label label-success">{{record.year}} Run</span>
+                            <span class="badge badge-success">{{record.collaboration}}</span>
+                            <span class="badge badge-success">{{record.year}} Run</span>
                         </div>
                     </div>
                     <p></p>
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel-body">
+                <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
                             <h3>Description</h3>

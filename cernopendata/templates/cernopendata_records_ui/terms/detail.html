@@ -2,16 +2,16 @@
 
 {%- block page_body %}
 <div class="container">
-  <div class="panel panel-default">
-    <div class="panel-heading">
+  <div class="card">
+    <div class="card-header">
       <h2 style="display: inline;">
         {{record.anchor | capitalize}}
         <h4>
-          <span class="label label-success">{{record.category}}</span>
+          <span class="badge badge-success">{{record.category}}</span>
         </h4>
       </h2>
     </div>
-    <div class="panel-body">
+    <div class="card-body">
       <p>{{ record.definition }}</p>
       {% if record.links %}
       <div>
@@ -28,7 +28,7 @@
         <span>
           <strong>See also: </strong>
           {% for term in record.see_also%}
-            <a href="/glossary/{{term.term}}"><span class="label label-info">{{term.term}}</span></a>
+            <a href="/glossary/{{term.term}}"><span class="badge badge-pill badge-info">{{term.term}}</span></a>
           {% endfor %}
         </span>
       </div>
