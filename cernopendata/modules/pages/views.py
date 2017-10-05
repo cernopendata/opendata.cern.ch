@@ -83,7 +83,7 @@ def lazy_title(text, *args):
                          '_anchor': 'education'})
 def index():
     """Home Page."""
-    results = FrontpageRecordsSearch()[:5].execute()
+    results = FrontpageRecordsSearch()[:6].execute()
     return render_template('cernopendata_pages/index.html',
                            records=results.hits.hits)
 

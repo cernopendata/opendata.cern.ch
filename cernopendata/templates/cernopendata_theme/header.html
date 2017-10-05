@@ -1,7 +1,7 @@
 {%- extends "invenio_theme/header.html" %}
 {%- block navbar %}
 <nav class="navbar navbar-expand-lg navbar-custom">
-  <a class="navbar-brand" href="#"><img src="{{url_for('static', filename='assets/img/logo-long.svg')}}" width="200" alt=""></a>
+  <a class="navbar-brand" href="{{url_for('cernopendata_pages.index')}}"><img src="{{url_for('static', filename='assets/img/logo-long.svg')}}" width="200" alt=""></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="oi" data-glyph="menu" style="color:white;"></span>

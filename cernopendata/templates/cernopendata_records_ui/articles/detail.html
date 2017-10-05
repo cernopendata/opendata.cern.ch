@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10">
-            <div class="panel panel-default">
-                <div class="panel-heading">
+            <div class="card">
+                <div class="card-header">
                     <h2 style="display: inline;">
                         {{record.title}}
                         {% if record.get("author", None) %}
@@ -15,13 +15,13 @@
                         {% endif %}
                         <h4>
                             {% for collection in record.collections%}
-                                <span class="label label-success">{{collection.primary}}</span>
-                                <span class="label label-success">{{collection.secondary}}</span>
+                                <span class="badge badge-success">{{collection.primary}}</span>
+                                <span class="badge badge-success">{{collection.secondary}}</span>
                             {% endfor %}
                         </h4>
                     </h2>
                 </div>
-                <div class="panel-body">
+                <div class="card-body">
                     {% if record.get("body", {}).get("format", None) == "html" %}
                     {{record.get("body", {}).get("content", None) |safe}}
                     {% elif record.get("body", {}).get("format", None) == "md" %}
@@ -51,5 +51,6 @@
         </div>
     </div>
 </div>
+<br>
 {%- endblock %}
 
