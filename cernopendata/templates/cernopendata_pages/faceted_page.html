@@ -16,16 +16,20 @@
 
 {%- block page_body %}
 <div class="container">
-
-    {% if description.img %}
-    <img src="{{description.img}}"/>
-    {% endif %}
-    {% if description.text %}
-    <div class="row">
-        <h3> {{ description.text|safe }} </h3>
-    </div>
-    <hr>
-    <br>
+    {% if description %}
+        {% if description.name %}
+        <h1 style="text-align: center"> {{ description.name }} </h2>
+        {% endif %}
+        {% if description.img %}
+        <img src="{{description.img}}"/>
+        {% endif %}
+        {% if description.text %}
+        <div class="row">
+            <h3> {{ description.text|safe }} </h3>
+        </div>
+        <hr>
+        <br>
+        {% endif %}          
     {% endif %}
     <div class="row">
         <div id="invenio-search">

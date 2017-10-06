@@ -372,9 +372,7 @@ def glossary_json():
     return jsonify(glossary)
 
 
-@blueprint.route('/collection'
-                 '/<any("cms","lhcb","opera","alice","atlas","data-policies")'
-                 ':collection>')
+@blueprint.route('/collection/<string:collection>')
 @blueprint.route('/<any("getting-started","vm","news"):page>')
 @blueprint.route('/<any("getting-started"):page>'
                  '/<any("cms","lhcb","opera","alice","atlas"):experiment>')
@@ -383,9 +381,10 @@ def faceted_search(page=None, experiment=None, collection=None):
 
     To add a new page:
         add url to blueprint.route
-        add mapping, which (filter,val) should be use to filter record
+        add mapping, which (filter,val) should be use to filter records
     """
     facets = [x for x in locals().values() if x]
+    description = None
 
     filter_map = {
         'getting-started': ('tags_pre', 'Getting Started'),
@@ -396,6 +395,32 @@ def faceted_search(page=None, experiment=None, collection=None):
         'alice': ('experiment_pre', 'ALICE'),
         'atlas': ('experiment_pre', 'ATLAS'),
         'lhcb': ('experiment_pre', 'LHCb'),
+        'alice-derived-datasets': ('subtype_pre', 'ALICE-Derived-Datasets'),
+        'alice-reconstructed-data': ('subtype_pre',
+                                     'ALICE-Reconstructed-Data'),
+        'alice-tools': ('subtype_pre', 'ALICE-Tools'),
+        'atlas-derived-datasets': ('subtype_pre', 'ATLAS-Derived-Datasets'),
+        'atlas-simulated-datasets': ('subtype_pre',
+                                     'ATLAS-Simulated-Datasets'),
+        'atlas-learning-resources': ('subtype_pre',
+                                     'ATLAS-Learning-Resources'),
+        'atlas-tools': ('subtype_pre', 'ATLAS-Tools'),
+        'author-lists': ('subtype_pre', 'Author-Lists'),
+        'cms-condition-data': ('subtype_pre', 'CMS-Condition-Data'),
+        'cms-configuration-files': ('subtype_pre', 'CMS-Configuration-Files'),
+        'cms-derived-datasets': ('subtype_pre', 'CMS-Derived-Datasets'),
+        'cms-luminosity-information': ('subtype_pre',
+                                       'CMS-Luminosity-Information'),
+        'cms-open-data-instructions': ('subtype_pre',
+                                       'CMS-Open-Data-Instructions'),
+        'cms-primary-datasets': ('subtype_pre', 'CMS-Primary-Datasets'),
+        'cms-simulated-datasets': ('subtype_pre', 'CMS-Simulated-Datasets'),
+        'cms-validated-runs': ('subtype_pre', 'CMS-Validated-Runs'),
+        'cms-validation-utilities': ('subtype_pre',
+                                     'CMS-Validation-Utilities'),
+        'lhcb-derived-datasets': ('subtype_pre', 'LHCb-Derived-Datasets'),
+        'lhcb-learning-resources': ('subtype_pre', 'LHCb-Learning-Resources'),
+        'lhcb-tools': ('subtype_pre', 'LHCb-Tools'),
     }
 
     filters = {}
@@ -403,7 +428,10 @@ def faceted_search(page=None, experiment=None, collection=None):
         _filter = filter_map.get(facet) or abort(404)
         filters[_filter[0]] = _filter[1]
 
-    description = descriptions.get(collection, None)
+    # all collections should have defined descriptions, 404 otherwise
+    if collection:
+        description = descriptions.get(collection) or abort(404)
+
     url = '/api/records?' + urllib.urlencode(filters)
 
     return render_template('cernopendata_pages/faceted_page.html',
