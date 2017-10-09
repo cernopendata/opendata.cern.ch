@@ -5,30 +5,30 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h2 style="display: inline;">
-        {{record.anchor | capitalize}}
+        {{record.get('anchor', '') | capitalize}}
         <h4>
-          <span class="label label-success">{{record.category}}</span>
+          <span class="label label-success">{{record.get('category', '')}}</span>
         </h4>
       </h2>
     </div>
     <div class="panel-body">
-      <p>{{ record.definition }}</p>
-      {% if record.links %}
+      <p>{{ record.get('definition', '') }}</p>
+      {% if record.get('links', []) %}
       <div>
         <span>
           <strong>Links: </strong>
-          {% for r in record.links %}
-            <a target="_blank" href="{{r.url}}">{{r.text}}</a>
+          {% for r in record.get('links') %}
+            <a target="_blank" href="{{r.get('url', '')}}">{{r.get('text', '')}}</a>
         {% endfor %}
         </span>
       </div>
       {% endif %}
-      {% if record.see_also %}
+      {% if record.get('see_also', []) %}
       <div>
         <span>
           <strong>See also: </strong>
-          {% for term in record.see_also%}
-            <a href="/glossary/{{term.term}}"><span class="label label-info">{{term.term}}</span></a>
+          {% for term in record.get('see_also') %}
+            <a href="/glossary/{{term.get('term', '')}}"><span class="label label-info">{{term.get('term', '')}}</span></a>
           {% endfor %}
         </span>
       </div>

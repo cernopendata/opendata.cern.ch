@@ -10,20 +10,20 @@
         <div class="panel-heading">
           {% block heading %}
           <h2 style="display: inline;">
-            {{record.additional_title}}
-            <small>{{record.date_published}}</small>
+            {{record.get('title', '')}}
+            <small>{{record.get('date_published', '')}}</small>
           </h2>
           <div class="row">
             <div class="col-md-12">
-              {{record.title}}
+              {{record.get('additional_title', '')}}
             </div>
             <div class="col-md-12">
-              {% for author in record.authors %}
-              <small>{{author.name}}</small>
+              {% for author in record.get('authors', [])%}
+              <small>{{author.get('name', '')}}</small>
               {% endfor %}
-              <span class="label label-success">{{record.collaboration.name}}</span>
-              {% if record.year %}
-              <span class="label label-success">{{record.year}} Run</span>
+              <span class="label label-success">{{record.get('collaboration', '').get('name', '')}}</span>
+              {% if record.get('year', '') %}
+              <span class="label label-success">{{record.get('year')}} Run</span>
               {% endif %}
             </div>
           </div>
@@ -34,13 +34,13 @@
               <div class="panel-heading">
                 <h3 class="panel-title">
                   <label>Cite as:</label>
-                  {% for author in record.authors %}
-                  <span>{{author.name}}.</span>
+                  {% for author in record.get('authors', []) %}
+                  <span>{{author.get('name', '')}}.</span>
                   {% endfor %}
-                  <span>{{record.collaboration.name}} ({{record.date_published}}). {{record.additional_title}}. CERN Open Data Portal.
-                                {% if record.doi %}
+                  <span>{{record.get('collaboration', '').get('name', '')}} ({{record.get('date_published', '')}}). {{record.get('additional_title', '')}}. CERN Open Data Portal.
+                                {% if record.get('doi', '') %}
                                   <label>DOI:</label>
-                                  <a href="http://doi.org/{{record.doi}}">{{record.doi}}</a>
+                                  <a href="http://doi.org/{{record.get('doi', '')}}">{{record.get('doi', '')}}</a>
                                 {% endif %}
                             </span>
                 </h3>
@@ -50,26 +50,26 @@
           <p></p>
           <div class="row">
             <div class="col-md-12">
-              {% if record.collision_information %}
+              {% if record.get('collision_information', {}) %}
               <label>Collision Energy:</label>
               <span><a
-                href="/search?q={{record.collision_information.energy}}">{{record.collision_information.energy}}</a></span>
+                href="/search?q={{record.get('collision_information', {}).get('energy', '')}}">{{record.get('collision_information', {}).get('energy', '')}}</a></span>
               {% endif %}
               <label>Experiment:</label>
-              <span><a href="/search?q={{record.experiment}}">{{record.experiment}}</a></span>
+              <span><a href="/search?q={{record.get('experiment', '')}}">{{record.get('experiment', '')}}</a></span>
               <label>Accelerator:</label>
-              <span><a href="/search?q={{record.accelerator}}">{{record.accelerator}}</a></span>
+              <span><a href="/search?q={{record.get('accelerator', '')}}">{{record.get('accelerator', '')}}</a></span>
             </div>
           </div>
           {% endblock heading %}
         </div>
         <div class="panel-body">
           {% block metadata_block %}
-          {% if record.abstract %}
+          {% if record.get('abstract', '') %}
           <div class="row">
             <div class="col-md-12">
               <h3>Description</h3>
-              <p>{{record.abstract}}</p>
+              <p>{{record.get('abstract', '')}}</p>
             </div>
           </div>
           {% endif %}
@@ -116,7 +116,7 @@
 {% block javascript %}
 {{ super() }}
 
-{% if record.files %}
+{% if record.get('files', []) %}
 <script>
   $('#download_caution').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget)

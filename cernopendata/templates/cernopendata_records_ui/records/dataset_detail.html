@@ -14,36 +14,36 @@
         <div class="panel-body">
           {% block metadata_block %}
           {{ super() }}
-          {% if record.relations %}
+          {% if record.get('relations', []) %}
           <div class="row">
             <div class="col-md-12">
               <h3>Related Datasets</h3>
               {% for relation in record.relations %}
-              <p>{{relation.description}} <br><a href="/datasets/{{relation.recid}}">{{relation.recid}}</a></p>
+              <p>{{relation.get('description', '')}} <br><a href="/datasets/{{relation.get('recid', '')}}">{{relation.get('recid', '')}}</a></p>
               {% endfor %}
             </div>
           </div>
           {% endif %}
-          {% if record.distribution %}
+          {% if record.get('distribution', {}) %}
           <div class="row">
             <div class="col-md-12">
               <h3>Characteristics</h3>
               <label>Dataset:</label>
-              <span><strong>{{record.distribution.number_events}}</strong> events</span>
-              <span><strong>{{record.distribution.number_files}}</strong> files</span>
-              <span><strong>{{record.distribution.size | filesizeformat }}</strong> in total</span>
+              <span><strong>{{record.get('distribution', {}).get('number_events', '')}}</strong> events</span>
+              <span><strong>{{record.get('distribution', {}).get('number_files', '')}}</strong> files</span>
+              <span><strong>{{record.get('distribution', {}).get('size', '') | filesizeformat }}</strong> in total</span>
             </div>
           </div>
           {% endif %}
-          {% if record.system_details %}
+          {% if record.get('system_details', {}) %}
           <div class="row">
             <div class="col-md-12">
               <h3>System Details</h3>
               <label>Global tag:</label>
-              <span>{{record.system_details.global_tag}}</span>
+              <span>{{record.get('system_details', {}).get('global_tag', '')}}</span>
               <br>
-              <label>{{record.system_details.description}}:</label>
-              <span>{{record.system_details.release}}</span>
+              <label>{{record.get('system_details', {}).get('description', '')}}:</label>
+              <span>{{record.get('system_details', {}).get('release', '')}}</span>
             </div>
           </div>
           {% endif %}
@@ -51,74 +51,74 @@
 
           {% block files_block %} {{ super() }} {% endblock files_block %}
 
-          {% if record.dataset_semantics %}
+          {% if record.get('dataset_semantics', []) %}
           <div class="row">
             <div class="col-md-12">
               <h3>Dataset Semantics</h3>
               {% for semantic in record.dataset_semantics %}
-              <label>{{semantic.variable}}:</label>
-              <span>{{semantic.description}}</span><br>
+              <label>{{semantic.get('variable', '')}}:</label>
+              <span>{{semantic.get('description', '')}}</span><br>
               {% endfor %}
             </div>
           </div>
           {% endif %}
 
-          {% if record.selection %}
+          {% if record.get('selection', {}) %}
           <div class="row">
             <div class="col-md-12">
               <h3>How were these data selected</h3>
-              <p>{{ record.selection.description }}</p>
+              <p>{{ record.get('selection', {}).get('description', '') }}</p>
             </div>
           </div>
           {% endif %}
 
-          {% if record.generation %}
+          {% if record.get('generation', {}) %}
           <div class="row">
             <div class="col-md-12">
               <h3>How were these data selected?</h3>
-              <p>{{record.generation.description}}</p>
-              {% for step in record.generation.steps %}
-              <label>{{step.type}}</label>
-              <p>{{step.note}}</p>
-              <p>{{step.release}}</p>
-              <p>{{step.global_tag}}</p>
-              {% for conf_file in step.configuration_files %}
-              <p><a href="/records/{{conf_file.recid}}">{{conf_file.description}}</a></p>
-              <p><a href="/search?q={{conf_file.title}}">{{conf_file.title}}</a></p>
+              <p>{{record.get('generation', {}).get('description', '')}}</p>
+              {% for step in record.get('generation', {}).get('steps', []) %}
+              <label>{{step.get('type', '')}}</label>
+              <p>{{step.get('note', '')}}</p>
+              <p>{{step.get('release', '')}}</p>
+              <p>{{step.get('global_tag', '')}}</p>
+              {% for conf_file in step.get('configuration_files', []) %}
+              <p><a href="/records/{{conf_file.get('recid', '')}}">{{conf_file.get('description', '')}}</a></p>
+              <p><a href="/search?q={{conf_file.get('title', '')}}">{{conf_file.get('title', '')}}</a></p>
               {% endfor %}
               {% endfor %}
             </div>
           </div>
           {% endif %}
-          {% if record.validation %}
+          {% if record.get('validation', {}) %}
           <div class="row">
             <div class="col-md-12">
               <h3>How were these data validated?</h3>
-              <p>{{record.validation.description}}</p>
-              {% for link in record.validation.links %}
-              <p><a href="{{link.url}}">{{link.description}}</a></p>
+              <p>{{record.get('validation', {}).get('description', '')}}</p>
+              {% for link in record.get('validation', {}).get('links', []) %}
+              <p><a href="{{link.get('url', '')}}">{{link.get('description', '')}}</a></p>
               {% endfor %}
             </div>
           </div>
           {% endif %}
-          {% if record.usage %}
+          {% if record.get('usage', {}) %}
           <div class="row">
             <div class="col-md-12">
               <h3>How can you use these data?</h3>
-              <p>{{record.usage.description}}</p>
-              {% for link in record.usage.links %}
-              <p><a href="{{link.url}}">{{link.description}}</a></p>
+              <p>{{record.get('usage', {}).get('description', '')}}</p>
+              {% for link in record.get('usage', {}).get('links', []) %}
+              <p><a href="{{link.get('url', '')}}">{{link.get('description', '')}}</a></p>
               {% endfor %}
             </div>
           </div>
           {% endif %}
-          {% if record.note %}
+          {% if record.get('note', {}) %}
           <div class="row">
             <div class="col-md-12">
               <h3>Issues & Limitations</h3>
-              <p>{{record.note.description}}</p>
+              <p>{{record.get('note', {}).get('description', '')}}</p>
               {% for link in record.note.links %}
-              <p><a href="/record/{{link.recid}}">{{link.recid}}</a></p>
+              <p><a href="/record/{{link.get('recid', '')}}">{{link.get('recid', '')}}</a></p>
               {% endfor %}
             </div>
           </div>

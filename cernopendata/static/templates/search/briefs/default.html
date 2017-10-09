@@ -3,7 +3,7 @@
     <h4>
         <a target="_self" ng-href="/records/{{ record.id }}">{{ record.metadata.title }}</a>
     </h4>
-    <p>{{ record.metadata.summary }}</p>
+    <p>{{ record.metadata.summary | limitTo : 200}}...</p>
     <div class="text-right">
         <ul class="list-inline">
             <li ng-show="record.metadata.added_entry_personal_name.length > 0">
@@ -23,22 +23,22 @@
     <div class="tags-box">
         <a href="/search?type_pre={{record.metadata.type}}">
             <span class="label label-primary">
-                {{ record.metadata.type }} 
+                {{ record.metadata.type }}
             </span>
         </a>
-        <a ng-if="record.subtype" href="/search?subtype_pre={{record.metadata.subtype}}"> 
+        <a ng-if="record.subtype" href="/search?subtype_pre={{record.metadata.subtype}}">
             <span class="label label-info">
                 {{ record.metadata.subtype }}
             </span>
-        </a> 
-        <a ng-repeat="tag in record.metadata.tags" href="/search?tags_pre={{tag}}"> 
+        </a>
+        <a ng-repeat="tag in record.metadata.tags" href="/search?tags_pre={{tag}}">
             <span class="label label-default">
-                {{ tag }} 
+                {{ tag }}
             </span>
         </a>
         <a href="/search?experiment_pre={{record.metadata.experiment}}">
             <span class="label label-warning">
-                {{ record.metadata.experiment }} 
+                {{ record.metadata.experiment }}
             </span>
         </a>
     </div>

@@ -24,19 +24,23 @@
         },
         "identifiers": {
           "properties": {
-              "_type": {
-                "type": "string"
-              },
-              "id": {
-                "type": "string"
-              }
+            "_type": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
             }
+          }
         },
         "title": {
           "type": "string"
         },
         "collaboration": {
-          "type": "string"
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          }
         },
         "experiment": {
           "type": "string",
