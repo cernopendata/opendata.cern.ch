@@ -33,42 +33,47 @@
     </div>
   </div>
 </section>
-<section class="education" style="min-height: auto;">
+<section class="research" style="min-height: auto; background-color: transparent;">
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <div class="od-icon od-teaching" style="background-size: 10%;"></div>
-        <h4 style="font-weight: bolder;font-size: 1.4em;">News</h4>
-        <br/><br/>
-      </div>
-    </div>
-
+    <br/><br/>
     <div class="row">
       <br/><br/>
       {% for record in records %}
       {% set record = record._source %}
-      <div class="col-md-4 text-center info-block education">
+      <div class="col-md-4 text-center info-block research">
         <ul>
           <li>
-            <a href="/articles/{{record.control_number}}">{{record.title}}</a>
-            <p>
-              {% if record.created or record.author %}
-              {{ record.created }}
-              {% if record.author %}
-              by {{ record.author }}
-              {% endif %}
-              {% endif %}
-            </p>
-            <div class="tags-box">
-              <a href="/search?type_pre={{record.type}}" class="badge badge-pill badge-success" style="font-size: small; color: #fff;">{{ record.type }}</a>
-              {% if record.subtype %}
-              <a href="/search?subtype_pre={{record.subtype}}" class="badge badge-pill badge-info" style="font-size: small; color: #fff;">{{ record.subtype }}</a>
-              {% endif %}
-              {% for tag in record.tags %}
-                <a href="/search?tags_pre={{tag}}" class="badge badge-pill badge-secondary" style="font-size: small; color: #fff;">{{ tag }}</a>
-              {% endfor %}
-              <a href="/search?experiment_pre={{record.experiment}}" class="badge badge-pill badge-warning" style="font-size: small; color: #fff;">{{ record.experiment }}</a>
+            <div class="card" style="min-height: 388.7px;">
+              <img class="card-img-top" src="{{url_for('static', filename='assets/img/dummy_background.svg')}}" alt="Card image cap">
+              <div class="card-body" style="min-height: 162px;">
+                <h4 style="font-weight: bolder; font-size: 1.2em;"><a
+                href="/articles/{{record.control_number}}">{{record.title}}</a></h4>
+                <p class="card-text">
+                  {% if record.created or record.author %}
+                  {{ record.created }}
+                  {% if record.author %}
+                  by {{ record.author }}
+                  {% endif %}
+                  {% endif %}
+                </p>
+                <div class="tags-box">
+                  <a href="/search?type_pre={{record.type}}" class="badge  badge-success custom-badge-success"
+                     style="font-size: small; color: #fff;">{{ record.type }}</a>
+                  {% if record.subtype %}
+                  <a href="/search?subtype_pre={{record.subtype}}" class="badge  badge-info"
+                     style="font-size: small; color: #fff;">{{ record.subtype }}</a>
+                  {% endif %}
+                  {% for tag in record.tags %}
+                  <a href="/search?tags_pre={{tag}}" class="badge badge-secondary"
+                     style="font-size: small; color: #fff;">{{ tag }}</a>
+                  {% endfor %}
+                  <a href="/search?experiment_pre={{record.experiment}}"
+                     class="badge badge-warning custom-badge-warning"
+                     style="font-size: small; color: #fff;">{{ record.experiment }}</a>
+                </div>
+              </div>
             </div>
+
           </li>
         </ul>
       </div>
