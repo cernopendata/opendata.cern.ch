@@ -21,22 +21,22 @@
         </ul>
     </div>
     <div class="tags-box">
-        <a href="/search?type_pre={{record.metadata.type}}">
+        <a href="/search?type={{record.metadata.type}}">
             <span class="label label-primary">
                 {{ record.metadata.type }} 
             </span>
         </a>
-        <a ng-if="record.subtype" href="/search?subtype_pre={{record.metadata.subtype}}"> 
+        <a ng-if="record.subtype" href="/search?subtype={{record.metadata.subtype}}"> 
             <span class="label label-info">
                 {{ record.metadata.subtype }}
             </span>
         </a> 
-        <a ng-repeat="tag in record.metadata.tags" href="/search?tags_pre={{tag}}"> 
+        <a ng-repeat="tag in record.metadata.tags" href="/search?tags={{tag}}"> 
             <span class="label label-default">
                 {{ tag }} 
             </span>
         </a>
-        <a href="/search?experiment_pre={{record.metadata.experiment}}">
+        <a href="/search?experiment={{record.metadata.experiment}}">
             <span class="label label-warning">
                 {{ record.metadata.experiment }} 
             </span>

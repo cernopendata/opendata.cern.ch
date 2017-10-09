@@ -6,12 +6,12 @@
     </h4>
     <p>{{ record.metadata.definition }}</p>
     <div class="tags-box">
-        <a href="/search?type_pre={{record.metadata.type}}">
+        <a href="/search?type={{record.metadata.type}}">
             <span class="label label-primary">
                 {{ record.metadata.type }} 
             </span>
         </a>
-        <a ng-if="record.subtype" href="/search?subtype_pre={{record.metadata.subtype}}"> 
+        <a ng-if="record.subtype" href="/search?subtype={{record.metadata.subtype}}"> 
             <span class="label label-info">
                 {{ record.metadata.subtype }}
             </span>

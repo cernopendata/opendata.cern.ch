@@ -50,26 +50,26 @@
                                     </h6>
                                     {% endif %}
                                     <div class="tags-box">
-                                        <a href="/search?type_pre={{record.type}}">
+                                        <a href="/search?type={{record.type}}">
                                             <span class="label label-primary">
                                                 {{ record.type }} 
                                             </span>
                                         </a>
                                         {% if record.subtype %}
-                                        <a href="/search?subtype_pre={{record.subtype}}"> 
+                                        <a href="/search?subtype={{record.subtype}}"> 
                                             <span class="label label-info">
                                                 {{ record.subtype }}
                                             </span>
                                         </a> 
                                         {% endif %}
                                         {% for tag in record.tags %}
-                                        <a href="/search?tags_pre={{tag}}"> 
+                                        <a href="/search?tags={{tag}}"> 
                                             <span class="label label-default">
                                                 {{ tag }} 
                                             </span>
                                         </a>
                                         {% endfor %}
-                                        <a href="/search?experiment_pre={{record.experiment}}">
+                                        <a href="/search?experiment={{record.experiment}}">
                                             <span class="label label-warning">
                                                 {{ record.experiment }} 
                                             </span>
