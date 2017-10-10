@@ -43,7 +43,7 @@
 {%- endblock body_inner %}
 
 {%- block javascript %}
-  {% assets "cernopendata_theme_js" %}<script src="{{ ASSET_URL }}"></script>{% endassets %}
+  {% assets "cernopendata_js" %}<script src="{{ ASSET_URL }}"></script>{% endassets %}
   {{super()}}
   {% assets "cernopendata_glossary_js" %}<script src="{{ ASSET_URL }}"></script>{% endassets %}
   {%- block javascript_glossary %}

@@ -9,7 +9,7 @@
           <span>
             <input type="checkbox" ng-checked="values.indexOf(item.key) > -1"
                    ng-click="handleClick(aggr.key, item.key)"/> {{ item.key }}
-            <span class="badge badge-info" style="float:right; width: 50px;">{{ item.doc_count }}</span>
+            <span class="badge badge-light" style="float:right; width: 50px;">{{ item.doc_count }}</span>
 
             <small>
               <a
@@ -33,7 +33,7 @@
                       type="checkbox"
                       ng-checked="subValues.indexOf(subFacets.key) > -1"
                       ng-click="handleClick(subKey, subFacets.key)"/> {{ subFacets.key }}
-                    <span class="badge badge-info"
+                    <span class="badge badge-light"
                           style="float:right; width: 50px;">{{ subFacets.doc_count }}</span></span>
 
                 </li>

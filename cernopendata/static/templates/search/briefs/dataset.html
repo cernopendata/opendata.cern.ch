@@ -6,25 +6,17 @@
     </h4>
     <p style="margin-top: 1%;">{{ record.metadata.abstract | limitTo : 200}}...</p>
     <div class="tags-box-search-results">
-      <a href="/search?type={{record.metadata.type}}">
-            <span class="badge badge-primary">
-                {{ record.metadata.type }}
-            </span>
+      <a class="badge badge-primary" href="/search?type={{record.metadata.type}}">
+        {{ record.metadata.type }}
       </a>
-      <a ng-if="record.subtype" href="/search?subtype={{record.metadata.subtype}}">
-            <span class="badge badge-info">
-                {{ record.metadata.subtype }}
-            </span>
+      <a class="badge badge-info" ng-if="record.subtype" href="/search?subtype={{record.metadata.subtype}}">
+        {{ record.metadata.subtype }}
       </a>
-      <a ng-repeat="tag in record.metadata.tags" href="/search?tags={{tag}}">
-            <span class="badge badge-default">
-                {{ tag }}
-            </span>
+      <a class="badge badge-secondary" ng-repeat="tag in record.metadata.tags" href="/search?tags={{tag}}">
+        {{ tag }}
       </a>
-      <a href="/search?experiment={{record.metadata.experiment}}">
-            <span class="badge badge-warning">
-                {{ record.metadata.experiment }}
-            </span>
+      <a class="badge badge-warning" href="/search?experiment={{record.metadata.experiment}}">
+        {{ record.metadata.experiment }}
       </a>
     </div>
   </div>
