@@ -18,29 +18,52 @@
 {%- endblock javascript %}
 
 {%- block page_body %}
-<div class="container research">
-  <div class="row">
-    <div class="col-md-3 col-sm-12">
-      <invenio-search-count
-        template="{{ url_for('static', filename=config.SEARCH_UI_JSTEMPLATE_COUNT) }}">
-      </invenio-search-count>
-    </div>
-    <div class="col-md-6 col-sm-12 text-center">
-      <invenio-search-pagination
-        template="{{ url_for('static', filename=config.SEARCH_UI_JSTEMPLATE_PAGINATION) }}">
-      </invenio-search-pagination>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3">
-      <invenio-search-facets
-        template="{{ url_for('static', filename='templates/cernopendata_search_ui/facets.html') }}">
-      </invenio-search-facets>
-    </div>
-    <div class="col-md-9">
-      <invenio-search-results
-        template="{{ url_for('static', filename='templates/cernopendata_search_ui/results.html') }}">
-      </invenio-search-results>
+<div class="container-fluid" style="background-color: #f6f7f6;">
+  <div class="container research">
+    <div class="row">
+      <div class="col-md-3" style="margin-top:10px;">
+        <div class="card" style="border: none; border-top: 3px solid #17a2b8; border-radius: unset; ">
+          <div class="card-body" style="font-size: 14px;color: #35495e;">
+            <invenio-search-facets
+              template="{{ url_for('static', filename='templates/cernopendata_search_ui/facets.html') }}">
+            </invenio-search-facets>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card" style="border: none; margin-top:10px; border-top: 3px solid #3b97d3; border-radius: unset; ">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-3">
+                    <invenio-search-count
+                      template="{{ url_for('static', filename=config.SEARCH_UI_JSTEMPLATE_COUNT) }}">
+                    </invenio-search-count>
+                  </div>
+                  <div class="col-md-6">
+                    <invenio-search-pagination
+                      template="{{ url_for('static', filename='templates/cernopendata_search_ui/pagination.html') }}">
+                    </invenio-search-pagination>
+                  </div>
+                  <div class="col-md-3"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <invenio-search-results
+          template="{{ url_for('static', filename='templates/cernopendata_search_ui/results.html') }}">
+        </invenio-search-results>
+        <br>
+        <div class="row">
+          <div class="col-md-12">
+            <invenio-search-pagination
+                      template="{{ url_for('static', filename='templates/cernopendata_search_ui/pagination.html') }}">
+                    </invenio-search-pagination>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

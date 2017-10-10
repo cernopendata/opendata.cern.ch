@@ -1,21 +1,22 @@
-<div>
+<div class="card">
+  <div class="card-body">
     <h4>
-        <a target="_self" ng-href="/glossary/{{record.metadata.control_number}}">
-            {{ record.metadata.anchor }}
-        </a>
+      <a target="_self" ng-href="/glossary/{{record.metadata.control_number}}">
+        {{ record.metadata.anchor }}
+      </a>
     </h4>
     <p>{{ record.metadata.definition }}</p>
-    <div class="tags-box">
-        <a href="/search?type={{record.metadata.type}}">
-            <span class="label label-primary">
-                {{ record.metadata.type }} 
+    <div class="tags-box-search-results">
+      <a href="/search?type={{record.metadata.type}}">
+            <span class="badge badge-primary">
+                {{ record.metadata.type }}
             </span>
-        </a>
-        <a ng-if="record.subtype" href="/search?subtype={{record.metadata.subtype}}"> 
-            <span class="label label-info">
+      </a>
+      <a ng-if="record.subtype" href="/search?subtype={{record.metadata.subtype}}">
+            <span class="badge badge-info">
                 {{ record.metadata.subtype }}
             </span>
-        </a> 
+      </a>
     </div>
-    <hr>
+  </div>
 </div>

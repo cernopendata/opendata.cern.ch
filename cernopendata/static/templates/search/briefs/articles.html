@@ -1,32 +1,33 @@
-<div>
+<div class="card">
+  <div class="card-body">
     <h4>
-        <a target="_self" ng-href="/articles/{{record.metadata.control_number}}">
-            {{ record.metadata.title }}
-        </a>
+      <a target="_self" ng-href="/articles/{{record.metadata.control_number}}">
+        {{ record.metadata.title }}
+      </a>
     </h4>
     <p ng-if="record.metadata.short_description.content">{{record.metadata.short_description.content}}</p>
-    <p ng-if="!record.metadata.short_description.content">{{record.metadata.body.content | limitTo: 200}}</p>
-    <div class="tags-box">
-        <a href="/search?type={{record.metadata.type}}">
-            <span class="label label-primary">
-                {{ record.metadata.type }} 
+    <p ng-if="!record.metadata.short_description.content">{{record.metadata.body.content | limitTo: 200}}...</p>
+    <div class="tags-box-search-results">
+      <a href="/search?type={{record.metadata.type}}">
+            <span class="badge badge-primary">
+                {{ record.metadata.type }}
             </span>
-        </a>
-        <a ng-if="record.subtype" href="/search?subtype={{record.metadata.subtype}}"> 
-            <span class="label label-info">
+      </a>
+      <a ng-if="record.subtype" href="/search?subtype={{record.metadata.subtype}}">
+            <span class="badge badge-info">
                 {{ record.metadata.subtype }}
             </span>
-        </a> 
-        <a ng-repeat="tag in record.metadata.tags" href="/search?tags={{tag}}"> 
-            <span class="label label-default">
-                {{ tag }} 
+      </a>
+      <a ng-repeat="tag in record.metadata.tags" href="/search?tags={{tag}}">
+            <span class="badge badge-secondary">
+                {{ tag }}
             </span>
-        </a>
-        <a href="/search?experiment={{record.metadata.experiment}}">
-            <span class="label label-warning">
-                {{ record.metadata.experiment }} 
+      </a>
+      <a href="/search?experiment={{record.metadata.experiment}}">
+            <span class="badge badge-warning">
+                {{ record.metadata.experiment }}
             </span>
-        </a>
+      </a>
     </div>
-    <hr/>
+  </div>
 </div>
