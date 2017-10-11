@@ -6,7 +6,7 @@
     </h4>
     <p style="margin-top: 1%;">{{ record.metadata.abstract | limitTo : 200}}...</p>
     <div class="tags-box-search-results">
-      <a class="badge badge-primary" href="/search?type={{record.metadata.type}}">
+      <a class="badge badge-success custom-badge-success" href="/search?type={{record.metadata.type}}">
         {{ record.metadata.type }}
       </a>
       <a class="badge badge-info" ng-if="record.subtype" href="/search?subtype={{record.metadata.subtype}}">
@@ -15,7 +15,7 @@
       <a class="badge badge-secondary" ng-repeat="tag in record.metadata.tags" href="/search?tags={{tag}}">
         {{ tag }}
       </a>
-      <a class="badge badge-warning" href="/search?experiment={{record.metadata.experiment}}">
+      <a class="badge badge-warning custom-badge-warning" href="/search?experiment={{record.metadata.experiment}}">
         {{ record.metadata.experiment }}
       </a>
     </div>

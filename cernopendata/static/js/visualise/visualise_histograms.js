@@ -102,7 +102,7 @@ $(function () {
   function populateValues(data, type) {
     for (var key in data) {
       var parameter_info = get_parameter_info(key, event_types[type]);
-      $('#parameter-button-row').append("<li><button type='button' data-toggle='button' title='"+parameter_info+"' class='btn btn-default btn-large parameter'>"+ key +"</button></li>");
+      $('#parameter-button-row').append("<li class='list-inline-item'><button type='button' data-toggle='button' title='"+parameter_info+"' class='btn btn-default btn-large parameter'>"+ key +"</button></li>");
     }
   }
 
