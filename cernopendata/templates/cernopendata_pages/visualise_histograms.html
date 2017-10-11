@@ -21,8 +21,8 @@
 
 <div class="col-md-12">
   <ul class="nav" role="tablist">
-    <li class="active"><a href="#histograms" role="tab" data-toggle="tab"><span class="fa fa-long-arrow-left"></span>back to histograms</a></li>
-    <li><a href="#howto" role="tab" data-toggle="tab">Need HELP?</a></li>
+    <li class="active"><a role="tab" id="backtohisto" data-toggle="tab"><span class="fa fa-long-arrow-left"></span>back to histograms</a></li>
+    <li><a id="needhelp" role="tab" data-toggle="tab">Need HELP?</a></li>
   </ul>
 </div>
 
@@ -66,7 +66,7 @@
 
 
 </div>
-  <div class="tab-pane fade" id="howto">
+  <div class="tab-panel" id="howto">
     {% include "cernopendata_pages/histograms_howto.html" %}
   </div>
 </div>

@@ -40,6 +40,17 @@ $(function () {
      ]
   };
 
+
+  $('#backtohisto').on('click', function () {
+    $('#histograms').show();
+    $('#howto').hide();
+  });
+
+  $('#needhelp').on('click', function () {
+    $('#histograms').hide();
+    $('#howto').show();
+  });
+
   function loadFile(input) {
     //$('#filename').html(input.file.split('/').pop());
     // $('#filedropdown').button('loading');
@@ -139,15 +150,21 @@ $(function () {
  $(document).on('click', '.parameter', function() {
    var parameter = $(this).html();
    var parId = '#'+parameter;
-   var active = $(this).hasClass('active');
 
-   if ( active ) {
+   if ($(this).hasClass('active')){
+     $(this).removeClass('active')
+   } else {
+     $(this).addClass('active')
+   }
+
+
+   if ( $(this).hasClass('active') ) {
       $('#flot-plots').append("<div id='"+parameter+"' class='col-md-6'></div>");
       $(parId).css({"border":"1px dotted"});
 
       $(parId).append("<div class='plot-control btn-toolbar'></div>");
       $(parId).append("<div class='plot-container'></div>");
-      $(parId + ' div.plot-control').css({"height":"30px"});
+      $(parId + ' div.plot-control').css({});
       $(parId + ' div.plot-container').css({"height":"300px"});
 
       // This screams "template!"
@@ -158,7 +175,7 @@ $(function () {
 
       $(parId + ' div.plot-control').append(logbtns);
 
-      var bininput = "<div class='input-group input-group-sm binwidth'>";
+      var bininput = "<div class='input-group input-group-sm binwidth' style='width: 150px'>";
       bininput += "<input type='text' name='binwidth' placeholder='Set bin width' class='form-control'>";
       bininput += "<span class='input-group-btn'>";
       bininput += "<button class='btn btn-default binw "+ parameter +"' type='button'>Set</button>";
