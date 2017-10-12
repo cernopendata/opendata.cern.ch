@@ -54,6 +54,13 @@ body {
   background-color: #f6f7f6;
 }
 
+
+// TOCHECK Carefoul overriding default
+.badge {
+  font-size: small !important;
+  color: #fff !important;
+}
+
 .card-style {
   border: none;
   margin-top: 10px;
@@ -147,6 +154,28 @@ section.footer {
   padding-top: 130px;
 }
 
+#home-research {
+  min-height: auto;
+  background-color: transparent;
+}
+
+#news-card {
+  min-height: 388.7px;
+}
+
+#news-card .card-body {
+  min-height: 162px;
+}
+
+#news-card h4 {
+  font-weight: bolder;
+  font-size: 1.1em;
+}
+
+#visualise-home {
+  min-height: auto;
+}
+
 .navbar-custom {
   background-color: #283747 !important;
   border-bottom: 2px solid #35495e;
@@ -171,7 +200,12 @@ section.footer {
 
 .od-visualize {
   background-image: url('static/assets/img/visualize.svg');
-  background-size: 45%;
+  background-size: 20%;
+}
+
+#visualise-home h4 {
+  font-weight: bolder;
+  font-size: 1.4em;
 }
 
 .od-db-education {
@@ -222,7 +256,7 @@ section.footer {
 
 .info-block ul li a {
   font-weight: bolder;
-  font-size: 1.0em;
+  font-size: 1.1em;
 }
 
 .dropdown-item {
@@ -272,7 +306,7 @@ a {
 }
 
 .record-elem results-brief {
-  width: 1;
+  width: 100%;
 }
 
 invenio-search-results {
