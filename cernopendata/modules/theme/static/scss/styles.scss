@@ -50,6 +50,26 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+.background {
+  background-color: #f6f7f6;
+}
+
+.card-style {
+  border: none;
+  margin-top: 10px;
+  border-top: 3px solid #3b97d3;
+  border-radius: unset;
+}
+
+.col-position {
+  margin-top: 10px;
+}
+
+.content-style {
+  font-size: 14px;
+  color: #35495e;
+}
+
 section {
   //min-height: 100vh;
   color: #2c3e50;
@@ -80,7 +100,7 @@ section.footer {
 
 .header-text-section {
   position: absolute;
-  bottom: 336px;
+  bottom: 45vh;
   font-size: 0.9rem;
 }
 
@@ -236,7 +256,6 @@ section.footer {
   font-size: .9em;
 }
 
-
 // @TOCHECK Carefoul with this one
 a {
   color: #3b97d3;
@@ -249,6 +268,14 @@ a {
 }
 
 .page-link {
+  color: #35495e;
+}
+
+invenio-search-results {
+  color: #35495e;
+}
+
+invenio-search-facets {
   color: #35495e;
 }
 
@@ -273,6 +300,15 @@ a {
   border-radius: unset;
 }
 
+.results-position {
+  margin-top: 2%;
+}
+
+.facet-count {
+  float: right;
+  width: 50px;
+}
+
 // faceted results
 #faceted-results .card {
   border: none;
@@ -285,6 +321,9 @@ a {
   border-radius: unset;
 }
 
+.see-also {
+  margin-right: 2px;
+}
 
 // breadcrumbs
 .custom-breadcrumb {
