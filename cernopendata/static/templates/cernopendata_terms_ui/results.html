@@ -1,4 +1,4 @@
-<div class="record-elem" ng-repeat="record in vm.invenioSearchResults.hits.hits track by $index" style="margin-top: 2%">
+<div class="record-elem results-position" ng-repeat="record in vm.invenioSearchResults.hits.hits track by $index">
   <div class="card">
     <div class="card-body">
       <h4 id="{{ record.metadata.anchor }}">
@@ -9,7 +9,7 @@
         <span>
           <strong>Links: </strong>
             <span ng-repeat="r in record.metadata.links">
-              <a target="_blank" ng-href="{{r.url}}" style="color: #3b97d3;">{{r.text}}</a>
+              <a target="_blank" ng-href="{{r.url}}">{{r.text}}</a>
               {{$last ? '' : ', '}}
             </span>
 
@@ -18,7 +18,7 @@
       <div>
         <span>
           <strong>See also: </strong>
-            <a class="badge badge-info" ng-repeat="term in record.metadata.see_also" href="#{{term.term}}" target="_self" style="margin-right: 2px;"><span
+            <a class="badge badge-info see-also" ng-repeat="term in record.metadata.see_also" href="#{{term.term}}" target="_self"><span
               >{{term.term}}</span>&nbsp;</a>
         </span>
       </div>

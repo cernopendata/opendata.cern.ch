@@ -26,6 +26,6 @@ angular.module('invenioSearch').directive('resultsBrief', function() {
         return '/static/templates/search/briefs/'+ schema_template;
       }
     },
-    template: '<li class="col-sm-12 list-unstyled" style="margin-top: 2%" ng-include="getTemplateUrl()"></li>'
+    template: '<li class="col-sm-12 list-unstyled results-position" ng-include="getTemplateUrl()"></li>'
   }
 });
