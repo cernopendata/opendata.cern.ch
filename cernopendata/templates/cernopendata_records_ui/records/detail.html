@@ -9,10 +9,10 @@
       <div class="card">
         <div class="card-header">
           {% block heading %}
-          <h2 style="display: inline;">
+          <h3 style="display: inline;">
             {{record.additional_title}}
             <small>{{record.date_published}}</small>
-          </h2>
+          </h3>
           <div class="row">
             <div class="col-md-12">
               {{record.title}}
@@ -28,25 +28,18 @@
             </div>
           </div>
           <p></p>
-
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">
-                  <label>Cite as:</label>
-                  {% for author in record.authors %}
-                  <span>{{author.name}}.</span>
-                  {% endfor %}
-                  <span>{{record.collaboration.name}} ({{record.date_published}}). {{record.additional_title}}. CERN Open Data Portal.
+          <h6 class="card-title">
+            <label>Cite as:</label>
+            {% for author in record.authors %}
+            <span>{{author.name}}.</span>
+            {% endfor %}
+            <span>{{record.collaboration.name}} ({{record.date_published}}). {{record.additional_title}}. CERN Open Data Portal.
                                 {% if record.doi %}
                                   <label>DOI:</label>
                                   <a href="http://doi.org/{{record.doi}}">{{record.doi}}</a>
                                 {% endif %}
                             </span>
-                </h3>
-              </div>
-            </div>
-          </div>
+          </h6>
           <p></p>
           <div class="row">
             <div class="col-md-12">

@@ -1,45 +1,49 @@
 {%- extends "invenio_records_ui/detail.html" %}
 
 {%- block page_body %}
-<div class="container">
-  <div class="card">
-    <div class="card-header">
-      <h2 style="display: inline;">
-        {{record.anchor | capitalize}}
-        <h4>
-          <span class="badge badge-success">{{record.category}}</span>
-        </h4>
-      </h2>
-    </div>
-    <div class="card-body">
-      <p>{{ record.definition }}</p>
-      {% if record.links %}
-      <div>
+<div class="container-fluid background">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-style">
+          <div class="card-body">
+            <h2 style="display: inline;">
+              {{record.anchor | capitalize}}
+              <h4>
+                <span class="badge badge-success">{{record.category}}</span>
+              </h4>
+            </h2>
+            <p>{{ record.definition }}</p>
+            {% if record.links %}
+            <div>
         <span>
           <strong>Links: </strong>
           {% for r in record.links %}
             <a target="_blank" href="{{r.url}}">{{r.text}}</a>
         {% endfor %}
         </span>
-      </div>
-      {% endif %}
-      {% if record.see_also %}
-      <div>
+            </div>
+            {% endif %}
+            {% if record.see_also %}
+            <div>
         <span>
           <strong>See also: </strong>
           {% for term in record.see_also%}
-            <a href="/glossary/{{term.term}}"><span class="badge badge-pill badge-info">{{term.term}}</span></a>
+            <a href="/glossary/{{term.term}}"><span class="badge badge-info">{{term.term}}</span></a>
           {% endfor %}
         </span>
+            </div>
+            {% endif %}
+          </div>
+        </div>
       </div>
-      {% endif %}
     </div>
   </div>
 </div>
 {%- endblock %}
 
 {%- block javascript %}
-  {{super()}}
-  {%- block javascript_glossary %}
-  {% endblock %}
+{{super()}}
+{%- block javascript_glossary %}
+{% endblock %}
 {% endblock %}
