@@ -11,7 +11,7 @@
         by {{ record.metadata.author }}
       </small>
       <p ng-if="record.metadata.short_description.content">{{record.metadata.short_description.content}}</p>
-      <p ng-if="!record.metadata.short_description.content">{{record.metadata.body.content | limitTo: 200}}...</p>
+      <p ng-if="!record.metadata.short_description.content">{{record.metadata.body.content | limitTo: 200}}<span ng-if="record.metadata.body.content">...</span></p>
       <div class="tags-box-search-results">
         <a class="badge badge-success custom-badge-success" href="/search?type={{record.metadata.type}}">
           {{ record.metadata.type }}

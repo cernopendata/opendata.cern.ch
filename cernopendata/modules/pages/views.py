@@ -182,16 +182,6 @@ def visualise_histograms(experiment='CMS'):
         return abort(404)
 
 
-@blueprint.route('/resources/articles')
-@register_breadcrumb(blueprint, '.index', _('Learning Resources'))
-def resources_articles():
-    """Render index of articles resources."""
-    url = '/api/articles'
-
-    return render_template('cernopendata_pages/faceted_page.html',
-                           search_endpoint=url)
-
-
 # @blueprint.route('/VM')
 # @blueprint.route('/VM/')
 # @register_breadcrumb(blueprint, '.vm', _('Virtual Machines'))
@@ -372,8 +362,9 @@ def glossary_json():
     return jsonify(glossary)
 
 
+@blueprint.route('/resources/<any("articles"):page>')
 @blueprint.route('/collection/<string:collection>')
-@blueprint.route('/<any("getting-started","vm","news"):page>')
+@blueprint.route('/<any("getting-started","vm","news","datasets"):page>')
 @blueprint.route('/<any("getting-started"):page>'
                  '/<any("cms","lhcb","opera","alice","atlas"):experiment>')
 def faceted_search(page=None, experiment=None, collection=None):
@@ -381,12 +372,19 @@ def faceted_search(page=None, experiment=None, collection=None):
 
     To add a new page:
         add url to blueprint.route
-        add mapping, which (filter,val) should be use to filter records
+        add mapping, which (filter,val,search_endpoint)
+        should be used to filter records
+        default search_endpoint is /api/records
+
     """
     facets = [x for x in locals().values() if x]
+    search_endpoint = '/api/records'  # default search endpoint
     description = None
+    filters = {}
 
     filter_map = {
+        'articles': (None, None, '/api/articles'),
+        'datasets': (None, None, '/api/datasets'),
         'getting-started': ('tags_pre', 'Getting Started'),
         'news': ('type_pre', 'News'),
         'vm': ('tags_pre', 'VM'),
@@ -421,18 +419,22 @@ def faceted_search(page=None, experiment=None, collection=None):
         'lhcb-derived-datasets': ('subtype_pre', 'LHCb-Derived-Datasets'),
         'lhcb-learning-resources': ('subtype_pre', 'LHCb-Learning-Resources'),
         'lhcb-tools': ('subtype_pre', 'LHCb-Tools'),
+
     }
 
-    filters = {}
     for facet in facets:
         _filter = filter_map.get(facet) or abort(404)
-        filters[_filter[0]] = _filter[1]
+        if _filter[0] and _filter[1]:
+            filters[_filter[0]] = _filter[1]
+        # change endpoint if defined
+        if len(_filter) == 3:
+            search_endpoint = _filter[2]
 
     # all collections should have defined descriptions, 404 otherwise
     if collection:
         description = descriptions.get(collection) or abort(404)
 
-    url = '/api/records?' + urllib.urlencode(filters)
+    url = '{}?{}'.format(search_endpoint, urllib.urlencode(filters))
 
     return render_template('cernopendata_pages/faceted_page.html',
                            search_endpoint=url,
