@@ -3,105 +3,113 @@
 {% from 'cernopendata_records_ui/records/macros/files_box.html' import files_box %}
 
 {%- block page_body %}
-<div class="container">
-  <div class="row">
-    <div class="col-md-10">
-      <div class="card">
-        <div class="card-header">
-          {% block heading %}
-          <h3 class="d-inline">
-            {{record.additional_title}}
-            <small>{{record.date_published}}</small>
-          </h3>
-          <div class="row">
-            <div class="col-md-12">
+<div class="container-fluid background">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card card-style">
+          <div class="card-body">
+            {% block heading %}
+            <h3 class="d-inline">
               {{record.title}}
-            </div>
-            <div class="col-md-12">
-              {% for author in record.authors %}
-              <small>{{author.name}}</small>
-              {% endfor %}
-              <span class="badge badge-success">{{record.collaboration.name}}</span>
-              {% if record.year %}
-              <span class="badge badge-success">{{record.year}} Run</span>
+              <small>{{record.date_published}}</small>
+            </h3>
+            <div class="row">
+              {% if record.additional_title %}
+              <div class="col-md-12">
+                {{record.additional_title}}
+              </div>
               {% endif %}
+              <div class="col-md-12">
+                {% for author in record.authors %}
+                <small>{{author.name}}</small>
+                {% endfor %}
+                <span class="badge badge-success">{{record.collaboration.name}}</span>
+                {% if record.year %}
+                <span class="badge badge-success">{{record.year}} Run</span>
+                {% endif %}
+              </div>
             </div>
-          </div>
-          <p></p>
-          <h6 class="card-title">
-            <label>Cite as:</label>
-            {% for author in record.authors %}
-            <span>{{author.name}}.</span>
-            {% endfor %}
-            <span>{{record.collaboration.name}} ({{record.date_published}}). {{record.additional_title}}. CERN Open Data Portal.
+            <p></p>
+            <h6 class="card-title">
+              <label>Cite as:</label>
+              {% for author in record.authors %}
+              <span>{{author.name}}.</span>
+              {% endfor %}
+              <span>{{record.collaboration.name}} ({{record.date_published}}). {{record.additional_title}}. CERN Open Data Portal.
                                 {% if record.doi %}
                                   <label>DOI:</label>
                                   <a href="http://doi.org/{{record.doi}}">{{record.doi}}</a>
                                 {% endif %}
                             </span>
-          </h6>
-          <p></p>
-          <div class="row">
-            <div class="col-md-12">
-              {% if record.collision_information %}
-              <label>Collision Energy:</label>
-              <span><a
-                href="/search?q={{record.collision_information.energy}}">{{record.collision_information.energy}}</a></span>
+            </h6>
+            <p></p>
+            <div class="row">
+              <div class="col-md-12">
+                {% if record.collision_information %}
+                <label>Collision Energy:</label>
+                <span><a
+                  href="/search?q={{record.collision_information.energy}}">{{record.collision_information.energy}}</a></span>
+                {% endif %}
+                <label>Experiment:</label>
+                <span><a href="/search?q={{record.experiment}}">{{record.experiment}}</a></span>
+                <label>Accelerator:</label>
+                <span><a href="/search?q={{record.accelerator}}">{{record.accelerator}}</a></span>
+              </div>
+            </div>
+            {% endblock heading %}
+          </div>
+          <div class="card card-style">
+            <div class="card-body">
+              {% block metadata_block %}
+              {% if record.abstract %}
+              <div class="row">
+                <div class="col-md-12">
+                  <h3>Description</h3>
+                  <p>{{record.abstract}}</p>
+                </div>
+              </div>
               {% endif %}
-              <label>Experiment:</label>
-              <span><a href="/search?q={{record.experiment}}">{{record.experiment}}</a></span>
-              <label>Accelerator:</label>
-              <span><a href="/search?q={{record.accelerator}}">{{record.accelerator}}</a></span>
-            </div>
-          </div>
-          {% endblock heading %}
-        </div>
-        <div class="card-body">
-          {% block metadata_block %}
-          {% if record.abstract %}
-          <div class="row">
-            <div class="col-md-12">
-              <h3>Description</h3>
-              <p>{{record.abstract}}</p>
-            </div>
-          </div>
-          {% endif %}
-          {% endblock metadata_block %}
+              {% endblock metadata_block %}
 
-          {% include 'cernopendata_records_ui/records/components/previewer.html' %}
+              {% include 'cernopendata_records_ui/records/components/previewer.html' %}
 
-          {% block files_block %}
-          {{ files_box(record) }}
-          {% endblock files_block %}
-          {% block disclaimer %}
-          <div class="row">
-            <div class="col-md-12">
-              <h3>Disclaimer</h3>
-              <p>The open data are released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative
-                Commons CC0 waiver</a>. Neither LHCb nor CERN endorse any
-                works, scientific or otherwise, produced using these data.
-                All releases will have a unique DOI that you are requested to cite in any applications or
-                publications.
-              </p>
-              <img src="{{url_for('static', filename='img/cc-zero.svg')}}">
+              {% block files_block %}
+              {{ files_box(record) }}
+              {% endblock files_block %}
+              {% block disclaimer %}
+              <div class="row">
+                <div class="col-md-12">
+                  <h3>Disclaimer</h3>
+                  <p>The open data are released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative
+                    Commons CC0 waiver</a>. Neither LHCb nor CERN endorse any
+                    works, scientific or otherwise, produced using these data.
+                    All releases will have a unique DOI that you are requested to cite in any applications or
+                    publications.
+                  </p>
+                  <img src="{{url_for('static', filename='img/cc-zero.svg')}}">
+                </div>
+              </div>
+              {% endblock disclaimer %}
             </div>
           </div>
-          {% endblock disclaimer %}
         </div>
       </div>
-    </div>
-    {% block export %}
-    <div class="col-md-2">
-      <div class="well">
-        <h4> Export </h4>
-        <ul class="list-inline">
-          <li><a
-            href="{{ url_for('invenio_records_ui.recid_export', pid_value=pid.pid_value, format='json') }}">JSON</a>
-          </li>
-        </ul>
+      {% block export %}
+      <div class="col-md-2">
+        <div class="card card-style">
+          <div class="card-body">
+            <h4> Export </h4>
+            <ul class="list-inline">
+              <li><a
+                href="{{ url_for('invenio_records_ui.recid_export', pid_value=pid.pid_value, format='json') }}">JSON</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
+      {% endblock export %}
     </div>
-    {% endblock export %}
   </div>
 </div>
 {%- endblock %}

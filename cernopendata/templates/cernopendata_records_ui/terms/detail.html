@@ -9,10 +9,13 @@
           <div class="card-body">
             <h2 class="d-inline">
               {{record.anchor | capitalize}}
-              <h4>
-                <span class="badge badge-success">{{record.category}}</span>
-              </h4>
             </h2>
+            <div class="row">
+              <div class="col-md-12">
+                <span class="badge badge-success">{{record.category}}</span>
+              </div>
+            </div>
+
             <p>{{ record.definition }}</p>
             {% if record.links %}
             <div>
@@ -29,7 +32,7 @@
         <span>
           <strong>See also: </strong>
           {% for term in record.see_also%}
-            <a href="/glossary/{{term.term}}"><span class="badge badge-info">{{term.term}}</span></a>
+            <a href="/glossary/{{term.term}}"><span class="badge badge-success custom-badge-success">{{term.term}}</span></a>
           {% endfor %}
         </span>
             </div>

@@ -3,7 +3,7 @@
 {% set selected_file = record.files.dumps()[0] %}
 
 {%- if selected_file and selected_file is previewable_file -%}
-  <div class="panel panel-" id="preview">
+  <div id="preview">
       <a class="panel-toggle" data-toggle="collapse" href="#collapseOne">
         <h3>{{_('Preview')}}
         <!-- <span class="pull-right show-on-collapsed"><i class="fa fa-chevron-right"></i></span> -->
