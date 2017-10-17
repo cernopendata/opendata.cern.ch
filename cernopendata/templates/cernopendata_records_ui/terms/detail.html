@@ -10,11 +10,15 @@
             <h2 class="d-inline">
               {{record.anchor | capitalize}}
             </h2>
+            {% if record.experiment %}
             <div class="row">
               <div class="col-md-12">
-                <span class="badge badge-success">{{record.category}}</span>
+                {% for exp in record.experiment %}
+                <span class="badge badge-success">{{exp.name}}</span>
+                {% endfor %}
               </div>
             </div>
+            {% endif %}
 
             <p>{{ record.definition }}</p>
             {% if record.links %}
