@@ -362,9 +362,10 @@ def glossary_json():
     return jsonify(glossary)
 
 
-@blueprint.route('/resources/<any("articles"):page>')
+# @blueprint.route('/resources/<any("articles"):page>')
 @blueprint.route('/collection/<string:collection>')
-@blueprint.route('/<any("getting-started","vm","news","datasets"):page>')
+@blueprint.route('/<any("getting-started","vm","news",'
+                 '"datasets","documentation","software"):page>')
 @blueprint.route('/<any("getting-started"):page>'
                  '/<any("cms","lhcb","opera","alice","atlas"):experiment>')
 def faceted_search(page=None, experiment=None, collection=None):
@@ -383,8 +384,10 @@ def faceted_search(page=None, experiment=None, collection=None):
     filters = {}
 
     filter_map = {
-        'articles': (None, None, '/api/articles'),
+        # 'articles': (None, None, '/api/articles'),
         'datasets': (None, None, '/api/datasets'),
+        'documentation': ('type_pre', 'Documentation'),
+        'software': ('type_pre', 'Software'),
         'getting-started': ('tags_pre', 'Getting Started'),
         'news': ('type_pre', 'News'),
         'vm': ('tags_pre', 'VM'),

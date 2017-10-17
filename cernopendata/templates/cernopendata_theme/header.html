@@ -33,9 +33,11 @@
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Explore
           <b class="caret"></b></a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="/datasets">Datasets</a></li>
-          <li><a class="dropdown-item" href="/resources/articles">Learning resources</a></li>
-          <li><a class="dropdown-item" href="#">Tools</a></li>
+          <!--TOFIX -->
+          <li><a class="dropdown-item" href="{{url_for('cernopendata_pages.faceted_search', page='datasets')}}">Datasets</a></li>
+          <li><a class="dropdown-item" href="{{url_for('cernopendata_pages.faceted_search', page='news')}}">News</a></li>
+          <li><a class="dropdown-item" href="{{url_for('cernopendata_pages.faceted_search', page='documentation')}}">Documentation</a></li>
+          <li><a class="dropdown-item" href="{{url_for('cernopendata_pages.faceted_search', page='software')}}">Software</a></li>
         </ul>
       </li>
       <li class="nav-item dropdown">
