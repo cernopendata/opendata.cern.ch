@@ -1,7 +1,7 @@
 {%- extends "invenio_theme/header.html" %}
 {%- block navbar %}
 <nav class="navbar navbar-expand-lg navbar-custom">
-  <a class="navbar-brand" href="{{url_for('cernopendata_pages.index')}}"><img src="{{url_for('static', filename='assets/img/logo-long.svg')}}" width="200" alt=""></a>
+  <a class="navbar-brand" href="{{url_for('cernopendata_pages.index')}}"><img src="{{url_for('static', filename='assets/img/logo_blue.png')}}" width="115" alt=""></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="oi" data-glyph="menu" style="color:white;"></span>
@@ -33,7 +33,6 @@
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Explore
           <b class="caret"></b></a>
         <ul class="dropdown-menu">
-          <!--TOFIX -->
           <li><a class="dropdown-item" href="{{url_for('cernopendata_pages.faceted_search', page='datasets')}}">Datasets</a></li>
           <li><a class="dropdown-item" href="{{url_for('cernopendata_pages.faceted_search', page='news')}}">News</a></li>
           <li><a class="dropdown-item" href="{{url_for('cernopendata_pages.faceted_search', page='documentation')}}">Documentation</a></li>
