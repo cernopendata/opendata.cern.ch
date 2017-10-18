@@ -1,4 +1,4 @@
-{% macro files_box(record) %}
+{% macro files_box(record, pid_type='recid') %}
   {% if record.files %}
   <div class="row">
     <div class="col-md-12">
@@ -18,7 +18,7 @@
               {% set _file = file.dumps() %}
               <td>{{ _file.key }}</td>
               <td>{{ _file.size | filesizeformat }}</td>
-              <td>{{ download_btn(record.control_number, file) }}</td>
+              <td>{{ download_btn(record.control_number, file, pid_type) }}</td>
             </tr>
             {% endfor %}
           </tbody>
@@ -32,11 +32,12 @@
 
 
 
-{% macro download_btn(record_id, file, icon='fa-download') %}
-  {% set download_uri = url_for("invenio_records_ui.recid_files", pid_value=record_id, filename=file.key) %}
-  {% if file.mimetype != 'application/octet-stream' %}
+{% macro download_btn(record_id, file, pid_type) %}
+  {% set download_uri = url_for("invenio_records_ui.{}_files".format(pid_type), pid_value=record_id, filename=file.key) %}
+  {% set threshold = 1073741824 %}
+  {% if file.mimetype != 'application/octet-stream' or file.size < threshold %}
     <a href="{{download_uri}}">
-      <i class="fa {{icon}}" aria-hidden="true"></i>
+      <span class="oi" data-glyph="data-transfer-download"></span>
     </a>
   {% else %}
     <a
@@ -45,9 +46,9 @@
       data-target="#download_caution"
       data-download-uri="{{download_uri}}"
       data-download-key="{{file.key}}"
-      data-download-size="{{file.size}}"
+      data-download-size="{{file.size|filesizeformat}}"
       >
-      <i class="fa {{icon}}" aria-hidden="true"></i>
+      <span class="oi" data-glyph="data-transfer-download"></span>
     </a>
   {% endif %}
 {% endmacro %}
@@ -62,7 +63,7 @@
         </div>
         <div class="modal-footer">
           <button id="download-msg-dismiss" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <a id="download-msg-uri" href="#" type="button" class="btn btn-primary">Download</a>
+          <a id="download-msg-uri" href="#" role="button" class="btn btn-info">Download</a>
         </div>
       </div>
     </div>
@@ -71,7 +72,7 @@
 
 {% macro download_caution_msg() %}
   <p>
-    Please note that the file you are going to download (<span id="download-msg-filename"></span>) is <b><span id="download-msg-size"></span> bytes</b> big. On an average ADSL connection, it may take several hours to download it (about 2 hours  at 1Mbps).
+    Please note that the file you are going to download (<span id="download-msg-filename"></span>) is <b><span id="download-msg-size"></span></b> big. On an average ADSL connection, it may take several hours to download it (about 2 hours  at 1Mbps).
   </p>
   <p>
     Moreover, if you use one of the provided <a href="/VM/CMS">Virtual Machines</a> to perform your analyses, then you don't need to download datasets manually, because the VM will fetch all the necessary file chunks via the XRootD protocol.

@@ -75,7 +75,7 @@
               {% include 'cernopendata_records_ui/records/components/previewer.html' %}
 
               {% block files_block %}
-              {{ files_box(record) }}
+              {{ files_box(record, 'recid') }}
               {% endblock files_block %}
               {% block disclaimer %}
               <div class="row">

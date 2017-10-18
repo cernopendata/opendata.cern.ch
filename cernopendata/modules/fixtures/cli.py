@@ -287,8 +287,8 @@ def software():
     from invenio_db import db
     from invenio_records_files.api import Record
     from invenio_indexer.api import RecordIndexer
-    from cernopendata.modules.records.minters.recid import \
-        cernopendata_recid_minter
+    from cernopendata.modules.records.minters.softid import \
+        cernopendata_softid_minter
 
     from invenio_files_rest.models import \
         Bucket, FileInstance, ObjectVersion
@@ -308,7 +308,7 @@ def software():
                 files = data.pop('files', None)
 
                 id = uuid.uuid4()
-                cernopendata_recid_minter(id, data)
+                cernopendata_softid_minter(id, data)
                 record = Record.create(data, id_=id)
                 record['$schema'] = schema
                 bucket = Bucket.create()

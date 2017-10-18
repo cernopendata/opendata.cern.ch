@@ -92,6 +92,12 @@ RECORDS_UI_EXPORT_FORMATS = dict(
             title='JSON',
             serializer='cernopendata.modules.records.serializers.json',
         )
+    ),
+    softid=dict(
+        json=dict(
+            title='JSON',
+            serializer='cernopendata.modules.records.serializers.json',
+        )
     )
 )
 
@@ -116,10 +122,10 @@ RECORDS_UI_ENDPOINTS = dict(
         record_class='invenio_records_files.api:Record',
     ),
     recid_export=dict(
-        pid_type="recid",
-        route="/records/<pid_value>/export/<format>",
-        view_imp="invenio_records_ui.views.export",
-        template="cernopendata_records_ui/default_export.html",
+        pid_type='recid',
+        route='/records/<pid_value>/export/<format>',
+        view_imp='invenio_records_ui.views.export',
+        template='cernopendata_records_ui/default_export.html',
         record_class='invenio_records_files.api:Record',
     ),
     datid=dict(
@@ -129,20 +135,38 @@ RECORDS_UI_ENDPOINTS = dict(
         record_class='invenio_records_files.api:Record',
         permission_factory_imp=None,
     ),
+    datid_files=dict(
+        pid_type='datid',
+        route='/datasets/<path:pid_value>/files/<path:filename>',
+        view_imp='cernopendata.modules.records.utils:file_download_ui',
+        record_class='invenio_records_files.api:Record',
+    ),
     datid_export=dict(
-        pid_type="datid",
-        route="/datasets/<path:pid_value>/export/<format>",
-        view_imp="invenio_records_ui.views.export",
-        template="cernopendata_records_ui/default_export.html",
+        pid_type='datid',
+        route='/datasets/<path:pid_value>/export/<format>',
+        view_imp='invenio_records_ui.views.export',
+        template='cernopendata_records_ui/default_export.html',
     ),
     softid=dict(
-        pid_type='recid',
+        pid_type='softid',
         route='/software/<pid_value>',
         template='cernopendata_records_ui/records/software_detail.html',
         record_class='invenio_records_files.api:Record',
         permission_factory_imp=None,
     ),
-
+    softid_files=dict(
+        pid_type='softid',
+        route='/software/<pid_value>/files/<path:filename>',
+        view_imp='cernopendata.modules.records.utils:file_download_ui',
+        record_class='invenio_records_files.api:Record',
+    ),
+    softid_export=dict(
+        pid_type='softid',
+        route='/software/<pid_value>/export/<format>',
+        view_imp='invenio_records_ui.views.export',
+        template='cernopendata_records_ui/default_export.html',
+        record_class='invenio_records_files.api:Record',
+    ),
     termid=dict(
         pid_type='termid',
         route='/glossary/<pid_value>',
@@ -157,10 +181,10 @@ RECORDS_UI_ENDPOINTS = dict(
         record_class='invenio_records_files.api:Record',
     ),
     artid_export=dict(
-        pid_type="artid",
-        route="/articles/<pid_value>/export/<format>",
-        view_imp="invenio_records_ui.views.export",
-        template="cernopendata_records_ui/default_export.html",
+        pid_type='artid',
+        route='/articles/<pid_value>/export/<format>',
+        view_imp='invenio_records_ui.views.export',
+        template='cernopendata_records_ui/default_export.html',
     ),
 )
 
@@ -178,6 +202,7 @@ RECORDS_REST_ENDPOINTS['termid'] = {
     'pid_minter': 'cernopendata_termid_minter',
     'pid_fetcher': 'cernopendata_termid_fetcher',
     'record_class': _Record,
+    'links_factory_imp': 'cernopendata.modules.records.links:links_factory',
     'default_media_type': 'application/json',
     'max_result_window': 10000,
     'item_route': '/glossary/<pid(termid):pid_value>',
@@ -198,6 +223,7 @@ RECORDS_REST_ENDPOINTS['artid'] = {
     'pid_minter': 'cernopendata_articleid_minter',
     'pid_fetcher': 'cernopendata_articleid_fetcher',
     'record_class': _Record,
+    'links_factory_imp': 'cernopendata.modules.records.links:links_factory',
     'default_media_type': 'application/json',
     'max_result_window': 10000,
     'item_route': '/articles/<pid(artid):pid_value>',
@@ -218,6 +244,7 @@ RECORDS_REST_ENDPOINTS['datid'] = {
     'pid_minter': 'cernopendata_datasetid_minter',
     'pid_fetcher': 'cernopendata_datasetid_fetcher',
     'record_class': _Record,
+    'links_factory_imp': 'cernopendata.modules.records.links:links_factory',
     'default_media_type': 'application/json',
     'max_result_window': 10000,
     'item_route': '/datasets/<pidpath(datid):pid_value>',
@@ -227,6 +254,27 @@ RECORDS_REST_ENDPOINTS['datid'] = {
                              ':json_v1_response'),
     },
     'search_index': 'records-datasets-v1.0.0',
+    'search_serializers': {
+        'application/json': ('invenio_records_rest.serializers'
+                             ':json_v1_search'),
+    },
+}
+
+RECORDS_REST_ENDPOINTS['softid'] = {
+    'pid_type': 'softid',
+    'pid_minter': 'cernopendata_softid_minter',
+    'pid_fetcher': 'cernopendata_softid_fetcher',
+    'record_class': _Record,
+    'links_factory_imp': 'cernopendata.modules.records.links:links_factory',
+    'default_media_type': 'application/json',
+    'max_result_window': 10000,
+    'item_route': '/software/<pid(softid):pid_value>',
+    'list_route': '/software',
+    'record_serializers': {
+        'application/json': ('invenio_records_rest.serializers'
+                             ':json_v1_response'),
+    },
+    'search_index': 'records-software-v1.0.0',
     'search_serializers': {
         'application/json': ('invenio_records_rest.serializers'
                              ':json_v1_search'),
