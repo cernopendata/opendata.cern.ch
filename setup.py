@@ -144,6 +144,10 @@ setup(
             ':opera_js',
             'opera_css = cernopendata.modules.theme.bundles'
             ':opera_css',
+            'ispy_js = cernopendata.modules.theme.bundles'
+            ':ispy_js',
+            'ispy_css = cernopendata.modules.theme.bundles'
+            ':ispy_css',
         ],
         'invenio_base.apps': [
             'cernopendata_xrootd = cernopendata.modules.xrootd:CODPXRootD'
