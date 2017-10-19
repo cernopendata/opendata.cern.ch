@@ -1,0 +1,167 @@
+[
+{
+  "abstract": {
+    "description": " <p> This file contains events from the MultiJet primary dataset from the CMS open data release, and computes the razor variables MR and Rsq, used in supersymmetric particle searches. More details on the razor variables can be found in <a href=\u201chttp://dx.doi.org/10.1103/PhysRevD.90.112001\">Phys. Rev. D 90, 112001</a> </p> "
+  }, 
+  "accelerator": "CERN-LHC", 
+  "authors": [
+    {
+      "name": "Duarte, Javier"
+    }
+  ], 
+  "collections": [
+    "CMS-Derived-Datasets"
+  ], 
+  "dataset_semantics": [
+    {
+      "description": "The run number of the event.", 
+      "variable": "Run"
+    }, 
+    {
+      "description": "The lumi section of the event.", 
+      "variable": "Lumi"
+    }, 
+    {
+      "description": "The event number of the event.", 
+      "variable": "Event"
+    }, 
+    {
+      "description": "The four-vector of the leading megajet (with the largest transverse momentum).", 
+      "variable": "E1,Px1,Py1,Pz1"
+    }, 
+    {
+      "description": "The four-vector of the subleading megajet (with the largest transverse momentum).", 
+      "variable": "E2,Px2,Py2,Pz2"
+    }, 
+    {
+      "description": "The scalar sum of the transverse momentum of the jets.", 
+      "variable": "HT"
+    }, 
+    {
+      "description": "The magnitude of the vector sum of the transverse energy of the particles in the event.", 
+      "variable": "MET"
+    }, 
+    {
+      "description": "The number of jets with transverse momentum above 40 GeV.", 
+      "variable": "nJets"
+    }, 
+    {
+      "description": "The number of b-tagged jets with transverse momentum above 40 GeV.", 
+      "variable": "nBJets"
+    }
+  ], 
+  "date_created": "2010", 
+  "date_published": "2015", 
+  "distribution": {
+    "number_events": 21726, 
+    "number_files": 1, 
+    "size": 2725994
+  }, 
+  "doi": "10.7483/OPENDATA.CMS.GACK.GEJA", 
+  "experiment": "CMS", 
+  "methodology": {
+    "description": "The code that applies the selection and produces the csv files can be found here:", 
+    "links": [
+      {
+        "recid": "553"
+      }
+    ]
+  }, 
+  "publisher": "CERN Open Data Portal", 
+  "recid": "554", 
+  "relations": [
+    {
+      "doi": "10.7483/OPENDATA.CMS.QAJC.TR8V", 
+      "recid": "11", 
+      "title": "/MultiJet/Run2010B-Apr21ReReco-v1/AOD", 
+      "type": "isChildOf"
+    }
+  ], 
+  "run_period": "Run2010B", 
+  "title": "Example CSV output file for SUSYBSMAnalysis-RazorFilter", 
+  "type": {
+    "primary": "Dataset", 
+    "secondary": [
+      "Derived Data"
+    ]
+  }, 
+  "usage": {
+    "description": "Comma-Separated-Value (csv) files can be used in online applications such as the one found here", 
+    "links": [
+      {
+        "url": "http://opendata.cern.ch/visualise/histograms/CMS"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "This document contains 100k dimuon events selected from the Mu dataset from Run2010B. Each line corresponds to an event. The main file contains all 100k events. Files with an underscore contain 10k events each."
+  }, 
+  "accelerator": "CERN-LHC", 
+  "authors": [
+    {
+      "name": "McCauley, Thomas"
+    }
+  ], 
+  "collections": [
+    "CMS-Derived-Datasets"
+  ], 
+  "date_created": "2010", 
+  "date_published": "2014", 
+  "distribution": {
+    "number_events": 100000
+  }, 
+  "doi": "10.7483/OPENDATA.CMS.CB8H.MFFA", 
+  "experiment": "CMS", 
+  "methodology": {
+    "description": "The events in this derived dataset were selected because of the presence of precisely two muons with invariant mass between 2-110 GeV, one of which is a high-quality \"global\" muon. More information on the selections applied for the Mu primary dataset can be found there.", 
+    "links": [
+      {
+        "recid": "14"
+      }, 
+      {
+        "recid": "552"
+      }
+    ]
+  }, 
+  "note": {
+    "description": "These data were selected from the Mu primary dataset. The selection criteria may be different from that used in CMS physics results. They are not suitable for a full physics analysis."
+  }, 
+  "publisher": "CERN Open Data Portal", 
+  "recid": "700", 
+  "relations": [
+    {
+      "doi": "10.7483/OPENDATA.CMS.B8MR.C4A2", 
+      "recid": "14", 
+      "title": "/Mu/Run-2010B-Apr21ReReco-v1/AOD", 
+      "type": "isChildOf"
+    }
+  ], 
+  "run_period": "Run2010B", 
+  "title": "Dimuon event information derived from the Run2010B public Mu dataset", 
+  "type": {
+    "primary": "Dataset", 
+    "secondary": [
+      "Derived Data"
+    ]
+  }, 
+  "usage": {
+    "description": "comma-separated value (csv) files can be used in online applications such as the one found here", 
+    "links": [
+      {
+        "url": "http://opendata.cern.ch/visualise/histograms/CMS"
+      }
+    ]
+  }, 
+  "validation": {
+    "description": "These data were derived from the Mu primary dataset. Validation information can be found there.", 
+    "links": [
+      {
+        "recid": "14"
+      }
+    ]
+  }
+}
+]

@@ -1,0 +1,74 @@
+[
+{
+  "abstract": {
+    "description": "Software to extract the data for the browser-based event display for the CMS Experiment"
+  }, 
+  "accelerator": "CERN-LHC", 
+  "authors": [
+    {
+      "name": "McCauley, Thomas"
+    }
+  ], 
+  "collections": [
+    "CMS-Tools"
+  ], 
+  "date_created": "2016", 
+  "date_published": "2016", 
+  "experiment": "CMS", 
+  "license": {
+    "attribution": "GNU General Public License (GPL) version 3"
+  }, 
+  "links": [
+    {
+      "description": "More information on the format can be found at", 
+      "url": "http://cms-outreach.github.io/ispy/#what-is-an-ig-file"
+    }, 
+    {
+      "url": "https://github.com/cms-outreach/ispy-analyzers/tree/Run2011A"
+    }
+  ], 
+  "methodology": {
+    "description": "The software produces the objects to be displayed. The configuration file https://github.com/cms-outreach/ispy-analyzers/blob/Run2011A/python/ISpy_AOD_Producer_cff.py defines the objects to write out, which is done in the corresponding cc files in the src directory. No event selection, apart from accepting only the validated runs, is applied."
+  }, 
+  "publisher": "CERN Open Data Portal", 
+  "recid": "551", 
+  "relations": [
+    {
+      "description": "The output are files in json format such as", 
+      "recid": "629", 
+      "type": "isRelatedTo"
+    }
+  ], 
+  "run_period": "Run2011A", 
+  "system_details": {
+    "description": "Use this code with the CMS Open Data VM environment", 
+    "recid": "252", 
+    "release": "CMSSW_5_3_32"
+  }, 
+  "title": "Software to extract the event display format from the CMS primary dataset for 2011 data taking", 
+  "type": {
+    "primary": "Software", 
+    "secondary": []
+  }, 
+  "usage": {
+    "description": "See the run instructions in", 
+    "links": [
+      {
+        "description": "GitHub", 
+        "url": "https://github.com/cms-outreach/ispy-analyzers/blob/Run2011A/README.md"
+      }
+    ]
+  }, 
+  "use_with": {
+    "description": "Use this with any of the CMS primary datasets for 2011 data taking"
+  }, 
+  "validation": {
+    "description": "Only the list of validated runs for 2011 data taking are accepted:", 
+    "links": [
+      {
+        "recid": "1001"
+      }
+    ]
+  }
+}
+]

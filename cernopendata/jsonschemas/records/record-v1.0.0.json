@@ -1,0 +1,451 @@
+{
+    "$schema": "http://json-schema.org/draft-03/schema#",
+    "description": "Record",
+    "type": "object",
+    "properties": {
+        "date_reprocessed": {
+            "type": "string"
+        },
+        "dataset_semantics": {
+            "items": {
+                "type": "object",
+                "properties": {
+                    "variable": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "array"
+        },
+        "links": {
+            "items": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "array"
+        },
+        "abstract": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "links": {
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "url": {
+                                "type": "string"
+                            },
+                            "recid": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                }
+            }
+        },
+        "topic": {
+            "type": "object",
+            "properties": {
+                "category": {
+                    "type": "string"
+                },
+                "source": {
+                    "type": "string"
+                }
+            }
+        },
+        "run_period": {
+            "type": "string"
+        },
+        "keywords": {
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "pileup": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "links": {
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "recid": {
+                                "type": "string"
+                            },
+                            "title": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                }
+            }
+        },
+        "accelerator": {
+            "type": "string"
+        },
+        "generator": {
+            "type": "object",
+            "properties": {
+                "global_tag": {
+                    "type": "string"
+                },
+                "names": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            }
+        },
+        "title": {
+            "type": "string"
+        },
+        "collision_information": {
+            "type": "object",
+            "properties": {
+                "energy": {
+                    "type": "string"
+                }
+            }
+        },
+        "relations": {
+            "items": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string"
+                    },
+                    "doi": {
+                        "type": "string"
+                    },
+                    "recid": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "array"
+        },
+        "note": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "links": {
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "url": {
+                                "type": "string"
+                            },
+                            "recid": {
+                                "type": "string"
+                            },
+                            "title": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                }
+            }
+        },
+        "methodology": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "links": {
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "recid": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                }
+            }
+        },
+        "experiment": {
+            "type": "string"
+        },
+        "collections": {
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "usage": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "links": {
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "url": {
+                                "type": "string"
+                            },
+                            "recid": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                }
+            }
+        },
+        "type": {
+            "type": "object",
+            "properties": {
+                "primary": {
+                    "type": "string"
+                },
+                "secondary": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            }
+        },
+        "collaboration": {
+            "type": "object",
+            "properties": {
+                "recid": {
+                    "type": "string"
+                },
+                "group": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "date_published": {
+            "type": "string"
+        },
+        "prepublication": {
+            "type": "object",
+            "properties": {
+                "date": {
+                    "type": "string"
+                },
+                "publisher": {
+                    "type": "string"
+                },
+                "place": {
+                    "type": "string"
+                },
+                "report_number": {
+                    "type": "string"
+                }
+            }
+        },
+        "authors": {
+            "items": {
+                "type": "object",
+                "properties": {
+                    "inspireid": {
+                        "type": "string"
+                    },
+                    "affiliation": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "ccid": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "array"
+        },
+        "use_with": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "links": {
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "url": {
+                                "type": "string"
+                            },
+                            "recid": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                }
+            }
+        },
+        "publisher": {
+            "type": "string"
+        },
+        "doi": {
+            "type": "string"
+        },
+        "language": {
+            "type": "string"
+        },
+        "license": {
+            "type": "object",
+            "properties": {
+                "attribution": {
+                    "type": "string"
+                }
+            }
+        },
+        "title_additional": {
+            "type": "string"
+        },
+        "cms_confdb_id": {
+            "type": "string"
+        },
+        "recid": {
+            "type": "string"
+        },
+        "system_details": {
+            "type": "object",
+            "properties": {
+                "release": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "global_tag": {
+                    "type": "string"
+                },
+                "recid": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            }
+        },
+        "date_created": {
+            "type": "string"
+        },
+        "distribution": {
+            "type": "object",
+            "properties": {
+                "number_events": {
+                    "type": "integer"
+                },
+                "number_files": {
+                    "type": "integer"
+                },
+                "size": {
+                    "type": "integer"
+                },
+                "formats": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            }
+        },
+        "validation": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "links": {
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "url": {
+                                "type": "string"
+                            },
+                            "recid": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "type": "array"
+                }
+            }
+        },
+        "_files": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "uri": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "bucket": {
+                        "type": "string"
+                    },
+                    "version_id": {
+                        "type": "string"
+                    },
+                    "size": {
+                        "type": "integer"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "checksum": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

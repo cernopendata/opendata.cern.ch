@@ -1,0 +1,101 @@
+[
+{
+  "abstract": {
+    "description": "The virtual machine image is based on CernVM (cernvm.cern.ch), with Scientific Linux CERN 6 (slc6), which is the environment needed for the CMSSW release\n      to be used with the 2011 CMS open data. It gets the CMS software (CMSSW) from /cvmfs/cms.cern.ch and the jobs running on the CMS open data VM read the condition data from /cvmfs/cms-opendata-conddb.cern.ch. Access to the data is through XRootD."
+  }, 
+  "accelerator": "CERN-LHC", 
+  "collaboration": {
+    "name": "CMS Collaboration", 
+    "recid": "451"
+  }, 
+  "collections": [
+    "CMS-Tools"
+  ], 
+  "date_created": "2011", 
+  "date_published": "2016", 
+  "experiment": "CMS", 
+  "methodology": {
+    "description": "The contextualisation scripts used for setting up the CMS VM images are available at", 
+    "links": [
+      {
+        "recid": "251"
+      }
+    ]
+  }, 
+  "note": {
+    "description": "For known issues and limitations see", 
+    "links": [
+      {
+        "title": "CMS Virtual Machines - Known Issues and Limitations", 
+        "url": "/VM/CMS#2011"
+      }
+    ]
+  }, 
+  "publisher": "CERN Open Data Portal", 
+  "recid": "252", 
+  "run_period": "Run2011A", 
+  "title": "CMS VM Image, for 2011 CMS open data", 
+  "type": {
+    "primary": "Software", 
+    "secondary": []
+  }, 
+  "usage": {
+    "description": "Please follow the tutorial on how to use the CMS Virtual Machine", 
+    "links": [
+      {
+        "description": "CMS Virtual Machines: How to install", 
+        "url": "/VM/CMS#how"
+      }
+    ]
+  }, 
+  "validation": {
+    "description": "A validation report of the CMS VM can be found at", 
+    "links": [
+      {
+        "description": "Testing the CernVM", 
+        "url": "/VM/CMS/validation/report#2011"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "The scripts provided create the CMS virtual machine image based on CernVM (cernvm.cern.ch), with Scientific Linux CERN 6 (slc6)."
+  }, 
+  "accelerator": "CERN-LHC", 
+  "authors": [
+    {
+      "name": "Huffman, Adam"
+    }
+  ], 
+  "collections": [
+    "CMS-Tools"
+  ], 
+  "date_created": "2011", 
+  "date_published": "2016", 
+  "experiment": "CMS", 
+  "publisher": "CERN Open Data Portal", 
+  "recid": "251", 
+  "relations": [
+    {
+      "description": "The final CERN VM image can be found here:", 
+      "recid": "252", 
+      "type": "isRelatedTo"
+    }
+  ], 
+  "run_period": "Run2011A", 
+  "system_details": {
+    "release": "Use this with a Micro-CernVM available at", 
+    "url": "http://cernvm.cern.ch/portal/downloads"
+  }, 
+  "title": "Contextualisation scripts to create the CMS VM Image, for 2011 data release", 
+  "type": {
+    "primary": "Software", 
+    "secondary": []
+  }, 
+  "usage": {
+    "description": " <p> First, you need to run a normal Micro-CernVM, using your own context so you can login. Copy the attached files to the running VM and then\n      login.</p><p>Inside the VM, you first need a copy of the latest Micro-CernVM release as a template for the Open Data image. Download it, inside the running VM, from:\n      http://cernvm.cern.ch/releases/testing/ucernvm-prod.2.5-2.cernvm.x86_64.hdd <br/>placing it in the same directory as the other files.<br/>Run\n      the script:<br/>./cernvm-script <br/>which will produce some output on the terminal, and then finish.\n      <p>The result should be a file with the title coming from the -n field in the script. In this case, the file we're interested in is:\n      <br/>CMS-OpenData-1.2.0.ova\n      <br/>which can be copied from the running VM to elsewhere. </p> "
+  }
+}
+]

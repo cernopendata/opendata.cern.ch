@@ -1,0 +1,167 @@
+[
+{
+  "abstract": {
+    "description": " <p> Using the ALICE analysis framework\n      <br/>ALICE physicists use custom tools that facilitate the analysis of real or simulated ALICE data samples. This example demonstrates the use of the ALICE analysis framework on small samples of both pp and PbPb data taken in the year 2010. The user analysis is represented by a C++ class, which has to implement a few predefined methods to process one interaction event. A template analysis class extracting the inclusive transverse momentum and pseudorapidity spectra of all tracks can be modified to create your own analysis. </p> "
+  }, 
+  "accelerator": "CERN-LHC", 
+  "collaboration": {
+    "name": "ALICE Collaboration"
+  }, 
+  "collections": [
+    "ALICE-Tools"
+  ], 
+  "date_published": "2012", 
+  "distribution": {
+    "number_files": 1, 
+    "size": 2086046
+  }, 
+  "experiment": "ALICE", 
+  "files": [
+    {
+      "checksum": "sha1:0000000000000000000000000000000000000000", 
+      "size": 2086046, 
+      "type": "xrootd", 
+      "uri": "root://eospublic.cern.ch//eos/opendata/alice/modules/PtAnalysis.tgz"
+    }
+  ], 
+  "publisher": "CERN Open Data Portal", 
+  "recid": "1200", 
+  "title": "ALICE simple analysis demonstrator", 
+  "type": {
+    "primary": "Software", 
+    "secondary": []
+  }, 
+  "usage": {
+    "description": "This example requires further reading on the ALICE event data model, which can be found here:", 
+    "links": [
+      {
+        "description": "The Analysis Framework", 
+        "url": "http://aliweb.cern.ch/Offline/Activities/Analysis/AnalysisFramework/index.html"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": " <p> Looking for strange particles in ALICE<br/>The exercise proposed here consists of a search for strange particles, produced from collisions at the LHC and recorded by the ALICE experiment. It is based on the recognition of their V0-decays, such as Kos \u2192 \u03c0+\u03c0-, \u039b\u2192 p + \u03c0- and cascades, such as \u039e- \u2192 \u039b + \u03c0- ( \u039b \u2192 p + \u03c0-). The identification of the strange particles is based on the topology of their decay combined with the identification of the decay products; the information from the tracks is used to calculate the invariant mass of the decaying particle, as an additional confirmation of the particle species. You will have to identify the decay products and based on their momenta calculate the invariant mass to identify the decaying particle. </p> "
+  }, 
+  "accelerator": "CERN-LHC", 
+  "collaboration": {
+    "name": "ALICE Collaboration"
+  }, 
+  "collections": [
+    "ALICE-Tools"
+  ], 
+  "date_published": "2012", 
+  "distribution": {
+    "number_files": 1, 
+    "size": 31139203
+  }, 
+  "experiment": "ALICE", 
+  "files": [
+    {
+      "checksum": "sha1:0000000000000000000000000000000000000000", 
+      "size": 31139203, 
+      "type": "xrootd", 
+      "uri": "root://eospublic.cern.ch//eos/opendata/alice/modules/alice-mc.tgz"
+    }
+  ], 
+  "keywords": [
+    "masterclasses"
+  ], 
+  "publisher": "CERN Open Data Portal", 
+  "recid": "1201", 
+  "title": "ALICE strangeness masterclass module", 
+  "type": {
+    "primary": "Software", 
+    "secondary": []
+  }, 
+  "usage": {
+    "description": "A more detailed tutorial can be found here:", 
+    "links": [
+      {
+        "description": "Looking for strange particles in ALICE", 
+        "url": "http://alice.physicsmasterclasses.org/MasterClassWebpage.html"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": " <p> Nuclear Modication Factor RAA <br/>In the year 2010, data from the first heavy-ion collisions at the LHC have been recorded by the experiments. The ALICE experiment, which is well suited for the measurement of the properties of particles in high particle density environments, has measured the nuclear modification factor RAA for unidentified charged particles. RAA is a measure for the difference in particle production in pp and nucleus-nucleus collisions, taking into account the different collision geometries. RAA is defined as:<br/>RAA=Y(PbPb)/Y(pp)<br/>where Y(PbPb) and Y(pp) are the yields (or number of particles per event) in PbPb and pp collisions, respectively, and is the average number of so-called binary nucleon-nucleon collisions, which have taken place in the collision of two lead ions. Since each lead nucleus consists of 208 nucleons, i.e. protons and neutrons, it is clear that a typical PbPb collision can be seen as a superposition of many pp collisions. RAA, which can be determined in the experiment, measures how many pp collisions should be equivalent on average to one PbPb collision.<br/>If the nuclear modification factor is equal to one, the production of particles in one PbPb collision on average is the same as in independent pp collisions. Naively, this could be interpreted such that the physics of pp and PbPb collisions is the same. RAA values other than one, showing enhancement or suppression of certain flavours, may indicate effects induced by the quark-gluon plasma (QGP). </p>"
+  }, 
+  "accelerator": "CERN-LHC", 
+  "collaboration": {
+    "name": "ALICE Collaboration"
+  }, 
+  "collections": [
+    "ALICE-Tools"
+  ], 
+  "date_published": "2012", 
+  "distribution": {
+    "number_files": 1, 
+    "size": 15470107
+  }, 
+  "experiment": "ALICE", 
+  "files": [
+    {
+      "checksum": "sha1:0000000000000000000000000000000000000000", 
+      "size": 15469921, 
+      "type": "xrootd", 
+      "uri": "root://eospublic.cern.ch//eos/opendata/alice/modules/alice-raa.tgz"
+    }
+  ], 
+  "keywords": [
+    "masterclasses"
+  ], 
+  "publisher": "CERN Open Data Portal", 
+  "recid": "1202", 
+  "title": "ALICE nuclear modification factor masterclass", 
+  "type": {
+    "primary": "Software", 
+    "secondary": []
+  }, 
+  "usage": {
+    "description": "A more detailed tutorial can be found here:", 
+    "links": [
+      {
+        "description": "Measurement of the nuclear modication factor RAA with ALICE", 
+        "url": "http://www-alice.gsi.de/masterclass/MasterClassWebpage_files/MasterClassBody_data/DocumentationEnVersion1.pdf"
+      }
+    ]
+  }
+}
+,
+{
+  "accelerator": "CERN-LHC", 
+  "collaboration": {
+    "name": "ALICE Collaboration"
+  }, 
+  "collections": [
+    "ALICE-Tools"
+  ], 
+  "date_published": "2012", 
+  "distribution": {
+    "number_files": 1, 
+    "size": 42415
+  }, 
+  "experiment": "ALICE", 
+  "files": [
+    {
+      "checksum": "sha1:0000000000000000000000000000000000000000", 
+      "size": 42540, 
+      "type": "xrootd", 
+      "uri": "root://eospublic.cern.ch//eos/opendata/alice/modules/bootstrap.tgz"
+    }
+  ], 
+  "publisher": "CERN Open Data Portal", 
+  "recid": "1203", 
+  "title": "ALICE bootstrap analysis module", 
+  "type": {
+    "primary": "Software", 
+    "secondary": []
+  }
+}
+]

@@ -1,0 +1,93 @@
+[
+{
+  "abstract": {
+    "description": "<p>Condition database includes non-event-related\n      information (Alignment, Calibration, Temperature, etc) and parameters for\n      simulation/reconstruction/analysis software.</p>\n      <p> These files are needed when running a CMSSW job on the Open Data VM. They are automatically read from\n      the /cvmfs/cms-opendata-conddb.cern.ch runtime, you do not need to download these files from here separately.</p>\n      <p>FT_53_LV5_AN1_RUNA is to be used with the collision data of RunA 2011 (with the event range of the open data, the file for the full event range for 2011 are also stored\n      under FT_53_LV5_AN1 on /cvmfs/cms-opendata-conddb.cern.ch)</p> \n      <p>For 2011 CMS Simulated Datasets see:</p>", 
+    "links": [
+      {
+        "recid": "1802"
+      }
+    ]
+  }, 
+  "accelerator": "CERN-LHC", 
+  "collaboration": {
+    "name": "CMS collaboration", 
+    "recid": "451"
+  }, 
+  "collections": [
+    "CMS-Condition-Data"
+  ], 
+  "date_created": "2011", 
+  "date_published": "2016", 
+  "experiment": "CMS", 
+  "files": [
+    {
+      "checksum": "sha1:0000000000000000000000000000000000000000", 
+      "size": 82944, 
+      "type": "xrootd", 
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/db/FT_53_LV5_AN1.db"
+    }, 
+    {
+      "checksum": "sha1:0000000000000000000000000000000000000000", 
+      "size": 11581209101, 
+      "type": "xrootd", 
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/db/FT_53_LV5_AN1.tgz"
+    }
+  ], 
+  "publisher": "CERN Open Data Portal", 
+  "recid": "1801", 
+  "run_period": "Run2011A", 
+  "title": "Condition data for 2011 CMS collision data", 
+  "type": {
+    "primary": "Configuration", 
+    "secondary": [
+      "Condition Database"
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "<p>Condition database includes non-event-related\n      information (Alignment, Calibration, Temperature, etc) and parameters for\n      simulation/reconstruction/analysis software.</p>\n      <p> These files are needed when running a CMSSW job on the Open Data VM. They are automatically read from\n      the /cvmfs/cms-opendata-conddb.cern.ch runtime, you do not need to download these files from here separately.</p>\n      <p>START53_LVA1 is to be used with the simulated data</p>\n      <p>For 2011 CMS collision data see</p>", 
+    "links": [
+      {
+        "recid": "1801"
+      }
+    ]
+  }, 
+  "accelerator": "CERN-LHC", 
+  "collaboration": {
+    "name": "CMS collaboration", 
+    "recid": "451"
+  }, 
+  "collections": [
+    "CMS-Condition-Data"
+  ], 
+  "date_created": "2011", 
+  "date_published": "2016", 
+  "experiment": "CMS", 
+  "files": [
+    {
+      "checksum": "sha1:0000000000000000000000000000000000000000", 
+      "size": 84992, 
+      "type": "xrootd", 
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/db/START53_LV6A1.db"
+    }, 
+    {
+      "checksum": "sha1:0000000000000000000000000000000000000000", 
+      "size": 165990768, 
+      "type": "xrootd", 
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/db/START53_LV6A1.tgz"
+    }
+  ], 
+  "publisher": "CERN Open Data Portal", 
+  "recid": "1802", 
+  "run_period": "2011RunA", 
+  "title": "Condition data for 2011 CMS Simulated Datasets", 
+  "type": {
+    "primary": "Configuration", 
+    "secondary": [
+      "Condition Database"
+    ]
+  }
+}
+]
