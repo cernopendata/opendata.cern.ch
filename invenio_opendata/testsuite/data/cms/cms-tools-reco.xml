@@ -1,0 +1,129 @@
+<collection>
+  <record>
+    <controlfield tag="001">463</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">DOI</subfield>
+      <subfield code="a">10.7483/OPENDATA.CMS.99IJ.BGV4</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2=" ">
+      <subfield code="a">Lassila-Perini, Kati</subfield>
+    </datafield>
+    <datafield tag="245" ind1=" " ind2=" ">
+      <subfield code="a">Validation code for reprocessing AOD from 2011 MinimumBias RAW sample</subfield>
+    </datafield>
+    <datafield tag="256" ind1=" " ind2=" ">
+      <subfield code="a">Software</subfield>
+      <subfield code="f">1</subfield>
+      <subfield code="t">file</subfield>
+    </datafield>
+    <datafield tag="256" ind1=" " ind2=" ">
+      <subfield code="b">0</subfield>
+      <subfield code="t">bytes</subfield>
+    </datafield>
+    <datafield tag="260" ind1=" " ind2=" ">
+      <subfield code="b">CERN Open Data Portal</subfield>
+      <subfield code="c">2017</subfield>
+    </datafield>
+    <datafield tag="264" ind1=" " ind2="0">
+      <subfield code="c">2017</subfield>
+    </datafield>
+    <datafield tag="516" ind1=" " ind2=" ">
+      <subfield code="a">Use this with the following dataset:</subfield>
+      <subfield code="w">35</subfield>
+    </datafield>
+    <datafield tag="520" ind1=" " ind2=" ">
+      <subfield code="a"><![CDATA[ <p>This code for validation reproduces AOD format in <a href="/record/24">this record</a> from the <a href="/record/35">2011 MinimumBias RAW sample</a>. It only contains the configuration file to be run on <a href="/record/252">2011 OpenData VM</a> using CMSSW_5_3_32. No compilation is required. The configuration file has been slightly modified from the <a href="/record/3610">original one</a> to take into account the OpenData computing environment (global tag, input file, commenting out unnecessary steps). Note that the code in this category is not meant to be a pedagogical example but is a validation tool.</p> ]]>
+      </subfield>
+    </datafield>
+    <datafield tag="538" ind1=" " ind2=" ">
+      <subfield code="a">Software release: CMSSW_5_3_32</subfield>
+      <subfield code="i">Use this code with the CMS Open Data VM environment for 2011 open data</subfield>
+      <subfield code="w">252</subfield>
+    </datafield>
+    <datafield tag="540" ind1=" " ind2=" ">
+      <subfield code="a">GNU General Public License (GPL) version 3</subfield>
+    </datafield>
+    <datafield tag="581" ind1=" " ind2=" ">
+      <subfield code="a"><![CDATA[ <p>If you do not have the CERN Virtual Machine for 2011 CMS data installed, follow the instructions in step 1 and step 2 at <a href="/VM/CMS/2011">How to install a CERN Virtual Machine</a>.
+      Then follow the instructions in <a href="https://github.com/cms-opendata-validation/2011-minimumbias-raw-recotest/blob/master/README.md">GitHub</a>.</p> ]]></subfield>
+    </datafield>
+    <datafield tag="583" ind1=" " ind2=" ">
+      <subfield code="a"><![CDATA[ <p>The AOD produced by this code can be validated by comparing histograms produced with the <a href="/record/464">Validation code to plot basic physics objects from AOD</a> from the reprocessed AOD and the original AOD, and the histograms, when run over the same event numbers, are found to be equal.</p> ]]></subfield>
+    </datafield>
+    <datafield tag="693" ind1=" " ind2=" ">
+      <subfield code="a">CERN-LHC</subfield>
+      <subfield code="e">CMS</subfield>
+    </datafield>
+    <datafield tag="964" ind1=" " ind2="0">
+      <subfield code="c">Run2011A</subfield>
+    </datafield>
+    <datafield tag="980" ind1=" " ind2=" ">
+      <subfield code="a">CMS-Tools</subfield>
+    </datafield>
+    <datafield tag="980" ind1=" " ind2=" ">
+      <subfield code="b">Research</subfield>
+    </datafield>
+  </record>
+  <record>
+    <controlfield tag="001">464</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">DOI</subfield>
+      <subfield code="a">10.7483/OPENDATA.CMS.11RI.SDX7</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2=" ">
+      <subfield code="a">Lassila-Perini, Kati</subfield>
+    </datafield>
+    <datafield tag="245" ind1=" " ind2=" ">
+      <subfield code="a">Validation code to plot basic physics objects from AOD</subfield>
+    </datafield>
+    <datafield tag="256" ind1=" " ind2=" ">
+      <subfield code="a">Software</subfield>
+      <subfield code="f">1</subfield>
+      <subfield code="t">file</subfield>
+    </datafield>
+    <datafield tag="256" ind1=" " ind2=" ">
+      <subfield code="b">0</subfield>
+      <subfield code="t">bytes</subfield>
+    </datafield>
+    <datafield tag="260" ind1=" " ind2=" ">
+      <subfield code="b">CERN Open Data Portal</subfield>
+      <subfield code="c">2017</subfield>
+    </datafield>
+    <datafield tag="264" ind1=" " ind2="0">
+      <subfield code="c">2017</subfield>
+    </datafield>
+    <datafield tag="516" ind1=" " ind2=" ">
+      <subfield code="a">Use this with the following datasets:</subfield>
+      <subfield code="w">24</subfield>
+      <subfield code="w">463</subfield>
+    </datafield>
+    <datafield tag="520" ind1=" " ind2=" ">
+      <subfield code="a">This is a simple comparison code to validate the reprocessing step on the Open Data VM by comparing the resulting file (newly rereconstructed from the RAW data sample available on the Open Data Portal) and the original AOD (also available on the Open Data portal). It loops over different physics objects (tracks, electrons, muons, photons, jets, taus and missing et) and fills histograms with P, pt, eta and phi of these objects.</subfield>
+    </datafield>
+    <datafield tag="538" ind1=" " ind2=" ">
+      <subfield code="a">Software release: CMSSW_5_3_32</subfield>
+      <subfield code="i">Use this code with the CMS Open Data VM environment for 2011 open data</subfield>
+      <subfield code="w">252</subfield>
+    </datafield>
+    <datafield tag="540" ind1=" " ind2=" ">
+      <subfield code="a">GNU General Public License (GPL) version 3</subfield>
+    </datafield>
+    <datafield tag="581" ind1=" " ind2=" ">
+      <subfield code="a"><![CDATA[ <p>If you do not have the CERN Virtual Machine for 2011 CMS data installed, follow the instructions in step 1 and step 2 at <a href="/VM/CMS/2011">How to install a CERN Virtual Machine</a>.
+      Then follow the instructions in <a href="https://github.com/cms-opendata-validation/2011-mimimunbias-compare-rereco/blob/master/README.md">GitHub</a>.</p> ]]></subfield>
+    </datafield>
+    <datafield tag="693" ind1=" " ind2=" ">
+      <subfield code="a">CERN-LHC</subfield>
+      <subfield code="e">CMS</subfield>
+    </datafield>
+    <datafield tag="964" ind1=" " ind2="0">
+      <subfield code="c">Run2011A</subfield>
+    </datafield>
+    <datafield tag="980" ind1=" " ind2=" ">
+      <subfield code="a">CMS-Tools</subfield>
+    </datafield>
+    <datafield tag="980" ind1=" " ind2=" ">
+      <subfield code="b">Research</subfield>
+    </datafield>
+  </record>
+</collection>
