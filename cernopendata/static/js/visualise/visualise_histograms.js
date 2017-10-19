@@ -1,4 +1,5 @@
 $(function () {
+  $('#howto').hide();
   var input_data;
 
   var input_files = [
