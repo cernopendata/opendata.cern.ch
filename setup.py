@@ -82,7 +82,7 @@ install_requires = [
     'invenio-db[versioning,postgresql]>=1.0.0b3',
     'invenio-i18n>=1.0.0b1',
     'invenio-indexer>=1.0.0a1',
-    'invenio-jsonschemas>=1.0.0a2',
+    'invenio-jsonschemas==1.0.0a5',
     'invenio-marc21>=1.0.0a1',
     'invenio-xrootd>=1.0.0a4',
     # FIXME invenio-oaiserver 1.0.0a10, 1.0.0a11 lead to functools32 troubles
