@@ -48,19 +48,26 @@
                   </div>
                   <div class="col-md-3"></div>
                 </div>
+                <hr>
+                <input type="checkbox" name="condensed" ng-model="checked"> Condensed view
               </div>
             </div>
           </div>
         </div>
-        <invenio-search-results
-          template="{{ url_for('static', filename='templates/cernopendata_search_ui/results.html') }}">
+        <invenio-search-results ng-show="!checked"
+                                template="{{ url_for('static', filename='templates/cernopendata_search_ui/results.html') }}">
         </invenio-search-results>
+        <div ng-show="checked">
+          <invenio-search-results
+            template="{{ url_for('static', filename='templates/cernopendata_search_ui/condensed_results.html') }}">
+          </invenio-search-results>
+        </div>
         <br>
         <div class="row">
           <div class="col-md-12">
             <invenio-search-pagination
-                      template="{{ url_for('static', filename='templates/cernopendata_search_ui/pagination.html') }}">
-                    </invenio-search-pagination>
+              template="{{ url_for('static', filename='templates/cernopendata_search_ui/pagination.html') }}">
+            </invenio-search-pagination>
           </div>
         </div>
       </div>

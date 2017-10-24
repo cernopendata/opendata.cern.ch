@@ -1,0 +1,33 @@
+<div class="row record-elem" ng-repeat="record in vm.invenioSearchResults.hits.hits track by $index">
+  <li class="col-sm-12 list-unstyled results-position">
+    <div class="card">
+      <div class="card-body">
+        <h4 ng-if="record.metadata.type == 'Dataset'">
+          <a target="_self" ng-href="/datasets/{{record.metadata.control_number}}">
+            {{ record.metadata.title }}
+          </a>
+        </h4>
+        <h4 ng-if="record.metadata.type == 'News'">
+          <a target="_self" ng-href="/articles/{{record.metadata.control_number}}">
+            {{ record.metadata.title }}
+          </a>
+        </h4>
+        <h4 ng-if="record.metadata.type == 'Documentation'">
+          <a target="_self" ng-href="/articles/{{record.metadata.control_number}}">
+            {{ record.metadata.title }}
+          </a>
+        </h4>
+        <h4 ng-if="record.metadata.type == 'Software'">
+          <a target="_self" ng-href="/software/{{record.metadata.control_number}}">
+            {{ record.metadata.title }}
+          </a>
+        </h4>
+        <h4 ng-if="record.metadata.type == 'Glossary'">
+          <a target="_self" ng-href="/glossary/{{record.metadata.control_number}}">
+            {{ record.metadata.anchor }}
+          </a>
+        </h4>
+      </div>
+    </div>
+  </li>
+</div>
