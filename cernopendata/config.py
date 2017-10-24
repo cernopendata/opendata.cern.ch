@@ -282,6 +282,24 @@ RECORDS_REST_ENDPOINTS['softid'] = {
 }
 
 RECORDS_REST_SORT_OPTIONS = {
+    "_all": {
+        'bestmatch': dict(
+            fields=['-_score'],
+            title='Best match',
+            default_order='asc',
+            order=1,
+        ),
+        'mostrecent': dict(
+            fields=['-_created'],
+            title='Most recent',
+            default_order='asc',
+            order=2,
+        ),
+        'title': dict(fields=['title'],
+                      title='Title A-Z',
+                      default_order='asc',
+                      order=1)
+    },
     "records-glossary-term-v1.0.0": {
         'anchor': dict(fields=['anchor'],
                        title='Title',
@@ -368,6 +386,8 @@ SEARCH_UI_JSTEMPLATE_FACETS = 'templates/cernopendata_search_ui/facets.html'
 SEARCH_DOC_TYPE_DEFAULT = None
 #: Do not map any keywords.
 SEARCH_ELASTIC_KEYWORD_MAPPING = {}
+
+SEARCH_UI_SEARCH_INDEX = '_all'
 
 # OAI-PMH
 # =======

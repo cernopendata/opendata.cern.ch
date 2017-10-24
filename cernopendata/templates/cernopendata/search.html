@@ -46,7 +46,9 @@
                       template="{{ url_for('static', filename='templates/cernopendata_search_ui/pagination.html') }}">
                     </invenio-search-pagination>
                   </div>
-                  <div class="col-md-3"></div>
+                  {%- block search_sort %}
+                  {{super()}}
+                  {% endblock search_sort %}
                 </div>
                 <hr>
                 <input type="checkbox" name="condensed" ng-model="checked"> Condensed view
