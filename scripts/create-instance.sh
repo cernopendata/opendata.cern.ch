@@ -104,7 +104,10 @@ set -o errexit
 # set -o nounset
 
 # install XRootD:
-pip install git+https://github.com/xrootd/xrootd-python.git#egg=pyxrootd
+pip install git+https://github.com/xrootd/xrootd-python.git@v0.3.0#egg=pyxrootd
+
+# pinned production requirements
+pip install -r requirements-production.txt
 
 # FIXME using personal forks until upstream PRs are issued and merged:
 pip install git+https://github.com/pamfilos/invenio-files-rest.git@eos-storage#egg=invenio-files-rest
