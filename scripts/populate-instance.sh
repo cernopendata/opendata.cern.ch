@@ -124,9 +124,15 @@ ${INVENIO_WEB_INSTANCE} files location local var/data --default
 # ${INVENIO_WEB_INSTANCE} fixtures pids
 ${INVENIO_WEB_INSTANCE} fixtures glossary_terms
 ${INVENIO_WEB_INSTANCE} fixtures articles
-${INVENIO_WEB_INSTANCE} fixtures data_policies
-${INVENIO_WEB_INSTANCE} fixtures datasets
-${INVENIO_WEB_INSTANCE} fixtures software
+if [[ "$@" = *"--skip-files"* ]]; then
+    ${INVENIO_WEB_INSTANCE} fixtures data_policies --skip-files
+    ${INVENIO_WEB_INSTANCE} fixtures datasets --skip-files
+    ${INVENIO_WEB_INSTANCE} fixtures software --skip-files
+else
+    ${INVENIO_WEB_INSTANCE} fixtures data_policies
+    ${INVENIO_WEB_INSTANCE} fixtures datasets
+    ${INVENIO_WEB_INSTANCE} fixtures software
+fi
 # sphinxdoc-populate-with-demo-records-end
 
 # sphinxdoc-index-all-records-begin

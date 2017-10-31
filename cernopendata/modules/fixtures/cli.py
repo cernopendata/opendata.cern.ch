@@ -164,8 +164,10 @@ def articles():
 
 
 @fixtures.command()
+@click.option('--skip-files', is_flag=True, default=False,
+              help='Skip loading of files')
 @with_appcontext
-def data_policies():
+def data_policies(skip_files):
     """Load demo Data Policy records."""
     from invenio_db import db
     from invenio_indexer.api import RecordIndexer
@@ -189,7 +191,7 @@ def data_policies():
     for filename in data_policies_json:
         with open(filename, 'rb') as source:
             for data in json.load(source):
-                files = data.pop('files', None)
+                files = data.pop('files', [])
 
                 id = uuid.uuid4()
                 cernopendata_recid_minter(id, data)
@@ -200,6 +202,8 @@ def data_policies():
                     record=record.model, bucket=bucket)
 
                 for file in files:
+                    if skip_files:
+                        break
                     assert 'uri' in file
                     assert 'size' in file
                     assert 'checksum' in file
@@ -219,8 +223,10 @@ def data_policies():
 
 
 @fixtures.command()
+@click.option('--skip-files', is_flag=True, default=False,
+              help='Skip loading of files')
 @with_appcontext
-def datasets():
+def datasets(skip_files):
     """Load demo datasets records."""
     from invenio_db import db
     from invenio_records_files.api import Record
@@ -245,7 +251,7 @@ def datasets():
     for filename in datasets_json:
         with open(filename, 'rb') as source:
             for data in json.load(source):
-                files = data.pop('files', None)
+                files = data.pop('files', [])
 
                 id = uuid.uuid4()
                 # (TOFIX) Remove if statement in production
@@ -261,6 +267,8 @@ def datasets():
                     record=record.model, bucket=bucket)
 
                 for file in files:
+                    if skip_files:
+                        break
                     assert 'uri' in file
                     assert 'size' in file
                     assert 'checksum' in file
@@ -281,8 +289,10 @@ def datasets():
 
 
 @fixtures.command()
+@click.option('--skip-files', is_flag=True, default=False,
+              help='Skip loading of files')
 @with_appcontext
-def software():
+def software(skip_files):
     """Load demo software records."""
     from invenio_db import db
     from invenio_records_files.api import Record
@@ -305,7 +315,7 @@ def software():
     for filename in software_json:
         with open(filename, 'rb') as source:
             for data in json.load(source):
-                files = data.pop('files', None)
+                files = data.pop('files', [])
 
                 id = uuid.uuid4()
                 cernopendata_softid_minter(id, data)
@@ -316,6 +326,8 @@ def software():
                     record=record.model, bucket=bucket)
 
                 for file in files:
+                    if skip_files:
+                        break
                     assert 'uri' in file
                     assert 'size' in file
                     assert 'checksum' in file
@@ -339,7 +351,7 @@ def software():
 def pids():
     """Fetch and register PIDs."""
     from invenio_db import db
-    from invenio_oaiserver.fetchers import oaiid_fetcher
+    from invenio_oaiserver.fetchers import onaiid_fetcher
     from invenio_oaiserver.minters import oaiid_minter
     from invenio_pidstore.errors import PIDDoesNotExistError
     from invenio_pidstore.models import PIDStatus, PersistentIdentifier
