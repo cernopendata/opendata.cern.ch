@@ -85,7 +85,7 @@
                   <p>{{step.release}}</p>
                   <p>{{step.global_tag}}</p>
                   {% for conf_file in step.configuration_files %}
-                  <p><a href="/records/{{conf_file.recid}}">{{conf_file.description}}</a></p>
+                  <p><a href="/record/{{conf_file.recid}}">{{conf_file.description}}</a></p>
                   <p><a href="/search?q={{conf_file.title}}">{{conf_file.title}}</a></p>
                   {% endfor %}
                   {% endfor %}
@@ -150,4 +150,3 @@
   </div>
 </div>
 {%- endblock %}
-

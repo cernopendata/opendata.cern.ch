@@ -64,7 +64,7 @@ JSONSCHEMAS_HOST = '127.0.0.1'
 # JSONSCHEMAS_URL_SCHEME = 'http'
 
 # OAI Server
-OAISERVER_RECORD_INDEX = 'marc21'
+OAISERVER_RECORD_INDEX = 'records'
 OAISERVER_ID_PREFIX = 'oai:cernopendata:recid/'
 
 # Records
@@ -104,26 +104,26 @@ RECORDS_UI_EXPORT_FORMATS = dict(
 RECORDS_UI_ENDPOINTS = dict(
     recid=dict(
         pid_type='recid',
-        route='/records/<pid_value>',
+        route='/record/<pid_value>',
         template='cernopendata_records_ui/records/detail.html',
         permission_factory_imp=None,
         record_class='invenio_records_files.api:Record',
     ),
     recid_files=dict(
         pid_type='recid',
-        route='/records/<pid_value>/files/<path:filename>',
+        route='/record/<pid_value>/files/<path:filename>',
         view_imp='cernopendata.modules.records.utils:file_download_ui',
         record_class='invenio_records_files.api:Record',
     ),
     recid_preview=dict(
         pid_type='recid',
-        route='/records/<pid_value>/preview/<path:filename>',
+        route='/record/<pid_value>/preview/<path:filename>',
         view_imp='invenio_previewer.views:preview',
         record_class='invenio_records_files.api:Record',
     ),
     recid_export=dict(
         pid_type='recid',
-        route='/records/<pid_value>/export/<format>',
+        route='/record/<pid_value>/export/<format>',
         view_imp='invenio_records_ui.views.export',
         template='cernopendata_records_ui/default_export.html',
         record_class='invenio_records_files.api:Record',
@@ -319,8 +319,9 @@ RECORDS_REST_FACETS = {
         'aggs': dict(
             experiment=dict(terms=dict(field='experiment')),
             category=dict(terms=dict(field='collections.secondary')),
-            type=dict(terms=dict(field='type'),
-                      aggs=dict(subtype=dict(terms=dict(field="subtype")))),
+            type=dict(terms=dict(field='type.primary'),
+                      aggs=dict(subtype=dict(terms=dict(
+                          field="type.secondary")))),
             file_type=dict(terms=dict(field='distribution.formats')),
             year=dict(terms=dict(field='collections.year')),
             run=dict(terms=dict(
@@ -333,14 +334,14 @@ RECORDS_REST_FACETS = {
         'filters': dict(
             tags_pre=terms_filter('tags'),
             experiment_pre=terms_filter('experiment'),
-            type_pre=terms_filter('type'),
-            subtype_pre=terms_filter('subtype'),
+            type_pre=terms_filter('type.primary'),
+            subtype_pre=terms_filter('type.secondary'),
         ),
         'post_filters': dict(
             experiment=terms_filter('experiment'),
             category=terms_filter('collections.secondary'),
-            type=terms_filter('type'),
-            subtype=terms_filter('subtype'),
+            type=terms_filter('type.primary'),
+            subtype=terms_filter('type.secondary'),
             year=terms_filter('collections.year'),
             tags=terms_filter('tags'),
             file_type=terms_filter('distribution.formats'),
@@ -433,5 +434,5 @@ PIDSTORE_DATACITE_PASSWORD = os.environ.get(
 #: Base URL for landing page
 PIDSTORE_LANDING_BASE_URL = os.environ.get(
     "APP_PIDSTORE_LANDING_BASE_URL",
-    "http://opendata.cern.ch/records"
+    "http://opendata.cern.ch/record"
 )

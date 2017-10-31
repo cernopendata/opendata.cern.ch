@@ -58,7 +58,7 @@
                   <p>{{record.use_with.description | safe }}</p>
                   <ul>
                     {% for link in record.use_with.links %}
-                    <li><a href="/records/{{link.recid}}">Record {{link.recid}}</a></li>
+                    <li><a href="/record/{{link.recid}}">Record {{link.recid}}</a></li>
                     {% endfor %}
                   </ul>
                 </div>
@@ -68,7 +68,7 @@
                   <h3>System Details</h3>
                   <p>{{record.system_details.description}}</p>
                   <p><strong>Software release:</strong> {{record.system_details.release}}</p>
-                  <p><a href="/records/{{record.system_details.recid}}">Record {{record.system_details.recid}}</a></p>
+                  <p><a href="/record/{{record.system_details.recid}}">Record {{record.system_details.recid}}</a></p>
                 </div>
               </div>
               <div class="row">
@@ -86,7 +86,7 @@
                   <p>{{record.validation.description | safe }}</p>
                   <ul>
                     {% for link in record.validation.links %}
-                    <li><a href="/records/{{link.recid}}">Record {{link.recid}}</a></li>
+                    <li><a href="/record/{{link.recid}}">Record {{link.recid}}</a></li>
                     {% endfor %}
                   </ul>
                 </div>
@@ -126,4 +126,3 @@
   </div>
 </div>
 {%- endblock %}
-

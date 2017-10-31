@@ -15,11 +15,8 @@ Docker:
 
    $ docker-compose build
    $ docker-compose up
-   $ docker-compose run --rm web ./scripts/populate-instance.sh
+   $ docker-compose run --rm web ./scripts/populate-instance.sh --skip-files
    $ firefox http://0.0.0.0/
-
-Please note that populating the site with all example records is an optional
-step that may take considerable time (30 minutes or more).
 
 Appendix: Git workflow
 ======================

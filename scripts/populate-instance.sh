@@ -120,18 +120,12 @@ sleep 20
 ${INVENIO_WEB_INSTANCE} files location local var/data --default
 
 # sphinxdoc-populate-with-demo-records-begin
-# ${INVENIO_WEB_INSTANCE} fixtures records
-# ${INVENIO_WEB_INSTANCE} fixtures pids
 ${INVENIO_WEB_INSTANCE} fixtures glossary_terms
 ${INVENIO_WEB_INSTANCE} fixtures articles
 if [[ "$@" = *"--skip-files"* ]]; then
-    ${INVENIO_WEB_INSTANCE} fixtures data_policies --skip-files
-    ${INVENIO_WEB_INSTANCE} fixtures datasets --skip-files
-    ${INVENIO_WEB_INSTANCE} fixtures software --skip-files
+    ${INVENIO_WEB_INSTANCE} fixtures records --skip-files
 else
-    ${INVENIO_WEB_INSTANCE} fixtures data_policies
-    ${INVENIO_WEB_INSTANCE} fixtures datasets
-    ${INVENIO_WEB_INSTANCE} fixtures software
+    ${INVENIO_WEB_INSTANCE} fixtures records
 fi
 # sphinxdoc-populate-with-demo-records-end
 

@@ -1,0 +1,44 @@
+{
+  "mappings": {
+    "record-v1.0.0": {
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "copy_to": "facet_schema"
+        },
+        "facet_schema": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "type": {
+          "properties": {
+              "primary": {"type": "string",
+                          "index": "not_analyzed"},
+              "secondary": {"type": "string",
+                            "index": "not_analyzed"}
+          }
+        },
+        "experiment": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "title": {
+          "type": "string"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "abstract": {
+          "properties": {
+            "description": {"type": "string"}
+          }
+        },
+        "authors": {
+          "properties": {
+            "name": {"type": "string"}
+          }
+        }
+      }
+    }
+  }
+}

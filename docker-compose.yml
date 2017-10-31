@@ -41,7 +41,7 @@ web:
     - APP_PIDSTORE_DATACITE_DOI_PREFIX=10.5072
     - APP_PIDSTORE_DATACITE_USERNAME=CERN.OPENDATA
     - APP_PIDSTORE_DATACITE_PASSWORD=CHANGE_ME
-    - APP_PIDSTORE_LANDING_BASE_URL=http://opendata.cern.ch/records/
+    - APP_PIDSTORE_LANDING_BASE_URL=http://opendata.cern.ch/record/
   volumes:
     - ../devmodules:/devmodules
     - ./cernopendata:/code/cernopendata

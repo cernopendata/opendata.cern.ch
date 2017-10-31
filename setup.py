@@ -83,7 +83,6 @@ install_requires = [
     'invenio-i18n>=1.0.0b1',
     'invenio-indexer>=1.0.0a1',
     'invenio-jsonschemas==1.0.0a5',
-    'invenio-marc21>=1.0.0a1',
     'invenio-xrootd>=1.0.0a4',
     # FIXME invenio-oaiserver 1.0.0a10, 1.0.0a11 lead to functools32 troubles
     'invenio-oaiserver>=1.0.0a9,<1.0.0a10',
@@ -123,9 +122,6 @@ setup(
         'console_scripts': [
             'cernopendata = '
             'cernopendata.cli:cli',
-        ],
-        'dojson.contrib.marc21': [
-            'cernopendata = cernopendata.rules',
         ],
         'invenio_assets.bundles': [
             'cernopendata_js = cernopendata.modules.theme.bundles:js',

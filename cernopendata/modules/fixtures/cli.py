@@ -49,36 +49,64 @@ def fixtures():
 
 
 @fixtures.command()
+@click.option('--skip-files', is_flag=True, default=False,
+              help='Skip loading of files')
 @with_appcontext
-def records():
-    """Load demo records."""
-    from dojson.contrib.marc21.utils import load
-    from dojson.contrib.marc21.model import marc21
+def records(skip_files):
+    """Load all records."""
     from invenio_db import db
-    from invenio_records import Record
+    from invenio_records_files.api import Record
+    from invenio_indexer.api import RecordIndexer
+    from cernopendata.modules.records.minters.recid import \
+        cernopendata_recid_minter
 
-    class NoCheckRecord(Record):
-        """Skip record validation."""
+    from invenio_files_rest.models import \
+        Bucket, FileInstance, ObjectVersion
+    from invenio_records_files.models import RecordsBuckets
 
-        def validate(self):
-            """Ignore schema."""
-            return True
-
+    indexer = RecordIndexer()
     schema = current_app.extensions['invenio-jsonschemas'].path_to_url(
-        'marc21/bibliographic/bd-v1.0.0.json'
+        'records/record-v1.0.0.json'
     )
     data = pkg_resources.resource_filename('cernopendata',
-                                           'modules/fixtures/data')
-    files = list(glob.glob(os.path.join(data, '*.xml')))
-    files += list(glob.glob(os.path.join(data, '*', '*.xml')))
+                                           'modules/fixtures/data/records')
+    record_json = glob.glob(os.path.join(data, '*.json'))
 
-    for filename in files:
+    for filename in record_json:
         with open(filename, 'rb') as source:
-            for data in load(source):
-                record = marc21.do(data)
+            for data in json.load(source):
+
+                if not data:
+                    continue
+
+                files = data.pop('files', [])
+
+                id = uuid.uuid4()
+                cernopendata_recid_minter(id, data)
+                record = Record.create(data, id_=id)
                 record['$schema'] = schema
-                click.echo(NoCheckRecord.create(record).id)
+                bucket = Bucket.create()
+                RecordsBuckets.create(
+                    record=record.model, bucket=bucket)
+
+                for file in files:
+                    if skip_files:
+                        break
+                    assert 'uri' in file
+                    assert 'size' in file
+                    assert 'checksum' in file
+
+                    f = FileInstance.create()
+                    filename = file.get("uri").split('/')[-1:][0]
+                    f.set_uri(file.get("uri"), file.get(
+                        "size"), file.get("checksum"))
+                    ObjectVersion.create(
+                        bucket,
+                        filename,
+                        _file_id=f.id
+                    )
                 db.session.commit()
+                indexer.index(record)
                 db.session.expunge_all()
 
 
