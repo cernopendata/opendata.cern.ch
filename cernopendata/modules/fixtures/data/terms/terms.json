@@ -3,7 +3,7 @@
 		"term": "AOD",
 		"anchor": "AOD",
 		"category": "specific",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 		"definition": "Stands for “Analysis Object Data”, a format that contains all information needed for a CMS analysis. It contains reconstructed “physics objects” such as electrons, photons and muons.",
 		"experiment": [
 			{
@@ -36,7 +36,7 @@
 		"term": "CMSSW",
 		"anchor": "CMSSW",
 		"category": "specific",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 		"definition": "Stands for CMS Software and refers to (1) the so-called “Offline” software needed to simulate, reconstruct and analyse CMS data, and (2) the “Online” software needed for data selection and storage.",
 		"experiment": [
 			{
@@ -59,7 +59,7 @@
 		"term": ["Derived Dataset","Derived Datasets"],
 		"anchor": "derived",
 		"category": "specific",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 		"definition": "Contains data that have been derived from the primary datasets. The data may be reduced in the sense that (a) only part of the information is kept or (b) only part of the events are selected.",
 		"experiment": [
 			{
@@ -97,7 +97,7 @@
 		"term": ["Electron","Electrons"],
 		"anchor": "electron",
 		"category": "generic",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 		"definition": "A stable elementary particle belonging to the first generation of the “lepton” family of particles. It has a $-$1 electrical charge, while its anti-particle, the anti-electron or positron, has a +1 electrical charge. Atoms are made of electrons orbiting positively charged nuclei. An electron has a mass of ~0.5 MeV/c$^2$, or about 1/1836 times the mass of a proton.",
 		"links": [
 			{
@@ -121,7 +121,7 @@
 		"term": ["Event generator","Event generators","Generator","Generators"],
 		"anchor": "generator",
 		"category": "generic",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 		"definition": "Simulation programs used to generate particle collisions.",
 		"links": [
 			{
@@ -148,7 +148,7 @@
 		"term": ["Global Tag","Global Tags","Condition Data","Condition Database"],
 		"anchor": "tag",
 		"category": "specific",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 		"definition": "A Global Tag is a coherent collection of records of additional data needed by the reconstruction and analysis software. These records are stored in the Condition Database. Condition data include non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for the simulation/reconstruction/analysis software.",
 		"experiment": [
 			{
@@ -177,7 +177,7 @@
 		"term": ["Gluon","Gluons"],
 		"anchor": "gluon",
 		"category": "generic",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 		"definition": "An elementary particle belonging to the “boson” family of particles. It is the carrier of the strong force that binds quarks together to form hadrons. It is massless and has no electrical charge but has a property known as “colour charge”.",
 		"links": [
 			{
@@ -198,7 +198,7 @@
 		"term": ["Hadron","Hadrons"],
 		"anchor": "hadron",
 		"category": "generic",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 		"definition": "A composite particle made of two or more quarks. There are two sub-categories of hadrons: “baryons” such as protons and neutrons are made of three quarks (or three anti-quarks), while “mesons” are made of a quark and an anti-quark. Atomic nuclei can also be considered hadrons, since they are also fundamentally made of quarks. The LHC collides two species of hadrons: protons and lead nuclei (also called lead ions). Hadrons produced in collisions typically cluster together to form particle jets in the detectors.",
 		"links": [
 			{
@@ -225,7 +225,7 @@
 		"term": ["Ion","Ions"],
 		"anchor": "ion",
 		"category": "generic",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 		"definition": "An ion is an atom or a molecule in which the number of electrons is not the same as the number of protons. In the context of the LHC, the term “heavy ion” refers to the nuclei of heavy atoms such as lead.",
 		"links": [
 			{
@@ -252,7 +252,7 @@
 		"term": ["Lumi section","lumisection"],
 		"anchor": "lumisection",
 		"category": "specific",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 	  "definition": "A lumi section is a fixed time period in data taking, approximately 24 seconds.",
 		"experiment": [
 			  {
@@ -264,7 +264,7 @@
 		"term": ["Monte Carlo"],
 		"anchor": "montecarlo",
 		"category": "generic",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 		"definition": "Refers to computational algorithms based on numerical random samplings that is used in simulation programs for generating the particle collisions and for simulating of particle interactions in the detector material. Often used as a synonym for simulated data.",
 		"links": [
 			{
@@ -290,7 +290,7 @@
 	{
 		"term": ["Muon","Muons"],
 		"anchor": "muon",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 		"category": "generic",
     "definition": "An elementary particle belonging to the second generation of the “lepton” family of particles. It has a $-$1 electrical charge, while its anti-particle, the anti-muon, has a +1 electrical charge. A muon’s properties are similar to those of an electron but it is around 200 times more massive. It is represented by the Greek letter “$\\mu$”.",
 		"links": [
@@ -312,7 +312,7 @@
 		"term": ["Neutrino","Neutrinos"],
 		"anchor": "neutrino",
 		"category": "generic",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 		"definition": "An elementary particle belonging to the “lepton” family of particles. Neutrinos and their anti-particles, anti-neutrinos, have no charge, although measurements show that they are not massless. Neutrinos rarely interact with matter: they can fly through lightyears of lead without coming to a stop. Therefore, they cannot be detected directly by the particle detectors at the LHC: their presence has to be inferred by detecting and measuring every other particle produced in the collisions and then applying conservation laws. Neutrinos are recorded as “missing transverse energy” or MET, although MET could also be a sign of previously undiscovered, non-interacting particles.",
 		"links": [
 			{
@@ -333,7 +333,7 @@
 		"term": ["Particle jet","Particle jets"],
 		"anchor": "jet",
 		"category": "generic",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 		"definition": "A jet is a shower of hadrons, which originate from a quark or a gluon, clustered together after being produced in particle collisions.",
 		"links": [
 			{
@@ -357,7 +357,7 @@
 		"term": "PAT",
 		"anchor": "PAT",
 		"category": "specific",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 		"definition": "Stands for Physics Analysis Toolkit, and provides easy access to algorithms developed by the CMS Physics Object Groups (POGs) in the framework of CMS Software (CMSSW), suitable for most CMS analyses.",
 		"experiment": [
 			{
@@ -380,7 +380,7 @@
 		"term": ["Photon","Photons"],
 		"anchor": "photon",
 		"category": "generic",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
     "definition": "A stable elementary particle belonging to the “boson” family of particles. Called the “quantum” of light, the photon is the carrier of the electromagnetic force and is massless with no electrical charge. It is represented by the Greek letter “$\\gamma$”.",
 		"links": [
 			{
@@ -398,7 +398,7 @@
 		"term": ["Primary Dataset","Primary Datasets"],
 		"anchor": "primary",
 		"definition": "Datasets prepared after trigger selections, with no further selection criteria applied. On this portal, primary datasets refer to “reconstructed data”.",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 		"category": "specific",
 		"experiment": [
 			{
@@ -445,7 +445,7 @@
 		"term": ["Proton","Protons"],
 		"anchor": "proton",
 		"category": "generic",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 		"definition": "A stable composite particle belonging to the “hadron” family of particles, made of two up quarks and a down quark. It has a +1 electrical charge and is found in the nuclei of atoms. A proton has a mass of ~938 MeV/c<sup>2</sup>, or about 1836 times the mass of an electron. Protons are one of the species of particles collided at the LHC.",
 		"links": [
 			{
@@ -469,7 +469,7 @@
 		"term": ["Quark","Quarks"],
 		"anchor": "quark",
 		"category": "generic",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 		"definition": "An elementary particle that comes in six flavours: up, charm and top (all with +2/3 electrical charge) and down, strange and bottom (all with $-$1/3 electrical charge). Quarks also have a property known as “colour charge” and cannot exist freely because of a phenomenon called “colour confinement”: they are held together by gluons to form hadrons.",
 		"links": [
 			{
@@ -496,7 +496,7 @@
 		"term": ["Reconstruction","Reconstructions"],
 		"anchor": "reconstruction",
 		"definition": "Fragmented data from various sub-detectors are processed or “reconstructed” to provide coherent information about individual physics objects such as electrons or particle jets. Reconstruction involves putting together information from different sub-detectors into a coherent representation of every particle collision. However, the format for the first tier of reconstructed data is often too huge for meaningful analysis, and is converted into a lighter format, such as the AOD format for CMS.",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 		"category": "specific",
 		"experiment": [
 			{
@@ -533,7 +533,7 @@
 	{
 		"term": ["Physics Run","RunA","RunB","RunC","RunD","Run2010A","Run2010B","Run2011A","Run2011B","Run2012A","Run2012B","Run2012C","Run2012D"],
 		"anchor": "Run",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 		"category": "specific",
 		"definition": "The data collected by CMS in a given year are divided into sets called “Runs”. For example, the data from 2010 were divided into “RunA” and “RunB”, the latter being from the second part of the year.",
 		"experiment": [
@@ -557,7 +557,7 @@
 		"term": ["Trigger","Triggers","L1","HLT"],
 		"anchor": "trigger",
 		"category": "generic",
-		"type": "Glossary",
+		"type": {"primary": "Glossary"},
 		"definition": "A system that determines which particle collisions are stored in primary datasets and which ones are discarded. The triggering is done first by a lower-level hardware-based trigger (L1) and then by the High-Level Trigger (HLT) on a computing farm.",
 		"links": [
 			{

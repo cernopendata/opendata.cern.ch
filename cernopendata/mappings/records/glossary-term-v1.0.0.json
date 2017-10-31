@@ -45,12 +45,12 @@
           "type": "string"
         },
         "type": {
-          "type": "string",
-          "index": "not_analyzed"
-        },
-        "subtype": {
-          "type": "string",
-          "index": "not_analyzed"
+          "properties": {
+              "primary": {"type": "string",
+                          "index": "not_analyzed"},
+              "secondary": {"type": "string",
+                            "index": "not_analyzed"}
+          }
         },
         "definition": {
           "type": "string"
