@@ -13,6 +13,11 @@
   ], 
   "date_created": "2011", 
   "date_published": "2016", 
+  "distribution": {
+    "formats": [
+      "ova"
+    ]
+  }, 
   "experiment": "CMS", 
   "methodology": {
     "description": "The contextualisation scripts used for setting up the CMS VM images are available at", 
@@ -36,8 +41,10 @@
   "run_period": "Run2011A", 
   "title": "CMS VM Image, for 2011 CMS open data", 
   "type": {
-    "primary": "Software", 
-    "secondary": []
+    "primary": "Environment", 
+    "secondary": [
+      "VM"
+    ]
   }, 
   "usage": {
     "description": "Please follow the tutorial on how to use the CMS Virtual Machine", 
@@ -74,6 +81,11 @@
   ], 
   "date_created": "2011", 
   "date_published": "2016", 
+  "distribution": {
+    "formats": [
+      "txt"
+    ]
+  }, 
   "experiment": "CMS", 
   "publisher": "CERN Open Data Portal", 
   "recid": "251", 
@@ -91,8 +103,10 @@
   }, 
   "title": "Contextualisation scripts to create the CMS VM Image, for 2011 data release", 
   "type": {
-    "primary": "Software", 
-    "secondary": []
+    "primary": "Environment", 
+    "secondary": [
+      "VM"
+    ]
   }, 
   "usage": {
     "description": " <p> First, you need to run a normal Micro-CernVM, using your own context so you can login. Copy the attached files to the running VM and then\n      login.</p><p>Inside the VM, you first need a copy of the latest Micro-CernVM release as a template for the Open Data image. Download it, inside the running VM, from:\n      http://cernvm.cern.ch/releases/testing/ucernvm-prod.2.5-2.cernvm.x86_64.hdd <br/>placing it in the same directory as the other files.<br/>Run\n      the script:<br/>./cernvm-script <br/>which will produce some output on the terminal, and then finish.\n      <p>The result should be a file with the title coming from the -n field in the script. In this case, the file we're interested in is:\n      <br/>CMS-OpenData-1.2.0.ova\n      <br/>which can be copied from the running VM to elsewhere. </p> "
