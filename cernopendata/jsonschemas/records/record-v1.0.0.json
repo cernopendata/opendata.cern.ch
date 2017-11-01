@@ -27,6 +27,12 @@
                     "url": {
                         "type": "string"
                     },
+                    "title": {
+                        "type": "string"
+                    },
+                    "recid": {
+                        "type": "string"
+                    },
                     "description": {
                         "type": "string"
                     }
@@ -47,7 +53,13 @@
                             "url": {
                                 "type": "string"
                             },
+                            "title": {
+                                "type": "string"
+                            },
                             "recid": {
+                                "type": "string"
+                            },
+                            "description": {
                                 "type": "string"
                             }
                         }
@@ -86,10 +98,16 @@
                     "items": {
                         "type": "object",
                         "properties": {
-                            "recid": {
+                            "url": {
                                 "type": "string"
                             },
                             "title": {
+                                "type": "string"
+                            },
+                            "recid": {
+                                "type": "string"
+                            },
+                            "description": {
                                 "type": "string"
                             }
                         }
@@ -162,10 +180,13 @@
                             "url": {
                                 "type": "string"
                             },
+                            "title": {
+                                "type": "string"
+                            },
                             "recid": {
                                 "type": "string"
                             },
-                            "title": {
+                            "description": {
                                 "type": "string"
                             }
                         }
@@ -184,7 +205,16 @@
                     "items": {
                         "type": "object",
                         "properties": {
+                            "url": {
+                                "type": "string"
+                            },
+                            "title": {
+                                "type": "string"
+                            },
                             "recid": {
+                                "type": "string"
+                            },
+                            "description": {
                                 "type": "string"
                             }
                         }
@@ -213,6 +243,9 @@
                         "type": "object",
                         "properties": {
                             "url": {
+                                "type": "string"
+                            },
+                            "title": {
                                 "type": "string"
                             },
                             "recid": {
@@ -308,6 +341,9 @@
                             "url": {
                                 "type": "string"
                             },
+                            "title": {
+                                "type": "string"
+                            },
                             "recid": {
                                 "type": "string"
                             },
@@ -400,6 +436,9 @@
                         "type": "object",
                         "properties": {
                             "url": {
+                                "type": "string"
+                            },
+                            "title": {
                                 "type": "string"
                             },
                             "recid": {
