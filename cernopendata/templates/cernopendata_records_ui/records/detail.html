@@ -15,16 +15,18 @@
               <small>{{record.date_published}}</small>
             </h3>
             <div class="row">
-              {% if record.additional_title %}
+              {% if record.title_additional %}
               <div class="col-md-12">
-                {{record.additional_title}}
+                {{record.title_additional}}
               </div>
               {% endif %}
               <div class="col-md-12">
                 {% for author in record.authors %}
                 <small>{{author.name}}</small>
                 {% endfor %}
+                {% if record.collaboration %}
                 <span class="badge badge-success">{{record.collaboration.name}}</span>
+                {% endif %}
                 {% if record.year %}
                 <span class="badge badge-success">{{record.year}} Run</span>
                 {% endif %}
@@ -36,7 +38,10 @@
               {% for author in record.authors %}
               <span>{{author.name}}.</span>
               {% endfor %}
-              <span>{{record.collaboration.name}} ({{record.date_published}}). {{record.additional_title}}. CERN Open Data Portal.
+              <span>
+                {% if record.collaboration %}
+                  {{record.collaboration.name}}
+                {% endif %} ({{record.date_published}}). {{record.title_additional}}. CERN Open Data Portal.
                                 {% if record.doi %}
                                   <label>DOI:</label>
                                   <a href="http://doi.org/{{record.doi}}">{{record.doi}}</a>
@@ -66,7 +71,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <h3>Description</h3>
-                  <p>{{record.abstract}}</p>
+                  <p>{{record.abstract.description}}</p>
                 </div>
               </div>
               {% endif %}
@@ -133,4 +138,3 @@
 </script>
 {% endif %}
 {% endblock javascript %}
-

@@ -57,9 +57,11 @@
                   {% endif %}
                 </p>
                 <div class="tags-box">
-                  <a href="/search?type_pre={{record.type}}" class="badge  badge-success custom-badge-success">{{ record.type }}</a>
-                  {% if record.subtype %}
-                  <a href="/search?subtype_pre={{record.subtype}}" class="badge  badge-info">{{ record.subtype }}</a>
+                  <a href="/search?type_pre={{record.type.primary}}" class="badge  badge-success custom-badge-success">{{ record.type.primary }}</a>
+                  {% if record.type.secondary %}
+                    {% for subtype in record.type.secondary %}
+                      <a href="/search?subtype_pre={{subtype}}" class="badge  badge-info">{{ subtype }}</a>
+                    {% endfor %}
                   {% endif %}
                   {% for tag in record.tags %}
                   <a href="/search?tags_pre={{tag}}" class="badge badge-secondary">{{ tag }}</a>

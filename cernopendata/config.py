@@ -105,7 +105,7 @@ RECORDS_UI_ENDPOINTS = dict(
     recid=dict(
         pid_type='recid',
         route='/record/<pid_value>',
-        template='cernopendata_records_ui/records/detail.html',
+        template='cernopendata_records_ui/records/record_detail.html',
         permission_factory_imp=None,
         record_class='invenio_records_files.api:Record',
     ),

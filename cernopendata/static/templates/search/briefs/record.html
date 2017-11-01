@@ -2,9 +2,9 @@
 <div class="card">
   <div class="card-body">
     <h4>
-      <a target="_self" ng-href="/record/{{ record.id }}">{{ record.metadata.title }}</a>
+      <a target="_self" ng-href="/datasets/{{ record.metadata.control_number }}">{{ record.metadata.title }}</a>
     </h4>
-    <p>{{ record.metadata.abstract.description }}</p>
+    <p class="mt-1">{{ record.metadata.abstract.description | limitTo : 200}}...</p>
     <div class="tags-box-search-results">
       <a class="badge badge-success custom-badge-success" href="/search?type={{record.metadata.type.primary}}">
         {{ record.metadata.type.primary }}

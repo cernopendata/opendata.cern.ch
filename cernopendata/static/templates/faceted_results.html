@@ -13,11 +13,11 @@
       <p ng-if="record.metadata.short_description.content">{{record.metadata.short_description.content}}</p>
       <p ng-if="!record.metadata.short_description.content">{{record.metadata.body.content | limitTo: 200}}<span ng-if="record.metadata.body.content">...</span></p>
       <div class="tags-box-search-results">
-        <a class="badge badge-success custom-badge-success" href="/search?type={{record.metadata.type}}">
-          {{ record.metadata.type }}
+        <a class="badge badge-success custom-badge-success" href="/search?type={{record.metadata.type.primary}}">
+          {{ record.metadata.type.primary }}
         </a>
-        <a class="badge badge-info" ng-if="record.subtype" href="/search?subtype={{record.metadata.subtype}}">
-          {{ record.metadata.subtype }}
+        <a class="badge badge-info" ng-if="record.metadata.type.secondary" href="/search?subtype={{record.metadata.type.secondary[0]}}">
+          {{ record.metadata.type.secondary[0] }}
         </a>
         <a class="badge badge-secondary" ng-repeat="tag in record.metadata.tags" href="/search?tags={{tag}}">
           {{ tag }}
@@ -32,5 +32,3 @@
     </div>
   </div>
 </div>
-
-
