@@ -6,6 +6,20 @@
             "type": "string",
             "title": "id"
         },
+        "type": {
+            "type": "object",
+            "properties": {
+                "primary": {
+                    "type": "string"
+                },
+                "secondary": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            }
+        },
         "title": {
             "type": "string",
             "title": "Title"
