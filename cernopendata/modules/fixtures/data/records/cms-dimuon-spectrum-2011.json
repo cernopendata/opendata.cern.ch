@@ -1,0 +1,75 @@
+[
+{
+  "abstract": {
+    "description": " <p>This simple analysis example is set up at Research level, i.e. it requires university-student-level programming experience.\n      Minimal acquaintance with Linux and the ROOT analysis package (<a href=\"https://root.cern.ch/\">https://root.cern.ch/</a>) as well as a basic text editor is needed.</p> "
+  },
+  "accelerator": "CERN-LHC",
+  "authors": [
+    {
+      "name": "Geiser, Achim"
+    },
+    {
+      "name": "Dutta, Irene"
+    },
+    {
+      "name": "Hirvonsalo, Harri"
+    },
+    {
+      "name": "Sheeran, Bridget"
+    }
+  ],
+  "collections": [
+    "CMS-Validation-Utilities"
+  ],
+  "date_created": "2011",
+  "date_published": "2017",
+  "distribution": {
+    "formats": [
+      "gz"
+    ],
+    "number_files": 1,
+    "size": 122975
+  },
+  "doi": "10.7483/OPENDATA.CMS.D00J.UVB1",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:4bfc8b8bad13b9c2dbf2d091cc6bf171a1877845",
+      "size": 122975,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/DimuonSpectrum2011/DimuonSpectrum2011-1.0.0.tar.gz"
+    }
+  ],
+  "license": {
+    "attribution": "GNU General Public License (GPL) version 3"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "5001",
+  "run_period": "Run2011A",
+  "system_details": {
+    "description": "Use this code with the CMS Open Data VM environment",
+    "recid": "252",
+    "release": "CMSSW_5_3_32"
+  },
+  "title": "Example code to produce the di-muon spectrum from a CMS 2011 primary dataset",
+  "type": {
+    "primary": "Software",
+    "secondary": [
+      "Validation"
+    ]
+  },
+  "usage": {
+    "description": " <p>If you do not have the CERN Virtual Machine for 2011 CMS data installed, follow the instructions in step 1 at <a href=\"/VM/CMS/2011\">How to install a CERN Virtual Machine</a>.\n      Then follow the instructions in <a href=\"https://github.com/cms-opendata-analyses/DimuonSpectrum2011\">https://github.com/cms-opendata-analyses/DimuonSpectrum2011</a>.</p>\n      <p>You should get an output file <kbd>DoubleMu.root</kbd>, which contains histograms for 10000 input events (a small subset of the data).\n      These can be looked at using a ROOT Browser. The most interesting histogram is <kbd>GM_mass_log</kbd>.\n      In order to compare it with the invariant-mass spectrum of di-muons in <a href=\"https://inspirehep.net/record/1118729/plots\">MUO-10-004</a>, it should be viewed with the <kbd>logy</kbd> option. With 10000 events\n      the comparison is poor, but the J/&psi; (at log10(mass)=0.5), &Upsilon; (at log10(mass=0.98))\n      and Z (at log10(mass)=1.95, one event only) peaks should be visible.</p>\n      <p>Finally, to run over more or even the full data, edit the relevant parts of the Python file <kbd>demoanalyzer_cfg.py</kbd> (see comments therein) and rerun.\n</p> "
+  },
+  "use_with": {
+    "description": "Use this with 2011 Mu primary datasets or any other 2011 primary datasets containing muons (see detailed instructions in the code)."
+  },
+  "validation": {
+    "description": "Only the list of validated runs are accepted:",
+    "links": [
+      {
+        "recid": "1001"
+      }
+    ]
+  }
+}
+]
