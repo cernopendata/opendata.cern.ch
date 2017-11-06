@@ -318,12 +318,18 @@ RECORDS_REST_FACETS = {
     '_all': {
         'aggs': dict(
             experiment=dict(terms=dict(field='experiment')),
-            category=dict(terms=dict(field='collections.secondary')),
             type=dict(terms=dict(field='type.primary'),
                       aggs=dict(subtype=dict(terms=dict(
                           field="type.secondary")))),
             file_type=dict(terms=dict(field='distribution.formats')),
-            year=dict(terms=dict(field='collections.year')),
+            year=dict(terms=dict(field='date_created')),
+            keywords=dict(terms=dict(field='keywords')),
+            collision_type=dict(terms=dict(
+                field='collision_information.type')),
+            collision_energy=dict(terms=dict(
+                field='collision_information.energy')),
+            topic_category=dict(terms=dict(
+                field='topic.category')),
             run=dict(terms=dict(
                 field='production_publication_distribution_manufacture_and_'
                       'copyright_notice.'
@@ -335,15 +341,18 @@ RECORDS_REST_FACETS = {
             tags_pre=terms_filter('tags'),
             experiment_pre=terms_filter('experiment'),
             type_pre=terms_filter('type.primary'),
-            subtype_pre=terms_filter('type.secondary'),
+            collections_pre=terms_filter('collections'),
         ),
         'post_filters': dict(
             experiment=terms_filter('experiment'),
-            category=terms_filter('collections.secondary'),
             type=terms_filter('type.primary'),
             subtype=terms_filter('type.secondary'),
-            year=terms_filter('collections.year'),
+            year=terms_filter('date_created'),
             tags=terms_filter('tags'),
+            keywords=terms_filter('keywords'),
+            collision_type=terms_filter('collision_information.type'),
+            collision_energy=terms_filter('collision_information.energy'),
+            topic_category=terms_filter('topic.category'),
             file_type=terms_filter('distribution.formats'),
             run=terms_filter(
                 'production_publication_distribution_manufacture_and_'
@@ -353,18 +362,6 @@ RECORDS_REST_FACETS = {
             ),
         )
     },
-    'records-article-v1.0.0': {
-        'aggs': dict(
-            experiment=dict(terms=dict(field='experiment')),
-            year=dict(terms=dict(field='collections.year')),
-            category=dict(terms=dict(field='collections.secondary')),
-        ),
-        'post_filters': dict(
-            experiment=terms_filter('experiment'),
-            year=terms_filter('collections.year'),
-            category=terms_filter('collections.secondary'),
-        )
-    }
 
 }
 """Facets per index for the default facets factory."""
