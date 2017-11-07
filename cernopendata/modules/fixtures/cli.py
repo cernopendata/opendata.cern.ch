@@ -55,9 +55,18 @@ def fixtures():
               type=click.Path(exists=True),
               help='Path to the file(s) to be loaded. If not provided, all'
                    'files will be loaded')
+@click.option('--profile', is_flag=True,
+              help='Output profiling information.')
 @with_appcontext
-def records(skip_files, files):
+def records(skip_files, files, profile):
     """Load all records."""
+    if profile:
+        import cProfile
+        import pstats
+        import StringIO
+        pr = cProfile.Profile()
+        pr.enable()
+
     from invenio_db import db
     from invenio_records_files.api import Record
     from invenio_indexer.api import RecordIndexer
@@ -115,6 +124,14 @@ def records(skip_files, files):
                 db.session.commit()
                 indexer.index(record)
                 db.session.expunge_all()
+
+    if profile:
+        pr.disable()
+        s = StringIO.StringIO()
+        sortby = 'cumulative'
+        ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
+        ps.print_stats()
+        print(s.getvalue())
 
 
 @fixtures.command()
