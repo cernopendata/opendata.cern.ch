@@ -51,8 +51,12 @@ def fixtures():
 @fixtures.command()
 @click.option('--skip-files', is_flag=True, default=False,
               help='Skip loading of files')
+@click.option('files', '--file', '-f', multiple=True,
+              type=click.Path(exists=True),
+              help='Path to the file(s) to be loaded. If not provided, all'
+                   'files will be loaded')
 @with_appcontext
-def records(skip_files):
+def records(skip_files, files):
     """Load all records."""
     from invenio_db import db
     from invenio_records_files.api import Record
@@ -70,7 +74,10 @@ def records(skip_files):
     )
     data = pkg_resources.resource_filename('cernopendata',
                                            'modules/fixtures/data/records')
-    record_json = glob.glob(os.path.join(data, '*.json'))
+    if files:
+        record_json = files
+    else:
+        record_json = glob.glob(os.path.join(data, '*.json'))
 
     for filename in record_json:
         with open(filename, 'rb') as source:
