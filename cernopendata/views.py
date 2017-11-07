@@ -26,7 +26,8 @@
 
 from __future__ import absolute_import, print_function
 
-from flask import Blueprint
+from flask import Blueprint, redirect, request, url_for
+from invenio_search_ui.views import search as invenio_search_view
 
 blueprint = Blueprint(
     'cernopendata',
@@ -34,6 +35,25 @@ blueprint = Blueprint(
     template_folder='templates',
     static_folder='static',
 )
+
+
+@blueprint.record_once
+def redefine_search_endpoint(blueprint_setup):
+    """Redefine invenio search endpoint."""
+    blueprint_setup.app.view_functions[
+        'invenio_search_ui.search'] = search_wrapper
+
+
+def search_wrapper():
+    """Wrap default invenio search endpoint."""
+    # translate p parameter to q (backwards compatibility)
+    # only if q itself not passed
+    if 'p' in request.args and 'q' not in request.args:
+        values = request.args.to_dict()
+        values['q'] = values.pop('p')
+        return redirect(url_for('invenio_search_ui.search', **values))
+    else:
+        return invenio_search_view()
 
 
 @blueprint.route('/ping', methods=['HEAD', 'GET'])
