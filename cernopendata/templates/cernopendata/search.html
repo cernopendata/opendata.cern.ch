@@ -9,10 +9,10 @@
 {# assets "cernopendata_theme_js" %}
 <script src="{{ ASSET_URL }}"></script>{% endassets #}
 <script>
-  angular.module('invenioSearch').filter('unsafe', ['$sce', function($sce) {
-  return function(input) {
-    return $sce.trustAsHtml(input + '...');
-  };
+angular.module('invenioSearch').filter('unsafe', ['$sce', function($sce) {
+    return function(input) {
+        return $sce.trustAsHtml(input + '...');
+    };
 }]);
 </script>
 {% assets "cernopendata_search_js" %}
@@ -21,65 +21,105 @@
 
 {%- block page_body %}
 <div class="container-fluid background">
-  <div class="container research">
-    <div class="row">
-      <div class="col-md-3 col-position">
-        <div class="card card-style">
-          <div class="card-body content-style">
-            <invenio-search-facets
-              order="type,experiment,year,file_type,
-              collision_type,collision_energy,topic_category,
-              run,keywords"
-              template="{{ url_for('static', filename='templates/cernopendata_search_ui/facets.html') }}">
-            </invenio-search-facets>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-9 col-position">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card card-style">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-3">
-                    <invenio-search-count
-                      template="{{ url_for('static', filename=config.SEARCH_UI_JSTEMPLATE_COUNT) }}">
-                    </invenio-search-count>
-                  </div>
-                  <div class="col-md-6">
-                    <invenio-search-pagination
-                      template="{{ url_for('static', filename='templates/cernopendata_search_ui/pagination.html') }}">
-                    </invenio-search-pagination>
-                  </div>
-                  {%- block search_sort %}
-                  {{super()}}
-                  {% endblock search_sort %}
-                </div>
-                <hr>
-                <input type="checkbox" name="condensed" ng-model="checked"> Condensed view
-              </div>
-            </div>
-          </div>
-        </div>
-        <invenio-search-results ng-show="!checked"
-                                template="{{ url_for('static', filename='templates/cernopendata_search_ui/results.html') }}">
-        </invenio-search-results>
-        <div ng-show="checked">
-          <invenio-search-results
-            template="{{ url_for('static', filename='templates/cernopendata_search_ui/condensed_results.html') }}">
-          </invenio-search-results>
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-md-12">
-            <invenio-search-pagination
-              template="{{ url_for('static', filename='templates/cernopendata_search_ui/pagination.html') }}">
-            </invenio-search-pagination>
-          </div>
-        </div>
-      </div>
+    <div class="container research">
+        <invenio-search
+         search-endpoint="api/records/"
+         >
+         <div class="row">
+             <div class="col-md-3 col-position">
+                 <div class="card card-style">
+                     <div class="card-body content-style">
+                         <invenio-search-facets
+                          order="type,experiment,year,file_type,
+                          collision_type,collision_energy,topic_category,
+                          run,keywords"
+                          template="{{ url_for('static', filename='templates/cernopendata_search_ui/facets.html') }}">
+                         </invenio-search-facets>
+                     </div>
+                 </div>
+             </div>
+             <div class="col-md-9 col-position">
+                 <div class="row">
+                     <div class="col-md-12">
+                         <div class="card card-style">
+                             <div class="card-body">
+                                 <div class="row">
+                                     <div class="col-md-6">
+                                         {%- set sort_options = config.get('RECORDS_REST_SORT_OPTIONS', {}).get(config.SEARCH_UI_SEARCH_INDEX) %}
+                                         {%- if sort_options %}
+                                         {%- block search_sort_select scoped %}
+                                         Sort by:
+                                         <nobr>
+                                         <invenio-search-select-box
+                                          sort-key="sort"
+                                          available-options='{{ sort_options|format_sortoptions|safe }}'
+                                          template="{{ url_for('static', filename=config.SEARCH_UI_JSTEMPLATE_SELECT_BOX) }}"
+                                          >
+                                         </invenio-search-select-box>
+                                             {%- endblock search_sort_select %}
+                                             {%- block search_sort_order scoped %}
+                                             <invenio-search-sort-order
+                                          sort-key="sort"
+                                          template="{{ url_for('static', filename=config.SEARCH_UI_JSTEMPLATE_SORT_ORDER) }}"
+                                          >
+                                             </invenio-search-sort-order>
+                                                 {%- endblock search_sort_order %}
+                                                 {%- endif %}
+                                         </nobr>
+                                     </div>
+                                     <div class="col-md-6 text-right">
+                                         Display:
+                                         <nobr>
+                                         <select ng-value="display_type" ng-model="display_type" ng-init="display_type='detailed'"> 
+                                             <option value="detailed">detailed</option>
+                                             <option value="condensed">condensed</option>
+                                         </select>
+                                         <select ng-value="display_size" ng-model="display_size" ng-init="display_size='20'" ng-change="vm.invenioSearchArgs['size']=display_size" > 
+                                             <option value="20">20 results</option>
+                                             <option value="50">50 results</option>
+                                             <option value="100">100 results</option>
+                                             <option value="200">200 results</option>
+                                             <option value="500">500 results</option>
+                                         </select>
+                                         </nobr>
+                                     </div>
+                                 </div>
+                                 <hr>
+                                 <div class="row">
+                                     <div class="col-md-3">
+                                         <invenio-search-count
+                                          template="{{ url_for('static', filename=config.SEARCH_UI_JSTEMPLATE_COUNT) }}">
+                                         </invenio-search-count>
+                                     </div>
+                                     <div class="col-md-6">
+                                         <invenio-search-pagination
+                                          template="{{ url_for('static', filename='templates/cernopendata_search_ui/pagination.html') }}">
+                                         </invenio-search-pagination>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <invenio-search-results ng-show="display_type=='detailed'"
+                                         template="{{ url_for('static', filename='templates/cernopendata_search_ui/results.html') }}">
+                 </invenio-search-results>
+                 <div ng-show="display_type=='condensed'">
+                     <invenio-search-results
+                      template="{{ url_for('static', filename='templates/cernopendata_search_ui/condensed_results.html') }}">
+                     </invenio-search-results>
+                 </div>
+                 <br>
+                 <div class="row">
+                     <div class="col-md-12">
+                         <invenio-search-pagination
+                          template="{{ url_for('static', filename='templates/cernopendata_search_ui/pagination.html') }}">
+                         </invenio-search-pagination>
+                     </div>
+                 </div>
+             </div>
+         </div>
     </div>
-  </div>
 </div>
 {%- endblock page_body %}
 
