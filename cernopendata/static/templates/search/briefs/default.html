@@ -4,18 +4,18 @@
     <h4>
       <a target="_self" ng-href="/record/{{ record.id }}">{{ record.metadata.title }}</a>
     </h4>
-    <p>{{ record.metadata.abstract.description }}</p>
+    <p class="mt-1">{{ record.metadata.abstract.description | limitTo : 200}}...</p>
     <div class="tags-box-search-results">
       <a class="badge badge-success custom-badge-success" href="/search?type={{record.metadata.type.primary}}">
         {{ record.metadata.type.primary }}
       </a>
-      <a class="badge badge-info" ng-if="record.metadata.type.secondary" href="/search?subtype={{record.metadata.type.secondary[0]}}">
+      <a class="badge badge-info" ng-if="record.metadata.type.secondary.length" href="/search?subtype={{record.metadata.type.secondary[0]}}">
         {{ record.metadata.type.secondary[0] }}
       </a>
       <a class="badge badge-secondary" ng-repeat="tag in record.metadata.tags" href="/search?tags={{tag}}">
         {{ tag }}
       </a>
-      <a class="badge badge-warning custom-badge-warning" href="/search?experiment={{record.metadata.experiment}}">
+      <a class="badge badge-warning custom-badge-warning" ng-if="record.metadata.experiment" href="/search?experiment={{record.metadata.experiment}}">
         {{ record.metadata.experiment }}
       </a>
     </div>

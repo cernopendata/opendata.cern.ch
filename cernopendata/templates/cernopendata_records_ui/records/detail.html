@@ -71,7 +71,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <h3>Description</h3>
-                  <p>{{record.abstract.description}}</p>
+                  <p>{{record.abstract.description | safe}}</p>
                 </div>
               </div>
               {% endif %}
@@ -86,13 +86,17 @@
               <div class="row">
                 <div class="col-md-12">
                   <h3>Disclaimer</h3>
+                  {% if record.license %}
+                  <p>{{record.license.attribution}}</p>
+                  {% else %}
                   <p>The open data are released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative
-                    Commons CC0 waiver</a>. Neither LHCb nor CERN endorse any
+                    Commons CC0 waiver</a>. Neither {{record.experiment}} nor CERN endorse any
                     works, scientific or otherwise, produced using these data.
                     All releases will have a unique DOI that you are requested to cite in any applications or
                     publications.
                   </p>
                   <img src="{{url_for('static', filename='img/cc-zero.svg')}}">
+                  {% endif %}
                 </div>
               </div>
               {% endblock disclaimer %}
