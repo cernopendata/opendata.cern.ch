@@ -10,7 +10,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
     <form class="form-inline my-2 my-lg-0" action="{{config.THEME_SEARCH_ENDPOINT}}">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" aria-label="Search">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" aria-label="Search" value="{{ request.args.get('q','')}}">
       <button class="btn btn-info my-2 my-sm-0" type="submit"><span class="oi" data-glyph="magnifying-glass"></span>
       </button>
     </form>
