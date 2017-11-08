@@ -71,10 +71,14 @@
                 <span><a
                   href="/search?q={{record.collision_information.energy}}">{{record.collision_information.energy}}</a></span>
                 {% endif %}
+                {% if record.experiment %}
                 <label>Experiment:</label>
                 <span><a href="/search?q={{record.experiment}}">{{record.experiment}}</a></span>
+                {% endif %}
+                {% if record.accelerator %}
                 <label>Accelerator:</label>
                 <span><a href="/search?q={{record.accelerator}}">{{record.accelerator}}</a></span>
+                {% endif %}
               </div>
             </div>
             {% endblock heading %}
@@ -88,21 +92,29 @@
               <h3>Use with</h3>
               <p>{{record.use_with.description | safe}}</p>
               {% for link in record.use_with.links %}
-              <a href="/records/{{link.recid}} ">{{link.recid | get_record_title}}</a>
+              <a href="/record/{{link.recid}} ">{{link.recid | get_record_title}}</a>
               {% endfor %}
               {% endif %}
 
               {% if record.note %}
+              {% if record.type.primary == 'Dataset' %}
+              <h3>Notes</h3>
+              {% else %}
               <h3>Issues & Limitations</h3>
+              {% endif %}
               <p>{{record.note.description | safe}}</p>
               {% endif %}
 
               {% if record.relations %}
               <div class="row">
                 <div class="col-md-12">
+                  {% if record.type.primary == 'Software' %}
+                  <h3>Related items</h3>
+                  {% else %}
                   <h3>Related Datasets</h3>
+                  {% endif %}
                   {% for relation in record.relations %}
-                  <p>{{relation.description}} <br><a href="/records/{{relation.recid}}">{{relation.recid | get_record_title}}</a></p>
+                  <p>{{relation.description}} <br><a href="/record/{{relation.recid}}">{{relation.recid | get_record_title}}</a></p>
                   {% endfor %}
                 </div>
               </div>
@@ -139,12 +151,16 @@
                   {% endif %}
                   <br>
                   {% if record.system_details.release %}
+                  {% if record.type.primary == 'Software' %}
+                  <label>Software release:</label>
+                  {% else %}
                   <label>Recommended release for analysis:</label>
+                  {% endif %}
                   <span>{{record.system_details.release}}</span>
                   {% endif %}
                   {% if record.system_details.recid %}
                   <p>
-                    <a href="/records/{{record.system_details.recid}}">{{record.system_details.recid | get_record_title}}</a>
+                    <a href="/record/{{record.system_details.recid}}">{{record.system_details.recid | get_record_title}}</a>
                   </p>
                   {% endif %}
                 </div>
@@ -181,7 +197,11 @@
               {% if record.methodology %}
               <div class="row">
                 <div class="col-md-12">
+                  {% if record.type.primary == 'Software' %}
+                  <h3>Data Selection</h3>
+                  {% else %}
                   <h3>How were these data selected?</h3>
+                  {% endif %}
                   <p>{{ record.methodology.description | safe}}</p>
                 </div>
               </div>
@@ -209,11 +229,15 @@
               {% if record.validation %}
               <div class="row">
                 <div class="col-md-12">
+                  {% if record.type.primary == 'Software' %}
+                  <h3>Validation</h3>
+                  {% else %}
                   <h3>How were these data validated?</h3>
+                  {% endif %}
                   <p>{{record.validation.description}}</p>
                   {% for link in record.validation.links %}
                   <p><a href="{{link.url}}">{{link.description}}</a></p>
-                  <p><a href="/records/{{link.recid}}">{{link.recid | get_record_title}}</a></p>
+                  <p><a href="/record/{{link.recid}}">{{link.recid | get_record_title}}</a></p>
                   {% endfor %}
                 </div>
               </div>
@@ -222,7 +246,11 @@
               {% if record.usage %}
               <div class="row">
                 <div class="col-md-12">
+                  {% if record.type.primary == 'Software' %}
+                  <h3>How can you use this?</h3>
+                  {% else %}
                   <h3>How can you use these data?</h3>
+                  {% endif %}
                   <p>{{record.usage.description | safe}}</p>
                   {% for link in record.usage.links %}
                   <p><a href="{{link.url}}">

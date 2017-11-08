@@ -41,6 +41,10 @@ def get_record_title(recid):
     """Fetches record title by id."""
     from invenio_records.api import Record
     from invenio_pidstore.models import PersistentIdentifier
-    pid = PersistentIdentifier.get('recid', recid)
+    from invenio_pidstore.errors import PIDDoesNotExistError
+    try:
+        pid = PersistentIdentifier.get('recid', recid)
+    except PIDDoesNotExistError:
+        return None
     record = Record.get_record(pid.object_uuid)
     return record.get('title', '')
