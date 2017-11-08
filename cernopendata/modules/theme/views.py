@@ -34,3 +34,13 @@ blueprint = Blueprint(
     template_folder='templates',
     static_folder='static',
 )
+
+
+@blueprint.app_template_filter('get_record_title')
+def get_record_title(recid):
+    """Fetches record title by id."""
+    from invenio_records.api import Record
+    from invenio_pidstore.models import PersistentIdentifier
+    pid = PersistentIdentifier.get('recid', recid)
+    record = Record.get_record(pid.object_uuid)
+    return record.get('title', '')

@@ -88,7 +88,7 @@
               <h3>Use with</h3>
               <p>{{record.use_with.description | safe}}</p>
               {% for link in record.use_with.links %}
-              <a href="/records/{{link.recid}} ">{{link.recid}}</a>
+              <a href="/records/{{link.recid}} ">{{link.recid | get_record_title}}</a>
               {% endfor %}
               {% endif %}
 
@@ -102,7 +102,7 @@
                 <div class="col-md-12">
                   <h3>Related Datasets</h3>
                   {% for relation in record.relations %}
-                  <p>{{relation.description}} <br><a href="/records/{{relation.recid}}">{{relation.recid}}</a></p>
+                  <p>{{relation.description}} <br><a href="/records/{{relation.recid}}">{{relation.recid | get_record_title}}</a></p>
                   {% endfor %}
                 </div>
               </div>
@@ -144,7 +144,7 @@
                   {% endif %}
                   {% if record.system_details.recid %}
                   <p>
-                    <a href="/records/{{record.system_details.recid}}">{{record.system_details.recid}}</a>
+                    <a href="/records/{{record.system_details.recid}}">{{record.system_details.recid | get_record_title}}</a>
                   </p>
                   {% endif %}
                 </div>
@@ -213,7 +213,7 @@
                   <p>{{record.validation.description}}</p>
                   {% for link in record.validation.links %}
                   <p><a href="{{link.url}}">{{link.description}}</a></p>
-                  <p><a href="/records/{{link.recid}}">{{link.recid}}</a></p>
+                  <p><a href="/records/{{link.recid}}">{{link.recid | get_record_title}}</a></p>
                   {% endfor %}
                 </div>
               </div>
