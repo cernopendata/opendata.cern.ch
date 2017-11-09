@@ -14,7 +14,7 @@
             <div class="row">
               <div class="col-md-12">
                 {% for exp in record.experiment %}
-                <span class="badge badge-success">{{exp.name}}</span>
+                <a href="/search?experiment={{exp.name}}"><span class="badge badge-secondary">{{exp.name}}</span></a>
                 {% endfor %}
               </div>
             </div>
