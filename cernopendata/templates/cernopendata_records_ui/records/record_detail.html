@@ -79,6 +79,14 @@
                 <label>Accelerator:</label>
                 <span><a href="/search?q={{record.accelerator}}">{{record.accelerator}}</a></span>
                 {% endif %}
+                {% if record.relations %}
+                {% for relation in record.relations %}
+                {% if relation.type == 'isChildOf' %}
+                <label>Parent Dataset:</label>
+                <span><a href="/record/{{relation.recid}}">{{relation.title}}</a></span>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
               </div>
             </div>
             {% endblock heading %}
@@ -103,6 +111,13 @@
               <h3>Issues & Limitations</h3>
               {% endif %}
               <p>{{record.note.description | safe}}</p>
+              {% if record.note.links %}
+              <p>
+              {% for link in record.note.links %}
+              <a href="{{link.url}}">{{link.title}}</a><br>
+              {% endfor %}
+                </p>
+              {% endif %}
               {% endif %}
 
               {% if record.relations %}
@@ -121,6 +136,7 @@
               {% endif %}
 
               {% if record.distribution %}
+              {% if record.distribution.number_events or  record.distribution.number_files or  record.distribution.size %}
               <div class="row">
                 <div class="col-md-12">
                   <h3>Characteristics</h3>
@@ -136,6 +152,7 @@
                   {% endif %}
                 </div>
               </div>
+              {% endif %}
               {% endif %}
 
               {% if record.system_details %}
@@ -203,6 +220,13 @@
                   <h3>How were these data selected?</h3>
                   {% endif %}
                   <p>{{ record.methodology.description | safe}}</p>
+                  {% if record.methodology.links %}
+                  <p>
+                  {% for link in record.methodology.links %}
+                  <a href="/record/{{link.recid}}">{{link.recid | get_record_title}}</a><br/>
+                  {% endfor %}
+                  </p>
+                  {% endif %}
                 </div>
               </div>
               {% endif %}
@@ -235,10 +259,14 @@
                   <h3>How were these data validated?</h3>
                   {% endif %}
                   <p>{{record.validation.description}}</p>
+                  {% if record.validation.links %}
                   {% for link in record.validation.links %}
                   <p><a href="{{link.url}}">{{link.description}}</a></p>
+                  {% if link.recid %}
                   <p><a href="/record/{{link.recid}}">{{link.recid | get_record_title}}</a></p>
+                  {% endif %}
                   {% endfor %}
+                  {% endif %}
                 </div>
               </div>
               {% endif %}
@@ -260,6 +288,11 @@
                     {{link.url}}
                     {% endif %}
                   </a></p>
+                  {% if link.recid %}
+                  <p><a href="/record/{{link.recid}}">
+                    {{link.recid | get_record_title}}
+                  </a></p>
+                  {% endif %}
                   {% endfor %}
                 </div>
               </div>

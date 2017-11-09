@@ -87,7 +87,17 @@
                 <div class="col-md-12">
                   <h3>Disclaimer</h3>
                   {% if record.license %}
+                  {% if record.license.attribution != 'CC0'%}
                   <p>{{record.license.attribution}}</p>
+                  {% else %}
+                  <p>The open data are released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative
+                    Commons CC0 waiver</a>. Neither {{record.experiment}} nor CERN endorse any
+                    works, scientific or otherwise, produced using these data.
+                    All releases will have a unique DOI that you are requested to cite in any applications or
+                    publications.
+                  </p>
+                  <img src="{{url_for('static', filename='img/cc-zero.svg')}}">
+                  {% endif %}
                   {% else %}
                   <p>The open data are released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative
                     Commons CC0 waiver</a>. Neither {{record.experiment}} nor CERN endorse any
