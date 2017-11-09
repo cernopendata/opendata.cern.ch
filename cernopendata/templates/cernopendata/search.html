@@ -25,6 +25,9 @@
         <div class="card card-style">
           <div class="card-body content-style">
             <invenio-search-facets
+              order="type,experiment,year,file_type,
+              collision_type,collision_energy,topic_category,
+              run,keywords"
               template="{{ url_for('static', filename='templates/cernopendata_search_ui/facets.html') }}">
             </invenio-search-facets>
           </div>

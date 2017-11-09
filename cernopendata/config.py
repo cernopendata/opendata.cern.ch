@@ -317,24 +317,48 @@ RECORDS_REST_DEFAULT_SORT = {
 RECORDS_REST_FACETS = {
     '_all': {
         'aggs': dict(
-            experiment=dict(terms=dict(field='experiment')),
-            type=dict(terms=dict(field='type.primary'),
+            experiment=dict(terms=dict(
+                field='experiment',
+                min_doc_count=0,
+                order=dict(_term='asc'))),
+            type=dict(terms=dict(
+                field='type.primary',
+                min_doc_count=0,
+                order=dict(_term='asc')),
                       aggs=dict(subtype=dict(terms=dict(
-                          field="type.secondary")))),
-            file_type=dict(terms=dict(field='distribution.formats')),
-            year=dict(terms=dict(field='date_created')),
-            keywords=dict(terms=dict(field='keywords')),
+                          field="type.secondary",
+                          order=dict(_term='asc'))))),
+            file_type=dict(terms=dict(
+                field='distribution.formats',
+                min_doc_count=0,
+                order=dict(_term='asc'))),
+            year=dict(terms=dict(
+                field='date_created',
+                min_doc_count=0,
+                order=dict(_term='desc'))),
+            keywords=dict(terms=dict(
+                field='keywords',
+                min_doc_count=0,
+                order=dict(_term='asc'))),
             collision_type=dict(terms=dict(
-                field='collision_information.type')),
+                field='collision_information.type',
+                min_doc_count=0,
+                order=dict(_term='asc'))),
             collision_energy=dict(terms=dict(
-                field='collision_information.energy')),
+                field='collision_information.energy',
+                min_doc_count=0,
+                order=dict(_term='asc'))),
             topic_category=dict(terms=dict(
-                field='topic.category')),
+                field='topic.category',
+                min_doc_count=0,
+                order=dict(_term='asc'))),
             run=dict(terms=dict(
                 field='production_publication_distribution_manufacture_and_'
                       'copyright_notice.'
                       'date_of_production_publication_distribution_'
-                      'manufacture_or_copyright_notice'
+                      'manufacture_or_copyright_notice',
+                min_doc_count=0,
+                order=dict(_term='asc')
             )),
         ),
         'filters': dict(
