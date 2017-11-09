@@ -1,36 +1,47 @@
 <section class="footer">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-1">
-        <a href="http://alice.cern.ch"><img src="{{ url_for('static', filename='img/ALICE.gif') }}" alt=""
-                                            width="80"></a>
+      <div class="col-md-4">
+        <ul class="list-inline" id="logos">
+          <li class="list-inline-item">
+            <a href="http://alice.cern.ch"><img src="{{ url_for('static', filename='img/ALICE.gif') }}" alt=""
+                                                width="55" height="55"></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="http://atlas.ch"><img src="{{ url_for('static', filename='img/ATLAS.gif') }}" alt="" width="55"
+                                           height="55"></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="http://cms.cern.ch"><img src="{{ url_for('static', filename='img/CMS.gif') }}" alt="" width="55"
+                                              height="55"></a></li>
+          <li class="list-inline-item">
+            <a href="http://lhcb.cern.ch"><img src="{{ url_for('static', filename='img/LHCb.gif') }}" alt="" width="55"
+                                               height="55"></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="http://operaweb.lngs.infn.it"><img src="{{ url_for('static', filename='img/OPERA.gif') }} "
+                                                        width="55"
+                                                        height="55"
+                                                        alt=""></a>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <ul class="list-inline" id="copyright">
+          <li class="list-inline-item">© 2014 - Present CERN</li>
+          <li class="list-inline-item"><a href="/terms-of-use">Terms of Use</a></li>
+          <li class="list-inline-item"><a href="/privacy-policy">Privacy Policy</a></li>
+          <li class="list-inline-item"><a href="mailto:opendata-support@cern.ch">Contact</a></li>
+        </ul>
       </div>
 
-      <div class="col-md-1">
-        <a href="http://atlas.ch"><img src="{{ url_for('static', filename='img/ATLAS.gif') }}" alt="" width="80"></a>
-      </div>
-
-      <div class="col-md-1">
-        <a href="http://cms.cern.ch"><img src="{{ url_for('static', filename='img/CMS.gif') }}" alt="" width="80"></a>
-      </div>
-
-      <div class="col-md-1">
-        <a href="http://lhcb.cern.ch"><img src="{{ url_for('static', filename='img/LHCb.gif') }}" alt="" width="80"></a>
-
-      </div>
-      <div class="col-md-1">
-        <a href="http://operaweb.lngs.infn.it"><img src="{{ url_for('static', filename='img/OPERA.gif') }} " width="80"
-                                                    alt=""></a>
-
-
-      </div>
-
-      <div class="col-md-5">
-
-      </div>
-
-      <div class="col-md-2">
-        <img src="{{url_for('static', filename='assets/img/cern.svg')}}" width="80px"/>
+      <div class="col-md-4">
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <img src="{{url_for('static', filename='assets/img/cern.svg')}}" width="80px"/>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
