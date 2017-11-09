@@ -22,7 +22,7 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">About
           <b class="caret"></b></a>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu about-menu">
           <li><a class="dropdown-item" href="/about">This Portal</a></li>
           <li><a class="dropdown-item" href="#">CERN</a></li>
           <li><a class="dropdown-item" href="{{url_for('cernopendata_pages.about_alice')}}">ALICE Open Data</a></li>
@@ -38,7 +38,7 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Explore
           <b class="caret"></b></a>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu explore-menu">
           <li><a class="dropdown-item"
                  href="{{url_for('cernopendata_pages.faceted_search', page='datasets')}}">Datasets</a></li>
           <li><a class="dropdown-item" href="{{url_for('cernopendata_pages.faceted_search', page='news')}}">News</a>
@@ -49,11 +49,6 @@
                  href="{{url_for('cernopendata_pages.faceted_search', page='software')}}">Software</a></li>
         </ul>
       </li>
-      
-      <li class="nav-item">
-        <a class="nav-link" href="#">Help</a>
-      </li>
-
     </ul>
 
   </div>
