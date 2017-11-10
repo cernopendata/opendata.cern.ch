@@ -16,7 +16,7 @@
               {{record.title}}
               {% endif %}
               {% if record.date_published %}
-              <small id="date-published"style="color:grey;">{{record.date_published}}</small>
+              <small id="date-published" style="color:grey;">{{record.date_published}}</small>
               {% endif %}
             </h3>
             {% if record.title_additional %}
@@ -116,14 +116,21 @@
               <p>{{record.note.description | safe}}</p>
               {% if record.note.links %}
               <p>
-              {% for link in record.note.links %}
-              <a href="{{link.url}}">{{link.title}}</a><br>
-              {% endfor %}
-                </p>
+                {% for link in record.note.links %}
+                {% if link.url and link.title %}
+                <a href="{{link.url}}">{{link.title}}</a><br>
+                {% endif %}
+                {% if link.recid %}
+                <a href="/record/{{link.recid}}">{{link.recid | get_record_title}}</a><br>
+                {% endif %}
+                {% endfor %}
+              </p>
               {% endif %}
               {% endif %}
 
               {% if record.relations %}
+              {% for relation in record.relations %}
+              {% if relation.type != 'isChildOf'%}
               <div class="row">
                 <div class="col-md-12">
                   {% if record.type.primary == 'Software' %}
@@ -131,15 +138,16 @@
                   {% else %}
                   <h3>Related Datasets</h3>
                   {% endif %}
-                  {% for relation in record.relations %}
-                  <p>{{relation.description}} <br><a href="/record/{{relation.recid}}">{{relation.recid | get_record_title}}</a></p>
-                  {% endfor %}
+                  <p>{{relation.description}} <br><a href="/record/{{relation.recid}}">{{relation.recid |
+                    get_record_title}}</a></p>
                 </div>
               </div>
               {% endif %}
+              {% endfor %}
+              {% endif %}
 
               {% if record.distribution %}
-              {% if record.distribution.number_events or  record.distribution.number_files or  record.distribution.size %}
+              {% if record.distribution.number_events or record.distribution.number_files or record.distribution.size %}
               <div class="row">
                 <div class="col-md-12">
                   <h3>Characteristics</h3>
@@ -180,7 +188,8 @@
                   {% endif %}
                   {% if record.system_details.recid %}
                   <p>
-                    <a href="/record/{{record.system_details.recid}}">{{record.system_details.recid | get_record_title}}</a>
+                    <a href="/record/{{record.system_details.recid}}">{{record.system_details.recid |
+                      get_record_title}}</a>
                   </p>
                   {% endif %}
                 </div>
@@ -225,9 +234,9 @@
                   <p>{{ record.methodology.description | safe}}</p>
                   {% if record.methodology.links %}
                   <p>
-                  {% for link in record.methodology.links %}
-                  <a href="/record/{{link.recid}}">{{link.recid | get_record_title}}</a><br/>
-                  {% endfor %}
+                    {% for link in record.methodology.links %}
+                    <a href="/record/{{link.recid}}">{{link.recid | get_record_title}}</a><br/>
+                    {% endfor %}
                   </p>
                   {% endif %}
                 </div>
