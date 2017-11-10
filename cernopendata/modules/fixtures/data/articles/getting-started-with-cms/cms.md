@@ -1,6 +1,13 @@
-## "I have installed the CERN Virtual Machine: now what?"
+1. ["I have installed the CERN Virtual Machine: now what?"](#vm)
+2. ["OK! Where can I get the CMS data?"](#data)
+3. ["Nice! But how do I analyse these data?"](#nice)
+4. [Option A: Analysing the primary dataset](#a)
+5. [Option B: Analysing reduced datasets](#b)
+6. [Performing your analysis on the PATtuples](#pat)
 
-To analyse CMS data collected in 2010, you need **version 4.2.8** of CMSSW, supported only on **Scientific Linux 5**. If you are unfamiliar with Linux, take a look at [this short introduction to Linux](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookBasicLinux) or try this interactive [command-line bootcamp](http://rik.smith-unna.com/command_line_bootcamp/). Once you have installed the [CMS-specific CERN Virtual Machine](/VM/CMS/2010), execute the following command in the terminal if you haven't done so before; it ensures that you have this version of CMSSW running:
+## <a name="vm">"I have installed the CERN Virtual Machine: now what?"</a>
+
+To analyse CMS data collected in 2010, you need **version 4.2.8** of CMSSW, supported only on **Scientific Linux 5**. If you are unfamiliar with Linux, take a look at [this short introduction to Linux](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookBasicLinux) or try this interactive [command-line bootcamp](http://rik.smith-unna.com/command_line_bootcamp/). Once you have installed the [CMS-specific CERN Virtual Machine](../virtual-machines-cms-2010/cms_2010.md), execute the following command in the terminal if you haven't done so before; it ensures that you have this version of CMSSW running:
 
 ```shell
 $ cmsrel CMSSW_4_2_8
@@ -12,7 +19,7 @@ Then, make sure that you are always in the **CMSSW_4_2_8/src/** directory by ent
 $ cd CMSSW_4_2_8/src/
 ```
 
-## "OK! Where can I get the CMS data?"
+## <a name="data">"OK! Where can I get the CMS data?"</a>
 
 It is best if we start off with a quick introduction to **[ROOT](http://root.cern.ch)**. ROOT is the framework used by several particle-physics experiments to work with the collected data. Although analysis is not itself performed within the ROOT GUI, it is instructive to understand how these files are structured and what data and collections they contain.
 
@@ -38,22 +45,20 @@ You will see the ROOT logo appear on screen. You can now open the ROOT GUI by en
 TBrowser t
 ```
 
-Excellent! You have successfully opened a CMS AOD file in ROOT. If this was the first time you've done so, pat yourself on the back. Now, to see what is inside this file, let us take a closer look at some collections of [physics objects](/about/CMS-Physics-Objects).
+Excellent! You have successfully opened a CMS AOD file in ROOT. If this was the first time you've done so, pat yourself on the back. Now, to see what is inside this file, let us take a closer look at some collections of [physics objects](../about-cms/cms.md#cms-data).
 
 On the left window of ROOT (see the screenshot below), double-click on the file name (`root://eospublic.cern.ch//eos/opendata/...`). You should see a list of entries under `Events`, each corresponding to a collection of reconstructed data. We are interested in the collections containing information about reconstructed physics objects.
 
-<img src="http://opendata.cern.ch/img/docs/Screenshot_001_Tbrowser_t.png" width="70%">
+<img src="../../../../static/articles/getting-started-with-cms/cms_tbrowser.png" width="70%">
 
-`![Screenshot: After running 'TBrowser t'](http://opendata.cern.ch/img/docs/Screenshot_001_Tbrowser_t.png)`
-
-Let us take a peek, for example, at the electrons, which are found in `recoGsfElectrons_gsfElectrons__RECO`, as shown on the list of [physics objects](http://opendata.cern.ch/about/CMS-Physics-Objects). Look in there by double-clicking on that line and then double-clicking on `recoGsfElectrons_gsfElectrons__RECO.obj`. Here, you can have a look at various properties of this collection, such as the plot for the transverse momentum of the electrons: `recoGsfElectrons_gsfElectrons__RECO.obj.pt_`.
+Let us take a peek, for example, at the electrons, which are found in `recoGsfElectrons_gsfElectrons__RECO`, as shown on the list of [physics objects](../about-cms/cms.md#cms-data). Look in there by double-clicking on that line and then double-clicking on `recoGsfElectrons_gsfElectrons__RECO.obj`. Here, you can have a look at various properties of this collection, such as the plot for the transverse momentum of the electrons: `recoGsfElectrons_gsfElectrons__RECO.obj.pt_`.
 
 You can exit the ROOT browser through the GUI by clicking on `Browser` on the menu and then clicking on `Quit Root` or by entering `.q` in the terminal.
 
 
-## "Nice! But how do I analyse these data?"
+## <a name="nice">"Nice! But how do I analyse these data?"</a>
 
-In AOD files, reconstructed [physics objects](http://opendata.cern.ch/about/CMS-Physics-Objects) are included without checking their "quality", i.e. in case of our electron collection that you opened in ROOT, without ensuring that the reconstructed object is really an electron. In order to analyse only the "good quality" data, you must apply some selection criteria.
+In AOD files, reconstructed [physics objects](../about-cms/cms.md#cms-data) are included without checking their "quality", i.e. in case of our electron collection that you opened in ROOT, without ensuring that the reconstructed object is really an electron. In order to analyse only the "good quality" data, you must apply some selection criteria.
 
 With these criteria, you are in effect reducing the dataset, either in terms of the number of collisions events it contains or in terms of the information carried by each event. Following this, you run your analysis code on the reduced dataset.
 
@@ -68,12 +73,12 @@ You can also pass the selection criteria through the configuration file. This fi
 We will now take you through these steps through a couple of specially prepared example analyses.
 
 
-## Option A: Analysing the primary dataset
+##  <a name="a">Option A: Analysing the primary dataset</a>
 
 As mentioned above, you do not typically perform an analysis directly on the AOD files. However, there may be cases when you can do so. Therefore, we have provided an example analysis to take you through the steps that you may need on the occassions that you want to analyse the AOD files directly. You can find the files and instructions in [this CMS Tools entry](http://opendata.cern.ch/record/560).
 
 
-## Option B: Analysing reduced datasets
+## <a name="b">Option B: Analysing reduced datasets</a>
 
 We start by applying selection cuts via the configuration file and reduce the AOD files into a format known as PATtuple. You can find more information about this data format (which gets its name from the CMS Physics Analysis Toolkit, or PAT) on the [CMSSW PAT WorkBook](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookPAT).
 
@@ -98,7 +103,7 @@ This selection must always be applied to any analysis on CMS open data, and to d
 You can also see how the correct set of condition data are defined by mentioning the Global Tag on lines 45–46 in the file `PAT_data_repo.py`.
 
 
-## Performing your analysis on the PATtuples
+## <a name="pat">Performing your analysis on the PATtuples</a>
 
 Now, as the intermediate PATtuple files have been produced for you, you can go directly to the next step, as described in [this second GitHub repo](https://github.com/ayrodrig/OutreachExercise2010) and follow the instructions on that page.
 
@@ -112,4 +117,4 @@ This example uses IPython, which gets configured and starts the job with the fol
 ipython run.py
 ```
 
-That's it! Follow the rest of the instructions on the README and you have performed an analysis using data from CMS. Hope you enjoyed this exercise. Feel free to play around with the rest of the data and write your own analyzers and analysis code. (To exit IPython, enter `exit()`.)
+That's it! Follow the rest of the instructions on the README and you have performed an analysis using data from CMS. Hope you enjoyed this exercise. Feel free to play around with the rest of the data and write your own analyzers and analysis code. To exit IPython, enter `exit()`.
