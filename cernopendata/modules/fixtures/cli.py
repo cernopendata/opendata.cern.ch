@@ -57,8 +57,9 @@ def fixtures():
                    'files will be loaded')
 @click.option('--profile', is_flag=True,
               help='Output profiling information.')
+@click.option('--verbose', is_flag=True, default=False)
 @with_appcontext
-def records(skip_files, files, profile):
+def records(skip_files, files, profile, verbose):
     """Load all records."""
     if profile:
         import cProfile
@@ -95,6 +96,9 @@ def records(skip_files, files, profile):
                 if not data:
                     continue
 
+                if verbose:
+                    click.echo('Loading {0} ...'.format(filename))
+
                 files = data.pop('files', [])
 
                 id = uuid.uuid4()
@@ -112,15 +116,22 @@ def records(skip_files, files, profile):
                     assert 'size' in file
                     assert 'checksum' in file
 
-                    f = FileInstance.create()
-                    filename = file.get("uri").split('/')[-1:][0]
-                    f.set_uri(file.get("uri"), file.get(
-                        "size"), file.get("checksum"))
-                    ObjectVersion.create(
-                        bucket,
-                        filename,
-                        _file_id=f.id
-                    )
+                    try:
+                        f = FileInstance.create()
+                        filename = file.get("uri").split('/')[-1:][0]
+                        f.set_uri(file.get("uri"), file.get(
+                            "size"), file.get("checksum"))
+                        ObjectVersion.create(
+                            bucket,
+                            filename,
+                            _file_id=f.id
+                        )
+                    except Exception as e:
+                        click.echo(
+                            'Recid {0} file {1} could not be loaded due '
+                            'to {2}.'.format(data.get('recid'), filename,
+                                             str(e)))
+                        continue
                 db.session.commit()
                 indexer.index(record)
                 db.session.expunge_all()

@@ -125,7 +125,11 @@ ${INVENIO_WEB_INSTANCE} fixtures articles
 if [[ "$@" = *"--skip-files"* ]]; then
     ${INVENIO_WEB_INSTANCE} fixtures records --skip-files
 else
-    ${INVENIO_WEB_INSTANCE} fixtures records
+    # Prevent memory leak which happens when all fixtures are loaded at once
+    for record in `ls cernopendata/modules/fixtures/data/records/*.json`;
+    do
+        ${INVENIO_WEB_INSTANCE} fixtures records -f "$record" --verbose
+    done
 fi
 # sphinxdoc-populate-with-demo-records-end
 

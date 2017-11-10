@@ -42,6 +42,7 @@ web:
     - APP_PIDSTORE_DATACITE_USERNAME=CERN.OPENDATA
     - APP_PIDSTORE_DATACITE_PASSWORD=CHANGE_ME
     - APP_PIDSTORE_LANDING_BASE_URL=http://opendata.cern.ch/record/
+    - APP_FILES_REST_FILE_URI_MAX_LEN=512  # Allow URI's longer than 255 chars.
   volumes:
     - ../devmodules:/devmodules
     - ./cernopendata:/code/cernopendata
