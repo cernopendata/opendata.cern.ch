@@ -362,12 +362,6 @@ RECORDS_REST_FACETS = {
             )),
         ),
         'filters': dict(
-            tags_pre=terms_filter('tags'),
-            experiment_pre=terms_filter('experiment'),
-            type_pre=terms_filter('type.primary'),
-            collections_pre=terms_filter('collections'),
-        ),
-        'post_filters': dict(
             experiment=terms_filter('experiment'),
             type=terms_filter('type.primary'),
             subtype=terms_filter('type.secondary'),
@@ -379,6 +373,24 @@ RECORDS_REST_FACETS = {
             topic_category=terms_filter('topic.category'),
             file_type=terms_filter('distribution.formats'),
             run=terms_filter(
+                'production_publication_distribution_manufacture_and_'
+                'copyright_notice.'
+                'date_of_production_publication_distribution_'
+                'manufacture_or_copyright_notice'
+            ),
+        ),
+        'post_filters': dict(
+            experiment_post=terms_filter('experiment'),
+            type_post=terms_filter('type.primary'),
+            subtype_post=terms_filter('type.secondary'),
+            year_post=terms_filter('date_created'),
+            tags_post=terms_filter('tags'),
+            keywords_post=terms_filter('keywords'),
+            collision_type_post=terms_filter('collision_information.type'),
+            collision_energy_post=terms_filter('collision_information.energy'),
+            topic_category_post=terms_filter('topic.category'),
+            file_type_post=terms_filter('distribution.formats'),
+            run_post=terms_filter(
                 'production_publication_distribution_manufacture_and_'
                 'copyright_notice.'
                 'date_of_production_publication_distribution_'

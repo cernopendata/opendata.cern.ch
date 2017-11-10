@@ -1,5 +1,5 @@
 <div ng-init="tree=[];tree_more=[]" ng-repeat="aggr in orderedAggs track by $index">
-  <div ng-if="aggr.value.buckets.length > 1">
+  <div ng-if="aggr.value.buckets.length > 0">
     <div>
       <h5>Filter by {{ aggr.key.replace('_', ' ') }}</h5>
     </div>
