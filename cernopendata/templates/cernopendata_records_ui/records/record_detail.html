@@ -15,6 +15,9 @@
               {% else %}
               {{record.title}}
               {% endif %}
+              {% if record.date_published %}
+              <small id="date-published"style="color:grey;">{{record.date_published}}</small>
+              {% endif %}
             </h3>
             {% if record.title_additional %}
             <br/><span>{{record.title}}</span>
@@ -105,7 +108,7 @@
               {% endif %}
 
               {% if record.note %}
-              {% if record.type.primary == 'Dataset' %}
+              {% if record.type.primary == 'Dataset' or record.type.primary == 'Software' %}
               <h3>Notes</h3>
               {% else %}
               <h3>Issues & Limitations</h3>
