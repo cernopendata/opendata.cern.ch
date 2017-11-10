@@ -372,6 +372,7 @@ RECORDS_REST_FACETS = {
             collision_energy=terms_filter('collision_information.energy'),
             topic_category=terms_filter('topic.category'),
             file_type=terms_filter('distribution.formats'),
+            collections=terms_filter('collections'),
             run=terms_filter(
                 'production_publication_distribution_manufacture_and_'
                 'copyright_notice.'

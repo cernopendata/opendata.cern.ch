@@ -30,7 +30,7 @@ import json
 import urllib
 
 import pkg_resources
-from flask import Blueprint, abort, current_app, escape, jsonify, \
+from flask import Blueprint, abort, current_app, escape, jsonify, redirect, \
     render_template, request, url_for
 from flask_babelex import lazy_gettext as _
 from flask_breadcrumbs import default_breadcrumb_root, register_breadcrumb
@@ -379,71 +379,60 @@ def faceted_search(page=None, experiment=None, collection=None):
 
     """
     facets = [x for x in locals().values() if x]
-    search_endpoint = '/api/records'  # default search endpoint
     description = None
     filters = {}
 
     filter_map = {
-        # 'articles': (None, None, '/api/articles'),
-        'datasets': (None, None, '/api/datasets'),
-        'documentation': ('type_pre', 'Documentation'),
-        'software': ('type_pre', 'Software'),
-        'getting-started': ('tags_pre', 'Getting Started'),
-        'news': ('type_pre', 'News'),
-        'vm': ('tags_pre', 'VM'),
-        'cms': ('experiment_pre', 'CMS'),
-        'alice': ('experiment_pre', 'ALICE'),
-        'atlas': ('experiment_pre', 'ATLAS'),
-        'lhcb': ('experiment_pre', 'LHCb'),
-        'data-policies': ('collections_pre', 'Data-Policies'),
-        'alice-derived-datasets': ('collections_pre',
+        'documentation': ('type', 'Documentation'),
+        'software': ('type', 'Software'),
+        'getting-started': ('tags', 'Getting Started'),
+        'news': ('type', 'News'),
+        'vm': ('tags', 'VM'),
+        'cms': ('experiment', 'CMS'),
+        'alice': ('experiment', 'ALICE'),
+        'atlas': ('experiment', 'ATLAS'),
+        'lhcb': ('experiment', 'LHCb'),
+        'data-policies': ('collections', 'Data-Policies'),
+        'alice-derived-datasets': ('collections',
                                    'ALICE-Derived-Datasets'),
-        'alice-reconstructed-data': ('collections_pre',
+        'alice-reconstructed-data': ('collections',
                                      'ALICE-Reconstructed-Data'),
-        'alice-tools': ('collections_pre', 'ALICE-Tools'),
-        'atlas-derived-datasets': ('collections_pre',
+        'alice-tools': ('collections', 'ALICE-Tools'),
+        'atlas-derived-datasets': ('collections',
                                    'ATLAS-Derived-Datasets'),
-        'atlas-simulated-datasets': ('collections_pre',
+        'atlas-simulated-datasets': ('collections',
                                      'ATLAS-Simulated-Datasets'),
-        'atlas-learning-resources': ('collections_pre',
+        'atlas-learning-resources': ('collections',
                                      'ATLAS-Learning-Resources'),
-        'atlas-tools': ('collections_pre', 'ATLAS-Tools'),
-        'author-lists': ('collections_pre', 'Author-Lists'),
-        'cms-condition-data': ('collections_pre', 'CMS-Condition-Data'),
-        'cms-configuration-files': ('collections_pre',
+        'atlas-tools': ('collections', 'ATLAS-Tools'),
+        'author-lists': ('collections', 'Author-Lists'),
+        'cms-condition-data': ('collections', 'CMS-Condition-Data'),
+        'cms-configuration-files': ('collections',
                                     'CMS-Configuration-Files'),
-        'cms-derived-datasets': ('collections_pre', 'CMS-Derived-Datasets'),
-        'cms-luminosity-information': ('collections_pre',
+        'cms-derived-datasets': ('collections', 'CMS-Derived-Datasets'),
+        'cms-luminosity-information': ('collections',
                                        'CMS-Luminosity-Information'),
-        'cms-open-data-instructions': ('collections_pre',
+        'cms-open-data-instructions': ('collections',
                                        'CMS-Open-Data-Instructions'),
-        'cms-primary-datasets': ('collections_pre', 'CMS-Primary-Datasets'),
-        'cms-simulated-datasets': ('collections_pre',
+        'cms-primary-datasets': ('collections', 'CMS-Primary-Datasets'),
+        'cms-simulated-datasets': ('collections',
                                    'CMS-Simulated-Datasets'),
-        'cms-validated-runs': ('collections_pre', 'CMS-Validated-Runs'),
-        'cms-validation-utilities': ('collections_pre',
+        'cms-validated-runs': ('collections', 'CMS-Validated-Runs'),
+        'cms-validation-utilities': ('collections',
                                      'CMS-Validation-Utilities'),
-        'lhcb-derived-datasets': ('collections_pre', 'LHCb-Derived-Datasets'),
-        'lhcb-learning-resources': ('collections_pre',
+        'lhcb-derived-datasets': ('collections', 'LHCb-Derived-Datasets'),
+        'lhcb-learning-resources': ('collections',
                                     'LHCb-Learning-Resources'),
-        'lhcb-tools': ('collections_pre', 'LHCb-Tools'),
+        'lhcb-tools': ('collections', 'LHCb-Tools'),
 
     }
 
     for facet in facets:
         _filter = filter_map.get(facet) or abort(404)
-        if _filter[0] and _filter[1]:
-            filters[_filter[0]] = _filter[1]
-        # change endpoint if defined
-        if len(_filter) == 3:
-            search_endpoint = _filter[2]
+        filters[_filter[0]] = _filter[1]
 
     # all collections should have defined descriptions, 404 otherwise
     if collection:
         description = descriptions.get(collection) or abort(404)
 
-    url = '{}?{}'.format(search_endpoint, urllib.urlencode(filters))
-
-    return render_template('cernopendata_pages/faceted_page.html',
-                           search_endpoint=url,
-                           description=description)
+    return redirect(url_for('invenio_search_ui.search', **filters))
