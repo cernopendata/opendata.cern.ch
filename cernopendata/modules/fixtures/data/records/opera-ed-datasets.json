@@ -21,6 +21,10 @@
       "variable": "amplR"
     }, 
     {
+      "description": "PMT amplitude reconstructed from the \"left\" and \"right\" side amplitudes of a scintillator strip taking into account light attenuation in a WLS fiber (in photo-electrons)", 
+      "variable": "amplRec"
+    }, 
+    {
       "description": "cluster length (in cm)", 
       "variable": "clLength"
     }, 
@@ -74,10 +78,18 @@
     ], 
     "number_events": 818, 
     "number_files": 1, 
-    "size": 3095697
+    "size": 5269628
   }, 
   "doi": "10.7483/OPENDATA.OPERA.HJC7.3DCC", 
   "experiment": "OPERA", 
+  "files": [
+    {
+      "checksum": "sha1:9e624ea97ccb57931901ec64e62c8553291f3d9a", 
+      "size": 5269628, 
+      "type": "xrootd", 
+      "uri": "root://eospublic.cern.ch//eos/opendata/opera/datasets/multiplicity/electronic-detector-data-for-multiplicity-studies.zip"
+    }
+  ], 
   "license": {
     "attribution": "CC0"
   }, 
