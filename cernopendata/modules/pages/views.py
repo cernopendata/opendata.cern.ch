@@ -38,8 +38,6 @@ from flask_menu import register_menu
 from jinja2.exceptions import TemplateNotFound
 from speaklater import make_lazy_string
 
-from cernopendata.modules.collections.descriptions import descriptions
-
 from .utils import FrontpageRecordsSearch
 
 blueprint = Blueprint(
@@ -380,7 +378,6 @@ def faceted_search(page=None, experiment=None, collection=None):
 
     """
     facets = [x for x in locals().values() if x]
-    description = None
     filters = {}
 
     filter_map = {
@@ -393,14 +390,19 @@ def faceted_search(page=None, experiment=None, collection=None):
         'alice': ('experiment', 'ALICE'),
         'atlas': ('experiment', 'ATLAS'),
         'lhcb': ('experiment', 'LHCb'),
+        'opera': ('experiment', 'OPERA'),
         'data-policies': ('collections', 'Data-Policies'),
         'alice-derived-datasets': ('collections',
                                    'ALICE-Derived-Datasets'),
         'alice-reconstructed-data': ('collections',
                                      'ALICE-Reconstructed-Data'),
+        'alice-learning-resources': ('collections',
+                                     'ALICE-Learning-Resources'),
         'alice-tools': ('collections', 'ALICE-Tools'),
         'atlas-derived-datasets': ('collections',
                                    'ATLAS-Derived-Datasets'),
+        'atlas-higgs-challenge-2014': ('collections',
+                                       'ATLAS-Higgs-Challenge-2014'),
         'atlas-simulated-datasets': ('collections',
                                      'ATLAS-Simulated-Datasets'),
         'atlas-learning-resources': ('collections',
@@ -415,9 +417,12 @@ def faceted_search(page=None, experiment=None, collection=None):
                                        'CMS-Luminosity-Information'),
         'cms-open-data-instructions': ('collections',
                                        'CMS-Open-Data-Instructions'),
+        'cms-learning-resources': ('collections', 'CMS-Learning-Resources'),
         'cms-primary-datasets': ('collections', 'CMS-Primary-Datasets'),
         'cms-simulated-datasets': ('collections',
                                    'CMS-Simulated-Datasets'),
+        'cms-tools': ('collections', 'CMS-Tools'),
+        'cms-trigger-information': ('collections', 'CMS-Trigger-Information'),
         'cms-validated-runs': ('collections', 'CMS-Validated-Runs'),
         'cms-validation-utilities': ('collections',
                                      'CMS-Validation-Utilities'),
@@ -425,15 +430,18 @@ def faceted_search(page=None, experiment=None, collection=None):
         'lhcb-learning-resources': ('collections',
                                     'LHCb-Learning-Resources'),
         'lhcb-tools': ('collections', 'LHCb-Tools'),
+        'opera-detector-events': ('collections', 'OPERA-Detector-Events'),
+        'opera-electronic-detector-datasets': (
+            'collections',
+            'OPERA-Electronic-Detector-Datasets'),
+        'opera-emulsion-detector-datasets': (
+            'collections',
+            'OPERA-Emulsion-Detector-Datasets')
 
     }
 
     for facet in facets:
         _filter = filter_map.get(facet) or abort(404)
         filters[_filter[0]] = _filter[1]
-
-    # all collections should have defined descriptions, 404 otherwise
-    if collection:
-        description = descriptions.get(collection) or abort(404)
 
     return redirect(url_for('invenio_search_ui.search', **filters))
