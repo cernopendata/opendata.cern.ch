@@ -306,6 +306,14 @@ def about_opera():
     return render_template('cernopendata_pages/about/about_opera.html')
 
 
+@blueprint.route('/vm/<exp>', defaults={'year': None})
+@blueprint.route('/vm/<exp>/<year>')
+def vm_redirect(exp, year):
+    if year:
+        return redirect('/articles/%s-%s-virtual-machines-how-to-install' % (exp, year), code=302)
+    return redirect('/articles/%s-virtual-machines-how-to-install' % exp, code=302)
+
+
 @blueprint.route('/terms-of-use')
 @register_breadcrumb(blueprint, '.terms', _('Terms of Use'))
 def terms():
