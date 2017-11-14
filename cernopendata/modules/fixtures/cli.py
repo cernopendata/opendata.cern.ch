@@ -90,6 +90,8 @@ def records(skip_files, files, profile, verbose):
         record_json = glob.glob(os.path.join(data, '*.json'))
 
     for filename in record_json:
+        if verbose:
+            click.echo('Loading records from {0} ...'.format(filename))
         with open(filename, 'rb') as source:
             for data in json.load(source):
 
@@ -97,7 +99,8 @@ def records(skip_files, files, profile, verbose):
                     continue
 
                 if verbose:
-                    click.echo('Loading {0} ...'.format(filename))
+                    click.echo('Loading recid {0}...'.
+                               format(data.get('recid')))
 
                 files = data.pop('files', [])
 
