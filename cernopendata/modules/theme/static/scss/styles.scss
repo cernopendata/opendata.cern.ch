@@ -58,7 +58,6 @@ body {
   background-color: #f6f7f6;
 }
 
-
 // TOCHECK Carefoul overriding default
 #news-card .badge {
   font-size: small !important;
@@ -396,3 +395,23 @@ invenio-search-facets {
 .custom-breadcrumb {
   margin-bottom: 0;
 }
+
+//footer
+.footer {
+  background-color: white !important;
+}
+
+#footer_wrap {
+  min-height: 100%;
+  //height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  //margin: 0 auto -138px;
+}
+
+#footer_push, .footer {
+  /* Set the fixed height of the footer here */
+  background-color: #f6f7f6;
+  height: 134px;
+}
+
