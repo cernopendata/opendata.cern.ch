@@ -39,7 +39,7 @@ from cernopendata.modules.records.minters.recid import \
     cernopendata_recid_minter
 
 from invenio_files_rest.models import \
-    Bucket, FileInstance, ObjectVersion
+    Bucket, FileInstance, ObjectVersion, ObjectVersionTag
 from invenio_records_files.models import RecordsBuckets
 from invenio_pidstore.models import PersistentIdentifier
 from invenio_pidstore.errors import PIDDoesNotExistError
@@ -77,12 +77,8 @@ def create_record(schema, data, files, skip_files):
                 _file_id=f.id
             )
 
-            file.update({
-                'bucket': str(obj.bucket_id),
-                'checksum': obj.file.checksum,
-                'key': obj.key,
-                'version_id': str(obj.version_id),
-            })
+            if file.get("type", None) is not None:
+                ObjectVersionTag.create(obj, "type", file.get("type"))
 
         except Exception as e:
             click.echo(
@@ -163,7 +159,7 @@ def records(skip_files, files, profile, verbose, mode):
                     click.echo('Loading recid {0}...'.
                                format(data.get('recid')))
 
-                files = data.get('files', [])
+                files = data.pop('files', [])
                 if mode == 'insert-or-replace':
                     try:
                         pid = PersistentIdentifier.get('recid', data['recid'])

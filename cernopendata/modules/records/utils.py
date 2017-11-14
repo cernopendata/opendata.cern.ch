@@ -98,8 +98,8 @@ def get_paged_files(files, page, items_per_page=5):
 def record_file_page(pid, record, page=1, **kwargs):
     """Record view - get files for current page."""
     # FIXME depending on location of files
-    # rf = record.files.dumps()
-    rf = record.get('files', [])
+    rf = record.files.dumps()
+    # rf = record.get('files', [])
 
     items_per_page = request.args.get('perPage', 5)
     try:
@@ -108,14 +108,15 @@ def record_file_page(pid, record, page=1, **kwargs):
         items_per_page = 5
 
     file_type_filter = request.args.get('type')
+
     if file_type_filter:
         filtered_files = [d for d in rf if (
-                          d.get('type', "") == file_type_filter)]
+                          d.get('tags', {}).get('type', "") == file_type_filter)]
         rf_len = len(filtered_files)
         paged_files = get_paged_files(filtered_files, page, items_per_page)
         return jsonify({"total": rf_len, "files": paged_files})
     elif request.args.get('group'):
-        grouped = groupby(rf, lambda x: x.get('type'))
+        grouped = groupby(rf, lambda x: x.get('tags', {}).get('type'))
 
         grouped_files = {}
         for k in iter(grouped):

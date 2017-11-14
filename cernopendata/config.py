@@ -28,13 +28,13 @@ from __future__ import absolute_import, print_function
 
 import os
 
-from invenio_records_files.api import _Record
 from invenio_records_rest.config import RECORDS_REST_ENDPOINTS
 from invenio_records_rest.facets import terms_filter
 from invenio_records_rest.utils import allow_all
 
 from cernopendata.modules.pages.config import *
 from cernopendata.modules.theme.config import *
+from cernopendata.modules.records.api import Record as _Record
 
 # Debug
 DEBUG = True
@@ -414,6 +414,8 @@ RECORDS_REST_FACETS = {
 # ======
 #: Permission factory to control the files access from the REST interface.
 FILES_REST_PERMISSION_FACTORY = allow_all
+#: Allow URI's longer than 255 chars.
+FILES_REST_FILE_URI_MAX_LEN = 512
 
 # Search
 # ======
