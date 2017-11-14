@@ -313,9 +313,7 @@
               {% endif %}
 
               {% endblock metadata_block %}
-              {#
-              {% block files_block %} {{ files_box(record, 'datid') }} {% endblock files_block %}
-              #}
+              {% block files_block %} {{ files_box(record, 'recid') }} {% endblock files_block %}
               {% block disclaimer %}
               {{super()}}
               {% endblock disclaimer %}
