@@ -69,7 +69,8 @@ def records(skip_files, files, profile, verbose):
         pr.enable()
 
     from invenio_db import db
-    from invenio_records_files.api import Record
+    # from invenio_records_files.api import Record
+    from cernopendata.modules.records.api import Record
     from invenio_indexer.api import RecordIndexer
     from cernopendata.modules.records.minters.recid import \
         cernopendata_recid_minter
@@ -109,7 +110,9 @@ def records(skip_files, files, profile, verbose):
                 RecordsBuckets.create(
                     record=record.model, bucket=bucket)
 
-                for file in files:
+                record_files = record.files
+
+                for file in files[1:]:
                     if skip_files:
                         break
                     assert 'uri' in file
@@ -117,21 +120,26 @@ def records(skip_files, files, profile, verbose):
                     assert 'checksum' in file
 
                     try:
-                        f = FileInstance.create()
                         filename = file.get("uri").split('/')[-1:][0]
-                        f.set_uri(file.get("uri"), file.get(
-                            "size"), file.get("checksum"))
-                        ObjectVersion.create(
-                            bucket,
-                            filename,
-                            _file_id=f.id
-                        )
+
+                        record_files[filename] = {
+                            "uri": file.get("uri"),
+                            "size": file.get("size"),
+                            "checksum": file.get("checksum"),
+                            "data": {
+                                "filetype": file.get("type", "fileee")
+                            }
+                        }
                     except Exception as e:
                         click.echo(
                             'Recid {0} file {1} could not be loaded due '
                             'to {2}.'.format(data.get('recid'), filename,
                                              str(e)))
                         continue
+
+                record_files.flush()
+                record.commit()
+
                 db.session.commit()
                 indexer.index(record)
                 db.session.expunge_all()
