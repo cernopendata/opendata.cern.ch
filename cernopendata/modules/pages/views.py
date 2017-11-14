@@ -155,12 +155,12 @@ def visualise_events_landing():
 @blueprint.route('/visualise/events/<string:experiment>')
 @blueprint.route('/visualise/events/<string:experiment>/<int:eventid>')
 @register_breadcrumb(blueprint, '.visualise_events', _('Visualise Events'))
-def visualise_events(experiment='CMS', eventid=None):
+def visualise_events(experiment='cms', eventid=None):
     """Display visualisations."""
     try:
         return render_template(
             'cernopendata_pages/visualise_events_{}.html'.format(
-                experiment.lower()),
+                experiment),
             eventid=eventid,
             experiment=experiment,
         )
@@ -168,10 +168,11 @@ def visualise_events(experiment='CMS', eventid=None):
         return abort(404)
 
 
+@blueprint.route('/visualise/histograms')
 @blueprint.route('/visualise/histograms/<string:experiment>')
 @register_breadcrumb(blueprint, '.visualise_histograms',
                      _('Visualise Histograms'))
-def visualise_histograms(experiment='CMS'):
+def visualise_histograms(experiment='cms'):
     """Display histograms."""
     try:
         return render_template(
