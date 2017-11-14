@@ -5,9 +5,9 @@
   <h1>Visualise detector events</h1>
   <div class="row">
     <div class="col-md-12">
-      <div class="panel panel-default">
-        <a href="#">
-          <div class="panel-body text-center">
+      <div class="card card-default">
+        <a href="{{url_for('.visualise_events', experiment='cms')}}">
+          <div class="card-body text-center">
             <img src="{{url_for('static', filename='img/CMS.gif')}}">
             <hr>
             <h2><p>Visualise CMS detector events</p></h2>
@@ -18,9 +18,9 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <div class="panel panel-default">
-        <a href="{{url_for('.visualise_events', experiment='OPERA')}}">
-          <div class="panel-body text-center">
+      <div class="card card-default">
+        <a href="{{url_for('.visualise_events', experiment='opera')}}">
+          <div class="card-body text-center">
             <img src="{{url_for('static', filename='img/OPERA.gif')}}">
             <hr>
             <h2><p>Visualise OPERA detector events</p></h2>
