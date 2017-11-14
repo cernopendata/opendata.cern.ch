@@ -293,6 +293,7 @@
                   {% endif %}
                   <p>{{record.usage.description | safe}}</p>
                   {% for link in record.usage.links %}
+                  {% if link.url %}
                   <p><a href="{{link.url}}">
                     {% if link.description %}
                     {{link.description}}
@@ -300,6 +301,7 @@
                     {{link.url}}
                     {% endif %}
                   </a></p>
+                  {% endif %}
                   {% if link.recid %}
                   <p><a href="/record/{{link.recid}}">
                     {{link.recid | get_record_title}}
