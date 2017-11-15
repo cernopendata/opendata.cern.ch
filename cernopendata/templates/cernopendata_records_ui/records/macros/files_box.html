@@ -1,8 +1,10 @@
 {% macro files_box(record, pid_type='recid') %}
-    {% if record.files %}
-      {% if "type" in record.files.dumps()[0] %}
+    {% set files_list = record.get('files', None) %}
 
-        {% set grouped_files = record.files.dumps() | groupby('type')  %}
+    {% if files_list %}
+      {% if "type" in files_list[0] %}
+
+        {% set grouped_files = files_list | groupby('type')  %}
 
         {% for type in grouped_files %}
           {% if type[0] == 'index' %}
@@ -21,14 +23,13 @@
         {% endfor %}
       {% else %}
         <h4>Files</h4>
-        {{files_table(record, record.files.dumps(), 'recid')}}
+        {{files_table(record, files_list, 'recid')}}
         {{ downlaod_caution_modal() }}
       {% endif %}
     {% endif %}
 {% endmacro %}
 
 {% macro files_table(record, files, type) %}
-
   <div ng-controller="paginationCtrl as $ctrl">
     <table class="table">
       <thead>
@@ -36,15 +37,19 @@
           <th>Filename</th>
           <th>Size</th>
           <th>Download</th>
+          <th>EOS Link</th>
         </tr>
       </thead>
       <tbody>
         {% for file in files %}
         <tr id="{{type}}" ng-hide="$ctrl.itemsStatus[{{loop.index-1}}]">
-          {% set _file = file %}
-          <td>{{ _file.key }}</td>
-          <td>{{ _file.size | filesizeformat }}</td>
+          <td>{{ file.key }}</td>
+          <td>{{ file.size | filesizeformat }}</td>
           <td>{{ download_btn(record.control_number, file, 'recid') }}</td>
+          <td>
+            <a href="{{ file.uri }}">
+              <span class="oi" data-glyph="link-intact"></span>
+            </a></td>
         </tr>
         {% endfor %}
       </tbody>
