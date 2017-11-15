@@ -3,8 +3,8 @@ $(function () {
   var input_data;
 
   var input_files = [
-     {id:"dimuon0",name:"dimuon events with invariant mass between 2-110 GeV",file:"/static/test_data/MuRun2010B_0.csv",type:"two_lepton"},
-     {id:"Jpismumu",name:"dimuon events with invariant mass between 2-5 GeV",file:"/static/test_data/dimuon-Jpsi.csv",type:"two_lepton"},
+     {id:"dimuon0",name:"dimuon events with invariant mass between 2-110 GeV",file:"/static/test_data/murun2010b_0.csv",type:"two_lepton"},
+     {id:"Jpismumu",name:"dimuon events with invariant mass between 2-5 GeV",file:"/static/test_data/dimuon-jpsi.csv",type:"two_lepton"},
 //     {id:"Jpsiee",name:"dielectron events with invariant mass between 2-5 GeV",file:"/record/302/files/dielectron-Jpsi.csv",type:"two_lepton"},
 //     {id:"Yee",name:"dielectron events with invariant mass between 8-12 GeV",file:"/record/305/files/dielectron-Upsilon.csv",type:"two_lepton"},
 //     {id:"Zee",name:"dielectron events around the Z boson mass",file:"/record/306/files/Zee.csv",type:"two_lepton"},
