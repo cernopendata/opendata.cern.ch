@@ -310,8 +310,10 @@ def about_opera():
 @blueprint.route('/vm/<exp>/<year>')
 def vm_redirect(exp, year):
     if year:
-        return redirect('/articles/%s-%s-virtual-machines-how-to-install' % (exp, year), code=302)
-    return redirect('/articles/%s-virtual-machines-how-to-install' % exp, code=302)
+        return redirect('/articles/%s-%s-virtual-machines-how-to-install' %
+                        (exp, year), code=302)
+    return redirect('/articles/%s-virtual-machines-how-to-install' %
+                    exp, code=302)
 
 
 @blueprint.route('/terms-of-use')
