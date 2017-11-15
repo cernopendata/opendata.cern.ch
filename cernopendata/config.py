@@ -28,13 +28,13 @@ from __future__ import absolute_import, print_function
 
 import os
 
-from invenio_records_files.api import _Record
 from invenio_records_rest.config import RECORDS_REST_ENDPOINTS
 from invenio_records_rest.facets import terms_filter
 from invenio_records_rest.utils import allow_all
 
 from cernopendata.modules.pages.config import *
 from cernopendata.modules.theme.config import *
+from cernopendata.modules.records.api import Record as _Record
 
 # Debug
 DEBUG = True
@@ -325,7 +325,7 @@ RECORDS_REST_FACETS = {
                 field='type.primary',
                 min_doc_count=0,
                 order=dict(_term='asc')),
-                      aggs=dict(subtype=dict(terms=dict(
+                aggs=dict(subtype=dict(terms=dict(
                           field="type.secondary",
                           order=dict(_term='asc'))))),
             file_type=dict(terms=dict(
