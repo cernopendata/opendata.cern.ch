@@ -253,7 +253,6 @@ def about_opera():
     return render_template('cernopendata_pages/about/about_opera.html')
 
 
-@blueprint.route('/vm/<exp>', defaults={'year': None})
 @blueprint.route('/vm/<exp>/<year>')
 def vm_redirect(exp, year):
     """Redirects to associated experiment."""
@@ -325,7 +324,7 @@ def glossary_json():
 @blueprint.route('/collection/<string:collection>')
 @blueprint.route('/<any("getting-started","vm","news",'
                  '"datasets","documentation","software"):page>')
-@blueprint.route('/<any("getting-started", "research", "education"):page>'
+@blueprint.route('/<any("getting-started","research","education","vm"):page>'
                  '/<any("cms","lhcb","opera","alice","atlas"):experiment>')
 def faceted_search(page=None, experiment=None, collection=None):
     """Faceted search view.
