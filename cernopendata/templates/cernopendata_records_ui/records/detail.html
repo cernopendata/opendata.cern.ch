@@ -1,6 +1,6 @@
 {%- extends "invenio_records_ui/detail.html" %}
 
-{% from 'cernopendata_records_ui/records/macros/files_box.html' import files_box %}
+{% from 'cernopendata_records_ui/records/macros/files_box.html' import files_box, authors_table %}
 
 {%- block page_body %}
 <div class="container-fluid background">
@@ -136,7 +136,7 @@
 {% block javascript %}
 {{ super() }}
 
-{% if record.files %}
+{% if record.get('files') or record.authors %}
 <script>
   $('#download_caution').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget)

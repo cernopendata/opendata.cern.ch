@@ -21,7 +21,7 @@
 
 from __future__ import absolute_import, print_function
 
-from flask import abort
+from flask import abort, render_template
 from invenio_files_rest.views import ObjectResource
 from invenio_records.errors import MissingModelError
 
@@ -84,3 +84,17 @@ def is_previewable_file(file):
     """Test if a file can be previewed checking its extension."""
     extension = file.get('key', ".").split(".")[-1:][0]
     return extension in current_previewer.previewable_extensions
+
+
+def record_metadata_view(pid, record, template=None):
+    """Record detail view."""
+    collection = ""
+    if len(record.get('collections', [])) > 0:
+        collection = record.get('collections', [])[0]
+    return render_template([
+        'cernopendata_records_ui/records/record_detail_{}.html'.format(
+            collection),
+        'cernopendata_records_ui/records/record_detail.html'
+    ],
+        pid=pid,
+        record=record)

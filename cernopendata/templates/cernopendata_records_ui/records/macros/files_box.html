@@ -61,6 +61,32 @@
 {% endmacro %}
 
 
+{% macro authors_table(authors) %}
+  <div ng-controller="paginationCtrl as $ctrl">
+    <h3>Author information</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Affiliation</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for author in authors %}
+        <tr id="{{type}}" ng-hide="$ctrl.itemsStatus[{{loop.index-1}}]">
+          <td>{{ author.get("name", "") }}</td>
+          <td>{{ author.get("affiliation", "") }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="pagination">
+        <pagination ng-change="$ctrl.pageChanged()" total-items="$ctrl.totalItems" ng-model="$ctrl.currentPage" max-size="$ctrl.maxSize" class="pagination-sm" boundary-links="true" items-per-page="$ctrl.itemsPerPage"></pagination>
+    </div>
+  </div>
+{% endmacro %}
+
+
 {% macro download_btn(record_id, file, pid_type) %}
   {% set download_uri = url_for("invenio_records_ui.{}_files".format(pid_type), pid_value=record_id, filename=file.key) %}
   {% set threshold = 1073741824 %}
