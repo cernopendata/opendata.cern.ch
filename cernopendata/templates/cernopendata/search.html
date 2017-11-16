@@ -9,9 +9,11 @@
 {# assets "cernopendata_theme_js" %}
 <script src="{{ ASSET_URL }}"></script>{% endassets #}
 <script>
-  angular.module('invenioSearch').filter('unsafe', function ($sce) {
-    return $sce.trustAsHtml;
-  });
+  angular.module('invenioSearch').filter('unsafe', ['$sce', function($sce) {
+  return function(input) {
+    return $sce.trustAsHtml(input + '...');
+  };
+}]);
 </script>
 {% assets "cernopendata_search_js" %}
 <script src="{{ ASSET_URL }}"></script>{% endassets %}

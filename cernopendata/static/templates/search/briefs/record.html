@@ -4,7 +4,7 @@
     <h4>
       <a target="_self" ng-href="/datasets/{{ record.metadata.control_number }}">{{ record.metadata.title }}</a>
     </h4>
-    <p class="mt-1">{{ record.metadata.abstract.description | limitTo : 200}}...</p>
+    <p ng-if="record.metadata.abstract.description" ng-bind-html="record.metadata.abstract.description | limitTo : 200 | unsafe" class="mt-1"></p>
     <div class="tags-box-search-results">
       <a class="badge badge-success custom-badge-success" href="/search?type={{record.metadata.type.primary}}">
         {{ record.metadata.type.primary }}
