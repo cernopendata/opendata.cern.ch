@@ -86,7 +86,13 @@
                 {% for relation in record.relations %}
                 {% if relation.type == 'isChildOf' %}
                 <label>Parent Dataset:</label>
-                <span><a href="/record/{{relation.recid}}">{{relation.title}}</a></span>
+                <span>
+                  {% if relation.recid %}
+                  <a href="/record/{{relation.recid}}">{{relation.title}}</a>
+                  {% else %}
+                    {{relation.title}}
+                  {% endif %}
+                </span>
                 {% endif %}
                 {% endfor %}
                 {% endif %}
@@ -138,8 +144,13 @@
                   {% else %}
                   <h3>Related Datasets</h3>
                   {% endif %}
-                  <p>{{relation.description}} <br><a href="/record/{{relation.recid}}">{{relation.recid |
+                  <p>{{relation.description}} <br>
+                    {% if relation.recid %}
+                    <a href="/record/{{relation.recid}}">{{relation.recid |
                     get_record_title}}</a></p>
+                    {% else %}
+                      {{relation.title}}
+                    {% endif %}
                 </div>
               </div>
               {% endif %}
