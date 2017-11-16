@@ -253,6 +253,13 @@ def about_opera():
     return render_template('cernopendata_pages/about/about_opera.html')
 
 
+@blueprint.route('/getting-started/<exp>')
+def getting_started_redirect(exp):
+    """Redirects to associated experiment."""
+    return redirect('/articles/getting-started-with-%s-open-data' % exp,
+                    code=302)
+
+
 @blueprint.route('/vm/<exp>/<year>')
 def vm_redirect(exp, year):
     """Redirects to associated experiment."""
