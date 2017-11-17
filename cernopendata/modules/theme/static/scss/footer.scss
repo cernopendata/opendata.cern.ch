@@ -23,38 +23,22 @@
 /* From: https://getbootstrap.com/2.3.2/examples/sticky-footer.html*/
 /* Sticky footer styles */
 
+
 /* Wrapper for page content to push down footer */
+$footer_height: 138px;
+
+.footer {
+  background-color: white !important;
+}
+
 #footer_wrap {
   min-height: 100%;
-  height: auto !important;
-  height: 100%;
   /* Negative indent footer by it's height */
-  margin: 0 auto -138px;
+  margin-bottom: -$footer_height;
 }
 
-#footer_push, #footer {
+#footer_push, .footer {
   /* Set the fixed height of the footer here */
-  height: 138px;
-}
-
-#footer {
-
-  @media (max-width: 767px) {
-
-    margin-left: -20px;
-    margin-right: -20px;
-    padding-left: 20px;
-    padding-right: 20px;
-
-    .text-xs-center {
-        text-align: center;
-      }
-  }
-}
-
-footer a img {
-    height: (3*$line-height-computed);
-}
-footer a+a {
-    margin-left: $line-height-computed;
+  background-color: #f6f7f6;
+  height: $footer_height;
 }
