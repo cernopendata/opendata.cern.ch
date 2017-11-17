@@ -2,7 +2,7 @@
 <div class="card">
   <div class="card-body">
     <h4>
-      <a target="_self" ng-href="/datasets/{{ record.metadata.control_number }}">{{ record.metadata.title }}</a>
+      <a target="_self" ng-href="/record/{{ record.metadata.control_number }}">{{ record.metadata.title }}</a>
     </h4>
     <p ng-if="record.metadata.abstract.description" ng-bind-html="record.metadata.abstract.description | limitTo : 200 | unsafe" class="mt-1"></p>
     <div class="tags-box-search-results">

@@ -4,6 +4,7 @@ var defaultTemplate = "default.html";
 var templateMap = {
   "glossary-term-v1.0.0.json": 'terms.html',
   "article-v1.0.0.json": 'articles.html',
+  "record-v1.0.0.json": 'record.html',
   "datasets-v1.0.0.json": 'dataset.html',
   "software-v1.0.0.json": 'software.html'
 }

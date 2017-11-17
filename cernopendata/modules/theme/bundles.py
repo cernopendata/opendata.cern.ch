@@ -69,7 +69,7 @@ css = NpmBundle(
 
 search_js = NpmBundle(
     'node_modules/angular-sanitize/angular-sanitize.js',
-    'js/components/resultsbrief.js',
+    'js/components/resultsBrief.js',
     output='gen/codp_search.%(version)s.js',
     npm={
         'angular': '~1.4.10',
