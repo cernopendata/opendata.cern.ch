@@ -86,6 +86,26 @@ def index():
                            records=results.hits.hits)
 
 
+@blueprint.route('/md/debug', methods=['HEAD', 'GET'])
+def md_debug():
+    """Test Markdown rendering of a page.
+
+    Route for quicker previewing markdown during development.
+    During edit replace contents of `cernopendata/static/test_data/debug.md`
+    and just refresh the view.
+    I.e. there is no need to re-populate db every time a change is made.
+
+    Command `cernopendata collect -v` has to be run everytime
+    there is a change in static resources.
+
+    """
+    f = open('cernopendata/static/test_data/debug.md', 'r')
+    # return render_template_string(
+    #     u"{{ text|markdown }}", text=f.read().decode("utf-8"))
+    return render_template('cernopendata_pages/md_template.html',
+                           content=f.read().decode("utf-8"))
+
+
 @blueprint.route('/visualise/events')
 @register_breadcrumb(blueprint, '.visualise_events', _('Visualise Events'))
 def visualise_events_landing():
@@ -126,42 +146,6 @@ def visualise_histograms(experiment='cms'):
         )
     except TemplateNotFound:
         return abort(404)
-
-
-# @blueprint.route('/VM')
-# @blueprint.route('/VM/')
-# @register_breadcrumb(blueprint, '.vm', _('Virtual Machines'))
-# def vm():
-#     """Display experiment VMs."""
-#     return render_template('cernopendata_pages/vm/index.html')
-#
-#
-# @blueprint.route('/VM/<string:experiment>', defaults={'year': None})
-# @blueprint.route('/VM/<string:experiment>/<string:year>')
-# @register_breadcrumb(blueprint, '.vm.experiment',
-#                      lazy_title('%(experiment)s', 'experiment'),
-#                      endpoint_arguments_constructor=lambda: {
-#                          'experiment': request.view_args['experiment']})
-# def vm_experiment(experiment, year):
-#     """Display details about experiment VMs."""
-#     return render_template(
-#         'cernopendata/vm/experiment_{0}.html'.format(experiment.lower()),
-#         year=year,
-#     )
-#
-#
-# @blueprint.route('/VM/<string:experiment>/validation/report')
-# @register_breadcrumb(blueprint, '.vm.validation_report',
-#                      lazy_title('%(experiment)s Validation Report',
-#                                 'experiment'),
-#                      endpoint_arguments_constructor=lambda: {
-#                          'experiment': request.view_args['experiment']})
-# def validation_report(experiment):
-#     """Display default abourt experiment validation report."""
-#     return render_template([
-#         'cernopendata/vm/validation_{0}.html'.format(experiment.lower()),
-#         'cernopendata/vm/validation.html',
-#     ], experiment=experiment)
 
 
 def about_menu(*args):
@@ -269,6 +253,17 @@ def vm_redirect(exp, year):
             code=302)
     return redirect('/articles/%s-virtual-machines-how-to-install' % exp,
                     code=302)
+
+
+@blueprint.route('/cms-physics-objects/')
+@blueprint.route('/cms-physics-objects/<year>')
+def cms_physics_objects_redirect(year='2011'):
+    """Redirects to CMS physics objects page of given year.
+
+    If no year is given, redirects to latest available
+    physics objects page (the default parameter).
+    """
+    return redirect('/articles/cms-physics-objects-{}'.format(year), code=302)
 
 
 @blueprint.route('/terms-of-use')
