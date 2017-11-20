@@ -27,7 +27,6 @@
 from __future__ import absolute_import, print_function
 
 import json
-import urllib
 
 import pkg_resources
 from flask import Blueprint, abort, current_app, escape, jsonify, redirect, \
@@ -280,30 +279,6 @@ def privacy():
     return render_template('cernopendata_pages/privacy_policy.html')
 
 
-@blueprint.route('/experiments')
-def collections():
-    """Display experiments."""
-    import json
-    import pkg_resources
-    filepath = pkg_resources.resource_filename(
-        'cernopendata.base', 'templates/helpers/text/testimonials.json')
-    with open(filepath, 'r') as f:
-        testimonials = json.load(f)
-
-    def splitting(value, delimiter='/'):
-        return value.split(delimiter)
-
-    current_app.jinja_env.filters['splitthem'] = splitting
-
-    exp_colls, exp_names = get_collections()
-
-    return render_template(
-        'index_scrollspy.html',
-        testimonials=testimonials,
-        exp_colls=exp_colls,
-        exp_names=exp_names)
-
-
 @blueprint.route('/glossary')
 @register_breadcrumb(blueprint, '.about.glossary', _('Glossary'))
 def glossary():
@@ -321,12 +296,10 @@ def glossary_json():
     return jsonify(glossary)
 
 
-# @blueprint.route('/resources/<any("articles"):page>')
-@blueprint.route('/<any("research", "education"):page>')
 @blueprint.route('/collection/<string:collection>')
 @blueprint.route('/<any("getting-started","vm","news",'
                  '"datasets","documentation","software"):page>')
-@blueprint.route('/<any("getting-started","research","education","vm"):page>'
+@blueprint.route('/<any("getting-started","vm"):page>'
                  '/<any("cms","lhcb","opera","alice","atlas"):experiment>')
 def faceted_search(page=None, experiment=None, collection=None):
     """Faceted search view.
@@ -334,56 +307,16 @@ def faceted_search(page=None, experiment=None, collection=None):
     To add a new page:
         add url to blueprint.route
         add mapping, which (filter,val,search_endpoint)
-        should be used to filter records
-        default search_endpoint is /api/records
+            should be used to filter records
 
     """
     facets = [x for x in locals().values() if x]
     filters = {}
 
     filter_map = {
-        'research': ('collections', {'cms': ['CMS-Primary-Datasets',
-                                             'CMS-Simulated-Datasets',
-                                             'CMS-Derived-Datasets',
-                                             'CMS-Tools',
-                                             'CMS-Validation-Utilities',
-                                             'CMS-Learning-Resources',
-                                             'CMS-Simulated-Datasets',
-                                             'CMS-Open-Data-Instructions',
-                                             'CMS-Trigger-Information',
-                                             'CMS-Condition-Data',
-                                             'CMS-Configuration-Files',
-                                             'CMS-Luminosity-Information'
-                                             ]
-                                     }),
-        'education': ('collections', {'cms': ['CMS-Derived-Datasets',
-                                              'CMS-Tools',
-                                              'CMS-Learning-Resources',
-                                              'CMS-Open-Data-Instructions'
-                                              ],
-                                      'alice': ['ALICE-Derived-Datasets',
-                                                'ALICE-Reconstructed-Data',
-                                                'ALICE-Tools',
-                                                'ALICE-Learning-Resources'
-                                                ],
-                                      'atlas': ['ATLAS-Derived-Datasets',
-                                                'ATLAS-Learning-Resources',
-                                                'ATLAS-Tools',
-                                                'ATLAS-Higgs-Challenge-2014',
-                                                'ATLAS-Simulated-Datasets'
-                                                ],
-                                      'lhcb': ['LHCb-Derived-Datasets',
-                                               'LHCb-Tools',
-                                               'LHCb-Learning-Resources'
-                                               ],
-                                      'opera': [
-                                          'OPERA-Detector-Events',
-                                          'OPERA-Electronic-Detector-Datasets',
-                                          'OPERA-Emulsion-Detector-Datasets'
-                                      ]
-                                      }),
         'documentation': ('type', 'Documentation'),
         'software': ('type', 'Software'),
+        'datasets': ('type', 'Dataset'),
         'getting-started': ('tags', 'Getting Started'),
         'news': ('type', 'News'),
         'vm': ('tags', 'VM'),
@@ -438,20 +371,69 @@ def faceted_search(page=None, experiment=None, collection=None):
         'opera-emulsion-detector-datasets': (
             'collections',
             'OPERA-Emulsion-Detector-Datasets')
-
     }
 
     for facet in facets:
-        if facet in ('research', 'education'):
-            _filter = filter_map.get(facet) or abort(404)
-            if experiment in facets:
-                filters[_filter[0]] = _filter[1][experiment]
-            else:
-                experiment_values = [v for k, v in _filter[1].items()]
-                filters[_filter[0]] = [item for sublist in
-                                       experiment_values for item in sublist]
-        else:
-            _filter = filter_map.get(facet) or abort(404)
-            filters[_filter[0]] = _filter[1]
+        _filter = filter_map.get(facet) or abort(404)
+        filters[_filter[0]] = _filter[1]
+
+    return redirect(url_for('invenio_search_ui.search', **filters))
+
+
+@blueprint.route('/<any("research","education"):page>')
+@blueprint.route('/<any("research","education"):page>'
+                 '/<any("cms","lhcb","opera","alice","atlas"):experiment>')
+def education_research_pages(page, experiment=None):
+    """Research and education pages."""
+    collections = {
+        'research': {'cms': ['CMS-Primary-Datasets',
+                             'CMS-Simulated-Datasets',
+                             'CMS-Derived-Datasets',
+                             'CMS-Tools',
+                             'CMS-Validation-Utilities',
+                             'CMS-Learning-Resources',
+                             'CMS-Simulated-Datasets',
+                             'CMS-Open-Data-Instructions',
+                             'CMS-Trigger-Information',
+                             'CMS-Condition-Data',
+                             'CMS-Configuration-Files',
+                             'CMS-Luminosity-Information'
+                             ]
+                     },
+        'education': {'cms': ['CMS-Derived-Datasets',
+                              'CMS-Tools',
+                              'CMS-Learning-Resources',
+                              'CMS-Open-Data-Instructions'
+                              ],
+                      'alice': ['ALICE-Derived-Datasets',
+                                'ALICE-Reconstructed-Data',
+                                'ALICE-Tools',
+                                'ALICE-Learning-Resources'
+                                ],
+                      'atlas': ['ATLAS-Derived-Datasets',
+                                'ATLAS-Learning-Resources',
+                                'ATLAS-Tools',
+                                'ATLAS-Higgs-Challenge-2014',
+                                'ATLAS-Simulated-Datasets'
+                                ],
+                      'lhcb': ['LHCb-Derived-Datasets',
+                               'LHCb-Tools',
+                               'LHCb-Learning-Resources'
+                               ],
+                      'opera': [
+                          'OPERA-Detector-Events',
+                          'OPERA-Electronic-Detector-Datasets',
+                          'OPERA-Emulsion-Detector-Datasets'
+                      ]
+                      }
+    }
+
+    collections = collections.get(page)
+
+    if not experiment:
+        # use collections defined for all experiments
+        filters = {'collections': sum([v for k, v in collections.items()], [])}
+    else:
+        filters = {'collections': collections.get(experiment) or abort(404)}
 
     return redirect(url_for('invenio_search_ui.search', **filters))
