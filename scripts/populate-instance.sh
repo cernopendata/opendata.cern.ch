@@ -122,14 +122,19 @@ ${INVENIO_WEB_INSTANCE} files location local var/data --default
 # sphinxdoc-populate-with-demo-records-begin
 ${INVENIO_WEB_INSTANCE} fixtures glossary_terms
 ${INVENIO_WEB_INSTANCE} fixtures articles
-if [[ "$@" = *"--skip-files"* ]]; then
-    ${INVENIO_WEB_INSTANCE} fixtures records --skip-files
+if [[ "$@" = *"--skip-records"* ]]; then
+    echo "[INFO] Skipping loading of records."
 else
-    # Prevent memory leak which happens when all fixtures are loaded at once
-    for record in `ls cernopendata/modules/fixtures/data/records/*.json`;
-    do
-        ${INVENIO_WEB_INSTANCE} fixtures records -f "$record" --verbose
-    done
+    if [[ "$@" = *"--skip-files"* ]]; then
+        echo "[INFO] Skipping loading of record files."
+        ${INVENIO_WEB_INSTANCE} fixtures records --skip-files
+    else
+        # Prevent memory leak which happens when all fixtures are loaded at once
+        for record in $(ls cernopendata/modules/fixtures/data/records/*.json);
+        do
+            ${INVENIO_WEB_INSTANCE} fixtures records -f "$record" --verbose
+        done
+    fi
 fi
 # sphinxdoc-populate-with-demo-records-end
 
