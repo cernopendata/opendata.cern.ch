@@ -43,6 +43,13 @@ js = NpmBundle(
     },
 )
 
+general_css = NpmBundle(
+    'node_modules/bootstrap/dist/css/bootstrap.min.css',
+    filters='node-scss, cleancss',
+    output='gen/cernopendata.general.%(version)s.css',
+)
+
+
 css = NpmBundle(
     Bundle(
         'scss/styles.scss',

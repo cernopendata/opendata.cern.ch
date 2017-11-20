@@ -125,6 +125,8 @@ setup(
         ],
         'invenio_assets.bundles': [
             'cernopendata_js = cernopendata.modules.theme.bundles:js',
+            'cernopendata_general_css = '
+            'cernopendata.modules.theme.bundles:general_css',
             'cernopendata_theme_css = cernopendata.modules.theme.bundles:css',
             'cernopendata_visualise_css = '
             'cernopendata.modules.theme.bundles:visualise_css',
