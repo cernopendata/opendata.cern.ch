@@ -273,7 +273,7 @@ def terms():
 
 
 @blueprint.route('/privacy-policy')
-@register_breadcrumb(blueprint, '.privacy', _('Privacy Policy'))
+@register_breadcrumb(blueprint, '.about.privacy', _('Privacy Policy'))
 def privacy():
     """Render privacy policy."""
     return render_template('cernopendata_pages/privacy_policy.html')
