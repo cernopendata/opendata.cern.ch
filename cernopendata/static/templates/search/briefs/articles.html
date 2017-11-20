@@ -6,7 +6,7 @@
       </a>
     </h4>
     <p ng-if="record.metadata.short_description.content">{{record.metadata.short_description.content}}</p>
-    <p ng-if="!record.metadata.short_description.content">{{record.metadata.body.content | limitTo: 200}}...</p>
+    <p ng-if="!record.metadata.short_description.content" ng-bind-html="record.metadata.body.content | limitTo: 200 | unsafe"></p>
     <div class="tags-box-search-results">
       <a class="badge badge-success custom-badge-success" href="/search?type={{record.metadata.type.primary}}">
         {{ record.metadata.type.primary }}

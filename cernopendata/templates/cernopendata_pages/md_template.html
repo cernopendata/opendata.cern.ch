@@ -2,6 +2,10 @@
 
 {% block page_body %}
 <div class="container">
-{{ content|markdown|safe }}
+  <div class="row">
+    <div class="col-md-10">
+      {{ content|markdown|safe }}
+    </div>
+  </div>
 </div>
 {% endblock  page_body %}

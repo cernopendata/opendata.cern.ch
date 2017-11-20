@@ -5,7 +5,7 @@
         {{ record.metadata.anchor }}
       </a>
     </h4>
-    <p>{{ record.metadata.definition }}</p>
+    <p ng-if="record.metadata.definition" class="mt-1">{{ record.metadata.definition | limitTo : 200}}...</p>
     <div class="tags-box-search-results">
       <a class="badge badge-success custom-badge-success" href="/search?type={{record.metadata.type.primary}}">
         {{ record.metadata.type.primary }}

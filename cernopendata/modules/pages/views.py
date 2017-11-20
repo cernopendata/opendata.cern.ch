@@ -86,57 +86,24 @@ def index():
                            records=results.hits.hits)
 
 
-@blueprint.route('/education')
-@blueprint.route('/education/<string:experiment>')
-@register_breadcrumb(blueprint, '.education.experiment',
-                     lazy_title('%(experiment)s', 'experiment'),
-                     endpoint_arguments_constructor=lambda: {
-                         'experiment': request.view_args['experiment']})
-def education(experiment=None):
-    """Display education pages."""
-    if experiment not in current_app.config['OPENDATA_EXPERIMENTS']:
-        abort(404)
+@blueprint.route('/md/debug', methods=['HEAD', 'GET'])
+def md_debug():
+    """Test Markdown rendering of a page.
 
-    return render_template('cernopendata_pages/education.html',
-                           experiment=experiment)
+    Route for quicker previewing markdown during development.
+    During edit replace contents of `cernopendata/static/test_data/debug.md`
+    and just refresh the view.
+    I.e. there is no need to re-populate db every time a change is made.
 
+    Command `cernopendata collect -v` has to be run everytime
+    there is a change in static resources.
 
-@blueprint.route('/research')
-@blueprint.route('/research/<string:experiment>')
-@register_breadcrumb(blueprint, '.research.experiment',
-                     lazy_title('%(experiment)s', 'experiment'),
-                     endpoint_arguments_constructor=lambda: {
-                         'experiment': request.view_args['experiment']})
-def research(experiment=None):
-    """Display research pages."""
-    import os.path
-    import pkg_resources
-
-    def file_exists(filename):
-        filepath = pkg_resources.resource_filename(
-            'cernopendata.base', filename)
-        return os.path.isfile(filepath)
-
-    def splitting(value, delimiter='/'):
-        return value.split(delimiter)
-
-    current_app.jinja_env.filters['splitthem'] = splitting
-    current_app.jinja_env.filters['file_exists'] = file_exists
-
-    exp_colls, exp_names = get_collections()
-
-    if experiment not in exp_names:
-        return render_template(
-            'index_scrollspy.html',
-            entry='research',
-            exp_colls=exp_colls,
-            exp_names=exp_names)
-
-    return render_template(
-        'research.html',
-        experiment=experiment,
-        exp_colls=exp_colls,
-        exp_names=exp_names)
+    """
+    f = open('cernopendata/static/test_data/debug.md', 'r')
+    # return render_template_string(
+    #     u"{{ text|markdown }}", text=f.read().decode("utf-8"))
+    return render_template('cernopendata_pages/md_template.html',
+                           content=f.read().decode("utf-8"))
 
 
 @blueprint.route('/visualise/events')
@@ -179,42 +146,6 @@ def visualise_histograms(experiment='cms'):
         )
     except TemplateNotFound:
         return abort(404)
-
-
-# @blueprint.route('/VM')
-# @blueprint.route('/VM/')
-# @register_breadcrumb(blueprint, '.vm', _('Virtual Machines'))
-# def vm():
-#     """Display experiment VMs."""
-#     return render_template('cernopendata_pages/vm/index.html')
-#
-#
-# @blueprint.route('/VM/<string:experiment>', defaults={'year': None})
-# @blueprint.route('/VM/<string:experiment>/<string:year>')
-# @register_breadcrumb(blueprint, '.vm.experiment',
-#                      lazy_title('%(experiment)s', 'experiment'),
-#                      endpoint_arguments_constructor=lambda: {
-#                          'experiment': request.view_args['experiment']})
-# def vm_experiment(experiment, year):
-#     """Display details about experiment VMs."""
-#     return render_template(
-#         'cernopendata/vm/experiment_{0}.html'.format(experiment.lower()),
-#         year=year,
-#     )
-#
-#
-# @blueprint.route('/VM/<string:experiment>/validation/report')
-# @register_breadcrumb(blueprint, '.vm.validation_report',
-#                      lazy_title('%(experiment)s Validation Report',
-#                                 'experiment'),
-#                      endpoint_arguments_constructor=lambda: {
-#                          'experiment': request.view_args['experiment']})
-# def validation_report(experiment):
-#     """Display default abourt experiment validation report."""
-#     return render_template([
-#         'cernopendata/vm/validation_{0}.html'.format(experiment.lower()),
-#         'cernopendata/vm/validation.html',
-#     ], experiment=experiment)
 
 
 def about_menu(*args):
@@ -306,6 +237,35 @@ def about_opera():
     return render_template('cernopendata_pages/about/about_opera.html')
 
 
+@blueprint.route('/getting-started/<exp>')
+def getting_started_redirect(exp):
+    """Redirects to associated experiment."""
+    return redirect('/articles/getting-started-with-%s-open-data' % exp,
+                    code=302)
+
+
+@blueprint.route('/vm/<exp>/<year>')
+def vm_redirect(exp, year):
+    """Redirects to associated experiment."""
+    if year:
+        return redirect(
+            '/articles/%s-%s-virtual-machines-how-to-install' % (exp, year),
+            code=302)
+    return redirect('/articles/%s-virtual-machines-how-to-install' % exp,
+                    code=302)
+
+
+@blueprint.route('/cms-physics-objects/')
+@blueprint.route('/cms-physics-objects/<year>')
+def cms_physics_objects_redirect(year='2011'):
+    """Redirects to CMS physics objects page of given year.
+
+    If no year is given, redirects to latest available
+    physics objects page (the default parameter).
+    """
+    return redirect('/articles/cms-physics-objects-{}'.format(year), code=302)
+
+
 @blueprint.route('/terms-of-use')
 @register_breadcrumb(blueprint, '.terms', _('Terms of Use'))
 def terms():
@@ -362,10 +322,11 @@ def glossary_json():
 
 
 # @blueprint.route('/resources/<any("articles"):page>')
+@blueprint.route('/<any("research", "education"):page>')
 @blueprint.route('/collection/<string:collection>')
 @blueprint.route('/<any("getting-started","vm","news",'
                  '"datasets","documentation","software"):page>')
-@blueprint.route('/<any("getting-started"):page>'
+@blueprint.route('/<any("getting-started","research","education","vm"):page>'
                  '/<any("cms","lhcb","opera","alice","atlas"):experiment>')
 def faceted_search(page=None, experiment=None, collection=None):
     """Faceted search view.
@@ -381,6 +342,46 @@ def faceted_search(page=None, experiment=None, collection=None):
     filters = {}
 
     filter_map = {
+        'research': ('collections', {'cms': ['CMS-Primary-Datasets',
+                                             'CMS-Simulated-Datasets',
+                                             'CMS-Derived-Datasets',
+                                             'CMS-Tools',
+                                             'CMS-Validation-Utilities',
+                                             'CMS-Learning-Resources',
+                                             'CMS-Simulated-Datasets',
+                                             'CMS-Open-Data-Instructions',
+                                             'CMS-Trigger-Information',
+                                             'CMS-Condition-Data',
+                                             'CMS-Configuration-Files',
+                                             'CMS-Luminosity-Information'
+                                             ]
+                                     }),
+        'education': ('collections', {'cms': ['CMS-Derived-Datasets',
+                                              'CMS-Tools',
+                                              'CMS-Learning-Resources',
+                                              'CMS-Open-Data-Instructions'
+                                              ],
+                                      'alice': ['ALICE-Derived-Datasets',
+                                                'ALICE-Reconstructed-Data',
+                                                'ALICE-Tools',
+                                                'ALICE-Learning-Resources'
+                                                ],
+                                      'atlas': ['ATLAS-Derived-Datasets',
+                                                'ATLAS-Learning-Resources',
+                                                'ATLAS-Tools',
+                                                'ATLAS-Higgs-Challenge-2014',
+                                                'ATLAS-Simulated-Datasets'
+                                                ],
+                                      'lhcb': ['LHCb-Derived-Datasets',
+                                               'LHCb-Tools',
+                                               'LHCb-Learning-Resources'
+                                               ],
+                                      'opera': [
+                                          'OPERA-Detector-Events',
+                                          'OPERA-Electronic-Detector-Datasets',
+                                          'OPERA-Emulsion-Detector-Datasets'
+                                      ]
+                                      }),
         'documentation': ('type', 'Documentation'),
         'software': ('type', 'Software'),
         'getting-started': ('tags', 'Getting Started'),
@@ -441,7 +442,16 @@ def faceted_search(page=None, experiment=None, collection=None):
     }
 
     for facet in facets:
-        _filter = filter_map.get(facet) or abort(404)
-        filters[_filter[0]] = _filter[1]
+        if facet in ('research', 'education'):
+            _filter = filter_map.get(facet) or abort(404)
+            if experiment in facets:
+                filters[_filter[0]] = _filter[1][experiment]
+            else:
+                experiment_values = [v for k, v in _filter[1].items()]
+                filters[_filter[0]] = [item for sublist in
+                                       experiment_values for item in sublist]
+        else:
+            _filter = filter_map.get(facet) or abort(404)
+            filters[_filter[0]] = _filter[1]
 
     return redirect(url_for('invenio_search_ui.search', **filters))

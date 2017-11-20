@@ -1,41 +1,96 @@
 {% macro files_box(record, pid_type='recid') %}
-  {% if record.files %}
-  <div class="row">
-    <div class="col-md-12">
-      <span>
-        <h3>Files</h3>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Filename</th>
-              <th>Size</th>
-              <th>Download</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for file in record.files %}
-            <tr>
-              {% set _file = file.dumps() %}
-              <td>{{ _file.key }}</td>
-              <td>{{ _file.size | filesizeformat }}</td>
-              <td>{{ download_btn(record.control_number, file, pid_type) }}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </span>
-    </div>
-  </div>
-  {{ downlaod_caution_modal() }}
-  {% endif %}
+    {% set files_list = record.get('files', None) %}
+
+    {% if files_list %}
+      {% if "type" in files_list[0] %}
+
+        {% set grouped_files = files_list | groupby('type')  %}
+
+        {% for type in grouped_files %}
+          {% if type[0] == 'index' %}
+            <h4>File Indexes</h4>
+          {% elif type[0] == 'xrootd' %}
+            <h4>Datasets</h4>
+          {% else %}
+            <h4>Files</h4>
+          {% endif %}
+
+          {{files_table(record, type[1], type[0])}}
+
+          {% if type[0] == 'xrootd' %}
+            {{ downlaod_caution_modal() }}
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        <h4>Files</h4>
+        {{files_table(record, files_list, 'recid')}}
+        {{ downlaod_caution_modal() }}
+      {% endif %}
+    {% endif %}
 {% endmacro %}
 
+{% macro files_table(record, files, type) %}
+  <div ng-controller="paginationCtrl as $ctrl">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Filename</th>
+          <th>Size</th>
+          <th>Download</th>
+          <th>EOS Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for file in files %}
+        <tr id="{{type}}" ng-hide="$ctrl.itemsStatus[{{loop.index-1}}]">
+          <td>{{ file.key }}</td>
+          <td>{{ file.size | filesizeformat }}</td>
+          <td>{{ download_btn(record.control_number, file, 'recid') }}</td>
+          <td>
+            <a href="{{ file.uri }}">
+              <span class="oi" data-glyph="link-intact"></span>
+            </a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="pagination">
+        <pagination ng-change="$ctrl.pageChanged()" total-items="$ctrl.totalItems" ng-model="$ctrl.currentPage" max-size="$ctrl.maxSize" class="pagination-sm" boundary-links="true" items-per-page="$ctrl.itemsPerPage"></pagination>
+    </div>
+  </div>
+{% endmacro %}
+
+
+{% macro authors_table(authors) %}
+  <div ng-controller="paginationCtrl as $ctrl">
+    <h3>Author information</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Affiliation</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for author in authors %}
+        <tr id="{{type}}" ng-hide="$ctrl.itemsStatus[{{loop.index-1}}]">
+          <td>{{ author.get("name", "") }}</td>
+          <td>{{ author.get("affiliation", "") }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="pagination">
+        <pagination ng-change="$ctrl.pageChanged()" total-items="$ctrl.totalItems" ng-model="$ctrl.currentPage" max-size="$ctrl.maxSize" class="pagination-sm" boundary-links="true" items-per-page="$ctrl.itemsPerPage"></pagination>
+    </div>
+  </div>
+{% endmacro %}
 
 
 {% macro download_btn(record_id, file, pid_type) %}
   {% set download_uri = url_for("invenio_records_ui.{}_files".format(pid_type), pid_value=record_id, filename=file.key) %}
   {% set threshold = 1073741824 %}
-  {% if file.mimetype != 'application/octet-stream' or file.size < threshold %}
+  {% if file.size < threshold %}
     <a href="{{download_uri}}">
       <span class="oi" data-glyph="data-transfer-download"></span>
     </a>

@@ -84,7 +84,7 @@ Run,Event,Type1,E1,px1 ,py1,pz1,pt1,eta1,phi1,Q1,Type2,E2,px2,py2,pz2,pt2,eta2,p
 
       // Load up a csv file and look at the distribution of the
       // invariant mass M (in GeV, in bins of size 0.1 GeV):
-      d3.csv("../data/MuRun2010B_0.csv", function(data) {
+      d3.csv("../data/murun2010b_0.csv", function(data) {
         var histogram = buildHistogram(data.map(function(d) {return d['M'];}), 0.1);
 
         // Draw the plot:
@@ -227,7 +227,7 @@ Run,Event,Type1,E1,px1 ,py1,pz1,pt1,eta1,phi1,Q1,Type2,E2,px2,py2,pz2,pt2,eta2,p
 
       // Load up a csv file and look at the distribution of the
       // invariant mass M (in GeV, in bins of size 0.1 GeV):
-      d3.csv("../data/MuRun2010B_0.csv", function(data) {
+      d3.csv("../data/murun2010b_0.csv", function(data) {
         buildHistogram(data.map(function(d) {return d['M'];}), 0.1);
       });
 
@@ -246,7 +246,7 @@ Run,Event,Type1,E1,px1 ,py1,pz1,pt1,eta1,phi1,Q1,Type2,E2,px2,py2,pz2,pt2,eta2,p
     <a href="http://www.r-project.org/">R</a> is a software environment for data analysis, statistics and visualisation. This code can be run in the R console. See the <a href="http://www.r-project.org/">R page</a> for more on how to get and run R.</p>
     <p><pre>
 # read in the dimuon csv file:
-dimuons <- read.csv(file="../data/MuRun2010B_0.csv")
+dimuons <- read.csv(file="../data/murun2010b_0.csv")
 
 # select for events where the 2 muons have opposite-sign
 dimuons.oppsigns <- subset(dimuons, dimuons$Q1*dimuons$Q2 == -1)

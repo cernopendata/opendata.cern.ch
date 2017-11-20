@@ -105,9 +105,9 @@ RECORDS_UI_ENDPOINTS = dict(
     recid=dict(
         pid_type='recid',
         route='/record/<pid_value>',
-        template='cernopendata_records_ui/records/record_detail.html',
         permission_factory_imp=None,
         record_class='invenio_records_files.api:Record',
+        view_imp='cernopendata.modules.records.utils:record_metadata_view',
     ),
     recid_files=dict(
         pid_type='recid',
@@ -325,7 +325,7 @@ RECORDS_REST_FACETS = {
                 field='type.primary',
                 min_doc_count=0,
                 order=dict(_term='asc')),
-                      aggs=dict(subtype=dict(terms=dict(
+                aggs=dict(subtype=dict(terms=dict(
                           field="type.secondary",
                           order=dict(_term='asc'))))),
             file_type=dict(terms=dict(

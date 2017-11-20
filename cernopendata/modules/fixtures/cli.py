@@ -102,15 +102,9 @@ def records(skip_files, files, profile, verbose):
                     click.echo('Loading recid {0}...'.
                                format(data.get('recid')))
 
-                files = data.pop('files', [])
+                files = data.get('files', [])
 
-                id = uuid.uuid4()
-                cernopendata_recid_minter(id, data)
-                record = Record.create(data, id_=id)
-                record['$schema'] = schema
                 bucket = Bucket.create()
-                RecordsBuckets.create(
-                    record=record.model, bucket=bucket)
 
                 for file in files:
                     if skip_files:
@@ -124,17 +118,33 @@ def records(skip_files, files, profile, verbose):
                         filename = file.get("uri").split('/')[-1:][0]
                         f.set_uri(file.get("uri"), file.get(
                             "size"), file.get("checksum"))
-                        ObjectVersion.create(
+                        obj = ObjectVersion.create(
                             bucket,
                             filename,
                             _file_id=f.id
                         )
+
+                        file.update({
+                            'bucket': str(obj.bucket_id),
+                            'checksum': obj.file.checksum,
+                            'key': obj.key,
+                            'version_id': str(obj.version_id),
+                        })
+
                     except Exception as e:
                         click.echo(
                             'Recid {0} file {1} could not be loaded due '
                             'to {2}.'.format(data.get('recid'), filename,
                                              str(e)))
                         continue
+
+                id = uuid.uuid4()
+                cernopendata_recid_minter(id, data)
+                record = Record.create(data, id_=id)
+                record['$schema'] = schema
+                RecordsBuckets.create(
+                    record=record.model, bucket=bucket)
+
                 db.session.commit()
                 indexer.index(record)
                 db.session.expunge_all()
@@ -314,6 +324,7 @@ def datasets(skip_files):
                                            'modules/fixtures/data/datasets')
     datasets_json = glob.glob(os.path.join(data, '*.json'))
 
+    # FIXME: change the treatment of `files` according to `records` fixtures.
     for filename in datasets_json:
         with open(filename, 'rb') as source:
             for data in json.load(source):
@@ -378,6 +389,7 @@ def software(skip_files):
                                            'modules/fixtures/data/software')
     software_json = glob.glob(os.path.join(data, '*.json'))
 
+    # FIXME: change the treatment of `files` according to `records` fixtures.
     for filename in software_json:
         with open(filename, 'rb') as source:
             for data in json.load(source):
