@@ -105,6 +105,11 @@
               {% block metadata_block %}
               {{ super() }}
 
+              {% if 'ig' in record.get('distribution', {}).get('formats', []) %}
+              <h3>Preview</h3>
+              {%include "cernopendata_pages/visualise_events_cms_standalone.html"%}
+              {% endif %}
+
               {% if record.use_with %}
               <h3>Use with</h3>
               <p>{{record.use_with.description | safe}}</p>
@@ -147,10 +152,10 @@
                   <p>{{relation.description}} <br>
                     {% if relation.recid %}
                     <a href="/record/{{relation.recid}}">{{relation.recid |
-                    get_record_title}}</a></p>
-                    {% else %}
-                      {{relation.title}}
-                    {% endif %}
+                      get_record_title}}</a></p>
+                  {% else %}
+                  {{relation.title}}
+                  {% endif %}
                 </div>
               </div>
               {% endif %}
@@ -338,4 +343,13 @@
     </div>
   </div>
 </div>
-{%- endblock %}
+{% endblock page_body%}
+
+{% block javascript %}
+{{super()}}
+{% set files_list = record.get('files', None) %}
+{% set file_name = files_list | get_first_file %}
+<script>
+  ispy.loadUrl("/record/{{record.control_number }}/files/{{file_name}}");
+</script>
+{% endblock javascript %}

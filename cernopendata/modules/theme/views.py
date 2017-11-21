@@ -48,3 +48,11 @@ def get_record_title(recid):
         return None
     record = Record.get_record(pid.object_uuid)
     return record.get('title', '')
+
+
+@blueprint.app_template_filter('get_first_file')
+def get_first_file(file_list):
+    """Fetches first file from a list."""
+    l = [f.get('key') for f in file_list
+         if f.get('key').endswith('.ig')]
+    return l[0]
