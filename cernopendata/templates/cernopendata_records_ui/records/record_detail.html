@@ -348,8 +348,10 @@
 {% block javascript %}
 {{super()}}
 {% set files_list = record.get('files', None) %}
+{% if files_list  and 'ig' in record.get('distribution', {}).get('formats', []) %}
 {% set file_name = files_list | get_first_file %}
 <script>
   ispy.loadUrl("/record/{{record.control_number }}/files/{{file_name}}");
 </script>
+{% endif %}
 {% endblock javascript %}

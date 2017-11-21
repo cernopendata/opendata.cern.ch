@@ -45,24 +45,18 @@ js = NpmBundle(
     },
 )
 
-general_css = NpmBundle(
-    'node_modules/bootstrap/dist/css/bootstrap.min.css',
-    filters='node-scss, cleancss',
-    output='gen/cernopendata.general.%(version)s.css',
-)
-
-
 css = NpmBundle(
     Bundle(
-        'scss/styles.scss',
-        filters='node-scss, cleancssurl',
-    ),
-    Bundle(
+        'node_modules/bootstrap/dist/css/bootstrap.min.css',
         'node_modules/angular-loading-bar/build/loading-bar.css',
         # 'node_modules/typeahead.js-bootstrap-css/typeaheadjs.css',
         # 'node_modules/bootstrap-switch/dist/css/bootstrap3'
         # '/bootstrap-switch.css',
         filters='cleancssurl',
+    ),
+    Bundle(
+        'scss/styles.scss',
+        filters='node-scss, cleancssurl',
     ),
     depends=('scss/*.scss',),
     output='gen/cernopendata.%(version)s.css',

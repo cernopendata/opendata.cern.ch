@@ -1,5 +1,4 @@
 $(function () {
-  $('#howto').hide();
   var input_data;
 
   var input_files = [
@@ -52,14 +51,22 @@ $(function () {
   };
 
 
+  $('#howto').hide();
+  $('#backtohisto').hide();
+
+
   $('#backtohisto').on('click', function () {
     $('#histograms').show();
+    $('#needhelp').show();
+    $('#backtohisto').hide();
     $('#howto').hide();
   });
 
   $('#needhelp').on('click', function () {
     $('#histograms').hide();
     $('#howto').show();
+    $('#needhelp').hide();
+    $('#backtohisto').show();
   });
 
   function loadFile(input) {
