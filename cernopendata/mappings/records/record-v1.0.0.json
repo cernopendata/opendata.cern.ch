@@ -1,72 +1,105 @@
 {
-  "mappings": {
-    "record-v1.0.0": {
-      "properties": {
-        "$schema": {
-          "type": "string",
-          "copy_to": "facet_schema"
-        },
-        "facet_schema": {
-          "type": "string",
-          "index": "not_analyzed"
-        },
-        "type": {
-          "properties": {
-              "primary": {"type": "string",
-                          "index": "not_analyzed"},
-              "secondary": {"type": "string",
-                            "index": "not_analyzed"}
-          }
-        },
-        "experiment": {
-          "type": "string",
-          "index": "not_analyzed"
-        },
-        "collision_information": {
+    "mappings": {
+        "record-v1.0.0": {
             "properties": {
-                "type": {
+                "$schema": {
+                    "type": "string",
+                    "copy_to": "facet_schema"
+                },
+                "facet_schema": {
                     "type": "string",
                     "index": "not_analyzed"
                 },
-                "energy": {
+                "type": {
+                    "properties": {
+                        "primary": {
+                            "type": "string",
+                            "index": "not_analyzed"
+                        },
+                        "secondary": {
+                            "type": "string",
+                            "index": "not_analyzed"
+                        }
+                    }
+                },
+                "topic_category": {
                     "type": "string",
                     "index": "not_analyzed"
-                }
-            }
-        },
-        "topic": {
-            "properties": {
-                "category": {
+                },
+                "collision_energy": {
                     "type": "string",
                     "index": "not_analyzed"
+                },
+                "date_created": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "copy_to": "year"
+                },
+                "distribution": {
+                    "type": "object",
+                    "properties": {
+                        "formats": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "copy_to": "file_type"
+                        }
+                    }
+                },
+                "experiment": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "year": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "collision_information": {
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "index": "not_analyzed"
+                        },
+                        "energy": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "copy_to": "collision_energy"
+                        }
+                    }
+                },
+                "topic": {
+                    "properties": {
+                        "category": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "copy_to": "topic_category"
+                        }
+                    }
+                },
+                "collections": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "keywords": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "publisher": {
+                    "type": "string"
+                },
+                "abstract": {
+                    "properties": {
+                        "description": {"type": "string"}
+                    }
+                },
+                "authors": {
+                    "properties": {
+                        "name": {"type": "string"}
+                    }
                 }
             }
-        },
-        "collections": {
-          "type": "string",
-          "index": "not_analyzed"
-        },
-        "keywords": {
-          "type": "string",
-          "index": "not_analyzed"
-        },
-        "title": {
-          "type": "string"
-        },
-        "publisher": {
-          "type": "string"
-        },
-        "abstract": {
-          "properties": {
-            "description": {"type": "string"}
-          }
-        },
-        "authors": {
-          "properties": {
-            "name": {"type": "string"}
-          }
         }
-      }
     }
-  }
 }
