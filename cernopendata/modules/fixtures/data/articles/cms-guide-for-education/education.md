@@ -1,73 +1,67 @@
-Welcome to explore Open Data from the CMS experiment!
+This page will guide you through contents of the CMS Open Data collections that are meant for educational use (or for physics enthusiasts!). It is roughly broken down into three levels of difficulty:
+- Beginner: *Visualise collisions*
+- Intermediate: *Make histograms with collision data*
+- Advanced: *Dive deeper into the data*
 
-This guide will show you through those CMS Open Data contents, which are aimed in particular for schools and education or just for fun with physics.
+---
 
-**If you time is limited, or you want to do something quickly online, have a look at visual displays of real particle collisions, for example those, which contributed to the Higgs boson discovery:**
+#### Visualise collisions
 
-- go to the [CMS event display](/visualise/events/CMS) 
-- wait for loading, and click on the `Open file` button
-- choose `Open file(s) from web`,
-- choose `Education/` 
-- click on 4lepton.ig to see Higgs boson decaying in electrons and/or muons or diphoton.ig to see Higgs boson decaying in two photons, and wait for the events to load to the right
-- choose one and click on `Load`
-- to see photons, check `Photons` under `Physics` in the menu to the left (the choice is only visible if photons are present in the collision)
-- to see electrons, check `Electrons` under `Physics` and uncheck `Tracks (reco)` under `Tracking` in the menu to the left  (the choice is only visible if electrons are present in the collision).
+If you are new to particle physics, your time is limited, or you want to do something online fairly quickly, have a look at visual displays of real particle collisions. For example, here are collision events which contributed to the discovery of the Higgs boson in 2012:
 
-Note that if you have a VR viewer (like google cardboard), you can do this on your smartphone: click on the `Stereo view` button and insert your phone to the viewer and have virtual tour in 3D in the middle of the collision!
+1. Go to the [CMS event display](/visualise/events/CMS),
+1. wait for the tool to load, and click on the `Open file` button,
+1. choose `Open file(s) from web`,
+1. choose `Education/`,
+1. click on `4lepton.ig` to see candidate collisions events for a Higgs boson transforming into electrons and/or muons, or click on `diphoton.ig` to see candidate collision events for a Higgs boson transforming into two photons, and wait for the events to load to the right,
+1. choose any specific event from the selection and click on `Load`.
 
-All collision datasets from CMS Open Data have first events available for event display and many other events have been selected in specially prepared Event display files. Find them all in [search](/search?page=3&size=20&q=display&experiment=CMS&subtype=Derived#). Just to give two examples of these specially prepared files:
-- [Higgs candidate events for use in education and outreach](http://opendata.cern.ch/record/300) for the Higgs candidates
-- [Dimuon events with invariant mass range 2-5 GeV for public education and outreach](http://opendata.cern.ch/record/301) for J/Psi -> mu mu candidates
+Your collision event should now appear in the display.
 
-You can also find all these files directly under `Files` in `Open file` dialogue box. 
+- If you chose the `4lepton.ig` set and you want to see electrons, check `Electrons` under `Physics` and uncheck `Tracks (reco)` under `Tracking` in the menu to the left  (the choice is only visible if electrons are present in the collision).
+- If you chose the `diphoton.ig` set, check `Photons` under `Physics` in the menu to the left (the choice is only visible if photons are present in the collision).
 
-For additional help, click on `Need help?`top right on the [CMS event display](/visualise/events/CMS) screen. (TOBEFIXED: not visible in the current display)
-For suggestions for class room activities see TOBEFIXED: new record for https://github.com/cms-opendata-education/cms-event-display-materials-multiple-languages
+**Note**: If you have a VR viewer (even a simple one like [Google Cardboard](https://vr.google.com/cardboard/)), you can immerse yourself into the collision using your smartphone: click on the "Stereo View" button (shaped like binoculars), insert your phone into the viewer and have virtual tour in 3D of a real LHC collision!
 
-**If you already know what are the basic physics quantities that are measured in a particle collision and want to play online with histograms from different Open Data samples:** 
-- go to the [histogram visualizer](http://opendata.cern.ch/visualise/histograms/CMS) 
-- for instructions, click on `Need HELP?`
+The first few events of all collision datasets from CMS served on the CERN Open Data portal are available in a format suitable for the event display. In addition, many other events have been selected in specially prepared collections. Find them all in [this search query](search?page=1&size=20&q=display&subtype=Derived&experiment=CMS).
+Two examples of these specially prepared files are:
 
-**In addition to these immediate online activities, there are plenty of additional resources. To get an overview of what is available:**
-- make a [search](/search?page=1&size=20&q=learning%20school%20education&experiment=CMS) with your keyword of interest (in this search learning, school and education within CMS experiment are predefined, but you can change them).
+- [Higgs candidate events for use in education and outreach](http://opendata.cern.ch/record/300), and
+- [Dimuon events with invariant mass range 2-5 GeV for public education and outreach](http://opendata.cern.ch/record/301) for J/&psi;&rarr;&mu;&mu; candidates.
 
-**To get a very first touch of concepts of statistical analysis in a hands-on class room activity, have a look at the material for an organized "Masterclass" exercise based on CMS data and event display:**
-- find the home page of the physics masterclass events through [Physics Masterclasses](/record/53)
-- an organized CMS masterclass event typically takes one day (including lectures and combination of the results from several participating groups), if you have enough background knowledge, you can organize it on your own, and it can be done in approximately two hours.
+You can also download these files directly from the records on this portal.
 
-**To make a further step in direction of data analysis, you may want to try how a limited number of events can be analyzed with spreadsheet programms:**
-- see [Instructions for use of CMS Open Data in spreadsheets](TOBEFIXED)
-- if you (or your students) are familiar with spreadsheets, these exercises can be done in an hour.
+To learn how to use the [CMS event display](/visualise/events/CMS), click on `Need help?` link on the top right side of the screen (TOBEFIXED: not visible in the current display). For suggestions for class room activities see TOBEFIXED: new record for https://github.com/cms-opendata-education/cms-event-display-materials-multiple-languages
 
-**To get a first introduction in programming and physics data analysis in python through tutorials and examples with CMS Open data:**
-- see [Jupyter notebooks using CMS Open Data](TOBEFIXED)
-- depending on the scope of your exercise (learning programming/learning data analysis/learning particle physics), these tutorials and exercises can take from less than an hour to several hours.
-- see a [quick online hands-on demo](https://mybinder.org/v2/gh/cms-opendata-education/cms-online-notebooks-for-binder/master?filepath=quick-start-to-CMS-open-data.ipynb) to jupyter notebooks and CMS Open Data.
+---
 
-**If you interested to have a quick look in CMS Open Data in R:**
-- see [Instructions for use of CMS Open Data in R](TOBEFIXED)
+#### Make histograms with collision data
 
-**If you want a more detailed understanding of particle physics or an introduction at the university level:** 
-- check the other resources in [CMS Learning resources ](http://opendata.cern.ch/collection/CMS-Learning-Resources).
+You can get an overview of our education resources through [this search query](/search?page=1&size=20&q=learning%20school%20education&experiment=CMS) with your keyword of interest (you can change the pre-defined keywords here). Here are some highlights:
+
+- If you already know what the basic physics quantities measured in a particle collision are and want to **play online with histograms** from different samples of open data, check out the [CMS histogram visualiser](http://opendata.cern.ch/visualise/histograms/CMS). For instructions on how to use the visualiser, click on `Need help?`.
+- To learn some concepts of statistical analysis in a hands-on classroom activity, have a look at the material for an organised ["**Masterclass**" exercise](/record/53) based on CMS data and the online event display. A CMS Masterclass typically takes one day (including introductory lectures and post-analysis discussions), but the exercise itself can be done in approximately two hours. Learn more about organising your own Masterclass [on the CMS website](https://cms.cern/engage-with-cms/cms-physics-masterclass).
+- You can also use **spreadsheet programs** to make a further step in the direction of data analysis, using [a limited number of CMS events that are suitable for this type of exercise](TOBEFIXED). These exercises can be done in an hour or so.
+- For a first taste of real programming using physics data, consider these resources that use [**Jupyter notebooks**](https://jupyter.org/) for a browser-based introduction to data analysis (time can vary from less than an hour to several hours, depending on the scope of your exercise):
+    - [A quick (completely online) hands-on demo](https://mybinder.org/v2/gh/cms-opendata-education/cms-online-notebooks-for-binder/master?filepath=quick-start-to-CMS-open-data.ipynb) to Jupyter and CMS Open Data (using python).
+    - [Analysing CMS Open Data in Jupyter using **python**](TOBEFIXED)
+    - [Analysing CMS Open Data in Jupyter using **R**](TOBEFIXED), with a brief intro to the R programming language
+
+---
+
+#### Dive deeper into the data
+
+If you want a more detailed understanding of particle physics or an introduction aimed at the university level, take a look at some of the other resources in [CMS Learning resources ](http://opendata.cern.ch/collection/CMS-Learning-Resources).
 
 For example:
-- see [Particle Physics Playground](/record/52) for further hands-on activities with Open Data from CMS and other experiments
-- see [Computing Methods in High-Energy Physics](/record/61) for an introductory course on computing in high-energy physics
-- see [CMS HEP Tutorial](/record/50) for a one-week course with a basic introduction to fundamental concepts of data analysis in HEP experiments using CMS Open Data.
+- [Particle Physics Playground](/record/52) provides you with further hands-on activities with open data from CMS and other experiments.
+- [Computing Methods in High-Energy Physics](/record/61) is an introductory course on computing in high-energy physics.
+- [CMS HEP Tutorial](/record/50) is a one-week course with a basic introduction to fundamental concepts of data analysis in HEP experiments using CMS Open Data.
 
-**If you are really into this and you want to learn how data analysis is done by scientists in the CMS experiment:**
-- install the Virtual Machine (VM) as instructed in [CMS 2011 Virtual Machines: How to install](/articles/cms-2011-virtual-machines-how-to-install)
-- follow the instructions in [Getting Started with CMS Open Data](/articles/getting-started-with-cms-open-data)
-- or see an extensive overview of research activities in [Guide for research use of CMS Open Data](/articles/cms-guide-to-research-use-of-cms-open-data).
+Of course, you can also undertake your own explorations with CMS Open Data:
 
-**If you want to discover the Higgs boson in the CMS Open Data:**
-- install the Virtual Machine (VM) as instructed in [CMS 2010 Virtual Machines: How to install](/articles/cms-2010-virtual-machines-how-to-install) (if you did not do it already)
-- see [Higgs analysis example](TOBEFIXED).
+- If you want to "re-discover" the **Higgs boson** in the CMS Open Data from 2010, first install the Virtual Machine (VM) as instructed in ["CMS 2010 Virtual Machines: How to install"](/articles/cms-2010-virtual-machines-how-to-install) and look at [this Higgs analysis example](TOBEFIXED).
+- If you want to learn how data analysis is done by CMS scientists, install the Virtual Machine (VM) as instructed in ["CMS 2011 Virtual Machines: How to install"](/articles/cms-2011-virtual-machines-how-to-install), follow the instructions in ["Getting Started with CMS Open Data"](/articles/getting-started-with-cms-open-data), and then
+check out our extensive overview of research activities under ["Guide for research use of CMS Open Data"](/articles/cms-guide-to-research-use-of-cms-open-data).
 
 Have fun!!
-
-
-
-
-
-
