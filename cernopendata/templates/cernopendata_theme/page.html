@@ -43,7 +43,6 @@
 
 {%- block javascript %}
   {% assets "cernopendata_js" %}<script src="{{ ASSET_URL }}"></script>{% endassets %}
-  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
   {{super()}}
   {% assets "cernopendata_glossary_js" %}<script src="{{ ASSET_URL }}"></script>{% endassets %}
   {%- block javascript_glossary %}
