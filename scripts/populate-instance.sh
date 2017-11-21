@@ -130,9 +130,9 @@ else
         ${INVENIO_WEB_INSTANCE} fixtures records --skip-files
     else
         # Prevent memory leak which happens when all fixtures are loaded at once
-        for record in $(ls cernopendata/modules/fixtures/data/records/*.json);
+        for recordfile in $(ls -Sr cernopendata/modules/fixtures/data/records/*.json);
         do
-            ${INVENIO_WEB_INSTANCE} fixtures records -f "$record" --verbose
+            ${INVENIO_WEB_INSTANCE} fixtures records -f "$recordfile" --verbose
         done
     fi
 fi
