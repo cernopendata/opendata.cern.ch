@@ -59,7 +59,7 @@ css = NpmBundle(
     ),
     Bundle(
         'node_modules/angular-loading-bar/build/loading-bar.css',
-        'node_modules/typeahead.js-bootstrap-css/typeaheadjs.css',
+        # 'node_modules/typeahead.js-bootstrap-css/typeaheadjs.css',
         # 'node_modules/bootstrap-switch/dist/css/bootstrap3'
         # '/bootstrap-switch.css',
         filters='cleancssurl',
@@ -78,11 +78,15 @@ css = NpmBundle(
 
 search_js = NpmBundle(
     'node_modules/angular-sanitize/angular-sanitize.js',
+    'node_modules/angular-loading-bar/build/loading-bar.js',
+    'node_modules/invenio-search-js/dist/invenio-search-js.js',
     'js/components/resultsBrief.js',
     output='gen/codp_search.%(version)s.js',
     npm={
         'angular': '~1.4.10',
-        'angular-sanitize': '~1.4.14'
+        'angular-loading-bar': '~0.9.0',
+        'angular-sanitize': '~1.4.14',
+        'invenio-search-js': '^1.3.1',
     },
 )
 

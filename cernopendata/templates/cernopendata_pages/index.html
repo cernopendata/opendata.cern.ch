@@ -7,12 +7,7 @@
 <link href="{{ ASSET_URL }}" rel="stylesheet">{% endassets %}
 {%- endblock css %}
 
-{%- block javascript %}
-{{ super() }}
-{% assets "invenio_search_ui_search_js" %}
-<script src="{{ ASSET_URL }}"></script>{% endassets %}
-{%- endblock javascript %}
-
+{%- block javascript %} {{ super() }} {%- endblock javascript %}
 
 {%- block page_body %}
 <section class="main">

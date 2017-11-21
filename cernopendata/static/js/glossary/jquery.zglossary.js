@@ -145,11 +145,11 @@
 							}
 							if ( item.term instanceof Array) {
 								for (var o = 0 ; o < item.term.length ; o++) {
-									_addTerm(e, item.term[o], item.type, item.definition);
+									_addTerm(e, item.term[o], 0, item.definition);
 								}
 							}
 							else {
-								_addTerm(e, item.term, item.type, item.definition);
+								_addTerm(e, item.term, 0, item.definition);
 							}
 						}
 					}
