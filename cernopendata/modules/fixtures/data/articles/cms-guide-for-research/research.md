@@ -1,4 +1,4 @@
-If you are interested in conducting a more sophisticated analysis using CMS Open Data, you should find hints, tips and guidance on this page. Please note that possible solutions to frequently encountered issues can be found on [our page of known errors](TOBEFIXED).
+If you are interested in conducting a more sophisticated analysis using CMS Open Data, you should find hints, tips and guidance on this page. Please note that possible solutions to frequently encountered issues can be found on [our page of known errors](FIXME).
 
 ---
 

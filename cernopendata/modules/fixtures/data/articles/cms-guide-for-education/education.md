@@ -31,7 +31,7 @@ Two examples of these specially prepared files are:
 
 You can also download these files directly from the records on this portal.
 
-To learn how to use the [CMS event display](/visualise/events/CMS), click on `Need help?` link on the top right side of the screen (TOBEFIXED: not visible in the current display). For suggestions for class room activities see TOBEFIXED: new record for https://github.com/cms-opendata-education/cms-event-display-materials-multiple-languages
+To learn how to use the [CMS event display](/visualise/events/CMS), click on `Need help?` link on the top right side of the screen (FIXME: not visible in the current display). For suggestions for class room activities see FIXME: new record for https://github.com/cms-opendata-education/cms-event-display-materials-multiple-languages
 
 ---
 
@@ -41,11 +41,11 @@ You can get an overview of our education resources through [this search query](/
 
 - If you already know what the basic physics quantities measured in a particle collision are and want to **play online with histograms** from different samples of open data, check out the [CMS histogram visualiser](http://opendata.cern.ch/visualise/histograms/CMS). For instructions on how to use the visualiser, click on `Need help?`.
 - To learn some concepts of statistical analysis in a hands-on classroom activity, have a look at the material for an organised ["**Masterclass**" exercise](/record/53) based on CMS data and the online event display. A CMS Masterclass typically takes one day (including introductory lectures and post-analysis discussions), but the exercise itself can be done in approximately two hours. Learn more about organising your own Masterclass [on the CMS website](https://cms.cern/engage-with-cms/cms-physics-masterclass).
-- You can also use **spreadsheet programs** to make a further step in the direction of data analysis, using [a limited number of CMS events that are suitable for this type of exercise](TOBEFIXED). These exercises can be done in an hour or so.
+- You can also use **spreadsheet programs** to make a further step in the direction of data analysis, using [a limited number of CMS events that are suitable for this type of exercise](FIXME). These exercises can be done in an hour or so.
 - For a first taste of real programming using physics data, consider these resources that use [**Jupyter notebooks**](https://jupyter.org/) for a browser-based introduction to data analysis (time can vary from less than an hour to several hours, depending on the scope of your exercise):
     - [A quick (completely online) hands-on demo](https://mybinder.org/v2/gh/cms-opendata-education/cms-online-notebooks-for-binder/master?filepath=quick-start-to-CMS-open-data.ipynb) to Jupyter and CMS Open Data (using python).
-    - [Analysing CMS Open Data in Jupyter using **python**](TOBEFIXED)
-    - [Analysing CMS Open Data in Jupyter using **R**](TOBEFIXED), with a brief intro to the R programming language
+    - [Analysing CMS Open Data in Jupyter using **python**](FIXME)
+    - [Analysing CMS Open Data in Jupyter using **R**](FIXME), with a brief intro to the R programming language
 
 ---
 
@@ -60,7 +60,7 @@ For example:
 
 Of course, you can also undertake your own explorations with CMS Open Data:
 
-- If you want to "re-discover" the **Higgs boson** in the CMS Open Data from 2010, first install the Virtual Machine (VM) as instructed in ["CMS 2010 Virtual Machines: How to install"](/articles/cms-2010-virtual-machines-how-to-install) and look at [this Higgs analysis example](TOBEFIXED).
+- If you want to "re-discover" the **Higgs boson** in the CMS Open Data from 2010, first install the Virtual Machine (VM) as instructed in ["CMS 2010 Virtual Machines: How to install"](/articles/cms-2010-virtual-machines-how-to-install) and look at [this Higgs analysis example](FIXME).
 - If you want to learn how data analysis is done by CMS scientists, install the Virtual Machine (VM) as instructed in ["CMS 2011 Virtual Machines: How to install"](/articles/cms-2011-virtual-machines-how-to-install), follow the instructions in ["Getting Started with CMS Open Data"](/articles/getting-started-with-cms-open-data), and then
 check out our extensive overview of research activities under ["Guide for research use of CMS Open Data"](/articles/cms-guide-to-research-use-of-cms-open-data).
 
