@@ -13,10 +13,11 @@
 //@import "pygments_friendly";
 //
 html, body {
- /* The html and body elements cannot have any padding or margin. */
- height: 100%;
- margin: 0;
+  /* The html and body elements cannot have any padding or margin. */
+  height: 100%;
+  margin: 0;
 }
+
 //
 //results-brief {
 //  li {
@@ -118,6 +119,16 @@ section.footer {
   margin-top: 15%;
 }
 
+@media only screen and (max-width: 992px) {
+  .header-text-section {
+    display: none;
+  }
+
+  #demo-logo {
+    display: none;
+  }
+}
+
 .header-text-section {
   position: absolute;
   bottom: 45vh;
@@ -167,12 +178,32 @@ section.footer {
   padding-top: 130px;
 }
 
-.explore-menu {
-  margin-left: -110%;
+@media only screen and (min-width: 992px) {
+  .explore-menu {
+    margin-left: -110%;
+  }
 }
 
-.about-menu {
-  margin-left: -20%;
+@media only screen and (min-width: 992px) {
+  .about-menu {
+    margin-left: -20%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .mobile-search {
+    display: none;
+  }
+}
+
+#mobile-search-position {
+  margin-top: -3%;
+}
+
+@media only screen and (max-width: 992px) {
+  #main-search {
+    display: none;
+  }
 }
 
 #navbarSupportedContent form .btn-info {
@@ -352,8 +383,8 @@ invenio-search-facets {
 }
 
 .card-body-condensed {
-    padding-top: 0;
-    padding-bottom: .6em;
+  padding-top: 0;
+  padding-bottom: .6em;
 }
 
 .tags-box-search-results {
@@ -401,6 +432,7 @@ invenio-search-facets {
 .custom-breadcrumb {
   margin-bottom: 0;
 }
+
 //
 
 // Need help previewer

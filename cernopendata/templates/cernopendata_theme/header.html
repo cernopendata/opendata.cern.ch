@@ -10,13 +10,19 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-    <form class="form-inline my-2 my-lg-0" action="{{config.THEME_SEARCH_ENDPOINT}}">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" aria-label="Search"
+    <form {% if request.endpoint=='cernopendata_pages.index' %} id="main-search" {% endif %}
+    class="form-inline my-2 my-lg-0" action="{{config.THEME_SEARCH_ENDPOINT}}">
+    <div class="input-group w-100">
+      <input class="form-control" type="text" placeholder="Search" name="q" aria-label="Search"
              value="{{ request.args.get('q','')}}">
-      <button class="btn btn-info my-2 my-sm-0" type="submit"><span class="oi" data-glyph="magnifying-glass"></span>
-      </button>
+      <span class="input-group-btn">
+        <button class="btn btn-info" type="submit"><span class="oi" data-glyph="magnifying-glass"></span>
+        </button>
+        </span>
+    </div>
     </form>
-    <img src="{{url_for('static', filename='img/demo.png')}}" alt="" style="position:absolute;left:40%;top:0;width:200px;">
+    <img id="demo-logo" src="{{url_for('static', filename='img/demo.png')}}" alt=""
+         style="position:absolute;left:40%;top:0;width:200px;">
 
     <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown">
@@ -47,7 +53,8 @@
           <li><a class="dropdown-item"
                  href="{{url_for('cernopendata_pages.faceted_search', page='software')}}">Software</a></li>
           <li><a class="dropdown-item"
-                 href="{{url_for('cernopendata_pages.visualise_histograms', experiment='CMS')}}">Visualise histograms</a></li>
+                 href="{{url_for('cernopendata_pages.visualise_histograms', experiment='CMS')}}">Visualise
+            histograms</a></li>
           <li><a class="dropdown-item"
                  href="{{url_for('cernopendata_pages.visualise_events', experiment='CMS')}}">Visualise events</a></li>
 
