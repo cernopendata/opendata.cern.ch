@@ -30,11 +30,11 @@ from elasticsearch_dsl.query import Q
 from invenio_search.api import RecordsSearch
 
 
-class FrontpageRecordsSearch(RecordsSearch):
+class FeaturedArticlesSearch(RecordsSearch):
     """Search class for records that goes on the frontpage."""
 
     class Meta:
         """Default index and filter for frontpage search."""
 
         index = 'records-article-v1.0.0'
-        default_filter = Q()
+        default_filter = Q('exists', field='featured')

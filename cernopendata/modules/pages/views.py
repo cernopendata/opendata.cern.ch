@@ -37,7 +37,7 @@ from flask_menu import register_menu
 from jinja2.exceptions import TemplateNotFound
 from speaklater import make_lazy_string
 
-from .utils import FrontpageRecordsSearch
+from .utils import FeaturedArticlesSearch
 
 blueprint = Blueprint(
     'cernopendata_pages',
@@ -80,7 +80,7 @@ def lazy_title(text, *args):
                          '_anchor': 'education'})
 def index():
     """Home Page."""
-    results = FrontpageRecordsSearch()[:6].execute()
+    results = FeaturedArticlesSearch().sort('featured')[:6].execute()
     return render_template('cernopendata_pages/index.html',
                            records=results.hits.hits)
 

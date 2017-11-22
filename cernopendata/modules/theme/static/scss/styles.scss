@@ -286,6 +286,8 @@ section.footer {
 
 .info-block {
   padding: 10px;
+  max-width: 600px;
+  min-width: 318px;
 }
 
 .info-block.education a {
@@ -293,7 +295,7 @@ section.footer {
 }
 
 .info-block.research a {
-  color: #3b97d3;
+  color: #283747;
 }
 
 .info-block h4 {
@@ -439,4 +441,14 @@ invenio-search-facets {
 .screen-s {
   width: 100%;
   height: auto;
+}
+
+.date-author-small {
+    font-size: 0.6em;
+}
+
+.tags-box-right{
+    position: absolute;
+    bottom: -20px;
+    right: 10px;
 }
