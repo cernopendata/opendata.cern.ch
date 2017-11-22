@@ -13,7 +13,7 @@ def cernopendata_articleid_minter(record_uuid, data):
         object_type='rec',
         pid_type='artid',
         object_uuid=record_uuid,
-        pid_value=str(slugify(data['title']))
+        pid_value=str(slugify(data.get('slug', data['title'])))
     )
 
     data['control_number'] = provider.pid.pid_value
