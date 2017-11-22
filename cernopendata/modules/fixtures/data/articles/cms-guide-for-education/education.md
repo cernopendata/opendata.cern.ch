@@ -51,7 +51,7 @@ You can get an overview of our education resources through [this search query](/
 
 #### Dive deeper into the data
 
-If you want a more detailed understanding of particle physics or an introduction aimed at the university level, take a look at some of the other resources in [CMS Learning resources ](http://opendata.cern.ch/collection/CMS-Learning-Resources).
+If you want a more detailed understanding of particle physics or an introduction aimed at the university level, take a look at some of the other resources in [this search query](search?page=1&size=20&q=&keywords=education&experiment=CMS).
 
 For example:
 - [Particle Physics Playground](/record/52) provides you with further hands-on activities with open data from CMS and other experiments.
