@@ -53,9 +53,17 @@ def file_download_ui(pid, record, _record_file_factory=None, **kwargs):
     """
     _record_file_factory = _record_file_factory or record_file_factory
     # Extract file from record.
+    filename = kwargs.get('filename')
+
+    if filename == "configFile.py":
+        rf = record.files.dumps()
+        for file in rf:
+            if file.get("key", "").endswith('configFile.py'):
+                filename = file.get("key")
+                break
 
     fileobj = _record_file_factory(
-        pid, record, kwargs.get('filename')
+        pid, record, filename
     )
 
     if not fileobj:
