@@ -34,14 +34,14 @@ js = NpmBundle(
     'node_modules/jquery/jquery.js',
     'node_modules/popper.js/dist/umd/popper.js',
     'node_modules/bootstrap/dist/js/bootstrap.js',
-    'node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.js',
+    'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
     output='gen/cernopendata.theme.%(version)s.js',
     npm={
         'angular': '~1.4.9',
         'jquery': '~1.9.1',
         'popper.js': '~1.11.0',
         'bootstrap': '~4.0.0-beta',
-        'angular-ui-bootstrap': '~0.12.1'
+        'angular-ui-bootstrap': '~2.2.0'
     },
 )
 

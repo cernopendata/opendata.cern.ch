@@ -461,3 +461,30 @@ invenio-search-facets {
     margin-right: 1px;
     margin-top: 1px;
 }
+
+.pagination.file-pagination {
+  display: inline-block;
+  border: 1px solid #ccc;
+
+  li {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-right: 1px solid #ccc;
+
+    &.active {
+      background-color: #3b97d3;
+      color: #fff;
+
+        a {
+          color: #fff;
+        }
+    }
+
+    &.pagination-last {
+      border-right: none;
+    }
+  }
+  li:hover:not(.active) {background-color: #ddd;}
+}

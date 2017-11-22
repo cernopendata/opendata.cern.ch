@@ -20,8 +20,8 @@
 """Implementention of various utility functions."""
 
 from __future__ import absolute_import, print_function
-
-from flask import abort, render_template
+from itertools import groupby
+from flask import abort, render_template, jsonify, request
 from invenio_files_rest.views import ObjectResource
 from invenio_records.errors import MissingModelError
 
@@ -85,6 +85,50 @@ def file_download_ui(pid, record, _record_file_factory=None, **kwargs):
         },
         create_dir=False
     )
+
+
+def get_paged_files(files, page, items_per_page=5):
+    """Get files for current page."""
+    start = (page - 1) * items_per_page
+    end = (page) * items_per_page
+
+    return files[start:end]
+
+
+def record_file_page(pid, record, page=1, **kwargs):
+    """Record view - get files for current page."""
+    # FIXME depending on location of files
+    # rf = record.files.dumps()
+    rf = record.get('files')
+
+    items_per_page = request.args.get('perPage', 5)
+    try:
+        items_per_page = int(items_per_page)
+    except:
+        items_per_page = 5
+
+    file_type_filter = request.args.get('type')
+    if file_type_filter:
+        filtered_files = [d for d in rf if (
+                          d.get('type', "") == file_type_filter)]
+        rf_len = len(filtered_files)
+        paged_files = get_paged_files(filtered_files, page, items_per_page)
+        return jsonify({"total": rf_len, "files": paged_files})
+    elif request.args.get('group'):
+        grouped = groupby(rf, lambda x: x.get('type'))
+
+        grouped_files = {}
+        for k in iter(grouped):
+            files_list = list(k[1])
+            grouped_files[str(k[0])] = {"total": len(
+                files_list), "files": files_list[:items_per_page]}
+
+        return jsonify(grouped_files)
+
+    rf_len = len(rf)
+    paged_files = get_paged_files(rf, page, items_per_page)
+
+    return jsonify({"total": rf_len, "files": paged_files})
 
 
 @previewer_blueprint.app_template_test('previewable_file')

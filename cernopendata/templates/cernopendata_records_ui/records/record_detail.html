@@ -106,7 +106,7 @@
               {{ super() }}
 
               {% if 'ig' in record.get('distribution', {}).get('formats', []) %}
-              <h3>Preview</h3>
+              <h3 id="previewer">Preview</h3>
               {%include "cernopendata_pages/visualise_events_cms_standalone.html"%}
               {% endif %}
 
@@ -327,10 +327,13 @@
                 </div>
               </div>
               {% endif %}
-
               {% endblock metadata_block %}
 
-              {% block files_block %} {{ files_box(record) }} {% endblock files_block %}
+              {% block files_block %}
+                <div ng-controller="paginationCtrl as $ctrl" ng-init="$ctrl.getFiles()">
+                  {{ files_box() }}
+                </div>
+              {% endblock files_block %}
 
               {% block disclaimer %} {{super()}} {% endblock disclaimer %}
             </div>

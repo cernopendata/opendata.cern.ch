@@ -115,6 +115,12 @@ RECORDS_UI_ENDPOINTS = dict(
         view_imp='cernopendata.modules.records.utils:file_download_ui',
         record_class='invenio_records_files.api:Record',
     ),
+    recid_files_page=dict(
+        pid_type='recid',
+        route='/record/<pid_value>/files/p/<int:page>',
+        view_imp='cernopendata.modules.records.utils:record_file_page',
+        record_class='invenio_records_files.api:Record',
+    ),
     recid_preview=dict(
         pid_type='recid',
         route='/record/<pid_value>/preview/<path:filename>',

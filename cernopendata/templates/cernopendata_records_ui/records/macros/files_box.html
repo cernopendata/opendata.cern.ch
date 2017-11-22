@@ -1,65 +1,71 @@
-{% macro files_box(record, pid_type='recid') %}
-    {% set files_list = record.get('files', None) %}
-
-    {% if files_list %}
-      {% if "type" in files_list[0] %}
-
-        {% set grouped_files = files_list | groupby('type')  %}
-
-        {% for type in grouped_files %}
-          {% if type[0] == 'index' %}
-            <h4>File Indexes</h4>
-          {% elif type[0] == 'xrootd' %}
-            <h4>Datasets</h4>
-          {% else %}
-            <h4>Files</h4>
-          {% endif %}
-
-          {{files_table(record, type[1], type[0])}}
-
-          {% if type[0] == 'xrootd' %}
-            {{ downlaod_caution_modal() }}
-          {% endif %}
-        {% endfor %}
-      {% else %}
-        <h4>Files</h4>
-        {{files_table(record, files_list, 'recid')}}
-        {{ downlaod_caution_modal() }}
-      {% endif %}
-    {% endif %}
+{% macro files_box() %}
+    <div ng-repeat="(k, fg) in $ctrl.files">
+      <h4 ng-if="k == 'index'">File Indexes</h4>
+      <h4 ng-if="k != 'index'">Files</h4>
+      {{files_table()}}
+    </div>
 {% endmacro %}
 
-{% macro files_table(record, files, type) %}
-  <div ng-controller="paginationCtrl as $ctrl">
+{% macro files_table() %}
+  {% raw %}
+  <div ng-controller="paginationCtrl as $ctrlTbl" ng-init="$ctrlTbl.files= fg.files;$ctrlTbl.totalItems = fg.total">
     <table class="table">
       <thead>
         <tr>
           <th>Filename</th>
           <th>Size</th>
           <th>Download</th>
-          <th>EOS Link</th>
+          <th>Preview</th>
         </tr>
       </thead>
       <tbody>
-        {% for file in files %}
-        <tr id="{{type}}" ng-hide="$ctrl.itemsStatus[{{loop.index-1}}]">
+        <tr id="" ng-repeat="file in $ctrlTbl.files">
           <td>{{ file.key }}</td>
-          <td>{{ file.size | filesizeformat }}</td>
-          <td>{{ download_btn(record.control_number, file, 'recid') }}</td>
-          <td>
-            <a href="{{ file.uri }}">
-              <span class="oi" data-glyph="link-intact"></span>
-            </a></td>
+          <td>{{ file.size | bytes }}</td>
+  {% endraw %}
+          <td ng-init="download_uri = '/record/{{pid.pid_value}}/files/'+file.key">
+            {{ download_btn() }}
+  {% raw %}
+          </td>
+          <td ng-init="previewable = (file.key.split('.').pop() == 'ig')">
+            <a href="#previewer">
+              <span ng-if="previewable" class="oi" data-glyph="eye" ng-click="$ctrlTbl.previewFile(file.key)"></span>
+            </a>
+            <span ng-if="!previewable" class="oi" data-glyph="minus"></span>
+          </td>
         </tr>
-        {% endfor %}
       </tbody>
     </table>
-    <div class="pagination">
-        <pagination ng-change="$ctrl.pageChanged()" total-items="$ctrl.totalItems" ng-model="$ctrl.currentPage" max-size="$ctrl.maxSize" class="pagination-sm" boundary-links="true" items-per-page="$ctrl.itemsPerPage"></pagination>
+    <div ng-if="$ctrlTbl.totalItems > $ctrlTbl.itemsPerPage">
+      <ul uib-pagination
+        class="pagination file-pagination pagination-sm"
+        ng-change="$ctrlTbl.pageChanged(k)"
+        total-items="$ctrlTbl.totalItems"
+        ng-model="$ctrlTbl.currentPage"
+        max-size="$ctrlTbl.maxSize"
+        boundary-links="true"
+        items-per-page="$ctrlTbl.itemsPerPage">
+      </ul>
     </div>
   </div>
+  {% endraw %}
 {% endmacro %}
 
+{% macro download_btn() %}
+  {% raw %}
+  <a ng-if="file.size <= 1073741824" href="{{download_uri}}">
+    <span class="oi" data-glyph="data-transfer-download"></span>
+  </a>
+  <a
+    ng-controller="downloadModalCtrl as $ctrl"
+    ng-if="file.size  > 1073741824"
+    ng-click="$ctrl.openModal(file, download_uri)"
+    href="#"
+    >
+    <span class="oi" data-glyph="data-transfer-download"></span>
+  </a>
+  {% endraw %}
+{% endmacro %}
 
 {% macro authors_table(authors) %}
   <div ng-controller="paginationCtrl as $ctrl">
@@ -86,54 +92,4 @@
   </div>
 {% endmacro %}
 
-
-{% macro download_btn(record_id, file, pid_type) %}
-  {% set download_uri = url_for("invenio_records_ui.{}_files".format(pid_type), pid_value=record_id, filename=file.key) %}
-  {% set threshold = 1073741824 %}
-  {% if file.size < threshold %}
-    <a href="{{download_uri}}">
-      <span class="oi" data-glyph="data-transfer-download"></span>
-    </a>
-  {% else %}
-    <a
-      href="#"
-      data-toggle="modal"
-      data-target="#download_caution"
-      data-download-uri="{{download_uri}}"
-      data-download-key="{{file.key}}"
-      data-download-size="{{file.size|filesizeformat}}"
-      >
-      <span class="oi" data-glyph="data-transfer-download"></span>
-    </a>
-  {% endif %}
-{% endmacro %}
-
-
-{% macro downlaod_caution_modal() %}
-  <div class="modal fade" id="download_caution" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          {{ download_caution_msg() }}
-        </div>
-        <div class="modal-footer">
-          <button id="download-msg-dismiss" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <a id="download-msg-uri" href="#" role="button" class="btn btn-info">Download</a>
-        </div>
-      </div>
-    </div>
-  </div>
-{% endmacro %}
-
-{% macro download_caution_msg() %}
-  <p>
-    Please note that the file you are going to download (<span id="download-msg-filename"></span>) is <b><span id="download-msg-size"></span></b> big. On an average ADSL connection, it may take several hours to download it (about 2 hours  at 1Mbps).
-  </p>
-  <p>
-    Moreover, if you use one of the provided <a href="/VM/CMS">Virtual Machines</a> to perform your analyses, then you don't need to download datasets manually, because the VM will fetch all the necessary file chunks via the XRootD protocol.
-  </p>
-  <p>
-    Manual download of files via HTTP is only necessary if you would prefer not to use the XRootD protocol for one reason or another.
-  </p>
-{% endmacro %}
 
