@@ -176,13 +176,6 @@ $(function () {
     var parId = '#' + parameter;
 
     if ($(this).hasClass('active')) {
-      $(this).removeClass('active')
-    } else {
-      $(this).addClass('active')
-    }
-
-
-    if ($(this).hasClass('active')) {
       $('#flot-plots').append("<div id='" + parameter + "' class='col-md-6'></div>");
       $(parId).css({"border": "1px dotted"});
 
