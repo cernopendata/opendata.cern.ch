@@ -21,7 +21,7 @@ For the 2011 Data, the distribution shown here was used to generate the Monte Ca
 The pileup distribution used to generate 2011 Monte Carlo events.:
 
 <p align="center">
-<img src="/static/articles/cms-pileup-simulation/pileup_2011_plot.jpeg" width="70%"></p>
+<img src="/static/articles/cms-pileup-simulation/pileup_2011_plot.jpg" width="70%"></p>
 
 ### 2012
 

@@ -19,9 +19,9 @@
             {% endif %}
             <div class="row">
               <div class="col-md-12">
-                {% for collection in record.collections%}
-                <span class="badge badge-success">{{collection.primary}}</span>
-                <span class="badge badge-success">{{collection.secondary}}</span>
+                <span class="badge badge-success">{{record.type.primary}}</span>
+                {% for type in record.type.secondary%}
+                <span class="badge badge-success">{{type}}</span>
                 {% endfor %}
               </div>
             </div>
