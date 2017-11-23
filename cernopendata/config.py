@@ -335,7 +335,7 @@ RECORDS_REST_FACETS = {
             year=dict(terms=dict(
                 field='date_created',
                 min_doc_count=0,
-                order=dict(_term='desc'))),
+                order=dict(_term='asc'))),
             keywords=dict(terms=dict(
                 field='keywords',
                 min_doc_count=0,
