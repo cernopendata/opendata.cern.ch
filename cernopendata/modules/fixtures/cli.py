@@ -32,6 +32,18 @@ from flask import current_app
 from flask.cli import with_appcontext
 from sqlalchemy.orm.attributes import flag_modified
 
+from invenio_db import db
+from invenio_records_files.api import Record
+from invenio_indexer.api import RecordIndexer
+from cernopendata.modules.records.minters.recid import \
+    cernopendata_recid_minter
+
+from invenio_files_rest.models import \
+    Bucket, FileInstance, ObjectVersion
+from invenio_records_files.models import RecordsBuckets
+from invenio_pidstore.models import PersistentIdentifier
+from invenio_pidstore.errors import PIDDoesNotExistError
+
 
 def get_jsons_from_dir(dir):
     """Get JSON files inside a dir."""
@@ -41,6 +53,61 @@ def get_jsons_from_dir(dir):
             if file.endswith(".json"):
                 res.append(os.path.join(root, file))
     return res
+
+
+def create_record(schema, data, files, skip_files):
+    """Creates a new record."""
+    bucket = Bucket.create()
+
+    for file in files:
+        if skip_files:
+            break
+        assert 'uri' in file
+        assert 'size' in file
+        assert 'checksum' in file
+
+        try:
+            f = FileInstance.create()
+            filename = file.get("uri").split('/')[-1:][0]
+            f.set_uri(file.get("uri"), file.get(
+                "size"), file.get("checksum"))
+            obj = ObjectVersion.create(
+                bucket,
+                filename,
+                _file_id=f.id
+            )
+
+            file.update({
+                'bucket': str(obj.bucket_id),
+                'checksum': obj.file.checksum,
+                'key': obj.key,
+                'version_id': str(obj.version_id),
+            })
+
+        except Exception as e:
+            click.echo(
+                'Recid {0} file {1} could not be loaded due '
+                'to {2}.'.format(data.get('recid'), filename,
+                                 str(e)))
+            continue
+
+    id = uuid.uuid4()
+    cernopendata_recid_minter(id, data)
+    record = Record.create(data, id_=id)
+    record['$schema'] = schema
+    RecordsBuckets.create(
+        record=record.model, bucket=bucket)
+
+    return record
+
+
+def update_record(pid, schema, data):
+    """Updates the given record."""
+    record = Record.get_record(pid.object_uuid)
+    record['$schema'] = schema
+    record.update(data)
+    record.commit()
+    return record
 
 
 @click.group(chain=True)
@@ -58,8 +125,10 @@ def fixtures():
 @click.option('--profile', is_flag=True,
               help='Output profiling information.')
 @click.option('--verbose', is_flag=True, default=False)
+@click.option('--mode', required=True, type=click.Choice(
+    ['insert', 'replace', 'insert-or-replace']))
 @with_appcontext
-def records(skip_files, files, profile, verbose):
+def records(skip_files, files, profile, verbose, mode):
     """Load all records."""
     if profile:
         import cProfile
@@ -68,22 +137,14 @@ def records(skip_files, files, profile, verbose):
         pr = cProfile.Profile()
         pr.enable()
 
-    from invenio_db import db
-    from invenio_records_files.api import Record
-    from invenio_indexer.api import RecordIndexer
-    from cernopendata.modules.records.minters.recid import \
-        cernopendata_recid_minter
-
-    from invenio_files_rest.models import \
-        Bucket, FileInstance, ObjectVersion
-    from invenio_records_files.models import RecordsBuckets
-
     indexer = RecordIndexer()
     schema = current_app.extensions['invenio-jsonschemas'].path_to_url(
         'records/record-v1.0.0.json'
     )
     data = pkg_resources.resource_filename('cernopendata',
                                            'modules/fixtures/data/records')
+    action = None
+
     if files:
         record_json = files
     else:
@@ -103,49 +164,42 @@ def records(skip_files, files, profile, verbose):
                                format(data.get('recid')))
 
                 files = data.get('files', [])
-
-                bucket = Bucket.create()
-
-                for file in files:
-                    if skip_files:
-                        break
-                    assert 'uri' in file
-                    assert 'size' in file
-                    assert 'checksum' in file
-
+                if mode == 'insert-or-replace':
                     try:
-                        f = FileInstance.create()
-                        filename = file.get("uri").split('/')[-1:][0]
-                        f.set_uri(file.get("uri"), file.get(
-                            "size"), file.get("checksum"))
-                        obj = ObjectVersion.create(
-                            bucket,
-                            filename,
-                            _file_id=f.id
-                        )
-
-                        file.update({
-                            'bucket': str(obj.bucket_id),
-                            'checksum': obj.file.checksum,
-                            'key': obj.key,
-                            'version_id': str(obj.version_id),
-                        })
-
-                    except Exception as e:
+                        pid = PersistentIdentifier.get('recid', data['recid'])
+                        if pid:
+                            record = update_record(pid, schema, data)
+                            action = 'updated'
+                    except PIDDoesNotExistError:
+                        record = create_record(schema, data, files, skip_files)
+                        action = 'inserted'
+                elif mode == 'insert':
+                    try:
+                        pid = PersistentIdentifier.get('recid', data['recid'])
+                        if pid:
+                            click.echo(
+                                'Record recid {} exists already;'
+                                ' cannot insert it.  '.format(
+                                    data.get('recid')), err=True)
+                            return
+                    except PIDDoesNotExistError:
+                        record = create_record(schema, data, files, skip_files)
+                        action = 'inserted'
+                else:
+                    try:
+                        pid = PersistentIdentifier.get('recid', data['recid'])
+                    except PIDDoesNotExistError:
                         click.echo(
-                            'Recid {0} file {1} could not be loaded due '
-                            'to {2}.'.format(data.get('recid'), filename,
-                                             str(e)))
-                        continue
-
-                id = uuid.uuid4()
-                cernopendata_recid_minter(id, data)
-                record = Record.create(data, id_=id)
-                record['$schema'] = schema
-                RecordsBuckets.create(
-                    record=record.model, bucket=bucket)
-
+                            'Record recid {} does not exist; '
+                            'cannot replace it.'.format(
+                                data.get('recid')), err=True)
+                        return
+                    record = update_record(pid, schema, data)
+                    action = 'updated'
                 db.session.commit()
+                click.echo(
+                    ' Record recid {0} {1}.'.format(
+                        data.get('recid'), action))
                 indexer.index(record)
                 db.session.expunge_all()
 
@@ -180,7 +234,8 @@ def glossary_terms():
         with open(filename, 'rb') as source:
             for data in json.load(source):
                 if "collections" not in data and \
-                   not isinstance(data.get("collections", None), basestring):
+                    not isinstance(
+                        data.get("collections", None), basestring):
                     data["collections"] = []
                 data["collections"].append({"primary": "Terms"})
                 id = uuid.uuid4()
@@ -228,7 +283,8 @@ def docs():
                 with open(content_filename) as body_field:
                     data["body"]["content"] = body_field.read()
                 if "collections" not in data and \
-                   not isinstance(data.get("collections", None), basestring):
+                    not isinstance(
+                        data.get("collections", None), basestring):
                     data["collections"] = []
                 id = uuid.uuid4()
                 cernopendata_docid_minter(id, data)
@@ -254,6 +310,7 @@ def data_policies(skip_files):
         Bucket, FileInstance, ObjectVersion
     from invenio_records_files.models import RecordsBuckets
     from invenio_records_files.api import Record
+
     from invenio_records.models import RecordMetadata
 
     indexer = RecordIndexer()
