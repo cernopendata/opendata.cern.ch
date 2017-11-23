@@ -127,12 +127,12 @@ if [[ "$@" = *"--skip-records"* ]]; then
 else
     if [[ "$@" = *"--skip-files"* ]]; then
         echo "[INFO] Skipping loading of record files."
-        ${INVENIO_WEB_INSTANCE} fixtures records --skip-files
+        ${INVENIO_WEB_INSTANCE} fixtures records --skip-files --mode insert
     else
         # Prevent memory leak which happens when all fixtures are loaded at once
         for recordfile in $(ls -Sr cernopendata/modules/fixtures/data/records/*.json);
         do
-            ${INVENIO_WEB_INSTANCE} fixtures records -f "$recordfile" --verbose
+            ${INVENIO_WEB_INSTANCE} fixtures records -f "$recordfile" --verbose --mode insert
         done
     fi
 fi
