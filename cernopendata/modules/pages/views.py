@@ -202,7 +202,7 @@ def about_atlas():
 @register_breadcrumb(blueprint, '.about.about_cms', 'CMS')
 def about_cms():
     """Render about cms template."""
-    return render_template('cernopendata_pages/about/about_cms.html')
+    return redirect('/articles/about-cms')
 
 
 @blueprint.route('/about/cms-pileup-simulation')

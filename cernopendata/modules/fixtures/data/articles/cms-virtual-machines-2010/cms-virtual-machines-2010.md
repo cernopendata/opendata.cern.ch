@@ -1,8 +1,8 @@
-The CMS-specific VM includes the [ROOT framework](http://root.cern.ch/) and [CMSSW](http://cms-sw.github.io/). Follow the instructions below to setup a CERN Virtual Machine on your computer. Then, go to [Getting Started with CMS data](/articles/getting-started-with-cms-open-data)
+The CMS-specific VM includes the [ROOT framework](http://root.cern.ch/) and [CMSSW](http://cms-sw.github.io/). Follow the instructions below to setup a CERN Virtual Machine on your computer. Then, go to [Getting Started with CMS data](/articles/getting-started-with-cms-2010-open-data)
 
 1.  [How to install a CERN VM](#install2010)
-2.  [Issues & Limitations](#issues2010)
-3.  [How to Test & Validate?](#testvalidate2010)
+2.  [How to Test & Validate?](#testvalidate2010)
+3.  [Issues & Limitations](#issues2010)
 
 ## <a name="install2010"></a>How to install a CERN Virtual Machine
 
@@ -24,7 +24,7 @@ By double clicking the downloaded file, VirtualBox imports the image with ready-
 
 ## <a name="testvalidate2010"></a>How to Test & Validate?
 
-The validation procedure tests that the CMS environment is installed and operational on your virtual machine, and that you have access to the ROOT files. You may skip this step if you want, and head straight to [Getting Started with CMS data](/articles/getting-started-with-cms-open-data). However, these steps give you a quick introduction to the CMS environment.
+The validation procedure tests that the CMS environment is installed and operational on your virtual machine, and that you have access to the ROOT files. You may skip this step if you want, and head straight to [Getting Started with CMS data](/articles/getting-started-with-cms-2010-open-data). However, these steps give you a quick introduction to the CMS environment.
 
 ### Set up the CMS environment and run a demo analyzer
 

@@ -1,3 +1,16 @@
+- The root password for CMS Open Data VM is `password`
+
+- In some versions of VirtualBox, the CMS Open Data VM does not open correctly. This has happened for example for VirtulBox 5.0.32, but a more recent version is OK.
+
+- xml files do not download correctly by clicking on "Download" e.g. `http://opendata.cern.ch/record/560/files/BuildFile.xml` in [record 560](/record/560)
+Note that all files can be downloaded directly from the CMS Open Data VM terminal with wget e.g.
+```
+wget http://opendata.cern.ch/record/560/files/BuildFile.xml
+```
+
+- After the Windows update in June 2017, VirtualBox will not start. The problem has been fixed by the VirtualBox team and downloading the most recent version (5.1.22) from [the VirtualBox website](https://www.virtualbox.org/wiki/Downloads) solves the problem.
+
+
 **I have trouble installing Virtualbox**
 > read the FAQs. If it still fails, please contact your local system administrator
 
