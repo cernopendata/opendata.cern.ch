@@ -1,12 +1,6 @@
 
 1. [Introduction to “physics objects”](#what)
 2. [List of CMS physics objects](#list)
-    * [Electrons](#electron2010)
-    * [Photons](#photon2010)
-    * [Muons](#muon2010)
-    * [Jets and missing transverse energy (MET)](#jetmet2010)
-    * [b-jets](#bjet2010)
-    * [Taus](#tau2010)
 
 <br>
 
