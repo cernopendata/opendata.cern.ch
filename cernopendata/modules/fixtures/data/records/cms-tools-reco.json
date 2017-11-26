@@ -1,0 +1,127 @@
+[
+{
+  "abstract": {
+    "description": " <p>This code for validation reproduces AOD format in <a href=\"/record/24\">this record</a> from the <a href=\"/record/35\">2011 MinimumBias RAW sample</a>. It only contains the configuration file to be run on <a href=\"/record/252\">2011 OpenData VM</a> using CMSSW_5_3_32. No compilation is required. The configuration file has been slightly modified from the <a href=\"/record/3610\">original one</a> to take into account the OpenData computing environment (global tag, input file, commenting out unnecessary steps). Note that the code in this category is not meant to be a pedagogical example but is a validation tool.</p> \n      "
+  }, 
+  "accelerator": "CERN-LHC", 
+  "authors": [
+    {
+      "name": "Lassila-Perini, Kati"
+    }
+  ], 
+  "collections": [
+    "CMS-Tools"
+  ], 
+  "date_created": "2017", 
+  "date_published": "2017", 
+  "distribution": {
+    "formats": [
+      "gz"
+    ], 
+    "number_files": 1, 
+    "size": 14566
+  }, 
+  "doi": "10.7483/OPENDATA.CMS.99IJ.BGV4", 
+  "experiment": "CMS", 
+  "files": [
+    {
+      "checksum": "sha1:0000000000000000000000000000000000000000", 
+      "size": 14566, 
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/2011-minimumbias-raw-recotest/2011-minimumbias-raw-recotest-1.0.0.tar.gz"
+    }
+  ], 
+  "license": {
+    "attribution": "GNU General Public License (GPL) version 3"
+  }, 
+  "publisher": "CERN Open Data Portal", 
+  "recid": "463", 
+  "run_period": "Run2011A", 
+  "system_details": {
+    "description": "Use this code with the CMS Open Data VM environment for 2011 open data", 
+    "recid": "252", 
+    "release": "CMSSW_5_3_32"
+  }, 
+  "title": "Validation code for reprocessing AOD from 2011 MinimumBias RAW sample", 
+  "type": {
+    "primary": "Software", 
+    "secondary": []
+  }, 
+  "usage": {
+    "description": " <p>If you do not have the CERN Virtual Machine for 2011 CMS data installed, follow the instructions in step 1 and step 2 at <a href=\"/VM/CMS/2011\">How to install a CERN Virtual Machine</a>.\n      Then follow the instructions in <a href=\"https://github.com/cms-opendata-validation/2011-minimumbias-raw-recotest/blob/master/README.md\">GitHub</a>.</p> "
+  }, 
+  "use_with": {
+    "description": "Use this with the following dataset:", 
+    "links": [
+      {
+        "recid": "35"
+      }
+    ]
+  }, 
+  "validation": {
+    "description": " <p>The AOD produced by this code can be validated by comparing histograms produced with the <a href=\"/record/464\">Validation code to plot basic physics objects from AOD</a> from the reprocessed AOD and the original AOD, and the histograms, when run over the same event numbers, are found to be equal.</p> "
+  }
+}
+,
+{
+  "abstract": {
+    "description": "This is a simple comparison code to validate the reprocessing step on the Open Data VM by comparing the resulting file (newly rereconstructed from the RAW data sample available on the Open Data Portal) and the original AOD (also available on the Open Data portal). It loops over different physics objects (tracks, electrons, muons, photons, jets, taus and missing et) and fills histograms with P, pt, eta and phi of these objects."
+  }, 
+  "accelerator": "CERN-LHC", 
+  "authors": [
+    {
+      "name": "Lassila-Perini, Kati"
+    }
+  ], 
+  "collections": [
+    "CMS-Tools"
+  ], 
+  "date_created": "2017", 
+  "date_published": "2017", 
+  "distribution": {
+    "formats": [
+      "gz"
+    ], 
+    "number_files": 1, 
+    "size": 17076
+  }, 
+  "doi": "10.7483/OPENDATA.CMS.11RI.SDX7", 
+  "experiment": "CMS", 
+  "files": [
+    {
+      "checksum": "sha1:0000000000000000000000000000000000000000", 
+      "size": 17076, 
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/2011-minimumbias-compare-rereco/2011-minimumbias-compare-rereco-1.0.0.tar.gz"
+    }
+  ], 
+  "license": {
+    "attribution": "GNU General Public License (GPL) version 3"
+  }, 
+  "publisher": "CERN Open Data Portal", 
+  "recid": "464", 
+  "run_period": "Run2011A", 
+  "system_details": {
+    "description": "Use this code with the CMS Open Data VM environment for 2011 open data", 
+    "recid": "252", 
+    "release": "CMSSW_5_3_32"
+  }, 
+  "title": "Validation code to plot basic physics objects from AOD", 
+  "type": {
+    "primary": "Software", 
+    "secondary": []
+  }, 
+  "usage": {
+    "description": " <p>If you do not have the CERN Virtual Machine for 2011 CMS data installed, follow the instructions in step 1 and step 2 at <a href=\"/VM/CMS/2011\">How to install a CERN Virtual Machine</a>.\n      Then follow the instructions in <a href=\"https://github.com/cms-opendata-validation/2011-minimumbias-compare-rereco/blob/master/README.md\">GitHub</a>.</p> "
+  }, 
+  "use_with": {
+    "description": "Use this with the following datasets:", 
+    "links": [
+      {
+        "recid": "24"
+      }, 
+      {
+        "recid": "463"
+      }
+    ]
+  }
+}
+]
