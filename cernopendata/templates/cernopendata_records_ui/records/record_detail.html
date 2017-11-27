@@ -62,12 +62,13 @@
             {% endif %}
             <div class="row">
               <div class="col-md-12">
-                {% if record.collections %}
-                <label>Collection:</label>
-                {% for collection in record.collections %}
-                <span><a
-                  href="/search?q={{collection}}">{{collection}}</a></span>
-                {% endfor %}
+                {% if record.type %}
+                  <span class="badge badge-secondary">{{record.type.primary}}</span>
+                  {% if record.type.secondary %}
+                  {% for type in record.type.secondary%}
+                    <span class="badge badge-secondary">{{type}}</span>
+                  {% endfor %}
+                  {% endif %}
                 {% endif %}
                 {% if record.collision_information %}
                 <label>Collision Energy:</label>

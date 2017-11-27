@@ -19,10 +19,14 @@
             {% endif %}
             <div class="row">
               <div class="col-md-12">
-                <span class="badge badge-success">{{record.type.primary}}</span>
-                {% for type in record.type.secondary%}
-                <span class="badge badge-success">{{type}}</span>
-                {% endfor %}
+                {% if record.type %}
+                  <span class="badge badge-success">{{record.type.primary}}</span>
+                  {% if record.type.secondary %}
+                  {% for type in record.type.secondary%}
+                    <span class="badge badge-success">{{type}}</span>
+                  {% endfor %}
+                  {% endif %}
+                {% endif %}
               </div>
             </div>
 
