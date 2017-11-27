@@ -138,7 +138,6 @@
 {% block javascript %}
 {{ super() }}
 
-{% if record.get('files') or record.authors %}
 <script>
   $('#download_caution').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget)
@@ -261,5 +260,4 @@
   });
 
 </script>
-{% endif %}
 {% endblock javascript %}
