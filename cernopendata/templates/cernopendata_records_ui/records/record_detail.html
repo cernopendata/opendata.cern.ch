@@ -63,12 +63,12 @@
             <div class="row">
               <div class="col-md-12">
                 {% if record.type %}
-                  <span class="badge badge-secondary">{{record.type.primary}}</span>
-                  {% if record.type.secondary %}
-                  {% for type in record.type.secondary%}
-                    <span class="badge badge-secondary">{{type}}</span>
-                  {% endfor %}
-                  {% endif %}
+                <span class="badge badge-secondary">{{record.type.primary}}</span>
+                {% if record.type.secondary %}
+                {% for type in record.type.secondary%}
+                <span class="badge badge-secondary">{{type}}</span>
+                {% endfor %}
+                {% endif %}
                 {% endif %}
                 {% if record.collision_information %}
                 <label>Collision Energy:</label>
@@ -141,8 +141,6 @@
               {% endif %}
 
               {% if record.relations %}
-              {% for relation in record.relations %}
-              {% if relation.type != 'isChildOf'%}
               <div class="row">
                 <div class="col-md-12">
                   {% if record.type.primary == 'Software' %}
@@ -150,17 +148,20 @@
                   {% else %}
                   <h3>Related Datasets</h3>
                   {% endif %}
-                  <p>{{relation.description}} <br>
+                  {% for relation in record.relations %}
+                    {% if relation.description %}
+                      {{relation.description}}
+                    {% endif %}
                     {% if relation.recid %}
-                    <a href="/record/{{relation.recid}}">{{relation.recid |
-                      get_record_title}}</a></p>
-                  {% else %}
-                  {{relation.title}}
-                  {% endif %}
+                      <a href="/record/{{relation.recid}}">{{relation.recid |
+                        get_record_title}}</a>
+                    {% else %}
+                      {{relation.title}}
+                    {% endif %}
+                  <br>
+                  {% endfor %}
                 </div>
               </div>
-              {% endif %}
-              {% endfor %}
               {% endif %}
 
               {% if record.distribution %}
@@ -331,9 +332,9 @@
               {% endblock metadata_block %}
 
               {% block files_block %}
-                <div ng-controller="paginationCtrl as $ctrl" ng-init="$ctrl.getFiles()">
-                  {{ files_box() }}
-                </div>
+              <div ng-controller="paginationCtrl as $ctrl" ng-init="$ctrl.getFiles()">
+                {{ files_box() }}
+              </div>
               {% endblock files_block %}
 
               {% block disclaimer %} {{super()}} {% endblock disclaimer %}
