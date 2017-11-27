@@ -46,8 +46,8 @@ You can get an overview of our education resources through [this search query](/
     - [A quick (completely online) hands-on demo](https://mybinder.org/v2/gh/cms-opendata-education/cms-online-notebooks-for-binder/master?filepath=quick-start-to-CMS-open-data.ipynb) to Jupyter and CMS Open Data (using python).
     - [Analysing CMS Open Data in Jupyter using **python**](/record/FIXME)
     - [Analysing CMS Open Data in Jupyter using **R**](/record/FIXME), with a brief intro to the R programming language
-- All applications mentioned above use open data insimplified csv (comma separated values) format. See [all available csv datasets](/search?page=1&size=20&q=&type=Dataset&experiment=CMS&subtype=Derived&file_type=csv), which have been extracted directly from the original collision datasets.
-    - If you are interested in producing your own selection of open data in csv format, see [example software ](/record/552) for the processing step.
+- All applications mentioned above use open data in simplified CSV (comma-separated values) format. See [all available CSV datasets](/search?page=1&size=20&q=&type=Dataset&experiment=CMS&subtype=Derived&file_type=csv), which have been extracted directly from the original collision datasets.
+    - If you are interested in producing your own selection of open data in CSV format, see [example software ](/record/552) for the processing step.
 ---
 
 #### Dive deeper into the data
