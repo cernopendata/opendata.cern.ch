@@ -1,4 +1,4 @@
-If you are interested in conducting a more sophisticated analysis using CMS Open Data, you should find hints, tips and guidance on this page. Please note that possible solutions to frequently encountered issues can be found on [our page of known errors](FIXME).
+If you are interested in conducting a research-oriented analysis using CMS Open Data, you should find hints, tips and guidance on this page. Please note that possible solutions to frequently encountered issues can be found on [our page of known errors]( /articles/cms-guide-to-troubleshooting).
 
 ---
 
@@ -34,15 +34,15 @@ If you are interested in conducting a more sophisticated analysis using CMS Open
 
 - The 2010 data have been released first; have fewer, smaller datasets with better low-p<sub>T</sub> tracking, low trigger thresholds, low pile-up and more/simpler analysis/validation examples; but have no MC. If you do not need MC or maximal statistics, you might want to try 2010 data first (simpler).
 - The 2011/2012 data have more statistics, more diverse datasets, many associated MC sets, and a slightly more advanced VM environment. If you are immediately interested in maximal statistics and/or MC acceptance corrections you should go for 2011/2012 data (more sophisticated).
-- Information on the respective luminosities and pile-up rates vs time can be found on [this Twiki page](https://twiki.cern.ch/twiki/bin/view/CMSPublic/LumiPublicResults#Multi_year_Collisions_Plots).
+- Information on the respective luminosities and pile-up rates vs time can be found in [public CMS luminosity information](https://twiki.cern.ch/twiki/bin/view/CMSPublic/LumiPublicResults#Multi_year_Collisions_Plots).
 - If you want to try both datasets, you will need to use [the appropriate VMs](/search?page=1&size=20&tags=VM&experiment=CMS).
 
 <center>–––</center>
 
-> "I want to install the CMS software environment on the virtual machine (separately for 2010 and 2011/2012 data) which is needed for access to and analysis of CMS Research level data."
+> "I want to install the CMS software environment needed for access to and analysis of CMS Research level data."
 
-- Install [the approriate VM](/search?page=1&size=20&tags=VM&experiment=CMS), 2010 VM for 2010 data, and 2011 VM for 2011/2012 data.
-- Go to ["Getting started with CMS 2010 data"](/articles/getting-started-with-cms-2010-data) for 2010 or ["Getting started with CMS 2011 data"](/articles/getting-started-with-cms-2011-data) for 2011/2012 data FIXME check links
+- Install the appropriate virtual machine, [2010 VM](/record/250) for 2010 data, and [2011 VM](/record/252) for 2011/2012 data.
+- Go to ["Getting started with CMS 2010 open data"](/articles/getting-started-with-cms-2010-open-data) for 2010 or ["Getting started with CMS 2011 open data"](/articles/getting-started-with-cms-2011-open-data) for 2011/2012 data.
 
 **Note**: The 2010 (SL5) virtual machine will only work on 2010 data with CMSSW 4-2-8 (and other SLC5-based CMSSW releases). The 2011 (SL6) virtual machine will only work on 2011/2012 data and MC with CMSSW 5-3-32 (and other SLC6-based CMSSW releases).
 
@@ -51,7 +51,7 @@ If you are interested in conducting a more sophisticated analysis using CMS Open
 > "I want to produce some example physics distributions (e.g. inclusive di-muon spectrum analysis example directly from AOD or two-/four-lepton analysis example with intermediate ntuples)."
 
 - Install the CMS software as in the previous item (for 2010 or 2011).
-- Follow options A (di-muon spectrum, simpler) or B (two-/four-lepton example, more sophisticated) in ["Getting started with CMS 2010 data"](/articles/getting-started-with-cms-2010-data). For 2011 option A, take the SingleMu or DoubleMu dataset index files from [http://opendata.cern.ch/record/32](/record/32) or [http://opendata.cern.ch/record/17](/record/17).
+- Follow options A (inclusive di-muon spectrum analysis example directly from AOD) or B (two-/four-lepton analysis example with intermediate ntuples) in "Getting started with CMS 2010 open data"(/articles/getting-started-with-cms-2010-open-data) or ["Getting started with CMS 2011 open data"](/articles/getting-started-with-cms-2011-data). 
 
 ---
 
@@ -66,12 +66,10 @@ If you are interested in conducting a more sophisticated analysis using CMS Open
 
 > "I also want to view some corresponding event displays."
 
-- Go to [2010 CMS derived datasets](/search?page=1&size=20&q=&type=Dataset&subtype=Derived&experiment=CMS&year=2010&file_type=ig),
+- Go to [2010 CMS derived datasets of event display ("ig") type](/search?page=1&size=20&q=&type=Dataset&subtype=Derived&experiment=CMS&year=2010&file_type=ig),
 - choose `Event display file derived from`… + the name of the CMS primary dataset you want (ZeroBias is known to be essentially empty).
 
-<center>–––</center>
-
-> "I want an alternative way to view these event displays."
+> or, alternatively:
 
 - Load the [CMS event display](/visualise/events/cms),
 - choose `Open File` &rarr; `Open Files from Web` &rarr; `2010`, and
@@ -101,12 +99,10 @@ If you are interested in conducting a more sophisticated analysis using CMS Open
 > "I also want to  to view some corresponding event displays."
 
 - These are available for data only for the time being.
-- Go to [2011 CMS derived datasets](/search?page=1&size=20&q=&subtype=Derived&experiment=CMS&year=2011&file_type=ig),
+- Go to [2011 CMS derived datasets of event display ("ig") type](/search?page=1&size=20&q=&subtype=Derived&experiment=CMS&year=2011&file_type=ig),
 - choose `Event display file derived from`… + the name of the CMS primary dataset you want (ZeroBias is known to be essentially empty).
 
-<center>–––</center>
-
-> "I want an alternative way to view these event displays."
+> or, alternatively:
 
 - Load the [CMS event display](/visualise/events/cms),
 - choose `Open File` &rarr; `Open Files from Web` &rarr; `2011`, and
@@ -143,7 +139,7 @@ If you are interested in conducting a more sophisticated analysis using CMS Open
 
 - Condition data are needed only on sophisticated examples using e.g. jet energy corrections (many of the simpler analysis/validation examples documented here do not use this).
 - Using condition data significantly slows down data access, so use them only if really needed. If so:
-    - see the instructions to Option B in ["Getting started with CMS 2011 data"](/articles/getting-started-with-cms-2011-data) 
+    - see the instructions to Option B in ["Getting started with CMS 2011 open data"](/articles/getting-started-with-cms-2011-open-data) 
 - This information is still very basic and will be improved.
 
 <center>–––</center>
@@ -155,7 +151,7 @@ If you are interested in conducting a more sophisticated analysis using CMS Open
 - find out the runs/lumi sections in which these triggers were active and whether they were prescaled,
 - overlap with the available CMS Open Data samples (run range) and with the selection in the list of validated runs.
     - If not prescaled, sum up the luminosity for the surviving runs/lumi sections.
-    - If prescaled, life is more complicated. Find the prescales as in [the trigger example code](FIXME)
+    - If prescaled, life is more complicated. Find the prescales as in [the trigger example code](/record/FIXME)
 
 ---
 
@@ -180,6 +176,7 @@ If you are interested in conducting a more sophisticated analysis using CMS Open
 - … for the MinimumBias, Commissioning, Mu or MuMonitor datasets:
     - Go to [Validation software](/search?page=1&size=20&q=&type=Software&subtype=Validation&experiment=CMS), FIXME Year in the search
     - choose and execute the corresponding Validation code.
+
 
 - … for the Multijet dataset (see also [here](http://hep.caltech.edu/cms/opendata/)):
     - choose and execute ["Razor filter and analyzer for SUSY searches"](/record/553).
