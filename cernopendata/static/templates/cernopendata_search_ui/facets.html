@@ -5,29 +5,32 @@
         </a>
     </div>
 </div>
+<!-- 1 -->
 <div ng-init="tree=[];tree_more=[]" ng-repeat="aggr in orderedAggs track by $index" class="facet-div">
     <div ng-if="aggr.value.buckets.length > 0">
         <div>
             <h5>Filter by {{ aggr.key.replace('_', ' ') }}</h5> 
         </div>
         <div>
+            <!-- 2 -->
             <ul class="list-unstyled facet-ul" ng-init="values=getValues(aggr.key)" ng-repeat="item in aggr.value.buckets">
                 <li>
                     <span>
+                        <small>
+                            <a
+                                ng-init="tree_more[item.key]=false;tree[item.key]=(values.indexOf(item.key) > -1) ? true : false"
+                                ng-model="tree[item.key]"
+                                ng-show="tree_more[item.key]"
+                                ng-click="tree[item.key]=!tree[item.key]"
+                            >
+                            <span class="oi" data-glyph="chevron-{{ (tree[item.key]) ? 'bottom' : 'right' }}"</span>
+                            </a>
+                            <span ng-show="tree_more[item.key]===false" style="padding-left:11px"></span>
+                        </small>
                         <input type="checkbox" ng-checked="values.indexOf(item.key) > -1"
                                                ng-click="handleClick(aggr.key, item.key)"/> {{ item.key }}
                                                <span class="badge badge-light facet-count">{{ item.doc_count }}</span>
 
-                                               <small>
-                                                   <a
-                                                     ng-init="tree_more[item.key]=false;tree[item.key]=(values.indexOf(item.key) > -1) ? true : false"
-                                                     ng-model="tree[item.key]"
-                                                     ng-show="tree_more[item.key]"
-                                                     ng-click="tree[item.key]=!tree[item.key]"
-                                                     >
-                                                     {{ (tree[item.key]) ? '-' : '+' }}
-                                                   </a>
-                                               </small>
                     </span>
                     <div ng-show="tree[item.key]===true" ng-repeat="(subKey, subValue) in item">
                         <div ng-if="['doc_count', 'key'].indexOf(subKey) === -1">
