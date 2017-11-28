@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/env bash
 #
 # This file is part of CERN Open Data Portal.
 # Copyright (C) 2015, 2016, 2017 CERN.
@@ -22,7 +22,29 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
-pydocstyle cernopendata && \
-isort -rc -c -df **/*.py && \
-check-manifest --ignore ".travis-*" && \
+# quit on errors and potentially unbound symbols:
+set -o errexit
+set -o nounset
+
+# check for possibly incorrect JSON files:
+find cernopendata/modules/fixtures/data/ -name "*.json" -exec jsonlint -q {} \;
+
+# check record ID uniqueness:
+dupes=$(jq '.[].recid' cernopendata/modules/fixtures/data/records/*.json | sort | uniq -d)
+if [ "x${dupes}" != "x" ]; then
+    echo "[ERROR] Found duplicate record IDs:"
+    echo "${dupes}"
+    exit 1
+fi
+
+if [[ "$@" = *"--check-fixtures-only"* ]]; then
+    exit 0
+fi
+
+# check source code style:
+pydocstyle cernopendata
+isort -rc -c -df **/*.py
+check-manifest --ignore ".travis-*"
+
+# check our test suite:
 python setup.py test

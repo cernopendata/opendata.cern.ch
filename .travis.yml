@@ -42,6 +42,16 @@ python:
 services:
   - docker
 
+addons:
+  apt:
+    packages:
+    - nodejs
+    - jq
+
+before_install:
+  - npm install -g jsonlint
+  - ./run-tests.sh --check-fixtures-only
+
 install:
   - "docker-compose build"
 
