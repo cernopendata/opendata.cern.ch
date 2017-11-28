@@ -5,14 +5,13 @@
         </a>
     </div>
 </div>
-<br>
-<div ng-init="tree=[];tree_more=[]" ng-repeat="aggr in orderedAggs track by $index">
+<div ng-init="tree=[];tree_more=[]" ng-repeat="aggr in orderedAggs track by $index" class="facet-div">
     <div ng-if="aggr.value.buckets.length > 0">
         <div>
             <h5>Filter by {{ aggr.key.replace('_', ' ') }}</h5> 
         </div>
         <div>
-            <ul class="list-unstyled" ng-init="values=getValues(aggr.key)" ng-repeat="item in aggr.value.buckets">
+            <ul class="list-unstyled facet-ul" ng-init="values=getValues(aggr.key)" ng-repeat="item in aggr.value.buckets">
                 <li>
                     <span>
                         <input type="checkbox" ng-checked="values.indexOf(item.key) > -1"

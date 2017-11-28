@@ -337,6 +337,7 @@ RECORDS_REST_FACETS = {
             file_type=dict(terms=dict(
                 field='distribution.formats',
                 min_doc_count=0,
+                size=50,
                 order=dict(_term='asc'))),
             year=dict(terms=dict(
                 field='date_created',
