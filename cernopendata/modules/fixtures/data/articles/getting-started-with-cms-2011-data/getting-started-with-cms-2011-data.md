@@ -7,7 +7,7 @@
 
 ## <a name="vm">"I have installed the CERN Virtual Machine: now what?"</a>
 
-To analyse CMS data collected in 2011 and 2012, you need **version 5.3.32** of [CMSSW](/glossary/CMSSW), supported only on **Scientific Linux 6**. If you are unfamiliar with Linux, take a look at [this short introduction to Linux](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookBasicLinux) or try this interactive [command-line bootcamp](http://rik.smith-unna.com/command_line_bootcamp/). Once you have installed the [CMS-specific CERN Virtual Machine](/articles/cms-2011-virtual-machines-how-to-install), execute the following command in the terminal if you haven't done so before; it ensures that you have this version of [CMSSW](/glossary/CMSSW) running:
+To analyse CMS data collected in 2011 and 2012, you need **version 5.3.32** of [CMSSW](/glossary/CMSSW), supported only on **Scientific Linux 6**. If you are unfamiliar with Linux, take a look at [this short introduction to Linux](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookBasicLinux) or try this interactive [command-line bootcamp](http://rik.smith-unna.com/command_line_bootcamp/). Once you have installed the [CMS-specific CERN Virtual Machine](/articles/cms-2011-virtual-machines-how-to-install), execute the following command in the terminal if you haven't done so before; it ensures that you have this version of CMSSW running:
 
 ```shell
 $ cmsrel CMSSW_5_3_32
@@ -23,9 +23,9 @@ $ cd CMSSW_5_3_32/src/
 
 It is best if we start off with a quick introduction to **[ROOT](http://root.cern.ch)**. ROOT is the framework used by several particle-physics experiments to work with the collected data. Although analysis is not itself performed within the ROOT GUI, it is instructive to understand how these files are structured and what data and collections they contain.
 
-The primary data provided by CMS on the CERN Open Data Portal is in a format called "[Analysis Object Data](/articles/cms-physics-objects-2011)" or [AOD](/glossary/AOD) for short. These [AOD](/glossary/AOD) files are prepared by piecing raw data collected by various sub-detectors of CMS and contain all the information that is needed for analysis. The files cannot be opened and understood as simple data tables but require ROOT in order to be read.
+The primary data provided by CMS on the CERN Open Data Portal is in a format called "[Analysis Object Data](/articles/cms-physics-objects-2011)" or [AOD](/glossary/AOD) for short. These AOD files are prepared by piecing raw data collected by various sub-detectors of CMS and contain all the information that is needed for analysis. The files cannot be opened and understood as simple data tables but require ROOT in order to be read.
 
-So, let's see what an [AOD](/glossary/AOD) file looks like and take ROOT for a spin!
+So, let's see what an AOD file looks like and take ROOT for a spin!
 
 Making sure that you are in the **CMSSW_5_3_32/src/** folder, execute the following command in your terminal to launch the CMS analysis environment:
 
@@ -33,10 +33,10 @@ Making sure that you are in the **CMSSW_5_3_32/src/** folder, execute the follow
 $ cmsenv
 ```
 
-You can now open a CMS [AOD](/glossary/AOD) file in ROOT. Let us open one of the files from the CERN Open Data Portal by entering the following command:
+You can now open a CMS AOD file in ROOT. Let us open one of the files from the CERN Open Data Portal by entering the following command:
 
 ```shell
-$ root root://eospublic.cern.ch//eos/opendata/cms/[Run2011A](#)/ElectronHad/[AOD](#)/12Oct2013-v1/20001/001F9231-F141-E311-8F76-003048F00942.root
+$ root root://eospublic.cern.ch//eos/opendata/cms/Run2011A/ElectronHad/AOD/12Oct2013-v1/20001/001F9231-F141-E311-8F76-003048F00942.root
 ```
 
 You will see the ROOT logo appear on screen. You can now open the ROOT GUI by entering:
@@ -45,45 +45,45 @@ You will see the ROOT logo appear on screen. You can now open the ROOT GUI by en
 TBrowser t
 ```
 
-Excellent! You have successfully opened a CMS [AOD](/glossary/AOD) file in ROOT. If this was the first time you've done so, [pat](/glossary/PAT) yourself on the back. Now, to see what is inside this file, let us take a closer look at some collections of [physics objects](/articles/cms-physics-objects-2011).
+Excellent! You have successfully opened a CMS AOD file in ROOT. If this was the first time you've done so, pat yourself on the back. Now, to see what is inside this file, let us take a closer look at some collections of [physics objects](/articles/cms-physics-objects-2011).
 
 On the left window of ROOT (see the screenshot below), double-click on the file name (<kbd>root://eospublic.cern.ch//eos/opendata/…</kbd>). You should see a list of entries under <kbd>Events</kbd>, each corresponding to a collection of reconstructed data. We are interested in the collections containing information about reconstructed physics objects.
 
 <img src="/static/articles/getting-started-with-cms-2011-data/getting_started_with_cms_2011_data_1.png"  width="70%">
 
-Let us take a peek, for example, at the [electrons](/glossary/electron), which are found in <kbd>recoGsfElectrons_gsfElectrons__RECO</kbd>, as shown on the list of [physics objects](/articles/cms-physics-objects-2011). Look in there by double-clicking on that line and then double-clicking on <kbd>recoGsfElectrons_gsfElectrons__RECO.obj</kbd>. Here, you can have a look at various properties of this collection, such as the plot for the transverse momentum of the [electrons](/glossary/electron): <kbd>recoGsfElectrons_gsfElectrons__RECO.obj.pt_</kbd>.
+Let us take a peek, for example, at the [electrons](/glossary/electron), which are found in <kbd>recoGsfElectrons_gsfElectrons__RECO</kbd>, as shown on the list of [physics objects](/articles/cms-physics-objects-2011). Look in there by double-clicking on that line and then double-clicking on <kbd>recoGsfElectrons_gsfElectrons__RECO.obj</kbd>. Here, you can have a look at various properties of this collection, such as the plot for the transverse momentum of the electrons: <kbd>recoGsfElectrons_gsfElectrons__RECO.obj.pt_</kbd>.
 
 You can exit the ROOT browser through the GUI by clicking on <kbd>Browser</kbd> on the menu and then clicking on <kbd>Quit Root</kbd> or by entering <kbd>.q</kbd> in the terminal.
 
 ## <a name="nice">"Nice! But how do I analyse these data?"</a>
 
-In [AOD](/glossary/AOD) files, reconstructed [physics objects](/articles/cms-physics-objects-2011) are included without checking their "quality", i.e. in case of our [electron](/glossary/electron) collection that you opened in ROOT, without ensuring that the reconstructed object is really an [electron](/glossary/electron). In order to analyse only the "good quality" data, you must apply some selection criteria.
+In AOD files, reconstructed [physics objects](/articles/cms-physics-objects-2011) are included without checking their "quality", i.e. in case of our electron collection that you opened in ROOT, without ensuring that the reconstructed object is really an electron. In order to analyse only the "good quality" data, you must apply some selection criteria.
 
 With these criteria, you are in effect reducing the dataset, either in terms of the number of collisions events it contains or in terms of the information carried by each event. Following this, you run your analysis code on the reduced dataset.
 
-Depending on the nature of your analysis you _can_ run your analysis code directly on the [AOD](/glossary/AOD) files themselves, if needed, performing the selections along the way. However, this can be resource-intensive and is done only for very specific usecases.
+Depending on the nature of your analysis you _can_ run your analysis code directly on the AOD files themselves, if needed, performing the selections along the way. However, this can be resource-intensive and is done only for very specific usecases.
 
-**NOTE**: To analyse the full event content, the analysis job needs access to the "[condition data](/glossary/tag)", such as the jet-energy corrections. You can see how connections to the [condition database](/glossary/tag) are established in the ["pattuples2011" example](/record/233). For simpler analyses, where we use only physics objects needing no further data for corrections, you do not need to connect to the [condition database](/glossary/tag). This is the case for the example for analysing the [primary datasets](/glossary/primary) below.
+**NOTE**: To analyse the full event content, the analysis job needs access to the "[condition data](/glossary/tag)", such as the jet-energy corrections. You can see how connections to the condition database are established in the ["pattuples2011" example](/record/233). For simpler analyses, where we use only physics objects needing no further data for corrections, you do not need to connect to the condition database. This is the case for the example for analysing the [primary datasets](/glossary/primary) below.
 
-Your final analysis is done using a software module called an "analyzer". If you have followed the validation step for the virtual machine setup, you have already produced and run a simple analyzer. You can specify your initial selection criteria within the analyzer to perform your analysis directly on the [AOD](/glossary/AOD) files, or further elaborate the selections and other operations needed for analysing the reduced dataset. To learn more about configuring analyzers, follow [these instructions in the CMSSW WorkBook](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWriteFrameworkModule). Make sure, though, that you replace the release version (CMSSW_nnn) with the release that you are using, i.e. one that is compatible with the CMS open data.
+Your final analysis is done using a software module called an "analyzer". If you have followed the validation step for the virtual machine setup, you have already produced and run a simple analyzer. You can specify your initial selection criteria within the analyzer to perform your analysis directly on the AOD files, or further elaborate the selections and other operations needed for analysing the reduced dataset. To learn more about configuring analyzers, follow [these instructions in the CMSSW WorkBook](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWriteFrameworkModule). Make sure, though, that you replace the release version (CMSSW_nnn) with the release that you are using, i.e. one that is compatible with the CMS open data.
 
-You can also pass the selection criteria through the configuration file. This file activates existing tools within [CMSSW](/glossary/CMSSW) in order to perform the desired selections. If you have followed the validation step for the virtual machine setup, you have already seen a configuration file, which is used to give the parameters to the <kbd>cmsRun</kbd> executable. You can see how this is done in our analysis example.
+You can also pass the selection criteria through the configuration file. This file activates existing tools within CMSSW in order to perform the desired selections. If you have followed the validation step for the virtual machine setup, you have already seen a configuration file, which is used to give the parameters to the <kbd>cmsRun</kbd> executable. You can see how this is done in our analysis example.
 
 We will now take you through these steps through a couple of specially prepared example analyses.
 
 ##  <a name="a">Option A: Analysing the primary dataset</a>
 
-As mentioned above, you do not typically perform an analysis directly on the [AOD](/glossary/AOD) files. However, there may be cases when you can do so. Therefore, we have provided an example analysis to take you through the steps that you may need on the occassions that you want to analyse the [AOD](/glossary/AOD) files directly. You can find the files and instructions in [this CMS analysis example](/record/5001).
+As mentioned above, you do not typically perform an analysis directly on the AOD files. However, there may be cases when you can do so. Therefore, we have provided an example analysis to take you through the steps that you may need on the occassions that you want to analyse the AOD files directly. You can find the files and instructions in [this CMS analysis example](/record/5001).
 
 ## <a name="b">Option B: Analysing reduced datasets</a>
 
-We start by applying selection cuts via the configuration file and reduce the [AOD](/glossary/AOD) files into a format known as PATtuple. You can find more information about this data format (which gets its name from the CMS Physics Analysis Toolkit, or [PAT](/glossary/PAT)) on the [CMSSW PAT WorkBook](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookPAT).
+We start by applying selection cuts via the configuration file and reduce the AOD files into a format known as PATtuple. You can find more information about this data format (which gets its name from the CMS Physics Analysis Toolkit, or [PAT](/glossary/PAT)) on the [CMSSW PAT WorkBook](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookPAT).
 
-**Important**: Be aware that the instructions in the WorkBook are in use in CMS currently and have been updated for more recent [CMSSW](/glossary/CMSSW) releases. With the 2011 and 2012 data, you should always use the releases in the series of CMSSW_5_3 and not higher. Also note that more recent code does not work with older releases, so whenever you see <kbd>git cms-addpkg…</kbd> in the instruction, it is likely that the code package this command adds does not work with the release you need. However, the material under the pages gives you a good introduction to [PAT](/glossary/PAT).
+**Important**: Be aware that the instructions in the WorkBook are in use in CMS currently and have been updated for more recent CMSSW releases. With the 2011 and 2012 data, you should always use the releases in the series of CMSSW_5_3 and not higher. Also note that more recent code does not work with older releases, so whenever you see <kbd>git cms-addpkg…</kbd> in the instruction, it is likely that the code package this command adds does not work with the release you need. However, the material under the pages gives you a good introduction to [PAT](/glossary/PAT).
 
-Code as well as instructions for producing PATtuples from the CMS open data can be found in [this GitHub repo](https://github.com/katilp/pattuples2011). However, since it can take a dedicated computing cluster several days to run this step and reduce the several TB of [AOD](/glossary/AOD) files to a few GB of PATtuples, we have provided you with the PATtuples in that GitHub repo, saving you quite a lot of time! So you can jump to the next step, below ("Performing your analysis…"). Although you do not need to run this step, it is worth looking at [the configuration file](https://github.com/katilp/pattuples2011/blob/master/PAT_data_repo.py):
+Code as well as instructions for producing PATtuples from the CMS open data can be found in [this example](https://github.com/cms-opendata-analyses/pattuples2011). However, since it can take a dedicated computing cluster several days to run this step and reduce the several TB of AOD files to a few GB of PATtuples, we have provided you with the PATtuples in that GitHub repo, saving you quite a lot of time! So you can jump to the next step, below ("Performing your analysis…"). Although you do not need to run this step, it is worth looking at [the configuration file]( https://github.com/cms-opendata-analyses/pattuples2011/blob/master/PAT_data_repo.py):
 
-You can see that the line <kbd>removeAllPATObjectsBut(process, ['Muons','Electrons'])</kbd> removes all "PATObjects" but [muon](/glossary/muon) and [electrons](/glossary/elctron), which will be needed in the final analysis step of this example.
+You can see that the line <kbd>removeAllPATObjectsBut(process, ['Muons','Electrons'])</kbd> removes all "PATObjects" but muon and electrons, which will be needed in the final analysis step of this example.
 
 Note also how only the validated runs are selected on lines:
 
@@ -97,7 +97,7 @@ process.source.lumisToProcess.extend(myLumis)
 
 This selection must always be applied to any analysis on CMS open data, and to do so you must have the validation file downloaded to your local area.
 
-You can also see the steps needed to use the [condition data](/glossary/tag). First, as shown in the <kbd>README</kbd>, you have to set the symbolic links to the [condition database](/glossary/tag) for 2011 data.
+You can also see the steps needed to use the condition data. First, as shown in the <kbd>README</kbd>, you have to set the symbolic links to the condition database for 2011 data.
 
 ```shell
 ln -sf /cvmfs/cms-opendata-conddb.cern.ch/FT_53_LV5_AN1_RUNA FT_53_LV5_AN1
@@ -110,7 +110,7 @@ ls -l
 ls -l /cvmfs/
 ```
 
-Then, the correct set of [condition data](/glossary/tag) are defined by mentioning the [Global Tag](/glossary/tag) on lines 46–48 in the file <kbd>PAT_data_repo.py</kbd>.
+Then, the correct set of condition data are defined by mentioning the [Global Tag](/glossary/tag) on lines 46–48 in the file <kbd>PAT_data_repo.py</kbd>.
 
 ```shell
 #globaltag
@@ -128,11 +128,12 @@ This example is reading 2011 RunA data. If you are reading data from other run p
 | 2012 RunC | FT53_V21A_N6_RUNC  | [2012 list](/record/FIXME)      |
 | 2012 MC   | START53_V27        | -              |
 
-**Important**: If you plan on running the code to produce the PATtuples needed for this analysis, note that the first time you run the job, the CERN Virtual Machine will read the [condition data](/glossary/tag) from the remote database. This process will take time (an example run of a 10 Mb/s line took 45 mins), but it will only happen once as the files will then be cached on your VM. The job will not produce any output during this time. However, you can check the ongoing processes with the command <kbd>top</kbd> and you can monitor the progress of reading the [condition data](/glossary/tag) to the local cache with the command <kbd>df</kbd>.
+
+**Important**: If you plan on running the code to produce the PATtuples needed for this analysis, note that the first time you run the job, the CERN Virtual Machine will read the condition data from the remote database. This process will take time (an example run of a 10 Mb/s line took 45 mins), but it will only happen once as the files will then be cached on your VM. The job will not produce any output during this time. However, you can check the ongoing processes with the command <kbd>top</kbd> and you can monitor the progress of reading the condition data to the local cache with the command <kbd>df</kbd>.
 
 ## <a name="pat">Performing your analysis on the PATtuples</a>
 
-Now, as the intermediate PATtuple files have been produced for you, you can go directly to the next step, as described in [this second GitHub repo](https://github.com/katilp/OutreachExercise2011) and follow the instructions on that page.
+Now, as the intermediate PATtuple files have been produced for you, you can go directly to the next step, as described in [the analysis example](https://github.com/cms-opendata-analyses/OutreachExercise2011) and follow the instructions on that page.
 
 Note that even though these are [derived datasets](/glossary/derived), running the analysis code over the full data can take time. So if you want just give it a try, you can limit the number events or read only part of the files. Bear in mind that running on a low number of files will not give you a meaningful plot.
 
