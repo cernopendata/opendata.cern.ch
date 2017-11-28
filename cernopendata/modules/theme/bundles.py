@@ -49,9 +49,6 @@ css = NpmBundle(
     Bundle(
         'node_modules/bootstrap/dist/css/bootstrap.min.css',
         'node_modules/angular-loading-bar/build/loading-bar.css',
-        # 'node_modules/typeahead.js-bootstrap-css/typeaheadjs.css',
-        # 'node_modules/bootstrap-switch/dist/css/bootstrap3'
-        # '/bootstrap-switch.css',
         filters='cleancssurl',
     ),
     Bundle(
@@ -63,8 +60,7 @@ css = NpmBundle(
     npm={
         'angular-loading-bar': '~0.9.0',
         'bootstrap-sass': '~3.3.5',
-        # 'bootstrap-switch': '~3.0.2',
-        'font-awesome': '~4.4.0',
+        'open-iconic': '~1.1.1',
         'typeahead.js-bootstrap-css': '~1.2.1',
     }
 )
