@@ -1,7 +1,7 @@
 [
 {
   "abstract": {
-    "description": " <p>The integrated luminosity for validated runs and luminosity sections of the 2010 public data (RunB) is available in the table <a href=\"/record/1050/files/2010RunBlumi.txt\">2010RunBlumi.txt</a>. (The integrated luminosity for validated runs and luminosity sections of all 2010 p-p data taking is available in <a href=\"/record/1050/files/2010lumi.txt\">2010lumi.txt</a>.)</p> <p>In your estimate for the integrated luminosity, check for which runs the trigger you have selected is active and sum the values for those runs. The uncertainty in the luminosity measurement of 2010 data should be considered as 11% (reference <a href=\"https://cds.cern.ch/record/1279145/files/EWK-10-004-pas.pdf\">CMS PAS EWK-10-004</a>).</p> "
+    "description": " <p>The integrated luminosity for validated runs and luminosity sections of the 2010 public data (RunB) is available in the table <a href=\"/record/1050/files/2010RunBlumi.txt\">2010RunBlumi.txt</a>. (The integrated luminosity for validated runs and luminosity sections of all 2010 p-p data taking is available in <a href=\"/record/1050/files/2010lumi.txt\">2010lumi.txt</a>.)</p> <p>In your estimate for the integrated luminosity, check for which runs the trigger you have selected is active and sum the values for those runs. The uncertainty in the luminosity measurement of 2010 data should be considered as 11% (reference <a href=\"https://cds.cern.ch/record/1279145/files/EWK-10-004-pas.pdf\">CMS PAS EWK-10-004</a>).</p> <p>The detailed list of luminosity by lumi section is in <a href=\"/record/1050/files/2010lumibyls.csv\">2010lumibyls.csv</a> for the <a href=\"/record/1000\">list of validated runs</a> and lumi sections.</p> "
   }, 
   "accelerator": "CERN-LHC", 
   "collaboration": {
@@ -15,7 +15,8 @@
   "date_published": "2017", 
   "distribution": {
     "formats": [
-      "txt"
+      "txt", 
+      "csv"
     ]
   }, 
   "doi": "10.7483/OPENDATA.CMS.WTXQ.PCF8", 
@@ -30,6 +31,11 @@
       "checksum": "sha1:47372391f417cec0e886fd912fccd37131530b1a", 
       "size": 21429, 
       "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2010/2010RunBlumi.txt"
+    }, 
+    {
+      "checksum": "sha1:231d34287a8eb60320404a065a82a4caf8aa35f8", 
+      "size": 5840441, 
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2010/2010lumibyls.csv"
     }
   ], 
   "publisher": "CERN Open Data Portal", 
