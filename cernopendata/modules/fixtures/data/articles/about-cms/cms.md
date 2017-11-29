@@ -42,7 +42,7 @@ The following are provided through this portal:
     * Definition of same objects is different in each analysis.
 
 * The files can be read in [ROOT](http://root.cern.ch/), but they cannot be opened (and understood) as simple data tables.
-* Only the runs that are validated by data quality monitoring should be used in any analysis. The [list of the validated runs](/search?page=1&size=20&q="CMS list of validated runs") is provided.
+* Only the runs that are validated by data quality monitoring should be used in any analysis. The [list of the validated runs](/search?page=1&size=20&q="CMS list of validated runs") (FIXME markdown does not accpet hyphen in links?) is provided.
 * A small sample of [RAW data](/search?page=1&size=20&q=&experiment=CMS&file_type=raw) is also provided.
 
 ## <a name="disclaimer">Disclaimer</a>
