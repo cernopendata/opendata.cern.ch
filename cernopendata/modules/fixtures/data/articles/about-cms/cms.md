@@ -42,8 +42,8 @@ The following are provided through this portal:
     * Definition of same objects is different in each analysis.
 
 * The files can be read in [ROOT](http://root.cern.ch/), but they cannot be opened (and understood) as simple data tables.
-* Only the runs that are validated by data quality monitoring should be used in any analysis. The [list of the validated runs](/search?page=1&size=20&q="CMS list of validated runs") (FIXME markdown does not accpet hyphen in links?) is provided.
-* A small sample of [RAW data](/search?page=1&size=20&q=&experiment=CMS&file_type=raw) is also provided.
+* Only the runs that are validated by data quality monitoring should be used in any analysis. The [list of the validated runs](/search?page=1&size=20&q="CMS%20list%20of%20validated%20runs") is provided.
+* A small sample of [raw data](/search?page=1&size=20&q=&experiment=CMS&file_type=raw) is also provided.
 
 ## <a name="disclaimer">Disclaimer</a>
 
@@ -53,7 +53,7 @@ The following are provided through this portal:
 * No further development is foreseen for either the data released or the software version needed to analyse them.
     * The methods have evolved since the released data were recorded.
     * More advanced techniques are used with recent data but the software is not compatible out-of-the-box with older data samples.
-* The release of 2010 data is not accompanied by any simulated data. The release of 2011 data includes simulated data. However, this is not a full set of simulations, but only those datasets that have been reprocessed with a software release compatible with the 2011 collision data.
+* The release of 2010 data is not accompanied by any simulated data. The release of 2011 data includes simulated data. However, this is not a full set of simulations, but only those datasets that have been reprocessed with a software release compatible with the 2011 collision data. The release of 2012 data includes a larger sample of simulated data.
 * If you are interested in more, please contact nearest [CMS university/institute](https://cms.cern/content/cms-collaboration)
  
 ## <a name="other">Other CMS open data</a>
