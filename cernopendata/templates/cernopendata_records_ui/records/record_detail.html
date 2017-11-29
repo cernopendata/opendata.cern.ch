@@ -63,10 +63,10 @@
             <div class="row">
               <div class="col-md-12">
                 {% if record.type %}
-                <span class="badge badge-secondary">{{record.type.primary}}</span>
+                <a class="badge badge-secondary" href="/search?type={{record.type.primary}}">{{record.type.primary}}</a>
                 {% if record.type.secondary %}
                 {% for type in record.type.secondary%}
-                <span class="badge badge-secondary">{{type}}</span>
+                <a class="badge badge-secondary" href="/search?type={{record.type.primary}}&subtype={{type}}">{{type}}</a>
                 {% endfor %}
                 {% endif %}
                 {% endif %}
