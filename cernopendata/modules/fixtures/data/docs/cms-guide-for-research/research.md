@@ -1,4 +1,9 @@
-If you are interested in conducting a research-oriented analysis using CMS Open Data, you should find hints, tips and guidance on this page. Please note that possible solutions to frequently encountered issues can be found on [our page of known errors]( /docs/cms-guide-to-troubleshooting).
+If you are interested in step-by-step instructions to start working with CMS Open Data, please consult these pages:
+
+* [Install Virtual Machine](/docs/cms-2011-virtual-machines-how-to-install)
+* [Get started with CMS Open Data](/docs/getting-started-with-cms-2011-open-data)
+
+However, if you are interested in finding hints, tips and guidance for conducting a research-oriented analysis using CMS Open Data, please see our notes on this page. Note that possible solutions to frequently encountered issues can be found on [our page of known errors](/docs/cms-guide-to-troubleshooting).
 
 ---
 
@@ -51,7 +56,8 @@ If you are interested in conducting a research-oriented analysis using CMS Open 
 > "I want to produce some example physics distributions (e.g. inclusive di-muon spectrum analysis example directly from AOD or two-/four-lepton analysis example with intermediate ntuples)."
 
 - Install the CMS software as in the previous item (for 2010 or 2011).
-- Follow options A (inclusive di-muon spectrum analysis example directly from AOD) or B (two-/four-lepton analysis example with intermediate ntuples) in "Getting started with CMS 2010 open data"(/docs/getting-started-with-cms-2010-open-data) or ["Getting started with CMS 2011 open data"](/docs/getting-started-with-cms-2011-data).
+
+- Follow options A (inclusive di-muon spectrum analysis example directly from AOD) or B (two-/four-lepton analysis example with intermediate ntuples) in ["Getting started with CMS 2010 open data"](/docs/getting-started-with-cms-2010-open-data) or ["Getting started with CMS 2011 open data"](/docs/getting-started-with-cms-2011-open-data). 
 
 ---
 
