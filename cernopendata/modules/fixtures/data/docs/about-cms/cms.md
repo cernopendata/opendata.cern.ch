@@ -2,7 +2,7 @@ The Compact Muon Solenoid (CMS) Experiment is one of the large particle detector
 
 You can find usage instructions and suggestions of CMS Open Data in two detailed guides:
 - [Guide to education use of CMS Open Data](/docs/cms-guide-to-education-use-of-cms-open-data)
-- [Guide to research use of CMS Open Data](/docs/cms-guide-to-education-use-of-cms-open-data).
+- [Guide to research use of CMS Open Data](/docs/cms-guide-to-research-use-of-cms-open-data).
 
 This page gives a brief overview of CMS Open Data contents:
 
