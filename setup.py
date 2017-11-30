@@ -177,9 +177,9 @@ setup(
             'cernopendata_termid_minter = '
             ' cernopendata.modules.records.minters.termid:'
             'cernopendata_termid_minter',
-            'cernopendata_articleid_minter = '
-            ' cernopendata.modules.records.minters.artid:'
-            'cernopendata_articleid_minter',
+            'cernopendata_docid_minter = '
+            ' cernopendata.modules.records.minters.docid:'
+            'cernopendata_docid_minter',
             'cernopendata_datasetid_minter = '
             'cernopendata.modules.records.minters.datasetid:'
             'cernopendata_datasetid_minter',
@@ -194,9 +194,9 @@ setup(
             'cernopendata_termid_fetcher = '
             ' cernopendata.modules.records.fetchers.termid:'
             'cernopendata_termid_fetcher',
-            'cernopendata_articleid_fetcher = '
-            ' cernopendata.modules.records.fetchers.artid:'
-            'cernopendata_articleid_fetcher',
+            'cernopendata_docid_fetcher = '
+            ' cernopendata.modules.records.fetchers.docid:'
+            'cernopendata_docid_fetcher',
             'cernopendata_datasetid_fetcher = '
             'cernopendata.modules.records.fetchers.datasetid:'
             'cernopendata_datasetid_fetcher',

@@ -202,7 +202,7 @@ def about_atlas():
 @register_breadcrumb(blueprint, '.about.about_cms', 'CMS')
 def about_cms():
     """Render about cms template."""
-    return redirect('/articles/about-cms')
+    return redirect('/docs/about-cms')
 
 
 @blueprint.route('/about/cms-pileup-simulation')
@@ -239,7 +239,7 @@ def about_opera():
 @blueprint.route('/getting-started/<exp>')
 def getting_started_redirect(exp):
     """Redirects to associated experiment."""
-    return redirect('/articles/getting-started-with-%s-open-data' % exp,
+    return redirect('/docs/getting-started-with-%s-open-data' % exp,
                     code=302)
 
 
@@ -248,9 +248,9 @@ def vm_redirect(exp, year):
     """Redirects to associated experiment."""
     if year:
         return redirect(
-            '/articles/%s-%s-virtual-machines-how-to-install' % (exp, year),
+            '/docs/%s-%s-virtual-machines-how-to-install' % (exp, year),
             code=302)
-    return redirect('/articles/%s-virtual-machines-how-to-install' % exp,
+    return redirect('/docs/%s-virtual-machines-how-to-install' % exp,
                     code=302)
 
 
@@ -262,7 +262,7 @@ def cms_physics_objects_redirect(year='2011'):
     If no year is given, redirects to latest available
     physics objects page (the default parameter).
     """
-    return redirect('/articles/cms-physics-objects-{}'.format(year), code=302)
+    return redirect('/docs/cms-physics-objects-{}'.format(year), code=302)
 
 
 @blueprint.route('/terms-of-use')

@@ -36,5 +36,5 @@ class FeaturedArticlesSearch(RecordsSearch):
     class Meta:
         """Default index and filter for frontpage search."""
 
-        index = 'records-article-v1.0.0'
+        index = 'records-docs-v1.0.0'
         default_filter = Q('exists', field='featured')

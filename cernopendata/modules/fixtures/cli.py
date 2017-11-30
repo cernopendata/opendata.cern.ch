@@ -194,20 +194,20 @@ def glossary_terms():
 
 @fixtures.command()
 @with_appcontext
-def articles():
+def docs():
     """Load demo article records."""
     from invenio_db import db
     from invenio_records import Record
     from invenio_indexer.api import RecordIndexer
-    from cernopendata.modules.records.minters.artid import \
-        cernopendata_articleid_minter
+    from cernopendata.modules.records.minters.docid import \
+        cernopendata_docid_minter
 
     indexer = RecordIndexer()
     schema = current_app.extensions['invenio-jsonschemas'].path_to_url(
-        'records/article-v1.0.0.json'
+        'records/docs-v1.0.0.json'
     )
     data = pkg_resources.resource_filename('cernopendata',
-                                           'modules/fixtures/data/articles')
+                                           'modules/fixtures/data/docs')
 
     articles_json = get_jsons_from_dir(data)
 
@@ -231,7 +231,7 @@ def articles():
                    not isinstance(data.get("collections", None), basestring):
                     data["collections"] = []
                 id = uuid.uuid4()
-                cernopendata_articleid_minter(id, data)
+                cernopendata_docid_minter(id, data)
                 record = Record.create(data, id_=id)
                 record['$schema'] = schema
                 db.session.commit()

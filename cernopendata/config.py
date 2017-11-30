@@ -75,7 +75,7 @@ RECORDS_VALIDATION_TYPES = {
 }
 
 RECORDS_UI_EXPORT_FORMATS = dict(
-    artid=dict(
+    docid=dict(
         json=dict(
             title='JSON',
             serializer='cernopendata.modules.records.serializers.json',
@@ -179,16 +179,16 @@ RECORDS_UI_ENDPOINTS = dict(
         template='cernopendata_records_ui/terms/detail.html',
         permission_factory_imp=None,
     ),
-    artid=dict(
-        pid_type='artid',
-        route='/articles/<pid_value>',
-        template='cernopendata_records_ui/articles/detail.html',
+    docid=dict(
+        pid_type='docid',
+        route='/docs/<pid_value>',
+        template='cernopendata_records_ui/docs/detail.html',
         permission_factory_imp=None,
         record_class='invenio_records_files.api:Record',
     ),
-    artid_export=dict(
-        pid_type='artid',
-        route='/articles/<pid_value>/export/<format>',
+    docid_export=dict(
+        pid_type='docid',
+        route='/docs/<pid_value>/export/<format>',
         view_imp='invenio_records_ui.views.export',
         template='cernopendata_records_ui/default_export.html',
     ),
@@ -224,21 +224,21 @@ RECORDS_REST_ENDPOINTS['termid'] = {
     },
 }
 
-RECORDS_REST_ENDPOINTS['artid'] = {
-    'pid_type': 'artid',
-    'pid_minter': 'cernopendata_articleid_minter',
-    'pid_fetcher': 'cernopendata_articleid_fetcher',
+RECORDS_REST_ENDPOINTS['docid'] = {
+    'pid_type': 'docid',
+    'pid_minter': 'cernopendata_docid_minter',
+    'pid_fetcher': 'cernopendata_docid_fetcher',
     'record_class': _Record,
     'links_factory_imp': 'cernopendata.modules.records.links:links_factory',
     'default_media_type': 'application/json',
     'max_result_window': 10000,
-    'item_route': '/articles/<pid(artid):pid_value>',
-    'list_route': '/articles',
+    'item_route': '/docs/<pid(docid):pid_value>',
+    'list_route': '/docs',
     'record_serializers': {
         'application/json': ('invenio_records_rest.serializers'
                              ':json_v1_response'),
     },
-    'search_index': 'records-article-v1.0.0',
+    'search_index': 'records-docs-v1.0.0',
     'search_serializers': {
         'application/json': ('invenio_records_rest.serializers'
                              ':json_v1_search'),

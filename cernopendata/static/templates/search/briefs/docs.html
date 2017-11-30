@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-body">
+    <h4>
+      <a target="_self" ng-href="/docs/{{record.metadata.control_number}}">
+        {{ record.metadata.title }}
+      </a>
+    </h4>
+    <p ng-if="record.metadata.short_description.content">{{record.metadata.short_description.content}}</p>
+    <p ng-if="!record.metadata.short_description.content" ng-bind-html="record.metadata.body.content | limitTo: 200 | unsafe"></p>
+    <div class="tags-box-search-results">
+      <a class="badge badge-success custom-badge-success" href="/search?type={{record.metadata.type.primary}}">
+        {{ record.metadata.type.primary }}
+      </a>
+      <a class="badge badge-info" ng-if="record.metadata.type.secondary" href="/search?subtype={{record.metadata.type.secondary[0]}}">
+        {{ record.metadata.type.secondary[0] }}
+      </a>
+      <a class="badge badge-secondary" ng-repeat="tag in record.metadata.tags" href="/search?tags={{tag}}">
+        {{ tag }}
+      </a>
+      <a class="badge badge-warning custom-badge-warning" href="/search?experiment={{record.metadata.experiment}}">
+        {{ record.metadata.experiment }}
+      </a>
+    </div>
+  </div>
+</div>
