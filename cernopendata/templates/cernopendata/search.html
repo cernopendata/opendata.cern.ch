@@ -1,4 +1,4 @@
-{% extends "invenio_search_ui/search.html" %}
+{%- extends config.BASE_TEMPLATE %}
 
 {%- block css %}
 {{super()}}
@@ -26,6 +26,7 @@
 {%- block page_body %}
 <div class="container-fluid background">
     <div class="container research">
+      <div id="invenio-search">
         <invenio-search
          search-endpoint="/api/records/"
          >
@@ -123,6 +124,8 @@
                  </div>
              </div>
          </div>
+        </invenio-search>
+          </div>
     </div>
 </div>
 {%- endblock page_body %}
