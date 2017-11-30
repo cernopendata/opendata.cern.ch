@@ -54,3 +54,8 @@ that it has to be (re-)initialised in beginRun() is that the HLT
 configuration can (only) change at the boundary between runs. 
 
 Original Source: [Persistent Trigger Results Objects](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideHighLevelTrigger#Persistent_Trigger_Results_Objec "Persistent Trigger Results Objects") 
+
+Find the software and usage instructions in
+
+- [Analysis code for extracting the trigger information from the CMS 2010 data](/record/5003)
+- [Analysis code for extracting the trigger information from the CMS 2011 data](/record/5004)
