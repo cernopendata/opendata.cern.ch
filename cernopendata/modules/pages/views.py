@@ -178,40 +178,21 @@ def about_breadcrumbs():
 
 
 @blueprint.route('/about')
-@register_breadcrumb(blueprint, '.about', _('About'))
 def about():
     """Render view for general about page."""
-    return render_template('cernopendata_pages/about/index.html')
+    return redirect('/docs/cern-open-data-portal')
 
 
-@blueprint.route('/about/alice')
-@register_breadcrumb(blueprint, '.about.about_alice', _('ALICE'))
-def about_alice():
-    """Render about ALICE template."""
-    return render_template('cernopendata_pages/about/about_alice.html')
-
-
-@blueprint.route('/about/atlas')
-@register_breadcrumb(blueprint, '.about.about_atlas', _('ATLAS'))
-def about_atlas():
-    """Render about atlas template."""
-    return render_template('cernopendata_pages/about/about_atlas.html')
-
-
-@blueprint.route('/about/cms')
-@register_breadcrumb(blueprint, '.about.about_cms', 'CMS')
-def about_cms():
-    """Render about cms template."""
-    return redirect('/docs/about-cms')
+@blueprint.route('/about/<exp>')
+def about_exp(exp):
+    """Render about <experiment> pages."""
+    return redirect('/docs/about-{}'.format(exp))
 
 
 @blueprint.route('/about/cms-pileup-simulation')
-@register_breadcrumb(blueprint, '.about.about_cms.about_cms_pileup',
-                     'Pileup Simulation')
 def cms_pileup_simulation():
     """Render cms pileup simulation template."""
-    return render_template(
-        'cernopendata_pages/about/cms_pileup_simulation.html')
+    return redirect('/docs/cms-pile-up-simulation')
 
 
 @blueprint.route('/about/cms-simulated-dataset-names')
@@ -220,20 +201,6 @@ def cms_pileup_simulation():
 def about_cms_dataset_names():
     """Render about CMS simulated dataset names template."""
     return render_template('cernopendata_pages/about/cms_dataset_names.html')
-
-
-@blueprint.route('/about/lhcb')
-@register_breadcrumb(blueprint, '.about.about_lhcb', _('LHCb'))
-def about_lhcb():
-    """Render about lhcb template."""
-    return render_template('cernopendata_pages/about/about_lhcb.html')
-
-
-@blueprint.route('/about/opera')
-@register_breadcrumb(blueprint, '.about.about_opera', _('OPERA'))
-def about_opera():
-    """Render about opera template."""
-    return render_template('cernopendata_pages/about/about_opera.html')
 
 
 @blueprint.route('/getting-started/<exp>')
@@ -256,6 +223,8 @@ def vm_redirect(exp, year):
 
 @blueprint.route('/cms-physics-objects/')
 @blueprint.route('/cms-physics-objects/<year>')
+@blueprint.route('/about/cms-physics-objects/')
+@blueprint.route('/about/cms-physics-objects/<year>')
 def cms_physics_objects_redirect(year='2011'):
     """Redirects to CMS physics objects page of given year.
 
