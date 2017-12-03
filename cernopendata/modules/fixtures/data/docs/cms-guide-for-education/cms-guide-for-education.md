@@ -31,7 +31,7 @@ Two examples of these specially prepared files are:
 
 You can also download these files directly from the records on this portal.
 
-To learn how to use the [CMS event display](/visualise/events/cms), click on `Need help?` link on the top right side of the screen. For suggestions for class room activities see [instructions for use of CMS Open Data in spreadsheets for schools and education](/record/FIXME).
+To learn how to use the [CMS event display](/visualise/events/cms), click on `Need help?` link on the top right side of the screen. For suggestions for class room activities see [Tutorials and worksheets for CMS Event Display](/record/5103).
 
 ---
 
@@ -41,11 +41,11 @@ You can get an overview of our education resources through [this search query](/
 
 - If you already know what the basic physics quantities measured in a particle collision are and want to **play online with histograms** from different samples of open data, check out the [CMS histogram visualiser](/visualise/histograms/cms). For instructions on how to use the visualiser, click on `Need help?`.
 - To learn some concepts of statistical analysis in a hands-on classroom activity, have a look at the material for an organised ["**Masterclass**" exercise](/record/53) based on CMS data and the online event display. A CMS Masterclass typically takes one day (including introductory lectures and post-analysis discussions), but the exercise itself can be done in approximately two hours. Learn more about organising your own Masterclass [on the CMS website](https://cms.cern/engage-with-cms/cms-physics-masterclass).
-- You can also use **spreadsheet programs** to make a further step in the direction of data analysis, using a limited number of CMS events that are suitable for this type of exercise, see [instructions for use of CMS Open Data in spreadsheets for schools and education](/record/FIXME). These exercises can be done in an hour or so.
+- You can also use **spreadsheet programs** to make a further step in the direction of data analysis, using a limited number of CMS events that are suitable for this type of exercise, see [instructions for use of CMS Open Data in spreadsheets for schools and education](/record/5100). These exercises can be done in an hour or so.
 - For a first taste of real programming using physics data, consider these resources that use [**Jupyter notebooks**](https://jupyter.org/) for a browser-based introduction to data analysis (time can vary from less than an hour to several hours, depending on the scope of your exercise):
     - [A quick (completely online) hands-on demo](https://mybinder.org/v2/gh/cms-opendata-education/cms-online-notebooks-for-binder/master?filepath=quick-start-to-CMS-open-data.ipynb) to Jupyter and CMS Open Data (using python).
-    - [Analysing CMS Open Data in Jupyter using **python**](/record/FIXME)
-    - [Analysing CMS Open Data in Jupyter using **R**](/record/FIXME), with a brief intro to the R programming language
+    - [Analysing CMS Open Data in Jupyter using **python**](/record/5101)
+    - [Analysing CMS Open Data in Jupyter using **R**](/record/5102), with a brief intro to the R programming language
 - All applications mentioned above use open data in simplified CSV (comma-separated values) format. See [all available CSV datasets](/search?page=1&size=20&q=&type=Dataset&experiment=CMS&subtype=Derived&file_type=csv), which have been extracted directly from the original collision datasets.
     - If you are interested in producing your own selection of open data in CSV format, see [example software ](/record/552) for the processing step.
 ---
