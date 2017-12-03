@@ -17,7 +17,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 
 > "I want to learn about the terms under which I can access and use the CMS Open Data, and publish results obtained from them."
 
-- Go to ["Data preservation and open access policy"](/record/411) (if you are a CMS member see also ["Rules for use of open access CMS data by individual members of CMS"](https://cms-docdb.cern.ch/cgi-bin/DocDB/ShowDocument?docid=12242)).
+- Go to ["Data preservation and open access policy"](/record/411) (if you are a CMS member see also an internal document ["Rules for use of open access CMS data by individual members of CMS"](https://cms-docdb.cern.ch/cgi-bin/DocDB/ShowDocument?docid=12242)).
 
 <center>–––</center>
 
@@ -85,7 +85,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 
 > "I want to find out which 2010 dataset and/or analysis/validation example is most useful for my purpose."
 
-- To learn how to do a muon analysis, follow "*I want to produce some first physics distributions*," (above) with either option A (recommended) or B, or try one of the relevant "*I want to (re)validate the 2010 datasets examples*," (further below).
+- To learn how to do a muon analysis, follow "*I want to produce some example physics distributions*," (above) with either option A (recommended) or B, or try one of the relevant "*I want to (re)validate the 2010 datasets examples*," (further below).
 - To learn how to do an electron analysis, follow "*I want to produce some first physics distributions*," (above) with option B, or try one of the relevant "*I want to (re)validate the 2010 datasets examples*," (below).
 - To learn how to do a minimum-bias track analysis, try the MinimumBias example on "*I want to (re)validate the 2010 datasets*," (below).
 - [More to come…]
@@ -98,7 +98,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 
 - Go to [2011 CMS primary datasets](/search?page=1&size=20&q=&subtype=Collision&experiment=CMS&year=2011) or [2011 CMS simulated datasets](/search?page=1&size=20&q=&subtype=Simulated&experiment=CMS&year=2011),
 - choose a dataset, read the comments, and read also about [simulated dataset names](/docs/cms-simulated-dataset-names) FIXME link
--
+
 
 <center>–––</center>
 
@@ -118,7 +118,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 
 > "I want to find out which 2011 dataset and/or analysis/validation example is most useful for my purpose."
 
-- Dedicated examples for 2011 beyond those available in "Getting Started" are [in preparation](https://github.com/cms-opendata-validation) to be added to the portal, including jet and top cross-sections. Alternatively, start from a 2010 example and adjust to run on 2011 data.
+- Dedicated examples for 2011 beyond those available in "Getting Started" can be found in [software](/search?page=1&size=20&q=&type=Software&subtype=Analysis&experiment=CMS&year=2011) to be added to the portal, including jet tuple production and top cross-sections. Alternatively, start from a 2010 example and adjust to run on 2011 data.
 
 <center>–––</center>
 
@@ -170,14 +170,14 @@ However, if you are interested in finding hints, tips and guidance for conductin
 
 <center>–––</center>
 
-> "I want to use the public analysis example from the MIT jet-analysis group's papers."
+> "I want to learn about the published jet-analysis papers by the MIT group."
 
 - See *Jet Substructure Studies with CMS Open Data*, A. Tripathee et al., Apr 19, 2017, MIT-CTP-4890, [arXiv:1704.05842](https://inspirehep.net/record/1593756),
 - and *Exposing the QCD Splitting Function with CMS Open Data*, A. Larkoski et al., Apr 17, 2017, MIT-CTP-4891, [arXiv:1704.05066](https://inspirehep.net/record/1591972).
 
 <center>–––</center>
 
-> "I want to (re)validate the 2010 datasets within my setup…"
+> "I want to run the examples used for 2010 datasets validation within my setup…"
 
 - … for the MinimumBias, Commissioning, Mu or MuMonitor datasets:
     - Go to [Validation software](/search?page=1&size=20&q=&type=Software&subtype=Validation&experiment=CMS), FIXME Year in the search
