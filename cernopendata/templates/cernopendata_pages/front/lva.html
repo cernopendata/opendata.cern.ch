@@ -1,0 +1,91 @@
+<div class="homepage-section section lva align-items-center" id="lva" data-anchor="lva">
+    <div class="main-inner container-fluid align-items-center">
+        <div class="row align-items-center justify-content-around">
+                <div class="col-sm lva-item">
+                    <header class="container-fluid">
+                        <h3 class="row justify-content-center">Learn</h3>
+                        <div class="row justify-content-center">
+                            <img src="{{url_for('static', filename='assets/img/learn.svg')}}" alt="">
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="text">Discover the particle physics open data world</div>
+                        </div>
+                    </header>
+
+                    <div class="body">
+                        <ul>
+                            <li class="justify-content-center row">
+                                <a href="{{url_for('invenio_records_ui.docid', pid_value='welcome-to-our-updated-portal')}}">Welcome to our updated portal</a>
+                            </li>
+                            <li class="justify-content-center row">
+                                <a href="{{url_for('invenio_records_ui.docid', pid_value='cms-guide-to-education-use-of-cms-open-data')}}">CMS Guide to education use of CMS Open Data</a>
+                            </li>
+                            <li class="justify-content-center row">
+                                <a href="{{url_for('invenio_records_ui.docid', pid_value='improving-educational-content-with-high-school-teachers-a-field-report-from-our-summer-students')}}">Improving educational content with high school teachers: A field report from our summer students</a>
+                            </li>
+                            <li class="justify-content-center row">
+                                <a href="{{url_for('cernopendata_pages.glossary')}}">Glossary</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="more justify-content-center"><a href="">more</a></div>
+                </div>
+                <div class="col-sm lva-item">
+                    <header class="container-fluid">
+                        <h3 class="row justify-content-center">Visualise</h3>
+                        <div class="row justify-content-center">
+                            <img  src="{{url_for('static', filename='assets/img/visualize.svg')}}" alt="">
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="text">Explore detector events and run basic histogramming</div>
+                        </div>
+                    </header>
+
+                    <div class="body">
+                        <ul>
+                            <li class="justify-content-center row">
+                                <a href="{{url_for('cernopendata_pages.visualise_events', experiment='cms')}}">CMS Event Display</a>
+                            </li>
+                            <li class="justify-content-center row">
+                                <a href="{{url_for('cernopendata_pages.visualise_events', experiment='opera')}}">OPERA Event Display</a>
+                            </li>
+                            <li class="justify-content-center row">
+                                <a href="{{url_for('cernopendata_pages.visualise_histograms')}}">CMS Histograms</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm lva-item">
+                    <header class="container-fluid">
+                        <h3 class="row justify-content-center">Analyse</h3>
+                        <div class="row justify-content-center">
+                            <img src="{{url_for('static', filename='assets/img/model.svg')}}" alt="">
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="text">Start virtual machines and run your own physics analyses</div>
+                        </div>
+                    </header>
+
+                    <div class="body">
+                        <ul>
+                            <li class="justify-content-center row">
+                                <a href="{{url_for('invenio_records_ui.docid', pid_value='cms-guide-to-research-use-of-cms-open-data')}}">CMS Guide to research use of CMS Open Data</a>
+                            </li>
+                            <li class="justify-content-center row">
+                                <a href="{{url_for('invenio_records_ui.docid', pid_value='atlas-higgs-machine-learning-challenge')}}">ATLAS Higgs Machine Learning Challenge</a>
+                            </li>
+                            <li class="justify-content-center row">
+                                <a href="{{url_for('invenio_records_ui.docid', pid_value='getting-started-with-lhcb-open-data')}}">Getting Started with LHCb Open Data</a>
+                            </li>
+                            <li class="justify-content-center row">
+                                <a href="{{url_for('invenio_records_ui.docid', pid_value='getting-started-with-alice-open-data')}}">Getting Started with ALICE Open Data</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="more justify-content-center"><a href="">more</a></div>
+                </div>
+        </div>
+    </div>
+</div>

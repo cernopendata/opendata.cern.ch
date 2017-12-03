@@ -8,14 +8,21 @@ $iconic-font-path: "/static/node_modules/open-iconic/font/fonts/";
 @import "../node_modules/open-iconic/font/css/open-iconic.scss";
 //
 @import "footer";
-//@import "frontpage";
 //@import "visualise";
 //@import "pygments_friendly";
 //
+
+$dark_blue: #2c3e50;
+$medium_blue: #2c3e50;
+$light_blue: #3b94cf;
+
+@import "frontpage";
+
 html, body {
   /* The html and body elements cannot have any padding or margin. */
   height: 100%;
   margin: 0;
+  color: $dark_blue;
 }
 
 //
@@ -49,7 +56,7 @@ html, body {
 //}
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .background {
@@ -82,30 +89,8 @@ body {
   color: #35495e;
 }
 
-section {
-  //min-height: 100vh;
-  color: #2c3e50;
-  padding: 2em;
-}
 
-section.main {
-  background: #283747 url('static/assets/img/header-image.svg') 50% 50% no-repeat;
-  color: white;
-  height: calc(100vh - 50vh);
-  background-size: 70%;
-}
-
-section.research {
-  border-top: 2px solid #eee;
-  background-color: #f6f7f6;
-}
-
-section.main a {
-  color: #3b97d3;
-  font-weight: bolder;
-}
-
-section.footer {
+.footer {
   border-top: 2px solid #eee;
   min-height: 100px;
   padding: 0;
@@ -341,12 +326,12 @@ section.footer {
   background-color: #2980b9 !important;
 }
 
-.tags-box {
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 30px;
-  font-size: .9em;
-}
+// .tags-box {
+//   position: absolute;
+//   bottom: 0;
+//   margin-bottom: 30px;
+//   font-size: .9em;
+// }
 
 // @TOCHECK Carefoul with this one
 a {

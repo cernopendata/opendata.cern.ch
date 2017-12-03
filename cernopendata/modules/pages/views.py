@@ -81,8 +81,8 @@ def lazy_title(text, *args):
 def index():
     """Home Page."""
     results = FeaturedArticlesSearch().sort('featured')[:6].execute()
-    return render_template('cernopendata_pages/index.html',
-                           records=results.hits.hits)
+    return render_template('cernopendata_pages/front/index.html',
+                           featured_articles=results.hits.hits)
 
 
 @blueprint.route('/md/debug', methods=['HEAD', 'GET'])
@@ -424,8 +424,8 @@ def education_research_pages(page, experiment=None):
                           'OPERA-Detector-Events',
                           'OPERA-Electronic-Detector-Datasets',
                           'OPERA-Emulsion-Detector-Datasets'
-                      ]
-                      }
+        ]
+        }
     }
 
     collections = collections.get(page)

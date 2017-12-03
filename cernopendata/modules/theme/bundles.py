@@ -64,7 +64,14 @@ css = NpmBundle(
         'typeahead.js-bootstrap-css': '~1.2.1',
     }
 )
-"""Default CSS bundle."""
+
+front_js = NpmBundle(
+    'node_modules/fullpage.js/dist/jquery.fullpage.js',
+    output='gen/cernopendata.front.%(version)s.js',
+    npm={
+        'fullpage.js': '~2.9.5',
+    },
+)
 
 search_js = NpmBundle(
     'node_modules/angular-sanitize/angular-sanitize.js',
