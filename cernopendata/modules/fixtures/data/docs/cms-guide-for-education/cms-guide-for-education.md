@@ -31,7 +31,7 @@ Two examples of these specially prepared files are:
 
 You can also download these files directly from the records on this portal.
 
-To learn how to use the [CMS event display](/visualise/events/cms), click on `Need help?` link on the top right side of the screen. For suggestions for class room activities see [Tutorials and worksheets for CMS Event Display](/record/5103).
+To learn how to use the [CMS event display](/visualise/events/cms), click on `Need help?` link on the top right side of the screen. For suggestions for classroom activities see [Tutorials and worksheets for CMS Event Display](/record/5103).
 
 ---
 
