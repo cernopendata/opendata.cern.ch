@@ -17,7 +17,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 
 > "I want to learn about the terms under which I can access and use the CMS Open Data, and publish results obtained from them."
 
-- Go to ["Data preservation and open access policy"](/record/411) (if you are a CMS member see also an internal document ["Rules for use of open access CMS data by individual members of CMS"](https://cms-docdb.cern.ch/cgi-bin/DocDB/ShowDocument?docid=12242)).
+- Go to ["Data preservation and open access policy"](/record/411) (if you are a CMS member, also see the internal document ["Rules for use of open access CMS data by individual members of CMS"](https://cms-docdb.cern.ch/cgi-bin/DocDB/ShowDocument?docid=12242)).
 
 <center>–––</center>
 
@@ -118,7 +118,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 
 > "I want to find out which 2011 dataset and/or analysis/validation example is most useful for my purpose."
 
-- Dedicated examples for 2011 beyond those available in "Getting Started" can be found in [software](/search?page=1&size=20&q=&type=Software&subtype=Analysis&experiment=CMS&year=2011) to be added to the portal, including jet tuple production and top cross-sections. Alternatively, start from a 2010 example and adjust to run on 2011 data.
+- Dedicated examples for 2011 beyond those available in "Getting Started" can be found in [software](/search?page=1&size=20&q=&type=Software&subtype=Analysis&experiment=CMS&year=2011), including jet tuple production and top cross-sections. Alternatively, start from a 2010 example and adjust to run on 2011 data.
 
 <center>–––</center>
 
@@ -157,7 +157,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 - find out the runs/lumi sections in which these triggers were active and whether they were prescaled,
 - overlap with the available CMS Open Data samples (run range) and with the selection in the list of validated runs.
     - If not prescaled, sum up the luminosity for the surviving runs/lumi sections.
-    - If prescaled, life is more complicated. Find the prescales as in [the trigger example code](/record/FIXME)
+    - If prescaled, life is more complicated. Find the prescales as in [the trigger example code](/record/5004)
 
 ---
 
@@ -177,7 +177,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 
 <center>–––</center>
 
-> "I want to run the examples used for 2010 datasets validation within my setup…"
+> "I want to run the examples used for validation of the 2010 datasets within my setup…"
 
 - … for the MinimumBias, Commissioning, Mu or MuMonitor datasets:
     - Go to [Validation software](/search?page=1&size=20&q=&type=Software&subtype=Validation&experiment=CMS), FIXME Year in the search
