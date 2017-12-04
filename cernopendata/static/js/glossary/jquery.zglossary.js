@@ -42,7 +42,7 @@
 						){} else {
 
 							// Create link element
-							var spannode = document.createElement('a');
+							var spannode = document.createElement('span');
 							spannode.className = 'glossaryTerm';
 
 							if (type == '0') {
