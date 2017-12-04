@@ -1,4 +1,4 @@
-The CMS-specific VM includes the [ROOT framework](http://root.cern.ch/) and [CMSSW](http://cms-sw.github.io/). Follow the instructions below to setup a CERN Virtual Machine on your computer. Then, go to [Getting Started with CMS data](http://opendata.cern.ch/getting-started/CMS)
+The CMS-specific VM includes the [ROOT framework](http://root.cern.ch/) and [CMSSW](http://cms-sw.github.io/). Follow the instructions below to setup a CERN Virtual Machine on your computer. Then, go to [Getting Started with CMS data][getstartedcms]
 
 1. [How to install a CERN VM](#vbox)
 2. [How to Test & Validate?](#test)
@@ -171,4 +171,4 @@ Question: Resizing the VM window doesn't resize its contents.
 [installVB2]: <https://www.virtualbox.org/wiki/Download_Old_Builds>
 [issues]: </VM/CMS#issues>
 [cmsvmimage2011]: </record/252>
-[getstartedcms]: </getting-started/CMS>
+[getstartedcms]: </docs/getting-started-with-cms-2011-open-data>
