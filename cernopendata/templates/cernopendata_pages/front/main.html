@@ -22,7 +22,7 @@
                 <div class="search-examples row justify-content-center">
                     <span class="example-title">search examples:</span>
                     <a href="{{url_for('invenio_search_ui.search', q = 'collision data') }}">collision datasets</a>,
-                    <a href="{{url_for('invenio_search_ui.search', q = 'configuration') }}">configurations</a>,
+                    <a href="{{url_for('invenio_search_ui.search', q = 'keywords:education') }}">keywords:education</a>,
                     <a href="{{url_for('invenio_search_ui.search', q = '7Tev') }}">energy:7TeV</a>
                 </div>
             </div>
@@ -34,7 +34,6 @@
                         <li><a href="{{url_for('cernopendata_pages.faceted_search', page='datasets')}}">datasets</a></li>
                         <li><a href="{{url_for('cernopendata_pages.faceted_search', page='software')}}">software</a></li>
                         <li><a href="{{url_for('invenio_search_ui.search', type = 'Environment') }}">environments</a></li>
-                        <li><a href="{{url_for('invenio_search_ui.search', type = 'Supplementaries') }}">supplementary material</a></li>
                         <li><a href="{{url_for('cernopendata_pages.faceted_search', page='documentation')}}">documentation</a></li>
                     </ul>
                 </div>
@@ -50,11 +49,12 @@
                 </div>
             </div>
 
+
+        </div>
             <div class="cod-scroll row justify-content-center">
                 <div class="icon justify-content-center align-items-center">
                     <a href="#lva"><img src="{{url_for('static', filename='assets/img/mouse-scrolling.png')}}" alt=""></a>
                 </div>
             </div>
-        </div>
     </div>
 </div>
