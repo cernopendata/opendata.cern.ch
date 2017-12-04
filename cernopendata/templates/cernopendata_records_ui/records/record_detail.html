@@ -114,9 +114,7 @@
               {% if record.use_with %}
               <h3>Use with</h3>
               <p>{{record.use_with.description | safe}}</p>
-              {% for link in record.use_with.links %}
-              <a href="/record/{{link.recid}} ">{{link.recid | get_record_title}}</a>
-              {% endfor %}
+              {{ link_list(record.use_with.links) }}
               {% endif %}
 
               {% if record.note %}
@@ -126,18 +124,7 @@
               <h3>Issues & Limitations</h3>
               {% endif %}
               <p>{{record.note.description | safe}}</p>
-              {% if record.note.links %}
-              <p>
-                {% for link in record.note.links %}
-                {% if link.url and link.title %}
-                <a href="{{link.url}}">{{link.title}}</a><br>
-                {% endif %}
-                {% if link.recid %}
-                <a href="/record/{{link.recid}}">{{link.recid | get_record_title}}</a><br>
-                {% endif %}
-                {% endfor %}
-              </p>
-              {% endif %}
+              {{ link_list(record.note.links) }}
               {% endif %}
 
               {% if record.relations %}
@@ -232,11 +219,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <h3>URLs</h3>
-                  <p>
-                    {% for link in record.links %}
-                    <span><a href="{{link.url}}">{{link.url}}</a></span><br>
-                    {% endfor %}
-                  </p>
+                  {{ link_list(record.links) }}
                 </div>
               </div>
               {% endif %}
@@ -250,13 +233,7 @@
                   <h3>How were these data selected?</h3>
                   {% endif %}
                   <p>{{ record.methodology.description | safe}}</p>
-                  {% if record.methodology.links %}
-                  <p>
-                    {% for link in record.methodology.links %}
-                    <a href="/record/{{link.recid}}">{{link.recid | get_record_title}}</a><br/>
-                    {% endfor %}
-                  </p>
-                  {% endif %}
+                  {{ link_list(record.methodology.links) }}
                 </div>
               </div>
               {% endif %}
@@ -289,14 +266,7 @@
                   <h3>How were these data validated?</h3>
                   {% endif %}
                   <p>{{record.validation.description | safe}}</p>
-                  {% if record.validation.links %}
-                  {% for link in record.validation.links %}
-                  <p><a href="{{link.url}}">{{link.description}}</a></p>
-                  {% if link.recid %}
-                  <p><a href="/record/{{link.recid}}">{{link.recid | get_record_title}}</a></p>
-                  {% endif %}
-                  {% endfor %}
-                  {% endif %}
+                  {{ link_list(record.validation.links) }}
                 </div>
               </div>
               {% endif %}
@@ -310,22 +280,7 @@
                   <h3>How can you use these data?</h3>
                   {% endif %}
                   <p>{{record.usage.description | safe}}</p>
-                  {% for link in record.usage.links %}
-                  {% if link.url %}
-                  <p><a href="{{link.url}}">
-                    {% if link.description %}
-                    {{link.description}}
-                    {% else %}
-                    {{link.url}}
-                    {% endif %}
-                  </a></p>
-                  {% endif %}
-                  {% if link.recid %}
-                  <p><a href="/record/{{link.recid}}">
-                    {{link.recid | get_record_title}}
-                  </a></p>
-                  {% endif %}
-                  {% endfor %}
+                  {{ link_list(record.usage.links) }}
                 </div>
               </div>
               {% endif %}

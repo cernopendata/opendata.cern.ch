@@ -97,9 +97,7 @@
                 <div class="col-md-12">
                   <h3>How were these data validated?</h3>
                   <p>{{record.validation.description}}</p>
-                  {% for link in record.validation.links %}
-                  <p><a href="{{link.url}}">{{link.description}}</a></p>
-                  {% endfor %}
+                  {{ link_list(record.validation.links) }}
                 </div>
               </div>
               {% endif %}
@@ -108,9 +106,7 @@
                 <div class="col-md-12">
                   <h3>How can you use these data?</h3>
                   <p>{{record.usage.description}}</p>
-                  {% for link in record.usage.links %}
-                  <p><a href="{{link.url}}">{{link.description}}</a></p>
-                  {% endfor %}
+                  {{ link_list(record.usage.links) }}
                 </div>
               </div>
               {% endif %}
@@ -119,9 +115,7 @@
                 <div class="col-md-12">
                   <h3>Issues & Limitations</h3>
                   <p>{{record.note.description}}</p>
-                  {% for link in record.note.links %}
-                  <p><a href="/record/{{link.recid}}">{{link.recid}}</a></p>
-                  {% endfor %}
+                  {{ link_list(record.note.links) }}
                 </div>
               </div>
               {% endif %}

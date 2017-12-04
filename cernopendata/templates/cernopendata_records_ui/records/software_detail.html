@@ -56,11 +56,7 @@
                 <div class="col-md-12">
                   <h3>Use with..</h3>
                   <p>{{record.use_with.description | safe }}</p>
-                  <ul>
-                    {% for link in record.use_with.links %}
-                    <li><a href="/record/{{link.recid}}">Record {{link.recid}}</a></li>
-                    {% endfor %}
-                  </ul>
+                  {{ link_list(record.use_with.links) }}
                 </div>
               </div>
               <div class="row">
@@ -84,11 +80,7 @@
                 <div class="col-md-12">
                   <h3>How were these data validated?</h3>
                   <p>{{record.validation.description | safe }}</p>
-                  <ul>
-                    {% for link in record.validation.links %}
-                    <li><a href="/record/{{link.recid}}">Record {{link.recid}}</a></li>
-                    {% endfor %}
-                  </ul>
+                  {{ link_list(record.validation.links) }}
                 </div>
               </div>
               <div class="row">

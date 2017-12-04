@@ -2,6 +2,8 @@
 
 {% from 'cernopendata_records_ui/records/macros/files_box.html' import files_box, authors_table  with context %}
 
+{% from 'cernopendata_records_ui/records/macros/links.html' import link_list  with context %}
+
 {%- block page_body %}
 <div class="container-fluid background">
   <div class="container">
@@ -72,6 +74,7 @@
                 <div class="col-md-12">
                   <h3>Description</h3>
                   <p>{{record.abstract.description | safe}}</p>
+                  {{ link_list(record.abstract.links) }}
                 </div>
               </div>
               {% endif %}
