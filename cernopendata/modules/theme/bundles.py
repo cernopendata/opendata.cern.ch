@@ -203,7 +203,7 @@ ispy_js = NpmBundle(
     "node_modules/ispy-webgl/js/ispy.js",
     output='gen/cernopendata.ispy.%(version)s.js',
     npm={
-        "ispy-webgl": "0.9.8-COD3.7"
+        "ispy-webgl": "0.9.8-COD3.8"
     },
 )
 
