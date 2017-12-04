@@ -8,16 +8,16 @@
     <p ng-if="record.metadata.short_description.content">{{record.metadata.short_description.content}}</p>
     <p ng-if="!record.metadata.short_description.content" ng-bind-html="record.metadata.body.content | limitTo: 200 | unsafe"></p>
     <div class="tags-box-search-results">
-      <a class="badge badge-success custom-badge-success" href="/search?type={{record.metadata.type.primary}}">
+      <a class="badge badge-success custom-badge-success" ng-if="record.metadata.type.primary" href="/search?type={{record.metadata.type.primary}}">
         {{ record.metadata.type.primary }}
       </a>
       <a class="badge badge-info" ng-if="record.metadata.type.secondary" href="/search?subtype={{record.metadata.type.secondary[0]}}">
         {{ record.metadata.type.secondary[0] }}
       </a>
-      <a class="badge badge-secondary" ng-repeat="tag in record.metadata.tags" href="/search?tags={{tag}}">
+      <a class="badge badge-secondary" ng-if="record.metadata.tags" ng-repeat="tag in record.metadata.tags" href="/search?tags={{tag}}">
         {{ tag }}
       </a>
-      <a class="badge badge-warning custom-badge-warning" href="/search?experiment={{record.metadata.experiment}}">
+      <a class="badge badge-warning custom-badge-warning" ng-if="record.metadata.experiment"  href="/search?experiment={{record.metadata.experiment}}">
         {{ record.metadata.experiment }}
       </a>
     </div>

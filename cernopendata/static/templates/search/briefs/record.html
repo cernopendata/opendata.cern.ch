@@ -6,13 +6,13 @@
     </h4>
     <p ng-if="record.metadata.abstract.description" ng-bind-html="record.metadata.abstract.description | limitTo : 200 | unsafe" class="mt-1"></p>
     <div class="tags-box-search-results">
-      <a class="badge badge-success custom-badge-success" href="/search?type={{record.metadata.type.primary}}">
+      <a class="badge badge-success custom-badge-success" ng-if="record.metadata.type.primary" href="/search?type={{record.metadata.type.primary}}">
         {{ record.metadata.type.primary }}
       </a>
-      <a class="badge badge-info" ng-repeat="subtype in record.metadata.type.secondary" href="/search?subtype={{subtype}}">
+      <a class="badge badge-info" ng-if="record.metadata.type.secondary" ng-repeat="subtype in record.metadata.type.secondary" href="/search?subtype={{subtype}}">
         {{ subtype }}
       </a>
-      <a class="badge badge-secondary" ng-repeat="tag in record.metadata.tags" href="/search?tags={{tag}}">
+      <a class="badge badge-secondary" ng-if="record.metadata.tags" ng-repeat="tag in record.metadata.tags" href="/search?tags={{tag}}">
         {{ tag }}
       </a>
       <a class="badge badge-warning custom-badge-warning" ng-if="record.metadata.experiment" href="/search?experiment={{record.metadata.experiment}}">

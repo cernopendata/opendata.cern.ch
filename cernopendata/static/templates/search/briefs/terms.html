@@ -7,7 +7,7 @@
     </h4>
     <p ng-if="record.metadata.definition" class="mt-1">{{ record.metadata.definition | limitTo : 200}}...</p>
     <div class="tags-box-search-results">
-      <a class="badge badge-success custom-badge-success" href="/search?type={{record.metadata.type.primary}}">
+      <a class="badge badge-success custom-badge-success" ng-if="record.metadata.type.primary" href="/search?type={{record.metadata.type.primary}}">
         {{ record.metadata.type.primary }}
       </a>
       <a class="badge badge-info" ng-if="record.metadata.type.secondary" href="/search?subtype={{record.metadata.type.secondary[0]}}">
