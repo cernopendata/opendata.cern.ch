@@ -75,11 +75,15 @@
                                      <div class="col-md-6 text-right">
                                          Display:
                                          <nobr>
-                                         <select ng-value="display_type" ng-model="display_type" ng-init="display_type='detailed'">
+                                         <select ng-value="display_type" ng-model="display_type"
+                                             ng-init="display_type='{{request.values.get('display', '')}}' || 'detailed'"
+                                             ng-change="vm.invenioSearchArgs['display']=display_type">
                                              <option value="detailed">detailed</option>
                                              <option value="condensed">condensed</option>
                                          </select>
-                                         <select ng-value="display_size" ng-model="display_size" ng-init="display_size='20'" ng-change="vm.invenioSearchArgs['size']=display_size" >
+                                         <select ng-value="display_size" ng-model="display_size" 
+                                             ng-init="display_size='{{request.values.get('size', '')}}' || '20'"
+                                             ng-change="vm.invenioSearchArgs['size']=display_size" >
                                              <option value="20">20 results</option>
                                              <option value="50">50 results</option>
                                              <option value="100">100 results</option>
