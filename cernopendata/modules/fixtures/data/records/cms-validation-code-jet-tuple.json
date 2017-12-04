@@ -1,0 +1,72 @@
+[
+{
+  "abstract": {
+       "description": " <p>This code  is a CMSSW module producing flat tuples from 2011A Jet data, set up at Research level, i.e. it requires university-student-level programming experience. Minimal acquaintance with Linux and the ROOT analysis package (<a href=\"https://root.cern.ch/\">https://root.cern.ch/</a>) as well as a basic text editor is needed. </p>"
+   },
+   "accelerator": "CERN-LHC", 
+   "authors": [
+     {
+       "name": "Zenaiev, Oleksandr"
+     },
+     {
+       "name": "Haapalehto, Matias"
+     }
+   ], 
+   "collections": [
+     "CMS-Validation-Utilities"
+   ],
+   "date_created": "2011", 
+   "date_published": "2017", 
+   "distribution": {
+    "formats": [
+        "gz"
+    ],
+    "number_files": 1, 
+    "size": 16966
+  },
+  "doi": "10.7483/OPENDATA.CMS.JT93.12XI",
+  "experiment": "CMS",
+    "files": [
+    {
+      "checksum": "sha1:1361f245ac6f9e909ff530c75a5db0e2ef84a348",
+      "size": 16966,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/2011-jet-inclusivecrosssection-ntupleproduction-optimized/2011-jet-inclusivecrosssection-ntupleproduction-optimized-1.0.0.tar.gz"
+    }
+  ],
+  "license": {
+    "attribution": "GNU General Public License (GPL) version 3"
+  },
+  "note": {
+    "description": "The content of the resulting root file is described in readme"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "5104",
+  "run_period": "Run2011A", 
+  "system_details": {
+      "release": "CMSSW_5_3_32", 
+      "recid": "252", 
+      "description": "Use this code with the CMS Open Data VM environment"
+  }, 
+  "title": "Example code for production of flat jet tuple using 2011 data", 
+  "type": {
+    "primary": "Software", 
+    "secondary": [
+        "Analysis"
+    ]
+  },
+  "usage": {
+    "description": " <p>If you do not have the CERN Virtual Machine for 2011 CMS data installed, follow the instructions in step 1 at <a href=\"/VM/CMS/2011\">How to install a CERN Virtual Machine</a>.  <p>To run the analysis, follow the instructions in <a href=\"https://github.com/cms-opendata-validation/2011-jet-inclusivecrosssection-ntupleproduction-optimized\">https://github.com/cms-opendata-validation/2011-jet-inclusivecrosssection-ntupleproduction-optimized</a>.</p> "
+  },
+  "use_with": {
+    "description": "Use this with 2011 Jets primary dataset and QCD MC dataset (see detailed instructions in the readme file and code).", 
+    "links": [
+        {
+            "recid": "21"
+        }, 
+        {
+            "recid": "1562"
+        }
+    ]
+  }
+}
+]
