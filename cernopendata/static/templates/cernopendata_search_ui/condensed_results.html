@@ -3,12 +3,17 @@
         <div class="card">
             <div class="card-body card-body-condensed">
                 <h4 ng-if="record.metadata.type.primary == 'Glossary'">
-                    <a target="_self" ng-href="/datasets/{{record.metadata.control_number}}">
+                    <a target="_self" ng-href="/glossary/{{record.metadata.control_number}}">
                         {{ record.metadata.anchor }}
                     </a>
                 </h4>
-                <h4 ng-if="record.metadata.type.primary != 'Glossary'">
+                <h4 ng-if="['Documentation', 'News'].indexOf(record.metadata.type.primary) != -1">
                     <a target="_self" ng-href="/docs/{{record.metadata.control_number}}">
+                        {{ record.metadata.title }}
+                    </a>
+                </h4>
+                <h4 ng-if="['Documentation', 'Glossary', 'News'].indexOf(record.metadata.type.primary) == -1">
+                    <a target="_self" ng-href="/record/{{record.metadata.control_number}}">
                         {{ record.metadata.title }}
                     </a>
                 </h4>
