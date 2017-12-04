@@ -61,8 +61,8 @@ For example:
 
 Of course, you can also undertake your own explorations with CMS Open Data:
 
-- If you want to "re-discover" the **Higgs boson** in the CMS Open Data from 2011-2012, first install the Virtual Machine (VM) as instructed in ["CMS 2011 Virtual Machines: How to install"](/docs/cms-2011-virtual-machines-how-to-install) and look at [this Higgs analysis example](/record/5500).
-- If you want to learn how data analysis is done by CMS scientists, install the Virtual Machine (VM) as instructed in ["CMS 2011 Virtual Machines: How to install"](/docs/cms-2011-virtual-machines-how-to-install), follow the instructions in ["Getting Started with CMS Open Data"](/docs/getting-started-with-cms-2011-open-data), and then
-check out our extensive overview of research activities under ["Guide for research use of CMS Open Data"](/docs/cms-guide-to-research-use-of-cms-open-data).
+- If you want to "re-discover" the **Higgs boson** in the CMS Open Data from 2011-2012, first install the Virtual Machine (VM) as instructed in ["CMS 2011 Virtual Machines: How to install"](/docs/cms-virtual-machine-2011) and look at [this Higgs analysis example](/record/5500).
+- If you want to learn how data analysis is done by CMS scientists, install the Virtual Machine (VM) as instructed in ["CMS 2011 Virtual Machines: How to install"](/docs/cms-virtual-machine-2011), follow the instructions in ["Getting Started with CMS Open Data"](/docs/cms-getting-started-2011), and then
+check out our extensive overview of research activities under ["Guide for research use of CMS Open Data"](/docs/cms-guide-for-research).
 
 Have fun!!

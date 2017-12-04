@@ -14,8 +14,8 @@ The following are provided through this portal:
     *   A set of [simplified datasets](FIXME) derived from the primary ones for use in the provided masterclass analyses. These data contain exclusively the information needed by the masterclasses and are not useful for a different purpose.
 *   [Tools](FIXME)
 
-    *   A downloadable [Virtual Machine (VM)](/docs/alice-virtual-machines-how-to-install) image with the ALICE software environment which allows to access the above datasets
-    *   An [analysis example chain](/docs/getting-started-with-alice-open-data) running in the VM, reading a primary dataset using the [ALICE analysis framework](http://aliweb.cern.ch/Offline/Activities/Analysis/AnalysisFramework/index.html). The sources for the example can be adapted and recompiled by the user to look at different features of ALICE data. This exercise requires a minimal understanding of the usage of the analysis framework.
+    *   A downloadable [Virtual Machine (VM)](/docs/alice-virtual-machine) image with the ALICE software environment which allows to access the above datasets
+    *   An [analysis example chain](/docs/alice-getting-started) running in the VM, reading a primary dataset using the [ALICE analysis framework](http://aliweb.cern.ch/Offline/Activities/Analysis/AnalysisFramework/index.html). The sources for the example can be adapted and recompiled by the user to look at different features of ALICE data. This exercise requires a minimal understanding of the usage of the analysis framework.
     *   Source code for the various examples and applications used by the [ALICE masterclasses](http://alice.physicsmasterclasses.org/MasterClassWebpage.html)
 
 ## Primary Datasets formats

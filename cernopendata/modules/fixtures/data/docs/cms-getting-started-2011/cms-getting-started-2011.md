@@ -7,7 +7,7 @@
 
 ## <a name="vm">"I have installed the CERN Virtual Machine: now what?"</a>
 
-To analyse CMS data collected in 2011 and 2012, you need **version 5.3.32** of [CMSSW](/glossary/CMSSW), supported only on **Scientific Linux 6**. If you are unfamiliar with Linux, take a look at [this short introduction to Linux](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookBasicLinux) or try this interactive [command-line bootcamp](http://rik.smith-unna.com/command_line_bootcamp/). Once you have installed the [CMS-specific CERN Virtual Machine](/docs/cms-2011-virtual-machines-how-to-install), execute the following command in the terminal if you haven't done so before; it ensures that you have this version of CMSSW running:
+To analyse CMS data collected in 2011 and 2012, you need **version 5.3.32** of [CMSSW](/glossary/CMSSW), supported only on **Scientific Linux 6**. If you are unfamiliar with Linux, take a look at [this short introduction to Linux](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookBasicLinux) or try this interactive [command-line bootcamp](http://rik.smith-unna.com/command_line_bootcamp/). Once you have installed the [CMS-specific CERN Virtual Machine](/docs/cms-virtual-machine-2011), execute the following command in the terminal if you haven't done so before; it ensures that you have this version of CMSSW running:
 
 ```shell
 $ cmsrel CMSSW_5_3_32

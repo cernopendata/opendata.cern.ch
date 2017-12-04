@@ -171,4 +171,4 @@ Question: Resizing the VM window doesn't resize its contents.
 [installVB2]: <https://www.virtualbox.org/wiki/Download_Old_Builds>
 [issues]: </VM/CMS#issues>
 [cmsvmimage2011]: </record/252>
-[getstartedcms]: </docs/getting-started-with-cms-2011-open-data>
+[getstartedcms]: </docs/cms-getting-started-2011>

@@ -1,8 +1,8 @@
 The Compact Muon Solenoid (CMS) Experiment is one of the large particle detectors at CERN's Large Hadron Collider. The CMS Collaboration consists of more than 3000 scientists, engineers, technicians and students from 180+ institutes and universities from 40+ countries. You can find more information about the CMS [detector design](https://cms.cern/news/cms-detector-design) and [overview](https://cms.cern/news/detector-overview) on the official [CMS website](https://cms.cern).
 
 You can find usage instructions and suggestions of CMS Open Data in two detailed guides:
-- [Guide to education use of CMS Open Data](/docs/cms-guide-to-education-use-of-cms-open-data)
-- [Guide to research use of CMS Open Data](/docs/cms-guide-to-research-use-of-cms-open-data).
+- [Guide to education use of CMS Open Data](/docs/cms-guide-for-education)
+- [Guide to research use of CMS Open Data](/docs/cms-guide-for-research).
 
 This page gives a brief overview of CMS Open Data contents:
 
@@ -22,8 +22,8 @@ The following are provided through this portal:
     * Examples of [simplified datasets](/search?page=1&size=20&subtype=Derived&type=Dataset&experiment=CMS) derived from the primary ones for use in different applications and analyses
 
 * Tools
-    * A downloadable [Virtual Machine (VM)](/docs/cms-2011-virtual-machines-how-to-install) image with the CMS software environment through which the datasets can be accessed
-    * An [analysis example chain](/docs/getting-started-with-cms-2011-open-data), reading the primary dataset and producing intermediate derived data for the final analysis
+    * A downloadable [Virtual Machine (VM)](/docs/cms-virtual-machine-2011) image with the CMS software environment through which the datasets can be accessed
+    * An [analysis example chain](/docs/cms-getting-started-2011), reading the primary dataset and producing intermediate derived data for the final analysis
     * Ready-to-use online applications, such as [an event display](/visualise/events/cms) and [simple histogramming software](/visualise/histograms/cms)
     * Source code for the various examples and applications, available in the [CMS software](/search?page=1&size=20&q=&type=Software&experiment=CMS) collection
 

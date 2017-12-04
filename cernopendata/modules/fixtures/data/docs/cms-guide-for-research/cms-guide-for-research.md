@@ -1,9 +1,9 @@
 If you are interested in step-by-step instructions to start working with CMS Open Data, please consult these pages:
 
-* [Install Virtual Machine](/docs/cms-2011-virtual-machines-how-to-install)
-* [Get started with CMS Open Data](/docs/getting-started-with-cms-2011-open-data)
+* [Install Virtual Machine](/docs/cms-virtual-machine-2011)
+* [Get started with CMS Open Data](/docs/cms-getting-started-2011)
 
-However, if you are interested in finding hints, tips and guidance for conducting a research-oriented analysis using CMS Open Data, please see our notes on this page. Note that possible solutions to frequently encountered issues can be found on [our page of known errors](/docs/cms-guide-to-troubleshooting).
+However, if you are interested in finding hints, tips and guidance for conducting a research-oriented analysis using CMS Open Data, please see our notes on this page. Note that possible solutions to frequently encountered issues can be found on [our page of known errors](/docs/cms-guide-troubleshooting).
 
 ---
 
@@ -11,7 +11,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 
 > "I want to get a general introduction into HEP and CMS software and terminology, with a simplified event format."
 
-- Read the instructions related to [educational content](/docs/cms-guide-to-education-use-of-cms-open-data) and follow the corresponding exercises.
+- Read the instructions related to [educational content](/docs/cms-guide-for-education) and follow the corresponding exercises.
 
 <center>–––</center>
 
@@ -47,7 +47,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 > "I want to install the CMS software environment needed for access to and analysis of CMS Research level data."
 
 - Install the appropriate virtual machine, [2010 VM](/record/250) for 2010 data, and [2011 VM](/record/252) for 2011/2012 data.
-- Go to ["Getting started with CMS 2010 open data"](/docs/getting-started-with-cms-2010-open-data) for 2010 or ["Getting started with CMS 2011 open data"](/docs/getting-started-with-cms-2011-open-data) for 2011/2012 data.
+- Go to ["Getting started with CMS 2010 open data"](/docs/cms-getting-started-2010) for 2010 or ["Getting started with CMS 2011 open data"](/docs/cms-getting-started-2011) for 2011/2012 data.
 
 **Note**: The 2010 (SL5) virtual machine will only work on 2010 data with CMSSW 4-2-8 (and other SLC5-based CMSSW releases). The 2011 (SL6) virtual machine will only work on 2011/2012 data and MC with CMSSW 5-3-32 (and other SLC6-based CMSSW releases).
 
@@ -57,7 +57,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 
 - Install the CMS software as in the previous item (for 2010 or 2011).
 
-- Follow options A (inclusive di-muon spectrum analysis example directly from AOD) or B (two-/four-lepton analysis example with intermediate ntuples) in ["Getting started with CMS 2010 open data"](/docs/getting-started-with-cms-2010-open-data) or ["Getting started with CMS 2011 open data"](/docs/getting-started-with-cms-2011-open-data). 
+- Follow options A (inclusive di-muon spectrum analysis example directly from AOD) or B (two-/four-lepton analysis example with intermediate ntuples) in ["Getting started with CMS 2010 open data"](/docs/cms-getting-started-2010) or ["Getting started with CMS 2011 open data"](/docs/cms-getting-started-2011). 
 
 ---
 
@@ -97,7 +97,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 > "I want to find out which 2011 data and MC sets exist, and how to get a feel for their content."
 
 - Go to [2011 CMS primary datasets](/search?page=1&size=20&q=&subtype=Collision&experiment=CMS&year=2011) or [2011 CMS simulated datasets](/search?page=1&size=20&q=&subtype=Simulated&experiment=CMS&year=2011),
-- choose a dataset, read the comments, and read also about [simulated dataset names](/docs/cms-simulated-dataset-names) FIXME link
+- choose a dataset, read the comments, and read also about [simulated dataset names](/docs/cms-dataset-names).
 
 
 <center>–––</center>
@@ -130,7 +130,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 
 > "I want to find out how to use the trigger and trigger prescale information in the dataset I am interested in."
 
-- Go to [the guide to CMS trigger system](/docs/guide-to-the-cms-trigger-system).
+- Go to [the guide to CMS trigger system](/docs/cms-guide-trigger-system).
 
 <center>–––</center>
 
@@ -145,7 +145,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 
 - Condition data are needed only on sophisticated examples using e.g. jet energy corrections (many of the simpler analysis/validation examples documented here do not use this).
 - Using condition data significantly slows down data access, so use them only if really needed. If so:
-    - see the instructions to Option B in ["Getting started with CMS 2011 open data"](/docs/getting-started-with-cms-2011-open-data)
+    - see the instructions to Option B in ["Getting started with CMS 2011 open data"](/docs/cms-getting-started-2011)
 - This information is still very basic and will be improved.
 
 <center>–––</center>
@@ -209,7 +209,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 
 > "How do I interpret the MC set names?"
 
-- Check [CMS Simulated Dataset Names](/docs/cms-simulated-dataset-names) FIXME link.
+- Check [CMS Simulated Dataset Names](/docs/cms-dataset-names).
 
 <center>–––</center>
 
