@@ -26,14 +26,55 @@
 
 from __future__ import absolute_import, print_function
 
+import re
+
 from flask.ext.mistune import Mistune
 
 import mistune
+from mistune_contrib.math import MathBlockMixin
+from mistune_contrib.math import MathInlineMixin
+from mistune_contrib.math import MathRendererMixin
 
 from pygments.formatters.html import HtmlFormatter
 from pygments.lexers import get_lexer_by_name
 from pygments import highlight
 import pygments.util
+
+
+class MathBlockLexer(MathBlockMixin, mistune.BlockLexer):
+    r"""Custom Mistune lexer that adds support for TeX block notation.
+
+    Custom Mistune lexer that passes TeX block notation (`$$ ... $$` and
+    `\begin ... \end`) unaltered.
+    Intended to be used with browser side rendering library,
+    e.g. MathJax.js
+
+    From:
+    - mistune-contrib.math.py
+    """
+
+    def __init__(self, *args, **kwargs):
+        """Constructor."""
+        super(MathBlockLexer, self).__init__(*args, **kwargs)
+        self.enable_math()
+
+
+class MathInlineLexer(mistune.InlineLexer, MathInlineMixin):
+    r"""Custom Mistune lexer that adds support for TeX inline notation.
+
+    Custom Mistune lexer that passes TeX inline notation
+    (`$ ... $`) unaltered.
+    Intended to be used with browser side rendering library,
+    e.g. MathJax.js
+
+    From:
+    - mistune-contrib.math.py
+    """
+
+    def __init__(self, *args, **kwargs):
+        """Constructor."""
+        super(MathInlineLexer, self).__init__(*args, **kwargs)
+        self.enable_math()
 
 
 class CodeHtmlFormatter(HtmlFormatter):
@@ -45,7 +86,7 @@ class CodeHtmlFormatter(HtmlFormatter):
     """
 
     def __init__(self, lang=False, **options):
-        """."""
+        """Constructor."""
         self.lang = lang
         super(CodeHtmlFormatter, self).__init__(**options)
 
@@ -55,21 +96,21 @@ class CodeHtmlFormatter(HtmlFormatter):
 
     def _wrap_code(self, source):
         if self.lang:
-            yield 0, '<div class="highlight"><pre><code class="lang-{}">'.\
+            yield 0, '<div class="highlight"><pre><code class="lang-{}">'. \
                 format(self.lang)
         else:
             yield 0, '<div class="highlight"><pre><code>'
         for i, t in source:
-
             yield i, t
         yield 0, '</code></pre></div>'
 
 
 class CodeRenderer(mistune.Renderer):
-    """Renderer to support standard pygments-themes (adds highlight-class).
+    """Renderer for standard pygments-themes (adds highlight-class).
 
-    Based on https://github.com/asottile/markdown-code-blocks and on
-    https://github.com/lepture/mistune-contrib/blob/master/mistune_contrib/highlight.py
+    Based on
+      - https://github.com/asottile/markdown-code-blocks
+      - mistune-contrib.highlight.py
     """
 
     def block_code(self,
@@ -78,7 +119,7 @@ class CodeRenderer(mistune.Renderer):
                    code_tag=True,
                    inlinestyles=False,
                    linenos=False):
-        """.
+        """Render code block.
 
         :param code_tag: If True html will contain <code>-tag.
         :param inlinestyles: If True html contains inline styles.
@@ -104,12 +145,37 @@ class CernopendataMistune(object):
     """CernopendataMistune. Wrapper for Flask-Mistune extension.
 
     Needed in order to properly add Flask-Mistune to Flask application
-    created in Invenio-style (using entrypoints).
+    created in Invenio-style (using setup.py entrypoints).
+
+    Supports syntax pygments-style highlighting of code-blocks
+
+    Supports math in TeX-syntax(`$$ ... $$`, `\begin ... \end`, `$ ... $`)
+    but only passes TeX-syntax unaltered, i.e. doesn't convert to html at all.
+
+    Requires TeX-content to be rendered e.g. in client-side using MathJax.js
+    with tex2jax.
+
+    Example of suitable MathJax config:
+        ```
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+            tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+              processEscapes: true
+            },
+            "HTML-CSS": { availableFonts: ["TeX"] }
+          });
+        </script>
+        ```
     """
 
     def __init__(self, app=None):
         """Extension initialization."""
         if app:
+            self.mistune = None
             self.init_app(app)
 
     def init_app(self, app):
@@ -120,17 +186,35 @@ class CernopendataMistune(object):
             raise RuntimeError("Flask application already initialized")
         app.extensions['cod-mistune'] = self
 
-        # Initialize Flask-Mistune extension.
         # TODO: Define and add config entries to app.config.
         # TODO: Init according options in app.config.
 
         # Mistune with only HTML5 <code>-tag highlighting.
         # Support for language specific highlight styles, with
-        # <code class="lang-XXX">.
+        # `<code class="lang-XXX">`.
         # mistune = Mistune(app, escape=False, hard_wrap=True)
 
         # Mistune with HTML5 <code>-tag highlight wrapped inside
-        # Pygments style <div class="highlight"><pre> highlight
-        # Provides support for Pygments and language specific highlight styles
-        mistune = Mistune(app,
-                          renderer=CodeRenderer(escape=False, hard_wrap=True))
+        # Pygments style `<div class="highlight"><pre>` highlight.
+        # Provides support for Pygments and language specific highlight styles.
+        # mistune = Mistune(app,
+        #                   renderer=CodeRenderer(escape=False, hard_wrap=True)
+        #                   )
+
+        # TeX-notation aware Mistune with HTML5 <code>-tag highlight wrapped
+        # inside Pygments style `<div class="highlight"><pre>` highlight.
+        # Provides support for Pygments and language specific highlight styles.
+        # Provides support for math content in TeX-notation.
+
+        # Mistune encourages to use mixins to provide new functionality
+        class MathRenderer(MathRendererMixin, CodeRenderer):
+            pass
+
+        self.mistune = Mistune(app,
+                               renderer=MathRenderer(
+                                   escape=False, hard_wrap=True),
+                               inline=MathInlineLexer(renderer=MathRenderer(
+                                   escape=False, hard_wrap=True)),
+                               block=MathBlockLexer(renderer=MathRenderer(
+                                   escape=False, hard_wrap=True))
+                               )

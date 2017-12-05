@@ -106,6 +106,9 @@ set -o errexit
 # install XRootD:
 pip install git+https://github.com/xrootd/xrootd-python.git@v0.3.0#egg=pyxrootd
 
+# install latest version of mistune-contrib:
+pip install git+https://github.com/lepture/mistune-contrib.git#egg=mistune-contrib
+
 # FIXME using personal forks until upstream PRs are issued and merged:
 pip install git+https://github.com/pamfilos/invenio-files-rest.git@eos-storage#egg=invenio-files-rest
 pip install git+https://github.com/pamfilos/invenio-xrootd.git@eos-storage#egg=invenio-xrootd
