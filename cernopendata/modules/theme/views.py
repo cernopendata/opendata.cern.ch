@@ -54,5 +54,6 @@ def get_record_title(recid):
 def get_first_file(file_list):
     """Fetches first file from a list."""
     l = [f.get('key') for f in file_list
-         if f.get('key').endswith('.ig')]
-    return l[0]
+         if f.get('key', '').endswith('.ig')]
+    if l:
+        return l[0]
