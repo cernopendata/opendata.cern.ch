@@ -14,7 +14,11 @@ $iconic-font-path: "/static/node_modules/open-iconic/font/fonts/";
 
 $dark_blue: #2c3e50;
 $medium_blue: #2c3e50;
-$light_blue: #3b94cf;
+$light_blue: #3b97d3;
+$orange: #e57e25;
+$loading-color: $light-blue;
+$loading-width: 3px;
+$loading-size: 30px;
 
 @import "frontpage";
 
@@ -484,5 +488,20 @@ invenio-search-facets {
 
 .list-nobullets {
     list-style: none;
-    padding-left: 30px;
+    padding-left: $loading-size;
 }
+
+#loading-bar .bar{ 
+    background-color: $loading-color; 
+    height: $loading-width;
+}
+
+#loading-bar-spinner .spinner-icon {
+    width: $loading-size;
+    height: $loading-size;
+    border: solid $loading-width transparent;
+    border-top-color:  $loading-color;
+    border-left-color: $loading-color;
+    border-radius: $loading-size;
+}
+

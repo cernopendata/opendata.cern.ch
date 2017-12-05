@@ -11,10 +11,12 @@
     angular.element(document).ready(function() {
       angular.bootstrap(
         document.getElementById("invenio-search"), [
-           'invenioSearch'
+           'invenioSearch',
+           'angular-loading-bar'
         ]
       );
     });
+
     angular.module('invenioSearch').filter('unsafe', ['$sce', function($sce) {
       return function(input) {
         return $sce.trustAsHtml(input + '...');
