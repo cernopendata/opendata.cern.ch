@@ -2,84 +2,84 @@
 {
   "abstract": {
     "description": "Software to produce the intermediate data files, derived from the primary datasets, for a simple analysis on Z decays to two leptons and ZZ decays to four leptons, of CMS open data. "
-  }, 
-  "accelerator": "CERN-LHC", 
+  },
+  "accelerator": "CERN-LHC",
   "authors": [
     {
       "name": "Rodriguez Marrero, Ana"
-    }, 
+    },
     {
       "name": "Lassila-Perini, Kati"
     }
-  ], 
+  ],
   "collections": [
     "CMS-Tools"
-  ], 
-  "date_created": "2011", 
-  "date_published": "2016", 
+  ],
+  "date_created": "2011",
+  "date_published": "2016",
   "distribution": {
     "number_files": 1
-  }, 
-  "doi": "10.7483/OPENDATA.CMS.ETJK.JKMB", 
-  "experiment": "CMS", 
+  },
+  "doi": "10.7483/OPENDATA.CMS.ETJK.JKMB",
+  "experiment": "CMS",
   "license": {
     "attribution": "GNU General Public License (GPL) version 3"
-  }, 
+  },
   "methodology": {
     "description": "The software produces the physics object in PAT candidate format. Only muon and electron PAT candidate collections are stored. No further selection, apart from accepting only the validated runs, is applied."
-  }, 
+  },
   "note": {
     "description": "Only muon and electron collections are kept. This processing step is time-consuming."
-  }, 
-  "publisher": "CERN Open Data Portal", 
-  "recid": "233", 
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "233",
   "relations": [
     {
-      "description": "The files created are:", 
-      "recid": "230", 
+      "description": "The files created are:",
+      "recid": "230",
       "type": "isRelatedTo"
-    }, 
+    },
     {
-      "description": "The files created are:", 
-      "recid": "231", 
+      "description": "",
+      "recid": "231",
       "type": "isRelatedTo"
     }
-  ], 
-  "run_period": "Run2011A", 
+  ],
+  "run_period": "Run2011A",
   "system_details": {
-    "description": "Use this code with the CMS Open Data VM environment for 2011 open data", 
-    "recid": "252", 
+    "description": "Use this code with the CMS Open Data VM environment for 2011 open data",
+    "recid": "252",
     "release": "CMSSW_5_3_32"
-  }, 
-  "title": "Software to preprocess the CMS 2011 DoubleMu and DoubleElectron datasets for the two-lepton/four-lepton analysis example of CMS open data.", 
+  },
+  "title": "Software to preprocess the CMS 2011 DoubleMu and DoubleElectron datasets for the two-lepton/four-lepton analysis example of CMS open data.",
   "type": {
-    "primary": "Software", 
+    "primary": "Software",
     "secondary": [
       "Tool"
     ]
-  }, 
+  },
   "usage": {
-    "description": "See the run instructions in", 
+    "description": "See the run instructions in",
     "links": [
       {
-        "description": "GitHub", 
+        "description": "GitHub",
         "url": "https://github.com/cms-opendata-analyses/pattuples2011"
       }
     ]
-  }, 
+  },
   "use_with": {
-    "description": "Use this with the following datasets:", 
+    "description": "Use this with the following datasets:",
     "links": [
       {
         "recid": "16"
-      }, 
+      },
       {
         "recid": "17"
       }
     ]
-  }, 
+  },
   "validation": {
-    "description": "Only the list of validated runs for primary datasets of 2011 are accepted:", 
+    "description": "Only the list of validated runs for primary datasets of 2011 are accepted:",
     "links": [
       {
         "recid": "1001"
@@ -91,77 +91,78 @@
 {
   "abstract": {
     "description": "Example code for a simple analysis on Z decays to two leptons and ZZ decays to four leptons, of CMS open data."
-  }, 
-  "accelerator": "CERN-LHC", 
+  },
+  "accelerator": "CERN-LHC",
   "authors": [
     {
       "name": "Rodriguez Marrero, Ana"
-    }, 
+    },
     {
       "name": "Lassila-Perini, Kati"
     }
-  ], 
+  ],
   "collections": [
     "CMS-Tools"
-  ], 
-  "date_created": "2011", 
-  "date_published": "2016", 
+
+  ],
+  "date_created": "2011",
+  "date_published": "2016",
   "distribution": {
     "number_files": 1
-  }, 
-  "doi": "10.7483/OPENDATA.CMS.3E87.48PZ", 
-  "experiment": "CMS", 
+  },
+  "doi": "10.7483/OPENDATA.CMS.3E87.48PZ",
+  "experiment": "CMS",
   "license": {
     "attribution": "GNU General Public License (GPL) version 3"
-  }, 
+  },
   "links": [
     {
       "url": "https://github.com/katilp/OutreachExercise2011"
     }
-  ], 
+  ],
   "methodology": {
     "description": " <p> The event selection is the same as the one used in <a href=\"/record/101\">2010 example</a>:\n      <ol class=\"text\"><li>In the Z analysis at least two leptons with opposite charge, with invariant mass \u201dmll\u201d between 12 GeV and 120 GeV are required. The pair with the invariant mass closest to the Z boson mass is selected as the Z candidate.</li>\n      <li>In the ZZ analysis two Z candidates are required, and for both candidates, two leptons with opposite charge are required. The first Z candidate is required to have higher lepton momentum: 20 GeV for the first lepton and 10 GeV for the second lepton. The invariant mass is required to be in the range 40 GeV to 120 GeV. The second candidate is required to have an invariant mass higher then 4 GeV. The first candidate is the one with the invariant mass closest to the Z boson mass.</li></ol></p>\n      <p>Selection criteria for electron candidates:\n      <ul class=\"text\"><li>pT > 7 GeV and |\u03b7| &lt; 2.5;</li>\n      <li>Distance between the electron z-vertex and the interaction z-vertex &lt; 0.2 cm;</li>\n      <li>Transverse impact parameter w.r.t. the beam spot &lt; 0.04 cm;</li>\n      <li>Symmetrised impact parameter w.r.t. the beam sport &lt; 4 cm;</li>\n      <li>Photon conversion rejection: number of lost hits in the tracker &lt; 1;</li>\n      <li>Electron identification: eIDLoose;</li>\n      <li>Electron Isolation depends on the \u03b7 region, regions with <i>1.44 &lt; \u03b7 0.09; electron.dr03EcalRecHitSumEt()/electron.pt() &gt; 0.07; and electron.dr03HcalTowerSumEt()/electron.pt() > 0.10.</i> If <i>\u03b7 &gt; 1.57: electron.dr03TkSumPt()/electron.pt() &gt; 0.04; electron.dr03EcalRecHitSumEt()/electron.pt() &gt; 0.05; and electron.dr03HcalTowerSumEt()/electron.pt() &gt; 0.025.</i> Each component is computed from Isodeposits in a cone of 0.3 around the electron direction.</li></ul></p>\n      <p>Selection criteria for muon candidates:\n      <ul class=\"text\">\n      <li>pT &gt; 5 GeV and |\u03b7| &lt; 2.4;</li>\n      <li>Distance between the muon z-vertex and the interaction z-vertex &lt; 0.2 cm;</li>\n      <li>Is a GlobalMuon and TrackerMuon;</li>\n      <li>Number of valid hits in the inner tracker &gt; 10;</li>\n      <li>\u03c72 /ndo f &lt; 10 for the global muon fit;</li>\n      <li>Transverse impact parameter w.r.t. the beam spot &lt; 0.02 cm;</li>\n      <li>Symmetrised impact parameter w.r.t. the beam sport &lt; 4 cm;</li>\n      <li>Relative Muon Isolation (RMI) &lt; 0.15, with RMI = (ChargedHadronIso + NeutralHadronIso + PhotonIso)/pT(\u00b5)</li></ul>\n      <br/>Each component is computed from Isodeposits in a cone of 0.3 around the muon direction. </p> "
-  }, 
+  },
   "note": {
     "description": "Running the job over all preprocessed datasets may take several hours."
-  }, 
-  "publisher": "CERN Open Data Portal", 
-  "recid": "234", 
-  "run_period": "Run2011A", 
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "234",
+  "run_period": "Run2011A",
   "system_details": {
-    "description": "Use this code with the CMS Open Data VM environment for 2011 open data", 
-    "recid": "252", 
+    "description": "Use this code with the CMS Open Data VM environment for 2011 open data",
+    "recid": "252",
     "release": "CMSSW_5_3_32"
-  }, 
-  "title": "Two-lepton/four-lepton analysis example of CMS 2011 open data", 
+  },
+  "title": "Two-lepton/four-lepton analysis example of CMS 2011 open data",
   "type": {
-    "primary": "Software", 
+    "primary": "Software",
     "secondary": [
       "Analysis"
     ]
-  }, 
+  },
   "usage": {
-    "description": "See the run instructions in", 
+    "description": "See the run instructions in",
     "links": [
       {
-        "description": "GitHub", 
+        "description": "GitHub",
         "url": "https://github.com/katilp/OutreachExercise2011/blob/master/README.md"
       }
     ]
-  }, 
+  },
   "use_with": {
-    "description": "Use this with the following datasets:", 
+    "description": "Use this with the following datasets:",
     "links": [
       {
         "recid": "230"
-      }, 
+      },
       {
         "recid": "231"
       }
     ]
-  }, 
+  },
   "validation": {
-    "description": "The input files contain only the validated runs for primary datasets of 2011. For user validation of the analysis step, compare the result to the expected output file.", 
+    "description": "The input files contain only the validated runs for primary datasets of 2011. For user validation of the analysis step, compare the result to the expected output file.",
     "links": [
       {
         "recid": "1001"
