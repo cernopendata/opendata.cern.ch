@@ -98,6 +98,7 @@ install_requires = [
     'mistune>=0.7.4',
     'py-gfm>=0.1.3',
     'pymdown-extensions>=3.5',
+    'python-markdown-math>=0.3',
     'python-slugify>=1.2.4',
     'xrootdpyfs>=0.1.4',
 ]
@@ -148,7 +149,13 @@ setup(
             ':ispy_css',
         ],
         'invenio_base.apps': [
-            'cernopendata_xrootd = cernopendata.modules.xrootd:CODPXRootD'
+            'cernopendata_xrootd = cernopendata.modules.xrootd:CODPXRootD',
+            # cod_md and cod_mistune are just wrappers to init the actual
+            # markdown flask-extensions properly.
+            'cod_md = '
+            'cernopendata.modules.markdown.ext:CernopendataMarkdown',
+            # 'cod_mistune = '
+            # 'cernopendata.modules.mistune.ext:CernopendataMistune',
         ],
         'invenio_base.api_apps': [
             'cernopendata_xrootd = cernopendata.modules.xrootd:CODPXRootD'
@@ -159,12 +166,6 @@ setup(
             'cernopendata.modules.pages.views:blueprint',
             'cernopendata_theme = '
             'cernopendata.modules.theme.views:blueprint',
-        ],
-        'invenio_base.apps': [  # Wrappers for init of certain extensions.
-            # 'cod_md = '
-            # 'cernopendata.modules.markdown.ext:CernopendataMarkdown',
-            'cod_mistune = '
-            'cernopendata.modules.mistune.ext:CernopendataMistune',
         ],
         'invenio_config.module': [
             'cernopendata = cernopendata.config',

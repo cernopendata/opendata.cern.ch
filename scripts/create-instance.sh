@@ -106,7 +106,7 @@ set -o errexit
 # install XRootD:
 pip install git+https://github.com/xrootd/xrootd-python.git@v0.3.0#egg=pyxrootd
 
-# install latest version of mistune-contrib:
+# install latest version of mistune-contrib: (needed for Mistune Markdown parser)
 pip install git+https://github.com/lepture/mistune-contrib.git#egg=mistune-contrib
 
 # FIXME using personal forks until upstream PRs are issued and merged:

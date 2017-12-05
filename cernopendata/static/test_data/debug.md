@@ -11,6 +11,16 @@
 
 <br>
 
+
+r"Euler's identity, $e^{i\pi}* = -1$, is widely considered the most beautiful theorem in mathematics."
+
+r"Euler's identity, $$e^{i\pi}* = -1$$, is widely considered the most beautiful theorem in mathematics."
+
+r"Euler's identity, \begin{equation*}e^{i\pi}* = -1\end{equation*}, is widely considered the most beautiful theorem in mathematics."
+
+r"Euler's identity, \[e^{i\pi}* = -1\], is widely considered the most beautiful theorem in mathematics."
+
+
 # <div id="what"> Introduction to “physics objects” </div>
 
 Particle colliders are the most powerful tools we have to study the building blocks of our Universe and the laws governing them. Gigantic detectors, such as CMS, act as cameras that take "photographs" of the particle collisions, allowing us to test our understanding of Nature.

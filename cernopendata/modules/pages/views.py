@@ -94,15 +94,20 @@ def md_debug():
     and just refresh the view.
     I.e. there is no need to re-populate db every time a change is made.
 
+    If DEBUG is not set this will redirect to homepage.
+
     Command `cernopendata collect -v` has to be run everytime
     there is a change in static resources.
 
     """
-    f = open('cernopendata/static/test_data/debug.md', 'r')
-    # return render_template_string(
-    #     u"{{ text|markdown }}", text=f.read().decode("utf-8"))
-    return render_template('cernopendata_pages/md_template.html',
-                           content=f.read().decode("utf-8"))
+    if current_app.config.get('DEBUG'):
+        f = open('cernopendata/static/test_data/debug.md', 'r')
+        # return render_template_string(
+        #     u"{{ text|markdown }}", text=f.read().decode("utf-8"))
+        return render_template('cernopendata_pages/md_template.html',
+                               content=f.read().decode("utf-8"))
+    else:
+        return redirect('/')
 
 
 @blueprint.route('/visualise/events')

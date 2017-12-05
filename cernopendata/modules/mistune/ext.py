@@ -142,7 +142,7 @@ class CodeRenderer(mistune.Renderer):
 
 
 class CernopendataMistune(object):
-    """CernopendataMistune. Wrapper for Flask-Mistune extension.
+    r"""CernopendataMistune. Wrapper for Flask-Mistune extension.
 
     Needed in order to properly add Flask-Mistune to Flask application
     created in Invenio-style (using setup.py entrypoints).

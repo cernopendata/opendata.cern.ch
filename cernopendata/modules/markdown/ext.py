@@ -28,21 +28,53 @@ from __future__ import absolute_import, print_function
 
 from flaskext.markdown import Markdown
 
-from mdx_gfm import GithubFlavoredMarkdownExtension
-
-from pymdownx.github import GithubExtension
-
 
 class CernopendataMarkdown(object):
-    """CernopendataMarkdown. Wrapper for Flask-Markdown extension.
+    r"""CernopendataMarkdown. Wrapper for Flask-Markdown extension.
 
     Needed in order to add Flask-Markdown to Flask application
     created in Invenio-style (using entrypoints).
+
+    ### GitHub Flavored Markdown.
+    Supports GitHub Flavored Markdown with PyMdown Extensions
+    (https://facelessuser.github.io/pymdown-extensions/)
+
+    ### TeX-support
+    Supports math in TeX-syntax by utilizing python-markdown-math
+    (https://github.com/mitya57/python-markdown-math)
+
+    Produces TeX-syntax inside html script tags:
+    ```
+      '$$e^x$$'
+        --> '<p>\n<script type="math/tex; mode=display">e^x</script>\n</p>'
+    ```
+
+    Supports at least following syntaxes:
+    ```
+      '$e^{i\pi}* = -1$'
+      '$$e^{i\pi}* = -1$$'
+      '\begin{equation*}e^{i\pi}* = -1\end{equation*}'
+      '\[e^{i\pi}* = -1\]'
+    ```
+
+    Requires TeX-content to be rendered e.g. in client-side using MathJax.js.
+
+    Example of suitable MathJax config:
+        ```
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          config: ["MMLorHTML.js"],
+          jax: ["input/TeX", "output/HTML-CSS", "output/NativeMML"],
+          extensions: ["MathMenu.js", "MathZoom.js"]
+        });
+        </script>
+        ```
     """
 
     def __init__(self, app=None):
         """Extension initialization."""
         if app:
+            self.md = None
             self.init_app(app)
 
     def init_app(self, app):
@@ -54,16 +86,39 @@ class CernopendataMarkdown(object):
             raise RuntimeError("Flask application already initialized")
         app.extensions['cod-markdown'] = self
 
-        # Initialize Flask-Markdown extension
-        md = Markdown(app)
-
-        # Register Flask-Markdown extensions
         # TODO: Define and add config entries to app.config.
         # TODO: Init according options in app.config.
 
-        # https://github.com/Zopieux/py-gfm
-        # md.register_extension(GithubFlavoredMarkdownExtension)
+        # Extension for Python-Markdown
+        pymd_extensions = []
 
-        # Alternative GFM extension:
+        # GitHub Flavored Markdown -support.
         # http://facelessuser.github.io/pymdown-extensions/extensions/github/
-        md.register_extension(GithubExtension)
+        # Alternative GFM extension:
+        # https://github.com/Zopieux/py-gfm
+        pymd_extensions.append('pymdownx.github')
+
+        # TeX-syntax math notation support.
+        pymd_extensions.append('mdx_math')
+
+        # Configuration for extensions.
+        # For config format see:
+        # https://pythonhosted.org/Markdown/reference.html#extension_configs
+        pymd_extension_configs = {
+            'pymdownx.github': {
+                'pymdownx.tilde': {
+                    'subscript': True
+                }
+            },
+            'mdx_math': {
+                'enable_dollar_delimiter': 'True',
+                # 'add_preview': 'False',
+            }
+        }
+
+        # Initialize Flask-Markdown Flask-extension
+        # Pass list of Python-Markdown extensions and extension's config
+        self.md = Markdown(app,
+                           extensions=pymd_extensions,
+                           extension_configs=pymd_extension_configs,
+                           )
