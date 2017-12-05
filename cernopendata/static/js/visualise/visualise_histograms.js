@@ -5,21 +5,51 @@ $(function () {
     {
       id: "dimuon0",
       name: "dimuon events with invariant mass between 2-110 GeV",
-      file: "/static/test_data/murun2010b_0.csv",
+      file: "/record/700/files/MuRun2010B_0.csv",
       type: "two_lepton"
     },
     {
       id: "Jpismumu",
       name: "dimuon events with invariant mass between 2-5 GeV",
-      file: "/static/test_data/dimuon-jpsi.csv",
+      file: "/record/301/files/dimuon-Jpsi.csv",
       type: "two_lepton"
     },
-//     {id:"Jpsiee",name:"dielectron events with invariant mass between 2-5 GeV",file:"/record/302/files/dielectron-Jpsi.csv",type:"two_lepton"},
-//     {id:"Yee",name:"dielectron events with invariant mass between 8-12 GeV",file:"/record/305/files/dielectron-Upsilon.csv",type:"two_lepton"},
-//     {id:"Zee",name:"dielectron events around the Z boson mass",file:"/record/306/files/Zee.csv",type:"two_lepton"},
-//     {id:"Zmumu",name:"dimuon events around the Z boson mass",file:"/record/307/files/Zmumu.csv",type:"two_lepton"},
-//     {id:"Wenu",name:"W bosons decaying to an electron and a neutrino",file:"/record/308/files/Wenu.csv",type:"lepton_neutrino"},
-//     {id:"Wmuu",name:"W bosons decaying to a muon and a neutrino",file:"/record/309/files/Wmunu.csv",type:"lepton_neutrino"}
+    {
+      id: "Jpsiee",
+      name: "dielectron events with invariant mass between 2-5 GeV",
+      file: "/record/302/files/dielectron-Jpsi.csv",
+      type: "two_lepton"
+    },
+    {
+      id: "Yee",
+      name: "dielectron events with invariant mass between 8-12 GeV",
+      file: "/record/305/files/dielectron-Upsilon.csv",
+      type: "two_lepton"
+    },
+    {
+      id: "Zee",
+      name: "dielectron events around the Z boson mass",
+      file: "/record/306/files/Zee.csv",
+      type: "two_lepton"
+    },
+    {
+      id: "Zmumu",
+      name: "dimuon events around the Z boson mass",
+      file: "/record/307/files/Zmumu.csv",
+      type: "two_lepton"
+    },
+    {
+      id: "Wenu",
+      name: "W bosons decaying to an electron and a neutrino",
+      file: "/record/308/files/Wenu.csv",
+      type: "lepton_neutrino"
+    },
+    {
+      id: "Wmuu",
+      name: "W bosons decaying to a muon and a neutrino",
+      file: "/record/309/files/Wmunu.csv",
+      type: "lepton_neutrino"
+    }
   ];
 
   // We know the names of the parameters that we have produced in the csv files.
