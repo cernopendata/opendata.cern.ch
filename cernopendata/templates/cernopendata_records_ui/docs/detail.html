@@ -10,6 +10,9 @@
             <h3 class="d-inline">
               {{record.title}}
             </h3>
+            {% if record.get('created') %}
+            <small>{{record.get('created')}}</small>
+            {% endif %}
             {% if record.get("author", None) %}
             <div class="row">
               <div class="col-md-12">
@@ -20,12 +23,12 @@
             <div class="row">
               <div class="col-md-12">
                 {% if record.type %}
-                  <a class="badge badge-success" href="/search?type={{record.type.primary}}">{{record.type.primary}}</a>
-                  {% if record.type.secondary %}
-                  {% for type in record.type.secondary%}
-                    <a class="badge badge-success" href="/search?type={{record.type.primary}}&subtype={{type}}">{{type}}</a>
-                  {% endfor %}
-                  {% endif %}
+                <a class="badge badge-success" href="/search?type={{record.type.primary}}">{{record.type.primary}}</a>
+                {% if record.type.secondary %}
+                {% for type in record.type.secondary%}
+                <a class="badge badge-success" href="/search?type={{record.type.primary}}&subtype={{type}}">{{type}}</a>
+                {% endfor %}
+                {% endif %}
                 {% endif %}
               </div>
             </div>
