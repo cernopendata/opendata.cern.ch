@@ -3,12 +3,8 @@
 <nav class="navbar navbar-expand-lg navbar-custom">
   <a class="navbar-brand" href="{{url_for('cernopendata_pages.index')}}"><img
     src="{{url_for('static', filename='assets/img/logo_blue.png')}}" width="115" alt=""></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="oi" data-glyph="menu" style="color:white;"></span>
-  </button>
 
-
+  {% block search_bar %}
   <form {% if request.endpoint=='cernopendata_pages.index' %} id="main-search" {% endif %}
   class="form-inline my-2 my-lg-0" action="{{config.THEME_SEARCH_ENDPOINT}}">
   <div class="input-group w-100">
@@ -20,28 +16,28 @@
      </span>
   </div>
   </form>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <img id="demo-logo" src="{{url_for('static', filename='img/demo.png')}}" alt=""
-         style="position:absolute;left:40%;top:0;width:200px;">
+  {% endblock search_bar %}
 
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-          About <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu about-menu">
-          <li><a class="dropdown-item" href="/docs/about">This Portal</a></li>
-          <li><a class="dropdown-item" href="/docs/alice-about">ALICE Open Data</a></li>
-          <li><a class="dropdown-item" href="/docs/atlas-about">ATLAS Open Data</a></li>
-          <li><a class="dropdown-item" href="/docs/cms-about">CMS Open Data</a></li>
-          <li><a class="dropdown-item" href="/docs/lhcb-about">LHCb Open Data</a></li>
-          <li><a class="dropdown-item" href="/docs/opera-about">OPERA Open Data</a></li>
-          <li><a class="dropdown-item" href="/glossary">Glossary</a></li>
-          <li><a class="dropdown-item" href="/privacy-policy">Privacy</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
+  <img id="demo-logo" src="{{url_for('static', filename='img/demo.png')}}" alt=""
+       style="position:absolute;left:40%;top:0;width:200px;">
+
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+        About <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right about-menu">
+        <li><a class="dropdown-item" href="/docs/about">This Portal</a></li>
+        <li><a class="dropdown-item" href="/docs/alice-about">ALICE Open Data</a></li>
+        <li><a class="dropdown-item" href="/docs/atlas-about">ATLAS Open Data</a></li>
+        <li><a class="dropdown-item" href="/docs/cms-about">CMS Open Data</a></li>
+        <li><a class="dropdown-item" href="/docs/lhcb-about">LHCb Open Data</a></li>
+        <li><a class="dropdown-item" href="/docs/opera-about">OPERA Open Data</a></li>
+        <li><a class="dropdown-item" href="/glossary">Glossary</a></li>
+        <li><a class="dropdown-item" href="/privacy-policy">Privacy</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 
 {%- endblock navbar %}
