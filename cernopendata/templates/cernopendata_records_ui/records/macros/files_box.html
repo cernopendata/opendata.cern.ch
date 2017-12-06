@@ -15,11 +15,11 @@
           <th>Filename</th>
           <th>Size</th>
           <th>Download</th>
-          <th>Preview</th>
+          <th ng-if="$ctrlTbl.checkExtension($ctrlTbl.files) !== 0">Preview</th>
         </tr>
       </thead>
       <tbody>
-        <tr id="" ng-repeat="file in $ctrlTbl.files">
+        <tr id="" ng-repeat="file in $ctrlTbl.files" ng-init="previewable = (file.key.split('.').pop() == 'ig')">
           <td>{{ file.key }}</td>
           <td>{{ file.size | bytes }}</td>
   {% endraw %}
@@ -27,11 +27,10 @@
             {{ download_btn() }}
   {% raw %}
           </td>
-          <td ng-init="previewable = (file.key.split('.').pop() == 'ig')">
+          <td ng-if="previewable">
             <a href="#previewer">
-              <span ng-if="previewable" class="oi" data-glyph="eye" ng-click="$ctrlTbl.previewFile(file.key)"></span>
+              <span class="oi" data-glyph="eye" ng-click="$ctrlTbl.previewFile(file.key)"></span>
             </a>
-            <span ng-if="!previewable" class="oi" data-glyph="minus"></span>
           </td>
         </tr>
       </tbody>
