@@ -1,13 +1,13 @@
 {%- block css %}
+<link rel="stylesheet" href="/static/node_modules/ispy-webgl/css/font-awesome.min.css">
+{% assets "ispy_css" %}
+<link href="{{ ASSET_URL }}" rel="stylesheet">{% endassets %}
 {%- assets "cernopendata_general_css" %}
 <link href="{{ ASSET_URL }}" rel="stylesheet">
 {%- endassets %}
 {%- assets "cernopendata_theme_css" %}
 <link href="{{ ASSET_URL }}" rel="stylesheet">
 {%- endassets %}
-<link rel="stylesheet" href="/static/node_modules/ispy-webgl/css/font-awesome.min.css">
-{% assets "ispy_css" %}
-<link href="{{ ASSET_URL }}" rel="stylesheet">{% endassets %}
 {% endblock %}
 
 {%- block javascript %}

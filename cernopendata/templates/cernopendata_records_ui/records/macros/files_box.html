@@ -14,24 +14,27 @@
         <tr>
           <th>Filename</th>
           <th>Size</th>
-          <th>Download</th>
-          <th>Preview</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <tr id="" ng-repeat="file in $ctrlTbl.files">
           <td>{{ file.key }}</td>
           <td>{{ file.size | bytes }}</td>
-  {% endraw %}
-          <td ng-init="download_uri = '/record/{{pid.pid_value}}/files/'+file.key">
-            {{ download_btn() }}
-  {% raw %}
-          </td>
-          <td ng-init="previewable = (file.key.split('.').pop() == 'ig')">
-            <a href="#previewer">
-              <span ng-if="previewable" class="oi" data-glyph="eye" ng-click="$ctrlTbl.previewFile(file.key)"></span>
-            </a>
-            <span ng-if="!previewable" class="oi" data-glyph="minus"></span>
+          <td class="row justify-content-end">
+
+            {% endraw %}
+            <div class="btn-group" role="group" aria-label="Button group" ng-init="download_uri = '/record/{{pid.pid_value}}/files/'+file.key">
+              {{ download_btn() }}
+            {% raw %}
+              <a
+                ng-if="previewable = (file.key.split('.').pop() == 'ig')"
+                ng-href="#previewer"
+                ng-click="$ctrlTbl.previewFile(file.key)"
+                class="btn btn-outline-primary">
+                  <span class="oi" data-glyph="eye"></span> Preview
+              </a>
+            </div>
           </td>
         </tr>
       </tbody>
@@ -53,16 +56,17 @@
 
 {% macro download_btn() %}
   {% raw %}
-  <a ng-if="file.size <= 1073741824" href="{{download_uri}}">
-    <span class="oi" data-glyph="data-transfer-download"></span>
+  <a class="btn btn-primary" ng-if="file.size <= 1073741824" href="{{download_uri}}">
+    <span class="oi" data-glyph="data-transfer-download"></span> Download
   </a>
   <a
     ng-controller="downloadModalCtrl as $ctrl"
     ng-if="file.size  > 1073741824"
     ng-click="$ctrl.openModal(file, download_uri)"
     href="#"
+    class="btn btn-primary"
     >
-    <span class="oi" data-glyph="data-transfer-download"></span>
+    <span class="oi" data-glyph="data-transfer-download"></span> Download
   </a>
   {% endraw %}
 {% endmacro %}

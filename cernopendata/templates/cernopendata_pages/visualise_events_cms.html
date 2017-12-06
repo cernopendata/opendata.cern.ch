@@ -1,10 +1,10 @@
 {%- extends config.BASE_TEMPLATE %}
 
 {%- block css %}
-{{super()}}
 <link rel="stylesheet" href="/static/node_modules/ispy-webgl/css/font-awesome.min.css">
 {% assets "ispy_css" %}
 <link href="{{ ASSET_URL }}" rel="stylesheet">{% endassets %}
+{{super()}}
 {% endblock %}
 
 {%- block javascript %}
