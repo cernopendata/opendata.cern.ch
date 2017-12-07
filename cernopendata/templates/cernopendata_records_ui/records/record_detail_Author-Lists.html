@@ -16,7 +16,7 @@
               {{record.title}}
               {% endif %}
               {% if record.date_published %}
-              <small id="date-published" style="color:grey;">{{record.date_published}}</small>
+              <small id="date-published">{{record.date_published}}</small>
               {% endif %}
             </h3>
             {% if record.title_additional %}
@@ -101,7 +101,7 @@
                 {% if record.title %}
                 <div class="row">
                   <div class="col-md-12">
-                    <h3>Description</h3>
+                    <h3 class="detail_view_h3">Description</h3>
                     <p>{{record.title | safe}}</p>
                   </div>
                 </div>

@@ -1,7 +1,7 @@
 {% macro files_box() %}
     <div ng-repeat="(k, fg) in $ctrl.files">
-      <h4 ng-if="k == 'index'">File Indexes</h4>
-      <h4 ng-if="k != 'index'">Files</h4>
+      <h3 class="detail_view_h3" ng-if="k == 'index'">File Indexes</h3>
+      <h3 class="detail_view_h3" ng-if="k != 'index'">Files</h3>
       {{files_table()}}
     </div>
 {% endmacro %}

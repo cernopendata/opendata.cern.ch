@@ -17,7 +17,8 @@
               {% endif %}
             </h3>
             {% if record.title_additional %}
-            <br/><span>{{record.title}}</span>
+            <p>
+            <span>({{record.title}})</span>
             {% endif %}
             {% if record.authors %}
             <br/>
@@ -28,6 +29,7 @@
             {% if record.collaboration %}
             <span class="badge badge-success">{{record.collaboration.name}}</span>
             {% endif %}
+            </p>
             <p></p>
             {% if record.doi %}
             <h6 class="card-title">
@@ -104,55 +106,66 @@
               {{ super() }}
 
               {% if 'ig' in record.get('distribution', {}).get('formats', []) %}
-              <h3 id="previewer">Preview</h3>
+              <!--<hr>-->
+              <h3 class="detail_view_h3" id="previewer">Preview</h3>
               {%include "cernopendata_pages/visualise_events_cms_standalone.html"%}
               {% endif %}
 
               {% if record.use_with %}
-              <h3>Use with</h3>
+              <!--<hr>-->
+              <h3 class="detail_view_h3">Use with</h3>
               <p>{{record.use_with.description | safe}}</p>
               {{ link_list(record.use_with.links) }}
               {% endif %}
 
               {% if record.note %}
-              {% if record.type.primary == 'Dataset' or record.type.primary == 'Software' %}
-              <h3>Notes</h3>
-              {% else %}
-              <h3>Issues & Limitations</h3>
-              {% endif %}
-              <p>{{record.note.description | safe}}</p>
-              {{ link_list(record.note.links) }}
+              <!--<hr>-->
+              <div class="row">
+                <div class="col-md-12">
+                  {% if record.type.primary == 'Dataset' or record.type.primary == 'Software' %}
+                  <h3 class="detail_view_h3">Notes</h3>
+                  {% else %}
+                  <h3 class="detail_view_h3">Issues & Limitations</h3>
+                  {% endif %}
+                  <p>{{record.note.description | safe}}</p>
+                  {{ link_list(record.note.links) }}
+                </div>
+              </div>
               {% endif %}
 
               {% if record.relations %}
+              <!--<hr>-->
               <div class="row">
                 <div class="col-md-12">
                   {% if record.type.primary == 'Software' %}
-                  <h3>Related items</h3>
+                  <h3 class="detail_view_h3">Related items</h3>
                   {% else %}
-                  <h3>Related Datasets</h3>
+                  <h3 class="detail_view_h3">Related Datasets</h3>
                   {% endif %}
                   {% for relation in record.relations %}
                     {% if relation.description %}
                       {{relation.description}}
                     {% endif %}
                     {% if relation.recid %}
+                    <p>
                       <a href="/record/{{relation.recid}}">{{relation.recid |
                         get_record_title}}</a>
+                    </p>
                     {% else %}
-                      {{relation.title}}
+                    <p>{{relation.title}}</p>
                     {% endif %}
-                  <br>
+                  <!--<br>-->
                   {% endfor %}
                 </div>
               </div>
               {% endif %}
 
               {% if record.distribution %}
+              <!--<hr>-->
               {% if record.distribution.number_events or record.distribution.number_files or record.distribution.size %}
               <div class="row">
                 <div class="col-md-12">
-                  <h3>Characteristics</h3>
+                  <h3 class="detail_view_h3">Characteristics</h3>
                   <label>Dataset:</label>
                   {% if record.distribution.number_events %}
                   <span><strong>{{record.distribution.number_events}}</strong> events</span>
@@ -169,9 +182,10 @@
               {% endif %}
 
               {% if record.system_details %}
+              <!--<hr>-->
               <div class="row">
                 <div class="col-md-12">
-                  <h3>System Details</h3>
+                  <h3 class="detail_view_h3">System Details</h3>
                   {% if record.system_details.description %}
                   <span>{{record.system_details.description}}</span>
                   {% endif %}
@@ -199,9 +213,10 @@
               {% endif %}
 
               {% if record.dataset_semantics %}
+              <!--<hr>-->
               <div class="row">
                 <div class="col-md-12">
-                  <h3>Dataset Semantics</h3>
+                  <h3 class="detail_view_h3">Dataset Semantics</h3>
                   <p>
                     {% for semantic in record.dataset_semantics %}
                     <strong>{{semantic.variable}}:</strong>
@@ -213,21 +228,23 @@
               {% endif %}
 
               {% if record.links %}
+              <!--<hr>-->
               <div class="row">
                 <div class="col-md-12">
-                  <h3>URLs</h3>
+                  <h3 class="detail_view_h3">URLs</h3>
                   {{ link_list(record.links) }}
                 </div>
               </div>
               {% endif %}
 
               {% if record.methodology %}
+              <!--<hr>-->
               <div class="row">
                 <div class="col-md-12">
                   {% if record.type.primary == 'Software' %}
-                  <h3>Data Selection</h3>
+                  <h3 class="detail_view_h3">Data Selection</h3>
                   {% else %}
-                  <h3>How were these data selected?</h3>
+                  <h3 class="detail_view_h3">How were these data selected?</h3>
                   {% endif %}
                   <p>{{ record.methodology.description | safe}}</p>
                   {{ link_list(record.methodology.links) }}
@@ -236,9 +253,10 @@
               {% endif %}
 
               {% if record.generation %}
+              <!--<hr>-->
               <div class="row">
                 <div class="col-md-12">
-                  <h3>How were these data selected?</h3>
+                  <h3 class="detail_view_h3">How were these data selected?</h3>
                   <p>{{record.generation.description}}</p>
                   {% for step in record.generation.steps %}
                   <label>{{step.type}}</label>
@@ -255,12 +273,13 @@
               {% endif %}
 
               {% if record.validation %}
+              <!--<hr>-->
               <div class="row">
                 <div class="col-md-12">
                   {% if record.type.primary == 'Software' %}
-                  <h3>Validation</h3>
+                  <h3 class="detail_view_h3">Validation</h3>
                   {% else %}
-                  <h3>How were these data validated?</h3>
+                  <h3 class="detail_view_h3">How were these data validated?</h3>
                   {% endif %}
                   <p>{{record.validation.description | safe}}</p>
                   {{ link_list(record.validation.links) }}
@@ -269,15 +288,16 @@
               {% endif %}
 
               {% if record.usage %}
+              <!--<hr>-->
               <div class="row">
                 <div class="col-md-12">
                   {% if record.type.primary == 'Software' %}
-                  <h3>How can you use this?</h3>
+                  <h3 class="detail_view_h3">How can you use this?</h3>
                   {% else %}
-                  <h3>How can you use these data?</h3>
+                  <h3 class="detail_view_h3">How can you use these data?</h3>
                   {% endif %}
                   <p>{{record.usage.description | safe}}</p>
-                  {{ link_list(record.usage.links) }}
+                  <p>{{ link_list(record.usage.links) }}</p>
                 </div>
               </div>
               {% endif %}

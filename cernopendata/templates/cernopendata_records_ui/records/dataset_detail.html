@@ -19,7 +19,7 @@
               {% if record.relations %}
               <div class="row">
                 <div class="col-md-12">
-                  <h3>Related Datasets</h3>
+                  <h3 class="detail_view_h3">Related Datasets</h3>
                   {% for relation in record.relations %}
                   <p>{{relation.description}} <br><a href="/datasets/{{relation.recid}}">{{relation.recid}}</a></p>
                   {% endfor %}
@@ -29,7 +29,7 @@
               {% if record.distribution %}
               <div class="row">
                 <div class="col-md-12">
-                  <h3>Characteristics</h3>
+                  <h3 class="detail_view_h3">Characteristics</h3>
                   <label>Dataset:</label>
                   <span><strong>{{record.distribution.number_events}}</strong> events</span>
                   <span><strong>{{record.distribution.number_files}}</strong> files</span>
@@ -40,7 +40,7 @@
               {% if record.system_details %}
               <div class="row">
                 <div class="col-md-12">
-                  <h3>System Details</h3>
+                  <h3 class="detail_view_h3">System Details</h3>
                   <label>Global tag:</label>
                   <span>{{record.system_details.global_tag}}</span>
                   <br>
@@ -56,7 +56,7 @@
               {% if record.dataset_semantics %}
               <div class="row">
                 <div class="col-md-12">
-                  <h3>Dataset Semantics</h3>
+                  <h3 class="detail_view_h3">Dataset Semantics</h3>
                   {% for semantic in record.dataset_semantics %}
                   <label>{{semantic.variable}}:</label>
                   <span>{{semantic.description}}</span><br>
@@ -68,7 +68,7 @@
               {% if record.selection %}
               <div class="row">
                 <div class="col-md-12">
-                  <h3>How were these data selected</h3>
+                  <h3 class="detail_view_h3">How were these data selected</h3>
                   <p>{{ record.selection.description }}</p>
                 </div>
               </div>
@@ -77,7 +77,7 @@
               {% if record.generation %}
               <div class="row">
                 <div class="col-md-12">
-                  <h3>How were these data selected?</h3>
+                  <h3 class="detail_view_h3">How were these data selected?</h3>
                   <p>{{record.generation.description}}</p>
                   {% for step in record.generation.steps %}
                   <label>{{step.type}}</label>
@@ -95,7 +95,7 @@
               {% if record.validation %}
               <div class="row">
                 <div class="col-md-12">
-                  <h3>How were these data validated?</h3>
+                  <h3 class="detail_view_h3">How were these data validated?</h3>
                   <p>{{record.validation.description}}</p>
                   {{ link_list(record.validation.links) }}
                 </div>
@@ -104,7 +104,7 @@
               {% if record.usage %}
               <div class="row">
                 <div class="col-md-12">
-                  <h3>How can you use these data?</h3>
+                  <h3 class="detail_view_h3">How can you use these data?</h3>
                   <p>{{record.usage.description}}</p>
                   {{ link_list(record.usage.links) }}
                 </div>
@@ -113,7 +113,7 @@
               {% if record.note %}
               <div class="row">
                 <div class="col-md-12">
-                  <h3>Issues & Limitations</h3>
+                  <h3 class="detail_view_h3">Issues & Limitations</h3>
                   <p>{{record.note.description}}</p>
                   {{ link_list(record.note.links) }}
                 </div>

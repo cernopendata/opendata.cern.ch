@@ -14,7 +14,7 @@
             {% block heading %}
             <h3 class="d-inline">
               {{record.title}}
-              <small>{{record.date_published}}</small>
+              <small id="date-published">{{record.date_published}}</small>
             </h3>
             <div class="row">
               {% if record.title_additional %}
@@ -72,7 +72,7 @@
               {% if record.abstract %}
               <div class="row">
                 <div class="col-md-12">
-                  <h3>Description</h3>
+                  <h3 class="detail_view_h3">Description</h3>
                   <p>{{record.abstract.description | safe}}</p>
                   {{ link_list(record.abstract.links) }}
                 </div>
@@ -90,7 +90,7 @@
               {% block disclaimer %}
               <div class="row">
                 <div class="col-md-12">
-                  <h3>Disclaimer</h3>
+                  <h3 class="detail_view_h3">Disclaimer</h3>
                   {% if record.license %}
                   {% if record.license.attribution != 'CC0'%}
                   <p>{{record.license.attribution}}</p>

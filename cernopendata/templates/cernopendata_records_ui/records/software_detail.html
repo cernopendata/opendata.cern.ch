@@ -48,20 +48,20 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-md-12">
-                  <h3>Description</h3>
+                  <h3 class="detail_view_h3">Description</h3>
                   <p>{{record.abstract | safe}}</p>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <h3>Use with..</h3>
+                  <h3 class="detail_view_h3">Use with..</h3>
                   <p>{{record.use_with.description | safe }}</p>
                   {{ link_list(record.use_with.links) }}
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <h3>System Details</h3>
+                  <h3 class="detail_view_h3">System Details</h3>
                   <p>{{record.system_details.description}}</p>
                   <p><strong>Software release:</strong> {{record.system_details.release}}</p>
                   <p><a href="/record/{{record.system_details.recid}}">Record {{record.system_details.recid}}</a></p>
@@ -69,7 +69,7 @@
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <h3>Related Items</h3>
+                  <h3 class="detail_view_h3">Related Items</h3>
                   {% for note in record.note %}
                   <li><p>{{note.description}}</p></li>
                   {% endfor %}
@@ -78,20 +78,20 @@
               {% block files_block %} {{ files_box(record, 'softid') }}{% endblock files_block %}
               <div class="row">
                 <div class="col-md-12">
-                  <h3>How were these data validated?</h3>
+                  <h3 class="detail_view_h3">How were these data validated?</h3>
                   <p>{{record.validation.description | safe }}</p>
                   {{ link_list(record.validation.links) }}
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <h3>How can you use these data?</h3>
+                  <h3 class="detail_view_h3">How can you use these data?</h3>
                   <p>{{record.usage.description | safe }}</p>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <h3>Disclaimer</h3>
+                  <h3 class="detail_view_h3">Disclaimer</h3>
                   <p>{{record.license.attribution}}</p>
                   <img src="{{url_for('static', filename='img/cc-zero.svg')}}">
                 </div>
