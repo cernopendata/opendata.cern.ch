@@ -55,10 +55,8 @@ def get_jsons_from_dir(dir):
     return res
 
 
-def create_record(schema, data, files, skip_files):
-    """Creates a new record."""
-    bucket = Bucket.create()
-
+def handle_record_files(data, bucket, files, skip_files):
+    """Handles record files."""
     for file in files:
         if skip_files:
             break
@@ -91,23 +89,44 @@ def create_record(schema, data, files, skip_files):
                                  str(e)))
             continue
 
+
+def create_record(schema, data, files, skip_files):
+    """Creates a new record."""
     id = uuid.uuid4()
     cernopendata_recid_minter(id, data)
     data['$schema'] = schema
     record = Record.create(data, id_=id)
-
-    RecordsBuckets.create(
-        record=record.model, bucket=bucket)
+    if not skip_files:
+        bucket = Bucket.create()
+        handle_record_files(data, bucket, files, skip_files)
+        RecordsBuckets.create(
+            record=record.model, bucket=bucket)
 
     return record
 
 
-def update_record(pid, schema, data):
+def update_record(pid, schema, data, files, skip_files):
     """Updates the given record."""
     record = Record.get_record(pid.object_uuid)
-    record['$schema'] = schema
+    with db.session.begin_nested():
+        if record.files and not skip_files:
+            bucket_id = record.files.bucket
+            bucket = Bucket.get(bucket_id.id)
+            for o in ObjectVersion.get_by_bucket(bucket).all():
+                o.remove()
+                o.file.delete()
+            RecordsBuckets.query.filter_by(
+                record=record.model,
+                bucket=bucket
+            ).delete()
+            bucket_id.remove()
+    db.session.commit()
     record.update(data)
-    record.commit()
+    if not skip_files:
+        bucket = Bucket.create()
+        handle_record_files(data, bucket, files, skip_files)
+        RecordsBuckets.create(
+            record=record.model, bucket=bucket)
     return record
 
 
@@ -169,7 +188,8 @@ def records(skip_files, files, profile, mode):
                     try:
                         pid = PersistentIdentifier.get('recid', data['recid'])
                         if pid:
-                            record = update_record(pid, schema, data)
+                            record = update_record(
+                                pid, schema, data, files, skip_files)
                             action = 'updated'
                     except PIDDoesNotExistError:
                         record = create_record(schema, data, files, skip_files)
@@ -195,8 +215,10 @@ def records(skip_files, files, profile, mode):
                             'cannot replace it.'.format(
                                 data.get('recid')), err=True)
                         return
-                    record = update_record(pid, schema, data)
+                    record = update_record(
+                        pid, schema, data, files, skip_files)
                     action = 'updated'
+                record.commit()
                 db.session.commit()
                 click.echo(
                     'Record recid {0} {1}.'.format(
