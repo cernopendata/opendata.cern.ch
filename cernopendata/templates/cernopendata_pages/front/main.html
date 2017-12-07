@@ -1,17 +1,17 @@
 <div class="homepage-section main section align-items-center" data-anchor="main">
 
-    <div class="container container-main ">
-        <div class="main-inner">
+
+        <div class="main-inner container container-main">
             <div class="cod-banner row">
                 <h2>
                     <span>Explore more than <span><strong>1 petabyte</strong></span> <br>
-                    <span class="scnd-line">of open particle physics data !</span></span>
+                    <span class="scnd-line">of open data from particle physics!</span></span>
                 </h2>
             </div>
 
             <div class="cod-search row">
                 <form class="search-form container" action="{{config.THEME_SEARCH_ENDPOINT}}" role="search">
-                    <input autofocus type="text" class="form-control search" name="q" placeholder="{{_('Search')}}">
+                    <input autofocus type="text" class="form-control search" name="q" placeholder="{{_('Start typing...')}}">
                     <div class="">
                         <button type="submit" class="">Search</button>
                         <div id="cod-home-image">
@@ -48,13 +48,10 @@
                     </ul>
                 </div>
             </div>
-
-
-        </div>
-            <div class="cod-scroll row justify-content-center">
+            <div class="cod-scroll row justify-content-center align-self-end">
                 <div class="icon justify-content-center align-items-center">
                     <a href="#lva"><img src="{{url_for('static', filename='assets/img/mouse-scrolling.png')}}" alt=""></a>
                 </div>
             </div>
-    </div>
+        </div>
 </div>

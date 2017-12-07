@@ -6,7 +6,40 @@
         <div class="row justify-content-space-between">
             {% for article in featured_articles %}
             {% set article = article._source %}
-            <div class="col-sm col-md-4">
+            <div class="col-sm-6 col-md-4">
+                <div class="news-card container-fluid">
+                    <div class="card-body">
+                        <p class="row date-author-small">
+                            {{ article.created or '-' }} by
+                            {{ article.author or 'Open Data Portal team'}}
+                        </p>
+                        <div class="row">
+                            <h4>
+                                <a href="/docs/{{article.control_number}}">{{article.title}}</a>
+                            </h4>
+                        </div>
+                        <div class="tags-box row align-self-end">
+                            <a href="/search?type={{article.type.primary}}" class="badge  badge-success custom-badge-success">
+                                {{article.type.primary }}
+                            </a>
+                            {% if article.type.secondary %}
+                                {% for subtype in article.type.secondary %}
+                                    <a href="/search?subtype={{subtype}}" class="badge  badge-info">{{ subtype }}</a>
+                                {% endfor %}
+                            {% endif %}
+                            {% for tag in article.tags %}
+                                <a href="/search?tags={{tag}}" class="badge badge-secondary">{{ tag }}</a>
+                            {% endfor %}
+                            {% if article.experiment %}
+                            <a href="/search?experiment={{article.experiment}}" class="badge badge-warning custom-badge-warning">
+                                {{ article.experiment }}
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
                 <div class="news-card container-fluid">
                     <div class="card-body">
                         <p class="row date-author-small">
