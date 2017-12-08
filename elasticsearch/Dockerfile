@@ -22,8 +22,24 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
-# Use Elasticsearch 2.
-FROM elasticsearch:2
+# By default use Elasticsearch 2.
+ARG ES_VERSION=2
+
+# Select base image based on ES_VERSION BUILD ARGUMENT
+# ('--build-arg', not '-e')
+FROM elasticsearch:$ES_VERSION
+
+# Because of Docker's multi-staged build ARGs defined before FROM will be
+# in some sense "flushed" to empty or default values, so ARG ES_VERSION
+# needs to be set again. (for info see https://github.com/docker/cli/pull/333)
+
+ARG ES_VERSION=2
+
+# Build arguments are not available in shell started with RUN.
+# We need to set it to ENV_VAR.
+ENV ES_VERSION=${ES_VERSION:-2}
+
 COPY scripts/provision-elasticsearch.sh /tmp/
+
 # Install Elasticsarch plugins:
 RUN /tmp/provision-elasticsearch.sh

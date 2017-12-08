@@ -30,6 +30,12 @@ sudo: false
 
 language: python
 
+env:
+  # Latest available version of Docker-Compose at the time of commit.
+  # To download latest available version, one needs to do some (JSON) parsing
+  # as Github doesn't provide an easy way to download the latest release.
+  - DOCKER_COMPOSE_VERSION=1.17.1
+
 matrix:
   fast_finish: true
 
@@ -47,12 +53,20 @@ addons:
     packages:
     - nodejs
     - jq
+    - docker-ce # Use latest available Docker-CE from official repo
 
 before_install:
+  # Docker-Compose update
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
   - npm install -g jsonlint
   - ./run-tests.sh --check-fixtures-only
 
 install:
+  - "docker version"
+  - "docker-compose version"
   - "docker-compose build"
 
 script:
