@@ -101,6 +101,7 @@ install_requires = [
     'python-markdown-math>=0.3',
     'python-slugify>=1.2.4',
     'uWSGI>=2.0.15',
+    'uwsgitop>=0.10',
     'xrootdpyfs>=0.1.4',
 ]
 

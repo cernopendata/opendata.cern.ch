@@ -71,5 +71,17 @@ RUN adduser --uid 1000 invenio --gid 0 && \
 USER 1000
 ENTRYPOINT [ "/code/scripts/docker-entrypoint.sh" ]
 
+ARG UWSGI_WSGI_MODULE=cernopendata.wsgi:application
+ENV UWSGI_WSGI_MODULE ${UWSGI_WSGI_MODULE}
+
+ARG UWSGI_PORT=5000
+ENV UWSGI_PORT ${UWSGI_PORT}
+
+ARG UWSGI_PROCESSES=2
+ENV UWSGI_PROCESSES ${UWSGI_PROCESSES}
+
+ARG UWSGI_THREADS=2
+ENV UWSGI_THREADS ${UWSGI_THREADS}
+
 # Start the CERN Open Data Portal application:
-CMD ["cernopendata", "run", "-h" ,"0.0.0.0"]
+CMD uwsgi --module ${UWSGI_WSGI_MODULE} --http-socket 0.0.0.0:${UWSGI_PORT} --master --processes ${UWSGI_PROCESSES} --threads ${UWSGI_THREADS} --stats /tmp/stats.socket
