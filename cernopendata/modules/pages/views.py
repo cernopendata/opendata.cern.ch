@@ -191,7 +191,7 @@ def about():
 @blueprint.route('/about/<exp>')
 def about_exp(exp):
     """Render about <experiment> pages."""
-    return redirect('/docs/{}-about'.format(exp))
+    return redirect('/docs/about-{}'.format(exp))
 
 
 @blueprint.route('/about/cms-pileup-simulation')
@@ -238,17 +238,15 @@ def cms_physics_objects_redirect(year='2011'):
 
 
 @blueprint.route('/terms-of-use')
-@register_breadcrumb(blueprint, '.terms', _('Terms of Use'))
 def terms():
     """Render terms of use."""
-    return render_template('cernopendata_pages/terms_of_use.html')
+    return redirect('docs/terms_of_use')
 
 
 @blueprint.route('/privacy-policy')
-@register_breadcrumb(blueprint, '.about.privacy', _('Privacy Policy'))
 def privacy():
     """Render privacy policy."""
-    return render_template('cernopendata_pages/privacy_policy.html')
+    return redirect('/docs/privacy-policy')
 
 
 @blueprint.route('/glossary')
