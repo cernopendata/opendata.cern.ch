@@ -25,7 +25,7 @@
 web:
   restart: "always"
   build: .
-  command: "cernopendata run -h 0.0.0.0"
+  command: "uwsgi /code/cernopendata/uwsgi.ini"
   environment:
     - PATH=/home/invenio/.virtualenvs/cernopendata/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
     - VIRTUALENVWRAPPER_PYTHON=/usr/bin/python

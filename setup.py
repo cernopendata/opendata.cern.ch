@@ -100,6 +100,7 @@ install_requires = [
     'pymdown-extensions>=3.5',
     'python-markdown-math>=0.3',
     'python-slugify>=1.2.4',
+    'uWSGI>=2.0.15',
     'xrootdpyfs>=0.1.4',
 ]
 
