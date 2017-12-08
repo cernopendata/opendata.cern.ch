@@ -22,116 +22,122 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
-web:
-  restart: "always"
-  build: .
-  command: "cernopendata run -h 0.0.0.0"
-  environment:
-    - PATH=/home/invenio/.virtualenvs/cernopendata/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-    - VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-    - APP_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://cernopendata:dbpass123@postgresql:5432/cernopendata
-    - APP_CACHE_REDIS_HOST=redis
-    - APP_CACHE_REDIS_URL=redis://redis:6379/0
-    - APP_ACCOUNTS_SESSION_REDIS_URL=redis://redis:6379/1
-    - APP_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 3
-    - APP_CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 4
-    - APP_CELERY_RESULT_BACKEND=redis://redis:6379/2
-    - APP_SEARCH_ELASTIC_HOSTS=elasticsearch
-    - APP_PIDSTORE_DATACITE_TESTMODE=False
-    - APP_PIDSTORE_DATACITE_DOI_PREFIX=10.5072
-    - APP_PIDSTORE_DATACITE_USERNAME=CERN.OPENDATA
-    - APP_PIDSTORE_DATACITE_PASSWORD=CHANGE_ME
-    - APP_PIDSTORE_LANDING_BASE_URL=http://opendata.cern.ch/record/
-    - APP_FILES_REST_FILE_URI_MAX_LEN=512  # Allow URI's longer than 255 chars.
-  volumes:
-    - ../devmodules:/devmodules
-    - ./cernopendata:/code/cernopendata
-    - ./scripts:/code/scripts
-  volumes_from:
-    - static
-  links:
-    - postgresql
-    - redis
-    - elasticsearch
-    - rabbitmq
-  ports:
-    - "5000:5000"
+version: "2"
 
-worker:
-  build: .
-  restart: "always"
-  command: "celery worker -A cernopendata.celery --loglevel=INFO"
-  environment:
-    - PATH=/home/invenio/.virtualenvs/cernopendata/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-    - VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-    - APP_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://cernopendata:dbpass123@postgresql:5432/cernopendata
-    - APP_CACHE_REDIS_HOST=redis
-    - APP_CACHE_REDIS_URL=redis://redis:6379/0
-    - APP_ACCOUNTS_SESSION_REDIS_URL=redis://redis:6379/1
-    - APP_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 3
-    - APP_CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 4
-    - APP_CELERY_RESULT_BACKEND=redis://redis:6379/2
-    - APP_SEARCH_ELASTIC_HOSTS=elasticsearch
-  volumes:
-    - ../devmodules:/devmodules
-    - ./cernopendata:/code/cernopendata
-    - ./scripts:/code/scripts
-  volumes_from:
-    - static
-  links:
-    - postgresql
-    - redis
-    - elasticsearch
-    - rabbitmq
+services:
 
-postgresql:
-  restart: "always"
-  image: postgres
-  environment:
-    - POSTGRES_USER=cernopendata
-    - POSTGRES_DB=cernopendata
-    - POSTGRES_PASSWORD=dbpass123
-  ports:
-    - "5432"
+  web:
+    restart: "always"
+    build: .
+    command: "cernopendata run -h 0.0.0.0"
+    environment:
+      - PATH=/home/invenio/.virtualenvs/cernopendata/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+      - APP_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://cernopendata:dbpass123@postgresql:5432/cernopendata
+      - APP_CACHE_REDIS_HOST=redis
+      - APP_CACHE_REDIS_URL=redis://redis:6379/0
+      - APP_ACCOUNTS_SESSION_REDIS_URL=redis://redis:6379/1
+      - APP_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 3
+      - APP_CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 4
+      - APP_CELERY_RESULT_BACKEND=redis://redis:6379/2
+      - APP_SEARCH_ELASTIC_HOSTS=elasticsearch
+      - APP_PIDSTORE_DATACITE_TESTMODE=False
+      - APP_PIDSTORE_DATACITE_DOI_PREFIX=10.5072
+      - APP_PIDSTORE_DATACITE_USERNAME=CERN.OPENDATA
+      - APP_PIDSTORE_DATACITE_PASSWORD=CHANGE_ME
+      - APP_PIDSTORE_LANDING_BASE_URL=http://opendata.cern.ch/record/
+      - APP_FILES_REST_FILE_URI_MAX_LEN=512  # Allow URI's longer than 255 chars.
+    volumes:
+      - "./cernopendata:/code/cernopendata"
+      - "./scripts:/code/scripts"
+    volumes_from:
+      - static
+    links:
+      - postgresql
+      - redis
+      - elasticsearch
+      - rabbitmq
+    ports:
+      - "5000:5000"
 
-redis:
-  restart: "always"
-  image: redis
-  ports:
-    - "6379"
+  worker:
+    build: .
+    restart: "always"
+    command: "celery worker -A cernopendata.celery --loglevel=INFO"
+    environment:
+      - PATH=/home/invenio/.virtualenvs/cernopendata/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+      - APP_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://cernopendata:dbpass123@postgresql:5432/cernopendata
+      - APP_CACHE_REDIS_HOST=redis
+      - APP_CACHE_REDIS_URL=redis://redis:6379/0
+      - APP_ACCOUNTS_SESSION_REDIS_URL=redis://redis:6379/1
+      - APP_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 3
+      - APP_CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 4
+      - APP_CELERY_RESULT_BACKEND=redis://redis:6379/2
+      - APP_SEARCH_ELASTIC_HOSTS=elasticsearch
+    volumes:
+      - "./cernopendata:/code/cernopendata"
+      - "./scripts:/code/scripts"
+    volumes_from:
+      - static
+    links:
+      - postgresql
+      - redis
+      - elasticsearch
+      - rabbitmq
 
-elasticsearch:
-  restart: "always"
-  build: .
-  dockerfile: ./elasticsearch/Dockerfile
-  ports:
-    - "9200:9200"
-    - "9300:9300"
+  postgresql:
+    restart: "always"
+    image: postgres
+    environment:
+      - POSTGRES_USER=cernopendata
+      - POSTGRES_DB=cernopendata
+      - POSTGRES_PASSWORD=dbpass123
+    ports:
+      - "5432"
 
-rabbitmq:
-  restart: "always"
-  image: rabbitmq
-  ports:
-    - "4369"
-    - "5672"
+  redis:
+    restart: "always"
+    image: redis
+    ports:
+      - "6379"
 
-nginx:
-  restart: "always"
-  build: ./nginx
-  ports:
-    - "80:80"
-  volumes:
-    - ../devmodules:/devmodules
-    - ./cernopendata:/code/cernopendata
-    - ./scripts:/code/scripts
-  volumes_from:
-    - static
-  links:
-    - web
+  elasticsearch:
+    restart: "always"
+    build:
+      context: .
+      dockerfile: ./elasticsearch/Dockerfile
+      args:
+        - ES_VERSION=2
+    ports:
+      - "9200:9200"
+      - "9300:9300"
 
-static:
-  restart: "no"
-  build: .
-  volumes:
-    - /usr/local/var/cernopendata/var/cernopendata-instance/static
-  user: invenio
+  rabbitmq:
+    restart: "always"
+    image: rabbitmq
+    ports:
+      - "4369"
+      - "5672"
+
+  nginx:
+    restart: "always"
+    build: ./nginx
+    ports:
+      - "80:80"
+    volumes:
+      - "./cernopendata:/code/cernopendata"
+      - "./scripts:/code/scripts"
+    depends_on:
+     - static
+    volumes_from:
+      - static
+    links:
+      - web
+
+  static:
+    restart: "no"
+    build: .
+    volumes:
+      - /usr/local/var/cernopendata/var/cernopendata-instance/static
+    user: invenio

@@ -129,7 +129,15 @@ enabled=1" | \
 
 install_plugins () {
     # sphinxdoc-install-elasticsearch-plugins-begin
-    $sudo /usr/share/elasticsearch/bin/plugin install -b mapper-attachments
+    if [ "$ES_VERSION" = "2" ]; then
+        $sudo /usr/share/elasticsearch/bin/plugin install -b mapper-attachments
+    else
+        # FIXME: mapper-attachments -plugin is deprecated in ES5.
+        #        Replaced by ingest-attachment -plugin which probably isn't
+        #        API compatible with mapper-attachments.
+        # $sudo /usr/share/elasticsearch/bin/elasticsearch-plugin install -b ingest-attachment
+        $sudo /usr/share/elasticsearch/bin/elasticsearch-plugin install -b mapper-attachments
+    fi
     # sphinxdoc-install-elasticsearch-plugins-end
 }
 
