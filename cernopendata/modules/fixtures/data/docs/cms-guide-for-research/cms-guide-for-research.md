@@ -57,7 +57,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 
 - Install the CMS software as in the previous item (for 2010 or 2011).
 
-- Follow options A (inclusive di-muon spectrum analysis example directly from AOD) or B (two-/four-lepton analysis example with intermediate ntuples) in ["Getting started with CMS 2010 open data"](/docs/cms-getting-started-2010) or ["Getting started with CMS 2011 open data"](/docs/cms-getting-started-2011). 
+- Follow options A (inclusive di-muon spectrum analysis example directly from AOD) or B (two-/four-lepton analysis example with intermediate ntuples) in ["Getting started with CMS 2010 open data"](/docs/cms-getting-started-2010) or ["Getting started with CMS 2011 open data"](/docs/cms-getting-started-2011).
 
 ---
 
@@ -98,7 +98,6 @@ However, if you are interested in finding hints, tips and guidance for conductin
 
 - Go to [2011 CMS primary datasets](/search?page=1&size=20&q=&subtype=Collision&experiment=CMS&year=2011) or [2011 CMS simulated datasets](/search?page=1&size=20&q=&subtype=Simulated&experiment=CMS&year=2011),
 - choose a dataset, read the comments, and read also about [simulated dataset names](/docs/cms-simulated-dataset-names).
-
 
 <center>–––</center>
 
@@ -143,10 +142,9 @@ However, if you are interested in finding hints, tips and guidance for conductin
 
 > "I want to find out whether I need condition data base information, and if so, how to access it."
 
-- Condition data are needed only on sophisticated examples using e.g. jet energy corrections (many of the simpler analysis/validation examples documented here do not use this).
-- Using condition data significantly slows down data access, so use them only if really needed. If so:
-    - see the instructions to Option B in ["Getting started with CMS 2011 open data"](/docs/cms-getting-started-2011)
-- This information is still very basic and will be improved.
+- Condition data are needed on examples using e.g. jet energy corrections and trigger configuration information, many of the simpler analysis/validation examples do not need any additional corrections from condition database.
+- Using condition data slows down data access, so use them only if really needed. If so:
+    - see the instructions in ["The Guide to the CMS condition database"](/docs/cms-guide-to-the-cms-condition-database).
 
 <center>–––</center>
 
@@ -180,7 +178,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 > "I want to run the examples used for validation of the 2010 datasets within my setup…"
 
 - … for the MinimumBias, Commissioning, Mu or MuMonitor datasets:
-    - Go to [Validation software](/search?page=1&size=20&q=&type=Software&subtype=Validation&experiment=CMS), FIXME Year in the search
+    - Go to [Validation software](/search?page=1&size=20&q=&subtype=Validation&type=Software&year=2010)
     - choose and execute the corresponding Validation code.
 
 
