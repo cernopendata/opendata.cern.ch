@@ -151,6 +151,10 @@ def records(skip_files, files, profile, verbose, mode):
         record_json = glob.glob(os.path.join(data, '*.json'))
 
     for filename in record_json:
+        name = filename.split('/')[-1]
+        if name.startswith('opera'):
+            click.echo('Skipping opera records ...')
+            continue
         if verbose:
             click.echo('Loading records from {0} ...'.format(filename))
         with open(filename, 'rb') as source:
@@ -267,6 +271,10 @@ def docs():
     articles_json = get_jsons_from_dir(data)
 
     for filename in articles_json:
+        name = filename.split('/')[-1]
+        if name.startswith('opera'):
+            click.echo('Skipping opera records ...')
+            continue
         with open(filename, 'rb') as source:
             for data in json.load(source):
 
