@@ -118,18 +118,7 @@ process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.c
 process.GlobalTag.globaltag = 'FT_53_LV5_AN1::All'
 ```
 
-This example is reading 2011 RunA data. If you are reading data from other run periods or simulated data, use the following:
-
-| Data      | Global tag         | Validated runs |
-|-----------|--------------------|----------------|
-| 2011 RunA | FT_53_LV5_AN1_RUNA | [2011 list](/record/1001)      |
-| 2011 MC   | START53_LV6A1      | -              |
-| 2012 RunB | FT53_V21A_AN6      | [2012 list](/record/FIXME)      |
-| 2012 RunC | FT53_V21A_N6_RUNC  | [2012 list](/record/FIXME)      |
-| 2012 MC   | START53_V27        | -              |
-
-
-**Important**: If you plan on running the code to produce the PATtuples needed for this analysis, note that the first time you run the job, the CERN Virtual Machine will read the condition data from the remote database. This process will take time (an example run of a 10 Mb/s line took 45 mins), but it will only happen once as the files will then be cached on your VM. The job will not produce any output during this time. However, you can check the ongoing processes with the command <kbd>top</kbd> and you can monitor the progress of reading the condition data to the local cache with the command <kbd>df</kbd>.
+See detailed instructions for the use of condition data for different data-taking years in [the guide to the CMS condition database](/docs/cms-guide-to-the-cms-condition-database).
 
 ## <a name="pat">Performing your analysis on the PATtuples</a>
 
