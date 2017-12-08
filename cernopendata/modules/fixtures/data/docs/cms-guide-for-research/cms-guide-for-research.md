@@ -97,7 +97,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 > "I want to find out which 2011 data and MC sets exist, and how to get a feel for their content."
 
 - Go to [2011 CMS primary datasets](/search?page=1&size=20&q=&subtype=Collision&experiment=CMS&year=2011) or [2011 CMS simulated datasets](/search?page=1&size=20&q=&subtype=Simulated&experiment=CMS&year=2011),
-- choose a dataset, read the comments, and read also about [simulated dataset names](/docs/cms-dataset-names).
+- choose a dataset, read the comments, and read also about [simulated dataset names](/docs/cms-simulated-dataset-names).
 
 
 <center>–––</center>
@@ -209,7 +209,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 
 > "How do I interpret the MC set names?"
 
-- Check [CMS Simulated Dataset Names](/docs/cms-dataset-names).
+- Check [CMS Simulated Dataset Names](/docs/cms-simulated-dataset-names).
 
 <center>–––</center>
 

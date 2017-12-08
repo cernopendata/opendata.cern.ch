@@ -7,7 +7,7 @@ Learn how to use the ALICE virtual machine to have a first look at ALICE events 
 
 ## <a name="start">"How do I start the ALICE software?"</a>
 
-After successfully installing the ALICE VM you should contextualise it as described here [link to installation guide](../virtual-machines-alice/alice.md). Note that you should pick from the CernVM market the "ALICE OpenAccess" item from the list of available ALICE contexts. When starting the VM, this will automatically login the user “alice” (password “alice”) and start a graphical user interface allowing to run the ALICE masterclasses as well as a basic tutorial on how to run a custom analysis on ALICE data. There is no need to setup the software; both the software tools and the environment are automatically set to use the supplied analysis tools.
+After successfully installing the ALICE VM you should contextualise it as described here [link to installation guide](/docs/alice-virtual-machine). Note that you should pick from the CernVM market the "ALICE OpenAccess" item from the list of available ALICE contexts. When starting the VM, this will automatically login the user “alice” (password “alice”) and start a graphical user interface allowing to run the ALICE masterclasses as well as a basic tutorial on how to run a custom analysis on ALICE data. There is no need to setup the software; both the software tools and the environment are automatically set to use the supplied analysis tools.
 
 <img src="/static/docs/getting-started-with-alice/get_started_1.png" width="70%" align="middle">
 

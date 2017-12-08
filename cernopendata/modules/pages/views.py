@@ -203,7 +203,7 @@ def cms_pileup_simulation():
 @blueprint.route('/about/cms-simulated-dataset-names')
 def about_cms_dataset_names():
     """Render about CMS simulated dataset names template."""
-    return redirect('/docs/cms-dataset-names')
+    return redirect('/docs/cms-simulated-dataset-names')
 
 
 @blueprint.route('/getting-started/<exp>')
