@@ -12,7 +12,7 @@ VirtualBox is a free, open source and multiplatform application to run virtual m
 
 You will need administrative ("root") privileges on every platform to perform the installation of VirtualBox.
 
-Note: the latest tested version of VirtualBox working with this CMS-specific CernVM image is 5.0.14. If you have troubles with the latest version of VirtualBox, pick that one: the full history of VirtualBox versions is available [on a different page][installVB2].
+Note: the latest tested version of VirtualBox working with this CMS-specific CernVM image is 5.2.2. If you have troubles with the latest version of VirtualBox, pick that one: the full history of VirtualBox versions is available [on a different page][installVB2].
 
 
 ### Step 2: Downloading and Creating a Virtual Machine
