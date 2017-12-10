@@ -25,63 +25,70 @@
 # Use CentOS7:
 FROM centos:7
 
-# Configure virtualenvwrapper root directory
-ENV WORKON_HOME=/usr/local/var
-ENV PROJECT_HOME=/usr/local/var
-# Prepare provisioning script:
-COPY scripts/provision-web.sh /tmp/
-
-# Install CERN Open Data Portal web node pre-requisites:
-RUN /tmp/provision-web.sh
+# Configuration for CERN Open Data Portal instance:
+ENV APP_INSTANCE_PATH=/usr/local/var/cernopendata/var/cernopendata-instance
+ENV INVENIO_WEB_INSTANCE=cernopendata
+ARG UWSGI_WSGI_MODULE=cernopendata.wsgi:application
+ENV UWSGI_WSGI_MODULE ${UWSGI_WSGI_MODULE}
+ARG UWSGI_PORT=5000
+ENV UWSGI_PORT ${UWSGI_PORT}
+ARG UWSGI_PROCESSES=2
+ENV UWSGI_PROCESSES ${UWSGI_PROCESSES}
+ARG UWSGI_THREADS=2
+ENV UWSGI_THREADS ${UWSGI_THREADS}
 
 # Add CERN Open Data Portal sources to `code` and work there:
 WORKDIR /code
 ADD . /code
 
-# Configure CERN Open Data Portal instance:
-ENV INVENIO_INSTANCE_PATH=/usr/local/var/cernopendata/var/cernopendata-instance
-ENV INVENIO_WEB_HOST=web
-ENV INVENIO_WEB_INSTANCE=cernopendata
-ENV INVENIO_WEB_VENV=cernopendata
-ENV INVENIO_USER_EMAIL=info@inveniosoftware.org
-ENV INVENIO_USER_PASS=uspass123
-ENV INVENIO_POSTGRESQL_HOST=postgresql
-ENV INVENIO_POSTGRESQL_DBNAME=cernopendata
-ENV INVENIO_POSTGRESQL_DBUSER=cernopendata
-ENV INVENIO_POSTGRESQL_DBPASS=dbpass123
-ENV INVENIO_REDIS_HOST=redis
-ENV INVENIO_ELASTICSEARCH_HOST=elasticsearch
-ENV INVENIO_RABBITMQ_HOST=rabbitmq
-ENV INVENIO_WORKER_HOST=127.0.0.1
-ENV APP_COLLECT_STORAGE=flask_collect.storage.file
+# Install CERN Open Data Portal web node pre-requisites:
+RUN yum update -y && \
+    yum install -y \
+        curl \
+        git \
+        rlwrap \
+        screen \
+        vim \
+        emacs-nox && \
+    yum install -y \
+        epel-release && \
+    yum groupinstall -y "Development Tools" && \
+    yum install -y \
+        libffi-devel \
+        libxml2-devel \
+        libxslt-devel \
+        npm \
+        python-devel \
+        python-pip  && \
+    yum install -y \
+        xrootd \
+        xrootd-client \
+        xrootd-client-devel \
+        xrootd-python && \
+    yum clean -y all
 
-# Create CERN Open Data Portal instance:
-RUN /code/scripts/create-instance.sh
+RUN pip install --upgrade pip setuptools wheel && \
+    npm install -g node-sass@3.8.0 clean-css@3.4.24 requirejs uglify-js
 
-# Make given VENV default:
-ENV PATH=/usr/local/var/cernopendata/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-ENV VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-RUN chgrp -R 0 ${INVENIO_INSTANCE_PATH} && \
-    chmod -R g=u ${INVENIO_INSTANCE_PATH} && \
-    chmod g=u /etc/passwd && \
-    chmod ug+x /code/scripts/docker-entrypoint.sh
+RUN pip install git+https://github.com/xrootd/xrootd-python.git@v0.3.0#egg=pyxrootd && \
+    pip install git+https://github.com/lepture/mistune-contrib.git#egg=mistune-contrib && \
+    pip install git+https://github.com/pamfilos/invenio-files-rest.git@eos-storage#egg=invenio-files-rest && \
+    pip install git+https://github.com/pamfilos/invenio-xrootd.git@eos-storage#egg=invenio-xrootd && \
+    pip install -r requirements-production.txt && \
+    pip install -e .[all] && \
+    mkdir -p ${APP_INSTANCE_PATH} && \
+    ${INVENIO_WEB_INSTANCE} npm && \
+    cd ${APP_INSTANCE_PATH}/static && \
+    CI=true npm install && \
+    npm install d3@3.3.13 && \
+    ${INVENIO_WEB_INSTANCE} collect -v && \
+    ${INVENIO_WEB_INSTANCE} assets build && \
+    chgrp -R 0 ${APP_INSTANCE_PATH} && \
+    chmod -R g=u ${APP_INSTANCE_PATH}
 
 RUN adduser --uid 1000 invenio --gid 0 && \
     chown -R invenio:root /code
 USER 1000
-ENTRYPOINT [ "/code/scripts/docker-entrypoint.sh" ]
-
-ARG UWSGI_WSGI_MODULE=cernopendata.wsgi:application
-ENV UWSGI_WSGI_MODULE ${UWSGI_WSGI_MODULE}
-
-ARG UWSGI_PORT=5000
-ENV UWSGI_PORT ${UWSGI_PORT}
-
-ARG UWSGI_PROCESSES=2
-ENV UWSGI_PROCESSES ${UWSGI_PROCESSES}
-
-ARG UWSGI_THREADS=2
-ENV UWSGI_THREADS ${UWSGI_THREADS}
 
 # Start the CERN Open Data Portal application:
 CMD uwsgi --module ${UWSGI_WSGI_MODULE} --http-socket 0.0.0.0:${UWSGI_PORT} --master --processes ${UWSGI_PROCESSES} --threads ${UWSGI_THREADS} --stats /tmp/stats.socket

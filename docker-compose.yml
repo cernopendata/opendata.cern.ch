@@ -25,13 +25,10 @@
 version: "2"
 
 services:
-
   web:
     restart: "always"
     build: .
     environment:
-      - PATH=/home/invenio/.virtualenvs/cernopendata/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-      - VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
       - APP_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://cernopendata:dbpass123@postgresql:5432/cernopendata
       - APP_CACHE_REDIS_HOST=redis
       - APP_CACHE_REDIS_URL=redis://redis:6379/0
@@ -46,6 +43,7 @@ services:
       - APP_PIDSTORE_DATACITE_PASSWORD=CHANGE_ME
       - APP_PIDSTORE_LANDING_BASE_URL=http://opendata.cern.ch/record/
       - APP_FILES_REST_FILE_URI_MAX_LEN=512  # Allow URI's longer than 255 chars.
+      - APP_COLLECT_STORAGE=flask_collect.storage.file
     volumes:
       - "./cernopendata:/code/cernopendata"
       - "./scripts:/code/scripts"
@@ -64,8 +62,6 @@ services:
     restart: "always"
     command: "celery worker -A cernopendata.celery --loglevel=INFO"
     environment:
-      - PATH=/home/invenio/.virtualenvs/cernopendata/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-      - VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
       - APP_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://cernopendata:dbpass123@postgresql:5432/cernopendata
       - APP_CACHE_REDIS_HOST=redis
       - APP_CACHE_REDIS_URL=redis://redis:6379/0
