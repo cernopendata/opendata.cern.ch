@@ -1,4 +1,4 @@
-The CMS-specific VM includes the [ROOT framework](http://root.cern.ch/) and [CMSSW](http://cms-sw.github.io/). Follow the instructions below to setup a CERN Virtual Machine on your computer. Then, go to [Getting Started with CMS data][getstartedcms]
+The CMS-specific VM includes the [ROOT framework](http://root.cern.ch/) and [CMSSW](http://cms-sw.github.io/). Follow the instructions below to setup a CERN Virtual Machine on your computer for 2011-2012 CMS open data. Then, go to [Getting Started with CMS data][getstartedcms]
 
 1. [How to install a CERN VM](#vbox)
 2. [How to Test & Validate?](#test)
