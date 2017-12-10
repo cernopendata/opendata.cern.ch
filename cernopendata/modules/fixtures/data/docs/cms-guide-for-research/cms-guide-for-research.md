@@ -102,7 +102,7 @@ or, alternatively:
 <center>–––</center>
 
 **I want to find out which 2011 dataset and/or analysis/validation example is most useful for my purpose.**
-* Dedicated examples for 2011 beyond those available in "Getting Started" can be found in [software](/search?page=1&size=20&q=&type=Software&subtype=Analysis&experiment=CMS&year=2011), including jet tuple production and top cross-sections. Alternatively, start from a 2010 example and adjust to run on 2011 data (see [the CMS troubleshooting guide](/docs/cms-guide-troubleshooting) for instructions.
+* Dedicated examples for 2011 beyond those available in "Getting Started" can be found in [software](/search?page=1&size=20&q=&type=Software&subtype=Analysis&experiment=CMS&year=2011), including jet tuple production and top cross-sections. Alternatively, start from a 2010 example and adjust to run on 2011 data (see [the CMS troubleshooting guide](/docs/cms-guide-troubleshooting) for instructions).
 
 <center>–––</center>
 
