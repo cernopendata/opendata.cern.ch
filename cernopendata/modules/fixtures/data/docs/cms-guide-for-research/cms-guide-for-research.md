@@ -126,7 +126,7 @@ or, alternatively:
 **I want to find out whether I need condition data base information, and if so, how to access it.**
 * Condition data are needed on examples using e.g. jet energy corrections and trigger configuration information, many of the simpler analysis/validation examples do not need any additional corrections from condition database.
 * Using condition data slows down data access, so use them only if really needed. If so:
-    * see the instructions in ["The Guide to the CMS condition database"](/docs/cms-guide-to-the-cms-condition-database).
+    * see the instructions in ["The Guide to the CMS condition database"](/docs/cms-guide-for-condition-database).
 
 <center>–––</center>
 
