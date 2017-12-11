@@ -110,7 +110,7 @@ def md_debug():
         return redirect('/')
 
 
-@blueprint.route('/visualise/events')
+@blueprint.route('/<any("/visualise/events", "/visualize/events"):page>')
 @register_breadcrumb(blueprint, '.visualise_events', _('Visualise Events'))
 def visualise_events_landing():
     """Display landing page."""
@@ -121,8 +121,10 @@ def visualise_events_landing():
         return abort(404)
 
 
-@blueprint.route('/visualise/events/<string:experiment>')
 @blueprint.route('/visualise/events/<string:experiment>/<int:eventid>')
+@blueprint.route('/visualize/events/<string:experiment>/<int:eventid>')
+@blueprint.route('/<any("/visualise", "/visualize"):page/events>'
+                 '/<any("cms","lhcb","opera","alice","atlas"):experiment>')
 @register_breadcrumb(blueprint, '.visualise_events', _('Visualise Events'))
 def visualise_events(experiment='cms', eventid=None):
     """Display visualisations."""
@@ -138,7 +140,8 @@ def visualise_events(experiment='cms', eventid=None):
 
 
 @blueprint.route('/visualise/histograms')
-@blueprint.route('/visualise/histograms/<string:experiment>')
+@blueprint.route('/<any("/visualise/histograms","/visualize/histograms"):page>'
+                 '/<any("cms","lhcb","opera","alice","atlas"):experiment>')
 @register_breadcrumb(blueprint, '.visualise_histograms',
                      _('Visualise Histograms'))
 def visualise_histograms(experiment='cms'):
@@ -209,7 +212,7 @@ def about_cms_dataset_names():
 @blueprint.route('/getting-started/<exp>')
 def getting_started_redirect(exp):
     """Redirects to associated experiment."""
-    return redirect('/docs/%s-getting-started' % exp,
+    return redirect('/docs/{}-getting-started'.format(exp),
                     code=302)
 
 
