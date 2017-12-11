@@ -107,6 +107,10 @@ services:
     # `docker-compose up`. There is no default because currently there is
     # no available syntax to set default value.
     image: elasticsearch:${ES_VERSION}
+    environment:
+      - bootstrap.memory_lock=true
+      # set to reasonable values on production
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ports:
       - "9200:9200"
       - "9300:9300"
