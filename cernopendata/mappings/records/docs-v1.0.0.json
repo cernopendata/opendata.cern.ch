@@ -12,81 +12,101 @@
         "docs-v1.0.0": {
             "properties": {
                 "$schema": {
-                    "type": "string",
+                    "type": "text",
                     "copy_to": "facet_schema"
                 },
                 "facet_schema": {
-                    "type": "string",
+                    "type": "text",
                     "index": "not_analyzed"
                 },
                 "collections": {
                     "properties": {
                         "primary": {
-                            "type": "string",
+                            "type": "text",
                             "copy_to": "collections.facet_collections_primary"
                         },
                         "facet_collections_primary": {
-                            "type": "string",
+                            "type": "text",
                             "index": "not_analyzed"
                         },
                         "secondary": {
-                            "type": "string",
+                            "type": "text",
                             "analyzer": "collections"
                         },
                         "experiment": {
-                            "type": "string",
+                            "type": "text",
                             "index": "not_analyzed"
                         },
                         "year": {
-                            "type": "string",
+                            "type": "text",
                             "analyzer": "collections"
                         }
                     }
                 },
                 "experiment": {
-                    "type": "string",
-                    "index": "not_analyzed"
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
                 },
                 "tags": {
-                    "type": "string",
-                    "index": "not_analyzed"
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
                 },
                 "id": {
-                    "type": "string"
+                    "type": "text"
                 },
                 "title": {
-                    "type": "string"
+                    "type": "text"
                 },
                 "type": {
                     "properties": {
-                        "primary": {"type": "string",
-                                    "index": "not_analyzed"},
-                        "secondary": {"type": "string",
-                                      "index": "not_analyzed"}
+                        "primary": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword"
+                                }
+                            }
+                        },
+                        "secondary": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword"
+                                }
+                            }
+                        }
                     }
                 },
                 "author": {
-                    "type": "string"
+                    "type": "text"
                 },
                 "short_description": {
                     "properties": {
-                        "format": {"type": "string"},
-                        "content": {"type": "string"}
+                        "format": {"type": "text"},
+                        "content": {"type": "text"}
                     }
                 },
                 "body": {
                     "properties": {
-                        "format": {"type": "string"},
-                        "content": {"type": "string"}
+                        "format": {"type": "text"},
+                        "content": {"type": "text"}
                     }
                 },
                 "files": {
                     "properties": {
                         "name": {
-                            "type": "string"
+                            "type": "text"
                         },
                         "uri": {
-                            "type": "string"
+                            "type": "text"
                         }
                     }
                 },

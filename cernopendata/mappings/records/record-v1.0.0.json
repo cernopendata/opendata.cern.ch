@@ -3,100 +3,128 @@
         "record-v1.0.0": {
             "properties": {
                 "$schema": {
-                    "type": "string",
+                    "type": "text",
                     "copy_to": "facet_schema"
                 },
                 "facet_schema": {
-                    "type": "string",
+                    "type": "text",
                     "index": "not_analyzed"
                 },
                 "type": {
                     "properties": {
                         "primary": {
-                            "type": "string",
-                            "index": "not_analyzed"
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword"
+                                }
+                            }
                         },
                         "secondary": {
-                            "type": "string",
-                            "index": "not_analyzed"
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword"
+                                }
+                            }
                         }
                     }
                 },
-                "topic_category": {
-                    "type": "string",
-                    "index": "not_analyzed"
-                },
-                "collision_energy": {
-                    "type": "string",
-                    "index": "not_analyzed"
-                },
                 "date_created": {
-                    "type": "string",
-                    "index": "not_analyzed",
-                    "copy_to": "year"
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
                 },
                 "distribution": {
                     "type": "object",
                     "properties": {
                         "formats": {
-                            "type": "string",
-                            "index": "not_analyzed",
-                            "copy_to": "file_type"
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword"
+                                }
+                            }
                         }
                     }
                 },
                 "experiment": {
-                    "type": "string",
-                    "index": "not_analyzed"
-                },
-                "year": {
-                    "type": "string",
-                    "index": "not_analyzed"
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
                 },
                 "collision_information": {
                     "properties": {
                         "type": {
-                            "type": "string",
-                            "index": "not_analyzed"
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword"
+                                }
+                            }
                         },
                         "energy": {
-                            "type": "string",
-                            "index": "not_analyzed",
-                            "copy_to": "collision_energy"
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword"
+                                }
+                            }
                         }
                     }
                 },
                 "topic": {
                     "properties": {
                         "category": {
-                            "type": "string",
-                            "index": "not_analyzed",
-                            "copy_to": "topic_category"
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword"
+                                }
+                            }
                         }
                     }
                 },
                 "collections": {
-                    "type": "string",
-                    "index": "not_analyzed"
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
                 },
                 "keywords": {
-                    "type": "string",
-                    "index": "not_analyzed"
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
                 },
                 "title": {
-                    "type": "string"
+                    "type": "text"
                 },
                 "publisher": {
-                    "type": "string"
+                    "type": "text"
                 },
                 "abstract": {
                     "properties": {
-                        "description": {"type": "string"}
+                        "description": {
+                            "type": "text"
+                        }
                     }
                 },
                 "authors": {
                     "properties": {
-                        "name": {"type": "string"}
+                        "name": {
+                            "type": "text"
+                        }
                     }
                 }
             }

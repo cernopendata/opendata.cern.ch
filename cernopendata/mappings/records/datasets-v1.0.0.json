@@ -3,49 +3,57 @@
         "datasets-v1.0.0": {
             "properties": {
                 "$schema": {
-                    "type": "string",
+                    "type": "text",
                     "copy_to": "facet_schema"
                 },
                 "facet_schema": {
-                    "type": "string",
+                    "type": "text",
                     "index": "not_analyzed"
                 },
                 "type": {
-                    "type": "string",
+                    "type": "text",
                     "index": "not_analyzed"
                 },
                 "subtype": {
-                    "type": "string",
+                    "type": "text",
                     "index": "not_analyzed"
                 },
                 "doi": {
-                    "type": "string"
+                    "type": "text"
                 },
                 "collaboration": {
                     "properties": {
-                        "name": {"type": "string"}
+                        "name": {
+                            "type": "text"
+                        }
                     }
                 },
                 "distribution": {
                     "properties": {
-                        "formats": {"type": "string"}
+                        "formats": {
+                            "type": "text"
+                        }
                     }
                 },
                 "title": {
-                    "type": "string"
+                    "type": "text"
                 },
                 "additional_title": {
-                    "type": "string"
+                    "type": "text"
                 },
                 "publisher": {
-                    "type": "string"
+                    "type": "text"
                 },
                 "experiment": {
-                    "type": "string",
-                    "index": "not_analyzed"
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
                 },
                 "abstract": {
-                    "type": "string"
+                    "type": "text"
                 }
             }
         }
