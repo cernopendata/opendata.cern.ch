@@ -324,90 +324,51 @@ RECORDS_REST_FACETS = {
     '_all': {
         'aggs': dict(
             experiment=dict(terms=dict(
-                field='experiment',
-                min_doc_count=0,
+                field='experiment.keyword',
                 order=dict(_term='asc'))),
             type=dict(terms=dict(
-                field='type.primary',
-                min_doc_count=0,
+                field='type.primary.keyword',
                 order=dict(_term='asc')),
-                aggs=dict(subtype=dict(terms=dict(
-                          field="type.secondary",
+                      aggs=dict(subtype=dict(terms=dict(
+                          field="type.secondary.keyword",
                           order=dict(_term='asc'))))),
             file_type=dict(terms=dict(
-                field='distribution.formats',
-                min_doc_count=0,
+                field='distribution.formats.keyword',
                 size=50,
                 order=dict(_term='asc'))),
             year=dict(terms=dict(
-                field='date_created',
-                min_doc_count=0,
+                field='date_created.keyword',
                 order=dict(_term='asc'))),
             keywords=dict(terms=dict(
-                field='keywords',
-                min_doc_count=0,
+                field='keywords.keyword',
                 order=dict(_term='asc'))),
             collision_type=dict(terms=dict(
-                field='collision_information.type',
-                min_doc_count=0,
+                field='collision_information.type.keyword',
                 order=dict(_term='asc'))),
             collision_energy=dict(terms=dict(
-                field='collision_information.energy',
-                min_doc_count=0,
+                field='collision_information.energy.keyword',
                 order=dict(_term='asc'))),
             topic_category=dict(terms=dict(
-                field='topic.category',
-                min_doc_count=0,
+                field='topic.category.keyword',
                 order=dict(_term='asc'))),
-            run=dict(terms=dict(
-                field='production_publication_distribution_manufacture_and_'
-                      'copyright_notice.'
-                      'date_of_production_publication_distribution_'
-                      'manufacture_or_copyright_notice',
-                min_doc_count=0,
-                order=dict(_term='asc')
-            )),
-        ),
-        'filters': dict(
-            experiment=terms_filter('experiment'),
-            type=terms_filter('type.primary'),
-            subtype=terms_filter('type.secondary'),
-            year=terms_filter('date_created'),
-            tags=terms_filter('tags'),
-            keywords=terms_filter('keywords'),
-            collision_type=terms_filter('collision_information.type'),
-            collision_energy=terms_filter('collision_information.energy'),
-            topic_category=terms_filter('topic.category'),
-            file_type=terms_filter('distribution.formats'),
-            collections=terms_filter('collections'),
-            run=terms_filter(
-                'production_publication_distribution_manufacture_and_'
-                'copyright_notice.'
-                'date_of_production_publication_distribution_'
-                'manufacture_or_copyright_notice'
-            ),
         ),
         'post_filters': dict(
-            experiment_post=terms_filter('experiment'),
-            type_post=terms_filter('type.primary'),
-            subtype_post=terms_filter('type.secondary'),
-            year_post=terms_filter('date_created'),
-            tags_post=terms_filter('tags'),
-            keywords_post=terms_filter('keywords'),
-            collision_type_post=terms_filter('collision_information.type'),
-            collision_energy_post=terms_filter('collision_information.energy'),
-            topic_category_post=terms_filter('topic.category'),
-            file_type_post=terms_filter('distribution.formats'),
-            run_post=terms_filter(
-                'production_publication_distribution_manufacture_and_'
-                'copyright_notice.'
-                'date_of_production_publication_distribution_'
-                'manufacture_or_copyright_notice'
-            ),
-        )
-    },
-
+            experiment=terms_filter('experiment.keyword'),
+            type=terms_filter('type.primary.keyword'),
+            subtype=terms_filter('type.secondary.keyword'),
+            year=terms_filter('date_created.keyword'),
+            tags=terms_filter('tags.keyword'),
+            keywords=terms_filter('keywords.keyword'),
+            collision_type=terms_filter('collision_information.type.keyword'),
+            collision_energy=terms_filter('collision_information.energy'
+                                          '.keyword'),
+            topic_category=terms_filter('topic.category.keyword'),
+            file_type=terms_filter('distribution.formats.keyword'),
+            collections=terms_filter('collections'),
+        ),
+    }
 }
+
 """Facets per index for the default facets factory."""
 
 # Files

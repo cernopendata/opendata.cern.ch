@@ -1,42 +1,56 @@
 {
-  "mappings": {
-    "software-v1.0.0": {
-      "properties": {
-        "$schema": {
-          "type": "string",
-          "copy_to": "facet_schema"
-        },
-        "facet_schema": {
-          "type": "string",
-          "index": "not_analyzed"
-        },
-        "type": {
-          "type": "string",
-          "index": "not_analyzed"
-        },
-        "subtype": {
-          "type": "string",
-          "index": "not_analyzed"
-        },
-        "experiment": {
-          "type": "string",
-          "index": "not_analyzed"
-        },
-        "title": {
-          "type": "string"
-        },
-        "publisher": {
-          "type": "string"
-        },
-        "abstract": {
-          "type": "string"
-        },
-        "authors": {
-          "properties": {
-            "name": {"type": "string"}
-          }
+    "mappings": {
+        "software-v1.0.0": {
+            "properties": {
+                "$schema": {
+                    "type": "text",
+                    "copy_to": "facet_schema"
+                },
+                "facet_schema": {
+                    "type": "text",
+                    "index": "not_analyzed"
+                },
+                "type": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "subtype": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "experiment": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "title": {
+                    "type": "text"
+                },
+                "publisher": {
+                    "type": "text"
+                },
+                "abstract": {
+                    "type": "text"
+                },
+                "authors": {
+                    "properties": {
+                        "name": {
+                            "type": "text"
+                        }
+                    }
+                }
+            }
         }
-      }
     }
-  }
 }

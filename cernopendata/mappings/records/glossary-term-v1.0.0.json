@@ -1,68 +1,80 @@
 {
-  "settings": {
-    "analysis": {
-      "analyzer": {
-        "collections": {
-          "tokenizer": "keyword"
-        }
-      }
-    }
-  },
-  "mappings": {
-    "glossary-term-v1.0.0": {
-      "properties": {
-        "$schema": {
-          "type": "string",
-          "copy_to": "facet_schema"
-        },
-        "facet_schema": {
-          "type": "string",
-          "index": "not_analyzed"
-        },
-        "collections": {
-          "properties": {
-            "primary": {
-              "type": "string",
-              "copy_to": "collections.facet_collections_primary"
-            },
-            "facet_collections_primary": {
-              "type": "string",
-              "index": "not_analyzed"
-            },
-            "secondary": {
-              "type": "string",
-              "analyzer": "collections"
+    "settings": {
+        "analysis": {
+            "analyzer": {
+                "collections": {
+                    "tokenizer": "keyword"
+                }
             }
-          }
-        },
-        "id": {
-          "type": "string"
-        },
-        "term": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "anchor": {
-          "type": "string",
-          "copy_to": "title"
-        },
-        "category": {
-          "type": "string"
-        },
-        "type": {
-          "properties": {
-              "primary": {"type": "string",
-                          "index": "not_analyzed"},
-              "secondary": {"type": "string",
-                            "index": "not_analyzed"}
-          }
-        },
-        "definition": {
-          "type": "string"
         }
-      }
+    },
+    "mappings": {
+        "glossary-term-v1.0.0": {
+            "properties": {
+                "$schema": {
+                    "type": "text",
+                    "copy_to": "facet_schema"
+                },
+                "facet_schema": {
+                    "type": "text",
+                    "index": "not_analyzed"
+                },
+                "collections": {
+                    "properties": {
+                        "primary": {
+                            "type": "text",
+                            "copy_to": "collections.facet_collections_primary"
+                        },
+                        "facet_collections_primary": {
+                            "type": "text",
+                            "index": "not_analyzed"
+                        },
+                        "secondary": {
+                            "type": "text",
+                            "analyzer": "collections"
+                        }
+                    }
+                },
+                "id": {
+                    "type": "text"
+                },
+                "term": {
+                    "type": "text"
+                },
+                "title": {
+                    "type": "text"
+                },
+                "anchor": {
+                    "type": "text",
+                    "copy_to": "title"
+                },
+                "category": {
+                    "type": "text"
+                },
+                "type": {
+                    "properties": {
+                        "primary": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword"
+                                }
+                            }
+                        },
+                        "secondary": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword"
+                                }
+                            }
+                        }
+                    }
+                },
+                "definition": {
+                    "type": "text"
+                }
+            }
+        }
     }
-  }
 }
