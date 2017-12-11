@@ -240,7 +240,7 @@ def cms_physics_objects_redirect(year='2011'):
 @blueprint.route('/terms-of-use')
 def terms():
     """Render terms of use."""
-    return redirect('docs/terms_of_use')
+    return redirect('docs/terms-of-use')
 
 
 @blueprint.route('/privacy-policy')

@@ -1,4 +1,6 @@
-## The CERN Open Data Portal is offered by CERN as part of its mission to publish the results of its experimental and theoretical work.
+### The CERN Open Data Portal is offered by CERN as part of its mission to publish the results of its experimental and theoretical work.
+
+***
 
 ### Use of the CERN Open Data Portal service denotes agreement with the following terms:
 
