@@ -1,4 +1,5 @@
 This page will guide you through contents of the CMS Open Data collections that are meant for educational use (or for physics enthusiasts!). It is roughly broken down into three levels of difficulty:
+
 * Beginner: *Visualise collisions*
 * Intermediate: *Make histograms with collision data*
 * Advanced: *Dive deeper into the data*
@@ -25,6 +26,7 @@ Your collision event should now appear in the display.
 
 The first few events of all collision datasets from CMS served on the CERN Open Data portal are available in a format suitable for the event display. In addition, many other events have been selected in specially prepared collections. Find them all in [this search query](/search?page=1&size=20&q=display&subtype=Derived&experiment=CMS).
 Two examples of these specially prepared files are:
+
 * [Higgs candidate events for use in education and outreach](/record/300), and
 * [Dimuon events with invariant mass range 2-5 GeV for public education and outreach](/record/301) for J/&psi;&rarr;&mu;&mu; candidates.
 
@@ -54,11 +56,13 @@ You can get an overview of our education resources through [this search query](/
 If you want a more detailed understanding of particle physics or an introduction aimed at the university level, take a look at some of the other resources in [this search query](/search?page=1&size=20&q=&keywords=education&experiment=CMS).
 
 For example:
+
 * [Particle Physics Playground](/record/52) provides you with further hands-on activities with open data from CMS and other experiments.
 * [Computing Methods in High-Energy Physics](/record/61) is an introductory course on computing in high-energy physics.
 * [CMS HEP Tutorial](/record/50) is a one-week course with a basic introduction to fundamental concepts of data analysis in HEP experiments using CMS Open Data.
 
 Of course, you can also undertake your own explorations with CMS Open Data:
+
 * If you want to "re-discover" the **Higgs boson** in the CMS Open Data from 2011-2012, first install the Virtual Machine (VM) as instructed in ["CMS 2011 Virtual Machines: How to install"](/docs/cms-virtual-machine-2011) and look at [this Higgs analysis example](/record/5500).
 * If you want to learn how data analysis is done by CMS scientists, install the Virtual Machine (VM) as instructed in ["CMS 2011 Virtual Machines: How to install"](/docs/cms-virtual-machine-2011), follow the instructions in ["Getting Started with CMS Open Data"](/docs/cms-getting-started-2011), and then
 check out our extensive overview of research activities under ["Guide for research use of CMS Open Data"](/docs/cms-guide-for-research).

@@ -34,6 +34,7 @@ process.GlobalTag.globaltag = 'FT_53_LV5_AN1::All'
 ```
 
 Note that two sets of condition data for 2011 data are provided:
+
 * FT_53_LV5_AN1 valid for the full range of 2011 data taking
 * FT_53_LV5_AN1_RUNA valid for the run range of 2011 RunA (public data)
 
@@ -87,6 +88,7 @@ process.GlobalTag.globaltag = 'FT53_V21A_AN6::All'
 ```
 
 Note that three sets of condition data for 2011 data are provided:
+
 * FT53_V21A_AN6_FULL valid for the full range of 2012 data taking
 * FT53_V21A_AN6 valid for the run range of 2012 RunB (public data)
 * FT53_V21A_AN6_RUNC valid for the run range of 2012 RunC (public data)

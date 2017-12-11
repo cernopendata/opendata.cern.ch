@@ -60,7 +60,8 @@ mkedanlzr DemoAnalyzer
 Compile the code:
 
 ```
-cd DemoAnalyzer scram b
+cd DemoAnalyzer 
+scram b
 ```
 
 
