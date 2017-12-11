@@ -99,10 +99,7 @@ services:
 
   elasticsearch:
     restart: "always"
-    # Remember to set ES_VERSION to either version 2 or 5 before running
-    # `docker-compose up`. There is no default because currently there is
-    # no available syntax to set default value.
-    image: elasticsearch:${ES_VERSION}
+    image: elasticsearch:5
     environment:
       - bootstrap.memory_lock=true
       # set to reasonable values on production
