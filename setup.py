@@ -86,7 +86,7 @@ install_requires = [
     'invenio-xrootd>=1.0.0a4',
     'invenio-pidstore>=1.0.0b1',
     'invenio-previewer>=1.0.0a11',
-    'invenio-records-files==1.0.0a9',
+    'invenio-records-files==1.0.0a10',
     'invenio-records-rest==1.0.0b1',
     'invenio-records-ui==1.0.0b1',
     'invenio-records==1.0.0b2',

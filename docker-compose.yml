@@ -103,11 +103,10 @@ services:
 
   elasticsearch:
     restart: "always"
-    build:
-      context: .
-      dockerfile: ./elasticsearch/Dockerfile
-      args:
-        - ES_VERSION=2
+    # Remember to set ES_VERSION to either version 2 or 5 before running
+    # `docker-compose up`. There is no default because currently there is
+    # no available syntax to set default value.
+    image: elasticsearch:${ES_VERSION}
     ports:
       - "9200:9200"
       - "9300:9300"
