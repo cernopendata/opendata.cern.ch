@@ -5,21 +5,22 @@
     src="{{url_for('static', filename='assets/img/logo_blue.png')}}" width="115" alt=""></a>
 
   {% block search_bar %}
-  <form {% if request.endpoint=='cernopendata_pages.index' %} id="main-search" {% endif %}
-  class="form-inline my-2 my-lg-0" action="{{config.THEME_SEARCH_ENDPOINT}}">
-  <div class="input-group w-100">
-   <input class="form-control" type="text" placeholder="Search" name="q" aria-label="Search"
-          value="{{ request.args.get('q','')}}">
-   <span class="input-group-btn">
-     <button class="btn btn-info" type="submit"><span class="oi" data-glyph="magnifying-glass"></span>
-     </button>
-     </span>
+  <div class="searchbar">
+      <form {% if request.endpoint=='cernopendata_pages.index' %} id="main-search" {% endif %}
+      class="form-inline my-2 my-lg-0" action="{{config.THEME_SEARCH_ENDPOINT}}">
+      <div class="input-group w-100">
+           <input class="form-control" type="text" placeholder="Search" name="q" aria-label="Search"
+                  value="{{ request.args.get('q','')}}">
+           <span class="input-group-btn">
+             <button class="btn btn-info" type="submit"><span class="oi" data-glyph="magnifying-glass"></span></button>
+           </span>
+      </div>
+      </form>
   </div>
-  </form>
   {% endblock search_bar %}
 
   <img id="demo-logo" src="{{url_for('static', filename='img/demo.png')}}" alt=""
-       style="position:absolute;left:40%;top:0;width:200px;">
+       style="position:absolute;left:80%;top:0;width:200px;">
 
   <ul class="navbar-nav ml-auto">
     <li class="nav-item dropdown">

@@ -1,6 +1,6 @@
 var facetCtrl = function($scope){
     var isFacetChecked = function(key, value){
-        checkedValues = $scope.getValues(key);
+        var checkedValues = $scope.getValues(key);
         return (checkedValues && checkedValues.indexOf(value) > -1)
     }
 

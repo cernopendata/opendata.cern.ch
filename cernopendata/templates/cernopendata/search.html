@@ -18,11 +18,15 @@
 
     });
 
+    angular.module('angular-loading-bar').config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+        cfpLoadingBarProvider.includeSpinner = false;
+    }]);
+
     angular.module('invenioSearch').filter('unsafe', ['$sce', function($sce) {
       return function(input) {
         return $sce.trustAsHtml(input + '...');
       };
-    }])
+    }]);
 
 </script>
 {%- endblock javascript %}
@@ -114,6 +118,7 @@
                          </div>
                      </div>
                  </div>
+                 <br>
                  <invenio-search-results ng-show="display_type=='detailed'"
                                          template="{{ url_for('static', filename='templates/cernopendata_search_ui/results.html') }}">
                  </invenio-search-results>

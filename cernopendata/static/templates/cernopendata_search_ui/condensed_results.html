@@ -1,22 +1,25 @@
-<div class="row record-elem" ng-repeat="record in vm.invenioSearchResults.hits.hits track by $index">
-    <li class="col-sm-12 list-unstyled results-position">
+<div class="row record-elem result" ng-repeat="record in vm.invenioSearchResults.hits.hits track by $index">
+    <li class="col-sm-12 list-unstyled">
         <div class="card">
             <div class="card-body card-body-condensed">
-                <h4 ng-if="record.metadata.type.primary == 'Glossary'">
-                    <a target="_self" ng-href="/glossary/{{record.metadata.control_number}}">
-                        {{ record.metadata.anchor }}
-                    </a>
-                </h4>
-                <h4 ng-if="['Documentation', 'News'].indexOf(record.metadata.type.primary) != -1">
-                    <a target="_self" ng-href="/docs/{{record.metadata.control_number}}">
-                        {{ record.metadata.title }}
-                    </a>
-                </h4>
-                <h4 ng-if="['Documentation', 'Glossary', 'News'].indexOf(record.metadata.type.primary) == -1">
-                    <a target="_self" ng-href="/record/{{record.metadata.control_number}}">
-                        {{ record.metadata.title }}
-                    </a>
-                </h4>
+                <div ng-if="record.metadata.type.primary == 'Glossary'">
+                    <a class="make-parent-div-clickable" target="_self" ng-href="/glossary/{{record.metadata.control_number}}"></a>
+                    <p class="title">
+                    {{ record.metadata.anchor }}
+                    </p>
+                </div>
+                <div ng-if="['Documentation', 'News'].indexOf(record.metadata.type.primary) != -1">
+                    <a class="make-parent-div-clickable" target="_self" ng-href="/docs/{{record.metadata.control_number}}"></a>
+                    <p class="title">
+                    {{ record.metadata.title }}
+                    </p>
+                </div>
+                <div ng-if="['Documentation', 'Glossary', 'News'].indexOf(record.metadata.type.primary) == -1">
+                    <a class="make-parent-div-clickable" target="_self" ng-href="/record/{{record.metadata.control_number}}"></a>
+                    <p class="title">
+                    {{ record.metadata.title }}
+                    </p>
+                </div>
             </div>
         </div>
     </li>

@@ -1,36 +1,35 @@
 <div ng-controller="facetCtrl">
 
     <!-- clean filters buttons -->
-    <div ng-repeat="aggr in orderedAggs track by $index">
-        <div ng-repeat="item in (aggr.value.buckets || aggr.value.filtered.buckets)"
-             ng-if="isFacetChecked(aggr.key, item.key)">
-            <a class="badge badge-facet"
-               ng-click="handleClick(aggr.key, item.key); checkChildFacets(item, aggr.key);">
-                {{ aggr.key }}: {{ item.key }}  &nbsp;<span aria-label="Close">&times;</span>
-            </a>
-            <div ng-repeat="(subKey, subValue) in item"
-                 ng-if="['doc_count', 'key'].indexOf(subKey) === -1" >
-                 <a class="badge badge-facet"
-                    ng-repeat="subFacets in (subValue.buckets || subValue.filtered.buckets)" 
-                    ng-if="isFacetChecked(subKey, subFacets.key)" 
-                    ng-click="handleClick(subKey, subFacets.key)">
-                     {{ aggr.key }}: {{ subFacets.key }}  &nbsp; <span aria-label="Close">&times;</span>
-                 </a>
-            </div>
-        </div>
-    </div>
+    <!-- weird inline comments in this block due to bug with inline-block - whitespaces between spans are visible, which causes in unexpecged spaces between blocks -->
+    <span class="clear-facets-box" ng-repeat="aggr in orderedAggs track by $index">
+        <span ng-repeat="item in (aggr.value.buckets || aggr.value.filtered.buckets)"
+              ng-if="isFacetChecked(aggr.key, item.key)"><!--
+              --><a class="badge badge-clear-facet"
+                    ng-click="handleClick(aggr.key, item.key); checkChildFacets(item, aggr.key);">
+                  {{ item.key }}  &nbsp;<span aria-label="Close">&times;</span>
+              </a><!--
+              --><span ng-repeat="(subKey, subValue) in item"
+                       ng-if="['doc_count', 'key'].indexOf(subKey) === -1" ><!--
+                       --><a class="badge badge-clear-facet"
+                             ng-repeat="subFacets in (subValue.buckets || subValue.filtered.buckets)" 
+                             ng-if="isFacetChecked(subKey, subFacets.key)" 
+                             ng-click="handleClick(subKey, subFacets.key)">
+                           {{ subFacets.key }}  &nbsp;<span aria-label="Close">&times;</span>
+                       </a><!--
+                       --></span><!--
+                       --></span>
+    </span>
     <!-- end of clean filters buttons -->
 
     <!-- facets -->
-    <div class="facet-div"
+    <div class="facets-box"
          ng-init="tree=[]; tree_more=[];"
          ng-repeat="aggr in orderedAggs track by $index" 
          ng-if="(aggr.value.buckets || aggr.value.filtered.buckets).length > 0">
+        <p class="title"> Filter by {{ aggr.key.replace('_', ' ') }} </p> 
         <div>
-            <h5> Filter by {{ aggr.key.replace('_', ' ') }} </h5> 
-        </div>
-        <div>
-            <ul class="list-unstyled facet-ul"
+            <ul class="list-unstyled"
                 ng-repeat="item in (aggr.value.buckets || aggr.value.filtered.buckets)">
                 <li>
                     <span>
@@ -39,32 +38,37 @@
                                ng-model="tree[item.key]"
                                ng-show="tree_more[item.key]"
                                ng-click="tree[item.key]=!tree[item.key];">
-                                <span class="oi" data-glyph="chevron-{{ (tree[item.key]) ? 'bottom' : 'right' }}"></span>
+                                <span class="oi clickable" data-glyph="chevron-{{ (tree[item.key]) ? 'bottom' : 'right' }}"></span>
                             </a>
                             <span ng-show="tree_more[item.key]===false" style="padding-left:15px"></span>
                         </small>
-                        <input type="checkbox"
-                               ng-checked="isFacetChecked(aggr.key, item.key)"
-                               ng-click="handleClick(aggr.key, item.key); checkChildFacets(item, aggr.key);"/>
-                                {{ item.key }}
+                        <label>
+                            <input type="checkbox"
+                                   ng-checked="isFacetChecked(aggr.key, item.key)"
+                                   ng-click="handleClick(aggr.key, item.key); checkChildFacets(item, aggr.key);"/>
+                            {{ item.key }}
+                        </label>
                         <span class="badge badge-light facet-count">{{ item.doc_count }}</span>
                     </span>
                     <div ng-repeat="(subKey, subValue) in item"
                          ng-if="['doc_count', 'key'].indexOf(subKey) === -1"
                          ng-show="tree[item.key]===true" >
-                        <ul class="list-nobullets"
-                            ng-init="tree_more[item.key]=true"
-                            ng-repeat="subFacets in (subValue.buckets || subValue.filtered.buckets)">
-                            <li>
-                                <span>
-                                    <input ng-init="tree[item.key]=isFacetChecked(subKey, subFacets.key) || tree[item.key]"
-                                           ng-checked="isFacetChecked(subKey, subFacets.key) && isFacetChecked(aggr.key, item.key)"
-                                           ng-click="handleClick(subKey, subFacets.key); checkParent(aggr.key, item.key)"
-                                           type="checkbox"/>
-                                    {{ subFacets.key }} <span class="badge badge-light facet-count">{{ subFacets.doc_count }}</span>
-                                </span>
-                            </li>
-                        </ul>
+                         <ul class="list-nobullets facet-ul"
+                             ng-init="tree_more[item.key]=true"
+                             ng-repeat="subFacets in (subValue.buckets || subValue.filtered.buckets)">
+                             <li class="clickable">
+                                 <span>
+                                     <label>
+                                         <input ng-init="tree[item.key]=isFacetChecked(subKey, subFacets.key) || tree[item.key]"
+                                                ng-checked="isFacetChecked(subKey, subFacets.key) && isFacetChecked(aggr.key, item.key)"
+                                                ng-click="handleClick(subKey, subFacets.key); checkParent(aggr.key, item.key)"
+                                                type="checkbox"/>
+                                         {{ subFacets.key }}
+                                     </label>
+                        <span class="badge badge-light facet-count">{{ subFacets.doc_count }}</span>
+                                 </span>
+                             </li>
+                         </ul>
                     </div>
                 </li>
             </ul>
