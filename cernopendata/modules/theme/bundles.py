@@ -78,6 +78,7 @@ search_js = NpmBundle(
     'node_modules/angular-loading-bar/build/loading-bar.js',
     'node_modules/invenio-search-js/dist/invenio-search-js.js',
     'js/components/resultsBrief.js',
+    'js/controllers/facetCtrl.js',
     output='gen/codp_search.%(version)s.js',
     npm={
         'angular': '~1.4.10',

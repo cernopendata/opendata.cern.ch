@@ -15,13 +15,15 @@
            'angular-loading-bar'
         ]
       );
+
     });
 
     angular.module('invenioSearch').filter('unsafe', ['$sce', function($sce) {
       return function(input) {
         return $sce.trustAsHtml(input + '...');
       };
-    }]);
+    }])
+
 </script>
 {%- endblock javascript %}
 
