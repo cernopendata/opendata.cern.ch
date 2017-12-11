@@ -1,6 +1,7 @@
 The Compact Muon Solenoid (CMS) Experiment is one of the large particle detectors at CERN's Large Hadron Collider. The CMS Collaboration consists of more than 3000 scientists, engineers, technicians and students from 180+ institutes and universities from 40+ countries. You can find more information about the CMS [detector design](https://cms.cern/news/cms-detector-design) and [overview](https://cms.cern/news/detector-overview) on the official [CMS website](https://cms.cern).
 
 You can find usage instructions and suggestions of CMS Open Data in two detailed guides:
+
 * [Guide to education use of CMS Open Data](/docs/cms-guide-for-education)
 * [Guide to research use of CMS Open Data](/docs/cms-guide-for-research).
 
@@ -20,7 +21,6 @@ The following are provided through this portal:
     * [Primary datasets](/search?page=1&size=20&subtype=Collision&type=Dataset&experiment=CMS): full reconstructed collision data with no other selections. The data here are referred to as "reconstructed data"; fragmented data from various sub-detectors are processed or "reconstructed" to provide coherent information about individual [physics objects](/docs/cms-physics-objects-2011) such as electrons or particle jets.
     * [Simulation data](/search?page=1&size=20&subtype=Simulated&type=Dataset&experiment=CMS) (for data starting from 2011)
     * Examples of [simplified datasets](/search?page=1&size=20&subtype=Derived&type=Dataset&experiment=CMS) derived from the primary ones for use in different applications and analyses
-
 * Tools
     * A downloadable [Virtual Machine (VM)](/docs/cms-virtual-machine-2011) image with the CMS software environment through which the datasets can be accessed
     * An [analysis example chain](/docs/cms-getting-started-2011), reading the primary dataset and producing intermediate derived data for the final analysis
@@ -34,13 +34,11 @@ The following are provided through this portal:
     * all the high-level [physics objects](/docs/cms-physics-objects-2011) (such as muons, electrons, etc.);
     * tracks with associated hits, calorimetric clusters with associated hits, vertices; and
     * information about event selection (triggers), data needed for further selection and identification criteria for the physics objects.
-
 * The file is not the final event interpretation with a simple list of particles.
     * It contains several instances of the same physics object (i.e. a jet reconstructed with different algorithms).
     * It may have double-counting (i.e. a physics object may appear as a single object of its own type, but it may also be part of a jet).
     * Additional knowledge is needed to define a "good" physics object.
     * Definition of same objects is different in each analysis.
-
 * The files can be read in [ROOT](http://root.cern.ch/), but they cannot be opened (and understood) as simple data tables.
 * Only the runs that are validated by data quality monitoring should be used in any analysis. The [list of the validated runs](/search?page=1&size=20&q=&type=Environment&subtype=Validation) is provided.
 * A small sample of [raw data](/search?page=1&size=20&q=&experiment=CMS&file_type=raw) is also provided.
