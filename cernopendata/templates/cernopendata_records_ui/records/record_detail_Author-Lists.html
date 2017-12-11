@@ -98,20 +98,24 @@
           <div class="card card-style">
             <div class="card-body">
               {% block metadata_block %}
-                {% if record.title %}
-                <div class="row">
-                  <div class="col-md-12">
-                    <h3 class="detail_view_h3">Description</h3>
-                    <p>{{record.title | safe}}</p>
-                  </div>
+              {% if record.title %}
+              <div class="row">
+                <div class="col-md-12">
+                  <h3 class="detail_view_h3">Description</h3>
+                  <p>{{record.title | safe}}</p>
                 </div>
-                {% endif %}
-                {% if record.authors %}
-                  {{ authors_table(record.authors) }}
-                {% endif %}
+              </div>
+              {% endif %}
+              {% if record.authors %}
+              {{ authors_table(record.authors) }}
+              {% endif %}
               {% endblock metadata_block %}
 
-              {% block files_block %} {{ files_box() }} {% endblock files_block %}
+              {% block files_block %}
+              <div ng-controller="paginationCtrl as $ctrl" ng-init="$ctrl.getFiles()">
+                {{ files_box() }}
+              </div>
+              {% endblock files_block %}
               {% block disclaimer %} {{super()}} {% endblock disclaimer %}
             </div>
           </div>

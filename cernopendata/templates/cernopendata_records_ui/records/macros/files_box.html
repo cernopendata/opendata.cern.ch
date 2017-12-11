@@ -73,7 +73,7 @@
 
 {% macro authors_table(authors) %}
   <div ng-controller="paginationCtrl as $ctrl">
-    <h3>Author information</h3>
+    <h3 class="detail_view_h3">Author information</h3>
     <table class="table">
       <thead>
         <tr>
@@ -82,7 +82,7 @@
         </tr>
       </thead>
       <tbody>
-        {% for author in authors %}
+        {% for author in authors|sort_multi('affiliation','name') %}
         <tr id="{{type}}" ng-hide="$ctrl.itemsStatus[{{loop.index-1}}]">
           <td>{{ author.get("name", "") }}</td>
           <td>{{ author.get("affiliation", "") }}</td>
