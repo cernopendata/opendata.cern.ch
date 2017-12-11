@@ -1,4 +1,4 @@
-The CMS-specific VM includes the [ROOT framework](http://root.cern.ch/) and [CMSSW](http://cms-sw.github.io/). Follow the instructions below to setup a CERN Virtual Machine on your computer for 2011-2012 CMS open data. Then, go to [Getting Started with CMS data][getstartedcms]
+The CMS-specific VM includes the [ROOT framework](http://root.cern.ch/) and [CMSSW](http://cms-sw.github.io/). Follow the instructions below to setup a CERN Virtual Machine on your computer for 2011-2012 CMS Open Data. Then, go to [Getting Started with CMS data][getstartedcms]
 
 1. [How to install a CERN VM](#vbox)
 2. [How to Test & Validate?](#test)
@@ -17,9 +17,9 @@ Note: the latest tested version of VirtualBox working with this CMS-specific Cer
 
 ### Step 2: Downloading and Creating a Virtual Machine
 
-**Important**: Before you download the CernVM, note that the imported settings may not always work on your host machine. Please see [Issues and Limitations](#issue) if you encounter any problems with booting the VM.
+**Important**: Before you download the CernVM, note that the imported settings may not always work on your host machine. Please see [Issues and Limitations][issue] if you encounter any problems with booting the VM.
 
-Next download the CMS-specific CernVM image as OVA file from: [CMS VM Image for 2011 CMS open data][cmsvmimage2011].
+Next download the CMS-specific CernVM image as OVA file from: [CMS VM Image for 2011 CMS Open Data][cmsvmimage2011].
 
 By double clicking the downloaded file, VirtualBox imports the image with ready-to-run settings: in case of any problems with booting with these default settings, see [Issues and Limitations][issues]. Then, you launch the CMS-specific CernVM, which boots into the graphical user interface and sets up the CMS environment
 
