@@ -414,6 +414,8 @@ RECORDS_REST_FACETS = {
 # ======
 #: Permission factory to control the files access from the REST interface.
 FILES_REST_PERMISSION_FACTORY = allow_all
+#: Allow URI's longer than 255 chars.
+FILES_REST_FILE_URI_MAX_LEN = 512
 
 # Search
 # ======
