@@ -26,6 +26,8 @@
 
 from __future__ import absolute_import, print_function
 
+import operator
+
 from flask import Blueprint
 
 blueprint = Blueprint(
@@ -57,3 +59,10 @@ def get_first_file(file_list):
          if f.get('key', '').endswith('.ig')]
     if l:
         return l[0]
+
+
+@blueprint.app_template_filter('sort_multi')
+def sort_multi(l, *operators):
+    """Sorts list by multiple fields."""
+    l.sort(key=operator.itemgetter(*operators))
+    return l
