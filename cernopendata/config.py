@@ -385,6 +385,11 @@ FILES_REST_FILE_URI_MAX_LEN = os.environ.get(
     "FILES_REST_FILE_URI_MAX_LEN",
     512
 )
+#: Files max size threshold(bytes)
+CERNOPENDATA_MAX_DOWNLOAD_SIZE = os.environ.get(
+    "CERNOPENDATA_MAX_DOWNLOAD_SIZE",
+    200000000
+)
 
 # Search
 # ======
