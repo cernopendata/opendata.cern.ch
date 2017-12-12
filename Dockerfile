@@ -25,21 +25,6 @@
 # Use CentOS7:
 FROM centos:7
 
-# Configuration for CERN Open Data Portal instance:
-ENV APP_INSTANCE_PATH=/usr/local/var/cernopendata/var/cernopendata-instance
-ARG UWSGI_WSGI_MODULE=cernopendata.wsgi:application
-ENV UWSGI_WSGI_MODULE ${UWSGI_WSGI_MODULE}
-ARG UWSGI_PORT=5000
-ENV UWSGI_PORT ${UWSGI_PORT}
-ARG UWSGI_PROCESSES=2
-ENV UWSGI_PROCESSES ${UWSGI_PROCESSES}
-ARG UWSGI_THREADS=2
-ENV UWSGI_THREADS ${UWSGI_THREADS}
-
-# Add CERN Open Data Portal sources to `code` and work there:
-WORKDIR /code
-ADD . /code
-
 # Install CERN Open Data Portal web node pre-requisites:
 RUN yum update -y && \
     yum install -y \
@@ -66,8 +51,15 @@ RUN yum update -y && \
         xrootd-python && \
     yum clean -y all
 
+# Configuration for CERN Open Data Portal instance:
+ENV APP_INSTANCE_PATH=/usr/local/var/cernopendata/var/cernopendata-instance
+
 RUN pip install --upgrade pip setuptools wheel && \
     npm install -g node-sass@3.8.0 clean-css@3.4.24 requirejs uglify-js
+
+# Add CERN Open Data Portal sources to `code` and work there:
+WORKDIR /code
+ADD . /code
 
 RUN pip install git+https://github.com/xrootd/xrootd-python.git@v0.3.0#egg=pyxrootd && \
     pip install git+https://github.com/lepture/mistune-contrib.git#egg=mistune-contrib && \
@@ -88,6 +80,15 @@ RUN pip install git+https://github.com/xrootd/xrootd-python.git@v0.3.0#egg=pyxro
 RUN adduser --uid 1000 invenio --gid 0 && \
     chown -R invenio:root /code
 USER 1000
+
+ARG UWSGI_WSGI_MODULE=cernopendata.wsgi:application
+ENV UWSGI_WSGI_MODULE ${UWSGI_WSGI_MODULE}
+ARG UWSGI_PORT=5000
+ENV UWSGI_PORT ${UWSGI_PORT}
+ARG UWSGI_PROCESSES=2
+ENV UWSGI_PROCESSES ${UWSGI_PROCESSES}
+ARG UWSGI_THREADS=2
+ENV UWSGI_THREADS ${UWSGI_THREADS}
 
 # Start the CERN Open Data Portal application:
 CMD uwsgi --module ${UWSGI_WSGI_MODULE} --http-socket 0.0.0.0:${UWSGI_PORT} --master --processes ${UWSGI_PROCESSES} --threads ${UWSGI_THREADS} --stats /tmp/stats.socket
