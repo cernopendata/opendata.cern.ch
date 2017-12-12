@@ -204,7 +204,7 @@ ispy_js = NpmBundle(
     "node_modules/ispy-webgl/js/ispy.js",
     output='gen/cernopendata.ispy.%(version)s.js',
     npm={
-        "ispy-webgl": "0.9.8-COD3.8"
+        "ispy-webgl": "0.9.8-COD3.9"
     },
 )
 
@@ -214,6 +214,6 @@ ispy_css = NpmBundle(
     filters='node-scss, cleancss',
     output='gen/cernopendata.ispy.%(version)s.css',
     npm={
-        "ispy-webgl": "0.9.8-COD3.7"
+        "ispy-webgl": "0.9.8-COD3.9"
     }
 )
