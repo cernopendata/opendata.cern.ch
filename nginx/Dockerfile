@@ -23,6 +23,7 @@
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
 FROM nginx:perl
+
 RUN rm /etc/nginx/conf.d/default.conf
 ADD cernopendata.conf /etc/nginx/conf.d/
 

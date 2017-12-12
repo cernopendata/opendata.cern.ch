@@ -25,18 +25,27 @@
 version: "2"
 
 services:
+
+  # Use the following in your Python code to start debugging with wdb
+  # ```
+  # import wdb
+  # wdb.set_trace()
+  # ```
+  wdb:
+    image: kozea/wdb-server
+    ports:
+      - "1984:1984"
+
   web:
     restart: "always"
-    build:
-      context: .
-    image: cernopendata/web
+    image: cernopendata/static # Use this to make sure that COD3 Python-code image is built only once.
     depends_on:
-      - elasticsearch
-      - postgresql
-      - rabbitmq
-      - redis
+      - static # Just to make sure that latest cernopendata/static -image is build before creating this container.
+    command: "cernopendata run -h 0.0.0.0" # In case one needs to test/work with uWSGI comment out this.
     environment:
-      - DEBUG=False
+      - DEBUG=True
+      - WDB_SOCKET_SERVER=wdb
+      - WDB_NO_BROWSER_AUTO_OPEN=True
       - APP_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://cernopendata:dbpass123@postgresql:5432/cernopendata
       - APP_CACHE_REDIS_HOST=redis
       - APP_CACHE_REDIS_URL=redis://redis:6379/0
@@ -51,27 +60,29 @@ services:
       - APP_PIDSTORE_DATACITE_PASSWORD=CHANGE_ME
       - APP_PIDSTORE_LANDING_BASE_URL=http://opendata.cern.ch/record/
     volumes:
-      - web_data:/usr/local/var/cernopendata/var/cernopendata-instance/static
+      - ./cernopendata:/code/cernopendata
+      - ./scripts:/code/scripts
+    volumes_from:
+      - static
     links:
       - postgresql
       - redis
       - elasticsearch
       - rabbitmq
+      - wdb
     ports:
-      - "5000"
+      - "5000:5000"
 
   worker:
-    image: cernopendata/web # Use this to make sure that COD3 Python-code image is built only once.
+    image: cernopendata/static # Use this to make sure that COD3 Python-code image is built only once.
     depends_on:
-      - elasticsearch
-      - postgresql
-      - rabbitmq
-      - redis
-      - web # Added to make sure that cernopendata/web -image is build before starting this one.
+      - static # Just to make sure that latest cernopendata/static -image is build before creating this container.
     restart: "always"
     command: "celery worker -A cernopendata.celery --loglevel=INFO"
     environment:
-      - DEBUG=False
+      - DEBUG=True
+      - WDB_SOCKET_SERVER=wdb
+      - WDB_NO_BROWSER_AUTO_OPEN=True
       - APP_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://cernopendata:dbpass123@postgresql:5432/cernopendata
       - APP_CACHE_REDIS_HOST=redis
       - APP_CACHE_REDIS_URL=redis://redis:6379/0
@@ -81,12 +92,16 @@ services:
       - APP_CELERY_RESULT_BACKEND=redis://redis:6379/2
       - APP_SEARCH_ELASTIC_HOSTS=elasticsearch
     volumes:
-      - web_data:/usr/local/var/cernopendata/var/cernopendata-instance/static
+      - ./cernopendata:/code/cernopendata
+      - ./scripts:/code/scripts
+    volumes_from:
+      - static
     links:
       - postgresql
       - redis
       - elasticsearch
       - rabbitmq
+      - wdb
 
   postgresql:
     restart: "always"
@@ -96,15 +111,13 @@ services:
       - POSTGRES_DB=cernopendata
       - POSTGRES_PASSWORD=dbpass123
     ports:
-      - "5432"
-    volumes:
-      - postgresql_data:/var/lib/postgresql/data
+      - "5432:5432"
 
   redis:
     restart: "always"
     image: redis
     ports:
-      - "6379"
+      - "6379:6379"
 
   elasticsearch:
     restart: "always"
@@ -113,20 +126,16 @@ services:
       - bootstrap.memory_lock=true
       # set to reasonable values on production
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    volumes:
-      - elasticsearch_data:/usr/share/elasticsearch/data/elasticsearch
     ports:
-      - "9200"
-      - "9300"
+      - "9200:9200"
+      - "9300:9300"
 
   rabbitmq:
     restart: "always"
     image: rabbitmq
-    depends_on:
-     - redis
     ports:
-      - "4369"
-      - "5672"
+      - "4369:4369"
+      - "5672:5672"
 
   nginx:
     restart: "always"
@@ -135,11 +144,19 @@ services:
     ports:
       - "80:80"
     volumes:
-      - web_data:/usr/local/var/cernopendata/var/cernopendata-instance/static
+      - ./cernopendata:/code/cernopendata
+      - ./scripts:/code/scripts
+    volumes_from:
+      - static
     links:
       - web
 
-volumes:
-  web_data:
-  postgresql_data:
-  elasticsearch_data:
+  static:
+    restart: "no"
+    command: "echo 'Static running...'"
+    build:
+      context: .
+    image: cernopendata/static
+    volumes:
+      - /usr/local/var/cernopendata/var/cernopendata-instance/static
+    user: invenio

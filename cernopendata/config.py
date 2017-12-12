@@ -37,20 +37,23 @@ from cernopendata.modules.pages.config import *
 from cernopendata.modules.theme.config import *
 
 # Debug
-DEBUG = True
-TEMPLATES_AUTO_RELOAD = True
+DEBUG = os.environ.get(
+    'DEBUG',
+    False
+)
+TEMPLATES_AUTO_RELOAD = DEBUG
 
 # Assets
 # ======
 #: Switch of assets debug.
-# ASSETS_DEBUG = True
+# ASSETS_DEBUG = DEBUG
 #: Switch of automatic building.
 # ASSETS_AUTO_BUILD = True
 
 
 # Static file
-# COLLECT_STORAGE = 'flask_collect.storage.file'
-COLLECT_STORAGE = 'flask_collect.storage.link'
+COLLECT_STORAGE = 'flask_collect.storage.link' \
+    if DEBUG else 'flask_collect.storage.file'
 
 # Cache
 CACHE_TYPE = 'redis'
@@ -378,7 +381,10 @@ RECORDS_REST_FACETS = {
 #: Permission factory to control the files access from the REST interface.
 FILES_REST_PERMISSION_FACTORY = allow_all
 #: Allow URI's longer than 255 chars.
-FILES_REST_FILE_URI_MAX_LEN = 512
+FILES_REST_FILE_URI_MAX_LEN = os.environ.get(
+    "FILES_REST_FILE_URI_MAX_LEN",
+    512
+)
 
 # Search
 # ======
