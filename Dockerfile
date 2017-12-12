@@ -27,7 +27,6 @@ FROM centos:7
 
 # Configuration for CERN Open Data Portal instance:
 ENV APP_INSTANCE_PATH=/usr/local/var/cernopendata/var/cernopendata-instance
-ENV INVENIO_WEB_INSTANCE=cernopendata
 ARG UWSGI_WSGI_MODULE=cernopendata.wsgi:application
 ENV UWSGI_WSGI_MODULE ${UWSGI_WSGI_MODULE}
 ARG UWSGI_PORT=5000
@@ -77,12 +76,12 @@ RUN pip install git+https://github.com/xrootd/xrootd-python.git@v0.3.0#egg=pyxro
     pip install -r requirements-production.txt && \
     pip install -e .[all] && \
     mkdir -p ${APP_INSTANCE_PATH} && \
-    ${INVENIO_WEB_INSTANCE} npm && \
+    cernopendata npm && \
     cd ${APP_INSTANCE_PATH}/static && \
     CI=true npm install && \
     npm install d3@3.3.13 && \
-    ${INVENIO_WEB_INSTANCE} collect -v && \
-    ${INVENIO_WEB_INSTANCE} assets build && \
+    cernopendata collect -v && \
+    cernopendata assets build && \
     chgrp -R 0 ${APP_INSTANCE_PATH} && \
     chmod -R g=u ${APP_INSTANCE_PATH}
 

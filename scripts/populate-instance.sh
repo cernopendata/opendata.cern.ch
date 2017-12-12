@@ -25,26 +25,26 @@
 set -o errexit
 set -o nounset
 
-${INVENIO_WEB_INSTANCE} db init
-${INVENIO_WEB_INSTANCE} db create
-${INVENIO_WEB_INSTANCE} index init
+cernopendata db init
+cernopendata db create
+cernopendata index init
 sleep 20
 
-${INVENIO_WEB_INSTANCE} files location local var/data --default
+cernopendata files location local var/data --default
 
-${INVENIO_WEB_INSTANCE} fixtures glossary_terms
-${INVENIO_WEB_INSTANCE} fixtures docs
+cernopendata fixtures glossary_terms
+cernopendata fixtures docs
 if [[ "$@" = *"--skip-records"* ]]; then
     echo "[INFO] Skipping loading of records."
 else
     if [[ "$@" = *"--skip-files"* ]]; then
         echo "[INFO] Skipping loading of record files."
-        ${INVENIO_WEB_INSTANCE} fixtures records --skip-files --mode insert
+        cernopendata fixtures records --skip-files --mode insert
     else
         # Prevent memory leak which happens when all fixtures are loaded at once
         for recordfile in $(ls -Sr cernopendata/modules/fixtures/data/records/*.json);
         do
-            ${INVENIO_WEB_INSTANCE} fixtures records -f "$recordfile" --verbose --mode insert
+            cernopendata fixtures records -f "$recordfile" --verbose --mode insert
         done
     fi
 fi

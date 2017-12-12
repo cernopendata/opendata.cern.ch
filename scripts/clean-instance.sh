@@ -27,7 +27,7 @@ set -o errexit
 set -o nounset
 
 # destroy database:
-${INVENIO_WEB_INSTANCE} db destroy --yes-i-know
+cernopendata db destroy --yes-i-know
 
 # destroy indexes:
-${INVENIO_WEB_INSTANCE} index destroy --force --yes-i-know
+cernopendata index destroy --force --yes-i-know
