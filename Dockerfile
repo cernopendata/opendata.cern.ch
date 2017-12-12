@@ -57,23 +57,16 @@ ENV APP_INSTANCE_PATH=/usr/local/var/cernopendata/var/cernopendata-instance
 RUN pip install --upgrade pip setuptools wheel && \
     npm install -g node-sass@3.8.0 clean-css@3.4.24 requirejs uglify-js
 
+ADD requirements-production-local-forks.txt /tmp
+ADD requirements-production.txt /tmp
+RUN pip install -r /tmp/requirements-production-local-forks.txt
+RUN pip install -r /tmp/requirements-production.txt
+
 # Add CERN Open Data Portal sources to `code` and work there:
 WORKDIR /code
 ADD . /code
 
-RUN pip install git+https://github.com/xrootd/xrootd-python.git@v0.3.0#egg=pyxrootd && \
-    pip install git+https://github.com/lepture/mistune-contrib.git#egg=mistune-contrib && \
-    pip install git+https://github.com/pamfilos/invenio-files-rest.git@eos-storage#egg=invenio-files-rest && \
-    pip install git+https://github.com/pamfilos/invenio-xrootd.git@eos-storage#egg=invenio-xrootd && \
-    pip install -r requirements-production.txt && \
-    pip install -e .[all] && \
-    mkdir -p ${APP_INSTANCE_PATH} && \
-    cernopendata npm && \
-    cd ${APP_INSTANCE_PATH}/static && \
-    CI=true npm install && \
-    npm install d3@3.3.13 && \
-    cernopendata collect -v && \
-    cernopendata assets build && \
+RUN /code/scripts/create-instance.sh && \
     chgrp -R 0 ${APP_INSTANCE_PATH} && \
     chmod -R g=u ${APP_INSTANCE_PATH}
 
