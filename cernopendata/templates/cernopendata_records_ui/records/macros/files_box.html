@@ -1,46 +1,47 @@
 {% macro files_box() %}
-    <div ng-repeat="(k, fg) in $ctrl.files">
-      <h3 class="detail_view_h3" ng-if="k == 'index'">File Indexes</h3>
-      <h3 class="detail_view_h3" ng-if="k != 'index'">Files</h3>
-      {{files_table()}}
-    </div>
+<div ng-repeat="(k, fg) in $ctrl.files">
+  <h3 class="detail_view_h3" ng-if="k == 'index'">File Indexes</h3>
+  <h3 class="detail_view_h3" ng-if="k != 'index'">Files</h3>
+  {{files_table()}}
+</div>
 {% endmacro %}
 
 {% macro files_table() %}
-  {% raw %}
-  <div ng-controller="paginationCtrl as $ctrlTbl" ng-init="$ctrlTbl.files= fg.files;$ctrlTbl.totalItems = fg.total">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Filename</th>
-          <th>Size</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr id="" ng-repeat="file in $ctrlTbl.files">
-          <td>{{ file.key }}</td>
-          <td>{{ file.size | bytes }}</td>
-          <td class="row justify-content-end">
+{% raw %}
+<div ng-controller="paginationCtrl as $ctrlTbl" ng-init="$ctrlTbl.files= fg.files;$ctrlTbl.totalItems = fg.total">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Filename</th>
+      <th>Size</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr id="" ng-repeat="file in $ctrlTbl.files">
+      <td>{{ file.key }}</td>
+      <td>{{ file.size | bytes }}</td>
+      <td class="row justify-content-end">
 
-            {% endraw %}
-            <div class="btn-group" role="group" aria-label="Button group" ng-init="download_uri = '/record/{{pid.pid_value}}/files/'+file.key">
-              {{ download_btn() }}
-            {% raw %}
-              <a
-                ng-if="previewable = (file.key.split('.').pop() == 'ig')"
-                ng-href="#previewer"
-                ng-click="$ctrlTbl.previewFile(file.key)"
-                class="btn btn-outline-primary">
-                  <span class="oi" data-glyph="eye"></span> Preview
-              </a>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div ng-if="$ctrlTbl.totalItems > $ctrlTbl.itemsPerPage">
-      <ul uib-pagination
+        {% endraw %}
+        <div class="btn-group" role="group" aria-label="Button group"
+             ng-init="download_uri = '/record/{{pid.pid_value}}/files/'+file.key">
+          {{ download_btn() }}
+          {% raw %}
+          <a
+            ng-if="previewable = (file.key.split('.').pop() == 'ig')"
+            ng-href="#previewer"
+            ng-click="$ctrlTbl.previewFile(file.key)"
+            class="btn btn-outline-primary">
+            <span class="oi" data-glyph="eye"></span> Preview
+          </a>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div ng-if="$ctrlTbl.totalItems > $ctrlTbl.itemsPerPage">
+    <ul uib-pagination
         class="pagination file-pagination pagination-sm"
         ng-change="$ctrlTbl.pageChanged(k)"
         total-items="$ctrlTbl.totalItems"
@@ -48,52 +49,59 @@
         max-size="$ctrlTbl.maxSize"
         boundary-links="true"
         items-per-page="$ctrlTbl.itemsPerPage">
-      </ul>
-    </div>
+    </ul>
   </div>
-  {% endraw %}
+</div>
+{% endraw %}
 {% endmacro %}
 
 {% macro download_btn() %}
-  {% raw %}
-  <a class="btn btn-primary" ng-if="file.size <= 1073741824" href="{{download_uri}}">
-    <span class="oi" data-glyph="data-transfer-download"></span> Download
-  </a>
-  <a
-    ng-controller="downloadModalCtrl as $ctrl"
-    ng-if="file.size  > 1073741824"
-    ng-click="$ctrl.openModal(file, download_uri)"
-    href="#"
-    class="btn btn-primary"
-    >
-    <span class="oi" data-glyph="data-transfer-download"></span> Download
-  </a>
+
+{% set threshold = config.get('CERNOPENDATA_MAX_DOWNLOAD_SIZE') %}
+
+
+<a class="btn btn-primary" ng-if="file.size <= {{threshold}}" {% raw %} href="{{download_uri}}">
+  <span class="oi" data-glyph="data-transfer-download"></span> Download
+</a>
+<a
+  ng-controller="downloadModalCtrl as $ctrl"
   {% endraw %}
+  ng-if="file.size  > {{threshold}}"
+  {% raw %}
+  ng-click="$ctrl.openModal(file, download_uri)"
+  href="#"
+  class="btn btn-primary"
+>
+  <span class="oi" data-glyph="data-transfer-download"></span> Download
+</a>
+{% endraw %}
 {% endmacro %}
 
 {% macro authors_table(authors) %}
-  <div ng-controller="paginationCtrl as $ctrl">
-    <h3 class="detail_view_h3">Author information</h3>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Affiliation</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for author in authors|sort_multi('affiliation','name') %}
-        <tr id="{{type}}" ng-hide="$ctrl.itemsStatus[{{loop.index-1}}]">
-          <td>{{ author.get("name", "") }}</td>
-          <td>{{ author.get("affiliation", "") }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-    <div class="pagination">
-        <pagination ng-change="$ctrl.pageChanged()" total-items="$ctrl.totalItems" ng-model="$ctrl.currentPage" max-size="$ctrl.maxSize" class="pagination-sm" boundary-links="true" items-per-page="$ctrl.itemsPerPage"></pagination>
-    </div>
+<div ng-controller="paginationCtrl as $ctrl">
+  <h3 class="detail_view_h3">Author information</h3>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Affiliation</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for author in authors|sort_multi('affiliation','name') %}
+    <tr id="{{type}}" ng-hide="$ctrl.itemsStatus[{{loop.index-1}}]">
+      <td>{{ author.get("name", "") }}</td>
+      <td>{{ author.get("affiliation", "") }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <div class="pagination">
+    <pagination ng-change="$ctrl.pageChanged()" total-items="$ctrl.totalItems" ng-model="$ctrl.currentPage"
+                max-size="$ctrl.maxSize" class="pagination-sm" boundary-links="true"
+                items-per-page="$ctrl.itemsPerPage"></pagination>
   </div>
+</div>
 {% endmacro %}
 
 
