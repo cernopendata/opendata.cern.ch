@@ -16,7 +16,9 @@
   "distribution": {
     "formats": [
       "ova"
-    ]
+    ],
+    "number_files": 1,
+    "size": 915956
   }, 
   "experiment": "CMS", 
   "files": [
@@ -75,7 +77,7 @@
 ,
 {
   "abstract": {
-    "description": "The scripts provided create the CMS virtual machine image based on CernVM (cernvm.cern.ch), with Scientific Linux CERN 5 (slc5)."
+    "description": " <p>The scripts provided create the CMS virtual machine image based on <a href=\"https://cernvm.cern.ch\">CernVM</a>, with Scientific Linux CERN 6 (slc5)</p> "
   }, 
   "accelerator": "CERN-LHC", 
   "authors": [
@@ -91,8 +93,10 @@
   "distribution": {
     "formats": [
       "txt"
-    ]
-  }, 
+    ],
+    "number_files": 3,
+    "size": 4091
+}, 
   "experiment": "CMS", 
   "files": [
     {
@@ -121,10 +125,6 @@
     }
   ], 
   "run_period": "Run2010B", 
-  "system_details": {
-    "release": "Use this with a Micro-CernVM available at", 
-    "url": "http://cernvm.cern.ch/portal/downloads"
-  }, 
   "title": "Contextualisation scripts to create the CMS VM Image, for 2010 CMS open data", 
   "type": {
     "primary": "Environment", 
