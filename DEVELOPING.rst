@@ -9,13 +9,28 @@ Installation
 ============
 
 You can run a local CERN Open Data instance for development purposes using
-Docker:
+Docker with ``docker-compose-dev.yml`` configuration. The source code directory
+will be mounted in the container and the system will be ready for "live
+editing". This is useful for active feature development or for pull request
+integration purposes. A usage example:
+
+.. code-block:: console
+
+   $ docker-compose -f docker-compose-dev.yml build
+   $ docker-compose -f docker-compose-dev.yml up
+   $ docker exec -i -t opendatacernch_web_1 /code/scripts/populate-instance.sh --skip-files
+   $ firefox http://0.0.0.0:5000/
+
+If you want to use production-like conditions locally, you can use Docker with
+``docker-compose.yml`` configuration. This is useful for tuning overall system
+performance such as reverse proxy caching. The source code directory will not be
+mounted in the container in this case. A usage example:
 
 .. code-block:: console
 
    $ docker-compose build
    $ docker-compose up
-   $ docker-compose run --rm web ./scripts/populate-instance.sh --skip-files
+   $ docker exec -i -t opendatacernch_web_1 /code/scripts/populate-instance.sh
    $ firefox http://0.0.0.0/
 
 Appendix: Git workflow
