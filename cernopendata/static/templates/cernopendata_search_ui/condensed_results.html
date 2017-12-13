@@ -2,22 +2,10 @@
     <li class="col-sm-12 list-unstyled">
         <div class="card">
             <div class="card-body card-body-condensed">
-                <div ng-if="record.metadata.type.primary == 'Glossary'">
-                    <a class="make-parent-div-clickable" target="_self" ng-href="/glossary/{{record.metadata.control_number}}"></a>
+                <div>
+                    <a class="make-parent-div-clickable" target="_self" ng-href="/{{ record | getType }}/{{record.metadata.control_number}}"></a>
                     <p class="title">
-                    {{ record.metadata.anchor }}
-                    </p>
-                </div>
-                <div ng-if="['Documentation', 'News'].indexOf(record.metadata.type.primary) != -1">
-                    <a class="make-parent-div-clickable" target="_self" ng-href="/docs/{{record.metadata.control_number}}"></a>
-                    <p class="title">
-                    {{ record.metadata.title }}
-                    </p>
-                </div>
-                <div ng-if="['Documentation', 'Glossary', 'News'].indexOf(record.metadata.type.primary) == -1">
-                    <a class="make-parent-div-clickable" target="_self" ng-href="/record/{{record.metadata.control_number}}"></a>
-                    <p class="title">
-                    {{ record.metadata.title }}
+                    {{ record.metadata.anchor || record.metadata.title }}
                     </p>
                 </div>
             </div>

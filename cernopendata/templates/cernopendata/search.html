@@ -26,7 +26,20 @@
       return function(input) {
         return $sce.trustAsHtml(input + '...');
       };
-    }]);
+    }]).filter('getType', function(){
+        return function(record){
+           var schema_to_url_map = {
+             "glossary-term-v1.0.0.json": 'glossary',
+             "docs-v1.0.0.json": 'docs',
+             "record-v1.0.0.json": 'record',
+             "datasets-v1.0.0.json": 'dataset',
+             "software-v1.0.0.json": 'software'
+           }
+
+            var schema_name = record.metadata.$schema.split('/').pop();
+            return schema_to_url_map[schema_name];
+        }
+    });
 
 </script>
 {%- endblock javascript %}
