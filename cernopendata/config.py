@@ -453,3 +453,26 @@ PIDSTORE_LANDING_BASE_URL = os.environ.get(
     "APP_PIDSTORE_LANDING_BASE_URL",
     "http://opendata.cern.ch/record"
 )
+
+if os.environ.get('ELASTICSEARCH_USER') and \
+   os.environ.get('ELASTICSEARCH_PASSWORD'):
+    params = dict(
+        http_auth=(os.environ.get('ELASTICSEARCH_USER'),
+                   os.environ.get('ELASTICSEARCH_PASSWORD')),
+        use_ssl=str(os.environ.get('ELASTICSEARCH_USE_SSL')).lower()
+        in ('true'),
+        verify_certs=str(os.environ.get('ELASTICSEARCH_VERIFY_CERTS')).lower()
+        in ('true'),
+    )
+else:
+    params = {}
+
+SEARCH_ELASTIC_HOSTS = [
+    dict(
+        host=os.environ.get('ELASTICSEARCH_HOST',
+                            'elasticsearch'),
+        port=int(os.environ.get('ELASTICSEARCH_PORT',
+                                '9200')),
+        **params
+    )
+]
