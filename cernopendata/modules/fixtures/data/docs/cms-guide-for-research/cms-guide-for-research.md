@@ -88,7 +88,7 @@ or, alternatively:
 
 **I want to find out which 2011-2012 data and MC sets exist, and how to get a feel for their content.**
 
-* For collision data, go to [2011 CMS primary datasets](/search?page=1&size=20&q=&subtype=Collision&experiment=CMS&year=2011) or [2011 CMS primary datasets](/search?page=1&size=20&q=&subtype=Collision&experiment=CMS&year=2012)
+* For collision data, go to [2011 CMS primary datasets](/search?page=1&size=20&q=&subtype=Collision&experiment=CMS&year=2011) or [2012 CMS primary datasets](/search?page=1&size=20&q=&subtype=Collision&experiment=CMS&year=2012)
 * For MC, go to [2011 CMS simulated datasets](/search?page=1&size=20&q=&subtype=Simulated&experiment=CMS&year=2011) or [2012 CMS simulated datasets](/search?page=1&size=20&q=&subtype=Simulated&experiment=CMS&year=2012)
 * choose a dataset, read the comments, and read also about [simulated dataset names](/docs/cms-simulated-dataset-names).
 
@@ -108,7 +108,7 @@ or, alternatively:
 
 **I want to find out which 2011 dataset and/or analysis/validation example is most useful for my purpose.**
 
-* Dedicated examples for 2011 beyond those available in "Getting Started" can be found in [software](/search?page=1&size=20&q=&type=Software&subtype=Analysis&experiment=CMS&year=2011), including jet tuple production and top cross-sections. Alternatively, start from a 2010 example and adjust to run on 2011 data (see [the CMS troubleshooting guide](/docs/cms-guide-troubleshooting) for instructions).
+* Dedicated examples for 2011 beyond those available in "Getting Started" can be found in [software](/search?page=1&size=20&type=Software&subtype=Analysis&experiment=CMS&year=2011&year=2011-2012), including Higgs-to-four-lepton analysis, jet tuple production and top cross-sections. Alternatively, start from a 2010 example and adjust to run on 2011 data (see [the CMS troubleshooting guide](/docs/cms-guide-troubleshooting) for instructions).
 
 
 * For more information on Monte Carlo, see below.
