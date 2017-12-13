@@ -4,9 +4,9 @@ The CMS-specific VM includes the [ROOT framework](http://root.cern.ch/) and [CMS
 2. [How to Test & Validate?](#test)
 3. [Issues & Limitations](#issue)
 
-## <a name="vbox">How to install a CERN Virtual Machine</a>
+## <a name="vbox"> Step 1: How to install a CERN Virtual Machine</a>
 
-### Step 1: Installing VirtualBox
+### Installing VirtualBox
 
 VirtualBox is a free, open source and multiplatform application to run virtual machines: you can [download][installVB] the package for your platform from the Downloads page.
 
@@ -15,23 +15,23 @@ You will need administrative ("root") privileges on every platform to perform th
 Note: the latest tested version of VirtualBox working with this CMS-specific CernVM image is 5.2.2. If you have troubles with the latest version of VirtualBox, pick that one: the full history of VirtualBox versions is available [on a different page][installVB2].
 
 
-### Step 2: Downloading and Creating a Virtual Machine
+### Downloading and Creating a Virtual Machine
 
-**Important**: Before you download the CernVM, note that the imported settings may not always work on your host machine. Please see [Issues and Limitations](#issue) if you encounter any problems with booting the VM.
+**Important**: Before you download the CernVM, note that the imported settings may not always work on your host machine. Please see [Issues and Limitations](#issue) or [/docs/cms-guide-troubleshooting](the CMS guide to troubleshooting) if you encounter any problems with booting the VM.
 
-Next download the CMS-specific CernVM image as OVA file from: [CMS VM Image for 2011 CMS Open Data][cmsvmimage2011].
+Next download the CMS-specific CernVM image as OVA file from: [CMS VM Image for 2011 CMS Open Data][cmsvmimage2011]. This VM Image can be used for data from 2011 and 2011 (for data from 2010 follow the instruction in [/docs/cms-virtual-machine-2010](CMS 2010 Virtual Machines: How to install)).
 
-By double clicking the downloaded file, VirtualBox imports the image with ready-to-run settings: in case of any problems with booting with these default settings, see [Issues and Limitations](#issue). Then, you launch the CMS-specific CernVM, which boots into the graphical user interface and sets up the CMS environment
+By double clicking the downloaded file, VirtualBox imports the image with ready-to-run settings. Then, you launch the CMS-specific CernVM, which boots into the graphical user interface and sets up the CMS environment
 
 
-## <a name="test">How to Test & Validate?</a>
+## <a name="test">Step 2: How to Test & Validate?</a>
 
 The validation procedure tests that the CMS environment is installed and operational on your virtual machine, and that you have access to the ROOT files. You may skip this step if you want, and head straight to [Getting Started with CMS data][getstartedcms]. However, these steps give you a quick introduction to the CMS environment.
 
 ### Set up the CMS environment and run a demo analyzer
 
 Open a terminal with the X terminal emulator (an icon bottom-left of the VM screen)
-Execute the following command; this command builds the local release area (the directory structure) for CMSSW, and only needs to be run once:
+Execute the following command; this command builds the local release area (the directory structure) for CMSSW, and only needs to be run once (note that it may take a while):
 
 ```
 cmsrel CMSSW_5_3_32
@@ -64,6 +64,14 @@ cd DemoAnalyzer
 scram b
 ```
 
+You can ignore the message
+
+```
+****WARNING: No need to export library once you have declared your library as plugin. 
+          Please cleanup src/Demo/DemoAnalyzer/BuildFile by removing the <export></export> section.
+```
+
+or take action and remove the indicated section from ```BuildFile.xml```.
 
 Change the file name in the configuration file ```demoanalyzer_cfg.py``` in the DemoAnalyzer directory: i.e. replace ```file:myfile.root``` with ```root://eospublic.cern.ch//eos/opendata/cms/Run2011A/ElectronHad/AOD/12Oct2013-v1/20001/001F9231-F141-E311-8F76-003048F00942.root```
 Change the max number of events to 10 (i.e change -1 to 10 in ```process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1)```).
@@ -134,37 +142,50 @@ System 3 3
 
 ### Validation report
 
-Coming soon! Meanwhile, please check the validation report for the VM image for our 2010 data, which may contain information useful to you.
+Please check the validation report for the VM image for our 2010 data, which may contain information useful to you.
 
 ### Known Issues FAQ
 
-Question: The following error message appears when the Virtual Machine is started: "Could not start the machine CMS Open Data because the following physical network interfaces were not found: vboxnet0 (adapter 2). You can either change the machine's network settings or stop the machine."
+**Question:** The following error message appears when the Virtual Machine is started: "Could not start the machine CMS Open Data because the following physical network interfaces were not found: vboxnet0 (adapter 2). You can either change the machine's network settings or stop the machine."
 
-> Answer: Change the Network settings for adapter 2 from "Host-only Adapter" to "NAT". The VM should then start correctly.
+> **Answer:** Change the Network settings for adapter 2 from "Host-only Adapter" to "NAT". The VM should then start correctly.
 
-Question: On Ubuntu running the latest version of VirtualBox, an error appears when opening the CMS-specific virtual machine: the message is about a missing path to a definition file.
+**Question:** What is the root password for the CMS Open Data VM?
 
-> Answer: To fix this, open one of the (non-CMS-specific) CernVMs first, after which the CMS-specific one should load without the error message.
+> **Answer:** The root password for the CMS Open Data VM is password.
 
-Question: On Windows 7 and 8, this error message appears: "VT-X/AMD-V hardware acceleration is not available on your system. Your 64-bit guest will fail to detect a 64-but CPU and will not be able to boot."
+**Question:** The CMS Open Data VM does not open correctly
 
-> Answer: Check whether your processor supports the VT-X feature by going to http://ark.intel.com/: Intel® Virtualisation Technology (VT-x) should be checked as "yes". Then, when the host machine is booting (just after switching it on) press the appropriate function key to get to the setup, go to advanced settings, and enable the virtualisation extensions of the CPU. Note that some recent Acer Inspire laptop models do not give access to the VT-X feature in the BIOS setup even if the processor supports it.
+> **Answer:** In some versions of VirtualBox, it has happened that the CMS Open Data VM does not open correctly. This was the case for example for VirtulBox 5.0.32, but more recent versions from the VirtualBox website have been tested and are working properly. Note that it can take a while to launch the CMS Open Data VM for the first time.
 
-Question: The VM does not inherit the keyboard layout of the host machine.
+**Question:**  When/after installing CERN VM, I get a message that my VM uses too much memory
 
-> Answer: The layout can be changed by using setxkbmap from a terminal inside the Virtual Machine. For example a user with a Swiss keyboard with French variant would type setxkbmap 'ch(fr)' in the terminal and a user with a Finnish keyboard would type setxkbmap fi. This can also be solved by using the GUI, which can be launched either from the graphical menu in the lower left corner (Preferences → Keyboard) or by typing in the console: xfce4-keyboard-settings. In the Layout tab it is possible to change the keyboard model and the layout. If you wish to keep these settings after reboot, you should delete all the other layouts from the menu.
+> **Answer:** Reduce the memory allocated to VirtualBox by clicking on System in the VirtualBox graphical user interface and adjust the base memory with the sliding bar.
 
-Question: The default terminal does not accept (not even from the clipboard) nor display certain language-specific characters such as umlauts.
 
-> Answer: Using a terminal such as xterm will allow reading and writing special characters.
+**Question:** On Ubuntu running the latest version of VirtualBox, an error appears when opening the CMS-specific virtual machine: the message is about a missing path to a definition file.
 
-Question: Users who use high resolutions on small displays and have set their host machines DPI manually, for example through .Xresources on Linux (X11), may find that everything is too small to be read efficiently. (Also helpful to users who have difficulties in reading the fonts and other visual information on the image due to the size of the graphical components.)
+> **Answer:** To fix this, open one of the (non-CMS-specific) CernVMs first, after which the CMS-specific one should load without the error message.
 
-> Answer: The DPI can easily be adjusted from Xfce menu → Preferences → Appearance → Fonts → DPI. This enhances the readability and general usability significantly.
+**Question:** On Windows 7 and 8, this error message appears: "VT-X/AMD-V hardware acceleration is not available on your system. Your 64-bit guest will fail to detect a 64-but CPU and will not be able to boot."
 
-Question: Resizing the VM window doesn't resize its contents.
+> **Answer:** Check whether your processor supports the VT-X feature by going to http://ark.intel.com/: Intel® Virtualisation Technology (VT-x) should be checked as "yes". Then, when the host machine is booting (just after switching it on) press the appropriate function key to get to the setup, go to advanced settings, and enable the virtualisation extensions of the CPU. Note that some recent Acer Inspire laptop models do not give access to the VT-X feature in the BIOS setup even if the processor supports it.
 
-> Answer: This appears to only occur when a new VM image is launched for the first time. The contents should resize after several minutes (up to half an hour), and the problem should not manifest when the VM image is opened a second time.
+**Question:** The VM does not inherit the keyboard layout of the host machine.
+
+> **Answer:** The layout can be changed by using setxkbmap from a terminal inside the Virtual Machine. For example a user with a Swiss keyboard with French variant would type ```setxkbmap 'ch(fr)'``` in the terminal and a user with a Finnish keyboard would type ```setxkbmap fi```. This can also be solved by using the GUI, which can be launched either from the graphical menu in the lower left corner (Preferences → Keyboard) or by typing in the console: xfce4-keyboard-settings. In the Layout tab it is possible to change the keyboard model and the layout. If you wish to keep these settings after reboot, you should delete all the other layouts from the menu.
+
+**Question:** The default terminal does not accept (not even from the clipboard) nor display certain language-specific characters such as umlauts.
+
+> **Answer:** Using a terminal such as xterm will allow reading and writing special characters.
+
+**Question:** Users who use high resolutions on small displays and have set their host machines DPI manually, for example through .Xresources on Linux (X11), may find that everything is too small to be read efficiently. (Also helpful to users who have difficulties in reading the fonts and other visual information on the image due to the size of the graphical components.)
+
+> **Answer:** The DPI can easily be adjusted from Xfce menu → Preferences → Appearance → Fonts → DPI. This enhances the readability and general usability significantly.
+
+**Question:** Resizing the VM window doesn't resize its contents.
+
+**Answer:** This appears to only occur when a new VM image is launched for the first time. The contents should resize after several minutes (up to half an hour), and the problem should not manifest when the VM image is opened a second time.
 
 
 

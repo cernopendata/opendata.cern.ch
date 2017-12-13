@@ -4,9 +4,9 @@ The CMS-specific VM includes the [ROOT framework](http://root.cern.ch/) and [CMS
 2.  [How to Test & Validate?](#testvalidate2010)
 3.  [Issues & Limitations](#issues2010)
 
-## <a name="install2010"></a>How to install a CERN Virtual Machine
+## <a name="install2010"></a>Step 1: How to install a CERN Virtual Machine
 
-### Step 1: Installing VirtualBox
+### Installing VirtualBox
 
 VirtualBox is a free, open source and multiplatform application to run virtual machines: you can [download](https://www.VirtualBox.org/wiki/Downloads) the package for your platform from the Downloads page.
 
@@ -14,15 +14,15 @@ You will need administrative ("root") privileges on every platform to perform th
 
 Note: the latest tested version of VirtualBox working with this CMS-specific CernVM image is 5.2.2\. If you have troubles with the latest version of VirtualBox, pick that one: the full history of VirtualBox versions is available [on a different page.](https://www.VirtualBox.org/wiki/Download_Old_Builds)
 
-### Step 2: Downloading and Creating a Virtual Machine
+### Downloading and Creating a Virtual Machine
 
-**Important**: Before you download the CernVM, note that the imported settings may not always work on your host machine. Please see [Issues and Limitations](#issues2010) if you encounter any problems with booting the VM.
+**Important**: Before you download the CernVM, note that the imported settings may not always work on your host machine. Please see [Issues and Limitations](#issues2010) or [/docs/cms-guide-troubleshooting](the CMS guide to troubleshooting) if you encounter any problems with booting the VM.
 
 Next download the CMS-specific CernVM image as OVA file from: [CMS VM Image for 2010 CMS Open Data](/record/250).
 
-By double clicking the downloaded file, VirtualBox imports the image with ready-to-run settings: in case of any problems with booting with these default settings, see [Issues and Limitations](#issues2010). Then, you launch the CMS-specific CernVM, which boots into the graphical user interface and sets up the CMS environment.
+By double clicking the downloaded file, VirtualBox imports the image with ready-to-run settings. Then, you launch the CMS-specific CernVM, which boots into the graphical user interface and sets up the CMS environment.
 
-## <a name="testvalidate2010"></a>How to Test & Validate?
+## <a name="testvalidate2010"></a>Step 2: How to Test & Validate?
 
 The validation procedure tests that the CMS environment is installed and operational on your virtual machine, and that you have access to the ROOT files. You may skip this step if you want, and head straight to [Getting Started with CMS data](/docs/cms-getting-started-2010). However, these steps give you a quick introduction to the CMS environment.
 
@@ -118,6 +118,18 @@ Solutions to some of the common problems encountered are listed below. [This val
 **Q:** The following error message appears when the Virtual Machine is started: "Could not start the machine CMS Open Data because the following physical network interfaces were not found: vboxnet0 (adapter 2). You can either change the machine's network settings or stop the machine."
 
 **A:** Change the Network settings for adapter 2 from "Host-only Adapter" to "NAT". The VM should then start correctly.
+
+**Q:** What is the root password for the CMS Open Data VM?
+
+**A:** The root password for the CMS Open Data VM is password.
+
+**Q:** The CMS Open Data VM does not open correctly
+
+**A:** In some versions of VirtualBox, it has happened that the CMS Open Data VM does not open correctly. This was the case for example for VirtulBox 5.0.32, but more recent versions from the VirtualBox website have been tested and are working properly. Note that it can take a while to launch the CMS Open Data VM for the first time.
+
+**Q:**  When/after installing CERN VM, I get a message that my VM uses too much memory
+
+**A:** Reduce the memory allocated to VirtualBox by clicking on System in the VirtualBox graphical user interface and adjust the base memory with the sliding bar.
 
 **Q:** On Ubuntu running the latest version of VirtualBox, an error appears when opening the CMS-specific virtual machine: the message is about a missing path to a definition file.
 
