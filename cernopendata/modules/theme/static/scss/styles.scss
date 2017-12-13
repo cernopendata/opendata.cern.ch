@@ -56,7 +56,7 @@ body {
 .card-style {
     border: none;
     margin-top: 10px;
-    border-top: 3px solid #3b97d3;
+    border-top: 2px solid lighten($dark-blue, 30%);
     border-radius: unset;
 }
 
@@ -350,12 +350,6 @@ a {
     font-size: 0.6em;
 }
 
-.tags-box-right{
-    position: absolute;
-    bottom: -20px;
-    right: 10px;
-}
-
 .pagination.file-pagination {
     display: inline-block;
     border: 1px solid #ccc;
@@ -393,18 +387,13 @@ a {
     height: $loading-width;
 }
 
-.detail_view_h3 {
-    margin-top: 15px;
-    text-decoration: underline;
-}
-
 // SEARCH PAGE
 
 .facets-box {
     margin-top: 20px;
 
     .title {
-        font-size: 19px;
+        font-size: 1.2em;
         font-weight: $font-normal;
         margin-bottom: .4em;
     }
@@ -464,29 +453,13 @@ invenio-search-facets {
         border-bottom: 1px solid $white-on-hover;
 
         .title {
-            font-size: 18px;
+            font-size: 1.2em;
             font-weight: $font-normal;
             margin-bottom: .4em;
         }
 
         p {
             font-weight: $font-light;
-        }
-
-        .badges-box {
-            font-size: .9em;
-
-            .badge {
-                padding: .4em .7em;
-                font-size: .7em;
-                font-weight: $font-heavy;
-                position:relative;
-            }
-
-            .badge:hover {
-                text-decoration: none;
-                color: white;
-            }
         }
 
         // whole parent div is a link
@@ -513,6 +486,21 @@ invenio-search-facets {
     }
 }
 
+.badges-box {
+    font-size: .9em;
+
+    .badge {
+        padding: .4em .7em;
+        font-size: .7em;
+        font-weight: $font-heavy;
+        position:relative;
+    }
+
+    .badge:hover {
+        text-decoration: none;
+        color: white;
+    }
+}
 
 .badge-type {
     background-color: $light-blue;
@@ -534,26 +522,30 @@ invenio-search-facets {
 }
 
 .badge-tag {
-    background-color: $dark-grey;
+    background-color: #7c818f;
     color: white;
 
     &:hover {
-        background-color: darken($dark-grey, $darken-on-hover);
+        background-color: darken(#7c818f, $darken-on-hover);
     }
 }
 
 .badge-experiment {
-    background-color: $dark-blue;
+    background-color: #406184;
     color: white;
 
     &:hover {
-        background-color: darken($dark-blue, $darken-on-hover);
+        background-color: darken(#406184, $darken-on-hover);
     }
 }
 
-.clear-facets-box {
-    div, a {
-        display: inline-block;
+.badge-additional {
+    background-color: #e7e8ea;
+    color: black;
+
+    &:hover {
+        background-color: darken(#e7e8ea, $darken-on-hover);
+        color: black;
     }
 }
 
@@ -567,6 +559,11 @@ invenio-search-facets {
     cursor: pointer;
 }
 
+.clear-facets-box {
+    div, a {
+        display: inline-block;
+    }
+}
 
 .clickable {
     cursor: pointer;
@@ -582,4 +579,52 @@ invenio-search-facets {
     width: 35%;
     margin-left: 30px;
     margin-right: 30px;
+
+}
+
+.search-btn {
+    background-color: $light-blue;
+    border-color: $light-blue;
+    color: white;
+}
+
+// DETAIL PAGE
+
+.detail-page {
+
+    font-weight: $font-light;
+    margin-top: 0.7em;
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.6em;
+        margin-top: 1em;
+        font-weight: $font-light;
+    }
+
+    h3 {
+        font-size: .9em;
+    }
+
+    .cite-paragraph {
+        font-weight: $font-light;
+        line-height: 1.2;
+        margin-bottom: 30px;
+    }
+
+    .news-content {
+        margin-top: 2em;
+    }
+
+    .definition-paragraph {
+        padding-top: 1em;
+    }
+
+    .card {
+        margin-bottom: 1em;
+        padding-bottom: 2em;
+    }
 }

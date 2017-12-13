@@ -6,135 +6,133 @@
 
 {%- block page_body %}
 <div class="container-fluid background">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-10">
-        <div class="card card-style">
-          <div class="card-body">
-            {% block heading %}
-            <h3 class="d-inline">
-              {{record.title}}
-              <small id="date-published">{{record.date_published}}</small>
-            </h3>
-            <div class="row">
-              {% if record.title_additional %}
-              <div class="col-md-12">
-                {{record.title_additional}}
-              </div>
-              {% endif %}
-              <div class="col-md-12">
-                {% for author in record.authors %}
-                <small>{{author.name}}</small>
-                {% endfor %}
-                {% if record.collaboration %}
-                <span class="badge badge-success">{{record.collaboration.name}}</span>
-                {% endif %}
-                {% if record.year %}
-                <span class="badge badge-success">{{record.year}} Run</span>
-                {% endif %}
-              </div>
-            </div>
-            <p></p>
-            <h6 class="card-title">
-              <label>Cite as:</label>
-              {% for author in record.authors %}
-              <span>{{author.name}}.</span>
-              {% endfor %}
-              <span>
-                {% if record.collaboration %}
-                  {{record.collaboration.name}}
-                {% endif %} ({{record.date_published}}). {{record.title_additional}}. CERN Open Data Portal.
+    <div class="container detail-page" ng-app="recordApp">
+        <div class="row">
+            <div class="col-md">
+                <div class="card card-style">
+                    <div class="card-body">
+
+                        {% block heading %}
+                        <h2 class="d-inline">
+                            {{record.title}}
+                            <small id="date-published">{{record.date_published}}</small>
+                        </h2>
+                        <div class="row">
+                            {% if record.title_additional %}
+                            <div class="col-md-12">
+                                {{record.title_additional}}
+                            </div>
+                            {% endif %}
+                            <div class="col-md-12">
+                                {% for author in record.authors %}
+                                <small>{{author.name}}</small>
+                                {% endfor %}
+                                {% if record.collaboration %}
+                                <span class="badge badge-success">{{record.collaboration.name}}</span>
+                                {% endif %}
+                                {% if record.year %}
+                                <span class="badge badge-success">{{record.year}} Run</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <p></p>
+                        <h6 class="card-title">
+                            <label>Cite as:</label>
+                            {% for author in record.authors %}
+                            <span>{{author.name}}.</span>
+                            {% endfor %}
+                            <span>
+                                {% if record.collaboration %}
+                                {{record.collaboration.name}}
+                                {% endif %} ({{record.date_published}}). {{record.title_additional}}. CERN Open Data Portal.
                                 {% if record.doi %}
-                                  <label>DOI:</label>
-                                  <a href="http://doi.org/{{record.doi}}">{{record.doi}}</a>
+                                <label>DOI:</label>
+                                <a href="http://doi.org/{{record.doi}}">{{record.doi}}</a>
                                 {% endif %}
                             </span>
-            </h6>
-            <p></p>
-            <div class="row">
-              <div class="col-md-12">
-                {% if record.collision_information %}
-                <label>Collision Energy:</label>
-                <span><a
-                  href="/search?q={{record.collision_information.energy}}">{{record.collision_information.energy}}</a></span>
-                {% endif %}
-                <label>Experiment:</label>
-                <span><a href="/search?q={{record.experiment}}">{{record.experiment}}</a></span>
-                <label>Accelerator:</label>
-                <span><a href="/search?q={{record.accelerator}}">{{record.accelerator}}</a></span>
-              </div>
-            </div>
-            {% endblock heading %}
-          </div>
-          <div class="card card-style">
-            <div class="card-body">
-              {% block metadata_block %}
-              {% if record.abstract %}
-              <div class="row">
-                <div class="col-md-12">
-                  <h3 class="detail_view_h3">Description</h3>
-                  <p>{{record.abstract.description | safe}}</p>
-                  {{ link_list(record.abstract.links) }}
-                </div>
-              </div>
-              {% endif %}
-              {% endblock metadata_block %}
+                        </h6>
+                        <p></p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                {% if record.collision_information %}
+                                <label>Collision Energy:</label>
+                                <span><a
+                                 href="/search?q={{record.collision_information.energy}}">{{record.collision_information.energy}}</a></span>
+                                {% endif %}
+                                <label>Experiment:</label>
+                                <span><a href="/search?q={{record.experiment}}">{{record.experiment}}</a></span>
+                                <label>Accelerator:</label>
+                                <span><a href="/search?q={{record.accelerator}}">{{record.accelerator}}</a></span>
+                            </div>
+                        </div>
+                        {% endblock heading %}
+                        <hr>
+                        {% block metadata_block %}
+                        {% if record.abstract %}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>Description</h2>
+                                <p>{{record.abstract.description | safe}}</p>
+                                {{ link_list(record.abstract.links) }}
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endblock metadata_block %}
 
-              {% include 'cernopendata_records_ui/records/components/previewer.html' %}
+                        {% include 'cernopendata_records_ui/records/components/previewer.html' %}
 
-              {% block files_block %}
-                <div ng-controller="paginationCtrl as $ctrl" ng-init="$ctrl.getFiles()">
-                  {{ files_box()}}
+                        {% block files_block %}
+                        <div ng-controller="paginationCtrl as $ctrl" ng-init="$ctrl.getFiles()">
+                            {{ files_box()}}
+                        </div>
+                        {% endblock files_block %}
+                        {% block disclaimer %}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>Disclaimer</h2>
+                                {% if record.license %}
+                                {% if record.license.attribution != 'CC0'%}
+                                <p>{{record.license.attribution}}</p>
+                                {% else %}
+                                <p>The open data are released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative
+                                    Commons CC0 waiver</a>. Neither {{record.experiment}} nor CERN endorse any
+                                works, scientific or otherwise, produced using these data.
+                                All releases will have a unique DOI that you are requested to cite in any applications or
+                                publications.
+                                </p>
+                                <img src="{{url_for('static', filename='img/cc-zero.svg')}}">
+                                {% endif %}
+                                {% else %}
+                                <p>The open data are released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative
+                                    Commons CC0 waiver</a>. Neither {{record.experiment}} nor CERN endorse any
+                                works, scientific or otherwise, produced using these data.
+                                All releases will have a unique DOI that you are requested to cite in any applications or
+                                publications.
+                                </p>
+                                <img src="{{url_for('static', filename='img/cc-zero.svg')}}">
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endblock disclaimer %}
+                    </div>
                 </div>
-              {% endblock files_block %}
-              {% block disclaimer %}
-              <div class="row">
-                <div class="col-md-12">
-                  <h3 class="detail_view_h3">Disclaimer</h3>
-                  {% if record.license %}
-                  {% if record.license.attribution != 'CC0'%}
-                  <p>{{record.license.attribution}}</p>
-                  {% else %}
-                  <p>The open data are released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative
-                    Commons CC0 waiver</a>. Neither {{record.experiment}} nor CERN endorse any
-                    works, scientific or otherwise, produced using these data.
-                    All releases will have a unique DOI that you are requested to cite in any applications or
-                    publications.
-                  </p>
-                  <img src="{{url_for('static', filename='img/cc-zero.svg')}}">
-                  {% endif %}
-                  {% else %}
-                  <p>The open data are released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative
-                    Commons CC0 waiver</a>. Neither {{record.experiment}} nor CERN endorse any
-                    works, scientific or otherwise, produced using these data.
-                    All releases will have a unique DOI that you are requested to cite in any applications or
-                    publications.
-                  </p>
-                  <img src="{{url_for('static', filename='img/cc-zero.svg')}}">
-                  {% endif %}
-                </div>
-              </div>
-              {% endblock disclaimer %}
             </div>
-          </div>
         </div>
-      </div>
-      {% block export %}
-      <div class="col-md-2">
-        <div class="card card-style">
-          <div class="card-body">
-            <h4> Export </h4>
-            <ul class="list-inline">
-              <li><a
-                href="{{ url_for('invenio_records_ui.recid_export', pid_value=pid.pid_value, format='json') }}">JSON</a>
-              </li>
-            </ul>
-          </div>
+        {% block export %}
+        <div class="col-md-2">
+            <div class="card card-style">
+                <div class="card-body">
+                    <h4> Export </h4>
+                    <ul class="list-inline">
+                        <li><a
+                        href="{{ url_for('invenio_records_ui.recid_export', pid_value=pid.pid_value, format='json') }}">JSON</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
-      {% endblock export %}
+        {% endblock export %}
     </div>
-  </div>
 </div>
 {%- endblock %}
 
@@ -142,125 +140,125 @@
 {{ super() }}
 
 <script>
-  $('#download_caution').on('show.bs.modal', function (event) {
+$('#download_caution').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget)
-    var file_uri = button.data('download-uri')
-    var file_key = button.data('download-key')
-    var file_size = button.data('download-size')
+        var file_uri = button.data('download-uri')
+        var file_key = button.data('download-key')
+        var file_size = button.data('download-size')
 
-    var modal = $(this)
-    modal.find('#download-msg-filename').text(file_key)
-    modal.find('#download-msg-size').text(file_size)
-    modal.find('#download-msg-uri').attr("href", file_uri)
-  })
+        var modal = $(this)
+        modal.find('#download-msg-filename').text(file_key)
+        modal.find('#download-msg-size').text(file_size)
+        modal.find('#download-msg-uri').attr("href", file_uri)
+})
 
-  var recordApp = angular.module('recordApp', ['ui.bootstrap']);
+var recordApp = angular.module('recordApp', ['ui.bootstrap']);
 
-  recordApp.controller('paginationCtrl', ['$scope', '$element', '$http', function($scope, $element, $http){
-        var $ctrl = this;
+recordApp.controller('paginationCtrl', ['$scope', '$element', '$http', function($scope, $element, $http){
+    var $ctrl = this;
 
-        $ctrl.viewby = 5;
-        $ctrl.totalItems = 0;
-        $ctrl.currentPage = 1;
-        $ctrl.itemsPerPage = $ctrl.viewby;
-        $ctrl.maxSize = 5;
+    $ctrl.viewby = 5;
+    $ctrl.totalItems = 0;
+    $ctrl.currentPage = 1;
+    $ctrl.itemsPerPage = $ctrl.viewby;
+    $ctrl.maxSize = 5;
 
-        $ctrl.getFiles = function(){
-          $http.get('/record/{{pid.pid_value}}/files/p/'+$ctrl.currentPage+'?group=1')
+    $ctrl.getFiles = function(){
+        $http.get('/record/{{pid.pid_value}}/files/p/'+$ctrl.currentPage+'?group=1')
             .then( function(files) {
-              console.log(files);
-              $ctrl.files = files.data;
+                console.log(files);
+                $ctrl.files = files.data;
             })
-        }
+    }
 
-        var cleanStatus = Array.apply(null, Array($ctrl.totalItems)).map(function (_, i) {return true;});
-        $ctrl.itemsStatus = angular.copy(cleanStatus)
+    var cleanStatus = Array.apply(null, Array($ctrl.totalItems)).map(function (_, i) {return true;});
+    $ctrl.itemsStatus = angular.copy(cleanStatus)
 
         var selected_files = [];
 
-        var start = ($ctrl.currentPage-1)*$ctrl.itemsPerPage;
-        var end = ($ctrl.currentPage)*$ctrl.itemsPerPage;
-        for (var i=start; i < end; i++) {
-          $ctrl.itemsStatus[i] = false;
-        }
+    var start = ($ctrl.currentPage-1)*$ctrl.itemsPerPage;
+    var end = ($ctrl.currentPage)*$ctrl.itemsPerPage;
+    for (var i=start; i < end; i++) {
+        $ctrl.itemsStatus[i] = false;
+    }
 
-        $ctrl.previewFile = function(filename) {
-          ispy.loadUrl("/record/{{pid.pid_value}}/files/"+filename);
-        };
+    $ctrl.previewFile = function(filename) {
+        ispy.loadUrl("/record/{{pid.pid_value}}/files/"+filename);
+    };
 
-        $ctrl.setPage = function (pageNo) {
-          $ctrl.currentPage = pageNo;
-        };
+    $ctrl.setPage = function (pageNo) {
+        $ctrl.currentPage = pageNo;
+    };
 
-        $ctrl.pageChanged = function(type = '') {
-          if (type == 'None') type = '';
-          console.log("type::", type)
-          $http.get('/record/{{pid.pid_value}}/files/p/'+$ctrl.currentPage+'?type='+type)
+    $ctrl.pageChanged = function(type = '') {
+        if (type == 'None') type = '';
+        console.log("type::", type)
+            $http.get('/record/{{pid.pid_value}}/files/p/'+$ctrl.currentPage+'?type='+type)
             .then( function(files) {
-              $ctrl.files = files.data.files;
+                $ctrl.files = files.data.files;
             })
-        };
+    };
 
-        $ctrl.setItemsPerPage = function(num) {
-          $ctrl.itemsPerPage = num;
-          $ctrl.currentPage = 1; //reset to first page
+    $ctrl.setItemsPerPage = function(num) {
+        $ctrl.itemsPerPage = num;
+        $ctrl.currentPage = 1; //reset to first page
+    }
+}])
+
+recordApp.controller(
+        'downloadModalCtrl',
+        [
+        '$scope',
+        '$interpolate',
+        '$http',
+        '$uibModal',
+        function($scope,  $interpolate , $http, $uibModal) {
+            var $ctrl = this;
+            $ctrl.openModal = function (file, download_uri) {
+                var modalInstance = $uibModal.open({
+                    animation: $ctrl.animationsEnabled,
+                    ariaLabelledBy: 'modal-title',
+                    ariaDescribedBy: 'modal-body',
+                    templateUrl: "/static/templates/downloadModal.html",
+                    controller: 'downloadModalInstanceCtrl',
+                    controllerAs: '$ctrl',
+                    windowClass: 'download-modal',
+                    resolve: {
+                        file: function() {
+                            return file;
+                        },
+                        download_uri: function() {
+                            return download_uri
+                        }
+                    }
+                });
+            };
         }
-  }])
+]);
 
-  recordApp.controller(
-    'downloadModalCtrl',
-    [
-      '$scope',
-      '$interpolate',
-      '$http',
-      '$uibModal',
-      function($scope,  $interpolate , $http, $uibModal) {
-        var $ctrl = this;
-        $ctrl.openModal = function (file, download_uri) {
-          var modalInstance = $uibModal.open({
-            animation: $ctrl.animationsEnabled,
-            ariaLabelledBy: 'modal-title',
-            ariaDescribedBy: 'modal-body',
-            templateUrl: "/static/templates/downloadModal.html",
-            controller: 'downloadModalInstanceCtrl',
-            controllerAs: '$ctrl',
-            windowClass: 'download-modal',
-            resolve: {
-              file: function() {
-                return file;
-              },
-              download_uri: function() {
-                return download_uri
-              }
+recordApp.controller(
+        'downloadModalInstanceCtrl',
+        function ($scope, $uibModalInstance, file, download_uri){//, params, header, body) {
+            var $ctrl = this;
+
+            $ctrl.file = file;
+            $ctrl.download_uri = download_uri;
+
+            $ctrl.closeModal = function () {
+                $uibModalInstance.close();
+            };
+        }
+        );
+
+        recordApp.filter('bytes', function() {
+            return function(bytes, precision) {
+                if (isNaN(parseFloat(bytes)) || !isFinite(bytes)) return '-';
+                if (typeof precision === 'undefined') precision = 1;
+                var units = ['bytes', 'kB', 'MB', 'GB', 'TB', 'PB'],
+                    number = Math.floor(Math.log(bytes) / Math.log(1024));
+                return (bytes / Math.pow(1024, Math.floor(number))).toFixed(precision) +  ' ' + units[number];
             }
-          });
-        };
-      }
-    ]);
-
-  recordApp.controller(
-    'downloadModalInstanceCtrl',
-    function ($scope, $uibModalInstance, file, download_uri){//, params, header, body) {
-      var $ctrl = this;
-
-      $ctrl.file = file;
-      $ctrl.download_uri = download_uri;
-
-      $ctrl.closeModal = function () {
-        $uibModalInstance.close();
-      };
-    }
-  );
-
-  recordApp.filter('bytes', function() {
-    return function(bytes, precision) {
-      if (isNaN(parseFloat(bytes)) || !isFinite(bytes)) return '-';
-      if (typeof precision === 'undefined') precision = 1;
-      var units = ['bytes', 'kB', 'MB', 'GB', 'TB', 'PB'],
-        number = Math.floor(Math.log(bytes) / Math.log(1024));
-      return (bytes / Math.pow(1024, Math.floor(number))).toFixed(precision) +  ' ' + units[number];
-    }
-  });
+        });
 
 </script>
 {% endblock javascript %}

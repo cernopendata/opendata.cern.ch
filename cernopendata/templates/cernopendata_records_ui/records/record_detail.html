@@ -1,334 +1,251 @@
 {%- extends "cernopendata_records_ui/records/detail.html" %}
 
+{% block heading %}
+    <h1 class="d-inline"> {{ record.title_additional or record.title }} </h1>
+    
+    <p>
+        {% if record.title_additional %} <span>{{ record.title }}, </span> {% endif %} 
+        {% for author in record.authors %} <small>{{ author.name }};</small> {% endfor %}
+        {% if record.collaboration %} <small>{{ record.collaboration.name }}</small> {% endif %}
+    </p>
+    
+    {% if record.doi %}
+    <p class="cite-paragraph"> 
+        Cite as:
+        {% for author in record.authors %}<span>{{ author.name }}.</span>{% endfor %}
+        <span>
+            {% if record.collaboration %} {{ record.collaboration.name }} {% endif %}
+            {% if record.date_published %} ({{ record.date_published }}). {% endif %}
+            {{ record.title_additional or record.title }}. CERN Open Data Portal.
+            DOI:<a href="http://doi.org/{{record.doi}}">{{record.doi}}</a>
+        </span>
+    </p>
+    {% endif %}
+    {% for a in record.a %}
+    {% endfor %}
 
-{%- block page_body %}
-<div class="container-fluid background">
-  <div class="container" ng-app="recordApp">
-    <div class="row">
-      <div class="col-md-10">
-        <div class="card card-style">
-          <div class="card-body">
-            {% block heading %}
-            <h3 class="d-inline">
-              {% if record.title_additional %}
-              {{record.title_additional}}
-              {% else %}
-              {{record.title}}
-              {% endif %}
-            </h3>
-            {% if record.title_additional %}
-            <p>
-            <span>({{record.title}})</span>
-            {% endif %}
-            {% if record.authors %}
-            <br/>
-            {% for author in record.authors %}
-            <small>{{author.name}};</small>
+    <p class="badges-box">
+        {% if record.type %} <a class="badge badge-type" href="/search?type={{ record.type.primary }}">{{ record.type.primary }}</a>
+            {% if record.type.secondary %}
+            {% for type in record.type.secondary %}
+                <a class="badge badge-subtype" href="/search?type={{ record.type.primary }}&subtype={{ type }}">{{ type }}</a>
             {% endfor %}
             {% endif %}
-            {% if record.collaboration %}
-            <span class="badge badge-success">{{record.collaboration.name}}</span>
+        {% endif %}
+        {% if record.experiment %} <a class="badge badge-experiment" href="/search?experiment={{ record.experiment }}">{{ record.experiment }}</a> {% endif %}
+        {% if record.collision_information %} <a class="badge badge-tag" href="/search?q={{ record.collision_information.energy }}">Collision energy {{ record.collision_information.energy }}</a> {% endif %}
+        {% if record.accelerator %} <a class="badge badge-tag"  href="/search?q={{ record.accelerator }}">Accelerator {{ record.accelerator }}</a> {% endif %}
+        {% if record.relations %}
+        {% for relation in record.relations %}
+            {% if relation.type == 'isChildOf' %} <a  class="badge badge-tag" href="/record/{{ relation.recid or relation.title }}"> Parent Dataset: {{relation.title}}</a> {% endif %}
+        {% endfor %}
+        {% endif %}
+    </p>
+{% endblock heading %}
+{% block metadata_block %}
+{{ super() }}
+
+    {% if 'ig' in record.get('distribution', {}).get('formats', []) %}
+    <h2 id="previewer">Preview</h2>
+        {%include "cernopendata_pages/visualise_events_cms_standalone.html"%}
+    {% endif %}
+
+    {% if record.use_with %}
+    <h2>Use with</h2>
+    <p>{{record.use_with.description | safe}}</p>
+    {{ link_list(record.use_with.links) }}
+    {% endif %}
+
+    {% if record.note %}
+    <div class="row">
+        <div class="col-md-12">
+            {% if record.type.primary == 'Dataset' or record.type.primary == 'Software' %}
+            <h2>Notes</h2>
+            {% else %}
+            <h2>Issues & Limitations</h2>
             {% endif %}
-            </p>
-            <p></p>
-            {% if record.doi %}
-            <h6 class="card-title">
-              <label>Cite as:</label>
-              {% if record.authors %}
-              {% for author in record.authors %}
-              <span>{{author.name}}.</span>
-              {% endfor %}
-              {% endif %}
-              <span>
-                {% if record.collaboration %}
-                  {{record.collaboration.name}}
-                {% endif %}
-                {% if record.date_published %}
-                  ({{record.date_published}}).
-                {% endif %}
-                {% if record.title_additional %}
-                {{record.title_additional}}.
-                {% else %}
-                  {{record.title}}.
-                {% endif %}
-                CERN Open Data Portal.
-                    {% if record.doi %}
-                      <label>DOI:</label>
-                      <a href="http://doi.org/{{record.doi}}">{{record.doi}}</a>
-                    {% endif %}
-                </span>
-            </h6>
-            {% endif %}
-            <div class="row">
-              <div class="col-md-12">
-                {% if record.type %}
-                <a class="badge badge-secondary" href="/search?type={{record.type.primary}}">{{record.type.primary}}</a>
-                {% if record.type.secondary %}
-                {% for type in record.type.secondary%}
-                <a class="badge badge-secondary" href="/search?type={{record.type.primary}}&subtype={{type}}">{{type}}</a>
-                {% endfor %}
-                {% endif %}
-                {% endif %}
-                {% if record.collision_information %}
-                <label>Collision Energy:</label>
-                <span><a
-                  href="/search?q={{record.collision_information.energy}}">{{record.collision_information.energy}}</a></span>
-                {% endif %}
-                {% if record.experiment %}
-                <label>Experiment:</label>
-                <span><a href="/search?q={{record.experiment}}">{{record.experiment}}</a></span>
-                {% endif %}
-                {% if record.accelerator %}
-                <label>Accelerator:</label>
-                <span><a href="/search?q={{record.accelerator}}">{{record.accelerator}}</a></span>
-                {% endif %}
-                {% if record.relations %}
-                {% for relation in record.relations %}
-                {% if relation.type == 'isChildOf' %}
-                <label>Parent Dataset:</label>
-                <span>
-                  {% if relation.recid %}
-                  <a href="/record/{{relation.recid}}">{{relation.title}}</a>
-                  {% else %}
-                    {{relation.title}}
-                  {% endif %}
-                </span>
-                {% endif %}
-                {% endfor %}
-                {% endif %}
-              </div>
-            </div>
-            {% endblock heading %}
-          </div>
-          <div class="card card-style">
-            <div class="card-body">
-              {% block metadata_block %}
-              {{ super() }}
-
-              {% if 'ig' in record.get('distribution', {}).get('formats', []) %}
-              <!--<hr>-->
-              <h3 class="detail_view_h3" id="previewer">Preview</h3>
-              {%include "cernopendata_pages/visualise_events_cms_standalone.html"%}
-              {% endif %}
-
-              {% if record.use_with %}
-              <!--<hr>-->
-              <h3 class="detail_view_h3">Use with</h3>
-              <p>{{record.use_with.description | safe}}</p>
-              {{ link_list(record.use_with.links) }}
-              {% endif %}
-
-              {% if record.note %}
-              <!--<hr>-->
-              <div class="row">
-                <div class="col-md-12">
-                  {% if record.type.primary == 'Dataset' or record.type.primary == 'Software' %}
-                  <h3 class="detail_view_h3">Notes</h3>
-                  {% else %}
-                  <h3 class="detail_view_h3">Issues & Limitations</h3>
-                  {% endif %}
-                  <p>{{record.note.description | safe}}</p>
-                  {{ link_list(record.note.links) }}
-                </div>
-              </div>
-              {% endif %}
-
-              {% if record.relations %}
-              <!--<hr>-->
-              <div class="row">
-                <div class="col-md-12">
-                  {% if record.type.primary == 'Software' %}
-                  <h3 class="detail_view_h3">Related items</h3>
-                  {% else %}
-                  <h3 class="detail_view_h3">Related Datasets</h3>
-                  {% endif %}
-                  {% for relation in record.relations %}
-                    {% if relation.description %}
-                      {{relation.description}}
-                    {% endif %}
-                    {% if relation.recid %}
-                    <p>
-                      <a href="/record/{{relation.recid}}">{{relation.recid |
-                        get_record_title}}</a>
-                    </p>
-                    {% else %}
-                    <p>{{relation.title}}</p>
-                    {% endif %}
-                  <!--<br>-->
-                  {% endfor %}
-                </div>
-              </div>
-              {% endif %}
-
-              {% if record.distribution %}
-              <!--<hr>-->
-              {% if record.distribution.number_events or record.distribution.number_files or record.distribution.size %}
-              <div class="row">
-                <div class="col-md-12">
-                  <h3 class="detail_view_h3">Characteristics</h3>
-                  <label>Dataset:</label>
-                  {% if record.distribution.number_events %}
-                  <span><strong>{{record.distribution.number_events}}</strong> events</span>
-                  {% endif %}
-                  {% if record.distribution.number_files %}
-                  <span><strong>{{record.distribution.number_files}}</strong> files</span>
-                  {% endif %}
-                  {% if record.distribution.size %}
-                  <span><strong>{{record.distribution.size | filesizeformat }}</strong> in total</span>
-                  {% endif %}
-                </div>
-              </div>
-              {% endif %}
-              {% endif %}
-
-              {% if record.system_details %}
-              <!--<hr>-->
-              <div class="row">
-                <div class="col-md-12">
-                  <h3 class="detail_view_h3">System Details</h3>
-                  {% if record.system_details.description %}
-                  <span>{{record.system_details.description}}</span>
-                  {% endif %}
-                  {% if record.system_details.global_tag %}
-                  <label>Global tag:</label>
-                  <span>{{record.system_details.global_tag}}</span>
-                  {% endif %}
-                  <br>
-                  {% if record.system_details.release %}
-                  {% if record.type.primary == 'Software' %}
-                  <label>Software release:</label>
-                  {% else %}
-                  <label>Recommended release for analysis:</label>
-                  {% endif %}
-                  <span>{{record.system_details.release}}</span>
-                  {% endif %}
-                  {% if record.system_details.recid %}
-                  <p>
-                    <a href="/record/{{record.system_details.recid}}">{{record.system_details.recid |
-                      get_record_title}}</a>
-                  </p>
-                  {% endif %}
-                </div>
-              </div>
-              {% endif %}
-
-              {% if record.dataset_semantics %}
-              <!--<hr>-->
-              <div class="row">
-                <div class="col-md-12">
-                  <h3 class="detail_view_h3">Dataset Semantics</h3>
-                  <p>
-                    {% for semantic in record.dataset_semantics %}
-                    <strong>{{semantic.variable}}:</strong>
-                    <span>{{semantic.description}}</span><br>
-                    {% endfor %}
-                  </p>
-                </div>
-              </div>
-              {% endif %}
-
-              {% if record.links %}
-              <!--<hr>-->
-              <div class="row">
-                <div class="col-md-12">
-                  <h3 class="detail_view_h3">URLs</h3>
-                  {{ link_list(record.links) }}
-                </div>
-              </div>
-              {% endif %}
-
-              {% if record.methodology %}
-              <!--<hr>-->
-              <div class="row">
-                <div class="col-md-12">
-                  {% if record.type.primary == 'Software' %}
-                  <h3 class="detail_view_h3">Data Selection</h3>
-                  {% else %}
-                  <h3 class="detail_view_h3">How were these data selected?</h3>
-                  {% endif %}
-                  <p>{{ record.methodology.description | safe}}</p>
-                  {{ link_list(record.methodology.links) }}
-                </div>
-              </div>
-              {% endif %}
-
-              {% if record.generation %}
-              <!--<hr>-->
-              <div class="row">
-                <div class="col-md-12">
-                  <h3 class="detail_view_h3">How were these data selected?</h3>
-                  <p>{{record.generation.description}}</p>
-                  {% for step in record.generation.steps %}
-                  <label>{{step.type}}</label>
-                  <p>{{step.note}}</p>
-                  <p>{{step.release}}</p>
-                  <p>{{step.global_tag}}</p>
-                  {% for conf_file in step.configuration_files %}
-                  <p><a href="/record/{{conf_file.recid}}">{{conf_file.description}}</a></p>
-                  <p><a href="/search?q={{conf_file.title}}">{{conf_file.title}}</a></p>
-                  {% endfor %}
-                  {% endfor %}
-                </div>
-              </div>
-              {% endif %}
-
-              {% if record.validation %}
-              <!--<hr>-->
-              <div class="row">
-                <div class="col-md-12">
-                  {% if record.type.primary == 'Software' %}
-                  <h3 class="detail_view_h3">Validation</h3>
-                  {% else %}
-                  <h3 class="detail_view_h3">How were these data validated?</h3>
-                  {% endif %}
-                  <p>{{record.validation.description | safe}}</p>
-                  {{ link_list(record.validation.links) }}
-                </div>
-              </div>
-              {% endif %}
-
-              {% if record.usage %}
-              <!--<hr>-->
-              <div class="row">
-                <div class="col-md-12">
-                  {% if record.type.primary == 'Software' %}
-                  <h3 class="detail_view_h3">How can you use this?</h3>
-                  {% else %}
-                  <h3 class="detail_view_h3">How can you use these data?</h3>
-                  {% endif %}
-                  <p>{{record.usage.description | safe}}</p>
-                  <p>{{ link_list(record.usage.links) }}</p>
-                </div>
-              </div>
-              {% endif %}
-              {% endblock metadata_block %}
-
-              {% block files_block %}
-              <div ng-controller="paginationCtrl as $ctrl" ng-init="$ctrl.getFiles()">
-                {{ files_box() }}
-              </div>
-              {% endblock files_block %}
-
-              {% block disclaimer %} {{super()}} {% endblock disclaimer %}
-            </div>
-          </div>
+            <p>{{ record.note.description | safe }}</p>
+            {{ link_list(record.note.links) }}
         </div>
-      </div>
-      {% block export %}
-      {{super()}}
-      {% endblock export %}
     </div>
-  </div>
-</div>
-{% endblock page_body%}
+    {% endif %}
+
+    {% if record.relations %}
+    <div class="row">
+        <div class="col-md-12">
+            {% if record.type.primary == 'Software' %}
+            <h2>Related items</h2>
+            {% else %}
+            <h2>Related Datasets</h2>
+            {% endif %}
+            {% for relation in record.relations %}
+                {% if relation.description %}
+                {{ relation.description }}
+                {% endif %}
+                {% if relation.recid %}
+                <p>
+                    <a href="/record/{{ relation.recid }}">{{ relation.recid | get_record_title }}</a>
+                </p>
+                {% else %}
+                <p>{{ relation.title }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if record.distribution and (record.distribution.number_events or record.distribution.number_files or record.distribution.size) %}
+        <div class="row">
+            <div class="col-md-12">
+                <h2> Characteristics </h2>
+                <label> Dataset: </label>
+                {% if record.distribution.number_events %}
+                <span><strong>{{record.distribution.number_events}}</strong> events</span>
+                {% endif %}
+                {% if record.distribution.number_files %}
+                <span><strong>{{record.distribution.number_files}}</strong> files</span>
+                {% endif %}
+                {% if record.distribution.size %}
+                <span><strong>{{record.distribution.size | filesizeformat }}</strong> in total</span>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+
+    {% if record.system_details %}
+    <div class="row">
+        <div class="col-md-12">
+            <h2>System Details</h2>
+            {% if record.system_details.description %}
+            <span>{{record.system_details.description}}</span>
+            {% endif %}
+            {% if record.system_details.global_tag %}
+            <label>Global tag:</label>
+            <span>{{record.system_details.global_tag}}</span>
+            {% endif %}
+            <br>
+            {% if record.system_details.release %}
+                {% if record.type.primary == 'Software' %}
+                <label>Software release:</label>
+                {% else %}
+                <label>Recommended release for analysis:</label>
+                {% endif %}
+                <span>{{record.system_details.release}}</span>
+            {% endif %}
+            {% if record.system_details.recid %}
+            <p>
+                <a href="/record/{{record.system_details.recid}}">{{record.system_details.recid | get_record_title}}</a>
+            </p>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if record.dataset_semantics %}
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Dataset Semantics</h2>
+            <p>
+                {% for semantic in record.dataset_semantics %}
+                    <strong>{{semantic.variable}}:</strong><span>{{semantic.description}}</span><br>
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if record.links %}
+    <div class="row">
+        <div class="col-md-12">
+            <h2>URLs</h2>
+            {{ link_list(record.links) }}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if record.methodology %}
+    <div class="row">
+        <div class="col-md-12">
+            {% if record.type.primary == 'Software' %}
+            <h2>Data Selection</h2>
+            {% else %}
+            <h2>How were these data selected?</h2>
+            {% endif %}
+            <p>{{ record.methodology.description | safe}}</p>
+            {{ link_list(record.methodology.links) }}
+       </div>
+    </div>
+    {% endif %}
+
+    {% if record.generation %}
+    <div class="row">
+        <div class="col-md-12">
+            <h2>How were these data selected?</h2>
+            <p>{{ record.generation.description }}</p>
+            {% for step in record.generation.steps %}
+                <label>{{ step.type }}</label>
+                <p>{{step.note}}</p>
+                <p>{{step.release}}</p>
+                <p>{{step.global_tag}}</p>
+                {% for conf_file in step.configuration_files %}
+                    <p><a href="/record/{{conf_file.recid}}">{{conf_file.description}}</a></p>
+                    <p><a href="/search?q={{conf_file.title}}">{{conf_file.title}}</a></p>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if record.validation %}
+    <div class="row">
+        <div class="col-md-12">
+            {% if record.type.primary == 'Software' %}
+            <h2>Validation</h2>
+            {% else %}
+            <h2>How were these data validated?</h2>
+            {% endif %}
+            <p>{{record.validation.description | safe}}</p>
+            {{ link_list(record.validation.links) }}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if record.usage %}
+    <div class="row">
+        <div class="col-md-12">
+            {% if record.type.primary == 'Software' %}
+            <h2>How can you use this?</h2>
+            {% else %}
+            <h2>How can you use these data?</h2>
+            {% endif %}
+            <p>{{record.usage.description | safe}}</p>
+            <p>{{ link_list(record.usage.links) }}</p>
+        </div>
+    </div>
+    {% endif %}
+{% endblock metadata_block %}
+
+{% block files_block %}
+    <div ng-controller="paginationCtrl as $ctrl" ng-init="$ctrl.getFiles()">
+        {{ files_box() }}
+    </div>
+{% endblock files_block %}
+
+{% block disclaimer %}
+    {{ super() }}
+{% endblock disclaimer %}
+
+{% block export %}
+{% endblock export %}
 
 {% block javascript %}
-{{super()}}
-{% set files_list = record.get('files', None) %}
-{% if files_list  and 'ig' in record.get('distribution', {}).get('formats', []) %}
-{% set file_name = files_list | get_first_file %}
-<script>
-  ispy.loadUrl("/record/{{record.control_number }}/files/{{file_name}}");
-</script>
-{% endif %}
+    {{ super() }}
+
+    {% set files_list = record.get('files', None) %}
+    {% if files_list  and 'ig' in record.get('distribution', {}).get('formats', []) %}
+        {% set file_name = files_list | get_first_file %}
+        <script>
+        ispy.loadUrl("/record/{{record.control_number }}/files/{{file_name}}");
+        </script>
+    {% endif %}
 {% endblock javascript %}
