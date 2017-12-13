@@ -33,7 +33,8 @@ sleep 20
 cernopendata files location local var/data --default
 
 cernopendata fixtures glossary_terms
-cernopendata fixtures docs
+
+cernopendata fixtures docs --mode insert
 
 if [[ "$@" = *"--skip-records"* ]]; then
     echo "[INFO] Skipping loading of records."

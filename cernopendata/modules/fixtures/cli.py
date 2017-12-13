@@ -37,6 +37,8 @@ from invenio_records_files.api import Record
 from invenio_indexer.api import RecordIndexer
 from cernopendata.modules.records.minters.recid import \
     cernopendata_recid_minter
+from cernopendata.modules.records.minters.docid import \
+    cernopendata_docid_minter
 
 from invenio_files_rest.models import \
     Bucket, FileInstance, ObjectVersion
@@ -127,6 +129,24 @@ def update_record(pid, schema, data, files, skip_files):
         handle_record_files(data, bucket, files, skip_files)
         RecordsBuckets.create(
             record=record.model, bucket=bucket)
+    return record
+
+
+def create_doc(data, schema):
+    """Creates a new doc record."""
+    from invenio_records import Record
+    id = uuid.uuid4()
+    cernopendata_docid_minter(id, data)
+    data['$schema'] = schema
+    record = Record.create(data, id_=id)
+    return record
+
+
+def update_doc(pid, data):
+    """Updates the given doc record."""
+    from invenio_records import Record
+    record = Record.get_record(pid.object_uuid)
+    record.update(data)
     return record
 
 
@@ -278,14 +298,16 @@ def glossary_terms():
 
 
 @fixtures.command()
+@click.option('files', '--file', '-f', multiple=True,
+              type=click.Path(exists=True),
+              help='Path to the file(s) to be loaded. If not provided, all'
+                   'files will be loaded')
+@click.option('--mode', required=True, type=click.Choice(
+    ['insert', 'replace', 'insert-or-replace']))
 @with_appcontext
-def docs():
+def docs(files, mode):
     """Load demo article records."""
-    from invenio_db import db
-    from invenio_records import Record
-    from invenio_indexer.api import RecordIndexer
-    from cernopendata.modules.records.minters.docid import \
-        cernopendata_docid_minter
+    from slugify import slugify
 
     indexer = RecordIndexer()
     schema = current_app.extensions['invenio-jsonschemas'].path_to_url(
@@ -294,7 +316,10 @@ def docs():
     data = pkg_resources.resource_filename('cernopendata',
                                            'modules/fixtures/data/docs')
 
-    articles_json = get_jsons_from_dir(data)
+    if files:
+        articles_json = files
+    else:
+        articles_json = get_jsons_from_dir(data)
 
     for filename in articles_json:
         name = filename.split('/')[-1]
@@ -322,12 +347,54 @@ def docs():
                     not isinstance(
                         data.get("collections", None), basestring):
                     data["collections"] = []
-                id = uuid.uuid4()
-                cernopendata_docid_minter(id, data)
-                data['$schema'] = schema
-                record = Record.create(data, id_=id)
-
+                if mode == 'insert-or-replace':
+                    try:
+                        pid = PersistentIdentifier.get(
+                            'docid', str(slugify(
+                                data.get('slug', data['title']))))
+                        if pid:
+                            record = update_doc(pid, data)
+                            action = 'updated'
+                    except PIDDoesNotExistError:
+                        record = create_doc(data, schema)
+                        action = 'inserted'
+                elif mode == 'insert':
+                    try:
+                        pid = PersistentIdentifier.get(
+                            'docid', str(slugify(
+                                data.get('slug', data['title']))))
+                        if pid:
+                            click.echo(
+                                'Record docid {} exists already;'
+                                ' cannot insert it.  '.format(
+                                    str(slugify(
+                                        data.get('slug', data['title'])))),
+                                err=True)
+                            return
+                    except PIDDoesNotExistError:
+                        record = create_doc(data, schema)
+                        action = 'inserted'
+                else:
+                    try:
+                        pid = PersistentIdentifier.get(
+                            'docid', str(slugify(
+                                data.get('slug', data['title']))))
+                    except PIDDoesNotExistError:
+                        click.echo(
+                            'Record docid {} does not exist; '
+                            'cannot replace it.'.format(
+                                str(slugify(
+                                    data.get('slug', data['title'])))),
+                            err=True)
+                        return
+                    record = update_doc(pid, data)
+                    action = 'updated'
+                record.commit()
                 db.session.commit()
+                click.echo(
+                    ' Record docid {0} {1}.'.format(
+                        str(slugify(data.get(
+                            'slug', data['title']))), action))
                 indexer.index(record)
                 db.session.expunge_all()
 
