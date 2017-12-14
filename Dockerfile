@@ -88,5 +88,8 @@ ENV UWSGI_THREADS ${UWSGI_THREADS:-2}
 ARG DEBUG=False
 ENV DEBUG=${DEBUG:-False}
 
+# Install Python packages needed for development
+RUN if [ -z "$DEBUG" ]; then pip install -r requirements-dev.txt; fi;
+
 # Start the CERN Open Data Portal application:
 CMD uwsgi --module ${UWSGI_WSGI_MODULE} --http-socket 0.0.0.0:${UWSGI_PORT} --master --processes ${UWSGI_PROCESSES} --threads ${UWSGI_THREADS} --stats /tmp/stats.socket
