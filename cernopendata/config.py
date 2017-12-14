@@ -63,8 +63,8 @@ CELERY_ACCEPT_CONTENT = ['json', 'msgpack', 'yaml']
 
 # JSONSchemas
 JSONSCHEMAS_ENDPOINT = '/schema'
-JSONSCHEMAS_HOST = '127.0.0.1'
-# JSONSCHEMAS_URL_SCHEME = 'http'
+JSONSCHEMAS_HOST = 'opendata.cern.ch'
+JSONSCHEMAS_URL_SCHEME = 'http'
 
 # OAI Server
 OAISERVER_RECORD_INDEX = 'records'

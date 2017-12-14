@@ -93,8 +93,9 @@ def create_record(schema, data, files, skip_files):
 
     id = uuid.uuid4()
     cernopendata_recid_minter(id, data)
+    data['$schema'] = schema
     record = Record.create(data, id_=id)
-    record['$schema'] = schema
+
     RecordsBuckets.create(
         record=record.model, bucket=bucket)
 
@@ -124,11 +125,10 @@ def fixtures():
                    'files will be loaded')
 @click.option('--profile', is_flag=True,
               help='Output profiling information.')
-@click.option('--verbose', is_flag=True, default=False)
 @click.option('--mode', required=True, type=click.Choice(
     ['insert', 'replace', 'insert-or-replace']))
 @with_appcontext
-def records(skip_files, files, profile, verbose, mode):
+def records(skip_files, files, profile, mode):
     """Load all records."""
     if profile:
         import cProfile
@@ -155,17 +155,14 @@ def records(skip_files, files, profile, verbose, mode):
         if name.startswith('opera'):
             click.echo('Skipping opera records ...')
             continue
-        if verbose:
-            click.echo('Loading records from {0} ...'.format(filename))
+        click.echo('Loading records from {0} ...'.format(filename))
         with open(filename, 'rb') as source:
             for data in json.load(source):
 
                 if not data:
+                    click.echo('IGNORING a possibly broken or corrupted '
+                               'record entry in file {0} ...'.format(filename))
                     continue
-
-                if verbose:
-                    click.echo('Loading recid {0}...'.
-                               format(data.get('recid')))
 
                 files = data.get('files', [])
                 if mode == 'insert-or-replace':
@@ -202,7 +199,7 @@ def records(skip_files, files, profile, verbose, mode):
                     action = 'updated'
                 db.session.commit()
                 click.echo(
-                    ' Record recid {0} {1}.'.format(
+                    'Record recid {0} {1}.'.format(
                         data.get('recid'), action))
                 indexer.index(record)
                 db.session.expunge_all()
@@ -235,6 +232,9 @@ def glossary_terms():
     glossary_terms_json = glob.glob(os.path.join(data, 'terms', '*.json'))
 
     for filename in glossary_terms_json:
+
+        click.echo('Loading glossary-terms from {0} ...'.format(filename))
+
         with open(filename, 'rb') as source:
             for data in json.load(source):
                 if "collections" not in data and \
@@ -244,8 +244,8 @@ def glossary_terms():
                 data["collections"].append({"primary": "Terms"})
                 id = uuid.uuid4()
                 cernopendata_termid_minter(id, data)
+                data['$schema'] = schema
                 record = Record.create(data, id_=id)
-                record['$schema'] = schema
                 db.session.commit()
                 indexer.index(record)
                 db.session.expunge_all()
@@ -275,6 +275,8 @@ def docs():
         if name.startswith('opera'):
             click.echo('Skipping opera records ...')
             continue
+
+        click.echo('Loading docs from {0} ...'.format(filename))
         with open(filename, 'rb') as source:
             for data in json.load(source):
 
@@ -296,8 +298,9 @@ def docs():
                     data["collections"] = []
                 id = uuid.uuid4()
                 cernopendata_docid_minter(id, data)
+                data['$schema'] = schema
                 record = Record.create(data, id_=id)
-                record['$schema'] = schema
+
                 db.session.commit()
                 indexer.index(record)
                 db.session.expunge_all()
@@ -330,14 +333,18 @@ def data_policies(skip_files):
     data_policies_json = glob.glob(os.path.join(data, '*.json'))
 
     for filename in data_policies_json:
+
+        click.echo('Loading data-policies from {0} ...'.format(filename))
+
         with open(filename, 'rb') as source:
             for data in json.load(source):
                 files = data.pop('files', [])
 
                 id = uuid.uuid4()
                 cernopendata_recid_minter(id, data)
+                data['$schema'] = schema
                 record = Record.create(data, id_=id)
-                record['$schema'] = schema
+
                 bucket = Bucket.create()
                 RecordsBuckets.create(
                     record=record.model, bucket=bucket)
@@ -391,6 +398,9 @@ def datasets(skip_files):
 
     # FIXME: change the treatment of `files` according to `records` fixtures.
     for filename in datasets_json:
+
+        click.echo('Loading datasets from {0} ...'.format(filename))
+
         with open(filename, 'rb') as source:
             for data in json.load(source):
                 files = data.pop('files', [])
@@ -402,8 +412,9 @@ def datasets(skip_files):
                     cernopendata_datasetid_minter(id, data)
                 else:
                     cernopendata_recid_minter(id, data)
+                data['$schema'] = schema
                 record = Record.create(data, id_=id)
-                record['$schema'] = schema
+
                 bucket = Bucket.create()
                 RecordsBuckets.create(
                     record=record.model, bucket=bucket)
@@ -456,14 +467,18 @@ def software(skip_files):
 
     # FIXME: change the treatment of `files` according to `records` fixtures.
     for filename in software_json:
+
+        click.echo('Loading software from {0} ...'.format(filename))
+
         with open(filename, 'rb') as source:
             for data in json.load(source):
                 files = data.pop('files', [])
 
                 id = uuid.uuid4()
                 cernopendata_softid_minter(id, data)
+                data['$schema'] = schema
                 record = Record.create(data, id_=id)
-                record['$schema'] = schema
+
                 bucket = Bucket.create()
                 RecordsBuckets.create(
                     record=record.model, bucket=bucket)

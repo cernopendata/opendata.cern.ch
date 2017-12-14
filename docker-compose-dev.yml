@@ -41,7 +41,7 @@ services:
     image: cernopendata/static # Use this to make sure that COD3 Python-code image is built only once.
     depends_on:
       - static # Just to make sure that latest cernopendata/static -image is build before creating this container.
-    command: "cernopendata run -h 0.0.0.0" # In case one needs to test/work with uWSGI comment out this.
+    command: "cernopendata run -h 0.0.0.0" # In case one needs to test/work with uWSGI comment out this CMD override.
     environment:
       - DEBUG=True
       - WDB_SOCKET_SERVER=wdb
@@ -78,7 +78,7 @@ services:
     depends_on:
       - static # Just to make sure that latest cernopendata/static -image is build before creating this container.
     restart: "always"
-    command: "celery worker -A cernopendata.celery --loglevel=INFO"
+    command: "celery worker -A cernopendata.celery --loglevel=INFO --concurrency=1"
     environment:
       - DEBUG=True
       - WDB_SOCKET_SERVER=wdb
@@ -122,6 +122,8 @@ services:
   elasticsearch:
     restart: "always"
     image: elasticsearch:5
+    # Uncomment if DEBUG logging needs to enabled for Elasticsearch
+    # command: ["elasticsearch", "-Elogger.level=DEBUG"]
     environment:
       - bootstrap.memory_lock=true
       # set to reasonable values on production

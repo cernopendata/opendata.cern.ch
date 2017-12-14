@@ -25,27 +25,9 @@
 set -o errexit
 set -o nounset
 
-cernopendata db init
-cernopendata db create
-cernopendata index init
-sleep 20
-
-cernopendata files location local var/data --default
-
-cernopendata fixtures glossary_terms
-cernopendata fixtures docs
-
-if [[ "$@" = *"--skip-records"* ]]; then
-    echo "[INFO] Skipping loading of records."
-else
-    if [[ "$@" = *"--skip-files"* ]]; then
-        echo "[INFO] Skipping loading of record files."
-        cernopendata fixtures records --skip-files --mode insert
-    else
-        # Prevent memory leak which happens when all fixtures are loaded at once
-        for recordfile in $(ls -Sr cernopendata/modules/fixtures/data/records/*.json);
-        do
-            cernopendata fixtures records -f "$recordfile" --mode insert
-        done
-    fi
-fi
+cernopendata index queue init
+sleep 2
+cernopendata index reindex -t recid -t docid -t termid --yes-i-know
+sleep 2
+cernopendata index run --concurrency 1
+sleep 2
