@@ -164,10 +164,10 @@ recordApp.controller('paginationCtrl', ['$scope', '$element', '$http', function(
     $ctrl.maxSize = 5;
 
     $ctrl.getFiles = function(){
-        $http.get('/record/{{pid.pid_value}}/files/p/'+$ctrl.currentPage+'?group=1')
+        $http.get('/record/{{pid.pid_value}}/filepage/'+$ctrl.currentPage+'?group=1')
             .then( function(files) {
-                console.log(files);
-                $ctrl.files = files.data;
+              $ctrl.index_files = files.data.index_files;
+              $ctrl.files = files.data.files;
             })
     }
 
@@ -176,11 +176,11 @@ recordApp.controller('paginationCtrl', ['$scope', '$element', '$http', function(
 
         var selected_files = [];
 
-    var start = ($ctrl.currentPage-1)*$ctrl.itemsPerPage;
-    var end = ($ctrl.currentPage)*$ctrl.itemsPerPage;
-    for (var i=start; i < end; i++) {
-        $ctrl.itemsStatus[i] = false;
-    }
+        $ctrl.start = ($ctrl.currentPage-1)*$ctrl.itemsPerPage;
+        $ctrl.end = ($ctrl.currentPage)*$ctrl.itemsPerPage;
+        for (var i=$ctrl.start; i < $ctrl.end; i++) {
+          $ctrl.itemsStatus[i] = false;
+        }
 
     $ctrl.previewFile = function(filename) {
         ispy.loadUrl("/record/{{pid.pid_value}}/files/"+filename);
@@ -192,7 +192,7 @@ recordApp.controller('paginationCtrl', ['$scope', '$element', '$http', function(
 
     $ctrl.pageChanged = function(type = '') {
       if (type == 'None') type = '';
-      $http.get('/record/{{pid.pid_value}}/files/p/'+$ctrl.currentPage+'?type='+type)
+      $http.get('/record/{{pid.pid_value}}/filepage/'+$ctrl.currentPage+'?type='+type)
         .then( function(files) {
             $ctrl.files = files.data.files;
         })
@@ -204,60 +204,182 @@ recordApp.controller('paginationCtrl', ['$scope', '$element', '$http', function(
     }
 }])
 
-recordApp.controller(
-        'downloadModalCtrl',
-        [
-        '$scope',
-        '$interpolate',
-        '$http',
-        '$uibModal',
-        function($scope,  $interpolate , $http, $uibModal) {
-            var $ctrl = this;
-            $ctrl.openModal = function (file, download_uri) {
-                var modalInstance = $uibModal.open({
-                    animation: $ctrl.animationsEnabled,
-                    ariaLabelledBy: 'modal-title',
-                    ariaDescribedBy: 'modal-body',
-                    templateUrl: "/static/templates/downloadModal.html",
-                    controller: 'downloadModalInstanceCtrl',
-                    controllerAs: '$ctrl',
-                    windowClass: 'download-modal',
-                    resolve: {
-                        file: function() {
-                            return file;
-                        },
-                        download_uri: function() {
-                            return download_uri
-                        }
-                    }
-                });
-            };
-        }
-]);
+
+
+recordApp.controller('paginationWithDataCtrl', ['$scope', '$element', '$http', function($scope, $element, $http){
+      var $ctrl = this;
+
+      $ctrl.viewby = 5;
+      $ctrl.totalItems = 0;
+      $ctrl.currentPage = 1;
+      $ctrl.itemsPerPage = $ctrl.viewby;
+      $ctrl.maxSize = 5;
+      $ctrl.files = [];
+      $ctrl.s_files = [];
+
+      var cleanStatus = Array.apply(null, Array($ctrl.totalItems)).map(function (_, i) {return true;});
+      $ctrl.itemsStatus = angular.copy(cleanStatus)
+
+      var selected_files = [];
+
+      $ctrl.start = ($ctrl.currentPage-1)*$ctrl.itemsPerPage;
+      $ctrl.end = ($ctrl.currentPage)*$ctrl.itemsPerPage;
+      for (var i=$ctrl.start; i < $ctrl.end; i++) {
+        $ctrl.itemsStatus[i] = false;
+      }
+
+      $ctrl.setPage = function (pageNo) {
+        $ctrl.currentPage = pageNo;
+      };
+
+      $ctrl.pageChanged = function() {
+        $ctrl.start = ($ctrl.currentPage-1)*$ctrl.itemsPerPage;
+        $ctrl.end = ($ctrl.currentPage)*$ctrl.itemsPerPage;
+        $ctrl.s_files = $ctrl.files.slice($ctrl.start, $ctrl.end);
+      };
+
+     $ctrl.getFiles = function(){
+        $http.get('/record/{{pid.pid_value}}/filepage/'+$ctrl.currentPage+'?group=1')
+          .then( function(files) {
+            $ctrl.index_files = files.data.index_files;
+            $ctrl.files = files.data.files;
+          })
+      }
+
+
+      $ctrl.pageChangedFetch = function(type = '') {
+        if (type == 'None') type = '';
+        $http.get('/record/{{pid.pid_value}}/filepage/'+$ctrl.currentPage+'?type='+type)
+          .then( function(files) {
+            $ctrl.files = files.data.files;
+            $ctrl.s_files = $ctrl.files;
+          })
+      };
+
+      $ctrl.setItemsPerPage = function(num) {
+        $ctrl.itemsPerPage = num;
+        $ctrl.currentPage = 1; //reset to first page
+      }
+}])
+
 
 recordApp.controller(
-        'downloadModalInstanceCtrl',
-        function ($scope, $uibModalInstance, file, download_uri){//, params, header, body) {
-            var $ctrl = this;
-
-            $ctrl.file = file;
-            $ctrl.download_uri = download_uri;
-
-            $ctrl.closeModal = function () {
-                $uibModalInstance.close();
-            };
-        }
-        );
-
-        recordApp.filter('bytes', function() {
-            return function(bytes, precision) {
-                if (isNaN(parseFloat(bytes)) || !isFinite(bytes)) return '-';
-                if (typeof precision === 'undefined') precision = 1;
-                var units = ['bytes', 'kB', 'MB', 'GB', 'TB', 'PB'],
-                    number = Math.floor(Math.log(bytes) / Math.log(1024));
-                return (bytes / Math.pow(1024, Math.floor(number))).toFixed(precision) +  ' ' + units[number];
+  'downloadModalCtrl',
+  [
+    '$scope',
+    '$interpolate',
+    '$http',
+    '$uibModal',
+    function($scope,  $interpolate , $http, $uibModal) {
+      var $ctrl = this;
+      $ctrl.openModal = function (file, download_uri, filename) {
+        var modalInstance = $uibModal.open({
+          animation: $ctrl.animationsEnabled,
+          ariaLabelledBy: 'modal-title',
+          ariaDescribedBy: 'modal-body',
+          templateUrl: "/static/templates/downloadModal.html",
+          controller: 'downloadModalInstanceCtrl',
+          controllerAs: '$ctrl',
+          windowClass: 'download-modal',
+          resolve: {
+            file: function() {
+              return file;
+            },
+            filename: function() {
+              return filename;
+            },
+            download_uri: function() {
+              return download_uri
             }
+          }
         });
+      };
+    }
+  ]);
+
+recordApp.controller(
+  'downloadModalInstanceCtrl',
+  function ($scope, $uibModalInstance, file, filename, download_uri){
+    var $ctrl = this;
+
+    $ctrl.file = file;
+    $ctrl.filename = filename;
+    $ctrl.download_uri = download_uri;
+
+    $ctrl.closeModal = function () {
+        $uibModalInstance.close();
+    };
+  });
+
+recordApp.controller(
+  'indexFileListModalCtrl',
+  [
+    '$scope',
+    '$interpolate',
+    '$http',
+    '$uibModal',
+    function($scope,  $interpolate , $http, $uibModal) {
+      var $ctrl = this;
+
+      $ctrl.openModal = function (pid, file) {
+        var modalInstance = $uibModal.open({
+          animation: $ctrl.animationsEnabled,
+          ariaLabelledBy: 'modal-title',
+          ariaDescribedBy: 'modal-body',
+          templateUrl: "/static/templates/indexFileListModal.html",
+          controller: 'indexFileListModalInstanceCtrl',
+          controllerAs: '$ctrl',
+          windowClass: 'index-file-list-modal',
+          resolve: {
+            $http: function() {
+              return $http;
+            },
+            pid: function() {
+              return pid;
+            },
+            uri: function() {
+              if (file.endsWith('index.txt')) {
+                var file_key = file.replace('.txt', '.json');
+                return '/record/' + pid + '/files/' + file_key;
+              }
+            }
+          }
+        });
+      };
+    }
+  ]);
+
+recordApp.controller(
+  'indexFileListModalInstanceCtrl',
+  function ($scope, $uibModalInstance, $http, pid, uri){
+    var $ctrl = this;
+    $ctrl.files = [];
+    $ctrl.pid = pid;
+
+    $http.get(uri)
+      .then(
+        function(files) { $ctrl.files = files.data; },
+        function(err) {
+         $ctrl.files_error = "Files are unavailable at the moment"; }
+      )
+
+
+    $ctrl.closeModal = function () {
+      $uibModalInstance.close();
+    };
+  }
+);
+
+recordApp.filter('bytes', function() {
+  return function(bytes, precision) {
+    if (isNaN(parseFloat(bytes)) || !isFinite(bytes)) return '-';
+    if (typeof precision === 'undefined') precision = 1;
+    var units = ['bytes', 'kB', 'MB', 'GB', 'TB', 'PB'],
+      number = Math.floor(Math.log(bytes) / Math.log(1024));
+    return (bytes / Math.pow(1024, Math.floor(number))).toFixed(precision) +  ' ' + units[number];
+  }
+});
+
 
 </script>
 {% endblock javascript %}

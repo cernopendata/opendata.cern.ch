@@ -1,49 +1,95 @@
 {% macro files_box() %}
-<div ng-repeat="(k, fg) in $ctrl.files">
-  <h2 ng-if="k == 'index'">File Indexes</h2>
-  <h2 ng-if="k != 'index'">Files</h2>
-  {{files_table()}}
+<div>
+  <h2 class="detail_view_h3" ng-if="$ctrl.index_files.total > 0">File Indexes</h3>
+  {{files_table("index_files")}}
+
+  <h2 class="detail_view_h3" ng-if="$ctrl.files.total > 0">Files</h3>
+  {{files_table("files")}}
 </div>
 {% endmacro %}
 
-{% macro files_table() %}
-{% raw %}
-<div ng-controller="paginationCtrl as $ctrlTbl" ng-init="$ctrlTbl.files= fg.files;$ctrlTbl.totalItems = fg.total">
-  <table class="table">
-    <thead>
-    <tr>
-      <th>Filename</th>
-      <th>Size</th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr id="" ng-repeat="file in $ctrlTbl.files">
-      <td>{{ file.key }}</td>
-      <td>{{ file.size | bytes }}</td>
-      <td class="row justify-content-end">
-
-        {% endraw %}
-        <div class="btn-group" role="group" aria-label="Button group"
-             ng-init="download_uri = '/record/{{pid.pid_value}}/files/'+file.key">
-          {{ download_btn() }}
-          {% raw %}
-          <a
-            ng-if="previewable = (file.key.split('.').pop() == 'ig')"
-            ng-href="#previewer"
-            ng-click="$ctrlTbl.previewFile(file.key)"
-            class="btn btn-outline-primary">
-            <span class="oi" data-glyph="eye"></span> Preview
-          </a>
-        </div>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-  <div ng-if="$ctrlTbl.totalItems > $ctrlTbl.itemsPerPage">
-    <ul uib-pagination
+{% macro files_table(type) %}
+  <div ng-if="$ctrl.{{type}}.total > 0" ng-controller="paginationWithDataCtrl as $ctrlTbl">
+    {% raw %}
+    {{$ctrlTbl.files = $ctrl.{% endraw %}{{type}}{% raw %}.files; ""}}
+    {{$ctrlTbl.totalItems = $ctrl.{% endraw %}{{type}}{% raw %}.total; ""}}
+    <table ng-if="$ctrlTbl.s_files.length == 0" class="table">
+      <thead>
+        <tr>
+          <th>Filename</th>
+          <th>Size</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="" ng-repeat="file in $ctrl.{% endraw %}{{type}}{% raw %}.files">
+          <td>{{ file.key }}</td>
+          <td>{{ file.size | bytes }}</td>
+          <td class="file-row justify-content-end">
+            {% endraw %}
+            <div class="btn-group" role="group" aria-label="Button group" ng-init="download_uri = '/record/{{pid.pid_value}}/files/'+file.key">
+              <a
+                ng-controller="indexFileListModalCtrl as $ctrlIndexList"
+                ng-click="$ctrlIndexList.openModal({{pid.pid_value}}, file.key)"
+                ng-if="file.type == 'index.txt'"
+                class="btn btn-outline-primary">
+                <span class="oi" data-glyph="list"></span> List Files
+              </a>
+              {{ download_btn() }}
+            {% raw %}
+              <a
+                ng-if="previewable = (file.key.split('.').pop() == 'ig')"
+                ng-href="#previewer"
+                ng-click="$ctrlTbl.previewFile(file.key)"
+                class="btn btn-outline-primary">
+                  <span class="oi" data-glyph="eye"></span> Preview
+              </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table ng-if="$ctrlTbl.s_files.length > 0" class="table">
+      <thead>
+        <tr>
+          <th>Filename</th>
+          <th>Size</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ file.key }}
+        <tr id="" ng-repeat="file in $ctrlTbl.s_files">
+          <td>{{ file.key }}</td>
+          <td>{{ file.size | bytes }}</td>
+          <td class="file-row justify-content-end">
+            {% endraw %}
+            <div class="btn-group" role="group" aria-label="Button group" ng-init="download_uri = '/record/{{pid.pid_value}}/files/'+file.key">
+              <a
+                ng-controller="indexFileListModalCtrl as $ctrlIndexList"
+                ng-click="$ctrlIndexList.openModal({{pid.pid_value}}, file.key)"
+                ng-if="file.type == 'index.txt'"
+                class="btn btn-outline-primary">
+                <span class="oi" data-glyph="list"></span> List Files
+              </a>
+              {{ download_btn() }}
+            {% raw %}
+              <a
+                ng-if="previewable = (file.key.split('.').pop() == 'ig')"
+                ng-href="#previewer"
+                ng-click="$ctrlTbl.previewFile(file.key)"
+                class="btn btn-outline-primary">
+                  <span class="oi" data-glyph="eye"></span> Preview
+              </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div ng-if="$ctrlTbl.totalItems > $ctrlTbl.itemsPerPage">
+      <ul uib-pagination
         class="pagination file-pagination pagination-sm"
-        ng-change="$ctrlTbl.pageChanged(k)"
+        ng-change="$ctrlTbl.pageChangedFetch('{% endraw %}{{type}}{% raw %}')"
         total-items="$ctrlTbl.totalItems"
         ng-model="$ctrlTbl.currentPage"
         max-size="$ctrlTbl.maxSize"

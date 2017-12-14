@@ -219,6 +219,8 @@ def records(skip_files, files, profile, mode):
                     record = update_record(
                         pid, schema, data, files, skip_files)
                     action = 'updated'
+
+                record.files.flush()
                 record.commit()
                 db.session.commit()
                 click.echo(

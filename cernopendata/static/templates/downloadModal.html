@@ -1,6 +1,6 @@
 <div class="modal-body">
   <p>
-    Please note that the file you are going to download ({{$ctrl.file.key}}) is <b>{{$ctrl.file.size | bytes }}</b> big. On an average ADSL connection, it may take several hours to download it.
+    Please note that the file you are going to download ({{$ctrl.file.key || $ctrl.filename}}) is <b>{{$ctrl.file.size | bytes }}</b> big. On an average ADSL connection, it may take several hours to download it.
   </p>
   <p>
     Moreover, if you use one of the provided <a href="/VM/CMS">Virtual Machines</a> to perform your analyses, then you don't need to download datasets manually, because the VM will fetch all the necessary file chunks via the XRootD protocol.

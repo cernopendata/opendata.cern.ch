@@ -118,9 +118,15 @@ RECORDS_UI_ENDPOINTS = dict(
         view_imp='cernopendata.modules.records.utils:file_download_ui',
         record_class='invenio_records_files.api:Record',
     ),
+    recid_files_assets=dict(
+        pid_type='recid',
+        route='/record/<pid_value>/files/assets/<path:filepath>',
+        view_imp='cernopendata.modules.records.utils:eos_file_download_ui',
+        record_class='invenio_records_files.api:Record',
+    ),
     recid_files_page=dict(
         pid_type='recid',
-        route='/record/<pid_value>/files/p/<int:page>',
+        route='/record/<pid_value>/filepage/<int:page>',
         view_imp='cernopendata.modules.records.utils:record_file_page',
         record_class='invenio_records_files.api:Record',
     ),
@@ -334,7 +340,7 @@ RECORDS_REST_FACETS = {
             type=dict(terms=dict(
                 field='type.primary.keyword',
                 order=dict(_term='asc')),
-                      aggs=dict(subtype=dict(terms=dict(
+                aggs=dict(subtype=dict(terms=dict(
                           field="type.secondary.keyword",
                           order=dict(_term='asc'))))),
             file_type=dict(terms=dict(
@@ -390,7 +396,11 @@ CERNOPENDATA_MAX_DOWNLOAD_SIZE = os.environ.get(
     "CERNOPENDATA_MAX_DOWNLOAD_SIZE",
     200000000
 )
-
+#: Make download availalbe for Root files
+CERNOPENDATA_DISABLE_DOWNLOADS = os.environ.get(
+    "CERNOPENDATA_DISABLE_DOWNLOADS",
+    False
+)
 # Search
 # ======
 #: Default API endpoint for search UI.

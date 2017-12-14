@@ -21,14 +21,17 @@
 
 from __future__ import absolute_import, print_function
 from itertools import groupby
-from flask import abort, render_template, jsonify, request
+from flask import abort, current_app, render_template, jsonify, request
 from invenio_files_rest.views import ObjectResource
+from invenio_files_rest.models import FileInstance, ObjectVersion
 from invenio_records.errors import MissingModelError
 
 from invenio_records_files.utils import record_file_factory
 
 from invenio_previewer.views import blueprint as previewer_blueprint
 from invenio_previewer.proxies import current_previewer
+
+from invenio_xrootd import EOSFileStorage
 
 
 def file_download_ui(pid, record, _record_file_factory=None, **kwargs):
@@ -87,6 +90,31 @@ def file_download_ui(pid, record, _record_file_factory=None, **kwargs):
     )
 
 
+def eos_file_download_ui(pid, record, _record_file_factory=None, **kwargs):
+    """File download view for a given EOS uri."""
+    if current_app.config.get('CERNOPENDATA_DISABLE_DOWNLOADS', False):
+        abort(503)
+
+    path = kwargs.get('filepath', "")
+
+    return eos_send_file_or_404(path)
+
+
+def eos_send_file_or_404(file_path=""):
+    """File download for a given EOS uri."""
+    storage = EOSFileStorage(
+        "root://eospublic.cern.ch//eos/opendata/" + file_path,
+        create_dir=False
+    )
+
+    filename = file_path.split('/')[-1:]
+
+    try:
+        return storage.send_file(filename[0])
+    except:
+        abort(404)
+
+
 def get_paged_files(files, page, items_per_page=5):
     """Get files for current page."""
     start = (page - 1) * items_per_page
@@ -97,9 +125,7 @@ def get_paged_files(files, page, items_per_page=5):
 
 def record_file_page(pid, record, page=1, **kwargs):
     """Record view - get files for current page."""
-    # FIXME depending on location of files
-    rf = record.files.dumps()
-    # rf = record.get('files', [])
+    rf = record.get('files', [])
 
     items_per_page = request.args.get('perPage', 5)
     try:
@@ -107,23 +133,40 @@ def record_file_page(pid, record, page=1, **kwargs):
     except:
         items_per_page = 5
 
+    if request.args.get('group'):
+        # grouped = groupby(rf, lambda x: x.get('type'))
+        index_files = [d for d in rf if (
+            d.get('type', "") in ['index', 'index.txt'])]
+        _files = [d for d in rf if (
+            d.get('type', "") not in ['index', 'index.txt', 'index.json'])]
+        grouped_files = {
+            "index_files": {
+                "total": len(index_files),
+                "files": index_files[:items_per_page]
+            },
+            "files": {
+                "total": len(_files),
+                "files": _files[:items_per_page]
+            },
+        }
+
+        return jsonify(grouped_files)
+
     file_type_filter = request.args.get('type')
-    if file_type_filter:
+    if file_type_filter is 'index':
         filtered_files = [d for d in rf if (
-                          d.get('type', "") == file_type_filter)]
+                          d.get('type', "") in ['index', 'index.txt'])]
         rf_len = len(filtered_files)
         paged_files = get_paged_files(filtered_files, page, items_per_page)
         return jsonify({"total": rf_len, "files": paged_files})
-    elif request.args.get('group'):
-        grouped = groupby(rf, lambda x: x.get('type'))
-
-        grouped_files = {}
-        for k in iter(grouped):
-            files_list = list(k[1])
-            grouped_files[str(k[0])] = {"total": len(
-                files_list), "files": files_list[:items_per_page]}
-
-        return jsonify(grouped_files)
+    else:
+        filtered_files = [d
+                          for d in rf
+                          if (d.get('type', "")
+                              not in ['index', 'index.txt', 'index.json'])]
+        rf_len = len(filtered_files)
+        paged_files = get_paged_files(filtered_files, page, items_per_page)
+        return jsonify({"total": rf_len, "files": paged_files})
 
     rf_len = len(rf)
     paged_files = get_paged_files(rf, page, items_per_page)
