@@ -16,7 +16,7 @@ Note: the latest tested version of VirtualBox working with this CMS-specific Cer
 
 ### Downloading and Creating a Virtual Machine
 
-**Important**: Before you download the CernVM, note that the imported settings may not always work on your host machine. Please see [Issues and Limitations](#issues2010) or [/docs/cms-guide-troubleshooting](the CMS guide to troubleshooting) if you encounter any problems with booting the VM.
+**Important**: Before you download the CernVM, note that the imported settings may not always work on your host machine. Please see [Issues and Limitations](#issues2010) or [the CMS guide to troubleshooting](/docs/cms-guide-troubleshooting) if you encounter any problems with booting the VM.
 
 Next download the CMS-specific CernVM image as OVA file from: [CMS VM Image for 2010 CMS Open Data](/record/250).
 
