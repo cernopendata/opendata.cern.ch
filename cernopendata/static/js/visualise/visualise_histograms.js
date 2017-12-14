@@ -163,7 +163,7 @@ $(function () {
   function populateValues(data, type) {
     for (var key in data) {
       var parameter_info = get_parameter_info(key, event_types[type]);
-      $('#parameter-button-row').append("<li class='list-inline-item'><button type='button' aria-pressed='true' data-toggle='button' title='" + parameter_info + "' class='btn btn-default btn-large parameter'>" + key + "</button></li>");
+      $('#parameter-button-row').append("<li class='list-inline-item'><button type='button' aria-pressed='true' data-toggle='button' title='" + parameter_info + "' class='btn btn-secondary btn-large parameter'>" + key + "</button></li>");
     }
   }
 
@@ -216,8 +216,8 @@ $(function () {
 
       // This screams "template!"
       var logbtns = "<div class='btn-group btn-group-sm'>";
-      logbtns += "<button type='button' class='btn btn-default logx " + parameter + "' data-toggle='button'>Log X</button>";
-      logbtns += "<button type='button' class='btn btn-default logy " + parameter + "' data-toggle='button'>Log Y</button>";
+      logbtns += "<button type='button' class='btn btn-secondary logx " + parameter + "' data-toggle='button'>Log X</button>";
+      logbtns += "<button type='button' class='btn btn-secondary logy " + parameter + "' data-toggle='button'>Log Y</button>";
       logbtns += "</div>";
 
       $(parId + ' div.plot-control').append(logbtns);
@@ -225,14 +225,14 @@ $(function () {
       var bininput = "<div class='input-group input-group-sm binwidth' style='width: 150px'>";
       bininput += "<input type='text' name='binwidth' placeholder='Set bin width' class='form-control'>";
       bininput += "<span class='input-group-btn'>";
-      bininput += "<button class='btn btn-default binw " + parameter + "' type='button'>Set</button>";
+      bininput += "<button class='btn btn-secondary binw " + parameter + "' type='button'>Set</button>";
       bininput += "</span>";
       bininput += "</div>";
 
       $(parId + ' div.plot-control').append(bininput);
 
       var selectbtn = "<div class='btn-group btn-group-sm'>";
-      selectbtn += "<button type='button' class='btn btn-default undoselect " + parameter + "'>Undo selection(s)</button>";
+      selectbtn += "<button type='button' class='btn btn-secondary undoselect " + parameter + "'>Undo selection(s)</button>";
       selectbtn += "</div>";
 
       $(parId + ' div.plot-control').append(selectbtn);
@@ -301,4 +301,3 @@ $(function () {
     }
   });
 });
-
