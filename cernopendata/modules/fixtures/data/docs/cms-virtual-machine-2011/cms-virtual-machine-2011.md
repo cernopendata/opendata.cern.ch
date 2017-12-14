@@ -17,9 +17,9 @@ Note: the latest tested version of VirtualBox working with this CMS-specific Cer
 
 ### Downloading and Creating a Virtual Machine
 
-**Important**: Before you download the CernVM, note that the imported settings may not always work on your host machine. Please see [Issues and Limitations](#issue) or [/docs/cms-guide-troubleshooting](the CMS guide to troubleshooting) if you encounter any problems with booting the VM.
+**Important**: Before you download the CernVM, note that the imported settings may not always work on your host machine. Please see [Issues and Limitations](#issue) or [the CMS guide to troubleshooting](/docs/cms-guide-troubleshooting) if you encounter any problems with booting the VM.
 
-Next download the CMS-specific CernVM image as OVA file from: [CMS VM Image for 2011 CMS Open Data][cmsvmimage2011]. This VM Image can be used for data from 2011 and 2011 (for data from 2010 follow the instruction in [/docs/cms-virtual-machine-2010](CMS 2010 Virtual Machines: How to install)).
+Next download the CMS-specific CernVM image as OVA file from: [CMS VM Image for 2011 CMS Open Data][cmsvmimage2011]. This VM Image can be used for data from 2011 and 2011 (for data from 2010 follow the instruction in [CMS 2010 Virtual Machines: How to install](/docs/cms-virtual-machine-2010)).
 
 By double clicking the downloaded file, VirtualBox imports the image with ready-to-run settings. Then, you launch the CMS-specific CernVM, which boots into the graphical user interface and sets up the CMS environment
 
