@@ -66,3 +66,11 @@ def sort_multi(l, *operators):
     """Sorts list by multiple fields."""
     l.sort(key=operator.itemgetter(*operators))
     return l
+
+
+@blueprint.app_template_filter('get_year')
+def get_year(year):
+    """Returns current year."""
+    import datetime
+    now = datetime.datetime.now()
+    return now.year
