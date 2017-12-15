@@ -253,10 +253,9 @@ def privacy():
 
 
 @blueprint.route('/glossary')
-@register_breadcrumb(blueprint, '.about.glossary', _('Glossary'))
 def glossary():
     """Display glossary terms."""
-    return render_template('cernopendata/glossary_terms.html')
+    return redirect('/search?page=1&size=20&q=&type=Glossary')
 
 
 @blueprint.route('/glossary/json')
