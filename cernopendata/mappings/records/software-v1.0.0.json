@@ -35,7 +35,12 @@
                     }
                 },
                 "title": {
-                    "type": "text"
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
                 },
                 "publisher": {
                     "type": "text"

@@ -63,7 +63,12 @@
                     "type": "text"
                 },
                 "title": {
-                    "type": "text"
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
                 },
                 "type": {
                     "properties": {

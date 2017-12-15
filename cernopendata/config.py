@@ -306,7 +306,7 @@ RECORDS_REST_SORT_OPTIONS = {
             default_order='asc',
             order=2,
         ),
-        'title': dict(fields=['title'],
+        'title': dict(fields=['title.keyword'],
                       title='Title A-Z',
                       default_order='asc',
                       order=1)

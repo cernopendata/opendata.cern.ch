@@ -36,7 +36,12 @@
                     }
                 },
                 "title": {
-                    "type": "text"
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
                 },
                 "additional_title": {
                     "type": "text"
