@@ -65,19 +65,13 @@ def lazy_title(text, *args):
 
 
 @blueprint.route('/')
-@register_menu(blueprint, 'main.education', _('Education'), order=2,
-               active_when=lambda: False,
-               endpoint_arguments_constructor=lambda: {'_anchor': 'education'})
-@register_menu(blueprint, 'main.research', _('Research'), order=3,
-               active_when=lambda: False,
-               endpoint_arguments_constructor=lambda: {'_anchor': 'research'})
-@register_breadcrumb(blueprint, '.', _('Home'))
-@register_breadcrumb(blueprint, '.education', _('Education'),
-                     endpoint_arguments_constructor=lambda: {
-                         '_anchor': 'education'})
-@register_breadcrumb(blueprint, '.research', _('Research'),
-                     endpoint_arguments_constructor=lambda: {
-                         '_anchor': 'education'})
+# @register_breadcrumb(blueprint, '.', _('Home'))
+# @register_breadcrumb(blueprint, '.education', _('Education'),
+#                      endpoint_arguments_constructor=lambda: {
+#                          '_anchor': 'education'})
+# @register_breadcrumb(blueprint, '.research', _('Research'),
+#                      endpoint_arguments_constructor=lambda: {
+#                          '_anchor': 'education'})
 def index():
     """Home Page."""
     results = FeaturedArticlesSearch().sort('featured')[:6].execute()
@@ -111,7 +105,7 @@ def md_debug():
 
 
 @blueprint.route('/visualise/events')
-@register_breadcrumb(blueprint, '.visualise_events', _('Visualise Events'))
+# @register_breadcrumb(blueprint, '.visualise_events', _('Visualise Events'))
 def visualise_events_landing():
     """Display landing page."""
     try:
@@ -123,7 +117,7 @@ def visualise_events_landing():
 
 @blueprint.route('/visualise/events/<string:experiment>')
 @blueprint.route('/visualise/events/<string:experiment>/<int:eventid>')
-@register_breadcrumb(blueprint, '.visualise_events', _('Visualise Events'))
+# @register_breadcrumb(blueprint, '.visualise_events', _('Visualise Events'))
 def visualise_events(experiment='cms', eventid=None):
     """Display visualisations."""
     # FIXME TO remove when Opera records released
@@ -142,8 +136,8 @@ def visualise_events(experiment='cms', eventid=None):
 
 @blueprint.route('/visualise/histograms')
 @blueprint.route('/visualise/histograms/<string:experiment>')
-@register_breadcrumb(blueprint, '.visualise_histograms',
-                     _('Visualise Histograms'))
+# @register_breadcrumb(blueprint, '.visualise_histograms',
+#                      _('Visualise Histograms'))
 def visualise_histograms(experiment='cms'):
     """Display histograms."""
     try:
@@ -153,36 +147,6 @@ def visualise_histograms(experiment='cms'):
         )
     except TemplateNotFound:
         return abort(404)
-
-
-def about_menu(*args):
-    """Generate menu decorator."""
-    def decorator(f):
-        """Menu decorator."""
-        for order, key in enumerate(args):
-            def arguments(key):
-                return lambda: {'page': key}
-
-            f = register_menu(
-                blueprint, 'main.about.{0}'.format(key),
-                _('%(experiment)s Open Data', experiment=key), order=order + 1,
-                endpoint_arguments_constructor=arguments(key)
-            )(f)
-        return f
-
-    return decorator
-
-
-def about_breadcrumbs():
-    """Generate breadcrumbs for about pages."""
-    key = request.view_args.get('page')
-    breadcrumbs = [{'url': url_for('cernopendata.about'), 'text': _('About')}]
-    if key:
-        breadcrumbs.append({
-            'url': url_for('cernopendata.about', experiment=key),
-            'text': _('%(experiment)s Open Data', experiment=key),
-        })
-    return breadcrumbs
 
 
 @blueprint.route('/about')
@@ -259,7 +223,7 @@ def privacy():
 
 
 @blueprint.route('/glossary')
-@register_breadcrumb(blueprint, '.about.glossary', _('Glossary'))
+# @register_breadcrumb(blueprint, '.about.glossary', _('Glossary'))
 def glossary():
     """Display glossary terms."""
     return render_template('cernopendata/glossary_terms.html')
