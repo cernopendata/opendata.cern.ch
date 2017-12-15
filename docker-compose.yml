@@ -98,6 +98,41 @@ services:
       - elasticsearch
       - rabbitmq
 
+  web-files:
+  restart: "always"
+    build:
+      context: .
+    image: cernopendata/web
+    depends_on:
+      - elasticsearch
+      - postgresql
+      - rabbitmq
+      - redis
+    environment:
+      - DEBUG=False
+      - APP_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://cernopendata:dbpass123@postgresql:5432/cernopendata
+      - APP_CACHE_REDIS_HOST=redis
+      - APP_CACHE_REDIS_URL=redis://redis:6379/0
+      - APP_ACCOUNTS_SESSION_REDIS_URL=redis://redis:6379/1
+      - APP_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 3
+      - APP_CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 4
+      - APP_CELERY_RESULT_BACKEND=redis://redis:6379/2
+      - APP_SEARCH_ELASTIC_HOSTS=elasticsearch
+      - APP_PIDSTORE_DATACITE_TESTMODE=False
+      - APP_PIDSTORE_DATACITE_DOI_PREFIX=10.5072
+      - APP_PIDSTORE_DATACITE_USERNAME=CERN.OPENDATA
+      - APP_PIDSTORE_DATACITE_PASSWORD=CHANGE_ME
+      - APP_PIDSTORE_LANDING_BASE_URL=http://opendata.cern.ch/record/
+    volumes:
+      - web_data:/usr/local/var/cernopendata/var/cernopendata-instance/static
+    links:
+      - postgresql
+      - redis
+      - elasticsearch
+      - rabbitmq
+    ports:
+      - "5001"
+
   postgresql:
     restart: "always"
     image: postgres
@@ -158,6 +193,7 @@ services:
       - web_data:/usr/local/var/cernopendata/var/cernopendata-instance/static
     links:
       - web
+      - web-files
 
 volumes:
   web_data:
