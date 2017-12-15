@@ -227,6 +227,12 @@ def vm_redirect(exp, year):
                     code=302)
 
 
+@blueprint.route('/vm/cms/validation/report')
+def validation_report_redirect(exp):
+    """Redirects to CMS VM validation document."""
+    return redirect('/docs/cms-vm-validation-2010')
+
+
 @blueprint.route('/cms-physics-objects/')
 @blueprint.route('/cms-physics-objects/<year>')
 @blueprint.route('/about/cms-physics-objects/')
