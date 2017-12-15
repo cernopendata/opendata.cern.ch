@@ -30,12 +30,9 @@ This portal is built around the following technologies:
 
 ### [![](/static/img/invenio.png)](http://inveniosoftware.org)
 
-
-Invenio is a free software suite enabling you to run your own digital library or document repository on the web. The technology offered by the software covers all aspects of digital library management, from document ingestion through classification, indexing, and curation up to document dissemination. Invenio complies with standards such as the Open Archives Initiative and uses MARC 21 as its underlying bibliographic format. The flexibility and performance of Invenio make it a comprehensive solution for management of document repositories of moderate to large sizes.
+Invenio is a library management software that allows to run your own digital library, institutional repository, multimedia archive, or research data repository on the web. The technology offered by the software covers all aspects of digital library management, from document ingestion through classification, indexing, and curation up to document dissemination. The flexible data model uses JSON schema to describe articles and various other types of media and supports popular master metadata formats, such as MARC21 as its underlying bibliographic format. Invenio features a powerful search engine that handles repositories of up to several million records with ease. Being composed of a multitude of independent pluggable packages, the digital library framework provides the needed flexibility for a wide range of applications. Invenio is a strong advocate of open standards and open access and makes use of DOI, Memento, OAI-PMH, ORCID, OpenAIRE and many others.
 
 ### [![](/static/img/cernvm.png)](http://cernvm.cern.ch/)
-
-<div class="card-body">
 
 CernVM is a baseline Virtual Software Appliance for the participants of CERN LHC experiments. The Appliance represents a complete, portable and easy to configure user environment for developing and running LHC data analysis locally and on institutional and commercial clouds (OpenStack, Amazon EC2, Google Compute Engine), independently of Operating System software and hardware platform (Linux, Windows, MacOS). The goal is to remove a need for the installation of the experiment software and to minimise the number of platforms (compiler-OS combinations) on which experiment software needs to be supported and tested.
 
