@@ -191,12 +191,11 @@ recordApp.controller('paginationCtrl', ['$scope', '$element', '$http', function(
     };
 
     $ctrl.pageChanged = function(type = '') {
-        if (type == 'None') type = '';
-        console.log("type::", type)
-            $http.get('/record/{{pid.pid_value}}/files/p/'+$ctrl.currentPage+'?type='+type)
-            .then( function(files) {
-                $ctrl.files = files.data.files;
-            })
+      if (type == 'None') type = '';
+      $http.get('/record/{{pid.pid_value}}/files/p/'+$ctrl.currentPage+'?type='+type)
+        .then( function(files) {
+            $ctrl.files = files.data.files;
+        })
     };
 
     $ctrl.setItemsPerPage = function(num) {

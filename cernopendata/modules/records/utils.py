@@ -98,8 +98,8 @@ def get_paged_files(files, page, items_per_page=5):
 def record_file_page(pid, record, page=1, **kwargs):
     """Record view - get files for current page."""
     # FIXME depending on location of files
-    # rf = record.files.dumps()
-    rf = record.get('files', [])
+    rf = record.files.dumps()
+    # rf = record.get('files', [])
 
     items_per_page = request.args.get('perPage', 5)
     try:

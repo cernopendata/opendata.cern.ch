@@ -184,6 +184,7 @@ def records(skip_files, files, profile, mode):
                     continue
 
                 files = data.get('files', [])
+
                 if mode == 'insert-or-replace':
                     try:
                         pid = PersistentIdentifier.get('recid', data['recid'])

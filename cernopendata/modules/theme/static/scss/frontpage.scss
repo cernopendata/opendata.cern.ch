@@ -189,13 +189,21 @@ $break-md: 768px;
   // padding-top: 66px;
 
 
-  // @media screen and (min-width: $break-large) {
+  // @media     (min-width: $break-large) {
   //   float: right;
   // }
+
+  .card-body h4 a {
+    font-size: 16px;
+    line-height: 0;
+    color: #3b97d3;
+  }
 }
 
-@media only screen and (max-width: 850px) {
-
+@media   (max-width: 1200px) {
+  .cod-scroll {
+    display: none;
+  }
 }
 
 
@@ -218,7 +226,7 @@ $break-md: 768px;
   }
 }
 
-@media  (max-width: 1050px) {
+@media (max-width: 1050px) {
   .homepage-section {
     height: auto;
   }
@@ -234,9 +242,7 @@ $break-md: 768px;
     }
   }
 
-  .cod-scroll {
-    display: none;
-  }
+
 }
 
 .homepage-section.lva {
@@ -248,17 +254,49 @@ $break-md: 768px;
   background: -ms-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
   background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 );
+  display: flex;
+  flex-direction: column;
 
-  .main-inner {
-    z-index: 100;
+  @media     (max-width: 992px) {
+    height: auto;
+    max-height: none;
+    // margin-bottom: 25px;
+  }
+
+  .lva-container {
+    @media     (max-width: 1200px) {
+      height: auto;
+      margin-bottom: 25px;
+      max-height: none;
+
+      &#visualize {
+        order: 1;
+      }
+    }
+
+    flex:1;
+    max-height: 500px;
+    justify-content: center;
+    // align-items: center;
     display: flex;
     flex-wrap: wrap;
+    // justify-content: center;
+
+
+
+  // .main-inner {
+  //   z-index: 100;
+  //   display: flex;
+  //   flex-wrap: wrap;
 
     > .lva-item-container {
       display: flex;
-      height: 450px;
-      @media  (max-width: 992px) {
-        height: 450px;
+      height: auto;
+      justify-content: center;
+      align-items: center;
+
+      @media     (max-width: 1200px) {
+        height: auto;
         margin-bottom: 25px;
 
         &#visualize {
@@ -273,7 +311,7 @@ $break-md: 768px;
 
       > div {
         min-width: 300px;
-        @media  (max-width: 1445px) {
+        @media     (max-width: 1445px) {
 
 
         }
@@ -282,7 +320,7 @@ $break-md: 768px;
   }
 
   .lva-item {
-    border: 1px solid $dark_blue;
+    // border: 1px solid $dark_blue;
     border-radius: 2px;
     min-width: 300px;
     max-width: 400px;
@@ -307,8 +345,11 @@ $break-md: 768px;
           display: none;
         }
       }
-      img {
-        height: 110px;
+      .image {
+        margin: 10px 0;
+        img {
+          height: 110px;
+        }
       }
 
       .text {
@@ -334,10 +375,10 @@ $break-md: 768px;
           text-align: center;
 
           a {
-            // color: $dark_blue;
+            color: $dark_blue;
             // text-decoration: underline;
             font-weight: 600;
-            font-size: 0.7em;
+            font-size: 1.1em;
 
             a:focus,
             a:visited,

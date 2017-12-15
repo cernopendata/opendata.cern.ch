@@ -2,15 +2,15 @@
 
 {% block heading %}
     <h1 class="d-inline"> {{ record.title_additional or record.title }} </h1>
-    
+
     <p>
-        {% if record.title_additional %} <span>{{ record.title }}, </span> {% endif %} 
+        {% if record.title_additional %} <span>{{ record.title }}, </span> {% endif %}
         {% for author in record.authors %} <small>{{ author.name }};</small> {% endfor %}
         {% if record.collaboration %} <small>{{ record.collaboration.name }}</small> {% endif %}
     </p>
-    
+
     {% if record.doi %}
-    <p class="cite-paragraph"> 
+    <p class="cite-paragraph">
         Cite as:
         {% for author in record.authors %}<span>{{ author.name }}.</span>{% endfor %}
         <span>
@@ -231,9 +231,11 @@
     </div>
 {% endblock files_block %}
 
+
 {% block disclaimer %}
     {{ super() }}
 {% endblock disclaimer %}
+
 
 {% block export %}
 {% endblock export %}
