@@ -206,14 +206,20 @@
   "date_published": "2017", 
   "distribution": {
     "formats": [
-      "root"
+      "root",
+      "txt"
     ],
-    "number_files": 23,
-    "size": 1592408
+    "number_files": 24,
+    "size": 1593614
   },
   "doi": "10.7483/OPENDATA.CMS.JKB8.D634",
   "experiment": "CMS", 
   "files": [
+    {
+      "checksum": "adler32:5b338e95",
+      "size": 1206,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/rootfilelist.txt"
+    },
     {
       "checksum": "adler32:90cb6b24",
       "size": 66215,
@@ -344,7 +350,7 @@
       ]
     },
     "usage": {
-      "description": "These datasets are provided as part of the Higgs-to-four-lepton analysis example using 2011-2012 data",
+      "description": "These datasets are provided as part of the Higgs-to-four-lepton analysis example using 2011-2012 data. You can download all root files needed for the Level 3 exercise to your working area by downloading first the file list <code>rootfilelist.txt</code> and then the root files with <code>wget -i rootflelist.txt<code>.",
       "links": [
         {
           "recid": "5500"
