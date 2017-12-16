@@ -45,7 +45,7 @@ The following are provided through this portal:
 
 ## <a name="disclaimer">Disclaimer</a>
 
-* The open data are released under the [Creative Commons CC0 waiver](http://creativecommons.org/publicdomain/zero/1.0/). Neither CMS or nor CERN endorse any works, scientific or otherwise, produced using these data.
+* The open data are released under the [Creative Commons CC0 waiver](http://creativecommons.org/publicdomain/zero/1.0/). Neither CMS nor CERN endorse any works, scientific or otherwise, produced using these data.
 * All datasets will have a unique DOI that you are requested to cite in any applications or publications.
 * Despite being processed, the high-level primary datasets remain complex and selection criteria need to be applied in order to analyse them, requiring some understanding of particle physics and detector functioning. The data cannot be viewed in simple data tables for spreadsheet-based analyses.
 * No further development is foreseen for either the data released or the software version needed to analyse them.
