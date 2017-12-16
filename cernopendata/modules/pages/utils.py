@@ -37,4 +37,8 @@ class FeaturedArticlesSearch(RecordsSearch):
         """Default index and filter for frontpage search."""
 
         index = 'records-docs-v1.0.0'
-        default_filter = Q('exists', field='featured')
+
+    def __init__(self, **kwargs):
+        """Initialize instance."""
+        super(FeaturedArticlesSearch, self).__init__(**kwargs)
+        self.query = Q('exists', field='featured')

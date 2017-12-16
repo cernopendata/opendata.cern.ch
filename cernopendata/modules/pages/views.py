@@ -74,9 +74,14 @@ def lazy_title(text, *args):
 #                          '_anchor': 'education'})
 def index():
     """Home Page."""
-    results = FeaturedArticlesSearch().sort('featured')[:6].execute()
+    results = []
+    try:
+        results = FeaturedArticlesSearch().sort(
+            'featured')[:6].execute().hits.hits
+    except:
+        pass
     return render_template('cernopendata_pages/front/index.html',
-                           featured_articles=results.hits.hits)
+                           featured_articles=results)
 
 
 @blueprint.route('/md/debug', methods=['HEAD', 'GET'])
