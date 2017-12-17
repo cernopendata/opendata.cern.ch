@@ -4,7 +4,7 @@ This page lists possible solutions to frequently encountered issues with CMS Ope
 
 **I have trouble installing VirtualBox**
 
-* Read the FAQs in [the VM installation guide](/docs/cms-2011-virtual-machines-how-to-install#issue). If it still fails, please contact your local system administrator.
+* Read the FAQs in [the VM installation guide](/docs/cms-virtual-machine-2011#issue). If it still fails, please contact your local system administrator.
 
 **What is the root password for the CMS Open Data VM?**
 
