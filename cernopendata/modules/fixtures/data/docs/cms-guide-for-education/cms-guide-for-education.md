@@ -13,7 +13,7 @@ If you are new to particle physics, your time is limited, or you want to do some
 1. Go to the [CMS event display](/visualise/events/cms),
 1. wait for the tool to load, and click on the `Open file` button,
 1. choose `Open file(s) from web`,
-1. choose `Education/`,
+1. choose `HiggsCandidates/`,
 1. click on `4lepton.ig` to see candidate collisions events for a Higgs boson transforming into electrons and/or muons, or click on `diphoton.ig` to see candidate collision events for a Higgs boson transforming into two photons, and wait for the events to load to the right,
 1. choose any specific event from the selection and click on `Load`.
 
