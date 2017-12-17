@@ -203,6 +203,8 @@ $(function () {
 
   $(document).on('click', '.parameter', function () {
     var parameter = $(this).html();
+    var title = $(this).attr('title');
+
     var parId = '#' + parameter;
 
     if ($(this).hasClass('active')) {
@@ -211,6 +213,8 @@ $(function () {
 
       $(parId).append("<div class='plot-control btn-toolbar'></div>");
       $(parId).append("<div class='plot-container'></div>");
+      $(parId).append("<div class='xlabel'></div>");
+
       $(parId + ' div.plot-control').css({});
       $(parId + ' div.plot-container').css({"height": "300px"});
 
@@ -243,15 +247,19 @@ $(function () {
         grid: {hoverable: true, autoHighlight: false},
         xaxis: {tickDecimals: 0},
         yaxis: {autoscaleMargin: 0.1},
-        crosshair: {mode: "x"},
+        crosshair: {mode: "xy"},
         selection: {mode: "x", color: "yellow"}
       };
 
       var histogram = buildHistogram(input_data.map(function (d) {
         return d[parameter];
       }), 0.1);
+
       var data = [{data: histogram, label: parameter}];
       var plot = $.plot($(parId + ' .plot-container'), data, options);
+
+      $(parId+ ' .xlabel').html(title);
+
       plot.setupGrid();
       plot.draw();
 
