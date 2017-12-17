@@ -220,7 +220,8 @@ def records(skip_files, files, profile, mode):
                         pid, schema, data, files, skip_files)
                     action = 'updated'
 
-                record.files.flush()
+                if not skip_files:
+                    record.files.flush()
                 record.commit()
                 db.session.commit()
                 click.echo(

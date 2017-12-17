@@ -79,7 +79,9 @@
                         {% endif %}
                         {% endblock metadata_block %}
 
+                        {% if record.files %}
                         {% include 'cernopendata_records_ui/records/components/previewer.html' %}
+                        {% endif %}
 
                         {% block files_block %}
                         <div ng-controller="paginationCtrl as $ctrl" ng-init="$ctrl.getFiles()">
