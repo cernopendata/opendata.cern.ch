@@ -19,18 +19,18 @@ Note: the latest tested version of VirtualBox working with this CMS-specific Cer
 
 **Important**: Before you download the CernVM, note that the imported settings may not always work on your host machine. Please see [Issues and Limitations](#issue) or [the CMS guide to troubleshooting](/docs/cms-guide-troubleshooting) if you encounter any problems with booting the VM.
 
-Next download the CMS-specific CernVM image as OVA file from: [CMS VM Image for 2011 CMS Open Data][cmsvmimage2011]. This VM Image can be used for data from 2011 and 2011 (for data from 2010 follow the instruction in [CMS 2010 Virtual Machines: How to install](/docs/cms-virtual-machine-2010)).
+Next download the CMS-specific CernVM image as OVA file from: [CMS VM Image for 2011 CMS Open Data][cmsvmimage2011]. This VM Image can be used for data from 2011 and 2012 (for data from 2010 follow the instruction in [CMS 2010 Virtual Machines: How to install](/docs/cms-virtual-machine-2010)).
 
-By double clicking the downloaded file, VirtualBox imports the image with ready-to-run settings. Then, you launch the CMS-specific CernVM, which boots into the graphical user interface and sets up the CMS environment
+By double clicking the downloaded file, VirtualBox imports the image with ready-to-run settings. Then, you launch the CMS-specific CernVM, which boots into the graphical user interface and sets up the CMS environment. Be patient, it will take a while.
 
 
 ## <a name="test">Step 2: How to Test & Validate?</a>
 
-The validation procedure tests that the CMS environment is installed and operational on your virtual machine, and that you have access to the ROOT files. You may skip this step if you want, and head straight to [Getting Started with CMS data][getstartedcms]. However, these steps give you a quick introduction to the CMS environment.
+The validation procedure tests that the CMS environment is installed and operational on your virtual machine, and that you have access to the CMS Open Data files. You may skip this step if you want, and head straight to [Getting Started with CMS data][getstartedcms]. However, these steps give you a quick introduction to the CMS environment.
 
 ### Set up the CMS environment and run a demo analyzer
 
-Open a terminal with the X terminal emulator (an icon bottom-left of the VM screen)
+Open a terminal with the X terminal emulator (an icon bottom-left of the VM screen).
 Execute the following command; this command builds the local release area (the directory structure) for CMSSW, and only needs to be run once (note that it may take a while):
 
 ```
@@ -88,7 +88,7 @@ And then run:
 cmsRun Demo/DemoAnalyzer/demoanalyzer_cfg.py
 ```
 
-You can consider your VM "validated" — i.e it gets access to and compiles the CMS software, and reads the CMS open data files — if you get an output like:
+You can consider your VM "validated" — i.e it gets access to and compiles the CMS software, and reads the CMS Open Data files — if you get an output like:
 
 
 ```
