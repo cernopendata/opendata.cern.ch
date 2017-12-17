@@ -18,7 +18,7 @@ This page lists possible solutions to frequently encountered issues with CMS Ope
 
 * Reduce the memory allocated to VirtualBox by clicking on System in the VirtualBox graphical user interface and adjust the base memory with the sliding bar.
 
-#### File download
+### File download
 
 **xml files do not download correctly by clicking on "Download"** 
 
