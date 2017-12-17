@@ -77,9 +77,9 @@ or, alternatively:
 
 **I want to find out which 2010 dataset and/or analysis/validation example is most useful for my purpose.**
 
-* To learn how to do a muon analysis, follow "*I want to produce some example physics distributions*," (above) with either option A (recommended) or B, or try one of the relevant "*I want to (re)validate the 2010 datasets examples*," (further below).
-- To learn how to do an electron analysis, follow "*I want to produce some first physics distributions*," (above) with option B, or try one of the relevant "*I want to (re)validate the 2010 datasets examples*," (below).
-- To learn how to do a minimum-bias track analysis, try the MinimumBias example on "*I want to (re)validate the 2010 datasets*," (below).
+* To learn how to do a muon analysis, follow "*I want to produce some example physics distributions*," (above) with either option A (recommended) or B, or try one of the relevant "*I want to run the examples used for validation of the 2010 datasets*," (further below).
+- To learn how to do an electron analysis, follow "*I want to produce some first physics distributions*," (above) with option B, or try one of the relevant "*I want to run the examples used for validation of the 2010 datasets*," (below).
+- To learn how to do a minimum-bias track analysis, try the MinimumBias example on "*I want to run the examples used for validation of the 2010 datasets*," (below).
 - [More to come…]
 
 ---
@@ -106,9 +106,9 @@ or, alternatively:
 * choose your dataset.
 
 
-**I want to find out which 2011 dataset and/or analysis/validation example is most useful for my purpose.**
+**I want to find out which 2011 or 2012 dataset and/or analysis/validation example is most useful for my purpose.**
 
-* Dedicated examples for 2011 beyond those available in "Getting Started" can be found in [software](/search?page=1&size=20&type=Software&subtype=Analysis&experiment=CMS&year=2011&year=2011-2012), including Higgs-to-four-lepton analysis, jet tuple production and top cross-sections. Alternatively, start from a 2010 example and adjust to run on 2011 data (see [the CMS troubleshooting guide](/docs/cms-guide-troubleshooting) for instructions).
+* Dedicated examples beyond those available in "Getting Started" can be found in [software](/search?page=1&size=20&type=Software&subtype=Analysis&experiment=CMS&year=2011&year=2011-2012), including Higgs-to-four-lepton analysis, jet tuple production and top cross-sections. Alternatively, start from a 2010 example and adjust to run on 2011 or 2012 data (see [the CMS troubleshooting guide](/docs/cms-guide-troubleshooting) for instructions).
 
 
 * For more information on Monte Carlo, see below.
