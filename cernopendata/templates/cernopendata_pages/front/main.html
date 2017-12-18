@@ -21,9 +21,9 @@
                 </form>
                 <div class="search-examples row justify-content-center">
                     <span class="example-title">search examples:</span>
-                    <a href="{{url_for('invenio_search_ui.search', q = 'collision data') }}">collision datasets</a>,
-                    <a href="{{url_for('invenio_search_ui.search', q = 'keywords:education') }}">keywords:education</a>,
-                    <a href="/search?page=1&size=20&collision_energy=7TeV">energy:7TeV</a>
+                    <a href="/search?subtype=Collision&type=Dataset">collision datasets</a>,
+                    <a href="/search?keywords=education">keywords:education</a>,
+                    <a href="/search?collision_energy=7TeV">energy:7TeV</a>
                 </div>
             </div>
 

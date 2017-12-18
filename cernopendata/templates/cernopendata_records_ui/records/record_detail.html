@@ -168,6 +168,8 @@
         <div class="col-md-12">
             {% if record.type.primary == 'Software' %}
             <h2>Data Selection</h2>
+            {% elif record.type.primary == 'Environment' %}
+            <h2>How was this built?</h2>
             {% else %}
             <h2>How were these data selected?</h2>
             {% endif %}
@@ -201,6 +203,8 @@
         <div class="col-md-12">
             {% if record.type.primary == 'Software' %}
             <h2>Validation</h2>
+            {% elif record.type.primary == 'Environment' %}
+            <h2>How to validate?</h2>
             {% else %}
             <h2>How were these data validated?</h2>
             {% endif %}
@@ -215,6 +219,8 @@
         <div class="col-md-12">
             {% if record.type.primary == 'Software' %}
             <h2>How can you use this?</h2>
+            {% elif record.type.primary == 'Environment' %}
+            <h2>How to use?</h2>
             {% else %}
             <h2>How can you use these data?</h2>
             {% endif %}
