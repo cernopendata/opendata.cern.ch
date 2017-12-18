@@ -1,25 +1,23 @@
 {% macro link_list(links) %}
 <p>
     {% for link in links %}
-    {% if link.url and link.title %}
-     <a href="{{link.url}}">{{link.title}}</a><br>
-    {% endif %}
-    {% if link.url %}
-    <p>
-        <a href="{{link.url}}">
-            {% if link.description %}
-             {{link.description}}
-            {% else %}
-             {{link.url}}
-            {% endif %}
-        </a>
-    </p>
-    {% endif %}
-    {% if link.recid %}
-    <p>
-        <a href="/record/{{link.recid}}">{{link.recid | get_record_title}}</a>
-    </p>
-    {% endif %}
+        {% if link.title %}
+         <a href="{{link.url}}">{{link.title}}</a><br>
+        {% elif link.url %}
+        <p>
+            <a href="{{link.url}}">
+                {% if link.description %}
+                 {{link.description}}
+                {% else %}
+                 {{link.url}}
+                {% endif %}
+            </a>
+        </p>
+        {% elif link.recid %}
+        <p>
+            <a href="/record/{{link.recid}}">{{link.recid | get_record_title}}</a>
+        </p>
+        {% endif %}
     {% endfor %}
 </p>
 {% endmacro %}
