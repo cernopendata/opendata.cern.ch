@@ -31,19 +31,19 @@
                 <div class="collections-col justify-content-center">
                     <header><span>Explore</span></header>
                     <ul>
-                        <li><a href="{{url_for('cernopendata_pages.faceted_search', page='datasets')}}">datasets</a></li>
-                        <li><a href="{{url_for('cernopendata_pages.faceted_search', page='software')}}">software</a></li>
-                        <li><a href="{{url_for('invenio_search_ui.search', type = 'Environment') }}">environments</a></li>
-                        <li><a href="{{url_for('cernopendata_pages.faceted_search', page='documentation')}}">documentation</a></li>
+                        <li><a href="/search?type=Dataset">datasets</a></li>
+                        <li><a href="/search?type=Software">software</a></li>
+                        <li><a href="/search?type=Environment">environments</a></li>
+                        <li><a href="/search?type=Documentation">documentation</a></li>
                     </ul>
                 </div>
                 <div class="collections-col justify-content-center">
                     <header><span>Focus on</span></header>
                     <ul>
-                        <li><a href="{{url_for('cernopendata_pages.faceted_search', collection='atlas')}}">ATLAS</a></li>
-                        <li><a href="{{url_for('cernopendata_pages.faceted_search', collection='alice')}}">ALICE</a></li>
-                        <li><a href="{{url_for('cernopendata_pages.faceted_search', collection='cms')}}">CMS</a></li>
-                        <li><a href="{{url_for('cernopendata_pages.faceted_search', collection='lhcb')}}">LHCb</a></li>
+                        <li><a href="/search?experiment=ATLAS">ATLAS</a></li>
+                        <li><a href="/search?experiment=ALICE">ALICE</a></li>
+                        <li><a href="/search?experiment=CMS">CMS</a></li>
+                        <li><a href="/search?experiment=LHCb">LHCb</a></li>
                         <!--<li><a href="{{url_for('cernopendata_pages.faceted_search', collection='opera')}}">OPERA</a></li>-->
                     </ul>
                 </div>
