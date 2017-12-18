@@ -159,6 +159,7 @@ services:
   elasticsearch:
     restart: "always"
     image: elasticsearch:5
+    command: ["elasticsearch", "-E", "logger.org.elasticsearch.deprecation=error"]
     environment:
       - bootstrap.memory_lock=true
       # set to reasonable values on production
