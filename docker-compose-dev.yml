@@ -176,21 +176,6 @@ services:
       - "4369:4369"
       - "5672:5672"
 
-  nginx:
-    restart: "always"
-    build: ./nginx
-    image: cernopendata/nginx
-    ports:
-      - "80:80"
-    volumes:
-      - ./cernopendata:/code/cernopendata
-      - ./scripts:/code/scripts
-    volumes_from:
-      - static
-    links:
-      - web
-      - web-files
-
   static:
     restart: "no"
     command: "echo 'Static running...'"

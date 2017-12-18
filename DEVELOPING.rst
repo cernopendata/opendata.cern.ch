@@ -20,6 +20,7 @@ integration purposes. A usage example:
    $ docker-compose -f docker-compose-dev.yml up
    $ docker exec -i -t opendatacernch_web_1 /code/scripts/populate-instance.sh --skip-files
    $ firefox http://0.0.0.0:5000/
+   $ docker-compose -f docker-compose-dev.yml down
 
 If you want to use production-like conditions locally, you can use Docker with
 ``docker-compose.yml`` configuration. This is useful for tuning overall system
@@ -32,6 +33,7 @@ mounted in the container in this case. A usage example:
    $ docker-compose up
    $ docker exec -i -t opendatacernch_web_1 /code/scripts/populate-instance.sh
    $ firefox http://0.0.0.0/
+   $ docker-compose -f docker-compose-dev.yml down -v
 
 Appendix: Git workflow
 ======================
