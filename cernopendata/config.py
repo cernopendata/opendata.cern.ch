@@ -375,7 +375,7 @@ RECORDS_REST_FACETS = {
                                           '.keyword'),
             topic_category=terms_filter('topic.category.keyword'),
             file_type=terms_filter('distribution.formats.keyword'),
-            collections=terms_filter('collections'),
+            collections=terms_filter('collections.keyword'),
         ),
     }
 }
