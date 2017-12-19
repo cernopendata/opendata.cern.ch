@@ -12,7 +12,7 @@
     {% if record.doi %}
     <p class="cite-paragraph">
         Cite as:
-        {% for author in record.authors %}<span>{{ author.name }}.</span>{% endfor %}
+        {% for author in record.authors %}<span>{{ author.name }}; </span>{% endfor %}
         <span>
             {% if record.collaboration %} {{ record.collaboration.name }} {% endif %}
             {% if record.date_published %} ({{ record.date_published }}). {% endif %}

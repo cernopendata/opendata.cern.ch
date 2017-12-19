@@ -346,8 +346,8 @@ a {
 }
 
 .card-body h4 a {
-  font-size: 20px;
-  color: #3b97d3;
+    font-size: 20px;
+    color: #3b97d3;
 }
 
 .date-author-small {
@@ -597,20 +597,24 @@ invenio-search-facets {
 .detail-page {
 
     font-weight: $font-light;
-    margin-top: 0.7em;
 
     h1 {
         font-size: 1.8em;
+        margin-top: 1em;
     }
 
     h2 {
         font-size: 1.6em;
         margin-top: 1em;
-        font-weight: $font-light;
     }
 
     h3 {
-        font-size: .9em;
+        margin-top: 1em;
+        font-size: 1.6em;
+    }
+
+    strong {
+        font-weight: $font-heavy;
     }
 
     .cite-paragraph {
@@ -634,10 +638,11 @@ invenio-search-facets {
 }
 
 .modal-backdrop {
-  background-color: #ccc;
-  opacity: 0.6;
+    background-color: #ccc;
+    opacity: 0.6;
 }
 
 .file-row {
-  display: flex;
+    display: flex;
 }
+
