@@ -118,7 +118,7 @@ process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.c
 process.GlobalTag.globaltag = 'FT_53_LV5_AN1::All'
 ```
 
-See detailed instructions for the use of condition data for different data-taking years in [the guide to the CMS condition database](/docs/cms-guide-to-the-cms-condition-database).
+See detailed instructions for the use of condition data for different data-taking years in [the guide to the CMS condition database](/docs/cms-guide-for-condition-database).
 
 ## <a name="pat">Performing your analysis on the PATtuples</a>
 
