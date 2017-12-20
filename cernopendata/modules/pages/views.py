@@ -383,4 +383,6 @@ def education_research_pages(page, experiment=None):
     else:
         filters = {'collections': collections.get(experiment) or abort(404)}
 
-    return redirect(url_for('invenio_search_ui.search', **filters))
+    # return redirect(url_for('invenio_search_ui.search', **filters))
+    # FIXME quick workaround
+    return redirect(url_for('invenio_search_ui.search'))
