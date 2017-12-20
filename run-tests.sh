@@ -37,6 +37,23 @@ if [ "x${dupes}" != "x" ]; then
     exit 1
 fi
 
+# check DOI uniqueness:
+dupes=$(jq '.[].doi' cernopendata/modules/fixtures/data/records/*.json | sort | grep -v null | uniq -d)
+if [ "x${dupes}" != "x" ]; then
+    echo "[ERROR] Found duplicate record DOIs:"
+    echo "${dupes}"
+    exit 1
+fi
+
+# check docs slug uniqueness:
+dupes=$(for file in $(find cernopendata/modules/fixtures/data/docs -name "*.json"); do jq '.[].slug' "$file"; done | sort | grep -v null | uniq -d)
+if [ "x${dupes}" != "x" ]; then
+    echo "[ERROR] Found duplicate docs slugs:"
+    echo "${dupes}"
+    exit 1
+fi
+
+# do we need to continue?
 if [[ "$@" = *"--check-fixtures-only"* ]]; then
     exit 0
 fi
