@@ -36,7 +36,7 @@ The CERN Open Data portal is [openly developed on GitHub](https://github.com/cer
 
 **Key points**
 
-- This is the third release of high-level CMS Open Data, following release of 2010 data in 2014, and 2012 data in 2016
+- This is the third release of high-level CMS Open Data, following release of 2010 data in 2014, and 2011 data in 2016
 - Latest release contains around half of data collected in 2012
 - 557+ terabytes of collision data (11 inverse femtobarns); 510+ terabytes of simulation data with more to come in next months
 - Contains datasets used for the Higgs discovery of 2012
