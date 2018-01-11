@@ -153,9 +153,12 @@ def record_file_page(pid, record, page=1, **kwargs):
         return jsonify(grouped_files)
 
     file_type_filter = request.args.get('type')
-    if file_type_filter is 'index':
-        filtered_files = [d for d in rf if (
-                          d.get('type', "") in ['index', 'index.txt'])]
+
+    if file_type_filter == 'index_files':
+        filtered_files = [d
+                          for d in rf
+                          if (d.get('type', "")
+                              in ['index', 'index.txt'])]
         rf_len = len(filtered_files)
         paged_files = get_paged_files(filtered_files, page, items_per_page)
         return jsonify({"total": rf_len, "files": paged_files})
