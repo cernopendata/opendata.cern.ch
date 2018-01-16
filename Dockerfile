@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2015, 2016, 2017 CERN.
+# Copyright (C) 2015, 2016, 2017, 2018 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -43,13 +43,27 @@ RUN yum update -y && \
         libxslt-devel \
         npm \
         python-devel \
-        python-pip  && \
-    yum install -y \
-        xrootd \
-        xrootd-client \
-        xrootd-client-devel \
-        xrootd-python && \
-    yum clean -y all
+        python-pip
+
+# Install pinned xrootd version and their dependencies:
+RUN yum install -y \
+        expect \
+        policycoreutils \
+        selinux-policy && \
+    rpm -Uvh \
+      http://xrootd.web.cern.ch/xrootd/sw/releases/4.7.1/rpms/user_xrootd/slc7/x86_64/xrootd-libs-4.7.1-1.el7.x86_64.rpm \
+      http://xrootd.web.cern.ch/xrootd/sw/releases/4.7.1/rpms/user_xrootd/slc7/x86_64/xrootd-server-libs-4.7.1-1.el7.x86_64.rpm \
+      http://xrootd.web.cern.ch/xrootd/sw/releases/4.7.1/rpms/user_xrootd/slc7/x86_64/xrootd-server-4.7.1-1.el7.x86_64.rpm \
+      http://xrootd.web.cern.ch/xrootd/sw/releases/4.7.1/rpms/user_xrootd/slc7/x86_64/xrootd-selinux-4.7.1-1.el7.noarch.rpm \
+      http://xrootd.web.cern.ch/xrootd/sw/releases/4.7.1/rpms/user_xrootd/slc7/x86_64/xrootd-client-devel-4.7.1-1.el7.x86_64.rpm \
+      http://xrootd.web.cern.ch/xrootd/sw/releases/4.7.1/rpms/user_xrootd/slc7/x86_64/xrootd-client-4.7.1-1.el7.x86_64.rpm \
+      http://xrootd.web.cern.ch/xrootd/sw/releases/4.7.1/rpms/user_xrootd/slc7/x86_64/xrootd-client-libs-4.7.1-1.el7.x86_64.rpm \
+      http://xrootd.web.cern.ch/xrootd/sw/releases/4.7.1/rpms/user_xrootd/slc7/x86_64/xrootd-devel-4.7.1-1.el7.x86_64.rpm \
+      http://xrootd.web.cern.ch/xrootd/sw/releases/4.7.1/rpms/user_xrootd/slc7/x86_64/xrootd-4.7.1-1.el7.x86_64.rpm \
+      http://xrootd.web.cern.ch/xrootd/sw/releases/4.7.1/rpms/user_xrootd/slc7/x86_64/xrootd-python-4.7.1-1.el7.x86_64.rpm
+
+# Clean after ourselves:
+RUN yum clean -y all
 
 # Configuration for CERN Open Data Portal instance:
 ENV APP_INSTANCE_PATH=/usr/local/var/cernopendata/var/cernopendata-instance
