@@ -124,9 +124,8 @@ def visualise_events_landing():
 # @register_breadcrumb(blueprint, '.visualise_events', _('Visualise Events'))
 def visualise_events(experiment='cms', eventid=None):
     """Display visualisations."""
-    # FIXME TO remove when Opera records released
-    if experiment == 'opera':
-        abort(404)
+    # if experiment == 'opera':
+    #     abort(404)
     try:
         return render_template(
             'cernopendata_pages/visualise_events_{}.html'.format(
@@ -319,7 +318,7 @@ def faceted_search(page=None, experiment=None, collection=None):
         'alice': ('experiment', 'ALICE'),
         'atlas': ('experiment', 'ATLAS'),
         'lhcb': ('experiment', 'LHCb'),
-        # 'opera': ('experiment', 'OPERA'),
+        'opera': ('experiment', 'OPERA'),
         'data-policies': ('collections', 'Data-Policies'),
         'alice-derived-datasets': ('collections',
                                    'ALICE-Derived-Datasets'),
@@ -359,13 +358,13 @@ def faceted_search(page=None, experiment=None, collection=None):
         'lhcb-learning-resources': ('collections',
                                     'LHCb-Learning-Resources'),
         'lhcb-tools': ('collections', 'LHCb-Tools'),
-        # 'opera-detector-events': ('collections', 'OPERA-Detector-Events'),
-        # 'opera-electronic-detector-datasets': (
-        #     'collections',
-        #     'OPERA-Electronic-Detector-Datasets'),
-        # 'opera-emulsion-detector-datasets': (
-        #     'collections',
-        #     'OPERA-Emulsion-Detector-Datasets')
+        'opera-detector-events': ('collections', 'OPERA-Detector-Events'),
+        'opera-electronic-detector-datasets': (
+            'collections',
+            'OPERA-Electronic-Detector-Datasets'),
+        'opera-emulsion-detector-datasets': (
+            'collections',
+            'OPERA-Emulsion-Detector-Datasets')
     }
 
     for facet in facets:
@@ -377,7 +376,7 @@ def faceted_search(page=None, experiment=None, collection=None):
 
 @blueprint.route('/<any("research","education"):page>')
 @blueprint.route('/<any("research","education"):page>'
-                 '/<any("cms","lhcb","alice","atlas"):experiment>')
+                 '/<any("cms","lhcb","opera","alice","atlas"):experiment>')
 def education_research_pages(page, experiment=None):
     """Research and education pages."""
     collections = {
@@ -415,11 +414,10 @@ def education_research_pages(page, experiment=None):
                                'LHCb-Tools',
                                'LHCb-Learning-Resources'
                                ],
-                      # 'opera': [
-                      #                   'OPERA-Detector-Events',
-                      #                   'OPERA-Electronic-Detector-Datasets',
-                      #                   'OPERA-Emulsion-Detector-Datasets'
-                      # ]
+                      'opera': ['OPERA-Detector-Events',
+                                'OPERA-Electronic-Detector-Datasets',
+                                'OPERA-Emulsion-Detector-Datasets'
+                                ]
                       }
     }
 
