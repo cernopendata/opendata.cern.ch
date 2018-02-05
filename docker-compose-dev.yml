@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2015, 2016, 2017 CERN.
+# Copyright (C) 2015, 2016, 2017, 2018 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -181,6 +181,8 @@ services:
     command: "echo 'Static running...'"
     build:
       context: .
+      args:
+        DEBUG: 1
     image: cernopendata/static
     volumes:
       - /usr/local/var/cernopendata/var/cernopendata-instance/static

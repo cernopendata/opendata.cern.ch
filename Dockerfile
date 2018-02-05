@@ -84,10 +84,6 @@ RUN /code/scripts/create-instance.sh && \
     chgrp -R 0 ${APP_INSTANCE_PATH} && \
     chmod -R g=u ${APP_INSTANCE_PATH}
 
-RUN adduser --uid 1000 invenio --gid 0 && \
-    chown -R invenio:root /code
-USER 1000
-
 # uWSGI configuration
 ARG UWSGI_WSGI_MODULE=cernopendata.wsgi:application
 ENV UWSGI_WSGI_MODULE ${UWSGI_WSGI_MODULE:-cernopendata.wsgi:application}
@@ -99,11 +95,15 @@ ARG UWSGI_THREADS=2
 ENV UWSGI_THREADS ${UWSGI_THREADS:-2}
 
 # Debug off by default
-ARG DEBUG=False
-ENV DEBUG=${DEBUG:-False}
+ARG DEBUG=""
+ENV DEBUG=${DEBUG:-""}
 
 # Install Python packages needed for development
-RUN if [ -z "$DEBUG" ]; then pip install -r requirements-dev.txt; fi;
+RUN if [ "$DEBUG" ]; then pip install -r requirements-dev.txt; fi;
+
+RUN adduser --uid 1000 invenio --gid 0 && \
+    chown -R invenio:root /code
+USER 1000
 
 # Start the CERN Open Data Portal application:
 CMD uwsgi --module ${UWSGI_WSGI_MODULE} --socket 0.0.0.0:${UWSGI_PORT} --master --processes ${UWSGI_PROCESSES} --threads ${UWSGI_THREADS} --stats /tmp/stats.socket
