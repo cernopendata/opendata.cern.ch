@@ -105,7 +105,7 @@ Desktop Environments
 
 *   DWM
 
-*   Openbox  
+*   Openbox
 
 *   LXDE
 

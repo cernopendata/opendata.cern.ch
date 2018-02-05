@@ -2,46 +2,46 @@
 {
   "abstract": {
     "description": "This java-based program can be used to view the event displays prepared for the Masterclasses W-Path.\nThe package also includes dataset 2 of the 2015 Masterclasses W-Path datasets. (for Minerva version with dataset 2 only)"
-  }, 
+  },
   "collaboration": {
     "name": "ATLAS collaboration"
-  }, 
+  },
   "collections": [
     "ATLAS-Tools"
-  ], 
-  "date_published": "2016", 
+  ],
+  "date_published": "2016",
   "distribution": {
-    "number_files": 2, 
+    "number_files": 2,
     "size": 281283281
-  }, 
-  "experiment": "ATLAS", 
+  },
+  "experiment": "ATLAS",
   "files": [
     {
-      "checksum": "sha1:583df9c78fa30679c578acdc9ae9f4a6eb3a7342", 
-      "description": "ATLAS Masterclass WPath 2015 dataset Software file\nindex", 
-      "size": 211, 
-      "type": "index", 
+      "checksum": "sha1:583df9c78fa30679c578acdc9ae9f4a6eb3a7342",
+      "description": "ATLAS Masterclass WPath 2015 dataset Software file\nindex",
+      "size": 211,
+      "type": "index",
       "uri": "root://eospublic.cern.ch//eos/opendata/atlas/MasterclassDatasets/WPath/2015/Software/ATLAS_MasterclassDatasets_WPath_2015_dataset_Software_file_index.txt"
     }
-  ], 
+  ],
   "keywords": [
     "masterclass"
-  ], 
-  "publisher": "CERN Open Data Portal", 
-  "recid": "352", 
+  ],
+  "publisher": "CERN Open Data Portal",
+  "recid": "352",
   "system_details": {
     "description": "This program is written in Java and based on the event display ATLANTIS. All you need is an up to date java installation and some event display files."
-  }, 
-  "title": "ATLAS WPath 2015 Masterclass MINERVA Software", 
+  },
+  "title": "ATLAS WPath 2015 Masterclass MINERVA Software",
   "type": {
-    "primary": "Software", 
+    "primary": "Software",
     "secondary": [
       "Tool"
     ]
-  }, 
+  },
   "usage": {
     "description": "Download and unzip it. Use either the appropriate executable for your system (e.g. MINERVA_Windows.bat) or start using the java command manually."
-  }, 
+  },
   "use_with": {
     "description": "The event displays prepared for the Masterclasses W-Path."
   }
@@ -50,60 +50,60 @@
 {
   "abstract": {
     "description": "<p>This is an Analysis Framework that is composed of a set of python macros with the objective to manage the reading and analysis of the samples of the 2016 open data release.</p>\n       <p>The Framework is divided into two main functionalities, with examples:\n       <ul>\n        <li>In the first part, a set of seven analysis examples, (W, Z, H and beyond SM analysis) has been included.</li>\n        <li>Those analysis are macros in python with defined cuts that produce a set of histograms.</li>\n        <li>The code is fully customisable by the user, like: samples to use, histograms to produce, the cuts to apply.</li>\n       </ul></p>\n       <p>The second part of the framework, always in python, is responsable to take those histograms and produce plots in a final publication-style, with the correct normalisations, colours, legends and style in general.\n       <ul>\n        <li>The code is fully customisable too, leaving the opportunity to the user to select the samples to use, histograms to produce, style to apply.</li></ul> </p>"
-  }, 
-  "accelerator": "CERN-LHC", 
+  },
+  "accelerator": "CERN-LHC",
   "collaboration": {
     "name": "ATLAS Collaboration"
-  }, 
+  },
   "collections": [
     "ATLAS-Tools"
-  ], 
-  "date_created": "2012", 
-  "date_published": "2016", 
+  ],
+  "date_created": "2012",
+  "date_published": "2016",
   "distribution": {
     "formats": [
       "gz"
-    ], 
-    "number_files": 1, 
+    ],
+    "number_files": 1,
     "size": 26914
-  }, 
-  "doi": "10.7483/OPENDATA.ATLAS.WS1A.RLES", 
-  "experiment": "ATLAS", 
+  },
+  "doi": "10.7483/OPENDATA.ATLAS.WS1A.RLES",
+  "experiment": "ATLAS",
   "files": [
     {
-      "checksum": "sha1:3ea993a89021a8c95350de069ff6a99af67072e8", 
-      "description": "atlas-outreach-data-tools-framework-1.1 file index", 
-      "size": 123, 
-      "type": "index", 
+      "checksum": "sha1:3ea993a89021a8c95350de069ff6a99af67072e8",
+      "description": "atlas-outreach-data-tools-framework-1.1 file index",
+      "size": 123,
+      "type": "index",
       "uri": "root://eospublic.cern.ch//eos/opendata/atlas/OutreachDatasets/2016-07-29/file-indexes/atlas-outreach-data-tools-framework-1.1_file_index.txt"
     }
-  ], 
+  ],
   "license": {
     "attribution": "GNU General Public License (GPL) version 3"
-  }, 
-  "publisher": "CERN Open Data Portal", 
-  "recid": "3850", 
-  "run_period": "Run2012D", 
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "3850",
+  "run_period": "Run2012D",
   "system_details": {
-    "description": "Use this code with ATLAS Virtual Machines for 2016 open data release", 
+    "description": "Use this code with ATLAS Virtual Machines for 2016 open data release",
     "release": "V1.1"
-  }, 
-  "title": "ATLAS Software for 2016 open data release", 
+  },
+  "title": "ATLAS Software for 2016 open data release",
   "type": {
-    "primary": "Software", 
+    "primary": "Software",
     "secondary": [
       "Framework"
     ]
-  }, 
+  },
   "usage": {
-    "description": "More documentation is available at ATLAS GitHub repository:", 
+    "description": "More documentation is available at ATLAS GitHub repository:",
     "links": [
       {
-        "description": "GitHub", 
+        "description": "GitHub",
         "url": "https://github.com/atlas-outreach-data-tools/atlas-outreach-data-tools-framework/tree/b1b0984f650fa720a66b3f0cbb10fdb1f50ce147"
       }
     ]
-  }, 
+  },
   "use_with": {
     "description": "Use this with ATLAS Data and MC Data for 2016 open data release"
   }
@@ -112,48 +112,48 @@
 {
   "abstract": {
     "description": "<p> This set of Virtual Machines (VM) allows you to obtain a computer environment that emulate as much as possible that one use for a particle physicist.\n      Each VM contain ROOT as base software plus the Analysis Framework for the data analysis. </p>\n      <p> This customised set of Virtual Machines contains all the necessary pieces to perform analysis:\n      <ul>\n        <li>Samples</li>\n        <li>ROOT and its dependencies, C++ compilers, python support, jupiter libraries and others like dropbox client</li>\n        <li>Analysis Framework in python</li>\n        <li>ROOT Jupyter notebooks (ROOTbook) examples</li>\n       </ul> </p>\n       <p>In particular, VM-S for \"small\", it has a compressed size of ~4.6GB, and a uncompressed size of ~11GB. This contains a complete Scientific Linux OS 6.7, important software dependencies and the latest version of ROOT v6-07-06. </p> "
-  }, 
-  "accelerator": "CERN-LHC", 
+  },
+  "accelerator": "CERN-LHC",
   "collaboration": {
     "name": "ATLAS Collaboration"
-  }, 
+  },
   "collections": [
     "ATLAS-Tools"
-  ], 
-  "date_created": "2012", 
-  "date_published": "2016", 
-  "experiment": "ATLAS", 
+  ],
+  "date_created": "2012",
+  "date_published": "2016",
+  "experiment": "ATLAS",
   "files": [
     {
-      "checksum": "sha1:4fc99f745ad084ace44e34c51c2d0a25f3d36eaa", 
-      "description": "ScientificLinux67_ATLAS_Outreach_DataAndTools_July_2016-size_S file index", 
-      "size": 146, 
-      "type": "index", 
+      "checksum": "sha1:4fc99f745ad084ace44e34c51c2d0a25f3d36eaa",
+      "description": "ScientificLinux67_ATLAS_Outreach_DataAndTools_July_2016-size_S file index",
+      "size": 146,
+      "type": "index",
       "uri": "root://eospublic.cern.ch//eos/opendata/atlas/OutreachDatasets/2016-07-29/file-indexes/ScientificLinux67_ATLAS_Outreach_DataAndTools_July_2016-size_S_file_index.txt"
     }
-  ], 
+  ],
   "license": {
     "attribution": "CC0"
-  }, 
-  "publisher": "CERN Open Data Portal", 
-  "recid": "3851", 
-  "run_period": "Run2012D", 
-  "title": "ATLAS Virtual Machine Version S for 2016 open data release", 
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "3851",
+  "run_period": "Run2012D",
+  "title": "ATLAS Virtual Machine Version S for 2016 open data release",
   "type": {
-    "primary": "Environment", 
+    "primary": "Environment",
     "secondary": [
       "VM"
     ]
-  }, 
+  },
   "usage": {
-    "description": "More documentation is available at: ", 
+    "description": "More documentation is available at: ",
     "links": [
       {
-        "description": "Virtual Machine Book", 
+        "description": "Virtual Machine Book",
         "url": "http://opendata.atlas.cern/extendedanalysis/documentation.php"
       }
     ]
-  }, 
+  },
   "use_with": {
     "description": "Use this with ATLAS Data and MC Data for 2016 open data release"
   }
@@ -162,48 +162,48 @@
 {
   "abstract": {
     "description": "<p> This set of Virtual Machines (VM) allows you to obtain a computer environment that emulate as much as possible that one use for a particle physicist.\n      Each VM contain ROOT as base software plus the Analysis Framework for the data analysis. </p>\n      <p> This customised set of Virtual Machines contains all the necessary pieces to perform analysis:\n      <ul>\n        <li>Samples</li>\n        <li>ROOT and its dependencies, C++ compilers, python support, jupiter libraries and others like dropbox client</li>\n        <li>Analysis Framework in python</li>\n        <li>ROOT Jupyter notebooks (ROOTbook) examples</li>\n       </ul> </p>\n       <p>In particular, VM-M for \"medium\", it has a compressed size of ~10.6GB, and a uncompressed size of ~22GB. This contains a complete Scientific Linux OS 6.7, important software dependencies, the latest version of ROOT v6-07-06 and the completed set of datasets of the ATLAS release (Data and MC). </p>"
-  }, 
-  "accelerator": "CERN-LHC", 
+  },
+  "accelerator": "CERN-LHC",
   "collaboration": {
     "name": "ATLAS Collaboration"
-  }, 
+  },
   "collections": [
     "ATLAS-Tools"
-  ], 
-  "date_created": "2012", 
-  "date_published": "2016", 
-  "experiment": "ATLAS", 
+  ],
+  "date_created": "2012",
+  "date_published": "2016",
+  "experiment": "ATLAS",
   "files": [
     {
-      "checksum": "sha1:b5b09fcf3078bca1775b364a08bb0e2b63ff98f3", 
-      "description": "ScientificLinux67_ATLAS_Outreach_DataAndTools_July_2016-size_M file index", 
-      "size": 146, 
-      "type": "index", 
+      "checksum": "sha1:b5b09fcf3078bca1775b364a08bb0e2b63ff98f3",
+      "description": "ScientificLinux67_ATLAS_Outreach_DataAndTools_July_2016-size_M file index",
+      "size": 146,
+      "type": "index",
       "uri": "root://eospublic.cern.ch//eos/opendata/atlas/OutreachDatasets/2016-07-29/file-indexes/ScientificLinux67_ATLAS_Outreach_DataAndTools_July_2016-size_M_file_index.txt"
     }
-  ], 
+  ],
   "license": {
     "attribution": "CC0"
-  }, 
-  "publisher": "CERN Open Data Portal", 
-  "recid": "3852", 
-  "run_period": "Run2012D", 
-  "title": "ATLAS Virtual Machine Version M for 2016 open data release", 
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "3852",
+  "run_period": "Run2012D",
+  "title": "ATLAS Virtual Machine Version M for 2016 open data release",
   "type": {
-    "primary": "Environment", 
+    "primary": "Environment",
     "secondary": [
       "VM"
     ]
-  }, 
+  },
   "usage": {
-    "description": "More documentation is available at: ", 
+    "description": "More documentation is available at: ",
     "links": [
       {
-        "description": "Virtual Machine Book", 
+        "description": "Virtual Machine Book",
         "url": "http://opendata.atlas.cern/extendedanalysis/documentation.php"
       }
     ]
-  }, 
+  },
   "use_with": {
     "description": "Use this with ATLAS Data and MC Data for 2016 open data release"
   }
@@ -212,48 +212,48 @@
 {
   "abstract": {
     "description": "<p> This set of Virtual Machines (VM) allows you to obtain a computer environment that emulate as much as possible that one use for a particle physicist.\n      Each VM contain ROOT as base software plus the Analysis Framework for the data analysis. </p>\n      <p> This customised set of Virtual Machines contains all the necessary pieces to perform analysis:\n      <ul>\n        <li>Samples</li>\n        <li>ROOT and its dependencies, C++ compilers, python support, jupiter libraries and others like dropbox client</li>\n        <li>Analysis Framework in python</li>\n        <li>ROOT Jupyter notebooks (ROOTbook) examples</li>\n       </ul> </p>\n       <p>In particular, VM-N for \"NET\" it has a compressed size of ~5.2GB, and a uncompressed size of ~17GB. This contains a complete Scientific Linux OS 6.7, important software dependencies and CVMFS access to public software repositories. </p>"
-  }, 
-  "accelerator": "CERN-LHC", 
+  },
+  "accelerator": "CERN-LHC",
   "collaboration": {
     "name": "ATLAS Collaboration"
-  }, 
+  },
   "collections": [
     "ATLAS-Tools"
-  ], 
-  "date_created": "2012", 
-  "date_published": "2016", 
-  "experiment": "ATLAS", 
+  ],
+  "date_created": "2012",
+  "date_published": "2016",
+  "experiment": "ATLAS",
   "files": [
     {
-      "checksum": "sha1:8d1ffbc94dec76124893d0867898565d8682a629", 
-      "description": "ScientificLinux67_ATLAS_Outreach_DataAndTools_July_2016-size_N file index", 
-      "size": 146, 
-      "type": "index", 
+      "checksum": "sha1:8d1ffbc94dec76124893d0867898565d8682a629",
+      "description": "ScientificLinux67_ATLAS_Outreach_DataAndTools_July_2016-size_N file index",
+      "size": 146,
+      "type": "index",
       "uri": "root://eospublic.cern.ch//eos/opendata/atlas/OutreachDatasets/2016-07-29/file-indexes/ScientificLinux67_ATLAS_Outreach_DataAndTools_July_2016-size_N_file_index.txt"
     }
-  ], 
+  ],
   "license": {
     "attribution": "CC0"
-  }, 
-  "publisher": "CERN Open Data Portal", 
-  "recid": "3853", 
-  "run_period": "Run2012D", 
-  "title": "ATLAS Virtual Machine Version N for 2016 open data release", 
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "3853",
+  "run_period": "Run2012D",
+  "title": "ATLAS Virtual Machine Version N for 2016 open data release",
   "type": {
-    "primary": "Environment", 
+    "primary": "Environment",
     "secondary": [
       "VM"
     ]
-  }, 
+  },
   "usage": {
-    "description": "More documentation is available at: ", 
+    "description": "More documentation is available at: ",
     "links": [
       {
-        "description": "Virtual Machine Book", 
+        "description": "Virtual Machine Book",
         "url": "http://opendata.atlas.cern/extendedanalysis/documentation.php"
       }
     ]
-  }, 
+  },
   "use_with": {
     "description": "Use this with ATLAS Data and MC Data for 2016 open data release"
   }
@@ -262,39 +262,39 @@
 {
   "abstract": {
     "description": "<p> This set of Virtual Machines (VM) allows you to obtain a computer environment that emulate as much as possible that one use for a particle physicist.\n      Each VM contain ROOT as base software plus the Analysis Framework for the data analysis. </p>\n      <p> This customised set of Virtual Machines contains all the necessary pieces to perform analysis:\n      <ul>\n        <li>Samples</li>\n        <li>ROOT and its dependencies, C++ compilers, python support, jupiter libraries and others like dropbox client</li>\n        <li>Analysis Framework in python</li>\n        <li>ROOT Jupyter notebooks (ROOTbook) examples</li>\n       </ul> </p>\n       <p>In particular, VM-\u03bc for \"micro\" with unknown sizes yet, but much smaller that VM-N or VM-S. It will contain a Linux distribution with not graphical user interface. It will have important software dependencies and the latest version of ROOT v6* </p>"
-  }, 
-  "accelerator": "CERN-LHC", 
+  },
+  "accelerator": "CERN-LHC",
   "collaboration": {
     "name": "ATLAS Collaboration"
-  }, 
+  },
   "collections": [
     "ATLAS-Tools"
-  ], 
-  "date_created": "2012", 
-  "date_published": "2016", 
-  "experiment": "ATLAS", 
+  ],
+  "date_created": "2012",
+  "date_published": "2016",
+  "experiment": "ATLAS",
   "license": {
     "attribution": "CC0"
-  }, 
-  "publisher": "CERN Open Data Portal", 
-  "recid": "3854", 
-  "run_period": "Run2012D", 
-  "title": "ATLAS Virtual Machine Version \u03bc for 2016 open data release", 
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "3854",
+  "run_period": "Run2012D",
+  "title": "ATLAS Virtual Machine Version \u03bc for 2016 open data release",
   "type": {
-    "primary": "Environment", 
+    "primary": "Environment",
     "secondary": [
       "VM"
     ]
-  }, 
+  },
   "usage": {
-    "description": "More documentation is available at: ", 
+    "description": "More documentation is available at: ",
     "links": [
       {
-        "description": "Virtual Machine Book", 
+        "description": "Virtual Machine Book",
         "url": "http://opendata.atlas.cern/extendedanalysis/documentation.php"
       }
     ]
-  }, 
+  },
   "use_with": {
     "description": "Use this with ATLAS Data and MC Data for 2016 open data release"
   }
