@@ -19,41 +19,41 @@ Original Source: [SWGuideHighLevelTrigger](https://twiki.cern.ch/twiki/bin/view/
 
 Two persistent HLT products are available:
 
-- TriggerResults: (subclassed from HLTGlobalStatus object), containing 
-all the usual decision bits.  
+- TriggerResults: (subclassed from HLTGlobalStatus object), containing
+all the usual decision bits.
 
-    The TriggerResults product (available for events written to output) 
-allows access to the configuration and trigger decisions, i.e., 
+    The TriggerResults product (available for events written to output)
+allows access to the configuration and trigger decisions, i.e.,
 all the usual "trigger bits", including:
     1. Final decision of individual path and of full trigger table
     2. Which triggers were run (some triggers may not run due to lack of a corresponding L1 seed or HLT running in truncated mode)
     3. For each trigger rejecting the event, (the index of) which intermediate or final module instances on the path rejected the event
-    4. For each trigger encountering an error condition, (the index of) 
-which module instances on the path encountered un-recoverable 
+    4. For each trigger encountering an error condition, (the index of)
+which module instances on the path encountered un-recoverable
 errors.
 
     The corresponding code can be found in [DataFormats/Common/interface/TriggerResults.h](https://github.com/cms-sw/cmssw/blob/CMSSW_5_3_X/DataFormats/Common/interface/TriggerResults.h "TriggerResults.h") and [DataFormats/Common/interface/HLTGlobalStatus.h](https://github.com/cms-sw/cmssw/blob/CMSSW_5_3_X/DataFormats/Common/interface/HLTGlobalStatus.h "HLTGlobalStatus.h")
 
-- TriggerEvent: summarising the "L3" trigger collections and "L3" filter decisions.  
+- TriggerEvent: summarising the "L3" trigger collections and "L3" filter decisions.
 
     The corresponding code can be found in [DataFormats/HLTReco/interface/TriggerEvent.h](https://github.com/cms-sw/cmssw/blob/CMSSW_5_3_X/DataFormats/HLTReco/interface/TriggerEvent.h "TriggerEvent.h")
 
-Additionally, the package [HLTrigger/HLTcore](htts://github.com/cms-sw/cmssw/tree/CMSSW_5_3_X/HLTrigger/HLTcore "HLTrigger/HLTcore") contains several 
-analyzers pulling out the trigger information. 
-You can use the corresponding analyzers directly - see their cfi files in 
+Additionally, the package [HLTrigger/HLTcore](htts://github.com/cms-sw/cmssw/tree/CMSSW_5_3_X/HLTrigger/HLTcore "HLTrigger/HLTcore") contains several
+analyzers pulling out the trigger information.
+You can use the corresponding analyzers directly - see their cfi files in
 the python subdirectory - or copy relevant code pieces into your modules.
 
 - TriggerSummaryAnalyzerAOD: analyser printing the content of the TriggerEvent product
 - HLTEventAnalyzerAOD: analyser combining the information from TriggerResults and TriggerEvent products
 
-The HLTEventAnalyzer plugin make use of the helper class [HLTConfigProvider](https://github.com/cms-sw/cmssw/blob/CMSSW_5_3_X/HLTrigger/HLTcore/interface/HLTConfigProvider.h "HLTConfigProvider") (also in [HLTrigger/HLTcore](https://github.com/cms-sw/cmssw/tree/CMSSW_5_3_X/HLTrigger/HLTcore "HLTrigger/HLTcore")), which extracts the HLT configuration (paths, modules) from the provenance. 
+The HLTEventAnalyzer plugin make use of the helper class [HLTConfigProvider](https://github.com/cms-sw/cmssw/blob/CMSSW_5_3_X/HLTrigger/HLTcore/interface/HLTConfigProvider.h "HLTConfigProvider") (also in [HLTrigger/HLTcore](https://github.com/cms-sw/cmssw/tree/CMSSW_5_3_X/HLTrigger/HLTcore "HLTrigger/HLTcore")), which extracts the HLT configuration (paths, modules) from the provenance.
 
-Note: this helper class must be initialised calling it's init(...) 
-from the beginRun() method of your plugin using this helper class. The reason 
-that it has to be (re-)initialised in beginRun() is that the HLT 
-configuration can (only) change at the boundary between runs. 
+Note: this helper class must be initialised calling it's init(...)
+from the beginRun() method of your plugin using this helper class. The reason
+that it has to be (re-)initialised in beginRun() is that the HLT
+configuration can (only) change at the boundary between runs.
 
-Original Source: [Persistent Trigger Results Objects](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideHighLevelTrigger#Persistent_Trigger_Results_Objec "Persistent Trigger Results Objects") 
+Original Source: [Persistent Trigger Results Objects](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideHighLevelTrigger#Persistent_Trigger_Results_Objec "Persistent Trigger Results Objects")
 
 Find the software and usage instructions in
 

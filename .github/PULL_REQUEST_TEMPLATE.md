@@ -1,8 +1,10 @@
 Please start by choosing an appropriate base branch for your pull request.
 
-- ``production`` branch: quick fixes for problems observed on production service, fixing minor bugs, improving existing documentation or record metadata;
+- ``production`` branch: should not be used for pull requests; it is fast-forwarded to `qa` branch at chosen points in time for production deployments;
 
-- ``master`` branch: introducing new features.
+- ``qa`` branch: shorter-term rollout nature (think a few days); used for fixes and new features observed on the production service; should be a good default branch for most pull requests;
+
+- ``master`` branch: longer-term rollout nature (think a few weeks); bigger developments that may need longer stabilisation periods and iterations with the experiments.
 
 Please reference all issues that this PR addresses or closes. Do not forget to include ``(addresses #123)`` or ``(closes #123)`` in your commit log message.
 

@@ -2,75 +2,75 @@
 {
   "abstract": {
     "description": " <p> This package is a filter that selects events from the MultiJet primary dataset from the CMS open data release, and computes the razor variables MR and Rsq, used in supersymmetric particle searches. More details on the razor variables can be found in <a href=\u201chttp://dx.doi.org/10.1103/PhysRevD.90.112001\">Phys. Rev. D 90, 112001</a> In particular, the event is selected if there are at least two \"Paticle Flow\" jets with pT &gt; 60 GeV and |eta|40 GeV and |eta| &lt; 3) for each event is produced. </p> "
-  }, 
-  "accelerator": "CERN-LHC", 
+  },
+  "accelerator": "CERN-LHC",
   "authors": [
     {
       "name": "Duarte, Javier"
     }
-  ], 
+  ],
   "collections": [
     "CMS-Tools"
-  ], 
-  "date_created": "2010", 
-  "date_published": "2015", 
+  ],
+  "date_created": "2010",
+  "date_published": "2015",
   "distribution": {
     "formats": [
       "gz"
-    ], 
-    "number_files": 1, 
+    ],
+    "number_files": 1,
     "size": 52792
-  }, 
-  "doi": "10.7483/OPENDATA.CMS.QH46.CQZ9", 
-  "experiment": "CMS", 
+  },
+  "doi": "10.7483/OPENDATA.CMS.QH46.CQZ9",
+  "experiment": "CMS",
   "files": [
     {
-      "checksum": "sha1:86fec3767750ed038257cbff4d3b51b6a07e5b59", 
-      "size": 52792, 
+      "checksum": "sha1:86fec3767750ed038257cbff4d3b51b6a07e5b59",
+      "size": 52792,
       "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/SUSYBSMAnalysis-RazorFilter/SUSYBSMAnalysis-RazorFilter-1.0.0.tar.gz"
     }
-  ], 
+  ],
   "license": {
     "attribution": "MIT License (MIT)"
-  }, 
+  },
   "links": [
     {
       "url": "https://github.com/jmduarte/SUSYBSMAnalysis-RazorFilter"
     }
-  ], 
-  "publisher": "CERN Open Data Portal", 
-  "recid": "553", 
+  ],
+  "publisher": "CERN Open Data Portal",
+  "recid": "553",
   "relations": [
     {
-      "description": "The output are files in csv format such as Dimuon event information derived from the Run2010B public Mu dataset", 
-      "recid": "700", 
+      "description": "The output are files in csv format such as Dimuon event information derived from the Run2010B public Mu dataset",
+      "recid": "700",
       "type": "isRelatedTo"
     }
-  ], 
-  "run_period": "Run2010B", 
+  ],
+  "run_period": "Run2010B",
   "system_details": {
-    "description": "Use this code with the CMS Open Data VM environment", 
-    "recid": "250", 
+    "description": "Use this code with the CMS Open Data VM environment",
+    "recid": "250",
     "release": "CMSSW_4_2_8"
-  }, 
-  "title": "Razor filter and analyzer for SUSY searches", 
+  },
+  "title": "Razor filter and analyzer for SUSY searches",
   "type": {
-    "primary": "Software", 
+    "primary": "Software",
     "secondary": [
       "Analysis"
     ]
-  }, 
+  },
   "usage": {
-    "description": "See the run instructions in", 
+    "description": "See the run instructions in",
     "links": [
       {
-        "description": "GitHub", 
+        "description": "GitHub",
         "url": "https://github.com/jmduarte/SUSYBSMAnalysis-RazorFilter"
       }
     ]
-  }, 
+  },
   "use_with": {
-    "description": "Use this with the MultiJet primary datasets /MultiJet/Run2010B-Apr21ReReco-v1/AOD", 
+    "description": "Use this with the MultiJet primary datasets /MultiJet/Run2010B-Apr21ReReco-v1/AOD",
     "links": [
       {
         "recid": "11"
@@ -82,78 +82,78 @@
 {
   "abstract": {
     "description": "This package is a filter that selects events from the Mu primary dataset from the CMS open data release. In particular, the event is selected if (for simplicity) there are precisely two muons in the event and at least one is a global muon. A csv file containing the four-vector information, charge and invariant mass of the two muons is produced."
-  }, 
-  "accelerator": "CERN-LHC", 
+  },
+  "accelerator": "CERN-LHC",
   "authors": [
     {
       "name": "McCauley, Thomas"
     }
-  ], 
+  ],
   "collections": [
     "CMS-Tools"
-  ], 
-  "date_created": "2010", 
-  "date_published": "2014", 
+  ],
+  "date_created": "2010",
+  "date_published": "2014",
   "distribution": {
     "formats": [
       "gz"
-    ], 
-    "number_files": 1, 
+    ],
+    "number_files": 1,
     "size": 52754
-  }, 
-  "doi": "10.7483/OPENDATA.CMS.RB4W.3ZK9", 
-  "experiment": "CMS", 
+  },
+  "doi": "10.7483/OPENDATA.CMS.RB4W.3ZK9",
+  "experiment": "CMS",
   "files": [
     {
-      "checksum": "sha1:ba925025b812392abe2aa716f681e6f9582f5d08", 
-      "size": 52754, 
+      "checksum": "sha1:ba925025b812392abe2aa716f681e6f9582f5d08",
+      "size": 52754,
       "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/dimuon-filter/dimuon-filter-1.0.0.tar.gz"
     }
-  ], 
+  ],
   "license": {
     "attribution": "GNU General Public License (GPL) version 3"
-  }, 
+  },
   "links": [
     {
       "url": "https://github.com/tpmccauley/dimuon-filter"
     }
-  ], 
+  ],
   "note": {
     "description": "The selection criteria may be different from that used in CMS physics results. This software is not suitable for a full physics analysis."
-  }, 
-  "publisher": "CERN Open Data Portal", 
-  "recid": "552", 
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "552",
   "relations": [
     {
-      "description": "The output are files in csv format such as", 
-      "recid": "700", 
+      "description": "The output are files in csv format such as",
+      "recid": "700",
       "type": "isRelatedTo"
     }
-  ], 
-  "run_period": "Run2010B", 
+  ],
+  "run_period": "Run2010B",
   "system_details": {
-    "description": "Use this code with the CMS Open Data VM environment", 
-    "recid": "250", 
+    "description": "Use this code with the CMS Open Data VM environment",
+    "recid": "250",
     "release": "CMSSW_4_2_8"
-  }, 
-  "title": "Software to extract data in csv format from a CMS primary dataset", 
+  },
+  "title": "Software to extract data in csv format from a CMS primary dataset",
   "type": {
-    "primary": "Software", 
+    "primary": "Software",
     "secondary": [
       "Tool"
     ]
-  }, 
+  },
   "usage": {
-    "description": "See the run instructions in", 
+    "description": "See the run instructions in",
     "links": [
       {
-        "description": "GitHub", 
+        "description": "GitHub",
         "url": "https://github.com/tpmccauley/dimuon-filter"
       }
     ]
-  }, 
+  },
   "use_with": {
-    "description": "Use this with the Mu primary datasets /Mu/Run2010B-Apr21ReReco-v1/AOD", 
+    "description": "Use this with the Mu primary datasets /Mu/Run2010B-Apr21ReReco-v1/AOD",
     "links": [
       {
         "recid": "14"

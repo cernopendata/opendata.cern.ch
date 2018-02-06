@@ -60,14 +60,14 @@ mkedanlzr DemoAnalyzer
 Compile the code:
 
 ```
-cd DemoAnalyzer 
+cd DemoAnalyzer
 scram b
 ```
 
 You can ignore the message
 
 ```
-****WARNING: No need to export library once you have declared your library as plugin. 
+****WARNING: No need to export library once you have declared your library as plugin.
           Please cleanup src/Demo/DemoAnalyzer/BuildFile by removing the <export></export> section.
 ```
 
