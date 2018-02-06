@@ -181,19 +181,23 @@ def about_cms_dataset_names():
 @blueprint.route('/getting-started/<exp>')
 def getting_started_redirect(exp):
     """Redirects to associated experiment."""
-    return redirect('/docs/%s-getting-started' % exp,
-                    code=302)
+    if exp == "cms":
+        return redirect('/docs/cms-getting-started-2011')
+    return redirect('/docs/%s-getting-started' % exp)
+
+
+@blueprint.route('/vm/<exp>')
+def vm_redirect(exp):
+    """Redirects to associated experiment."""
+    if exp == "cms":
+        return redirect('/docs/cms-virtual-machine-2011')
+    return redirect('/docs/%s-virtual-machine' % exp)
 
 
 @blueprint.route('/vm/<exp>/<year>')
-def vm_redirect(exp, year):
+def vm_redirect_year(exp, year):
     """Redirects to associated experiment."""
-    if year:
-        return redirect(
-            '/docs/%s-virtual-machine-%s' % (exp, year),
-            code=302)
-    return redirect('/docs/%s-virtual-machine' % exp,
-                    code=302)
+    return redirect('/docs/%s-virtual-machine-%s' % (exp, year), code=302)
 
 
 @blueprint.route('/vm/cms/validation/report')
