@@ -46,6 +46,8 @@ TEMPLATES_AUTO_RELOAD = DEBUG
 # Piwik tracking code: set None to disabled it
 THEME_PIWIK_ID = os.environ.get('PIWIK_ID', None)
 
+SITE_URL = os.environ.get('CERNOPENDATA_SITE_URL', 'opendata.cern.ch')
+
 # Assets
 # ======
 #: Switch of assets debug.
