@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2017 CERN.
+# Copyright (C) 2017, 2018 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -217,19 +217,16 @@ setup(
     setup_requires=setup_requires,
     tests_require=tests_require,
     classifiers=[
+        'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: GNU General Public License v2 (GPLv2)',
         'Operating System :: OS Independent',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
         'Topic :: Software Development :: Libraries :: Python Modules',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: Implementation :: CPython',
-        'Programming Language :: Python :: Implementation :: PyPy',
-        'Development Status :: 4 - Beta',
     ],
 )
