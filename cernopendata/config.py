@@ -82,24 +82,44 @@ RECORDS_UI_EXPORT_FORMATS = dict(
         json=dict(
             title='JSON',
             serializer='cernopendata.modules.records.serializers.json',
+        ),
+        jsonld=dict(
+            title='JSON-LD',
+            serializer='cernopendata.modules.records.serializers.'
+                       'schemaorg_jsonld',
         )
     ),
     recid=dict(
         json=dict(
             title='JSON',
             serializer='cernopendata.modules.records.serializers.json',
+        ),
+        jsonld=dict(
+            title='JSON-LD',
+            serializer='cernopendata.modules.records.serializers.'
+                       'schemaorg_jsonld',
         )
     ),
     datid=dict(
         json=dict(
             title='JSON',
             serializer='cernopendata.modules.records.serializers.json',
+        ),
+        jsonld=dict(
+            title='JSON-LD',
+            serializer='cernopendata.modules.records.serializers.'
+                       'schemaorg_jsonld',
         )
     ),
     softid=dict(
         json=dict(
             title='JSON',
             serializer='cernopendata.modules.records.serializers.json',
+        ),
+        jsonld=dict(
+            title='JSON-LD',
+            serializer='cernopendata.modules.records.serializers.'
+                       'schemaorg_jsonld',
         )
     )
 )
@@ -211,7 +231,13 @@ RECORDS_REST_ENDPOINTS['recid'].update({
     'pid_minter': 'cernopendata_recid_minter',
     'pid_fetcher': 'cernopendata_recid_fetcher',
     'record_class': _Record,
-    'links_factory_imp': 'cernopendata.modules.records.links:links_factory'
+    'links_factory_imp': 'cernopendata.modules.records.links:links_factory',
+    'record_serializers': {
+        'application/json': ('invenio_records_rest.serializers'
+                             ':json_v1_response'),
+        'application/ld+json': ('cernopendata.modules.records.serializers'
+                                ':schemaorg_jsonld_response'),
+    },
 })
 
 RECORDS_REST_ENDPOINTS['termid'] = {
@@ -227,6 +253,8 @@ RECORDS_REST_ENDPOINTS['termid'] = {
     'record_serializers': {
         'application/json': ('invenio_records_rest.serializers'
                              ':json_v1_response'),
+        'application/ld+json': ('cernopendata.modules.records.serializers'
+                                ':schemaorg_jsonld_response'),
     },
     'search_index': 'records-glossary-term-v1.0.0',
     'search_serializers': {
@@ -248,6 +276,8 @@ RECORDS_REST_ENDPOINTS['docid'] = {
     'record_serializers': {
         'application/json': ('invenio_records_rest.serializers'
                              ':json_v1_response'),
+        'application/ld+json': ('cernopendata.modules.records.serializers'
+                                ':schemaorg_jsonld_response'),
     },
     'search_index': 'records-docs-v1.0.0',
     'search_serializers': {
@@ -269,6 +299,8 @@ RECORDS_REST_ENDPOINTS['datid'] = {
     'record_serializers': {
         'application/json': ('invenio_records_rest.serializers'
                              ':json_v1_response'),
+        'application/ld+json': ('cernopendata.modules.records.serializers'
+                                ':schemaorg_jsonld_response'),
     },
     'search_index': 'records-datasets-v1.0.0',
     'search_serializers': {
@@ -290,6 +322,8 @@ RECORDS_REST_ENDPOINTS['softid'] = {
     'record_serializers': {
         'application/json': ('invenio_records_rest.serializers'
                              ':json_v1_response'),
+        'application/ld+json': ('cernopendata.modules.records.serializers'
+                                ':schemaorg_jsonld_response'),
     },
     'search_index': 'records-software-v1.0.0',
     'search_serializers': {

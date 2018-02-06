@@ -247,13 +247,19 @@
 {% endblock export %}
 
 {% block javascript %}
-    {{ super() }}
+{{ super() }}
 
-    {% set files_list = record.get('files', None) %}
-    {% if files_list  and 'ig' in record.get('distribution', {}).get('formats', []) %}
-        {% set file_name = files_list | get_first_file %}
-        <script>
-        ispy.loadUrl("/record/{{record.control_number }}/files/{{file_name}}");
-        </script>
-    {% endif %}
+{% set files_list = record.get('files', None) %}
+{% if files_list  and 'ig' in record.get('distribution', {}).get('formats', []) %}
+    {% set file_name = files_list | get_first_file %}
+    <script>
+    ispy.loadUrl("/record/{{record.control_number }}/files/{{file_name}}");
+    </script>
+{% endif %}
+{% set jsonld_serialization = record | serialize_record(pid, 'schemaorg_jsonld', throws=False)%}
+{%- if jsonld_serialization %}
+<script type='application/ld+json'>
+{{ jsonld_serialization|safe }}
+</script>
+{%- endif %}
 {% endblock javascript %}

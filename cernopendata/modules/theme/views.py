@@ -30,6 +30,10 @@ import operator
 
 from flask import Blueprint
 
+from cernopendata.modules.records.utils import serialize_record as \
+    utils_serialize_record
+
+
 blueprint = Blueprint(
     'cernopendata_theme',
     __name__,
@@ -74,3 +78,11 @@ def get_year(year):
     import datetime
     now = datetime.datetime.now()
     return now.year
+
+
+@blueprint.app_template_filter('serialize_record')
+def serialize_record(record, pid, serializer, module=None, throws=True,
+                     **kwargs):
+    """Serialize record according to the passed serializer."""
+    return utils_serialize_record(record, pid, serializer, module=module,
+                                  throws=throws, **kwargs)
