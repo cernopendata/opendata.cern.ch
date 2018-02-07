@@ -37,7 +37,7 @@
         {% if record.accelerator %} <a class="badge badge-tag"  href="/search?q={{ record.accelerator }}">Accelerator {{ record.accelerator }}</a> {% endif %}
         {% if record.relations %}
         {% for relation in record.relations %}
-            {% if relation.type == 'isChildOf' %} <a  class="badge badge-tag" href="/record/{{ relation.recid or relation.title }}"> Parent Dataset: {{relation.title}}</a> {% endif %}
+            {% if relation.type == 'isChildOf' and relation.recid %} <a  class="badge badge-tag" href="/record/{{ relation.recid or relation.title }}"> Parent Dataset: {{relation.title}}</a> {% endif %}
         {% endfor %}
         {% endif %}
     </p>
@@ -73,21 +73,25 @@
     {% if record.relations %}
     <div class="row">
         <div class="col-md-12">
-            {% if record.type.primary == 'Software' %}
-            <h2>Related items</h2>
-            {% else %}
-            <h2>Related Datasets</h2>
-            {% endif %}
+            {% set is_title_set = {'value': False} %}
             {% for relation in record.relations %}
-                {% if relation.description %}
-                {{ relation.description }}
-                {% endif %}
-                {% if relation.recid %}
-                <p>
-                    <a href="/record/{{ relation.recid }}">{{ relation.recid | get_record_title }}</a>
-                </p>
-                {% else %}
-                <p>{{ relation.title }}</p>
+                {% if relation.type == 'isChildOf' and relation.recid or relation.type != 'isChildOf' %}
+                    {% if not is_title_set['value'] %}
+                        {% if record.type.primary == 'Software' %}
+                            <h2>Related items</h2>
+                        {% else %}
+                            <h2>Related Datasets</h2>
+                        {% endif %}
+                        {% if is_title_set.update({'value': True}) %} {% endif %}
+                    {% endif %}
+                    {% if relation.description %}
+                        {{ relation.description }}
+                    {% endif %}
+                    {% if relation.recid %}
+                        <p><a href="/record/{{ relation.recid }}">{{ relation.recid | get_record_title }}</a></p>
+                    {% else %}
+                        <p>{{ relation.title }}</p>
+                    {% endif %}
                 {% endif %}
             {% endfor %}
         </div>
