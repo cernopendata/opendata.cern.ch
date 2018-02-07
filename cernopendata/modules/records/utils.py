@@ -20,11 +20,15 @@
 """Implementention of various utility functions."""
 
 from __future__ import absolute_import, print_function
-from itertools import groupby
+
+import six
+import json
+
 from flask import abort, current_app, render_template, jsonify, request
 from invenio_files_rest.views import ObjectResource
-from invenio_files_rest.models import FileInstance, ObjectVersion
-from invenio_records.errors import MissingModelError
+# from invenio_files_rest.models import FileInstance, ObjectVersion
+# from invenio_records.errors import MissingModelError
+from invenio_records_ui.utils import obj_or_import_string
 
 from invenio_records_files.utils import record_file_factory
 
@@ -215,3 +219,33 @@ def serialize_record(record, pid, serializer, module=None, throws=True,
                 u'Record serialization failed {}.'.format(str(record.id)))
             if throws:
                 raise
+
+
+def export_json_view(pid, record, template=None, **kwargs):
+    r"""Record JSON export view.
+    Serializes record with given format and renders record export template.
+    :param pid: PID object.
+    :param record: Record object.
+    :param template: Template to render.
+    :param \*\*kwargs: Additional view arguments based on URL rule.
+    :return: The rendered template.
+    """
+
+    formats = current_app.config.get('RECORDS_UI_EXPORT_FORMATS', {}).get(
+        pid.pid_type)
+    fmt = formats.get(request.view_args.get('format'))
+
+    if fmt is False:
+        # If value is set to False, it means it was deprecated.
+        abort(410)
+    elif fmt is None:
+        abort(404)
+    else:
+        try:
+            serializer = obj_or_import_string(fmt['serializer'])
+            data = serializer.serialize(pid, record)
+            data = json.loads(data)
+        except:
+            data = {}
+
+        return jsonify(data)
