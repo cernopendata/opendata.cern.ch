@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2017 CERN.
+# Copyright (C) 2017, 2018 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -28,10 +28,14 @@ from invenio_records.errors import MissingModelError
 
 from invenio_records_files.utils import record_file_factory
 
+from invenio_records.api import Record
+
 from invenio_previewer.views import blueprint as previewer_blueprint
 from invenio_previewer.proxies import current_previewer
 
 from invenio_xrootd import EOSFileStorage
+
+from werkzeug.utils import import_string
 
 
 def file_download_ui(pid, record, _record_file_factory=None, **kwargs):
@@ -196,3 +200,18 @@ def record_metadata_view(pid, record, template=None):
     ],
         pid=pid,
         record=record)
+
+
+def serialize_record(record, pid, serializer, module=None, throws=True,
+                     **kwargs):
+    """Serialize record according to the passed serializer."""
+    if isinstance(record, Record):
+        try:
+            module = module or 'cernopendata.modules.records.serializers'
+            serializer = import_string('.'.join((module, serializer)))
+            return serializer.serialize(pid, record, **kwargs)
+        except Exception:
+            current_app.logger.exception(
+                u'Record serialization failed {}.'.format(str(record.id)))
+            if throws:
+                raise

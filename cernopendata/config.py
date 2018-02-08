@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2017 CERN.
+# Copyright (C) 2017, 2018 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -43,6 +43,11 @@ DEBUG = os.environ.get(
 )
 TEMPLATES_AUTO_RELOAD = DEBUG
 
+# Piwik tracking code: set None to disabled it
+THEME_PIWIK_ID = os.environ.get('PIWIK_ID', None)
+
+SITE_URL = os.environ.get('CERNOPENDATA_SITE_URL', 'opendata.cern.ch')
+
 # Assets
 # ======
 #: Switch of assets debug.
@@ -82,24 +87,44 @@ RECORDS_UI_EXPORT_FORMATS = dict(
         json=dict(
             title='JSON',
             serializer='cernopendata.modules.records.serializers.json',
+        ),
+        jsonld=dict(
+            title='JSON-LD',
+            serializer='cernopendata.modules.records.serializers.'
+                       'schemaorg_jsonld',
         )
     ),
     recid=dict(
         json=dict(
             title='JSON',
             serializer='cernopendata.modules.records.serializers.json',
+        ),
+        jsonld=dict(
+            title='JSON-LD',
+            serializer='cernopendata.modules.records.serializers.'
+                       'schemaorg_jsonld',
         )
     ),
     datid=dict(
         json=dict(
             title='JSON',
             serializer='cernopendata.modules.records.serializers.json',
+        ),
+        jsonld=dict(
+            title='JSON-LD',
+            serializer='cernopendata.modules.records.serializers.'
+                       'schemaorg_jsonld',
         )
     ),
     softid=dict(
         json=dict(
             title='JSON',
             serializer='cernopendata.modules.records.serializers.json',
+        ),
+        jsonld=dict(
+            title='JSON-LD',
+            serializer='cernopendata.modules.records.serializers.'
+                       'schemaorg_jsonld',
         )
     )
 )
@@ -211,7 +236,13 @@ RECORDS_REST_ENDPOINTS['recid'].update({
     'pid_minter': 'cernopendata_recid_minter',
     'pid_fetcher': 'cernopendata_recid_fetcher',
     'record_class': _Record,
-    'links_factory_imp': 'cernopendata.modules.records.links:links_factory'
+    'links_factory_imp': 'cernopendata.modules.records.links:links_factory',
+    'record_serializers': {
+        'application/json': ('invenio_records_rest.serializers'
+                             ':json_v1_response'),
+        'application/ld+json': ('cernopendata.modules.records.serializers'
+                                ':schemaorg_jsonld_response'),
+    },
 })
 
 RECORDS_REST_ENDPOINTS['termid'] = {
@@ -227,6 +258,8 @@ RECORDS_REST_ENDPOINTS['termid'] = {
     'record_serializers': {
         'application/json': ('invenio_records_rest.serializers'
                              ':json_v1_response'),
+        'application/ld+json': ('cernopendata.modules.records.serializers'
+                                ':schemaorg_jsonld_response'),
     },
     'search_index': 'records-glossary-term-v1.0.0',
     'search_serializers': {
@@ -248,6 +281,8 @@ RECORDS_REST_ENDPOINTS['docid'] = {
     'record_serializers': {
         'application/json': ('invenio_records_rest.serializers'
                              ':json_v1_response'),
+        'application/ld+json': ('cernopendata.modules.records.serializers'
+                                ':schemaorg_jsonld_response'),
     },
     'search_index': 'records-docs-v1.0.0',
     'search_serializers': {
@@ -269,6 +304,8 @@ RECORDS_REST_ENDPOINTS['datid'] = {
     'record_serializers': {
         'application/json': ('invenio_records_rest.serializers'
                              ':json_v1_response'),
+        'application/ld+json': ('cernopendata.modules.records.serializers'
+                                ':schemaorg_jsonld_response'),
     },
     'search_index': 'records-datasets-v1.0.0',
     'search_serializers': {
@@ -290,6 +327,8 @@ RECORDS_REST_ENDPOINTS['softid'] = {
     'record_serializers': {
         'application/json': ('invenio_records_rest.serializers'
                              ':json_v1_response'),
+        'application/ld+json': ('cernopendata.modules.records.serializers'
+                                ':schemaorg_jsonld_response'),
     },
     'search_index': 'records-software-v1.0.0',
     'search_serializers': {
@@ -410,6 +449,7 @@ SEARCH_UI_SEARCH_API = "/api/records/"
 #: Default template for search UI.
 SEARCH_UI_SEARCH_TEMPLATE = 'cernopendata/search.html'
 SEARCH_UI_JSTEMPLATE_FACETS = 'templates/cernopendata_search_ui/facets.html'
+SEARCH_UI_JSTEMPLATE_ERROR = 'templates/cernopendata_search_ui/error.html'
 #: Default Elasticsearch document type.
 SEARCH_DOC_TYPE_DEFAULT = None
 #: Do not map any keywords.

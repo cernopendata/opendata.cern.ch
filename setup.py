@@ -151,6 +151,8 @@ setup(
         ],
         'invenio_base.apps': [
             'cernopendata_xrootd = cernopendata.modules.xrootd:CODPXRootD',
+            'cernopendata_sitemap = '
+            'cernopendata.modules.sitemap:CERNOpenDataSitemap',
             # cod_md and cod_mistune are just wrappers to init the actual
             # markdown flask-extensions properly.
             'cod_md = '
@@ -167,6 +169,8 @@ setup(
             'cernopendata.modules.pages.views:blueprint',
             'cernopendata_theme = '
             'cernopendata.modules.theme.views:blueprint',
+            'cernopendata_sitemap = '
+            'cernopendata.modules.sitemap.views:blueprint',
         ],
         'invenio_config.module': [
             'cernopendata = cernopendata.config',
