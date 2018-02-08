@@ -178,6 +178,13 @@ def about_cms_dataset_names():
     return redirect('/docs/cms-simulated-dataset-names')
 
 
+@blueprint.route('/getting-started/cms/2011')
+def getting_started_cms_redirect():
+    """Redirect for the CMS records."""
+    return redirect('/docs/cms-getting-started-2011',
+                    code=302)
+
+
 @blueprint.route('/getting-started/<exp>')
 def getting_started_redirect(exp):
     """Redirects to associated experiment."""
@@ -201,7 +208,7 @@ def vm_redirect_year(exp, year):
 
 
 @blueprint.route('/vm/cms/validation/report')
-def validation_report_redirect(exp):
+def validation_report_redirect():
     """Redirects to CMS VM validation document."""
     return redirect('/docs/cms-vm-validation-2010')
 
