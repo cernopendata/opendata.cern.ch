@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2017 CERN.
+# Copyright (C) 2017, 2018 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -42,6 +42,9 @@ DEBUG = os.environ.get(
     False
 )
 TEMPLATES_AUTO_RELOAD = DEBUG
+
+# Piwik tracking code: set None to disabled it
+THEME_PIWIK_ID = os.environ.get('PIWIK_ID', None)
 
 # Assets
 # ======

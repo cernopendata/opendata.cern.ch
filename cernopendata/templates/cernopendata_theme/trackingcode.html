@@ -1,0 +1,12 @@
+{%- if config.THEME_PIWIK_ID %}
+<script type="text/javascript">
+ var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.web.cern.ch/" : "http://piwik.web.cern.ch/");
+ document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+          try {
+              var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", "{{config.THEME_PIWIK_ID}}");
+              piwikTracker.trackPageView();
+              piwikTracker.enableLinkTracking();
+          } catch( err ) {}
+</script><noscript><p><img src="http://piwik.web.cern.ch/piwik.php?idsite={{config.THEME_PIWIK_ID}}" style="border:0" alt="" /></p></noscript>
+{%- endif %}
