@@ -35,6 +35,17 @@ mounted in the container in this case. A usage example:
    $ firefox http://0.0.0.0/
    $ docker-compose -f docker-compose-dev.yml down -v
 
+Development notes
+=================
+
+Please note that before running the instance again, it is necessary to first clean
+the instance:
+
+.. code-block:: console
+
+  $ docker exec -i -t opendatacernch_web_1 /code/scripts/clean-instance.sh
+  $ docker exec -i -t opendatacernch_web_1 /code/scripts/populate-instance.sh --skip-files
+
 Appendix: Git workflow
 ======================
 
@@ -217,3 +228,4 @@ and remove it from your repository as well:
    $ git push origin :improve-event-display-icons
 
 This would conclude your work on ``improve-event-display-icons``.
+
