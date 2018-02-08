@@ -22,6 +22,13 @@ integration purposes. A usage example:
    $ firefox http://0.0.0.0:5000/
    $ docker-compose -f docker-compose-dev.yml down
 
+However, when you are rerunning the server it is necessary to first clean the instance:
+
+.. code-block:: console
+  
+  $ docker exec -i -t opendatacernch_web_1 /code/scripts/clean-instance.sh
+  $ docker exec -i -t opendatacernch_web_1 /code/scripts/populate-instance.sh --skip-files
+
 If you want to use production-like conditions locally, you can use Docker with
 ``docker-compose.yml`` configuration. This is useful for tuning overall system
 performance such as reverse proxy caching. The source code directory will not be
