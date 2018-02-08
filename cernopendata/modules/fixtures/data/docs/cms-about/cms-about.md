@@ -45,14 +45,14 @@ The following are provided through this portal:
 
 ## <a name="disclaimer">Disclaimer</a>
 
-* The open data are released under the [Creative Commons CC0 waiver](http://creativecommons.org/publicdomain/zero/1.0/). Neither CMS nor CERN endorse any works, scientific or otherwise, produced using these data.
+* The open data are released under the [Creative Commons CC0 waiver](http://creativecommons.org/publicdomain/zero/1.0/). Neither CMS nor CERN endorses any works, scientific or otherwise, produced using these data, even if available on, or linked from, this portal.
 * All datasets will have a unique DOI that you are requested to cite in any applications or publications.
 * Despite being processed, the high-level primary datasets remain complex and selection criteria need to be applied in order to analyse them, requiring some understanding of particle physics and detector functioning. The data cannot be viewed in simple data tables for spreadsheet-based analyses.
 * No further development is foreseen for either the data released or the software version needed to analyse them.
     * The methods have evolved since the released data were recorded.
     * More advanced techniques are used with recent data but the software is not compatible out-of-the-box with older data samples.
 * The release of 2010 data is not accompanied by any simulated data. The release of 2011 data includes simulated data. However, this is not a full set of simulations, but only those datasets that have been reprocessed with a software release compatible with the 2011 collision data. The release of 2012 data includes a larger sample of simulated data.
-* If you are interested in more, please contact nearest [CMS university/institute](https://cms.cern/content/cms-collaboration)
+* If you are interested in joining the CMS Collaboration, please contact nearest [CMS university/institute](https://cms.cern/content/cms-collaboration)
 
 ## <a name="other">Other CMS open data</a>
 
