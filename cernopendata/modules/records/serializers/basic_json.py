@@ -24,17 +24,57 @@
 
 """Basic JSON serializer for records."""
 
-from json import dumps
+from flask import current_app
+from marshmallow import Schema, fields
+
+from invenio_records_rest.serializers.json import JSONSerializer
 
 
-class BasicJSONSerializer(object):
+class BasicJSONSerializer(JSONSerializer):
     """Basic JSON serializer."""
+    pass
 
-    def serialize(self, pid, record):
-        """Serialize a single record and persistent identifier.
 
-        :param pid: Persistent identifier instance.
-        :param record: Record instance.
-        :param links_factory: Factory function for record links.
-        """
-        return dumps(record, indent=4)
+def dump_files(obj):
+    _files = []
+    _index_files = []
+
+    recid = obj.get('pid').pid_value
+    files = obj.get('metadata', {}).get('files', [])
+
+    for file in files:
+        _file = {
+            "checksum": file.get('checksum', ''),
+            "size": file.get('size', ''),
+            "filename": file.get('key', ''),
+            "uri_http": "{}/record/{}/files/{}".format(
+                current_app.config.get('HOST_URI', 'http://opendata.cern.ch'),
+                recid,
+                file.get('key', '')),
+            "uri_root": file.get('uri', '')
+        }
+
+        if 'index' in file.get('type', ''):
+            _index_files.append(_file)
+        else:
+            _files.append(_file)
+
+    return _files, _index_files
+
+
+class RecordSchemaV1(Schema):
+    """Common record schema."""
+
+    id = fields.Integer(attribute='pid.pid_value', dump_only=True)
+    created = fields.Str(dump_only=True)
+    updated = fields.Str(dump_only=True)
+    metadata = fields.Method('dump_metadata')
+
+    def dump_metadata(self, obj):
+        del obj['metadata']["_files"]
+
+        _files = dump_files(obj)
+        obj['metadata']['files'] = _files[0]
+        obj['metadata']['index_files'] = _files[1]
+
+        return obj['metadata']

@@ -71,6 +71,10 @@ JSONSCHEMAS_ENDPOINT = '/schema'
 JSONSCHEMAS_HOST = 'opendata.cern.ch'
 JSONSCHEMAS_URL_SCHEME = 'http'
 
+# HOST_URI
+HOST_URI = '{}://{}'.format(JSONSCHEMAS_URL_SCHEME,
+                            JSONSCHEMAS_HOST)
+
 # OAI Server
 OAISERVER_RECORD_INDEX = 'records'
 OAISERVER_ID_PREFIX = 'oai:cernopendata:recid/'
