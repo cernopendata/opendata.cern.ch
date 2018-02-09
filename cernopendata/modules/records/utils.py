@@ -223,6 +223,7 @@ def serialize_record(record, pid, serializer, module=None, throws=True,
 
 def export_json_view(pid, record, template=None, **kwargs):
     r"""Record JSON export view.
+
     Serializes record with given format and renders record export template.
     :param pid: PID object.
     :param record: Record object.
@@ -230,7 +231,6 @@ def export_json_view(pid, record, template=None, **kwargs):
     :param \*\*kwargs: Additional view arguments based on URL rule.
     :return: The rendered template.
     """
-
     formats = current_app.config.get('RECORDS_UI_EXPORT_FORMATS', {}).get(
         pid.pid_type)
     fmt = formats.get(request.view_args.get('format'))

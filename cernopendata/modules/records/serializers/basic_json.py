@@ -32,10 +32,12 @@ from invenio_records_rest.serializers.json import JSONSerializer
 
 class BasicJSONSerializer(JSONSerializer):
     """Basic JSON serializer."""
+
     pass
 
 
 def dump_files(obj):
+    """Basic JSON serializer."""
     _files = []
     _index_files = []
 
@@ -71,6 +73,7 @@ class RecordSchemaV1(Schema):
     metadata = fields.Method('dump_metadata')
 
     def dump_metadata(self, obj):
+        """Dumps metadata - removes '_files'."""
         del obj['metadata']["_files"]
 
         _files = dump_files(obj)
