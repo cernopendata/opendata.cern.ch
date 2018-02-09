@@ -33,7 +33,6 @@ from flask import Blueprint, abort, current_app, escape, jsonify, redirect, \
     render_template, request, url_for
 from flask_babelex import lazy_gettext as _
 from flask_breadcrumbs import default_breadcrumb_root, register_breadcrumb
-from flask_menu import register_menu
 from jinja2.exceptions import TemplateNotFound
 from speaklater import make_lazy_string
 
@@ -163,7 +162,10 @@ def about():
 @blueprint.route('/about/<exp>')
 def about_exp(exp):
     """Render about <experiment> pages."""
-    return redirect('/docs/about-{}'.format(exp))
+    if exp in ['lhcb', 'atlas', 'cms', 'alice', 'opera']:
+        return redirect('/docs/about-{}'.format(exp))
+    else:
+        abort(404)
 
 
 @blueprint.route('/about/cms-pileup-simulation')
@@ -190,7 +192,10 @@ def getting_started_redirect(exp):
     """Redirects to associated experiment."""
     if exp == "cms":
         return redirect('/docs/cms-getting-started-2011')
-    return redirect('/docs/%s-getting-started' % exp)
+    elif exp in ['lhcb', 'alice']:  # FIXME to be appended with new docs
+        return redirect('/docs/%s-getting-started' % exp)
+    else:
+        abort(404)
 
 
 @blueprint.route('/vm/<exp>')
@@ -198,13 +203,26 @@ def vm_redirect(exp):
     """Redirects to associated experiment."""
     if exp == "cms":
         return redirect('/docs/cms-virtual-machine-2011')
-    return redirect('/docs/%s-virtual-machine' % exp)
+    elif exp in ['lhcb', 'alice']:  # FIXME to be appended with new docs
+        return redirect('/docs/%s-virtual-machine' % exp)
+    else:
+        abort(404)
+
+
+def check_year(year):
+    """Check if an argument is a year."""
+    if len(year) == 4 and year.isdigit():
+        return True
+    return False
 
 
 @blueprint.route('/vm/<exp>/<year>')
 def vm_redirect_year(exp, year):
     """Redirects to associated experiment."""
-    return redirect('/docs/%s-virtual-machine-%s' % (exp, year), code=302)
+    if check_year(year) and exp in ['lhcb', 'cms', 'alice']:  # FIXME add exp
+        return redirect('/docs/%s-virtual-machine-%s' % (exp, year), code=302)
+    else:
+        abort(404)
 
 
 @blueprint.route('/vm/cms/validation/report')
@@ -223,7 +241,8 @@ def cms_physics_objects_redirect(year='2011'):
     If no year is given, redirects to latest available
     physics objects page (the default parameter).
     """
-    return redirect('/docs/cms-physics-objects-{}'.format(year), code=302)
+    if check_year(year):
+        return redirect('/docs/cms-physics-objects-{}'.format(year), code=302)
 
 
 @blueprint.route('/terms-of-use')
