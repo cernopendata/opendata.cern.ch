@@ -7,7 +7,7 @@
 
 ## <a name="vm">"I have installed the CERN Virtual Machine: now what?"</a>
 
-To analyse CMS data collected in 2010, you need **version 4.2.8** of CMSSW, supported only on **Scientific Linux 5**. If you are unfamiliar with Linux, take a look at [this short introduction to Linux](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookBasicLinux) or try this interactive [command-line bootcamp](http://rik.smith-unna.com/command_line_bootcamp/). Once you have installed the [CMS-specific CERN Virtual Machine](/docs/cms-virtual-machine-2010), open a terminal: in the "CMS-OpenData-1.1.0" VM, always use the "CMS shell" terminal available from the "CMS Shell" icon on the desktop (only if using the VM version "CMS-OpenData-1.0.0-rc7", open a terminal with the X terminal emulator from an icon bottom-left of the VM screen). Execute the following command in the terminal if you haven't done so before; it ensures that you have this version of CMSSW running:
+To analyse CMS data collected in 2010, you need **version 4.2.8** of CMSSW, supported only on **Scientific Linux 5**. If you are unfamiliar with Linux, take a look at [this short introduction to Linux](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookBasicLinux) or try this interactive [command-line bootcamp](http://rik.smith-unna.com/command_line_bootcamp/). Once you have installed the [CMS-specific CERN Virtual Machine](/docs/cms-virtual-machine-2010), open a terminal: in the "CMS-OpenData-1.1.2" VM, always use the "CMS shell" terminal available from the "CMS Shell" icon on the desktop (only if using the VM version "CMS-OpenData-1.0.0-rc7", open a terminal with the X terminal emulator from an icon bottom-left of the VM screen). Execute the following command in the terminal if you haven't done so before; it ensures that you have this version of CMSSW running:
 
 ```shell
 $ cmsrel CMSSW_4_2_8
@@ -100,7 +100,7 @@ process.source.lumisToProcess.extend(myLumis)
 
 This selection must always be applied to any analysis on CMS open data, and to do so you must have the validation file downloaded to your local area.
 
-When using the "CMS-OpenData-1.1.0" VM, it is recommended reading the condition data as instructed in the [Guide to the CMS condition database](/docs/cms-guide-for-condition-database). Set the symbolic links to the condition database for 2010 data
+When using the "CMS-OpenData-1.1.2" VM, it is recommended reading the condition data as instructed in the [Guide to the CMS condition database](/docs/cms-guide-for-condition-database). Set the symbolic links to the condition database for 2010 data
 
 ```
 ln -sf /cvmfs/cms-opendata-conddb.cern.ch/FT_R_42_V10A FT_R_42_V10A
