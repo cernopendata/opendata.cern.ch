@@ -18,7 +18,7 @@ Note: the latest tested version of VirtualBox working with this CMS-specific Cer
 
 **Important**: Before you download the CernVM, note that the imported settings may not always work on your host machine. Please see [Issues and Limitations](#issues2010) or [the CMS guide to troubleshooting](/docs/cms-guide-troubleshooting) if you encounter any problems with booting the VM.
 
-Next download the CMS-specific CernVM image as OVA file from: [CMS VM Image for 2010 CMS Open Data](/record/250). It is recommended using the version "CMS-OpenData-1.1.0".
+Next download the CMS-specific CernVM image as OVA file from: [CMS VM Image for 2010 CMS Open Data](/record/250). It is recommended using the version "CMS-OpenData-1.1.2".
 
 By double clicking the downloaded file, VirtualBox imports the image with ready-to-run settings. Then, you launch the CMS-specific CernVM, which boots into the graphical user interface and sets up the CMS environment.
 
@@ -28,7 +28,7 @@ The validation procedure tests that the CMS environment is installed and operati
 
 ### Set up the CMS environment and run a demo analyzer
 
-In the "CMS-OpenData-1.1.0" VM, open a terminal from the "CMS Shell" icon from the desktop (only if using the VM version "CMS-OpenData-1.0.0-rc7", open a terminal with the X terminal emulator from an icon bottom-left of the VM screen).
+In the "CMS-OpenData-1.1.2" VM, open a terminal from the "CMS Shell" icon from the desktop (only if using the VM version "CMS-OpenData-1.0.0-rc7", open a terminal with the X terminal emulator from an icon bottom-left of the VM screen).
 
 Execute the following command; this command builds the local release area (the directory structure) for [CMSSW](/glossary/CMSSW), and only needs to be run once (note that it may take a while):
 
