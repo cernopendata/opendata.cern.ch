@@ -31,7 +31,7 @@ import os
 from invenio_records_files.api import _Record
 from invenio_records_rest.config import RECORDS_REST_ENDPOINTS
 from invenio_records_rest.facets import terms_filter
-from invenio_records_rest.utils import allow_all
+from invenio_records_rest.utils import allow_all, deny_all
 
 from cernopendata.modules.pages.config import *
 from cernopendata.modules.theme.config import *
@@ -55,6 +55,7 @@ SITE_URL = os.environ.get('CERNOPENDATA_SITE_URL', 'opendata.cern.ch')
 #: Switch of automatic building.
 # ASSETS_AUTO_BUILD = True
 
+ACCOUNTS_REGISTER_BLUEPRINT = False
 
 # Static file
 COLLECT_STORAGE = 'flask_collect.storage.link' \
@@ -234,6 +235,10 @@ RECORDS_UI_ENDPOINTS = dict(
 RECORDS_REST_ENDPOINTS['recid']['search_index'] = '_all'
 
 RECORDS_REST_ENDPOINTS['recid'].update({
+    'create_permission_factory_imp': deny_all,
+    'delete_permission_factory_imp': deny_all,
+    'update_permission_factory_imp': deny_all,
+    'read_permission_factory_imp': allow_all,
     'search_factory_imp': 'cernopendata.modules.records.search.query'
                           ':cernopendata_search_factory',
     'pid_minter': 'cernopendata_recid_minter',
@@ -249,6 +254,10 @@ RECORDS_REST_ENDPOINTS['recid'].update({
 })
 
 RECORDS_REST_ENDPOINTS['termid'] = {
+    'create_permission_factory_imp': deny_all,
+    'delete_permission_factory_imp': deny_all,
+    'update_permission_factory_imp': deny_all,
+    'read_permission_factory_imp': allow_all,
     'pid_type': 'termid',
     'pid_minter': 'cernopendata_termid_minter',
     'pid_fetcher': 'cernopendata_termid_fetcher',
@@ -272,6 +281,10 @@ RECORDS_REST_ENDPOINTS['termid'] = {
 }
 
 RECORDS_REST_ENDPOINTS['docid'] = {
+    'create_permission_factory_imp': deny_all,
+    'delete_permission_factory_imp': deny_all,
+    'update_permission_factory_imp': deny_all,
+    'read_permission_factory_imp': allow_all,
     'pid_type': 'docid',
     'pid_minter': 'cernopendata_docid_minter',
     'pid_fetcher': 'cernopendata_docid_fetcher',
@@ -295,6 +308,10 @@ RECORDS_REST_ENDPOINTS['docid'] = {
 }
 
 RECORDS_REST_ENDPOINTS['datid'] = {
+    'create_permission_factory_imp': deny_all,
+    'delete_permission_factory_imp': deny_all,
+    'update_permission_factory_imp': deny_all,
+    'read_permission_factory_imp': allow_all,
     'pid_type': 'datid',
     'pid_minter': 'cernopendata_datasetid_minter',
     'pid_fetcher': 'cernopendata_datasetid_fetcher',
@@ -318,6 +335,10 @@ RECORDS_REST_ENDPOINTS['datid'] = {
 }
 
 RECORDS_REST_ENDPOINTS['softid'] = {
+    'create_permission_factory_imp': deny_all,
+    'delete_permission_factory_imp': deny_all,
+    'update_permission_factory_imp': deny_all,
+    'read_permission_factory_imp': allow_all,
     'pid_type': 'softid',
     'pid_minter': 'cernopendata_softid_minter',
     'pid_fetcher': 'cernopendata_softid_fetcher',
@@ -383,8 +404,8 @@ RECORDS_REST_FACETS = {
                 field='type.primary.keyword',
                 order=dict(_term='asc')),
                 aggs=dict(subtype=dict(terms=dict(
-                          field="type.secondary.keyword",
-                          order=dict(_term='asc'))))),
+                    field="type.secondary.keyword",
+                    order=dict(_term='asc'))))),
             file_type=dict(terms=dict(
                 field='distribution.formats.keyword',
                 size=50,
@@ -512,10 +533,12 @@ if os.environ.get('ELASTICSEARCH_USER') and \
     params = dict(
         http_auth=(os.environ.get('ELASTICSEARCH_USER'),
                    os.environ.get('ELASTICSEARCH_PASSWORD')),
-        use_ssl=str(os.environ.get('ELASTICSEARCH_USE_SSL')).lower()
-        in ('true'),
-        verify_certs=str(os.environ.get('ELASTICSEARCH_VERIFY_CERTS')).lower()
-        in ('true'),
+        use_ssl=str(
+            os.environ.get(
+                'ELASTICSEARCH_USE_SSL')).lower() in ('true'),
+        verify_certs=str(
+            os.environ.get(
+                'ELASTICSEARCH_VERIFY_CERTS')).lower() in ('true'),
     )
 else:
     params = {}

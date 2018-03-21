@@ -34,7 +34,7 @@ history = open('CHANGES.rst').read()
 # Get the version string. Cannot be done with import!
 g = {}
 with open(os.path.join('cernopendata', 'version.py'), 'rt') as fp:
-    exec(fp.read(), g)
+    exec (fp.read(), g)
     version = g['__version__']
 
 tests_require = [
@@ -77,11 +77,12 @@ install_requires = [
     'python-slugify>=1.2.4',
     'datacite>=0.3.0',
     'invenio-assets>=1.0.0b6',
+    'invenio-accounts>=1.0.0b12',
     'invenio-base>=1.0.0a9',
     'invenio-celery>=1.0.0b1',
     'invenio-config>=1.0.0b1',
     'invenio-db[versioning,postgresql]>=1.0.0b3',
-    'invenio-i18n>=1.0.0b1',
+    'invenio-i18n>=1.0.0',
     'invenio-indexer>=1.0.0a1',
     'invenio-jsonschemas==1.0.0a5',
     'invenio-xrootd>=1.0.0a4',
