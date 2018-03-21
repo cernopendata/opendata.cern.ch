@@ -131,8 +131,10 @@
             {% if record.system_details.release %}
                 {% if record.type.primary == 'Software' %}
                 <label>Software release:</label>
-                {% else %}
+                {% elif 'aod' in record.distribution.formats %}
                 <label>Recommended release for analysis:</label>
+                {% elif 'raw' in record.distribution.formats %}
+                <label>Recommended release for reconstruction:</label>
                 {% endif %}
                 <span>{{record.system_details.release}}</span>
             {% endif %}
