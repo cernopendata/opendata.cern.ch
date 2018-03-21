@@ -7,16 +7,17 @@
 
 ## <a name="vm">"I have installed the CERN Virtual Machine: now what?"</a>
 
-To analyse CMS data collected in 2010, you need **version 4.2.8** of CMSSW, supported only on **Scientific Linux 5**. If you are unfamiliar with Linux, take a look at [this short introduction to Linux](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookBasicLinux) or try this interactive [command-line bootcamp](http://rik.smith-unna.com/command_line_bootcamp/). Once you have installed the [CMS-specific CERN Virtual Machine](/docs/cms-virtual-machine-2010), open a terminal: in the "CMS-OpenData-1.1.2" VM, always use the "CMS shell" terminal available from the "CMS Shell" icon on the desktop (only if using the VM version "CMS-OpenData-1.0.0-rc7", open a terminal with the X terminal emulator from an icon bottom-left of the VM screen). Execute the following command in the terminal if you haven't done so before; it ensures that you have this version of CMSSW running:
+To analyse CMS data collected in 2010, you need **version 4.2.8** of CMSSW, supported only on **Scientific Linux 5**. If you are unfamiliar with Linux, take a look at [this short introduction to Linux](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookBasicLinux) or try this interactive [command-line bootcamp](http://rik.smith-unna.com/command_line_bootcamp/). Once you have installed the [CMS-specific CERN Virtual Machine](/docs/cms-virtual-machine-2010), you need to open a terminal. In the "CMS-OpenData-1.1.2" VM, always use the "CMS shell" terminal available from the "CMS Shell" icon on the desktop (only if using the VM version "CMS-OpenData-1.0.0-rc7", open a terminal with the X terminal emulator from an icon bottom-left of the VM screen). Execute the following command in the terminal if you haven't done so before; it ensures that you have this version of CMSSW running:
 
 ```shell
 $ cmsrel CMSSW_4_2_8
 ```
 
-Then, make sure that you are always in the **CMSSW_4_2_8/src/** directory by entering the following command in the terminal (you must do so every time you boot the VM before you can proceed):
+Then, make sure that you are always in the **CMSSW_4_2_8/src/** directory and the CMS analysis environment is properly setup by entering the following commands in the terminal (you must do so every time you boot the VM before you can proceed):
 
 ```shell
 $ cd CMSSW_4_2_8/src/
+$ cmsenv
 ```
 
 ## <a name="data">"OK! Where can I get the CMS data?"</a>
@@ -27,11 +28,7 @@ The primary data provided by CMS on the CERN Open Data Portal is in a format cal
 
 So, let's see what an AOD file looks like and take ROOT for a spin!
 
-Making sure that you are in the **CMSSW_4_2_8/src/** folder (and in the "CMS Shell" terminal, if using the "CMS-OpenData-1.1.0" VM), execute the following command in your terminal to launch the CMS analysis environment:
-
-```shell
-$ cmsenv
-```
+Make sure that you are in the **CMSSW_4_2_8/src/** folder (and in the "CMS Shell" terminal, if using the "CMS-OpenData-1.1.2" VM), and you have executed the `cmsenv` command in your terminal to launch the CMS analysis environment.
 
 You can now open a CMS AOD file in ROOT. Let us open one of the files from the CERN Open Data Portal by entering the following command:
 
