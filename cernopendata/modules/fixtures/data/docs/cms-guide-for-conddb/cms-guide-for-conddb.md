@@ -2,7 +2,7 @@ This page explains the use of global tags and the condition database with the CM
 
 A Global Tag is a coherent collection of records of additional data needed by the reconstruction and analysis software. The Global Tag is defined for each data-taking period, separately for collision and simulated data.
 
-These records are stored in the condition database. Condition data include non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for the simulation/reconstruction/analysis software. For CMS Open Data, the condition data are provided as sqlite files in the `/cvmfs/cms-opendata-conddb.cern.ch/` directory, which is accessible to the CMS Open Data VM.
+These records are stored in the condition database. Condition data include non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for the simulation/reconstruction/analysis software. For CMS Open Data, the condition data are provided as sqlite files in the `/cvmfs/cms-opendata-conddb.cern.ch/` directory, which is accessible through the CMS Open Data VM.
 
 Most [physics objects](/docs/cms-physics-objects-2011) in the CMS Open Data are already calibrated and ready-to-use, and no additional corrections are needed other than selection and identification criteria, which will be applied in the analysis code. Therefore, simple analyses do not need to access the condition database. Examples of such analyses are [the di-muon spectrum example](/record/5001) or [the Higgs analysis example](/record/5500).
 
@@ -27,7 +27,7 @@ process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.c
 process.GlobalTag.globaltag = 'FT_R_42_V10A::All'
 ```
 
-Note that this only works in the "CMS-OpenData-1.1.2" version of the 2010 CMS Open Data VM.
+Note that **this only works in the "CMS-OpenData-1.1.2" version** of the 2010 CMS Open Data VM.
 
 
 ---
