@@ -181,6 +181,9 @@
             {% endif %}
             <p>{{ record.methodology.description | safe}}</p>
             {{ link_list(record.methodology.links) }}
+            {% if record.pileup %}
+            <p>{{ record.pileup.description | safe}}</p>
+            {% endif %}
        </div>
     </div>
     {% endif %}
