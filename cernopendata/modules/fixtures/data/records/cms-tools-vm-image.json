@@ -1,7 +1,7 @@
 [
 {
   "abstract": {
-    "description": "The virtual machine image is based on CernVM (cernvm.cern.ch), with Scientific Linux CERN 5 (slc5), which is the environment needed for the CMSSW release to be used with the 2010 CMS open data. Access to the data is through XRootD."
+    "description": "The virtual machine image is based on CernVM (cernvm.cern.ch), with Scientific Linux CERN 5 (slc5), which is the environment needed for the CMSSW release to be used with the 2010 CMS open data. It gets the CMS software (CMSSW) from /cvmfs/cms.cern.ch. Access to the data is through XRootD. <br/> The \"CMS-OpenData-1.1.2.ova\" version is recommended, it has an embedded slc5 shell, where all CMS software specific commands should be executed. Additionally, it has a slc7 shell, which can be used in the same session. It has a 20G virtual hard disk and a 10G cvmfs cache and can read the condition data from /cvmfs/cms-opendata-conddb.cern.ch."
   },
   "accelerator": "CERN-LHC",
   "collaboration": {
@@ -26,6 +26,11 @@
       "checksum": "adler32:ae99a9cb",
       "size": 15155200,
       "uri": "root://eospublic.cern.ch//eos/opendata/cms/environment/2010/CMS-OpenData-1.0.0-rc7.ova"
+    },
+    {
+      "checksum": "adler32:f3bdda62",
+      "size": 19374080,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/environment/2010/CMS-OpenData-1.1.2.ova"
     }
   ],
   "methodology": {
