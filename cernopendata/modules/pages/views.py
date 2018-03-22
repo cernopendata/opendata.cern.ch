@@ -180,10 +180,10 @@ def about_cms_dataset_names():
     return redirect('/docs/cms-simulated-dataset-names')
 
 
-@blueprint.route('/getting-started/cms/2011')
-def getting_started_cms_redirect():
+@blueprint.route('/getting-started/cms/<year>')
+def getting_started_cms_redirect(year):
     """Redirect for the CMS records."""
-    return redirect('/docs/cms-getting-started-2011',
+    return redirect('/docs/cms-getting-started-{}'.format(year),
                     code=302)
 
 

@@ -27,6 +27,20 @@
     "experiment": {
       "type": "string"
     },
+    "related": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "collections": {
       "type": "array",
       "items": {

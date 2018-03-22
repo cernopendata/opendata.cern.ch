@@ -30,9 +30,8 @@ import operator
 
 from flask import Blueprint
 
-from cernopendata.modules.records.utils import serialize_record as \
-    utils_serialize_record
-
+from cernopendata.modules.records.utils import \
+    serialize_record as utils_serialize_record
 
 blueprint = Blueprint(
     'cernopendata_theme',
@@ -43,13 +42,13 @@ blueprint = Blueprint(
 
 
 @blueprint.app_template_filter('get_record_title')
-def get_record_title(recid):
+def get_record_title(id, type='recid'):
     """Fetches record title by id."""
     from invenio_records.api import Record
     from invenio_pidstore.models import PersistentIdentifier
     from invenio_pidstore.errors import PIDDoesNotExistError
     try:
-        pid = PersistentIdentifier.get('recid', recid)
+        pid = PersistentIdentifier.get(type, id)
     except PIDDoesNotExistError:
         return None
     record = Record.get_record(pid.object_uuid)
