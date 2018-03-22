@@ -32,7 +32,7 @@ import pkg_resources
 from flask import Blueprint, abort, current_app, escape, jsonify, redirect, \
     render_template, request, url_for
 from flask_babelex import lazy_gettext as _
-from flask_breadcrumbs import default_breadcrumb_root, register_breadcrumb
+from flask_breadcrumbs import default_breadcrumb_root
 from jinja2.exceptions import TemplateNotFound
 from speaklater import make_lazy_string
 
@@ -168,6 +168,13 @@ def about_exp(exp):
         abort(404)
 
 
+# FIXME quick fix
+@blueprint.route('/record/<recid>/')
+def record_redirect(recid):
+    """Redirect to deal with trailing slash."""
+    return redirect('/record/{}'.format(recid))
+
+
 @blueprint.route('/about/cms-pileup-simulation')
 def cms_pileup_simulation():
     """Render cms pileup simulation template."""
@@ -180,6 +187,7 @@ def about_cms_dataset_names():
     return redirect('/docs/cms-simulated-dataset-names')
 
 
+@blueprint.route('/getstarted/cms/<year>')
 @blueprint.route('/getting-started/cms/<year>')
 def getting_started_cms_redirect(year):
     """Redirect for the CMS records."""
@@ -187,6 +195,7 @@ def getting_started_cms_redirect(year):
                     code=302)
 
 
+@blueprint.route('/<exp>/getstarted')
 @blueprint.route('/getting-started/<exp>')
 def getting_started_redirect(exp):
     """Redirects to associated experiment."""
@@ -273,10 +282,17 @@ def glossary_json():
     return jsonify(glossary)
 
 
+@blueprint.route('/experiments')
+@blueprint.route('/resources')
+@blueprint.route('/research')
+@blueprint.route('/research'
+                 '/<any("cms","lhcb","alice","atlas"):experiment>')
+@blueprint.route('/resources'
+                 '/<any("cms","lhcb","alice","atlas"):experiment>')
 @blueprint.route('/collection/<string:collection>')
-@blueprint.route('/<any("getting-started","vm","news",'
+@blueprint.route('/<any("getting-started","getstarted", "vm","news",'
                  '"datasets","documentation","software"):page>')
-@blueprint.route('/<any("getting-started","vm"):page>'
+@blueprint.route('/<any("getting-started","getstarted","vm"):page>'
                  '/<any("cms","lhcb","alice","atlas"):experiment>')
 def faceted_search(page=None, experiment=None, collection=None):
     """Faceted search view.
@@ -295,6 +311,7 @@ def faceted_search(page=None, experiment=None, collection=None):
         'software': ('type', 'Software'),
         'datasets': ('type', 'Dataset'),
         'getting-started': ('tags', 'Getting Started'),
+        'getstarted': ('tags', 'Getting Started'),
         'news': ('type', 'News'),
         'vm': ('tags', 'VM'),
         'cms': ('experiment', 'CMS'),
