@@ -225,6 +225,13 @@ def check_year(year):
     return False
 
 
+@blueprint.route('/vm/validation/report')
+@blueprint.route('/vm/cms/validation/report')
+def validation_report_redirect():
+    """Redirects to CMS VM validation document."""
+    return redirect('/docs/cms-vm-validation-2010')
+
+
 @blueprint.route('/vm/<exp>/<year>')
 def vm_redirect_year(exp, year):
     """Redirects to associated experiment."""
@@ -232,12 +239,6 @@ def vm_redirect_year(exp, year):
         return redirect('/docs/%s-virtual-machine-%s' % (exp, year), code=302)
     else:
         abort(404)
-
-
-@blueprint.route('/vm/cms/validation/report')
-def validation_report_redirect():
-    """Redirects to CMS VM validation document."""
-    return redirect('/docs/cms-vm-validation-2010')
 
 
 @blueprint.route('/cms-physics-objects/')
