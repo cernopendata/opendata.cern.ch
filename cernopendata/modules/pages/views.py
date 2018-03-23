@@ -30,7 +30,7 @@ import json
 
 import pkg_resources
 from flask import Blueprint, abort, current_app, escape, jsonify, redirect, \
-    render_template, request, url_for
+    render_template, request, url_for, Response
 from flask_babelex import lazy_gettext as _
 from flask_breadcrumbs import default_breadcrumb_root
 from jinja2.exceptions import TemplateNotFound
@@ -64,13 +64,6 @@ def lazy_title(text, *args):
 
 
 @blueprint.route('/')
-# @register_breadcrumb(blueprint, '.', _('Home'))
-# @register_breadcrumb(blueprint, '.education', _('Education'),
-#                      endpoint_arguments_constructor=lambda: {
-#                          '_anchor': 'education'})
-# @register_breadcrumb(blueprint, '.research', _('Research'),
-#                      endpoint_arguments_constructor=lambda: {
-#                          '_anchor': 'education'})
 def index():
     """Home Page."""
     results = []
@@ -81,6 +74,13 @@ def index():
         pass
     return render_template('cernopendata_pages/front/index.html',
                            featured_articles=results)
+
+
+@blueprint.route('/robots.txt')
+def robots():
+    """Render robots page."""
+    with open('cernopendata/templates/cernopendata_pages/robots.txt') as f:
+        return Response(f.read(), mimetype='text/plain')
 
 
 @blueprint.route('/md/debug', methods=['HEAD', 'GET'])
