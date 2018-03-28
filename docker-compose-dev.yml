@@ -37,7 +37,7 @@ services:
       - "1984:1984"
 
   web:
-    restart: "always"
+    restart: "unless-stopped"
     image: cernopendata/static # Use this to make sure that COD3 Python-code image is built only once.
     depends_on:
       - static # Just to make sure that latest cernopendata/static -image is build before creating this container.
@@ -59,6 +59,8 @@ services:
       - APP_PIDSTORE_DATACITE_USERNAME=CERN.OPENDATA
       - APP_PIDSTORE_DATACITE_PASSWORD=CHANGE_ME
       - APP_PIDSTORE_LANDING_BASE_URL=http://opendata.cern.ch/record/
+#      - SENTRY_DSN=http://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@sentry:9000/2
+#      - LOGGING_SENTRY_CELERY=True
     volumes:
       - ./cernopendata:/code/cernopendata
       - ./scripts:/code/scripts
@@ -70,6 +72,7 @@ services:
       - elasticsearch
       - rabbitmq
       - wdb
+#      - sentry
     ports:
       - "5000:5000"
 
@@ -77,7 +80,7 @@ services:
     image: cernopendata/static # Use this to make sure that COD3 Python-code image is built only once.
     depends_on:
       - static # Just to make sure that latest cernopendata/static -image is build before creating this container.
-    restart: "always"
+    restart: "unless-stopped"
     command: "celery worker -A cernopendata.celery --loglevel=INFO --concurrency=1"
     environment:
       - DEBUG=True
@@ -91,6 +94,8 @@ services:
       - APP_CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 4
       - APP_CELERY_RESULT_BACKEND=redis://redis:6379/2
       - APP_SEARCH_ELASTIC_HOSTS=elasticsearch
+#      - SENTRY_DSN=http://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@sentry:9000/2
+#      - LOGGING_SENTRY_CELERY=True
     volumes:
       - ./cernopendata:/code/cernopendata
       - ./scripts:/code/scripts
@@ -102,9 +107,10 @@ services:
       - elasticsearch
       - rabbitmq
       - wdb
+#      - sentry
 
   web-files:
-    restart: "always"
+    restart: "unless-stopped"
     image: cernopendata/static # Use this to make sure that COD3 Python-code image is built only once.
     depends_on:
       - static # Just to make sure that latest cernopendata/static -image is build before creating this container.
@@ -126,6 +132,8 @@ services:
       - APP_PIDSTORE_DATACITE_USERNAME=CERN.OPENDATA
       - APP_PIDSTORE_DATACITE_PASSWORD=CHANGE_ME
       - APP_PIDSTORE_LANDING_BASE_URL=http://opendata.cern.ch/record/
+#      - SENTRY_DSN=http://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@sentry:9000/2
+#      - LOGGING_SENTRY_CELERY=True
     volumes:
       - ./cernopendata:/code/cernopendata
       - ./scripts:/code/scripts
@@ -137,11 +145,12 @@ services:
       - elasticsearch
       - rabbitmq
       - wdb
+#      - sentry
     ports:
       - "5001:5000"
 
   postgresql:
-    restart: "always"
+    restart: "unless-stopped"
     image: postgres
     environment:
       - POSTGRES_USER=cernopendata
@@ -151,13 +160,13 @@ services:
       - "5432:5432"
 
   redis:
-    restart: "always"
+    restart: "unless-stopped"
     image: redis
     ports:
       - "6379:6379"
 
   elasticsearch:
-    restart: "always"
+    restart: "unless-stopped"
     image: elasticsearch:5
     # Uncomment if DEBUG logging needs to enabled for Elasticsearch
     # command: ["elasticsearch", "-Elogger.level=DEBUG"]
@@ -170,7 +179,7 @@ services:
       - "9300:9300"
 
   rabbitmq:
-    restart: "always"
+    restart: "unless-stopped"
     image: rabbitmq
     ports:
       - "4369:4369"
@@ -187,3 +196,71 @@ services:
     volumes:
       - /usr/local/var/cernopendata/var/cernopendata-instance/static
     user: invenio
+
+  ## SENTRY - DO NOT USE THIS ON PRODUCTION (NOT SECURE)
+  ##          Uncomment sentry prefixed services if you want to use Sentry
+  ##          for catching error logs.
+  ##          ! Remember to set / uncomment `SENTRY_DSN` and `LOGGING_SENTRY_CELERY`
+  ##          ! environment variables for cernopendata services and
+  ##          ! enable cernopendata service to reach sentry-service
+  ##          ! (e.g. by 'links' docker-compose definition).
+  ##          ! Default DSN public key: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+  ##          ! Default DSN secret key: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'
+  ##          Sentry UI can be reached at 'http://127.0.0.1:9000'
+  ##          Other dockerized services can reach Sentry at 'http://sentry:9000'
+  ##          (user: 'admin', password: 'admin')
+  ##          Note that cernopendata services display errors and stack traces
+  ##          on logs until sentry-service has started and is reachable
+  ##          by cernopendata services.
+
+#  sentry-base:
+#    restart: unless-stopped
+#    build: ./sentry
+#    image: cernopendata/sentry
+#    environment:
+#      # Run `docker-compose run sentry config generate-secret-key`
+#      # to get a proper the SENTRY_SECRET_KEY value.
+#      - SENTRY_SECRET_KEY=more_than_thirty_two_characters_long_secret_key
+#      - SENTRY_REDIS_HOST=redis
+#      # If SENTRY_DB_NAME enabled, database with this name must exists.
+#      # For PostgreSQL, this defaults to 'postgres'
+##      - SENTRY_DB_NAME=cernopendata
+#      - SENTRY_DB_USER=cernopendata
+#      - SENTRY_DB_PASSWORD=dbpass123
+#      - SENTRY_POSTGRES_HOST=postgresql
+#      - SENTRY_RABBITMQ_HOST=rabbitmq:5672
+#      - SENTRY_RABBITMQ_USERNAME=guest
+#      - SENTRY_RABBITMQ_PASSWORD=guest
+#
+#  sentry:
+#    restart: unless-stopped
+#    extends: sentry-base
+#    command: init_and_run
+#    links:
+#      - redis
+#      - postgresql
+#      - rabbitmq
+#    ports:
+#      - '9000:9000'
+#
+#  sentry-cron:
+#    restart: unless-stopped
+#    extends: sentry-base
+#    command: run cron
+#    depends_on:
+#      - sentry
+#    links:
+#      - redis
+#      - postgresql
+#      - rabbitmq
+#
+#  sentry-worker:
+#    restart: unless-stopped
+#    extends: sentry-base
+#    command: run worker
+#    depends_on:
+#      - sentry
+#    links:
+#      - redis
+#      - postgresql
+#      - rabbitmq

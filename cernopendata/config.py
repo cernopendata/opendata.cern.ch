@@ -48,6 +48,15 @@ THEME_PIWIK_ID = os.environ.get('PIWIK_ID', None)
 
 SITE_URL = os.environ.get('CERNOPENDATA_SITE_URL', 'opendata.cern.ch')
 
+# Logging - Set up Sentry for Invenio-Logging
+SENTRY_DSN = os.environ.get(
+        "SENTRY_DSN", None
+    )
+
+LOGGING_SENTRY_CELERY = os.environ.get(
+        "LOGGING_SENTRY_CELERY", False
+    )
+
 # Assets
 # ======
 #: Switch of assets debug.

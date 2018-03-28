@@ -55,6 +55,8 @@ services:
       - ELASTICSEARCH_PASSWORD=espass
       - ELASTICSEARCH_USE_SSL=true
       - ELASTICSEARCH_VERIFY_CERTS=false
+#      - SENTRY_DSN=https://<INPUT_CORRECT_DSN_FOR_YOUR_SENTRY_INSTANCE>@<INPUT_YOUR_SENTRY_URL>
+#      - LOGGING_SENTRY_CELERY=True
     volumes:
       - web_data:/usr/local/var/cernopendata/var/cernopendata-instance/static
     links:
@@ -90,6 +92,8 @@ services:
       - ELASTICSEARCH_PASSWORD=espass
       - ELASTICSEARCH_USE_SSL=true
       - ELASTICSEARCH_VERIFY_CERTS=false
+#      - SENTRY_DSN=https://<INPUT_CORRECT_DSN_FOR_YOUR_SENTRY_INSTANCE>@<INPUT_YOUR_SENTRY_URL>
+#      - LOGGING_SENTRY_CELERY=True
     volumes:
       - web_data:/usr/local/var/cernopendata/var/cernopendata-instance/static
     links:
@@ -128,6 +132,8 @@ services:
       - ELASTICSEARCH_PASSWORD=espass
       - ELASTICSEARCH_USE_SSL=true
       - ELASTICSEARCH_VERIFY_CERTS=false
+#      - SENTRY_DSN=https://<INPUT_CORRECT_DSN_FOR_YOUR_SENTRY_INSTANCE>@<INPUT_YOUR_SENTRY_URL>
+#      - LOGGING_SENTRY_CELERY=True
     volumes:
       - web_data:/usr/local/var/cernopendata/var/cernopendata-instance/static
     links:
