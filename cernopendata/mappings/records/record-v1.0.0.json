@@ -1,0 +1,138 @@
+{
+    "mappings": {
+        "record-v1.0.0": {
+            "properties": {
+                "$schema": {
+                    "type": "text",
+                    "copy_to": "facet_schema"
+                },
+                "facet_schema": {
+                    "type": "text",
+                    "index": "not_analyzed"
+                },
+                "type": {
+                    "properties": {
+                        "primary": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword"
+                                }
+                            }
+                        },
+                        "secondary": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword"
+                                }
+                            }
+                        }
+                    }
+                },
+                "date_created": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "distribution": {
+                    "type": "object",
+                    "properties": {
+                        "formats": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword"
+                                }
+                            }
+                        }
+                    }
+                },
+                "experiment": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "collision_information": {
+                    "properties": {
+                        "type": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword"
+                                }
+                            }
+                        },
+                        "energy": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword"
+                                }
+                            }
+                        }
+                    }
+                },
+                "topic": {
+                    "properties": {
+                        "category": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword"
+                                }
+                            }
+                        }
+                    }
+                },
+                "collections": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "keywords": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "title": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "publisher": {
+                    "type": "text"
+                },
+                "abstract": {
+                    "properties": {
+                        "description": {
+                            "type": "text"
+                        }
+                    }
+                },
+                "authors": {
+                    "properties": {
+                        "name": {
+                            "type": "text"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

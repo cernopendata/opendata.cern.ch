@@ -1,0 +1,75 @@
+{%- extends config.BASE_TEMPLATE %}
+
+{%- block css %}
+{{super()}}
+{% assets "cernopendata_visualise_css" %}
+<link href="{{ ASSET_URL }}" rel="stylesheet">{% endassets %}
+{% endblock %}
+
+{%- block javascript %}
+{{super()}}
+{% assets "cernopendata_visualise_js" %}
+<script src="{{ ASSET_URL }}"></script>{% endassets %}
+{% endblock %}
+
+{% block page_body %}
+<section id="vis-histograms" class="content">
+  <div class="container">
+    <div class="col-md-12">
+
+      <a id="backtohisto" href="#"><span
+        class="fa fa-long-arrow-left"></span>back
+        to histograms</a>
+      <a id="needhelp" href="#">Need HELP?</a>
+
+    </div>
+
+    <div class="tab-content">
+      <div class="tab-panel" id="histograms">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="previewer" id="histogram">
+              <div class="row buttons top">
+                <div class="col-md-6">
+                  <div id="browse-dropdown" class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" data-loading-text="Loading..." type="button"
+                            id="filedropdown" data-toggle="dropdown">
+                    </button>
+                    <ul class="dropdown-menu" role="menu" id="fileul" aria-labelledby="filedropdown"></ul>
+                  </div>
+                </div>
+              </div>
+              <div class="row buttons">
+                <div class="col-md-12">
+                  <h4>Select one or more parameters:</h4>
+                </div>
+              </div>
+              <div class="row buttons">
+                <div class="col-md-12">
+                  <ul class="list-inline" id="parameter-button-row"></ul>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row" id="flot-plots"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4>Controls:</h4>
+        <p>Click on the "LogX" and "LogY" buttons to transform the axes by log10</p>
+        <p>Enter a bin width and click "Set" to change the bin width of the histogram (the default is 0.1)</p>
+        <p>Click on the histogram and move to select a region along the x axis. Click "Undo selection(s)" to return to
+          the original range.</p>
+
+
+      </div>
+      <div class="tab-panel" id="howto">
+        {% include "cernopendata_pages/histograms_howto.html" %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

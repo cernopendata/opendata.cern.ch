@@ -1,0 +1,20 @@
+{%- extends config.BASE_TEMPLATE %}
+
+
+{%- block css %}
+    {{ super() }}
+    {% assets "invenio_search_ui_search_css" %}<link href="{{ ASSET_URL }}" rel="stylesheet">{% endassets %}
+{%- endblock css %}
+
+{%- block page_header %}
+{% include 'cernopendata_theme/header_index.html' %}
+{%- endblock page_header %}
+{%- block page_body %}
+        {% include 'cernopendata_pages/front/main.html' %}
+        {% include 'cernopendata_pages/front/lva.html' %}
+        {% include 'cernopendata_pages/front/news.html' %}
+{%- endblock %}
+
+{%- block javascript %}
+    {{ super() }}
+{%- endblock javascript %}

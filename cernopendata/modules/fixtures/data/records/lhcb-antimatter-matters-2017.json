@@ -1,0 +1,196 @@
+[
+{
+  "abstract": {
+    "description": " <p>This record contains the data set that is made available for the analysis described in the Project Notebook. The data was collected using the LHCb experiment in 2011 at a centre-of-mass energy of 7 TeV. The data has been reconstructed using the software framework of the experiment. The data has been selected by the trigger of the experiment and an offline selection made. The sample provided contains the candidate events observed for the decay of a charged B meson into three charged particles. In addition to providing  the data of the experiment a file containing a simplified simulation of the decay of a charged B meson to three charged kaons is also provided. This simplified simulation file has not been passed through a simulation of the detector response.<p>\n       <p>The data files contain only the most important reconstructed variables for performing the analysis of this data set. A full description of the variables is provided in the Project Notebook. The data files are stored in the format a ROOT TTree.</p> <p>The LHCb experiment is described in:</p> ",
+    "links": [
+      {
+        "url": "http://cds.cern.ch/record/1129809"
+      }
+    ]
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "LHCb collaboration"
+  },
+  "collections": [
+    "LHCb-Derived-Datasets"
+  ],
+  "date_published": "2017",
+  "distribution": {
+    "formats": [
+      "root"
+    ],
+    "number_events": 8550000,
+    "number_files": 3,
+    "size": 1113480280
+  },
+  "doi": "10.7483/OPENDATA.LHCB.AOF7.JH09",
+  "experiment": "LHCb",
+    "files": [
+    {
+      "checksum": "sha1:0000000000000000000000000000000000000000",
+      "size": 666484974,
+      "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/AntimatterMatters2017/data/B2HHH_MagnetDown.root"
+    },
+    {
+      "checksum": "sha1:0000000000000000000000000000000000000000",
+      "size": 444723234,
+      "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/AntimatterMatters2017/data/B2HHH_MagnetUp.root"
+    },
+    {
+      "checksum": "sha1:0000000000000000000000000000000000000000",
+      "size": 2272072,
+      "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/AntimatterMatters2017/data/PhaseSpaceSimulation.root"
+    }
+  ],
+  "methodology": {
+    "description": "Offline Selections cuts were made on: track transverse momentum (pT), sum of pT of Tracks, Track momentum, B candidate mass assuming all tracks are Kaons, Track impact parameter chi-square, sum of impact parameter chi-square of tracks, B candidate vertex fit chi-square."
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "4900",
+  "title": "Matter Antimatter Differences (B meson decays to three hadrons) - Data Files",
+  "type": {
+    "primary": "Dataset",
+    "secondary": []
+  },
+  "usage": {
+    "description": "The data files can be accessed using ROOT.",
+    "links": [
+      {
+        "url": "https://root.cern.ch/"
+      }
+    ]
+  },
+  "use_with": {
+    "description": "The data files are expected to be used with the Project Notebook.",
+    "links": [
+      {
+        "recid": "4902"
+      }
+    ]
+  },
+  "validation": {
+    "description": " <p>The LHCb collaboration performs online and offline monitoring of the quality of the data collected. Only data for which the primary detector subsystems are highly performant are used for analysis.</p> <p>The performance of the detector is described in:</p> ",
+    "links": [
+      {
+        "url": "https://cds.cern.ch/record/1978280?ln=en"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "This documentation provides a basic description of the contents of the project and instructions on how to get started."
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "LHCb collaboration"
+  },
+  "collections": [
+    "LHCb-Learning-Resources"
+  ],
+  "date_published": "2017",
+  "distribution": {
+    "formats": [
+      "pdf"
+    ],
+    "number_files": 1,
+    "size": 496943
+  },
+  "doi": "10.7483/OPENDATA.LHCB.IID3.87CV",
+  "experiment": "LHCb",
+  "files": [
+    {
+      "checksum": "sha1:0000000000000000000000000000000000000000",
+      "size": 496943,
+      "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/AntimatterMatters2017/documentation/Matter-Antimatter_Instructions_LHCb.pdf"
+    }
+  ],
+  "publisher": "CERN Open Data Portal",
+  "recid": "4901",
+  "title": "Matter Antimatter Differences (B meson decays to three hadrons) - Introductory Documentation",
+  "type": {
+    "primary": "Documentation",
+    "secondary": ["Activities"]
+  },
+  "use_with": {
+    "description": "The data files and the project notebook are available at",
+    "links": [
+      {
+        "recid": "4900"
+      },
+      {
+        "recid": "4902"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "This project notebook provides a guided analysis of data from the LHCb experiment. The analysis searches for a difference between the behavior of matter and anti-matter. The project analyses B-meson decays to three charged particles."
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "LHCb collaboration"
+  },
+  "collections": [
+    "LHCb-Tools"
+  ],
+  "date_published": "2017",
+  "distribution": {
+    "formats": [
+      "tar.gz",
+      "ipynb"
+    ],
+    "number_files": 1,
+    "size": 5204130
+  },
+  "doi": "10.7483/OPENDATA.LHCB.K6BL.RF22",
+  "experiment": "LHCb",
+  "files": [
+    {
+      "checksum": "sha1:0000000000000000000000000000000000000000",
+      "size": 5204130,
+      "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/AntimatterMatters2017/software/opendata-project-1.0.tar.gz"
+    }
+  ],
+  "license": {
+    "attribution": "GNU General Public License (GPL) version 3"
+  },
+  "links": [
+    {
+      "description": "Go to GitHub",
+      "url": "https://github.com/lhcb/opendata-project"
+    },
+    {
+      "description": "Run this directly on Everware",
+      "url": "https://everware.ysda.yandex.net/hub/oauth_login?repourl=https://github.com/lhcb/opendata-project.git"
+    }
+  ],
+  "publisher": "CERN Open Data Portal",
+  "recid": "4902",
+  "title": "Matter Antimatter Differences (B meson decays to three hadrons) - Project Notebook",
+  "type": {
+    "primary": "Software",
+    "secondary": ["Analysis"]
+  },
+  "usage": {
+    "description": "See the notebook instructions in",
+    "links": [
+      {
+        "recid": "4901"
+      }
+    ]
+  },
+  "use_with": {
+    "description": "Use this with the following dataset:",
+    "links": [
+      {
+        "recid": "4900"
+      }
+    ]
+  }
+}
+]

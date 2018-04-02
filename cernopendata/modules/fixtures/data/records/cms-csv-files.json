@@ -1,0 +1,243 @@
+[
+{
+  "abstract": {
+    "description": " <p> This file contains events from the MultiJet primary dataset from the CMS open data release, and computes the razor variables MR and Rsq, used in supersymmetric particle searches. More details on the razor variables can be found in <a href=\u201chttp://dx.doi.org/10.1103/PhysRevD.90.112001\">Phys. Rev. D 90, 112001</a> </p> "
+  },
+  "accelerator": "CERN-LHC",
+  "authors": [
+    {
+      "name": "Duarte, Javier"
+    }
+  ],
+  "collections": [
+    "CMS-Derived-Datasets"
+  ],
+  "dataset_semantics": [
+    {
+      "description": "The run number of the event.",
+      "variable": "Run"
+    },
+    {
+      "description": "The lumi section of the event.",
+      "variable": "Lumi"
+    },
+    {
+      "description": "The event number of the event.",
+      "variable": "Event"
+    },
+    {
+      "description": "The four-vector of the leading megajet (with the largest transverse momentum).",
+      "variable": "E1,Px1,Py1,Pz1"
+    },
+    {
+      "description": "The four-vector of the subleading megajet (with the largest transverse momentum).",
+      "variable": "E2,Px2,Py2,Pz2"
+    },
+    {
+      "description": "The scalar sum of the transverse momentum of the jets.",
+      "variable": "HT"
+    },
+    {
+      "description": "The magnitude of the vector sum of the transverse energy of the particles in the event.",
+      "variable": "MET"
+    },
+    {
+      "description": "The number of jets with transverse momentum above 40 GeV.",
+      "variable": "nJets"
+    },
+    {
+      "description": "The number of b-tagged jets with transverse momentum above 40 GeV.",
+      "variable": "nBJets"
+    }
+  ],
+  "date_created": "2010",
+  "date_published": "2015",
+  "distribution": {
+    "formats": [
+      "gz"
+    ],
+    "number_events": 21726,
+    "number_files": 1,
+    "size": 2725994
+  },
+  "doi": "10.7483/OPENDATA.CMS.GACK.GEJA",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:5ed734291260108476cc73ad6e6948e067af579a",
+      "size": 1130837,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2010B/MultiJet/CSV/Apr21ReReco-v1/MultiJetRun2010B.csv.gz"
+    }
+  ],
+  "methodology": {
+    "description": "The code that applies the selection and produces the csv files can be found here:",
+    "links": [
+      {
+        "recid": "553"
+      }
+    ]
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "554",
+  "relations": [
+    {
+      "doi": "10.7483/OPENDATA.CMS.QAJC.TR8V",
+      "recid": "11",
+      "title": "/MultiJet/Run2010B-Apr21ReReco-v1/AOD",
+      "type": "isChildOf"
+    }
+  ],
+  "run_period": "Run2010B",
+  "title": "Example CSV output file for SUSYBSMAnalysis-RazorFilter",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Derived"
+    ]
+  },
+  "usage": {
+    "description": "Comma-Separated-Value (csv) files can be used in online applications such as the one found here",
+    "links": [
+      {
+        "url": "/visualise/histograms/CMS"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "This document contains 100k dimuon events selected from the Mu dataset from Run2010B. Each line corresponds to an event. The main file contains all 100k events. Files with an underscore contain 10k events each."
+  },
+  "accelerator": "CERN-LHC",
+  "authors": [
+    {
+      "name": "McCauley, Thomas"
+    }
+  ],
+  "collections": [
+    "CMS-Derived-Datasets"
+  ],
+  "date_created": "2010",
+  "date_published": "2014",
+  "distribution": {
+    "formats": [
+      "csv"
+    ],
+    "number_events": 100000
+  },
+  "doi": "10.7483/OPENDATA.CMS.CB8H.MFFA",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:c02038bcd10e2f99ec20ae48364138126c513707",
+      "size": 1515458,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/CSV/Apr21ReReco-v1/MuRun2010B_0.csv"
+    },
+    {
+      "checksum": "sha1:28dadc13a7ad73129eb5b86d41e322da12e586bc",
+      "size": 15164517,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/CSV/Apr21ReReco-v1/MuRun2010B.csv"
+    },
+    {
+      "checksum": "sha1:0da2e87ae55446646d967043dd0287d2dfad6ef8",
+      "size": 1519070,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/CSV/Apr21ReReco-v1/MuRun2010B_1.csv"
+    },
+    {
+      "checksum": "sha1:e37699128a5df23c72c3f82bee9100df1bc70ff9",
+      "size": 1517788,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/CSV/Apr21ReReco-v1/MuRun2010B_2.csv"
+    },
+    {
+      "checksum": "sha1:7100d14b68117c814a31cceeb36e6da43a0072ac",
+      "size": 1514795,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/CSV/Apr21ReReco-v1/MuRun2010B_3.csv"
+    },
+    {
+      "checksum": "sha1:737e01252db27aee177c3cd2872bcc3ff93001ac",
+      "size": 1512480,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/CSV/Apr21ReReco-v1/MuRun2010B_4.csv"
+    },
+    {
+      "checksum": "sha1:a0e3101e59c5356c953f86011ac98c0e16a02d44",
+      "size": 1513438,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/CSV/Apr21ReReco-v1/MuRun2010B_5.csv"
+    },
+    {
+      "checksum": "sha1:34fe3f34eb1706313b8d227f9749910200e7d196",
+      "size": 1517489,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/CSV/Apr21ReReco-v1/MuRun2010B_6.csv"
+    },
+    {
+      "checksum": "sha1:cec72c075656abd838863a7701f3edf21248b8f6",
+      "size": 1519419,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/CSV/Apr21ReReco-v1/MuRun2010B_7.csv"
+    },
+    {
+      "checksum": "sha1:28c1f2c6c0b1c9ba12674b557ae812f38941d968",
+      "size": 1517741,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/CSV/Apr21ReReco-v1/MuRun2010B_8.csv"
+    },
+    {
+      "checksum": "sha1:a165e76d0909fc194cee33feea09033b9c203649",
+      "size": 1517640,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/CSV/Apr21ReReco-v1/MuRun2010B_9.csv"
+    }
+  ],
+  "methodology": {
+    "description": "The events in this derived dataset were selected because of the presence of precisely two muons with invariant mass between 2-110 GeV, one of which is a high-quality \"global\" muon. More information on the selections applied for the Mu primary dataset can be found there.",
+    "links": [
+      {
+        "recid": "14"
+      },
+      {
+        "recid": "552"
+      }
+    ]
+  },
+  "note": {
+    "description": "These data were selected from the Mu primary dataset. The selection criteria may be different from that used in CMS physics results. They are not suitable for a full physics analysis."
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "700",
+  "relations": [
+    {
+      "doi": "10.7483/OPENDATA.CMS.B8MR.C4A2",
+      "recid": "14",
+      "title": "/Mu/Run2010B-Apr21ReReco-v1/AOD",
+      "type": "isChildOf"
+    }
+  ],
+  "run_period": "Run2010B",
+  "title": "Dimuon event information derived from the Run2010B public Mu dataset",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Derived"
+    ]
+  },
+  "usage": {
+    "description": " <p>Comma-separated value (csv) files can be used in online applications such as <a href=\"/visualise/histograms/CMS\">the histogram visualizer</a> and other applications, examples are given in</p> ",
+    "links": [
+      {
+        "recid": "5101"
+      },
+      {
+        "recid": "5102"
+      },
+      {
+        "recid": "5100"
+      }
+    ]
+  },
+  "validation": {
+    "description": "These data were derived from the Mu primary dataset. Validation information can be found there.",
+    "links": [
+      {
+        "recid": "14"
+      }
+    ]
+  }
+}
+]

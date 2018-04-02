@@ -1,0 +1,188 @@
+[
+{
+  "abstract": {
+    "description": "These data were selected from the primary datasets in order to obtain candidate J/psi and Y events, candidate W and Z boson events, and general di-electron and dimuon spectra."
+  },
+  "accelerator": "CERN-LHC",
+  "authors": [
+    {
+      "name": "McCauley, Thomas"
+    }
+  ],
+  "collections": [
+    "CMS-Derived-Datasets"
+  ],
+  "dataset_semantics": [
+    {
+      "description": "The run number of the event.",
+      "variable": "Run"
+    },
+    {
+      "description": "The event number.",
+      "variable": "Event"
+    },
+    {
+      "description": "For a lepton, either a muon or an electron, the total energy and components of the momemtum (in GeV).",
+      "variable": "E,px,py,pz"
+    },
+    {
+      "description": "The transverse momentum of the lepton (in units of GeV), either a muon or an electron.",
+      "variable": "pt"
+    },
+    {
+      "description": "The pseudorapidity of the lepton, either a muon or an electron.",
+      "variable": "eta"
+    },
+    {
+      "description": "The phi angle (in radians) of the lepton, either a muon or an electron.",
+      "variable": "phi"
+    },
+    {
+      "description": "The charge of the lepton, either a muon or an electron.",
+      "variable": "Q"
+    },
+    {
+      "description": "The invariant mass (in GeV) of either two muons or two electrons.",
+      "variable": "M"
+    },
+    {
+      "description": "The chi-squared per degree-of-freedom of the lepton, either a muon or an electron.",
+      "variable": "chiSq"
+    },
+    {
+      "description": "The impact parameter in the transverse plane with respect to the vertex of the muon or electron.",
+      "variable": "dxy"
+    },
+    {
+      "description": "The combined isolation (Itrack + Iecal + Ihcal) of the muon.",
+      "variable": "iso"
+    },
+    {
+      "description": "The missing transverse momentum of the event (in units of GeV).",
+      "variable": "MET"
+    },
+    {
+      "description": "The phi angle (in radians) of the missing transverse momentum.",
+      "variable": "phiMET"
+    },
+    {
+      "description": "For an electron, either EB or EE: whether the electron is in the barrel or in the endcap.",
+      "variable": "type"
+    },
+    {
+      "description": "For a muon, either T or G: whether the muon is a tracker or global muon.",
+      "variable": "type"
+    },
+    {
+      "description": "The difference in eta (in radians) between the electron track and the associated cluster in the ECAL.",
+      "variable": "delEta"
+    },
+    {
+      "description": "The difference in phi (in radians) between the electron track and the associated cluster in the ECAL.",
+      "variable": "delPhi"
+    },
+    {
+      "description": "The weighted cluster rms along eta for an electron.",
+      "variable": "sigmaEtaEta"
+    },
+    {
+      "description": "The energy of the electron in the HCAL divided by the energy of the electron in the ECAL. ",
+      "variable": "HoverE"
+    },
+    {
+      "description": "The isolation variable for the electron in the tracker.",
+      "variable": "isoTrack"
+    },
+    {
+      "description": "The isolation variable for the electron in the ECAL.",
+      "variable": "isoEcal"
+    },
+    {
+      "description": "The isolation variable for the electron in the HCAL.",
+      "variable": "isoHcal"
+    }
+  ],
+  "date_published": "2017",
+  "distribution": {
+    "formats": [
+      "csv"
+    ]
+  },
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:8a4c77c6b029232002d48fea7046b44dc0329a21",
+      "size": 7969331,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/SingleMu/CSV/12Oct2013-v1/Wmunu.csv"
+    },
+    {
+      "checksum": "sha1:09e44f937604ebfcf376df1cde989f1fb8541036",
+      "size": 9992209,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/SingleElectron/CSV/12Oct2013-v1/Wenu.csv"
+    },
+    {
+      "checksum": "sha1:6c4240d2053407e6eacf42ea741381e3771727ca",
+      "size": 970550,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/DoubleMu/CSV/12Oct2013-v1/Zmumu.csv"
+    },
+    {
+      "checksum": "sha1:afb09475fefeba76b47c4b174d9f6f332a4481f0",
+      "size": 1445651,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/DoubleElectron/CSV/12Oct2013-v1/Zee.csv"
+    },
+    {
+      "checksum": "sha1:a340510faad27eb26e7c5507bda17be245e51b58",
+      "size": 11806904,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/SingleMu/CSV/12Oct2013-v1/Dimuon_SingleMu.csv"
+    },
+    {
+      "checksum": "sha1:0a5808fab9b380dce5d55f2aa5864f2931d49404",
+      "size": 13935840,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/DoubleMu/CSV/12Oct2013-v1/Dimuon_DoubleMu.csv"
+    },
+    {
+      "checksum": "sha1:8cc5dae7b28a24ed17e7b1cf05cbb21092e8d85a",
+      "size": 2639302,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/DoubleMu/CSV/12Oct2013-v1/Jpsimumu.csv"
+    },
+    {
+      "checksum": "sha1:690bcbb7a3c9ae4f8bb9e74f284d1ce3c50dcf3e",
+      "size": 2599212,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/DoubleMu/CSV/12Oct2013-v1/Ymumu.csv"
+    }
+  ],
+  "license": {
+    "attribution": "CC0"
+  },
+  "methodology": {
+    "description": "\n      <p>\n        <p><strong>Wmunu</strong></p>\n        <p>An event was selected if there was one (and only one) global muon in the event that satisfies: pT > 25.0 GeV and |eta| < 2.1. Furthermore, the event was rejected if there was another global muon in the event with pT > 10 GeV in the acceptance region |eta| < 2.4.</p>\n      </p>\n      <p>\n        <p><strong>Wenu</strong></p>\n        <p>An event was selected if there is was one electron in the event with pT > 25.0 GeV. Furthermore, the event was rejected if there was a second electron present with pT > 20 GeV.</p>\n      </p>\n      <p>\n        <p><strong>Zee</strong></p>\n        <p>\n          An event was selected if there were two electrons in the event with pT > 25 GeV and the invariant mass of the two electrons was > 60 GeV and < 120 GeV.\n        </p>\n      </p>\n      <p>\n        <p><strong>Zmumu</strong></p>\n        <p>\n          An event was selected if there were two muons in the event with pT > 20 GeV and |eta| < 2.1 and the invariant mass of the two muons was > 60 GeV and < 120 GeV.\n        </p>\n      </p>\n      <p>\n        <p><strong>Dimuon</strong></p>\n        <p>\n          An event was selected if there were two muons in the event, both with |eta| < 2.4, at least one muon was a global muon, the invariant mass of the two muons was > 0.3 GeV and < 300 GeV, and they have opposite-sign charge.\n        </p>\n      </p>\n      <p>\n        <p><strong>Jpsimumu</strong></p>\n        <p>\n          An event was selected if there were two muons in the event, both with |eta| < 2.4, at least one muon was a global muon, the invariant mass of the two muons was > 2 GeV and < 5 GeV, and they have opposite-sign charge.\n        </p>\n      </p>\n      <p>\n        <p><strong>Ymumu</strong></p>\n        <p>\n          An event was selected if there were two muons in the event, both with |eta| < 2.4, at least one muon was a global muon, the invariant mass of the two muons was > 8 GeV and < 12 GeV, and they have opposite-sign charge.\n        </p>\n      </p>\n      "
+  },
+  "note": {
+    "description": "These data were selected for use in education and outreach and contain a subset of the total event information. They are not suitable for a full physics analysis."
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "545",
+  "run_period": "Run2011A",
+  "title": "Datasets derived from the Run2011A SingleElectron, SingleMu, DoubleElectron, and DoubleMu primary datasets",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Derived"
+    ]
+  },
+  "usage": {
+    "description": " <p>Comma-separated value (csv) files can be used in online applications such as <a href=\"/visualise/histograms/CMS\">the histogram visualizer</a> and other applications, examples are given in</p> ",
+    "links": [
+      {
+        "recid": "5101"
+      },
+      {
+        "recid": "5102"
+      },
+      {
+        "recid": "5100"
+      }
+    ]
+  }
+}
+]

@@ -1,0 +1,361 @@
+[
+{
+  "abstract": {
+    "description": " <p>This research level example is a strongly simplified reimplementation of parts of the original CMS Higgs to four lepton analysis published in <a href=\"https://inspirehep.net/record/1124338?ln=en\">Phys.Lett. B716 (2012) 30-61, arXiv:1207.7235</a>.</p> <p>The published reference plot which is being approximated in this example is <a href=\"https://inspirehep.net/record/1124338/files/H4l_mass_v3.png\">https://inspirehep.net/record/1124338/files/H4l_mass_3.png</a>. Other Higgs final states (e.g. Higgs to two photons), which were also part of the same CMS paper and strongly contributed to the Higgs boson discovery, are not covered by this example.</p> <p>The example consists of different levels of complexity. The highest level of this example addresses users who feel they have at least some minimal understanding of the content of this paper and of the meaning of this reference plot, which can be reached via (separate) educational exercises. The lower levels might also be interesting for educational applications. The example requires a minimal acquaintance with the linux operating system and <a href=\"https://root.cern.ch/\">the ROOT analysis tool</a>.</p> "
+  },
+  "accelerator": "CERN-LHC",
+  "authors": [
+    {
+      "name": "Jomhari, Nur Zulaiha"
+    },
+    {
+      "name": "Geiser, Achim"
+    },
+    {
+      "name": "Bin Anuar, Afiq Aizuddin"
+    }
+  ],
+  "collections": [
+      "CMS-Tools"
+  ],
+  "date_created": "2011-2012",
+  "date_published": "2017",
+  "distribution": {
+    "formats": [
+      "py",
+      "cc",
+      "xml",
+      "txt",
+      "pdf",
+      "png"
+    ],
+    "number_files": 10,
+    "size": 241261
+  },
+  "doi": "10.7483/OPENDATA.CMS.JKB8.RR42",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "adler32:ff63668a",
+      "size": 305,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/BuildFile.xml"
+    },
+    {
+      "checksum": "adler32:f205f068",
+      "size": 83761,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/HiggsDemoAnalyzer.cc"
+    },
+    {
+      "checksum": "adler32:46a907fc",
+      "size": 1669,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/List_indexfile.txt"
+    },
+    {
+      "checksum": "adler32:af301992",
+      "size": 14943,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/M4Lnormdatall.cc"},
+    {
+      "checksum": "adler32:9d9b2126",
+      "size": 15805,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/M4Lnormdatall_lvl3.cc"
+    },
+    {
+      "checksum": "adler32:cc943381",
+      "size": 3741,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/demoanalyzer_cfg_level3MC.py"
+    },
+    {
+      "checksum": "adler32:1d3e2a43",
+      "size": 3689,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/demoanalyzer_cfg_level3data.py"
+    },
+    {
+      "checksum": "adler32:9cbd53a3",
+      "size": 3874,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/demoanalyzer_cfg_level4MC.py"
+    },
+    {
+      "checksum": "adler32:177b49c0",
+      "size": 3821,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/demoanalyzer_cfg_level4data.py"
+    },
+    {
+      "checksum": "adler32:19c6a6a2",
+      "size": 18170,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/mass4l_combine.pdf"
+    },
+    {
+      "checksum": "adler32:62e0c299",
+      "size": 93152,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/mass4l_combine.png"
+    }
+  ],
+  "license": {
+    "attribution": "GNU General Public License (GPL) version 3"
+  },
+  "note": {
+    "description": " <p>The example uses legacy versions of the original CMS data sets in the CMS AOD, which slightly differ from the ones used for the publication due to improved calibrations. It also uses legacy versions of the corresponding Monte Carlo simulations, which are again close to, but not identical to, the ones in the original publication. These legacy data and MC sets listed below were used in practice, exactly as they are, in many later CMS publications.</p> <P>Since according to the CMS Open Data policy the fraction of data which are public (and used here) is only 50% of the available LHC Run I samples, the statistical significance is reduced with respect to what can be achieved with the full dataset. However, the original paper <a href=\"https://inspirehep.net/record/1124338?ln=en\">Phys.Lett. B716 (2012) 30-61, arXiv:1207.7235</a>, was also obtained with only part of the Run I statistics, roughly equivalent to the luminosity of the public sets, but with only partial statistical overlap.</p> <p> The provided analysis code recodes the spirit of the original analysis and recodes many of the original cuts on original data objects, but does not provide the original analysis code itself. Also, for the sake of simplicity, it skips some of the more advanced analysis methods of the original paper. Nevertheless, it provides a qualitative insight about how the original result was obtained. In addition to the documented core results, the resulting root files also contain many undocumented plots which grew as a side product from setting up this example and earlier examples. The significance of the Higgs 'excess' is about 2 standard deviations in this example, while it was 3.2 standard deviations in this channel alone in the original publication. The difference is attributed to the less sophisticated background suppression. In more recent (not yet public) CMS data sets with higher statistics the signal is observed in a preliminary analysis with more than 5 standard deviations in this channel alone <a href=\"https://cds.cern.ch/record/2256357?ln=en\">CMS-PAS-HIG-16-041</a>.</p><p>The analysis strategy is the following: Get the 4mu and 2mu2e final states from the DoubleMuParked datasets and the 4e final state from the DoubleElectron dataset. This avoids double counting due to trigger overlaps. All MC contributions except top use data-driven normalization: The DY (Z/gamma^*) contribution is scaled to the Z peak. The ZZ contribution is scaled to describe the data in the independent mass range 180-600 GeV. The Higgs contribution is scaled to describe the data in the signal region. The (very small) top contribution remains scaled to the MC generator cross section.</p> "
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "5500",
+  "run_period": "Run2011A-Run2012C",
+  "system_details": {
+    "release": "CMSSW_5_3_32",
+    "recid": "252",
+    "description": "Use this code with the CMS Open Data VM environment"
+  },
+  "title": "Higgs-to-four-lepton analysis example using 2011-2012 data",
+  "type": {
+    "primary": "Software",
+    "secondary": [
+      "Analysis"
+    ]
+  },
+  "usage": {
+    "description": " <p>In addition to the instructions below which guide you through the example in detail, <a href=\"https://github.com/cms-opendata-analyses/HiggsExample20112012\">a github repository</a> based on this original example is also provided</p>\n <p> There are four levels of increasing complexity for this example:</p> <p><ol><li><strong>Compare</strong> the provided final output plot <a href=\"/record/5500/files/mass4l_combine.pdf\">mass4l_combine.pdf</a> or  <a href=\"/record/5500/files/mass4l_combine.png\">mass4l_combine.png</a> to <a href=\"https://inspirehep.net/record/1124338/files/H4l_mass_v3.png\">the published one</a>, keeping in mind the caveats mentioned in this record.</li>\n  <li><strong>Reproduce</strong> the final output plot from the predefined histogram files using a root macro (~few minutes - ~few hours, depending on setup and proficiency)</li>\n  <ul><li> if a ROOT version on the local computer compatible with ROOT 5.32/00 is running, use the local version (avoids installation of VM). Otherwise, follow the instructions in <a href=\"/docs/cms-virtual-machine-2011\">CMS 2011 Virtual Machines: How to install</a> up to and including the command 'cmsenv', in order to install the VirtualBox and the CMS Open Data VM, and run ROOT there (the validation step with the Demo example may be skipped)</li>\n <li>if not already proficient in ROOT, consider doing <a href=\"https://root.cern.ch/introductory-tutorials\"> a brief ROOT introductory tutorial</a> in order to understand what the root macro will do</li>\n <li>create a new directory, e.g. rootfiles <code>mkdir rootfiles</code></li>\n <li>switch to that directory <code>cd rootfiles</code> and download the preproduced *.root histogram files given in <a href=\"/record/5501\"> this record</a> for all relevant samples to this directory</li>\n<ul><li>Alternatively, on the command line in the directory <code>rootfiles</code>, type <code>wget http://opendata.web.cern.ch/record/5501/files/rootfilelist.txt</code> and then <code>wget -i rootfilelist.txt</code></li>\n <li>If you wish, you may look at the content of these files using ROOT: e.g. type <code>root</code>, and on the root promt, type <code>TBrowser t</code>, then double-click on the relevant file</li></ul>\n <li>download the root macro <a href=\"/record/5500/files/M4Lnormdatall.cc\">M4Lnormdatall.cc</a> from this record into the same directory</li>\n <li> on the linux prompt, type <code>root -l M4Lnormdatall.cc</code></li>\n <ul><li> you will get the output plot on the screen</li></ul>\n <li> either, on the ROOT canvas (picture) click <code>file->Quit ROOT</code> or, on the root [] prompt, type <code>.q</code></li>\n <ul><li>you will exit ROOT and find the output plot in mass4l_combined_user.pdf</li></ul>\n  <li> you can compare this plot with the plots provided in 1.</li></ul>\n  <li><strong>Produce</strong> a root data input file from original data and MC files for one Higgs signal candidate and for the simulated Higgs signal with reduced statistics (for speed reasons) and reproduce the final output plot containing your own input using a root macro (~1 hour if Virtual machine is already installed, depending on internet connection and computer performance, up to ~few hours otherwise)</li>\n  <ul><li>if not already done, follow instructions for steps 1 and 2 in <a href=\"/docs/cms-virtual-machine-2011\"> CMS 2011 Virtual Machines: How to install</a>, including the installation of the demo analyzer</li>\n <li> in the <code>Demo/DemoAnalyzer/</code> directory, which is created following Step 2: How to test and validate, replace <code>BuildFile.xml</code> by <a href=\"/record/5500/files/BuildFile.xml\">the version</a> downloaded from this record</li>\n <li> download <a href=\"/record/5500/files/HiggsDemoAnalyzer.cc\">HiggsDemoAnalyzer.cc</a> from this record to the <code>Demo/Demoanalyzer/src</code> subdirectory</li>\n <li> in <code>Demo/DemoAnalyzer/</code>, recompile <code>scram b</code></li>\n <li> download <a href=\"/record/5500/files/demoanalyzer_cfg_level3data.py\">demoanalyzer_cfg_level3data.py</a> (data example) and <a href=\"/record/5500/files/demoanalyzer_cfg_level3MC.py\">demoanalyzer_cfg_level3MC.py</a> (Higgs simulation example)</li>\n <li> create datasets directory <code>mkdir datasets</code> and change to this directory <code>cd datasets</code></li>\n <li> download the 2012 JSON validation file from <a href=\"/record/1002\">the corresponding record</a> to this directory</li>\n <li>if not yet done at level 2, create the directory <code>rootfiles</code> and download all the level 2 root files to this directory (see level 2)</li>\n <li>run the two analysis jobs (one on data, one on MC, the input files are already predefined)</li>\n <ul>      <li><code>cmsRun demoanalyzer_cfg_level3data.py</code> will produce output file <code>DoubleMuParked2012C_10000_Higgs.root</code> containing 1 Higgs candidate from the data</li>\n <li><code>cmsRun demoanalyzer_cfg_level3MC.py</code> will produce output file <code>Higgs4L1file.root</code> containing the Higgs signal distributions with reduced statistics</li></ul>\n <li> move the two .root files above to the <code>rootfiles</code> directory, together with the predefined files</li>\n <ul><li><code>mv DoubleMuParked2012C_10000_Higgs.root rootfiles/.</code></li>\n <li><code>mv Higgs4L1file.root rootfiles/.</code></li></ul>\n <li> change directory <code>cd rootfiles</code> and download the macro <a href=\"/record/5500/files/M4Lnormdatall_lvl3.cc\">M4Lnormdatall_lvl3.cc</a> to this directory</li>\n <li> on the linux prompt, type <code>root -l M4Lnormdatall_lvl3.cc</code></li>\n <ul><li>you will get the output plot on the screen; the magenta Higgs signal histogram will now be the one you produced, and the one data event which you have selected will be shown as a blue triangle. All other parts of the plot are the same as in 2.</li></ul>\n <li> either, on the ROOT canvas (picture) click <code>file->Quit ROOT</code> or, on the root [] prompt, type <code>.q</code></li>\n <ul><li>you will exit ROOT and find the output plot in mass4l_combined_user3.pdf </li></ul>\n</ul>\n  <li><strong>Reproduce the full example analysis</strong> (up to ~1 month or more on single CPU with fast internet connection, depending on internet connection speed and computer performance)</li>\n <ul><li>start by running level 3 and understand what you have done</li>\n <li> download <a href=\"/record/5500/files/demoanalyzer_cfg_level4data.py\">demoanalyzer_cfg_level4data.py</a> and <a href=\"/record/5500/files/demoanalyzer_cfg_level4MC.py\">demoanalyzer_cfg_level4MC.py</a> from this record</li>\n <li>at this level, instead of running over a single file, you will run over so-called index files which contain chains of files</li>\n <li> download all the data index files for the datasets listed in <a href=\"/record/5500/files/List_indexfile.txt\">List_indexfile.txt</a> to the <code>datasets</code> directory (you can find the links to the datasets in this record)</li>\n <li> download <a href=\"/record/1001\">the 2011 JSON validation file</a> to the <code>datasets</code> directory (in which you should already have the 2012 one)</li>\n <li> download all the MC index files for the MC sets listed in <code>List_indexfile.txt</code> to the <code>MCsets</code> directory (after having created it)</li>\n <li> edit the relevant demoanalyzer_cfg file and insert the index file you want; for data, make sure to use the correct JSON validation file in each case; set an output file name of your choice for each sample which you will recognise</li>\n <li> run the analysis job (<code>cmsRun demoanalyzer_cfg_level4...</code>) sequentially on all the input samples listed in <code>List_indexfile.txt</code>, i.e. produce all root output files yourself. If you have access to a computer farm with local support for the installation of the CMS software (the Open Data team can only provide support for the single virtual machine mode), you may also run the analysis in parallel on different CPUs, correspondingly speeding up the result.</li>\n <li> merge all the files from different index files of a dataset by using root tools</li>\n <ul><li>If everything ran correctly, at this stage the content of your rootfiles should be identical to the one in the predefined rootfiles. If you don't want to run everything, you can also run only some of the datasets (but all events of all index files of a dataset must be treated and merged), and use the predefined ones for the others. </li> </ul>\n <li> go to 2., using your own root output files instead of the predefined ones, i.e. edit the file <a href=\"/record/5500/files/M4Lnormdatall.cc\">M4Lnormdatall.cc</a> accordingly. If everything worked correctly you should get an output identical to mass4lcombine.pdf, but now using your own files.</li>\n </ul></ol>\n </p> "
+  },
+  "use_with": {
+    "description": "The example uses legacy versions of the original CMS datasets in the AOD format, which slightly differ from the ones used for the original publication due to improved calibrations. It also uses legacy versions of the corresponding Monte Carlo simulations, which are again close to, but not identical to, the ones in the original publication. These legacy data and MC sets listed below were used in practice, exactly as they are, in many later CMS publications.",
+    "links": [
+      {
+        "recid": "16"
+      },
+      {
+        "recid": "17"
+      },
+      {
+        "recid": "1651"
+      },
+      {
+        "recid": "1648"
+      },
+      {
+        "recid": "1382"
+      },
+      {
+        "recid": "1507"
+      },
+      {
+        "recid": "1394"
+      },
+      {
+        "recid": "1393"
+      },
+      {
+        "recid": "1360"
+      },
+      {
+        "recid": "6004"
+      },
+      {
+        "recid": "6004"
+      },
+      {
+        "recid": "6003"
+      },
+      {
+        "recid": "6029"
+      },
+      {
+        "recid": "10071"
+      },
+      {
+        "recid": "10065"
+      },
+      {
+        "recid": "10054"
+      },
+      {
+        "recid": "9356"
+      },
+      {
+        "recid": "7731"
+      },
+      {
+        "recid": "7727"
+      },
+      {
+        "recid": "7728"
+      },
+      {
+        "recid": "9518"
+      }
+    ]
+  }
+},
+{
+  "abstract": {
+    "description": "This record contains root files that were processed for the Higgs analysis example on the CMS 2011-2012 Open Data."
+  },
+  "accelerator": "CERN-LHC",
+  "authors": [
+    {
+      "name": "Jomhari, Nur Zulaiha"
+    },
+    {
+      "name": "Geiser, Achim"
+    },
+    {
+      "name": "Bin Anuar, Afiq Aizuddin"
+    }
+  ],
+  "collections": [
+    "CMS-Derived-Datasets"
+  ],
+  "date_created": "2011-2012",
+  "date_published": "2017",
+  "distribution": {
+    "formats": [
+      "root",
+      "txt"
+    ],
+    "number_files": 24,
+    "size": 1593614
+  },
+  "doi": "10.7483/OPENDATA.CMS.JKB8.D634",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "adler32:716974f3",
+      "size": 1143,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/rootfilelist.txt"
+    },
+    {
+      "checksum": "adler32:90cb6b24",
+      "size": 66215,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/DY1011.root"
+    },
+    {
+      "checksum": "adler32:a55fe748",
+      "size": 67648,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/DY1012.root"
+    },
+    {
+      "checksum": "adler32:b87b46e3",
+      "size": 65418,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/DY101Jets12.root"
+    },
+    {
+      "checksum": "adler32:ef0a2275",
+      "size": 71402,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/DY50Mag12.root"
+    },
+    {
+      "checksum": "adler32:c166c66b",
+      "size": 71524,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/DY50TuneZ11.root"
+    },
+    {
+      "checksum": "adler32:b82b0a01",
+      "size": 70776,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/DY50TuneZ12.root"
+    },
+    {
+      "checksum": "adler32:e7764055",
+      "size": 61720,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/DYTo2mu12.root"
+    },
+    {
+      "checksum": "adler32:7944cd82",
+      "size": 68531,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/DoubleE11.root"
+    },
+    {
+      "checksum": "adler32:6f7b4a98",
+      "size": 71621,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/DoubleE12.root"
+    },
+    {
+      "checksum": "adler32:86de9000",
+      "size": 70933,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/DoubleMu11.root"
+    },
+    {
+      "checksum": "adler32:63849033",
+      "size": 74483,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/DoubleMu12.root"
+    },
+    {
+      "checksum": "adler32:6bca010d",
+      "size": 70789,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/HZZ11.root"
+    },
+    {
+      "checksum": "adler32:4169df3f",
+      "size": 70752,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/HZZ12.root"
+    },
+    {
+      "checksum": "adler32:5c10862e",
+      "size": 71657,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/TTBar11.root"
+    },
+    {
+      "checksum": "adler32:eb78c43b",
+      "size": 67994,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/TTBar12.root"
+    },
+    {
+      "checksum": "adler32:bb54e5de",
+      "size": 73350,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/TTJets11.root"
+    },
+    {
+      "checksum": "adler32:8f268633",
+      "size": 73386,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/TTJets12.root"
+    },
+    {
+      "checksum": "adler32:a1aa79d6",
+      "size": 69836,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/ZZ2mu2e11.root"
+    },
+    {
+      "checksum": "adler32:bc06de85",
+      "size": 69966,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/ZZ2mu2e12.root"
+    },
+    {
+      "checksum": "adler32:f65713e6",
+      "size": 64345,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/ZZ4e11.root"
+    },
+    {
+      "checksum": "adler32:191e5429",
+      "size": 65011,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/ZZ4e12.root"
+    },
+    {
+      "checksum": "adler32:9f269d41",
+      "size": 67169,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/ZZ4mu11.root"
+    },
+    {
+      "checksum": "adler32:58bebe9e",
+      "size": 67882,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsExample20112012/ZZ4mu12.root"
+    }
+  ],
+  "license": {
+    "attribution": "GNU General Public License (GPL) version 3"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "5501",
+  "run_period": "Run2011A-Run2012C",
+  "title": "Root files for Higgs-to-four-lepton analysis example using 2011-2012 data",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": "These datasets are provided as part of the Higgs-to-four-lepton analysis example using 2011-2012 data. You can download all root files needed for the Level 3 exercise to your working area by downloading first the file list <code>rootfilelist.txt</code> and then the root files with <code>wget -i rootfilelist.txt</code>",
+      "links": [
+        {
+          "recid": "5500"
+        }
+      ]
+    }
+}
+]

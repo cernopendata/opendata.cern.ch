@@ -1,0 +1,49 @@
+{%- extends "invenio_records_ui/detail.html" %}
+
+{%- block page_body %}
+<div class="container-fluid background">
+    <div class="container detail-page" ng-app="recordApp">
+        <div class="row">
+            <div class="col-md">
+                <div class="card card-style">
+                    <div class="card-body">
+                        <h1 class="d-inline"> {{ record.title }} </h1>
+                        <p>
+                            {% if record.get('created') %} <small>{{ record.get('created') }} by </small> {% endif %}
+                            <small>{{ record.author}} </small>
+                        </p>
+                        <p class="badges-box">
+                            {% if record.type %} <a class="badge badge-type" href="/search?type={{ record.type.primary }}">{{ record.type.primary }}</a>
+                                {% if record.type.secondary %}
+                                {% for type in record.type.secondary %}
+                                    <a class="badge badge-subtype" href="/search?type={{ record.type.primary }}&subtype={{ type }}">{{ type }}</a>
+                                {% endfor %}
+                                {% endif %}
+                            {% endif %}
+                        </p>
+                        <hr>
+                        <div class="news-content">
+                            {% if record.get("body", {}).get("format", None) == "html" %}
+                                {{record.get("body", {}).get("content", None) |safe}}
+                            {% elif record.get("body", {}).get("format", None) == "md" %}
+                                {{record.get("body", {}).get("content", None) | markdown | safe}}
+                            {% endif %}
+                            {% if record.links %}
+                            <div>
+                                <span>
+                                    <strong>Links: </strong>
+                                    {% for r in record.links %}
+                                        <a target="_blank" href="{{r.url}}">{{r.url}}</a>
+                                    {% endfor %}
+                                </span>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%- endblock %}
+

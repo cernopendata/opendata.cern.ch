@@ -1,0 +1,127 @@
+{
+    "settings": {
+        "analysis": {
+            "analyzer": {
+                "collections": {
+                    "tokenizer": "keyword"
+                }
+            }
+        }
+    },
+    "mappings": {
+        "data-policies-v1.0.0": {
+            "properties": {
+                "$schema": {
+                    "type": "text",
+                    "copy_to": "facet_schema"
+                },
+                "facet_schema": {
+                    "type": "text",
+                    "index": "not_analyzed"
+                },
+                "id": {
+                    "type": "text"
+                },
+                "identifiers": {
+                    "properties": {
+                        "_type": {
+                            "type": "text"
+                        },
+                        "id": {
+                            "type": "text"
+                        }
+                    }
+                },
+                "title": {
+                    "type": "text"
+                },
+                "collaboration": {
+                    "type": "text"
+                },
+                "experiment": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "accelerator": {
+                    "type": "text"
+                },
+                "collections": {
+                    "properties": {
+                        "primary": {
+                            "type": "text",
+                            "analyzer": "collections",
+                            "index": "not_analyzed"
+                        },
+                        "secondary": {
+                            "type": "text",
+                            "analyzer": "collections"
+                        }
+                    }
+                },
+                "authors": {
+                    "properties": {
+                        "name": {
+                            "type": "text"
+                        },
+                        "affiliation": {
+                            "type": "text"
+                        }
+                    }
+                },
+                "description": {
+                    "type": "text"
+                },
+                "summary": {
+                    "type": "text"
+                },
+                "language": {
+                    "type": "text"
+                },
+                "year": {
+                    "type": "text"
+                },
+                "type": {
+                    "type": "text",
+                    "index": "not_analyzed"
+                },
+                "subtype": {
+                    "type": "text",
+                    "index": "not_analyzed"
+                },
+                "license": {
+                    "type": "text"
+                },
+                "issued": {
+                    "properties": {
+                        "location": {
+                            "type": "text"
+                        },
+                        "institute": {
+                            "type": "text"
+                        },
+                        "date": {
+                            "type": "text"
+                        }
+                    }
+                },
+                "files": {
+                    "properties": {
+                        "uri": {
+                            "type": "text"
+                        },
+                        "size": {
+                            "type": "integer"
+                        },
+                        "checksum": {
+                            "type": "text"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

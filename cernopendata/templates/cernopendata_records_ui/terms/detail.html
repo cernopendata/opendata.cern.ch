@@ -1,0 +1,51 @@
+{%- extends "invenio_records_ui/detail.html" %}
+
+{%- block page_body %}
+<div class="container-fluid background">
+    <div class="container detail-page" ng-app="recordApp">
+        <div class="row">
+            <div class="col-md">
+                <div class="card card-style">
+                    <div class="card-body">
+                        <h1 class="d-inline"> {{ record.anchor }} </h1>
+                        <br>
+                        <p class="definition-paragraph">{{ record.definition }}</p>
+                        {% if record.links %}
+                        <div>
+                            <span>
+                                <strong>Links: </strong>
+                                {% for r in record.links %}
+                                    <a target="_blank" href="{{r.url}}">{{r.text}}</a>
+                                {% endfor %}
+                            </span>
+                        </div>
+                        {% endif %}
+                        {% if record.see_also or record.experiment %}
+                        <div>
+                        <p class="badges-box">
+                            <span>
+                                <strong>See also: </strong>
+                                {% if record.experiment %}
+                                    {% for exp in record.experiment %}
+                                        <a class="badge badge-experiment" href="/search?experiment={{ exp.name }}">{{ exp.name }}</a> 
+                                    {% endfor %}
+                                {% endif %}
+                                {% for term in record.see_also%}
+                                <a href="/glossary/{{term.term}}"><span class="badge badge-tag">{{ term.term }}</span></a>
+                                {% endfor %}
+                            </span>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%- endblock %}
+
+{%- block javascript %}
+{{super()}}
+{%- block javascript_glossary %}
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,139 @@
+[
+{
+  "abstract": {
+    "description": "The virtual machine image is based on CernVM (cernvm.cern.ch), with Scientific Linux CERN 5 (slc5), which is the environment needed for the CMSSW release to be used with the 2010 CMS open data. Access to the data is through XRootD."
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "CMS Collaboration",
+    "recid": "450"
+  },
+  "collections": [
+    "CMS-Tools"
+  ],
+  "date_created": "2010",
+  "date_published": "2014",
+  "distribution": {
+    "formats": [
+      "ova"
+    ],
+    "number_files": 1,
+    "size": 15155200
+  },
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "adler32:ae99a9cb",
+      "size": 15155200,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/environment/2010/CMS-OpenData-1.0.0-rc7.ova"
+    }
+  ],
+  "methodology": {
+    "description": "The contextualisation scripts used for setting up the CMS VM images are available at",
+    "links": [
+      {
+        "recid": "249"
+      }
+    ]
+  },
+  "note": {
+    "description": "For known issues and limitations see",
+    "links": [
+      {
+        "title": "CMS Virtual Machines - Known Issues and Limitations",
+        "url": "/VM/CMS/2010#issues2010"
+      }
+    ]
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "250",
+  "run_period": "Run2010B",
+  "title": "CMS VM Image, for 2010 CMS open data",
+  "type": {
+    "primary": "Environment",
+    "secondary": [
+      "VM"
+    ]
+  },
+  "usage": {
+    "description": "Please follow the tutorial on how to use the CMS Virtual Machine",
+    "links": [
+      {
+        "description": "CMS Virtual Machines: How to install",
+        "url": "/VM/CMS/2010"
+      }
+    ]
+  },
+  "validation": {
+    "description": "A validation report of the CMS VM can be found at",
+    "links": [
+      {
+        "description": "Testing the CernVM",
+        "recid": "56"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": " <p>The scripts provided create the CMS virtual machine image based on <a href=\"https://cernvm.cern.ch\">CernVM</a>, with Scientific Linux CERN 6 (slc5)</p> "
+  },
+  "accelerator": "CERN-LHC",
+  "authors": [
+    {
+      "name": "Huffman, Adam"
+    }
+  ],
+  "collections": [
+    "CMS-Tools"
+  ],
+  "date_created": "2010",
+  "date_published": "2015",
+  "distribution": {
+    "formats": [
+      "txt"
+    ],
+    "number_files": 3,
+    "size": 4091
+},
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:36392732a8f4b391ff2dab0e00cbbcbb8f778be7",
+      "size": 182,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/environment/2010/cernvm-script"
+    },
+    {
+      "checksum": "sha1:63c718d5106c3a4a1482d46f37f7ef2db21f7f0f",
+      "size": 3756,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/environment/2010/cms-user-data.txt"
+    },
+    {
+      "checksum": "sha1:3248e8702168d4f3389eee14e31df330e27089ac",
+      "size": 153,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/environment/2010/opendata-desktop-settings"
+    }
+  ],
+  "publisher": "CERN Open Data Portal",
+  "recid": "249",
+  "relations": [
+    {
+      "description": "The final CERN VM image can be found here:",
+      "recid": "250",
+      "type": "isRelatedTo"
+    }
+  ],
+  "run_period": "Run2010B",
+  "title": "Contextualisation scripts to create the CMS VM Image, for 2010 CMS open data",
+  "type": {
+    "primary": "Environment",
+    "secondary": [
+      "VM"
+    ]
+  },
+  "usage": {
+    "description": " <p> First, you need to run a normal Micro-CernVM, using your own context so you can login. Copy the attached files to the running VM and then login.<p>Inside the VM, you first need a copy of the latest Micro-CernVM release as a template for the Open Data image. Download it, inside the running VM, from: http://cernvm.cern.ch/releases/ucernvm-images.1.18-13.cernvm.x86_64/ucernvm-slc5.1.18-13.cernvm.x86_64.hdd <br/>placing it in the same directory as the other files.<br/>Run the script:\n      <br/>./cernvm-script\n      <br/>which will produce some output on the terminal, and then finish.\n      <p>The result should be a file with the title coming from the -n field in the script. In this case, the file we're interested in is:\n      <br/>CMS-OpenData-1.0.1.ova\n      <br/>which can be copied from the running VM to elsewhere. </p>"
+  }
+}
+]

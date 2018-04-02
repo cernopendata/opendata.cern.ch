@@ -1,0 +1,61 @@
+{
+    "mappings": {
+        "software-v1.0.0": {
+            "properties": {
+                "$schema": {
+                    "type": "text",
+                    "copy_to": "facet_schema"
+                },
+                "facet_schema": {
+                    "type": "text",
+                    "index": "not_analyzed"
+                },
+                "type": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "subtype": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "experiment": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "title": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "publisher": {
+                    "type": "text"
+                },
+                "abstract": {
+                    "type": "text"
+                },
+                "authors": {
+                    "properties": {
+                        "name": {
+                            "type": "text"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

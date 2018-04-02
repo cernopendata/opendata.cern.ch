@@ -1,0 +1,66 @@
+{
+    "mappings": {
+        "datasets-v1.0.0": {
+            "properties": {
+                "$schema": {
+                    "type": "text",
+                    "copy_to": "facet_schema"
+                },
+                "facet_schema": {
+                    "type": "text",
+                    "index": "not_analyzed"
+                },
+                "type": {
+                    "type": "text",
+                    "index": "not_analyzed"
+                },
+                "subtype": {
+                    "type": "text",
+                    "index": "not_analyzed"
+                },
+                "doi": {
+                    "type": "text"
+                },
+                "collaboration": {
+                    "properties": {
+                        "name": {
+                            "type": "text"
+                        }
+                    }
+                },
+                "distribution": {
+                    "properties": {
+                        "formats": {
+                            "type": "text"
+                        }
+                    }
+                },
+                "title": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "additional_title": {
+                    "type": "text"
+                },
+                "publisher": {
+                    "type": "text"
+                },
+                "experiment": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "abstract": {
+                    "type": "text"
+                }
+            }
+        }
+    }
+}

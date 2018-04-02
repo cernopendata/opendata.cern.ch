@@ -1,0 +1,198 @@
+{%- extends config.BASE_TEMPLATE %}
+
+{%- block css %}
+{{super()}}
+{% assets "opera_css" %}
+<link href="{{ ASSET_URL }}" rel="stylesheet">{% endassets %}
+{% endblock %}
+
+
+{% block page_body %}
+{% assets "opera_js" %}
+<script src="{{ ASSET_URL }}"></script>{% endassets %}
+<style>
+  #canvas-legend-ECC {
+    position: initial;
+    left: 0;
+  }
+
+  #canvas-ECC-title {
+    margin-top: 23%;
+  }
+
+  #demobbed-viewer {
+    margin-left: 2%;
+  }
+</style>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 pg-header">
+      <h3>Visualise OPERA detector events</h3>
+    </div>
+
+    <div id="demobbed-viewer">
+
+      <div class="row">
+        <table>
+          <tr>
+            <td id="opera-logo"><img src="/static/node_modules/demobbed-viewer/graphics/OPERA.png" alt="OPERA"
+                                     height="63"></td>
+            <td>
+              <table>
+                <tr>
+                  <td colspan="2">
+                    <div id="toolbarED">
+                      <label for="inputEvent">Event:</label>
+                      <input id="inputEvent" onkeypress="loadEvent(this, event, value);" size="12">
+                      <!-- ----------------------------------------- -->
+                      <img src="/static/node_modules/demobbed-viewer/graphics/event-prev.png"
+                           onclick="demobbed.loadPrevOrNextEvent(-1);" alt="Prev. event" height="32">
+                      <img src="/static/node_modules/demobbed-viewer/graphics/event-reload.png"
+                           onclick="demobbed.loadPrevOrNextEvent(0);" alt="Reload event" height="32">
+                      <img src="/static/node_modules/demobbed-viewer/graphics/event-next.png"
+                           onclick="demobbed.loadPrevOrNextEvent(1);" alt="Next event" height="32">
+                      <img src="/static/node_modules/demobbed-viewer/graphics/zoom-in.png"
+                           onclick="demobbed.mgrDrawED().zoomIn();" alt="Zoom in" height="32">
+                      <img src="/static/node_modules/demobbed-viewer/graphics/zoom-out.png"
+                           onclick="demobbed.mgrDrawED().zoomOut();" alt="Zoom out" height="32">
+                      <img src="/static/node_modules/demobbed-viewer/graphics/zoom-brick.png"
+                           onclick="demobbed.mgrDrawED().zoomToBrick();" alt="Zoom to brick" height="32">
+                      <img src="/static/node_modules/demobbed-viewer/graphics/zoom-event.png"
+                           onclick="demobbed.mgrDrawED().zoomToEvent();" alt="Zoom to event" height="32">
+                      <!-- ----------------------------------------- -->
+                      <a data-target="#3dTracks"><img
+                        src="/static/node_modules/demobbed-viewer/graphics/draw-ECC.png"
+                        onclick="demobbed.mgrDrawECC().drawECC(1);" alt="Draw ECC tracks" height="32"></a>
+
+                    </div>
+
+                  </td>
+                </tr>
+
+              </table>
+
+            </td>
+
+          </tr>
+        </table>
+
+      </div> <!-- <div class="row"> -->
+      <div class="row">
+        <div class="col-md-9">
+          <div id="div-ED-XZ">
+
+            <table>
+              <tr>
+
+                <td id="controls-ED-XZ">
+                  <table id="tableMoveViewControlsXZ">
+                    <tr>
+                      <td colspan="2"><img src="/static/node_modules/demobbed-viewer/graphics/nu-beam.png"
+                                           alt="Nu beam"
+                                           width="64"></td>
+                    </tr>
+                    <tr>
+                      <td><img src="/static/node_modules/demobbed-viewer/graphics/view-up.png"
+                               onclick="demobbed.mgrDrawED().moveView(0, 1);" alt="Move XZ up"></td>
+                      <td><img src="/static/node_modules/demobbed-viewer/graphics/view-down.png"
+                               onclick="demobbed.mgrDrawED().moveView(0, -1);" alt="Move XZ down"></td>
+                    </tr>
+                    <tr>
+                      <td><img src="/static/node_modules/demobbed-viewer/graphics/view-left.png"
+                               onclick="demobbed.mgrDrawED().moveView(2, -1);" alt="Move left"></td>
+                      <td><img src="/static/node_modules/demobbed-viewer/graphics/view-right.png"
+                               onclick="demobbed.mgrDrawED().moveView(2, 1);" alt="Move right"></td>
+                    </tr>
+                  </table>
+                </td>
+
+                <td>
+                  <div id="canvas-ED-XZ">
+                    <span id="canvas-ED-XZ-title" class="canvas-title"></span>
+                  </div>
+                </td>
+
+              </tr>
+            </table>
+
+          </div>
+
+          <div id="div-ED-YZ">
+            <table>
+              <tr>
+
+                <td id="controls-ED-YZ">
+                  <table id="tableMoveViewControlsYZ">
+                    <tr>
+                      <td><img src="/static/node_modules/demobbed-viewer/graphics/view-up.png"
+                               onclick="demobbed.mgrDrawED().moveView(1, 1);" alt="Move YZ up"></td>
+                      <td><img src="/static/node_modules/demobbed-viewer/graphics/view-down.png"
+                               onclick="demobbed.mgrDrawED().moveView(1, -1);" alt="Move YZ down"></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"><img src="/static/node_modules/demobbed-viewer/graphics/nu-beam.png"
+                                           alt="Nu beam"
+                                           width="64"></td>
+                    </tr>
+                  </table>
+                </td>
+
+                <td>
+                  <div id="canvas-ED-YZ">
+                    <span id="canvas-ED-YZ-title" class="canvas-title"></span>
+                  </div>
+                </td>
+
+              </tr>
+            </table>
+
+          </div>
+        </div>
+
+
+        <div class="col-md-3">
+          <div id="div-ECC">
+            <div id="3dTracks" role="dialog">
+              <!--Move inline css to corresponding file when final version of previewer is merged-->
+              <div id="toolbarECC">
+                <img src="/static/node_modules/demobbed-viewer/graphics/event-prev.png"
+                     onclick="demobbed.loadPrevOrNextEvent(-1);" alt="Prev. event" height="32">
+                <img src="/static/node_modules/demobbed-viewer/graphics/event-reload.png"
+                     onclick="demobbed.loadPrevOrNextEvent(0);" alt="Reload event" height="32">
+                <img src="/static/node_modules/demobbed-viewer/graphics/event-next.png"
+                     onclick="demobbed.loadPrevOrNextEvent(1);" alt="Next event" height="32">
+
+                <img src="/static/node_modules/demobbed-viewer/graphics/anim-decel.png"
+                     onclick="demobbed.mgrDrawECC().decelerateAnimation();" alt="Pause animation"
+                     height="32">
+                <img src="/static/node_modules/demobbed-viewer/graphics/anim-accel.png"
+                     onclick="demobbed.mgrDrawECC().accelerateAnimation();" alt="Start animation"
+                     height="32">
+                <a data-dismiss="modal"><img
+                  src="/static/node_modules/demobbed-viewer/graphics/close-ECC.png"
+                  onclick="demobbed.mgrDrawECC().drawECC(0);" alt="Erase ECC tracks" height="32"></a>
+              </div>
+            </div>
+            <div id="div-canvas-ECC">
+              <span id="canvas-ECC-title" class="canvas-title"></span>
+              <canvas id="canvas-axes-ECC"></canvas>
+              <canvas id="canvas-legend-ECC" class="canvas-bordered" width="165" height="125"></canvas>
+              <canvas id="canvas-ECC" class="canvas-bordered"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- "container-fluid" -->
+    <!-- ----------------------------------------- -->
+  </div>
+  <div id="divScrLoadEvent">
+    {% if not eventid %}
+    <script id="scrLoadEvent"
+            src="/static/node_modules/demobbed-viewer/js/nuEventsData/loadEvent10120009376.js"></script>
+    {% else %}
+    <script id="scrLoadEvent"
+            src="/static/node_modules/demobbed-viewer/js/nuEventsData/loadEvent{{ eventid }}.js"></script>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

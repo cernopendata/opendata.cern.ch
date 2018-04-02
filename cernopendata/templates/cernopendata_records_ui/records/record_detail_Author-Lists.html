@@ -1,0 +1,130 @@
+{%- extends "cernopendata_records_ui/records/detail.html" %}
+
+
+{%- block page_body %}
+<div class="container-fluid background">
+  <div class="container" ng-app="recordApp">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="card card-style">
+          <div class="card-body">
+            {% block heading %}
+            <h3 class="d-inline">
+              {% if record.title_additional %}
+              {{record.title_additional}}
+              {% else %}
+              {{record.title}}
+              {% endif %}
+              {% if record.date_published %}
+              <small id="date-published">{{record.date_published}}</small>
+              {% endif %}
+            </h3>
+            {% if record.title_additional %}
+            <br/><span>{{record.title}}</span>
+            {% endif %}
+
+            {% if record.collaboration %}
+            <span class="badge badge-success">{{record.collaboration.name}}</span>
+            {% endif %}
+            <p></p>
+            {% if record.doi %}
+            <h6 class="card-title">
+              <label>Cite as:</label>
+              {% if record.authors %}
+              {% for author in record.authors %}
+              <span>{{author.name}}.</span>
+              {% endfor %}
+              {% endif %}
+              <span>
+                {% if record.collaboration %}
+                  {{record.collaboration.name}}
+                {% endif %}
+                {% if record.date_published %}
+                  ({{record.date_published}}).
+                {% endif %}
+                {% if record.title_additional %}
+                {{record.title_additional}}.
+                {% else %}
+                  {{record.title}}.
+                {% endif %}
+                CERN Open Data Portal.
+                    {% if record.doi %}
+                      <label>DOI:</label>
+                      <a href="http://doi.org/{{record.doi}}">{{record.doi}}</a>
+                    {% endif %}
+                </span>
+            </h6>
+            {% endif %}
+            <div class="row">
+              <div class="col-md-12">
+                {% if record.collections %}
+                <label>Collection:</label>
+                {% for collection in record.collections %}
+                <span><a
+                  href="/search?q={{collection}}">{{collection}}</a></span>
+                {% endfor %}
+                {% endif %}
+                {% if record.collision_information %}
+                <label>Collision Energy:</label>
+                <span><a
+                  href="/search?q={{record.collision_information.energy}}">{{record.collision_information.energy}}</a></span>
+                {% endif %}
+                {% if record.experiment %}
+                <label>Experiment:</label>
+                <span><a href="/search?q={{record.experiment}}">{{record.experiment}}</a></span>
+                {% endif %}
+                {% if record.accelerator %}
+                <label>Accelerator:</label>
+                <span><a href="/search?q={{record.accelerator}}">{{record.accelerator}}</a></span>
+                {% endif %}
+                {% if record.relations %}
+                {% for relation in record.relations %}
+                {% if relation.type == 'isChildOf' %}
+                <label>Parent Dataset:</label>
+                <span>
+                  {% if relation.recid %}
+                  <a href="/record/{{relation.recid}}">{{relation.title}}</a>
+                  {% else %}
+                    {{relation.title}}
+                  {% endif %}
+                </span>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+              </div>
+            </div>
+            {% endblock heading %}
+          </div>
+          <div class="card card-style">
+            <div class="card-body">
+              {% block metadata_block %}
+              {% if record.title %}
+              <div class="row">
+                <div class="col-md-12">
+                  <h3 class="detail_view_h3">Description</h3>
+                  <p>{{record.title | safe}}</p>
+                </div>
+              </div>
+              {% endif %}
+              {% if record.authors %}
+              {{ authors_table(record.authors) }}
+              {% endif %}
+              {% endblock metadata_block %}
+
+              {% block files_block %}
+              <div ng-controller="paginationCtrl as $ctrl" ng-init="$ctrl.getFiles()">
+                {{ files_box() }}
+              </div>
+              {% endblock files_block %}
+              {% block disclaimer %} {{super()}} {% endblock disclaimer %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% block export %}
+      {{super()}}
+      {% endblock export %}
+    </div>
+  </div>
+</div>
+{%- endblock %}

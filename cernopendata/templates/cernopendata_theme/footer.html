@@ -1,0 +1,50 @@
+<section class="footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <ul class="list-inline" id="logos">
+          <li class="list-inline-item">
+            <a href="http://alice.cern.ch"><img src="{{ url_for('static', filename='img/alice.gif') }}" alt=""
+                                                width="55" height="55"></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="http://atlas.ch"><img src="{{ url_for('static', filename='img/atlas.gif') }}" alt="" width="55"
+                                           height="55"></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://cms.cern"><img src="{{ url_for('static', filename='img/cms.gif') }}" alt="" width="55"
+                                            height="55"></a></li>
+          <li class="list-inline-item">
+            <a href="http://lhcb.cern.ch"><img src="{{ url_for('static', filename='img/lhcb.gif') }}" alt="" width="55"
+                                               height="55"></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="http://operaweb.lngs.infn.it"><img src="{{ url_for('static', filename='img/opera.gif') }} "
+                                                        width="55"
+                                                        height="55"
+                                                        alt=""></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-5">
+        {% set year = None %}
+        <ul class="list-inline" id="copyright">
+          <li class="list-inline-item">© CERN, 2014–{{year|get_year}}  &middot;</li>
+          <li class="list-inline-item"><a href="/terms-of-use">Terms of Use</a>  &middot;</li>
+          <li class="list-inline-item"><a href="/privacy-policy">Privacy Policy</a>  &middot;</li>
+          <li class="list-inline-item"><a href="mailto:opendata-support@cern.ch">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-3">
+        <ul class="list-inline">
+          <li class="list-inline-item" style="float: right;">
+            <a href="http://www.cern.ch">
+              <img src="{{url_for('static', filename='assets/img/cern.svg')}}" width="80px"/>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

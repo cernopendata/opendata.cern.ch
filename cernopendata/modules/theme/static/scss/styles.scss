@@ -1,0 +1,648 @@
+//@import "variables";
+//
+//// Setting the path to fonts files.
+//$icon-font-path: "/static/node_modules/bootstrap-sass/assets/fonts/";
+$iconic-font-path: "/static/node_modules/open-iconic/font/fonts/";
+
+//@import "../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap";
+@import "../node_modules/open-iconic/font/css/open-iconic.scss";
+//
+@import "footer";
+//@import "visualise";
+//@import "pygments_friendly";
+//
+
+$dark-blue: #2c3e50;
+$medium-blue: #17a2b8;
+$light-blue: #3b97d3;
+$dark-grey: #828282;
+$orange: #e57e25;
+$loading-color: $light-blue;
+$loading-width: 4px;
+$loading-size: 30px;
+$font-light: 300;
+$font_heavy: 600;
+$font-normal: 500;
+$darken-on-hover: 10%;
+$white-on-hover: #e9ecef;
+
+@import "frontpage";
+
+html, body {
+    /* The html and body elements cannot have any padding or margin. */
+    height: 100%;
+    margin: 0;
+    color: $dark_blue;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.background {
+    background-color: #f6f7f6;
+}
+
+#footer_wrap {
+    background-color: #f6f7f6;
+}
+
+// TOCHECK Carefoul overriding default
+#news-card .badge {
+    font-size: small !important;
+    color: #fff !important;
+}
+
+.card-style {
+    border: none;
+    margin-top: 10px;
+    border-top: 2px solid lighten($dark-blue, 30%);
+    border-radius: unset;
+}
+
+.col-position {
+    margin-top: 10px;
+}
+
+.content-style {
+    font-size: 14px;
+    color: #35495e;
+}
+
+.footer {
+    border-top: 2px solid #eee;
+    min-height: 100px;
+    padding: 0;
+}
+
+.footer #logos {
+    margin-top: 5%;
+}
+
+.footer #copyright {
+    margin-top: 15%;
+}
+
+@media only screen and (max-width: 992px) {
+    .header-text-section {
+        display: none;
+    }
+
+    #demo-logo {
+        display: none;
+    }
+}
+
+.header-text-section {
+    position: absolute;
+    bottom: 45vh;
+    font-size: 0.9rem;
+}
+
+.header-links-section {
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+    text-align: center;
+}
+
+.header-link {
+    height: 180px;
+}
+
+.header-link.education {
+    background: url('static/assets/img/top-education-link.svg') 50% 0% no-repeat;
+    background-size: 200px;
+    padding-top: 130px;
+}
+
+.header-link.education .btn-info {
+    background-color: #e57e25;
+    border: none;
+    cursor: pointer;
+}
+
+.header-link.research .btn-info {
+    background-color: #3b97d3;
+    border: none;
+    cursor: pointer;
+}
+
+.header-link.education .btn-info:hover {
+    background-color: #d17322;
+}
+
+.header-link.research .btn-info:hover {
+    background-color: #388ec7;
+}
+
+.header-link.research {
+    background: url('static/assets/img/top-research-link.svg') 50% 0% no-repeat;
+    background-size: 200px;
+    padding-top: 130px;
+}
+
+@media only screen and (min-width: 992px) {
+    .explore-menu {
+        margin-left: -110%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .about-menu {
+        margin-left: -20%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .mobile-search {
+        display: none;
+    }
+}
+
+#mobile-search-position {
+    margin-top: -3%;
+}
+
+@media only screen and (max-width: 992px) {
+    #main-search {
+        display: none;
+    }
+}
+
+#navbarSupportedContent form .btn-info {
+    background-color: #17a2b8 !important;
+}
+
+#home-research {
+    min-height: auto;
+    background-color: white;
+}
+
+#news-card {
+    min-height: 388.7px;
+}
+
+#news-card .card-body {
+    min-height: 162px;
+}
+
+#news-card h4 {
+    font-weight: bolder;
+    font-size: 1.1em;
+}
+
+#visualise-home {
+    min-height: auto;
+}
+
+.navbar-custom {
+    background-color: #283747 !important;
+    border-bottom: 2px solid #35495e;
+
+}
+
+.navbar-custom a {
+    color: white;
+}
+
+.od-icon {
+    min-height: 140px;
+    padding: 10px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.od-teaching {
+    background-image: url('static/assets/img/teaching.svg');
+    background-size: 23%;
+}
+
+.od-visualize {
+    background-image: url('static/assets/img/visualize.svg');
+    background-size: 20%;
+}
+
+#visualise-home h4 {
+    font-weight: bolder;
+    font-size: 1.4em;
+}
+
+.od-db-education {
+    background-image: url('static/assets/img/db-education.svg');
+    background-size: 30%;
+}
+
+.od-model {
+    background-image: url('static/assets/img/model.svg');
+    background-size: 30%;
+}
+
+.od-vm {
+    background-image: url('static/assets/img/vm.svg');
+    background-size: 60%;
+}
+
+.od-db-research {
+    background-image: url('static/assets/img/db-research.svg');
+    background-size: 30%;
+}
+
+.info-block {
+    padding: 10px;
+    max-width: 600px;
+    min-width: 318px;
+}
+
+.info-block.education a {
+    color: #e57e25;
+}
+
+.info-block.research a {
+    color: #283747;
+}
+
+.info-block h4 {
+    font-weight: bolder;
+    font-size: 1.4em;
+}
+
+.info-block ul {
+    list-style: none;
+    text-align: left;
+}
+
+.info-block ul li {
+    padding: 20px 0 5px 0;
+}
+
+.info-block ul li a {
+    font-weight: bolder;
+    font-size: 1.1em;
+}
+
+.dropdown-item {
+    color: #3b97d3 !important;
+    display: block;
+    //padding: 3px 20px;
+    line-height: 1.42857;
+    white-space: nowrap;
+}
+
+.custom-card {
+    min-height: 181px;
+}
+
+.custom-badge-warning {
+    background-color: #e57e25;
+}
+
+.custom-badge-success {
+    background-color: #3b97d3;
+}
+
+.custom-badge-success:hover {
+    background-color: #2980b9 !important;
+}
+
+// @TOCHECK Carefoul with this one
+a {
+    color: #3b97d3;
+}
+
+.record-elem li .card {
+    border: none;
+    border-radius: unset;
+}
+
+.results-position {
+    margin-top: 2%;
+}
+
+#date-published {
+    color: grey;
+}
+
+// glossary
+.record-elem .card {
+    border: none;
+    border-radius: unset;
+}
+
+.see-also {
+    margin-right: 2px;
+}
+
+// breadcrumbs
+.custom-breadcrumb {
+    margin-bottom: 0;
+}
+//
+
+// Need help previewer
+.screen-s {
+    width: 100%;
+    height: auto;
+}
+
+.card-body h4 a {
+    font-size: 20px;
+    color: #3b97d3;
+}
+
+.date-author-small {
+    font-size: 0.6em;
+}
+
+.pagination.file-pagination {
+    display: inline-block;
+    border: 1px solid #ccc;
+
+    li {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        border-right: 1px solid #ccc;
+
+        &.active {
+            background-color: #3b97d3;
+            color: #fff;
+
+            a {
+                color: #fff;
+            }
+        }
+
+        &.pagination-last {
+            border-right: none;
+        }
+    }
+    li:hover:not(.active) {background-color: #ddd;}
+}
+
+.list-nobullets {
+    list-style: none;
+    padding-left: $loading-size;
+}
+
+#loading-bar .bar{
+    background-color: $loading-color;
+    height: $loading-width;
+}
+
+// SEARCH PAGE
+
+.facets-box {
+    margin-top: 20px;
+
+    .title {
+        font-size: 1.2em;
+        font-weight: $font-normal;
+        margin-bottom: .4em;
+    }
+
+    ul {
+        margin-bottom: 2px;
+    }
+
+    label {
+        all: unset;
+        cursor: pointer;
+
+        input {
+            cursor: pointer;
+        }
+    }
+}
+
+// Search results
+.page-item.active .page-link {
+    background-color: $dark-blue;
+    border-color: $dark-blue;
+}
+
+.page-link {
+    color: #35495e;
+
+    &:hover {
+        color: black;
+        background-color: $white-on-hover;
+    }
+}
+
+.record-elem results-brief {
+    width: 100%;
+}
+
+invenio-search-results {
+    color: #35495e;
+}
+
+invenio-search-facets {
+    color: #35495e;
+}
+
+.invenio-search-results {
+    color: #35495e;
+}
+
+.result {
+
+    .card:hover {
+        background-color: $white-on-hover;
+    }
+
+    .card-body {
+        border-bottom: 1px solid $white-on-hover;
+
+        .title {
+            font-size: 1.2em;
+            font-weight: $font-normal;
+            margin-bottom: .4em;
+        }
+
+        p {
+            font-weight: $font-light;
+        }
+
+        // whole parent div is a link
+        .make-parent-div-clickable {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            text-decoration: none;
+            /* Makes sure the link doesn't get underlined */
+            background-color: white;
+            /*workaround to make clickable in IE */
+            opacity: 0;
+            /*workaround to make clickable in IE */
+            filter: alpha(opacity=0);
+            /*workaround to make clickable in IE */
+        }
+    }
+
+    .card-body-condensed {
+        padding-top: .7em;
+        padding-bottom: 0em;
+    }
+}
+
+.badges-box {
+    font-size: .9em;
+
+    .badge {
+        padding: .4em .7em;
+        font-size: .7em;
+        font-weight: $font-heavy;
+        position:relative;
+    }
+
+    .badge:hover {
+        text-decoration: none;
+        color: white;
+    }
+}
+
+.badge-type {
+    background-color: $light-blue;
+    color: white;
+
+    &:hover {
+        background-color: darken($light-blue, $darken-on-hover);
+    }
+
+}
+
+.badge-subtype {
+    background-color: $medium-blue;
+    color: white;
+
+    &:hover {
+        background-color: darken($medium-blue, $darken-on-hover);
+    }
+}
+
+.badge-tag {
+    background-color: #7c818f;
+    color: white;
+
+    &:hover {
+        background-color: darken(#7c818f, $darken-on-hover);
+    }
+}
+
+.badge-experiment {
+    background-color: #406184;
+    color: white;
+
+    &:hover {
+        background-color: darken(#406184, $darken-on-hover);
+    }
+}
+
+.badge-additional {
+    background-color: #e7e8ea;
+    color: black;
+
+    &:hover {
+        background-color: darken(#e7e8ea, $darken-on-hover);
+        color: black;
+    }
+}
+
+.badge-clear-facet {
+    background-color: #f5f5f5;
+    padding: 8px;
+    font-size: 0.9em;
+    font-weight: $font-light;
+    margin-right: 1px;
+    margin-top: 1px;
+    cursor: pointer;
+}
+
+.clear-facets-box {
+    div, a {
+        display: inline-block;
+    }
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.facet-count {
+    float: right;
+    width: 50px;
+}
+
+.searchbar {
+    min-width: 250px;
+    width: 35%;
+    margin-left: 30px;
+    margin-right: 30px;
+
+}
+
+.search-btn {
+    background-color: $light-blue;
+    border-color: $light-blue;
+    color: white;
+}
+
+// DETAIL PAGE
+
+.detail-page {
+
+    font-weight: $font-light;
+
+    h1 {
+        font-size: 1.8em;
+        margin-top: 1em;
+    }
+
+    h2 {
+        font-size: 1.6em;
+        margin-top: 1em;
+    }
+
+    h3 {
+        margin-top: 1em;
+        font-size: 1.6em;
+    }
+
+    strong {
+        font-weight: $font-heavy;
+    }
+
+    .cite-paragraph {
+        font-weight: $font-light;
+        line-height: 1.2;
+        margin-bottom: 30px;
+    }
+
+    .news-content {
+        margin-top: 2em;
+    }
+
+    .definition-paragraph {
+        padding-top: 1em;
+    }
+
+    .card {
+        margin-bottom: 1em;
+        padding-bottom: 2em;
+    }
+}
+
+.modal-backdrop {
+    background-color: #ccc;
+    opacity: 0.6;
+}
+
+.file-row {
+    display: flex;
+}
+

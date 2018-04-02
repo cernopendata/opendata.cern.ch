@@ -1,0 +1,153 @@
+{% macro files_box() %}
+<div>
+  <h2 class="detail_view_h3" ng-if="$ctrl.index_files.total > 0">File Indexes</h3>
+  {{files_table("index_files")}}
+
+  <h2 class="detail_view_h3" ng-if="$ctrl.files.total > 0">Files</h3>
+  {{files_table("files")}}
+</div>
+{% endmacro %}
+
+{% macro files_table(type) %}
+  <div ng-if="$ctrl.{{type}}.total > 0" ng-controller="paginationWithDataCtrl as $ctrlTbl">
+    {% raw %}
+    {{$ctrlTbl.files = $ctrl.{% endraw %}{{type}}{% raw %}.files; ""}}
+    {{$ctrlTbl.totalItems = $ctrl.{% endraw %}{{type}}{% raw %}.total; ""}}
+    <table ng-if="$ctrlTbl.s_files.length == 0" class="table">
+      <thead>
+        <tr>
+          <th>Filename</th>
+          <th>Size</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="" ng-repeat="file in $ctrl.{% endraw %}{{type}}{% raw %}.files">
+          <td>{{ file.key }}</td>
+          <td>{{ file.size | bytes }}</td>
+          <td class="file-row justify-content-end">
+            {% endraw %}
+            <div class="btn-group" role="group" aria-label="Button group" ng-init="download_uri = '/record/{{pid.pid_value}}/files/'+file.key">
+              <a
+                ng-controller="indexFileListModalCtrl as $ctrlIndexList"
+                ng-click="$ctrlIndexList.openModal({{pid.pid_value}}, file.key)"
+                ng-if="file.type == 'index.txt'"
+                class="btn btn-outline-primary">
+                <span class="oi" data-glyph="list"></span> List Files
+              </a>
+              {{ download_btn() }}
+            {% raw %}
+              <a
+                ng-if="previewable = (file.key.split('.').pop() == 'ig')"
+                ng-href="#previewer"
+                ng-click="$ctrlTbl.previewFile(file.key)"
+                class="btn btn-outline-primary">
+                  <span class="oi" data-glyph="eye"></span> Preview
+              </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table ng-if="$ctrlTbl.s_files.length > 0" class="table">
+      <thead>
+        <tr>
+          <th>Filename</th>
+          <th>Size</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ file.key }}
+        <tr id="" ng-repeat="file in $ctrlTbl.s_files">
+          <td>{{ file.key }}</td>
+          <td>{{ file.size | bytes }}</td>
+          <td class="file-row justify-content-end">
+            {% endraw %}
+            <div class="btn-group" role="group" aria-label="Button group" ng-init="download_uri = '/record/{{pid.pid_value}}/files/'+file.key">
+              <a
+                ng-controller="indexFileListModalCtrl as $ctrlIndexList"
+                ng-click="$ctrlIndexList.openModal({{pid.pid_value}}, file.key)"
+                ng-if="file.type == 'index.txt'"
+                class="btn btn-outline-primary">
+                <span class="oi" data-glyph="list"></span> List Files
+              </a>
+              {{ download_btn() }}
+            {% raw %}
+              <a
+                ng-if="previewable = (file.key.split('.').pop() == 'ig')"
+                ng-href="#previewer"
+                ng-click="$ctrlTbl.previewFile(file.key)"
+                class="btn btn-outline-primary">
+                  <span class="oi" data-glyph="eye"></span> Preview
+              </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div ng-if="$ctrlTbl.totalItems > $ctrlTbl.itemsPerPage">
+      <ul uib-pagination
+        class="pagination file-pagination pagination-sm"
+        ng-change="$ctrlTbl.pageChangedFetch('{% endraw %}{{type}}{% raw %}')"
+        total-items="$ctrlTbl.totalItems"
+        ng-model="$ctrlTbl.currentPage"
+        max-size="$ctrlTbl.maxSize"
+        boundary-links="true"
+        items-per-page="$ctrlTbl.itemsPerPage">
+    </ul>
+  </div>
+</div>
+{% endraw %}
+{% endmacro %}
+
+{% macro download_btn() %}
+
+{% set threshold = config.get('CERNOPENDATA_MAX_DOWNLOAD_SIZE') %}
+
+
+<a class="btn btn-primary" ng-if="file.size <= {{threshold}}" {% raw %} href="{{download_uri}}">
+  <span class="oi" data-glyph="data-transfer-download"></span> Download
+</a>
+<a
+  ng-controller="downloadModalCtrl as $ctrl"
+  {% endraw %}
+  ng-if="file.size  > {{threshold}}"
+  {% raw %}
+  ng-click="$ctrl.openModal(file, download_uri)"
+  href="#"
+  class="btn btn-primary"
+>
+  <span class="oi" data-glyph="data-transfer-download"></span> Download
+</a>
+{% endraw %}
+{% endmacro %}
+
+{% macro authors_table(authors) %}
+<div ng-controller="paginationCtrl as $ctrl">
+  <h2>Author information</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Affiliation</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for author in authors|sort_multi('affiliation','name') %}
+    <tr id="{{type}}" ng-hide="$ctrl.itemsStatus[{{loop.index-1}}]">
+      <td>{{ author.get("name", "") }}</td>
+      <td>{{ author.get("affiliation", "") }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <div class="pagination">
+    <pagination ng-change="$ctrl.pageChanged()" total-items="$ctrl.totalItems" ng-model="$ctrl.currentPage"
+                max-size="$ctrl.maxSize" class="pagination-sm" boundary-links="true"
+                items-per-page="$ctrl.itemsPerPage"></pagination>
+  </div>
+</div>
+{% endmacro %}
+
+

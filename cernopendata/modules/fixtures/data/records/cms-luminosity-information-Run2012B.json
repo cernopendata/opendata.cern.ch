@@ -1,0 +1,62 @@
+[
+{
+  "abstract": {
+    "description": " <p>The integrated luminosity for validated runs and luminosity sections of the 2012 public data (RunB and RunC) is available in the tables <a href=\"/record/1052/files/2012RunBlumi.txt\">2012RunBlumi.txt</a> and <a href=\"/record/1052/files/2012RunClumi.txt\">2012RunClumi.txt</a>. (The integrated luminosity for validated runs and luminosity sections of all 2012 p-p data taking is available in <a href=\"/record/1052/files/2012lumi.txt\">2012lumi.txt</a>.)</p>\n<p>In your estimate for the integrated luminosity, check for which runs the trigger you have selected is active and sum the values for those runs. The uncertainty in the luminosity measurement of 2012 data should be considered as 2.6% (reference <a href=\"https://cds.cern.ch/record/1598864\">CMS PAS LUM-13-001</a>).</p>\n<p>If you are using prescaled triggers, you can find the HLT trigger prescale factors for different run ranges in trigger configuration files listed in <a href=\"/record/1701\">this record</a> (under \"PrescaleService\"). Note that these factors may change during a run, and the change of prescales (run, lumi section, index of prescales) is recorded in\n<a href=\"/record/1052/files/prescale2012.txt\">prescale2012.txt</a>. In this case you may also need detailed list of luminosity by lumi section in <a href=\"/record/1052/files/2012lumibyls.csv\">2012lumibyls.csv</a> for the <a href=\"/record/1002\">list of validated runs</a> and lumi sections.</p> "
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+      "recid": "451",
+      "name": "CMS Collaboration"
+  },
+  "collections": [
+      "CMS-Luminosity-Information"
+  ],
+  "date_created": "2012",
+  "date_published": "2017",
+  "distribution": {
+      "formats": [
+          "txt",
+          "csv"
+      ]
+  },
+  "doi": "10.7483/OPENDATA.CMS.LJ89.MM3I",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:fda50848945c709b3fba2dda30c9712c86beabc2",
+      "size": 48284,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2012/2012lumi.txt"
+    },
+    {
+      "checksum": "sha1:0c63092d2b815e7c6510679b176c007bc1a1f30b",
+      "size": 12916,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2012/2012RunBlumi.txt"
+    },
+    {
+      "checksum": "sha1:47dcef3072b17f76734bc053f3c4c7bda1078cc9",
+      "size": 16070,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2012/2012RunClumi.txt"
+    },
+    {
+      "checksum": "sha1:ea8837412e962faaf1ca452c9f7f4da678d648f2",
+      "size": 19463607,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2012/2012lumibyls.csv"
+    },
+    {
+      "checksum": "sha1:14ca08d74f697e106944c1e173ba909915a0f567",
+      "size": 49680,
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2012/prescale2012.txt"
+    }
+  ],
+  "publisher": "CERN Open Data Portal",
+  "recid": "1052",
+  "run_period": "Run2012B-Run2012C",
+  "title": "CMS luminosity information, for 2012 CMS open data",
+  "type": {
+    "primary": "Supplementaries",
+    "secondary": [
+      "Luminosity"
+    ]
+  }
+}
+]

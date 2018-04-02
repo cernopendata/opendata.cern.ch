@@ -1,0 +1,281 @@
+{
+    "$schema": "http://json-schema.org/draft-03/schema#",
+    "description": "Datasets",
+    "type": "object",
+    "properties": {
+        "recid": {
+            "type": "string"
+        },
+        "doi": {
+            "type": "string"
+        },
+        "collaboration": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "recid": {
+                    "type": "integer"
+                }
+            }
+        },
+        "type": {
+            "type": "string"
+        },
+        "subtype": {
+            "type": "string"
+        },
+        "title": {
+            "type": "string"
+        },
+        "additional_title": {
+            "type": "string"
+        },
+        "distribution": {
+            "type": "object",
+            "properties": {
+                "formats": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "number_events": {
+                    "type": "string"
+                },
+                "number_files": {
+                    "type": "string"
+                },
+                "size": {
+                    "type": "string"
+                }
+            }
+        },
+        "publisher": {
+            "type": "string"
+        },
+        "date_published": {
+            "type": "string"
+        },
+        "date_created": {
+            "type": "string"
+        },
+        "date_reprocessed": {
+            "type": "string"
+        },
+        "system_details": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "release": {
+                    "type": "string"
+                },
+                "global_tag": {
+                    "type": "string"
+                }
+            }
+        },
+        "abstract": {
+            "type": "string"
+        },
+        "license": {
+            "type": "object",
+            "properties": {
+                "attribution": {
+                    "type": "string"
+                }
+            }
+        },
+        "note": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "links": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "recid": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "generation": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "steps": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string"
+                            },
+                            "note": {
+                                "type": "string"
+                            },
+                            "configuration_files": {
+                                "type": "array",
+                                "minItems": 1,
+                                "uniqueItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "description": {
+                                            "type": "string"
+                                        },
+                                        "recid": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "validation": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "links": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "url": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "usage": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "links": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "url": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "selection": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                }
+            }
+        },
+        "accelerator": {
+            "type": "string"
+        },
+        "experiment": {
+            "type": "string"
+        },
+        "parent_dataset": {
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "collision_information": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "energy": {
+                    "type": "string"
+                }
+            }
+        },
+        "run_period": {
+            "type": "string"
+        },
+        "collections": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+                "type": "string"
+            }
+        },
+        "_files": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "uri": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "bucket": {
+                        "type": "string"
+                    },
+                    "version_id": {
+                        "type": "string"
+                    },
+                    "size": {
+                        "type": "integer"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "checksum": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

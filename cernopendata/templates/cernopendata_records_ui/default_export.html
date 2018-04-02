@@ -1,0 +1,15 @@
+{%- extends "invenio_records_ui/detail.html" %}
+
+{%- block page_body %}
+<div class="container">
+    <h2>
+        {{record.title}}
+    </h2>
+    <hr>
+    <br>
+    <h3>{{ format_title }} Export</h3>
+    <div>
+        <pre style="white-space: pre-wrap;">{{ data }}</pre> 
+    </div>
+</div>
+{%- endblock %}

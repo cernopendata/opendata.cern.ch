@@ -8,182 +8,32 @@
 Installation
 ============
 
-Here is how to install an instance of the CERN Open Data Portal on
-your laptop.
+You can run a local CERN Open Data instance for development purposes using
+Docker with ``docker-compose-dev.yml`` configuration. The source code directory
+will be mounted in the container and the system will be ready for "live
+editing". This is useful for active feature development or for pull request
+integration purposes. A usage example:
 
-Quick installation instructions
--------------------------------
+.. code-block:: console
 
-Quick installation instructions for an impatient Invenio developer::
+   $ docker-compose -f docker-compose-dev.yml build
+   $ docker-compose -f docker-compose-dev.yml up
+   $ docker exec -i -t opendatacernch_web_1 /code/scripts/populate-instance.sh --skip-files
+   $ firefox http://0.0.0.0:5000/
+   $ docker-compose -f docker-compose-dev.yml down
 
-   cd ~/private/src/invenio
-   git checkout maint-2.0
-   docker build -t invenio:2.0 .
-   cd ~/private/src/opendata.cern.ch
-   git checkout master
-   ./scripts/populate-fft-file-cache.sh
-   docker-compose -f docker-compose-dev.yml build
-   docker-compose -f docker-compose-dev.yml up
-   # now wait until all daemons are fully up and running
-   firefox http://127.0.0.1:28080/
-   # now populate demo site with some records
-   docker exec -i -t -u invenio opendatacernch_web_1 \
-     inveniomanage demosite populate --packages=invenio_opendata.base \
-       -f invenio_opendata/testsuite/data/lhcb/lhcb-derived-datasets.xml \
-       -e force-recids --yes-i-know
-   firefox http://127.0.0.1:28080/
+If you want to use production-like conditions locally, you can use Docker with
+``docker-compose.yml`` configuration. This is useful for tuning overall system
+performance such as reverse proxy caching. The source code directory will not be
+mounted in the container in this case. A usage example:
 
-Detailed installation instructions
-----------------------------------
+.. code-block:: console
 
-Detailed installation instructions for a patient Invenio developer.
-
-Firstly, `install Docker <https://docs.docker.com/installation/>`_.
-
-Secondly, clone Invenio and CERN Open Data Portal sources, following
-`Appendix: Setting up repostory
-<https://github.com/cernopendata/opendata.cern.ch/blob/master/DEVELOPING.rst#setting-up-repository>`_.
-
-You now have sources in the following directories::
-
-  ~/private/src/invenio
-  ~/private/src/opendata.cern.ch
-
-Thirdly, run helper script to pre-populate local fulltext file cache
-archive from which the demo records will be later loaded::
-
-  cd ~/private/src/opendata.cern.ch
-  ./scripts/populate-fft-file-cache.sh
-
-Note that this will download about 8 GB of files to the following
-directory::
-
-  ~/Local/opendata.cern.ch-fft-file-cache
-
-Fourthly, build Invenio Docker image if you haven't built one yet::
-
-  cd ~/private/src/invenio
-  git checkout maint-2.0
-  docker build -t invenio:2.0 .
-
-Fifthly, create CERN Open Data Portal docker image and bring up the
-containers::
-
-  cd ~/private/src/opendata.cern.ch
-  docker-compose -f docker-compose-dev.yml build
-  docker-compose -f docker-compose-dev.yml up
-
-Wait until all daemons are fully up and running.  Now you should be
-able to see the empty site::
-
-  firefox http://127.0.0.1:28080/
-
-Sixthly, if you would like to populate your CERN Open Data local
-installation with records, you can now do in another terminal::
-
-  cd ~/private/src/opendata.cern.ch
-  docker exec -i -t -u invenio opendatacernch_web_1 \
-    inveniomanage demosite populate --packages=invenio_opendata.base \
-    -f invenio_opendata/testsuite/data/lhcb/lhcb-derived-datasets.xml \
-    -e force-recids --yes-i-know
-
-for all the files you'd like to upload, depending on which collection
-you'd like to work with.  For example, the above command will populate
-only the LHCb Derived Datasets collection.  If you would like to
-populate *all* collections, you can use::
-
-  docker exec -i -t -u invenio opendatacernch_web_1 \
-    inveniomanage demosite populate --packages=invenio_opendata.base \
-    -f invenio_opendata/testsuite/data/alice/alice-analysis-modules.xml \
-    -f invenio_opendata/testsuite/data/alice/alice-derived-datasets.xml \
-    -f invenio_opendata/testsuite/data/alice/alice-learning-resources.xml \
-    -f invenio_opendata/testsuite/data/alice/alice-reconstructed-data.xml \
-    -f invenio_opendata/testsuite/data/alice/alice-vm-image.xml \
-    -f invenio_opendata/testsuite/data/atlas/atlas-derived-datasets.xml \
-    -f invenio_opendata/testsuite/data/atlas/atlas-higgs-challenge-2014.xml \
-    -f invenio_opendata/testsuite/data/atlas/atlas-learning-resources.xml \
-    -f invenio_opendata/testsuite/data/atlas/atlas-tools.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-author-list.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-csv-files.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-eventdisplay-files.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-eventdisplay-files-Run2011A.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-hamburg-files.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-learning-resources.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-masterclass-files.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-open-data-instructions.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-primary-datasets.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-primary-datasets-Run2011A.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-trigger-information-Run2011A.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-trigger-path-Run2011A.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-tools-ana.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-tools-dimuon-filter.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-tools-ispy.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-tools-vm-image.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-validated-runs.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-condition-data-Run2010B.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-condition-data-Run2011A.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-configuration-files-Run2011A.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-hlt-2011-configuration-files.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-pileup-configuration-files.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-simulated-datasets-Run2011A.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-tools-dimuon-spectrum-2010.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-tools-vm-image-Run2011A.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-tools-cmssw.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-tools-cmssw-Run2011A.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-tools-ispy-Run2011A.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-tools-ana-Run2011A.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-derived-pattuples-ana-Run2011A.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-author-list-Run2011A.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-validation-code-Run2010B.xml \
-    -f invenio_opendata/testsuite/data/cms/cms-l1-trigger-information-Run2011A.xml \
-    -f invenio_opendata/testsuite/data/lhcb/lhcb-derived-datasets.xml \
-    -f invenio_opendata/testsuite/data/lhcb/lhcb-learning-resources.xml \
-    -f invenio_opendata/testsuite/data/lhcb/lhcb-tools.xml \
-    -f invenio_opendata/testsuite/data/data-policies.xml \
-    -e force-recids --yes-i-know
-
-Now you should be able to see the populated site::
-
-  firefox http://127.0.0.1:28080/
-
-Running
-=======
-
-The data in your newly built Docker containers are persistent.  You
-can stop the containers by e.g. interrupting the ``docker-compose up``
-process at any time, and bring your work back up by doing::
-
-  cd ~/private/src/opendata.cern.ch
-  docker-compose -f docker-compose-dev.yml up
-
-Developing
-==========
-
-The sources in your local directories ``~/private/src/invenio`` and
-``~/private/src/opendata.cern.ch`` are mounted in your running Docker
-containers when ``docker-compose up`` starts them.  Hence you can
-simply edit the files directly on your laptop and observe the changes
-in the running application.
-
-JS/CSS Assets
-=============
-
-If you change JS or CSS requirements, you may need to rebuild
-bundles::
-
-  docker exec -i -t -u invenio opendatacernch_web_1 \
-    sh -c 'inveniomanage bower -i bower-base.json > bower.json'
-  docker exec -i -t -u invenio opendatacernch_web_1 \
-    sh -c 'CI=true bower install'
-  docker exec -i -t -u invenio opendatacernch_web_1 \
-    inveniomanage collect
-
-See also
-========
-
-* http://invenio.readthedocs.org/en/latest/developers/docker.html
-
+   $ docker-compose build
+   $ docker-compose up
+   $ docker exec -i -t opendatacernch_web_1 /code/scripts/populate-instance.sh
+   $ firefox http://0.0.0.0/
+   $ docker-compose -f docker-compose-dev.yml down -v
 
 Appendix: Git workflow
 ======================

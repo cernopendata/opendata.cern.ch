@@ -1,0 +1,17 @@
+{%- if breadcrumbs|length > 1 %}
+  <ol class="breadcrumb custom-breadcrumb">
+    {%- for breadcrumb in breadcrumbs %}
+    {%- if loop.last %}
+    <li class="breadcrumb-item active">
+      {{ breadcrumb.text|safe }}
+    </li>
+    {%- else %}
+    <li class="breadcrumb-item">
+      <a href="{{ breadcrumb.url }}">
+        {{ breadcrumb.text|safe }}
+      </a>
+    </li>
+    {%- endif %}
+    {%- endfor %}
+  </ol>
+{%- endif %}

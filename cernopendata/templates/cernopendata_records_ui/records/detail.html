@@ -1,0 +1,383 @@
+{%- extends "invenio_records_ui/detail.html" %}
+
+{% from 'cernopendata_records_ui/records/macros/files_box.html' import files_box, authors_table  with context %}
+
+{% from 'cernopendata_records_ui/records/macros/links.html' import link_list  with context %}
+
+{%- block page_body %}
+<div class="container-fluid background">
+    <div class="container detail-page" ng-app="recordApp">
+        <div class="row">
+            <div class="col-md">
+                <div class="card card-style">
+                    <div class="card-body">
+
+                        {% block heading %}
+                        <h2 class="d-inline">
+                            {{record.title}}
+                            <small id="date-published">{{record.date_published}}</small>
+                        </h2>
+                        <div class="row">
+                            {% if record.title_additional %}
+                            <div class="col-md-12">
+                                {{record.title_additional}}
+                            </div>
+                            {% endif %}
+                            <div class="col-md-12">
+                                {% for author in record.authors %}
+                                <small>{{author.name}}</small>
+                                {% endfor %}
+                                {% if record.collaboration %}
+                                <span class="badge badge-success">{{record.collaboration.name}}</span>
+                                {% endif %}
+                                {% if record.year %}
+                                <span class="badge badge-success">{{record.year}} Run</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <p></p>
+                        <h6 class="card-title">
+                            <label>Cite as:</label>
+                            {% for author in record.authors %}
+                            <span>{{author.name}}.</span>
+                            {% endfor %}
+                            <span>
+                                {% if record.collaboration %}
+                                {{record.collaboration.name}}
+                                {% endif %} ({{record.date_published}}). {{record.title_additional}}. CERN Open Data Portal.
+                                {% if record.doi %}
+                                <label>DOI:</label>
+                                <a href="http://doi.org/{{record.doi}}">{{record.doi}}</a>
+                                {% endif %}
+                            </span>
+                        </h6>
+                        <p></p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                {% if record.collision_information %}
+                                <label>Collision Energy:</label>
+                                <span><a
+                                 href="/search?q={{record.collision_information.energy}}">{{record.collision_information.energy}}</a></span>
+                                {% endif %}
+                                <label>Experiment:</label>
+                                <span><a href="/search?q={{record.experiment}}">{{record.experiment}}</a></span>
+                                <label>Accelerator:</label>
+                                <span><a href="/search?q={{record.accelerator}}">{{record.accelerator}}</a></span>
+                            </div>
+                        </div>
+                        {% endblock heading %}
+                        <hr>
+                        {% block metadata_block %}
+                        {% if record.abstract %}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>Description</h2>
+                                <p>{{record.abstract.description | safe}}</p>
+                                {{ link_list(record.abstract.links) }}
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endblock metadata_block %}
+
+                        {% block files_block %}
+                        <div ng-controller="paginationCtrl as $ctrl" ng-init="$ctrl.getFiles()">
+                            {{ files_box()}}
+                        </div>
+                        {% endblock files_block %}
+                        {% block disclaimer %}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>Disclaimer</h2>
+                                {% if record.license %}
+                                {% if record.license.attribution != 'CC0'%}
+                                <p>{{record.license.attribution}}</p>
+                                {% else %}
+                                <p>The open data are released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative
+                                    Commons CC0 waiver</a>. Neither {{record.experiment}} nor CERN endorse any
+                                works, scientific or otherwise, produced using these data.
+                                All releases will have a unique DOI that you are requested to cite in any applications or
+                                publications.
+                                </p>
+                                <img src="{{url_for('static', filename='img/cc-zero.svg')}}">
+                                {% endif %}
+                                {% else %}
+                                <p>The open data are released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative
+                                    Commons CC0 waiver</a>. Neither {{record.experiment}} nor CERN endorse any
+                                works, scientific or otherwise, produced using these data.
+                                All releases will have a unique DOI that you are requested to cite in any applications or
+                                publications.
+                                </p>
+                                <img src="{{url_for('static', filename='img/cc-zero.svg')}}">
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endblock disclaimer %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% block export %}
+        <div class="col-md-2">
+            <div class="card card-style">
+                <div class="card-body">
+                    <h4> Export </h4>
+                    <ul class="list-inline">
+                        <li><a
+                        href="{{ url_for('invenio_records_ui.recid_export', pid_value=pid.pid_value, format='json') }}">JSON</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endblock export %}
+    </div>
+</div>
+{%- endblock %}
+
+{% block javascript %}
+{{ super() }}
+
+<script>
+$('#download_caution').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget)
+        var file_uri = button.data('download-uri')
+        var file_key = button.data('download-key')
+        var file_size = button.data('download-size')
+
+        var modal = $(this)
+        modal.find('#download-msg-filename').text(file_key)
+        modal.find('#download-msg-size').text(file_size)
+        modal.find('#download-msg-uri').attr("href", file_uri)
+})
+
+var recordApp = angular.module('recordApp', ['ui.bootstrap']);
+
+recordApp.controller('paginationCtrl', ['$scope', '$element', '$http', function($scope, $element, $http){
+    var $ctrl = this;
+
+    $ctrl.viewby = 5;
+    $ctrl.totalItems = 0;
+    $ctrl.currentPage = 1;
+    $ctrl.itemsPerPage = $ctrl.viewby;
+    $ctrl.maxSize = 5;
+
+    $ctrl.getFiles = function(){
+        $http.get('/record/{{pid.pid_value}}/filepage/'+$ctrl.currentPage+'?group=1')
+            .then( function(files) {
+              $ctrl.index_files = files.data.index_files;
+              $ctrl.files = files.data.files;
+            })
+    }
+
+    var cleanStatus = Array.apply(null, Array($ctrl.totalItems)).map(function (_, i) {return true;});
+    $ctrl.itemsStatus = angular.copy(cleanStatus)
+
+        var selected_files = [];
+
+        $ctrl.start = ($ctrl.currentPage-1)*$ctrl.itemsPerPage;
+        $ctrl.end = ($ctrl.currentPage)*$ctrl.itemsPerPage;
+        for (var i=$ctrl.start; i < $ctrl.end; i++) {
+          $ctrl.itemsStatus[i] = false;
+        }
+
+    $ctrl.previewFile = function(filename) {
+        ispy.loadUrl("/record/{{pid.pid_value}}/files/"+filename);
+    };
+
+    $ctrl.setPage = function (pageNo) {
+        $ctrl.currentPage = pageNo;
+    };
+
+    $ctrl.pageChanged = function(type = '') {
+      if (type == 'None') type = '';
+      $http.get('/record/{{pid.pid_value}}/filepage/'+$ctrl.currentPage+'?type='+type)
+        .then( function(files) {
+            $ctrl.files = files.data.files;
+        })
+    };
+
+    $ctrl.setItemsPerPage = function(num) {
+        $ctrl.itemsPerPage = num;
+        $ctrl.currentPage = 1; //reset to first page
+    }
+}])
+
+
+
+recordApp.controller('paginationWithDataCtrl', ['$scope', '$element', '$http', function($scope, $element, $http){
+      var $ctrl = this;
+
+      $ctrl.viewby = 5;
+      $ctrl.totalItems = 0;
+      $ctrl.currentPage = 1;
+      $ctrl.itemsPerPage = $ctrl.viewby;
+      $ctrl.maxSize = 5;
+      $ctrl.files = [];
+      $ctrl.s_files = [];
+
+      var cleanStatus = Array.apply(null, Array($ctrl.totalItems)).map(function (_, i) {return true;});
+      $ctrl.itemsStatus = angular.copy(cleanStatus)
+
+      var selected_files = [];
+
+      $ctrl.start = ($ctrl.currentPage-1)*$ctrl.itemsPerPage;
+      $ctrl.end = ($ctrl.currentPage)*$ctrl.itemsPerPage;
+      for (var i=$ctrl.start; i < $ctrl.end; i++) {
+        $ctrl.itemsStatus[i] = false;
+      }
+
+      $ctrl.setPage = function (pageNo) {
+        $ctrl.currentPage = pageNo;
+      };
+
+      $ctrl.pageChanged = function() {
+        $ctrl.start = ($ctrl.currentPage-1)*$ctrl.itemsPerPage;
+        $ctrl.end = ($ctrl.currentPage)*$ctrl.itemsPerPage;
+        $ctrl.s_files = $ctrl.files.slice($ctrl.start, $ctrl.end);
+      };
+
+     $ctrl.getFiles = function(){
+        $http.get('/record/{{pid.pid_value}}/filepage/'+$ctrl.currentPage+'?group=1')
+          .then( function(files) {
+            $ctrl.index_files = files.data.index_files;
+            $ctrl.files = files.data.files;
+          })
+      }
+
+
+      $ctrl.pageChangedFetch = function(type = '') {
+        if (type == 'None') type = '';
+        $http.get('/record/{{pid.pid_value}}/filepage/'+$ctrl.currentPage+'?type='+type)
+          .then( function(files) {
+            $ctrl.files = files.data.files;
+            $ctrl.s_files = $ctrl.files;
+          })
+      };
+
+      $ctrl.setItemsPerPage = function(num) {
+        $ctrl.itemsPerPage = num;
+        $ctrl.currentPage = 1; //reset to first page
+      }
+}])
+
+
+recordApp.controller(
+  'downloadModalCtrl',
+  [
+    '$scope',
+    '$interpolate',
+    '$http',
+    '$uibModal',
+    function($scope,  $interpolate , $http, $uibModal) {
+      var $ctrl = this;
+      $ctrl.openModal = function (file, download_uri, filename) {
+        var modalInstance = $uibModal.open({
+          animation: $ctrl.animationsEnabled,
+          ariaLabelledBy: 'modal-title',
+          ariaDescribedBy: 'modal-body',
+          templateUrl: "/static/templates/downloadModal.html",
+          controller: 'downloadModalInstanceCtrl',
+          controllerAs: '$ctrl',
+          windowClass: 'download-modal',
+          resolve: {
+            file: function() {
+              return file;
+            },
+            filename: function() {
+              return filename;
+            },
+            download_uri: function() {
+              return download_uri
+            }
+          }
+        });
+      };
+    }
+  ]);
+
+recordApp.controller(
+  'downloadModalInstanceCtrl',
+  function ($scope, $uibModalInstance, file, filename, download_uri){
+    var $ctrl = this;
+
+    $ctrl.file = file;
+    $ctrl.filename = filename;
+    $ctrl.download_uri = download_uri;
+
+    $ctrl.closeModal = function () {
+        $uibModalInstance.close();
+    };
+  });
+
+recordApp.controller(
+  'indexFileListModalCtrl',
+  [
+    '$scope',
+    '$interpolate',
+    '$http',
+    '$uibModal',
+    function($scope,  $interpolate , $http, $uibModal) {
+      var $ctrl = this;
+
+      $ctrl.openModal = function (pid, file) {
+        var modalInstance = $uibModal.open({
+          animation: $ctrl.animationsEnabled,
+          ariaLabelledBy: 'modal-title',
+          ariaDescribedBy: 'modal-body',
+          templateUrl: "/static/templates/indexFileListModal.html",
+          controller: 'indexFileListModalInstanceCtrl',
+          controllerAs: '$ctrl',
+          windowClass: 'index-file-list-modal',
+          resolve: {
+            $http: function() {
+              return $http;
+            },
+            pid: function() {
+              return pid;
+            },
+            uri: function() {
+              if (file.endsWith('index.txt')) {
+                var file_key = file.replace('.txt', '.json');
+                return '/record/' + pid + '/files/' + file_key;
+              }
+            }
+          }
+        });
+      };
+    }
+  ]);
+
+recordApp.controller(
+  'indexFileListModalInstanceCtrl',
+  function ($scope, $uibModalInstance, $http, pid, uri){
+    var $ctrl = this;
+    $ctrl.files = [];
+    $ctrl.pid = pid;
+
+    $http.get(uri)
+      .then(
+        function(files) { $ctrl.files = files.data; },
+        function(err) {
+         $ctrl.files_error = "Files are unavailable at the moment"; }
+      )
+
+
+    $ctrl.closeModal = function () {
+      $uibModalInstance.close();
+    };
+  }
+);
+
+recordApp.filter('bytes', function() {
+  return function(bytes, precision) {
+    if (isNaN(parseFloat(bytes)) || !isFinite(bytes)) return '-';
+    if (typeof precision === 'undefined') precision = 1;
+    var units = ['bytes', 'kB', 'MB', 'GB', 'TB', 'PB'],
+      number = Math.floor(Math.log(bytes) / Math.log(1024));
+    return (bytes / Math.pow(1024, Math.floor(number))).toFixed(precision) +  ' ' + units[number];
+  }
+});
+
+
+</script>
+{% endblock javascript %}

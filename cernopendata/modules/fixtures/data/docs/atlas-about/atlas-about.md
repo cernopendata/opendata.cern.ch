@@ -1,0 +1,7 @@
+ATLAS (A Toroidal LHC ApparatuS) is one of the two general-purpose detectors at the LHC, the other being CMS. Both detectors are geared towards covering a large range of physics produced in proton collisions such as the search for the Higgs Boson or Vector Boson Scattering.
+
+## About ATLAS Data
+
+The available dataset is derived from actual data recored by ATLAS during the 2011 run. There are 6 packages of 1000 events each totalling 6000 events. These events have been preselected to provide a high amount of interesting physics events. The data are saved in an XML format that can be read with the event display program MINERVA. A python-based framework for the analysis of the data is in the works.
+
+The dataset from the ATLAS Higgs Machine Learning Challenge is also available. The Challenge, which ran from May to September 2014, was to develop an algorithm that improved the detection of the Higgs boson signal. Participants applied and developed cutting-edge Machine Learning techniques, which have been shown to be better than existing traditional high-energy physics tools. The dataset that was available to Challenge participants through the Kaggle platform is now available on the CERN Open Data Portal to allow further studies.

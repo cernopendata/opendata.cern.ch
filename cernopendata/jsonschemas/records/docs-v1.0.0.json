@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Describe information needed for article entity.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "title": "id"
+    },
+    "type": {
+      "type": "object",
+      "properties": {
+        "primary": {
+          "type": "string"
+        },
+        "secondary": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "title": {
+      "type": "string",
+      "title": "Title"
+    },
+    "experiment": {
+      "type": "string"
+    },
+    "collections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "title": "Collection"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "short_description": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        }
+      }
+    },
+    "body": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        }
+      }
+    },
+    "screenshot": {
+      "type": "string"
+    },
+    "featured": {
+      "type": "integer"
+    },
+    "author": {
+      "type": "string"
+    },
+    "created": {
+      "type": "string"
+    },
+    "_files": {
+      "type": "array",
+      "items": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "title": "File schema.",
+        "description": "Describe information needed for files in records.",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "bucket": {
+            "type": "string"
+          },
+          "checksum": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer"
+          },
+          "version_id": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "title": "Article Schema.",
+  "type": "object"
+}
