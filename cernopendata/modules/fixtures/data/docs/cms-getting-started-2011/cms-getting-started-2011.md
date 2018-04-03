@@ -13,10 +13,11 @@ To analyse CMS data collected in 2011 and 2012, you need **version 5.3.32** of [
 $ cmsrel CMSSW_5_3_32
 ```
 
-Then, make sure that you are always in the **CMSSW_5_3_32/src/** directory by entering the following command in the terminal (you must do so every time you boot the VM before you can proceed):
+Then, make sure that you are always in the **CMSSW_5_3_32/src/** directory and that the CMS analysis environment is properly setup by entering the following commands in the terminal (you must do so every time you boot the VM before you can proceed):
 
 ```shell
 $ cd CMSSW_5_3_32/src/
+$ cmsenv
 ```
 
 ## <a name="data">"OK! Where can I get the CMS data?"</a>
@@ -27,11 +28,7 @@ The primary data provided by CMS on the CERN Open Data Portal is in a format cal
 
 So, let's see what an AOD file looks like and take ROOT for a spin!
 
-Making sure that you are in the **CMSSW_5_3_32/src/** folder, execute the following command in your terminal to launch the CMS analysis environment:
-
-```shell
-$ cmsenv
-```
+Make sure that you are in the **CMSSW_5_3_32/src/** folder, and you have executed the `cmsenv` command in your terminal to launch the CMS analysis environment.
 
 You can now open a CMS AOD file in ROOT. Let us open one of the files from the CERN Open Data Portal by entering the following command:
 
