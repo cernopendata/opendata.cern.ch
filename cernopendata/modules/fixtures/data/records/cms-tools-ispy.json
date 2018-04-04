@@ -1,136 +1,135 @@
 [
-{
-  "abstract": {
-    "description": "Software to extract the data for the browser-based event display for the CMS Experiment"
-  },
-  "accelerator": "CERN-LHC",
-  "authors": [
-    {
-      "name": "McCauley, Thomas"
-    }
-  ],
-  "collections": [
-    "CMS-Tools"
-  ],
-  "date_created": "2010",
-  "date_published": "2014",
-  "experiment": "CMS",
-  "license": {
-    "attribution": "GNU General Public License (GPL) version 3"
-  },
-  "links": [
-    {
-      "description": "More information on the format can be found at",
-      "url": "http://cms-outreach.github.io/ispy/#what-is-an-ig-file"
+  {
+    "abstract": {
+      "description": "Software to extract the data for the browser-based event display for the CMS Experiment"
     },
-    {
-      "url": "https://github.com/cms-outreach/ispy-analyzers/tree/Run2010B"
-    }
-  ],
-  "methodology": {
-    "description": "The software produces the objects to be displayed. The configuration file https://github.com/cms-outreach/ispy-analyzers/blob/Run2010B/python/ISpy_AOD_Producer_cff.py defines the objects to write out, which is done in the corresponding cc files in the src directory. No event selection, apart from accepting only the validated runs, is applied."
-  },
-  "publisher": "CERN Open Data Portal",
-  "recid": "550",
-  "relations": [
-    {
-      "description": "The output are files in json format such as",
-      "recid": "600",
-      "type": "isRelatedTo"
-    }
-  ],
-  "run_period": "Run2010B",
-  "system_details": {
-    "description": "Use this code with the CMS Open Data VM environment",
-    "recid": "250",
-    "release": "CMSSW_4_2_8"
-  },
-  "title": "Software to extract the event display format from the CMS primary dataset",
-  "type": {
-    "primary": "Software",
-    "secondary": [
-      "Tool"
-    ]
-  },
-  "usage": {
-    "description": "See the run instructions in",
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "McCauley, Thomas"
+      }
+    ],
+    "collections": [
+      "CMS-Tools"
+    ],
+    "date_created": "2010",
+    "date_published": "2014",
+    "experiment": "CMS",
+    "license": {
+      "attribution": "GNU General Public License (GPL) version 3"
+    },
     "links": [
       {
-        "description": "GitHub",
-        "url": "https://github.com/cms-outreach/ispy-analyzers/blob/Run2010B/README.md"
-      }
-    ]
-  },
-  "use_with": {
-    "description": "Use this with any of the CMS primary datasets"
-  },
-  "validation": {
-    "description": "Only the list of validated runs are accepted:",
-    "links": [
+        "description": "More information on the format can be found at",
+        "url": "http://cms-outreach.github.io/ispy/#what-is-an-ig-file"
+      },
       {
-        "recid": "1000"
+        "url": "https://github.com/cms-outreach/ispy-analyzers/tree/Run2010B"
       }
-    ]
+    ],
+    "methodology": {
+      "description": "The software produces the objects to be displayed. The configuration file https://github.com/cms-outreach/ispy-analyzers/blob/Run2010B/python/ISpy_AOD_Producer_cff.py defines the objects to write out, which is done in the corresponding cc files in the src directory. No event selection, apart from accepting only the validated runs, is applied."
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "550",
+    "relations": [
+      {
+        "description": "The output are files in json format such as",
+        "recid": "600",
+        "type": "isRelatedTo"
+      }
+    ],
+    "run_period": "Run2010B",
+    "system_details": {
+      "description": "Use this code with the CMS Open Data VM environment",
+      "recid": "250",
+      "release": "CMSSW_4_2_8"
+    },
+    "title": "Software to extract the event display format from the CMS primary dataset",
+    "type": {
+      "primary": "Software",
+      "secondary": [
+        "Tool"
+      ]
+    },
+    "usage": {
+      "description": "See the run instructions in",
+      "links": [
+        {
+          "description": "GitHub",
+          "url": "https://github.com/cms-outreach/ispy-analyzers/blob/Run2010B/README.md"
+        }
+      ]
+    },
+    "use_with": {
+      "description": "Use this with any of the CMS primary datasets"
+    },
+    "validation": {
+      "description": "Only the list of validated runs are accepted:",
+      "links": [
+        {
+          "recid": "1000"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "A browser-based event display for the CMS Experiment using WebGL"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "McCauley, Thomas"
+      },
+      {
+        "name": "Barnard, Luke"
+      },
+      {
+        "name": "Hategan, Mihael"
+      },
+      {
+        "name": "Logren, Carita"
+      },
+      {
+        "name": "Nguyen, Phong"
+      },
+      {
+        "name": "Saunby, Michael"
+      }
+    ],
+    "collections": [
+      "CMS-Tools"
+    ],
+    "date_published": "2014",
+    "experiment": "CMS",
+    "license": {
+      "attribution": "BSD License"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "555",
+    "run_period": "Run2011A",
+    "system_details": {
+      "description": "The application is written using JavaScript, HTML and CSS. It reads a JSON event format and uses the JavaScript WebGL API three.js."
+    },
+    "title": "iSpy-WebGL",
+    "type": {
+      "primary": "Software",
+      "secondary": [
+        "Tool"
+      ]
+    },
+    "usage": {
+      "description": "Download from",
+      "links": [
+        {
+          "description": "GitHub",
+          "url": "https://github.com/cms-outreach/ispy-webgl"
+        }
+      ]
+    },
+    "use_with": {
+      "description": "Use this with derived data in event display format"
+    }
   }
-}
-,
-{
-  "abstract": {
-    "description": "A browser-based event display for the CMS Experiment using WebGL"
-  },
-  "accelerator": "CERN-LHC",
-  "authors": [
-    {
-      "name": "McCauley, Thomas"
-    },
-    {
-      "name": "Barnard, Luke"
-    },
-    {
-      "name": "Hategan, Mihael"
-    },
-    {
-      "name": "Logren, Carita"
-    },
-    {
-      "name": "Nguyen, Phong"
-    },
-    {
-      "name": "Saunby, Michael"
-    }
-  ],
-  "collections": [
-    "CMS-Tools"
-  ],
-  "date_published": "2014",
-  "experiment": "CMS",
-  "license": {
-    "attribution": "BSD License"
-  },
-  "publisher": "CERN Open Data Portal",
-  "recid": "555",
-  "run_period": "Run2011A",
-  "system_details": {
-    "description": "The application is written using JavaScript, HTML and CSS. It reads a JSON event format and uses the JavaScript WebGL API three.js."
-  },
-  "title": "iSpy-WebGL",
-  "type": {
-    "primary": "Software",
-    "secondary": [
-      "Tool"
-    ]
-  },
-  "usage": {
-    "description": "Download from",
-    "links": [
-      {
-        "description": "GitHub",
-        "url": "https://github.com/cms-outreach/ispy-webgl"
-      }
-    ]
-  },
-  "use_with": {
-    "description": "Use this with derived data in event display format"
-  }
-}
 ]
