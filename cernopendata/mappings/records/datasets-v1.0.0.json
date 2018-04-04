@@ -1,66 +1,66 @@
 {
-    "mappings": {
-        "datasets-v1.0.0": {
-            "properties": {
-                "$schema": {
-                    "type": "text",
-                    "copy_to": "facet_schema"
-                },
-                "facet_schema": {
-                    "type": "text",
-                    "index": "not_analyzed"
-                },
-                "type": {
-                    "type": "text",
-                    "index": "not_analyzed"
-                },
-                "subtype": {
-                    "type": "text",
-                    "index": "not_analyzed"
-                },
-                "doi": {
-                    "type": "text"
-                },
-                "collaboration": {
-                    "properties": {
-                        "name": {
-                            "type": "text"
-                        }
-                    }
-                },
-                "distribution": {
-                    "properties": {
-                        "formats": {
-                            "type": "text"
-                        }
-                    }
-                },
-                "title": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "additional_title": {
-                    "type": "text"
-                },
-                "publisher": {
-                    "type": "text"
-                },
-                "experiment": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "abstract": {
-                    "type": "text"
-                }
+  "mappings": {
+    "datasets-v1.0.0": {
+      "properties": {
+        "$schema": {
+          "copy_to": "facet_schema",
+          "type": "text"
+        },
+        "abstract": {
+          "type": "text"
+        },
+        "additional_title": {
+          "type": "text"
+        },
+        "collaboration": {
+          "properties": {
+            "name": {
+              "type": "text"
             }
+          }
+        },
+        "distribution": {
+          "properties": {
+            "formats": {
+              "type": "text"
+            }
+          }
+        },
+        "doi": {
+          "type": "text"
+        },
+        "experiment": {
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "facet_schema": {
+          "index": "not_analyzed",
+          "type": "text"
+        },
+        "publisher": {
+          "type": "text"
+        },
+        "subtype": {
+          "index": "not_analyzed",
+          "type": "text"
+        },
+        "title": {
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "type": {
+          "index": "not_analyzed",
+          "type": "text"
         }
+      }
     }
+  }
 }
