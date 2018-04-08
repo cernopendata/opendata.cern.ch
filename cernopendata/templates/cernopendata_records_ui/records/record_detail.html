@@ -131,8 +131,10 @@
             {% if record.system_details.release %}
                 {% if record.type.primary == 'Software' %}
                 <label>Software release:</label>
-                {% else %}
+                {% elif 'aod' in record.distribution.formats %}
                 <label>Recommended release for analysis:</label>
+                {% elif 'raw' in record.distribution.formats %}
+                <label>Recommended release for reconstruction:</label>
                 {% endif %}
                 <span>{{record.system_details.release}}</span>
             {% endif %}
@@ -179,6 +181,9 @@
             {% endif %}
             <p>{{ record.methodology.description | safe}}</p>
             {{ link_list(record.methodology.links) }}
+            {% if record.pileup %}
+            <p>{{ record.pileup.description | safe}}</p>
+            {% endif %}
        </div>
     </div>
     {% endif %}

@@ -2,139 +2,139 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "Describe information needed for Data Policy entity.",
   "properties": {
-    "id": {
-      "type": "string",
-      "title": "id"
-    },
-    "identifiers": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "title": "Type",
-            "type": "string"
-          },
-          "id": {
-            "title": "ID",
-            "type": "string"
-          }
-        }
-      }
-    },
-    "type": {
-      "type": "string",
-      "title": "Type"
-    },
-    "subtype": {
-      "type": "string",
-      "title": "Subtype"
-    },
-    "title": {
-      "type": "string",
-      "title": "Title"
-    },
-    "collaboration": {
-      "type": "string",
-      "title": "Collaboration"
-    },
-    "experiment": {
-      "type": "string",
-      "title": "Experiment"
-    },
-    "accelerator": {
-      "type": "string",
-      "title": "Accelerator"
-    },
-    "collections": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "primary": {
-            "type": "string",
-            "title": "Collection"
-          },
-          "secondary": {
-            "type": "string",
-            "title": "Collection"
-          }
-        }
-      }
-    },
-    "authors": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "affiliation": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "description": {
-      "type": "string",
-      "title": "Description"
-    },
-    "summary": {
-      "type": "string",
-      "title": "Summary"
-    },
-    "language": {
-      "type": "string"
-    },
-    "year": {
-      "type": "string"
-    },
-    "license": {
-      "type": "string"
-    },
-    "issued": {
-      "type": "object",
-      "properties": {
-        "location": {
-          "type": "string"
-        },
-        "institute": {
-          "type": "string"
-        },
-        "date": {
-          "type": "string"
-        },
-      }
-    },
     "_files": {
-      "type": "array",
       "items": {
         "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "title": "File schema.",
         "description": "Describe information needed for files in records.",
         "properties": {
-          "uri": {
-            "type": "string"
-          },
-          "key": {
-            "type": "string"
-          },
           "bucket": {
             "type": "string"
           },
           "checksum": {
             "type": "string"
           },
+          "key": {
+            "type": "string"
+          },
           "size": {
             "type": "integer"
+          },
+          "uri": {
+            "type": "string"
           },
           "version_id": {
             "type": "string"
           }
+        },
+        "title": "File schema.",
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "accelerator": {
+      "title": "Accelerator",
+      "type": "string"
+    },
+    "authors": {
+      "items": {
+        "properties": {
+          "affiliation": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "collaboration": {
+      "title": "Collaboration",
+      "type": "string"
+    },
+    "collections": {
+      "items": {
+        "properties": {
+          "primary": {
+            "title": "Collection",
+            "type": "string"
+          },
+          "secondary": {
+            "title": "Collection",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "description": {
+      "title": "Description",
+      "type": "string"
+    },
+    "experiment": {
+      "title": "Experiment",
+      "type": "string"
+    },
+    "id": {
+      "title": "id",
+      "type": "string"
+    },
+    "identifiers": {
+      "items": {
+        "properties": {
+          "id": {
+            "title": "ID",
+            "type": "string"
+          },
+          "type": {
+            "title": "Type",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "issued": {
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "institute": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
         }
-      }
+      },
+      "type": "object"
+    },
+    "language": {
+      "type": "string"
+    },
+    "license": {
+      "type": "string"
+    },
+    "subtype": {
+      "title": "Subtype",
+      "type": "string"
+    },
+    "summary": {
+      "title": "Summary",
+      "type": "string"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    },
+    "type": {
+      "title": "Type",
+      "type": "string"
+    },
+    "year": {
+      "type": "string"
     }
   },
   "title": "Data Policies Schema.",

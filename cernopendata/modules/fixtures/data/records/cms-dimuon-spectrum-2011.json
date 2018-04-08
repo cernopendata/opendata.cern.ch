@@ -1,116 +1,116 @@
 [
-{
-  "abstract": {
-    "description": " <p>This simple analysis example is set up at Research level, i.e. it requires university-student-level programming experience.\n      Minimal acquaintance with Linux and the ROOT analysis package (<a href=\"https://root.cern.ch/\">https://root.cern.ch/</a>) as well as a basic text editor is needed.</p> "
-  },
-  "accelerator": "CERN-LHC",
-  "authors": [
-    {
-      "name": "Geiser, Achim"
+  {
+    "abstract": {
+      "description": " <p>This simple analysis example is set up at Research level, i.e. it requires university-student-level programming experience.\n      Minimal acquaintance with Linux and the ROOT analysis package (<a href=\"https://root.cern.ch/\">https://root.cern.ch/</a>) as well as a basic text editor is needed.</p> "
     },
-    {
-      "name": "Dutta, Irene"
-    },
-    {
-      "name": "Hirvonsalo, Harri"
-    },
-    {
-      "name": "Sheeran, Bridget"
-    }
-  ],
-  "collections": [
-    "CMS-Validation-Utilities"
-  ],
-  "date_created": "2011-2012",
-  "date_published": "2017",
-  "distribution": {
-    "formats": [
-      "cc",
-      "py",
-      "root",
-      "xml"
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Geiser, Achim"
+      },
+      {
+        "name": "Dutta, Irene"
+      },
+      {
+        "name": "Hirvonsalo, Harri"
+      },
+      {
+        "name": "Sheeran, Bridget"
+      }
     ],
-    "number_files": 4,
-    "size": 35281
-  },
-  "doi": "10.7483/OPENDATA.CMS.D00J.UVB1",
-  "experiment": "CMS",
-  "files": [
-    {
-      "checksum": "adler32:19ce6f2b",
-      "size": 331,
-      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/dimuon-spectrum-2011/BuildFile.xml"
+    "collections": [
+      "CMS-Validation-Utilities"
+    ],
+    "date_created": "2011-2012",
+    "date_published": "2017",
+    "distribution": {
+      "formats": [
+        "cc",
+        "py",
+        "root",
+        "xml"
+      ],
+      "number_files": 4,
+      "size": 35281
     },
-    {
-      "checksum": "adler32:327d8f5d",
-      "size": 14689,
-      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/dimuon-spectrum-2011/DemoAnalyzer.cc"
+    "doi": "10.7483/OPENDATA.CMS.D00J.UVB1",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:19ce6f2b",
+        "size": 331,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/dimuon-spectrum-2011/BuildFile.xml"
+      },
+      {
+        "checksum": "adler32:327d8f5d",
+        "size": 14689,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/dimuon-spectrum-2011/DemoAnalyzer.cc"
+      },
+      {
+        "checksum": "adler32:e6e3930e",
+        "size": 16435,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/dimuon-spectrum-2011/Mudemo.root"
+      },
+      {
+        "checksum": "adler32:a2784e3a",
+        "size": 3826,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/dimuon-spectrum-2011/demoanalyzer_cfg.py"
+      }
+    ],
+    "license": {
+      "attribution": "GNU General Public License (GPL) version 3"
     },
-    {
-      "checksum": "adler32:e6e3930e",
-      "size": 16435,
-      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/dimuon-spectrum-2011/Mudemo.root"
+    "publisher": "CERN Open Data Portal",
+    "recid": "5001",
+    "run_period": "Run2011A",
+    "system_details": {
+      "description": "Use this code with the CMS Open Data VM environment",
+      "recid": "252",
+      "release": "CMSSW_5_3_32"
     },
-    {
-      "checksum": "adler32:a2784e3a",
-      "size": 3826,
-      "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/dimuon-spectrum-2011/demoanalyzer_cfg.py"
+    "title": "Example code to produce the di-muon spectrum from a CMS 2011 or 2012 primary dataset",
+    "type": {
+      "primary": "Software",
+      "secondary": [
+        "Analysis"
+      ]
+    },
+    "usage": {
+      "description": "<p>If you do not have the CERN Virtual Machine for 2011 CMS data installed, follow the instructions in step 1 at <a href=\"/docs/cms-virtual-machine-2011\">How to install a CERN Virtual Machine</a>.</p> <p>You can setup the example with the detailed instructions below, if you want to get insight on how to build your own analysis and what are the files needed. Install and run the Demo (demo analyzer) program as instructed in <a href=\"/docs/cms-virtual-machine-2011#test\">step 2 at 'How to install a CERN Virtual Machine'</a>. Then <ol> <li>Create directory <code>datasets</code> under <code>Demo/DemoAnalyzer</code></li>\n <li>Download the index files for the <a href=\"/record/17\">/DoubleMu/Run2011A-12Oct2013-v1/AOD</a> primary dataset (default) to the <code>Demo/DemoAnalyzer/datasets</code> directory. Only the first index file is actually needed for initial running. You can also use other primary datasets containing muons from 2011 or 2012 as listed under \"Use With\" above.</li>\n <li>Download <a href=\"/record/1001\">the 2011 JSON validation file</a> (default) or <a href=\"/record/1002\">the 2012 JSON validation file</a> (if needed) to the <code>Demo/DemoAnalyzer/datasets</code> directory</li>.\n <li>Replace the three files <code>BuildFile.xml</code>, <code>demoanalyzer_cfg.py</code>, <code>src/DemoAnalyzer.cc</code> with the ones from this record and read the comments in <code>DemoAnalyzer.cc</code> for more details.</li>\n <li>Recompile (<kbd>scram b</kbd>) and run (<kbd>cmsRun ...</kbd>).</ol></p>  <p>You should get an output file <kbd>DoubleMu.root</kbd>, which contains histograms for 10000 input events (a small subset of the data). These can be looked at using a ROOT Browser. The most interesting histogram is <kbd>GM_mass_log</kbd>. In order to compare it with the invariant-mass spectrum of di-muons in <a href=\"https://inspirehep.net/record/1118729/plots\">MUO-10-004</a>, it should be viewed with the <kbd>logy</kbd> option. With 10000 events the comparison is poor, but the J/&psi; (at log10(mass)=0.5), &Upsilon; (at log10(mass=0.98)) and Z (at log10(mass)=1.95, one event only) peaks should be visible. Furthermore, since the triggers for 2010 and 2011, as well as SingleMu and DoubleMu are different, the general shape of the distributions will differ somewhat depending on input.</p> <p>To run over more or even the full statistics, edit the relevant parts of the Python file <kbd>demoanalyzer_cfg.py</kbd> (see comments therein, change max. number of events and/or insert the proper index and JSON files for 2011/2012 single/dimuon) and rerun. Add up the output histograms from different (nonoverlapping, i.e. use either DoubleMu or SingleMu, not both) input index files using Root tools.\n</p><p>In addition to these instructions, which guide you through the example in detail, a github repository (<a href=\"https://github.com/cms-opendata-analyses/DimuonSpectrum2011\">https://github.com/cms-opendata-analyses/DimuonSpectrum2011</a>) based on this original code with minor modifications for direct download is available. </p>  "
+    },
+    "use_with": {
+      "description": "Use this with 2011 or 2012 primary datasets containing muons.",
+      "links": [
+        {
+          "recid": "17"
+        },
+        {
+          "recid": "32"
+        },
+        {
+          "recid": "6004"
+        },
+        {
+          "recid": "6030"
+        },
+        {
+          "recid": "6021"
+        },
+        {
+          "recid": "6047"
+        }
+      ]
+    },
+    "validation": {
+      "description": "Only the list of validated runs are accepted:",
+      "links": [
+        {
+          "recid": "1001"
+        },
+        {
+          "recid": "1002"
+        }
+      ]
     }
-  ],
-  "license": {
-    "attribution": "GNU General Public License (GPL) version 3"
-  },
-  "publisher": "CERN Open Data Portal",
-  "recid": "5001",
-  "run_period": "Run2011A",
-  "system_details": {
-    "description": "Use this code with the CMS Open Data VM environment",
-    "recid": "252",
-    "release": "CMSSW_5_3_32"
-  },
-  "title": "Example code to produce the di-muon spectrum from a CMS 2011 or 2012 primary dataset",
-  "type": {
-    "primary": "Software",
-    "secondary": [
-      "Analysis"
-    ]
-  },
-  "usage": {
-    "description": "<p>If you do not have the CERN Virtual Machine for 2011 CMS data installed, follow the instructions in step 1 at <a href=\"/docs/cms-virtual-machine-2011\">How to install a CERN Virtual Machine</a>.</p> <p>You can setup the example with the detailed instructions below, if you want to get insight on how to build your own analysis and what are the files needed. Install and run the Demo (demo analyzer) program as instructed in <a href=\"/docs/cms-virtual-machine-2011#test\">step 2 at 'How to install a CERN Virtual Machine'</a>. Then <ol> <li>Create directory <code>datasets</code> under <code>Demo/DemoAnalyzer</code></li>\n <li>Download the index files for the <a href=\"/record/17\">/DoubleMu/Run2011A-12Oct2013-v1/AOD</a> primary dataset (default) to the <code>Demo/DemoAnalyzer/datasets</code> directory. Only the first index file is actually needed for initial running. You can also use other primary datasets containing muons from 2011 or 2012 as listed under \"Use With\" above.</li>\n <li>Download <a href=\"/record/1001\">the 2011 JSON validation file</a> (default) or <a href=\"/record/1002\">the 2012 JSON validation file</a> (if needed) to the <code>Demo/DemoAnalyzer/datasets</code> directory</li>.\n <li>Replace the three files <code>BuildFile.xml</code>, <code>demoanalyzer_cfg.py</code>, <code>src/DemoAnalyzer.cc</code> with the ones from this record and read the comments in <code>DemoAnalyzer.cc</code> for more details.</li>\n <li>Recompile (<kbd>scram b</kbd>) and run (<kbd>cmsRun ...</kbd>).</ol></p>  <p>You should get an output file <kbd>DoubleMu.root</kbd>, which contains histograms for 10000 input events (a small subset of the data). These can be looked at using a ROOT Browser. The most interesting histogram is <kbd>GM_mass_log</kbd>. In order to compare it with the invariant-mass spectrum of di-muons in <a href=\"https://inspirehep.net/record/1118729/plots\">MUO-10-004</a>, it should be viewed with the <kbd>logy</kbd> option. With 10000 events the comparison is poor, but the J/&psi; (at log10(mass)=0.5), &Upsilon; (at log10(mass=0.98)) and Z (at log10(mass)=1.95, one event only) peaks should be visible. Furthermore, since the triggers for 2010 and 2011, as well as SingleMu and DoubleMu are different, the general shape of the distributions will differ somewhat depending on input.</p> <p>To run over more or even the full statistics, edit the relevant parts of the Python file <kbd>demoanalyzer_cfg.py</kbd> (see comments therein, change max. number of events and/or insert the proper index and JSON files for 2011/2012 single/dimuon) and rerun. Add up the output histograms from different (nonoverlapping, i.e. use either DoubleMu or SingleMu, not both) input index files using Root tools.\n</p><p>In addition to these instructions, which guide you through the example in detail, a github repository (<a href=\"https://github.com/cms-opendata-analyses/DimuonSpectrum2011\">https://github.com/cms-opendata-analyses/DimuonSpectrum2011</a>) based on this original code with minor modifications for direct download is available. </p>  "
-  },
-  "use_with": {
-    "description": "Use this with 2011 or 2012 primary datasets containing muons.",
-    "links": [
-      {
-        "recid": "17"
-      },
-      {
-        "recid": "32"
-      },
-      {
-        "recid": "6004"
-      },
-      {
-        "recid": "6030"
-      },
-      {
-        "recid": "6021"
-      },
-      {
-        "recid": "6047"
-      }
-    ]
-  },
-  "validation": {
-    "description": "Only the list of validated runs are accepted:",
-    "links": [
-      {
-        "recid": "1001"
-      },
-      {
-        "recid": "1002"
-      }
-    ]
   }
-}
 ]

@@ -1,138 +1,138 @@
 {
-    "mappings": {
-        "record-v1.0.0": {
-            "properties": {
-                "$schema": {
-                    "type": "text",
-                    "copy_to": "facet_schema"
-                },
-                "facet_schema": {
-                    "type": "text",
-                    "index": "not_analyzed"
-                },
-                "type": {
-                    "properties": {
-                        "primary": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "type": "keyword"
-                                }
-                            }
-                        },
-                        "secondary": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "type": "keyword"
-                                }
-                            }
-                        }
-                    }
-                },
-                "date_created": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "distribution": {
-                    "type": "object",
-                    "properties": {
-                        "formats": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "type": "keyword"
-                                }
-                            }
-                        }
-                    }
-                },
-                "experiment": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "collision_information": {
-                    "properties": {
-                        "type": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "type": "keyword"
-                                }
-                            }
-                        },
-                        "energy": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "type": "keyword"
-                                }
-                            }
-                        }
-                    }
-                },
-                "topic": {
-                    "properties": {
-                        "category": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "type": "keyword"
-                                }
-                            }
-                        }
-                    }
-                },
-                "collections": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "keywords": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "title": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "publisher": {
-                    "type": "text"
-                },
-                "abstract": {
-                    "properties": {
-                        "description": {
-                            "type": "text"
-                        }
-                    }
-                },
-                "authors": {
-                    "properties": {
-                        "name": {
-                            "type": "text"
-                        }
-                    }
-                }
+  "mappings": {
+    "record-v1.0.0": {
+      "properties": {
+        "$schema": {
+          "copy_to": "facet_schema",
+          "type": "text"
+        },
+        "abstract": {
+          "properties": {
+            "description": {
+              "type": "text"
             }
+          }
+        },
+        "authors": {
+          "properties": {
+            "name": {
+              "type": "text"
+            }
+          }
+        },
+        "collections": {
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "collision_information": {
+          "properties": {
+            "energy": {
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              },
+              "type": "text"
+            },
+            "type": {
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              },
+              "type": "text"
+            }
+          }
+        },
+        "date_created": {
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "distribution": {
+          "properties": {
+            "formats": {
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              },
+              "type": "text"
+            }
+          },
+          "type": "object"
+        },
+        "experiment": {
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "facet_schema": {
+          "index": "not_analyzed",
+          "type": "text"
+        },
+        "keywords": {
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "publisher": {
+          "type": "text"
+        },
+        "title": {
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "topic": {
+          "properties": {
+            "category": {
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              },
+              "type": "text"
+            }
+          }
+        },
+        "type": {
+          "properties": {
+            "primary": {
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              },
+              "type": "text"
+            },
+            "secondary": {
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              },
+              "type": "text"
+            }
+          }
         }
+      }
     }
+  }
 }

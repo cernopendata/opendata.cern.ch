@@ -1,112 +1,112 @@
 [
-{
-  "abstract": {
-    "description": "The dataset was extracted from the official OPERA data repository. It contains 818 muon neutrino interactions with the lead target where a muon was reconstructed in the final state. This happens in the so-called charged-current interactions of a muon neutrino. For this data sample, the Collaboration performed a dedicated analysis, with a detailed classification of all particles produced at the neutrino interaction on top of the muon. Indeed, in a muon neutrino interaction with the nucleons of the lead target, different hadrons are produced: the so-called shower hadrons and nuclear fragments produced in the break-up and in the evaporation of the target nucleus. The detailed study of the multiplicity of the hadrons produced provides insights on the mechanism of the hadronic shower formation. This data record contains all the electronic detector hits produced by the neutrino interactions in their propagation through the detector, except in the emulsion films. It includes hits in the scintillating target tracker, drift tubes and resistive plate chambers. The hits in the drift tubes and in the resistive plate chambers are used to reconstruct the muon tracks and measure its charge and momentum. The hits in the target tracker are used to predict the location of the neutrino interaction in the target units, the so-called bricks. This leads to the subsequent phase of the analysis where the neutrino interaction is located with micrometric accuracy and all tracks attached are measured"
-  },
-  "accelerator": "CERN-SPS",
-  "collaboration": {
-    "name": "OPERA collaboration",
-    "recid": "452"
-  },
-  "collections": [
-    "OPERA-Electronic-Detector-Datasets"
-  ],
-  "dataset_semantics": [
-    {
-      "description": "PMT amplitude measured from the \"left\" side of a scintillator strip (in photo-electrons)",
-      "variable": "amplL"
+  {
+    "abstract": {
+      "description": "The dataset was extracted from the official OPERA data repository. It contains 817 muon neutrino interactions with the lead target where a muon was reconstructed in the final state. This happens in the so-called charged-current interactions of a muon neutrino. For this data sample, the Collaboration performed a dedicated analysis, with a detailed classification of all particles produced at the neutrino interaction on top of the muon. Indeed, in a muon neutrino interaction with the nucleons of the lead target, different hadrons are produced: the so-called shower hadrons and nuclear fragments produced in the break-up and in the evaporation of the target nucleus. The detailed study of the multiplicity of the hadrons produced provides insights on the mechanism of the hadronic shower formation. This data record contains all the electronic detector hits produced by the neutrino interactions in their propagation through the detector, except in the emulsion films. It includes hits in the scintillating target tracker, drift tubes and resistive plate chambers. The hits in the drift tubes and in the resistive plate chambers are used to reconstruct the muon tracks and measure its charge and momentum. The hits in the target tracker are used to predict the location of the neutrino interaction in the target units, the so-called bricks. This leads to the subsequent phase of the analysis where the neutrino interaction is located with micrometric accuracy and all tracks attached are measured"
     },
-    {
-      "description": "PMT amplitude measured from the \"right\" side of a scintillator strip (in photo-electrons)",
-      "variable": "amplR"
+    "accelerator": "CERN-SPS",
+    "collaboration": {
+      "name": "OPERA collaboration",
+      "recid": "452"
     },
-    {
-      "description": "PMT amplitude reconstructed from the \"left\" and \"right\" side amplitudes of a scintillator strip taking into account light attenuation in a WLS fiber (in photo-electrons)",
-      "variable": "amplRec"
-    },
-    {
-      "description": "cluster length (in cm)",
-      "variable": "clLength"
-    },
-    {
-      "description": "drift distance (in cm)",
-      "variable": "driftDist"
-    },
-    {
-      "description": "energy of a hadron jet (in GeV)",
-      "variable": "enHad"
-    },
-    {
-      "description": "energy of a neutrino (in GeV)",
-      "variable": "enNeu"
-    },
-    {
-      "description": "visible energy (in MeV)",
-      "variable": "enVis"
-    },
-    {
-      "description": "event Id (11-digit number)",
-      "variable": "evID"
-    },
-    {
-      "description": "momentum of a muon (in GeV/c)",
-      "variable": "muMom"
-    },
-    {
-      "description": "X position of a drift tube, RPC, Target Tracker hit in the OPERA detector system of reference (in cm)",
-      "variable": "posX"
-    },
-    {
-      "description": "Y position of an RPC hit in the OPERA detector system of reference (in cm)",
-      "variable": "posY"
-    },
-    {
-      "description": "Z position of a drift tube, RPC, Target Tracker hit in the OPERA detector system of reference (in cm)",
-      "variable": "posZ "
-    },
-    {
-      "description": "event time in milliseconds since 01/01/1970",
-      "variable": "timestamp"
-    }
-  ],
-  "date_created": "2010-2012",
-  "date_published": "2017",
-  "distribution": {
-    "formats": [
-      "csv",
-      "zip"
+    "collections": [
+      "OPERA-Electronic-Detector-Datasets"
     ],
-    "number_events": 818,
-    "number_files": 1,
-    "size": 5269628
-  },
-  "doi": "10.7483/OPENDATA.OPERA.HJC7.3DCC",
-  "experiment": "OPERA",
-  "files": [
-    {
-      "checksum": "sha1:9e624ea97ccb57931901ec64e62c8553291f3d9a",
-      "size": 5269628,
-      "uri": "root://eospublic.cern.ch//eos/opendata/opera/datasets/multiplicity/electronic-detector-data-for-multiplicity-studies.zip"
+    "dataset_semantics": [
+      {
+        "description": "PMT amplitude measured from the \"left\" side of a scintillator strip (in photo-electrons)",
+        "variable": "amplL"
+      },
+      {
+        "description": "PMT amplitude measured from the \"right\" side of a scintillator strip (in photo-electrons)",
+        "variable": "amplR"
+      },
+      {
+        "description": "PMT amplitude reconstructed from the \"left\" and \"right\" side amplitudes of a scintillator strip taking into account light attenuation in a WLS fiber (in photo-electrons)",
+        "variable": "amplRec"
+      },
+      {
+        "description": "cluster length (in cm)",
+        "variable": "clLength"
+      },
+      {
+        "description": "drift distance (in cm)",
+        "variable": "driftDist"
+      },
+      {
+        "description": "energy of a hadron jet (in GeV)",
+        "variable": "enHad"
+      },
+      {
+        "description": "energy of a neutrino (in GeV)",
+        "variable": "enNeu"
+      },
+      {
+        "description": "visible energy (in MeV)",
+        "variable": "enVis"
+      },
+      {
+        "description": "event Id (11-digit number)",
+        "variable": "evID"
+      },
+      {
+        "description": "momentum of a muon (in GeV/c)",
+        "variable": "muMom"
+      },
+      {
+        "description": "X position of a drift tube, RPC, Target Tracker hit in the OPERA detector system of reference (in cm)",
+        "variable": "posX"
+      },
+      {
+        "description": "Y position of an RPC hit in the OPERA detector system of reference (in cm)",
+        "variable": "posY"
+      },
+      {
+        "description": "Z position of a drift tube, RPC, Target Tracker hit in the OPERA detector system of reference (in cm)",
+        "variable": "posZ "
+      },
+      {
+        "description": "event time in milliseconds since 01/01/1970",
+        "variable": "timestamp"
+      }
+    ],
+    "date_created": "2010-2012",
+    "date_published": "2017",
+    "distribution": {
+      "formats": [
+        "csv",
+        "zip"
+      ],
+      "number_events": 817,
+      "number_files": 1,
+      "size": 5265306
+    },
+    "doi": "10.7483/OPENDATA.OPERA.HJC7.3DCC",
+    "experiment": "OPERA",
+    "files": [
+      {
+        "checksum": "adler32:9fb8b00c",
+        "size": 5265306,
+        "uri": "root://eospublic.cern.ch//eos/opendata/opera/datasets/multiplicity/electronic-detector-data-for-multiplicity-studies.zip"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "Events stored in this dataset were selected by requiring that a muon was reconstructed in the final state. On top of this requirement, they were randomly selected in three physics runs taken in 2010, 2011 and 2012, in order to collect a sample close to 800 events, statistically sufficient to perform the multiplicity studies. This subset was analysed aiming at a detailed study of the multiplicity of charged particles produced in neutrino interactions as an important input to models of the hadronic shower generation"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "3900",
+    "title": "Electronic detector data for multiplicity studies",
+    "title_additional": "Electronic detector data for multiplicity studies",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "validation": {
+      "description": "During the data taking, all the runs recorded by OPERA are certified as good for physics analysis if the trigger and all sub-detectors show the expected performance. Moreover, the time stamp of the event should lie within the gate open by the CNGS beam signal. The data certification is based first on the offline shifters evaluation and later on the feedback provided by all sub-detector experts. Based on the above information, stored in a specific database, the Data Quality Monitoring group verifies the consistency of the certification and prepares an ascii file of certified runs to be used for physics analysis. Calibration procedures taking into account the specific geometry of the target associated to each event are applied to raw data and they are converted into a root file for each event that is then used for physics analysis"
     }
-  ],
-  "license": {
-    "attribution": "CC0"
-  },
-  "methodology": {
-    "description": "Events stored in this dataset were selected by requiring that a muon was reconstructed in the final state. On top of this requirement, they were randomly selected in three physics runs taken in 2010, 2011 and 2012, in order to collect a sample close to 800 events, statistically sufficient to perform the multiplicity studies. This subset was analysed aiming at a detailed study of the multiplicity of charged particles produced in neutrino interactions as an important input to models of the hadronic shower generation"
-  },
-  "publisher": "CERN Open Data Portal",
-  "recid": "3900",
-  "title": "Electronic detector data for multiplicity studies",
-  "title_additional": "Electronic detector data for multiplicity studies",
-  "type": {
-    "primary": "Dataset",
-    "secondary": [
-      "Derived"
-    ]
-  },
-  "validation": {
-    "description": "During the data taking, all the runs recorded by OPERA are certified as good for physics analysis if the trigger and all sub-detectors show the expected performance. Moreover, the time stamp of the event should lie within the gate open by the CNGS beam signal. The data certification is based first on the offline shifters evaluation and later on the feedback provided by all sub-detector experts. Based on the above information, stored in a specific database, the Data Quality Monitoring group verifies the consistency of the certification and prepares an ascii file of certified runs to be used for physics analysis. Calibration procedures taking into account the specific geometry of the target associated to each event are applied to raw data and they are converted into a root file for each event that is then used for physics analysis"
   }
-}
 ]

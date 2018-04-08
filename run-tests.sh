@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2015, 2016, 2017 CERN.
+# Copyright (C) 2015, 2016, 2017, 2018 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -50,6 +50,18 @@ dupes=$(for file in $(find cernopendata/modules/fixtures/data/docs -name "*.json
 if [ "x${dupes}" != "x" ]; then
     echo "[ERROR] Found duplicate docs slugs:"
     echo "${dupes}"
+    exit 1
+fi
+
+# check trailing whitespace:
+whitespace_found_p=0
+for file in $(git ls-files | grep -E '.(py|html|css|json|md|sh|txt|yml)$'); do
+    if grep -q ' $' "$file"; then
+        whitespace_found_p=1
+        echo "[ERROR] Found trailing whitespace in ${file}."
+    fi
+done
+if [ "${whitespace_found_p}" != "0" ]; then
     exit 1
 fi
 

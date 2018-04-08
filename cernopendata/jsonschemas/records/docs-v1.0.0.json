@@ -2,12 +2,108 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "Describe information needed for article entity.",
   "properties": {
+    "_files": {
+      "items": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "description": "Describe information needed for files in records.",
+        "properties": {
+          "bucket": {
+            "type": "string"
+          },
+          "checksum": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer"
+          },
+          "uri": {
+            "type": "string"
+          },
+          "version_id": {
+            "type": "string"
+          }
+        },
+        "title": "File schema.",
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "author": {
+      "type": "string"
+    },
+    "body": {
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "collections": {
+      "items": {
+        "title": "Collection",
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "created": {
+      "type": "string"
+    },
+    "experiment": {
+      "type": "string"
+    },
+    "featured": {
+      "type": "integer"
+    },
     "id": {
-      "type": "string",
-      "title": "id"
+      "title": "id",
+      "type": "string"
+    },
+    "related": {
+      "items": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "screenshot": {
+      "type": "string"
+    },
+    "short_description": {
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "tags": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
     },
     "type": {
-      "type": "object",
       "properties": {
         "primary": {
           "type": "string"
@@ -18,90 +114,8 @@
           },
           "type": "array"
         }
-      }
-    },
-    "title": {
-      "type": "string",
-      "title": "Title"
-    },
-    "experiment": {
-      "type": "string"
-    },
-    "collections": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "title": "Collection"
-      }
-    },
-    "tags": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "short_description": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string"
-        },
-        "content": {
-          "type": "string"
-        }
-      }
-    },
-    "body": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string"
-        },
-        "content": {
-          "type": "string"
-        }
-      }
-    },
-    "screenshot": {
-      "type": "string"
-    },
-    "featured": {
-      "type": "integer"
-    },
-    "author": {
-      "type": "string"
-    },
-    "created": {
-      "type": "string"
-    },
-    "_files": {
-      "type": "array",
-      "items": {
-        "$schema": "http://json-schema.org/draft-04/schema#",
-        "type": "object",
-        "title": "File schema.",
-        "description": "Describe information needed for files in records.",
-        "properties": {
-          "uri": {
-            "type": "string"
-          },
-          "key": {
-            "type": "string"
-          },
-          "bucket": {
-            "type": "string"
-          },
-          "checksum": {
-            "type": "string"
-          },
-          "size": {
-            "type": "integer"
-          },
-          "version_id": {
-            "type": "string"
-          }
-        }
-      }
+      },
+      "type": "object"
     }
   },
   "title": "Article Schema.",

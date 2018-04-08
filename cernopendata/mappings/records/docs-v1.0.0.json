@@ -1,124 +1,132 @@
 {
-    "settings": {
-        "analysis": {
-            "analyzer": {
-                "collections": {
-                    "tokenizer": "keyword"
-                }
+  "mappings": {
+    "docs-v1.0.0": {
+      "properties": {
+        "$schema": {
+          "copy_to": "facet_schema",
+          "type": "text"
+        },
+        "author": {
+          "type": "text"
+        },
+        "body": {
+          "properties": {
+            "content": {
+              "type": "text"
+            },
+            "format": {
+              "type": "text"
             }
-        }
-    },
-    "mappings": {
-        "docs-v1.0.0": {
-            "properties": {
-                "$schema": {
-                    "type": "text",
-                    "copy_to": "facet_schema"
-                },
-                "facet_schema": {
-                    "type": "text",
-                    "index": "not_analyzed"
-                },
-                "collections": {
-                    "properties": {
-                        "primary": {
-                            "type": "text",
-                            "copy_to": "collections.facet_collections_primary"
-                        },
-                        "facet_collections_primary": {
-                            "type": "text",
-                            "index": "not_analyzed"
-                        },
-                        "secondary": {
-                            "type": "text",
-                            "analyzer": "collections"
-                        },
-                        "experiment": {
-                            "type": "text",
-                            "index": "not_analyzed"
-                        },
-                        "year": {
-                            "type": "text",
-                            "analyzer": "collections"
-                        }
-                    }
-                },
-                "experiment": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "tags": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "id": {
-                    "type": "text"
-                },
-                "title": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "type": "keyword"
-                        }
-                    }
-                },
-                "type": {
-                    "properties": {
-                        "primary": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "type": "keyword"
-                                }
-                            }
-                        },
-                        "secondary": {
-                            "type": "text",
-                            "fields": {
-                                "keyword": {
-                                    "type": "keyword"
-                                }
-                            }
-                        }
-                    }
-                },
-                "author": {
-                    "type": "text"
-                },
-                "short_description": {
-                    "properties": {
-                        "format": {"type": "text"},
-                        "content": {"type": "text"}
-                    }
-                },
-                "body": {
-                    "properties": {
-                        "format": {"type": "text"},
-                        "content": {"type": "text"}
-                    }
-                },
-                "files": {
-                    "properties": {
-                        "name": {
-                            "type": "text"
-                        },
-                        "uri": {
-                            "type": "text"
-                        }
-                    }
-                },
-                "featured": {
-                    "type": "integer"
-                }
+          }
+        },
+        "collections": {
+          "properties": {
+            "experiment": {
+              "index": "not_analyzed",
+              "type": "text"
+            },
+            "facet_collections_primary": {
+              "index": "not_analyzed",
+              "type": "text"
+            },
+            "primary": {
+              "copy_to": "collections.facet_collections_primary",
+              "type": "text"
+            },
+            "secondary": {
+              "analyzer": "collections",
+              "type": "text"
+            },
+            "year": {
+              "analyzer": "collections",
+              "type": "text"
             }
+          }
+        },
+        "experiment": {
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "facet_schema": {
+          "index": "not_analyzed",
+          "type": "text"
+        },
+        "featured": {
+          "type": "integer"
+        },
+        "files": {
+          "properties": {
+            "name": {
+              "type": "text"
+            },
+            "uri": {
+              "type": "text"
+            }
+          }
+        },
+        "id": {
+          "type": "text"
+        },
+        "short_description": {
+          "properties": {
+            "content": {
+              "type": "text"
+            },
+            "format": {
+              "type": "text"
+            }
+          }
+        },
+        "tags": {
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "title": {
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "type": {
+          "properties": {
+            "primary": {
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              },
+              "type": "text"
+            },
+            "secondary": {
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              },
+              "type": "text"
+            }
+          }
         }
+      }
     }
+  },
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "collections": {
+          "tokenizer": "keyword"
+        }
+      }
+    }
+  }
 }
