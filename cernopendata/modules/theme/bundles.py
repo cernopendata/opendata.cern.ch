@@ -125,9 +125,10 @@ glossary_css = NpmBundle(
 )
 
 opera_js = NpmBundle(
-    'node_modules/demobbed-viewer/js/lib/d3.js',
-    'node_modules/demobbed-viewer/js/lib/jquery.js',
-    'node_modules/demobbed-viewer/js/lib/three.js',
+    'node_modules/demobbed-viewer/js/lib/d3.min.js',
+    'node_modules/demobbed-viewer/js/lib/jquery.min.js',
+    'node_modules/demobbed-viewer/js/lib/bootstrap.min.js',
+    'node_modules/demobbed-viewer/js/lib/three.min.js',
     'node_modules/demobbed-viewer/js/lib/three3DExtras.min.js',
     'node_modules/demobbed-viewer/js/DetCfg-def.js',
     'node_modules/demobbed-viewer/js/Utils-def.js',
@@ -136,6 +137,7 @@ opera_js = NpmBundle(
     'node_modules/demobbed-viewer/js/TrackECC-def.js',
     'node_modules/demobbed-viewer/js/Event-def.js',
     'node_modules/demobbed-viewer/js/loadEvent.js',
+    'node_modules/demobbed-viewer/js/changeEventSample.js',
     'node_modules/demobbed-viewer/js/DetElems-defs.js',
     'node_modules/demobbed-viewer/js/MgrGeomED-def.js',
     'node_modules/demobbed-viewer/js/MgrDrawED-def.js',
@@ -149,7 +151,7 @@ opera_js = NpmBundle(
     'node_modules/demobbed-viewer/js/MgrDrawECC-funcAdd.js',
     output='gen/cernopendata.opera.%(version)s.js',
     npm={
-        "demobbed-viewer": "~1.0.2"
+        "demobbed-viewer": "~1.0.4"
     },
 )
 
@@ -158,7 +160,7 @@ opera_css = NpmBundle(
     filters='node-scss, cleancss',
     output='gen/cernopendata.opera.%(version)s.css',
     npm={
-        "demobbed-viewer": "~1.0.2"
+        "demobbed-viewer": "~1.0.4"
     }
 )
 
