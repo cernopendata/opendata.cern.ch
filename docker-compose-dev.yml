@@ -41,7 +41,7 @@ services:
     image: cernopendata/static # Use this to make sure that COD3 Python-code image is built only once.
     depends_on:
       - static # Just to make sure that latest cernopendata/static -image is build before creating this container.
-    command: "cernopendata run -h 0.0.0.0" # In case one needs to test/work with uWSGI comment out this CMD override.
+    command: "cernopendata run -h 0.0.0.0 --reload" # In case one needs to test/work with uWSGI comment out this CMD override.
     environment:
       - DEBUG=True
       - WDB_SOCKET_SERVER=wdb

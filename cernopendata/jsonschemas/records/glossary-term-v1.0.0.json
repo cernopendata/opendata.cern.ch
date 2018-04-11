@@ -1,89 +1,88 @@
 {
-	  "$schema": "http://json-schema.org/draft-04/schema#",
-	  "description": "Describe information needed for glossary term entity.",
-	  "properties": {
-		    "id": {
-            "type": "string",
-            "title": "id"
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Describe information needed for glossary term entity.",
+  "properties": {
+    "anchor": {
+      "title": "Anchor",
+      "type": "string"
+    },
+    "category": {
+      "title": "Category",
+      "type": "string"
+    },
+    "definition": {
+      "title": "Definition",
+      "type": "string"
+    },
+    "experiment": {
+      "items": {
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          }
         },
-        "type": {
-            "type": "object",
-            "properties": {
-                "primary": {
-                    "type": "string"
-                },
-                "secondary": {
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                }
-            }
+        "type": "object"
+      },
+      "title": "Experiment",
+      "type": "array"
+    },
+    "id": {
+      "title": "id",
+      "type": "string"
+    },
+    "links": {
+      "items": {
+        "properties": {
+          "text": {
+            "title": "Text",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          }
         },
-        "term": {
-			      "type": "array",
+        "type": "object"
+      },
+      "title": "Links",
+      "type": "array"
+    },
+    "see_also": {
+      "items": {
+        "properties": {
+          "term": {
             "title": "Term",
-            "items": {
-                "type": "string"
-            }
-		    },
-		    "anchor": {
-			      "type": "string",
-            "title": "Anchor"
-		    },
-		    "category": {
-			      "type": "string",
-            "title": "Category"
-		    },
-		    "definition": {
-			      "type": "string",
-            "title": "Definition"
-		    },
-		    "experiment": {
-			      "type": "array",
-            "title": "Experiment",
-			      "items": {
-				        "type": "object",
-				        "properties": {
-					          "name": {
-						            "title": "Name",
-						            "type": "string"
-					          }
-				        }
-			      }
-		    },
-		    "see_also": {
-			      "type": "array",
-            "title": "See also",
-			      "items": {
-				        "type": "object",
-				        "properties": {
-					          "term": {
-						            "title": "Term",
-						            "type": "string"
-					          }
-				        }
-			      }
-		    },
-		    "links": {
-            "title": "Links",
-			      "type": "array",
-			      "items": {
-				        "type": "object",
-				        "properties": {
-					          "text": {
-						            "title": "Text",
-						            "type": "string"
-					          },
-					          "url": {
-						            "title": "Url",
-						            "type": "string"
-					          }
-				        }
-			      }
-		    }
-
-	  },
-	  "title": "Glossary Term Schema.",
-	  "type": "object"
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "title": "See also",
+      "type": "array"
+    },
+    "term": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Term",
+      "type": "array"
+    },
+    "type": {
+      "properties": {
+        "primary": {
+          "type": "string"
+        },
+        "secondary": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "title": "Glossary Term Schema.",
+  "type": "object"
 }

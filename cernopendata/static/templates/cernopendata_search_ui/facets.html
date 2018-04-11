@@ -12,8 +12,8 @@
               --><span ng-repeat="(subKey, subValue) in item"
                        ng-if="['doc_count', 'key'].indexOf(subKey) === -1" ><!--
                        --><a class="badge badge-clear-facet"
-                             ng-repeat="subFacets in (subValue.buckets || subValue.filtered.buckets)" 
-                             ng-if="isFacetChecked(subKey, subFacets.key)" 
+                             ng-repeat="subFacets in (subValue.buckets || subValue.filtered.buckets)"
+                             ng-if="isFacetChecked(subKey, subFacets.key)"
                              ng-click="handleClick(subKey, subFacets.key)">
                            {{ subFacets.key }}  &nbsp;<span aria-label="Close">&times;</span>
                        </a><!--
@@ -25,9 +25,9 @@
     <!-- facets -->
     <div class="facets-box"
          ng-init="tree=[]; tree_more=[];"
-         ng-repeat="aggr in orderedAggs track by $index" 
+         ng-repeat="aggr in orderedAggs track by $index"
          ng-if="(aggr.value.buckets || aggr.value.filtered.buckets).length > 0">
-        <p class="title"> Filter by {{ aggr.key.replace('_', ' ') }} </p> 
+        <p class="title"> Filter by {{ aggr.key.replace('_', ' ') }} </p>
         <div>
             <ul class="list-unstyled"
                 ng-repeat="item in (aggr.value.buckets || aggr.value.filtered.buckets)">

@@ -1,66 +1,66 @@
 [
-{
-  "abstract": {
-    "description": "This file describes which luminosity sections in which runs are considered good and should be processed."
-  },
-  "accelerator": "CERN-LHC",
-  "collaboration": {
-    "name": "CMS Collaboration",
-    "recid": "451"
-  },
-  "collections": [
-    "CMS-Validated-Runs",
-    "CMS-Validation-Utilities"
-  ],
-  "date_created": "2012",
-  "date_published": "2017",
-  "distribution": {
-    "formats": [
-      "txt"
-    ]
-  },
-  "doi": "10.7483/OPENDATA.CMS.C00V.SE32",
-  "experiment": "CMS",
-  "files": [
-    {
-      "checksum": "sha1:b24efcfb1050b083aff2390df01fc16d6b67b836",
-      "size": 36630,
-      "uri": "root://eospublic.cern.ch//eos/opendata/cms/validated-runs/2012/Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt"
-    }
-  ],
-  "note": {
-    "description": "The list covers all p-p data taking in 2012. The public data (RunB and RunC) are part of this list, between run numbers 193833 - 196531 for RunB and 198022 - 203742 for RunC."
-  },
-  "publisher": "CERN Open Data Portal",
-  "recid": "1002",
-  "run_period": "Run2012B-Run2012C",
-  "title": "CMS list of validated runs Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt",
-  "title_additional": "CMS list of validated runs for primary datasets of 2012 data taking",
-  "type": {
-    "primary": "Environment",
-    "secondary": [
-      "Validation"
-    ]
-  },
-  "usage": {
-    "description": " Add the following lines in the configuration file for a cmsRun job: <br />import FWCore.ParameterSet.Config as cms <br /> import FWCore.PythonUtilities.LumiList as LumiList <br /> goodJSON = 'Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt' <br /> myLumis = LumiList.LumiList(filename = goodJSON).getCMSSWString().split(',') <br /> process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange() <br /> process.source.lumisToProcess.extend(myLumis) "
+  {
+    "abstract": {
+      "description": "This file describes which luminosity sections in which runs are considered good and should be processed."
     },
-  "validation": {
-    "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
-    "links": [
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS Collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Validated-Runs",
+      "CMS-Validation-Utilities"
+    ],
+    "date_created": "2012",
+    "date_published": "2017",
+    "distribution": {
+      "formats": [
+        "txt"
+      ]
+    },
+    "doi": "10.7483/OPENDATA.CMS.C00V.SE32",
+    "experiment": "CMS",
+    "files": [
       {
-        "description": "CMS data quality monitoring: Systems and experiences",
-        "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
-      },
-      {
-        "description": "The CMS Data Quality Monitoring software experience and future improvements",
-        "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
-      },
-      {
-        "description": "The CMS data quality monitoring software: experience and future prospects",
-        "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        "checksum": "sha1:b24efcfb1050b083aff2390df01fc16d6b67b836",
+        "size": 36630,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/validated-runs/2012/Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt"
       }
-    ]
+    ],
+    "note": {
+      "description": "The list covers all p-p data taking in 2012. The public data (RunB and RunC) are part of this list, between run numbers 193833 - 196531 for RunB and 198022 - 203742 for RunC."
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "1002",
+    "run_period": "Run2012B-Run2012C",
+    "title": "CMS list of validated runs Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt",
+    "title_additional": "CMS list of validated runs for primary datasets of 2012 data taking",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "Validation"
+      ]
+    },
+    "usage": {
+      "description": " Add the following lines in the configuration file for a cmsRun job: <br />import FWCore.ParameterSet.Config as cms <br /> import FWCore.PythonUtilities.LumiList as LumiList <br /> goodJSON = 'Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt' <br /> myLumis = LumiList.LumiList(filename = goodJSON).getCMSSWString().split(',') <br /> process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange() <br /> process.source.lumisToProcess.extend(myLumis) "
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
   }
-}
 ]

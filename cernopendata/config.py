@@ -80,6 +80,10 @@ JSONSCHEMAS_ENDPOINT = '/schema'
 JSONSCHEMAS_HOST = 'opendata.cern.ch'
 JSONSCHEMAS_URL_SCHEME = 'http'
 
+# HOST_URI
+HOST_URI = '{}://{}'.format(JSONSCHEMAS_URL_SCHEME,
+                            JSONSCHEMAS_HOST)
+
 # OAI Server
 OAISERVER_RECORD_INDEX = 'records'
 OAISERVER_ID_PREFIX = 'oai:cernopendata:recid/'
@@ -173,8 +177,7 @@ RECORDS_UI_ENDPOINTS = dict(
     recid_export=dict(
         pid_type='recid',
         route='/record/<pid_value>/export/<format>',
-        view_imp='invenio_records_ui.views.export',
-        template='cernopendata_records_ui/default_export.html',
+        view_imp='cernopendata.modules.records.utils:export_json_view',
         record_class='invenio_records_files.api:Record',
     ),
     datid=dict(

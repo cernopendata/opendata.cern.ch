@@ -14,6 +14,8 @@ This page lists possible solutions to frequently encountered issues with CMS Ope
 
 * In some versions of VirtualBox, it has happened that the CMS Open Data VM does not open correctly. This was the case for example for VirtulBox 5.0.32, but more recent versions from [the VirtualBox website](https://www.virtualbox.org/wiki/Downloads) have been tested and are working properly. Note that it can take a while to launch the CMS Open Data VM for the first time.
 
+* If the internet connection from the user's side is restricted, it may be that some ports and IPs need to be whitelisted so that the VM can install properly. These may change in time, please contact [opendata-support@cern.ch](mailto://opendata-support@cern.ch).
+
 **When/after installing CERN VM, I get a message that my VM uses too much memory**
 
 * Reduce the memory allocated to VirtualBox by clicking on System in the VirtualBox graphical user interface and adjust the base memory with the sliding bar.
