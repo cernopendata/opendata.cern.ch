@@ -151,7 +151,7 @@ opera_js = NpmBundle(
     'node_modules/demobbed-viewer/js/MgrDrawECC-funcAdd.js',
     output='gen/cernopendata.opera.%(version)s.js',
     npm={
-        "demobbed-viewer": "~1.0.4"
+        "demobbed-viewer": "~1.1.0"
     },
 )
 
@@ -160,7 +160,7 @@ opera_css = NpmBundle(
     filters='node-scss, cleancss',
     output='gen/cernopendata.opera.%(version)s.css',
     npm={
-        "demobbed-viewer": "~1.0.4"
+        "demobbed-viewer": "~1.1.0"
     }
 )
 
