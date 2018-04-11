@@ -1,0 +1,243 @@
+[
+  {
+    "abstract": {
+      "description": "<p>This neutrino interaction occurred on August 22$^{nd}$ 2009 in a brick located in the 11$^{th}$ wall of the first super-module,  well inside the target, being separated from the detector edge by 3 raws on top and 24 columns on the left. No muon was identified by the reconstruction of the data provided by electronic detectors.</p><p>The scanning of interface emulsion films, performed around the electronic detector predictions, revealed five tracks with a converging pattern: the brick films were then developed. By following up the tracks inside the brick, the neutrino interaction was found to be placed in the lead plate between the 18$^{th}$ and 19$^{th}$ emulsion films, 6.5 radiation lengths far from the downstream edge of the brick, thus providing sufficient length for the identification of electromagnetic showers inside the brick itself, without the need of extending the analysis to the downstream one. The interaction was fully reconstructed in the brick, looking for all tracks within the angular acceptance defined by $\\tan\\vartheta = 3$.</p><p>The primary neutrino interaction is defined by 7 tracks, one of which exhibits a visible kink of $(41\\pm 2)$~mrad, after a path length of~${(1335\\pm 35)}$~${\\mu}$m. A kink is a sudden change of the track direction, as it happens when a particle decays. Therefore, the kink is the topological evidence for a particle decay when it produces only a charged particle in the final state. All tracks were classified as hadrons using their overall track length reconstructed along all the downstream available bricks, the topology at their end-point and the correlation  between their momentum and range. One of these particles was identified as a proton and another one as a pion.</p><p>Two electromagnetic showers induced by ${\\gamma}$-rays were located. The first one was originated from the secondary vertex, 2.2~mm downstream of it, and its energy was reconstructed to be 5.6~GeV. The probability that it pointed to the secondary vertex was estimated to be ${32\\%}$, several orders of magnitude larger than any other interpretation. The second $\\gamma$ induced shower, with a reconstructed energy of 1.2~GeV, was compatible with pointing to the secondary vertex, with a  probability of ${82\\%}$, 8 times larger than any other interpretation. The reconstructed energy of the neutrino interaction is $24.3$~GeV/c.</p><p>The invariant mass of the two $\\gamma$-rays is $(120\\pm 20(\\textit{stat.})\\pm 35(\\textit{syst.}))$~MeV/c$^2$, supporting the hypothesis that they originate from a $\\pi^0$ decay. Similarly the invariant mass of the charged decay product assumed to be a $\\pi^-$ and of the two $\\gamma$-rays amounts to $(640^{+125}_{-80}(stat.)^{+100}_{-90}(syst.))$~MeV/c$^2$, which is compatible with the $\\rho$ particle mass. The $\\rho$ particle has an average lifetime as short as $4 \\times 10^{-24}$~s and it decays through strong interactions, without producing any visible displacement. The branching ratio of the decay mode $\\tau\\rightarrow\\rho^{-}\\nu_\\tau$ is about 25$\\%$.</p><p>This event was thus interpreted as a $\\nu_{\\tau}$ charged-current interaction with the $\\tau$ lepton decaying into a $\\rho^- \\nu_{\\tau}$ and the subsequent $\\rho^- \\rightarrow \\pi^{-} \\pi^0$ decay. A detailed description of the event is given in <a href=\"http://doi.org/10.1016/j.physletb.2010.06.022\">10.1016/j.physletb.2010.06.022</a>.</p>"
+    },
+    "accelerator": "CERN-SPS",
+    "collaboration": {
+      "name": "OPERA collaboration",
+      "recid": "452"
+    },
+    "collections": [
+      "OPERA-Detector-Events"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "PMT amplitude measured from the \"left\" side of a scintillator strip (in photo-electrons)",
+        "variable": "amplL"
+      },
+      {
+        "description": "PMT amplitude measured from the \"right\" side of a scintillator strip (in photo-electrons)",
+        "variable": "amplR"
+      },
+      {
+        "description": "PMT amplitude reconstructed from the \"left\" and \"right\" side amplitudes of a scintillator strip taking into account light attenuation in a WLS fiber (in photo-electrons)",
+        "variable": "amplRec"
+      },
+      {
+        "description": "cluster length (in cm)",
+        "variable": "clLength"
+      },
+      {
+        "description": "drift distance (in cm)",
+        "variable": "driftDist"
+      },
+      {
+        "description": "energy of a hadron jet (in GeV)",
+        "variable": "enHad"
+      },
+      {
+        "description": "energy of a neutrino (in GeV)",
+        "variable": "enNeu"
+      },
+      {
+        "description": "visible energy (in MeV)",
+        "variable": "enVis"
+      },
+      {
+        "description": "event Id (10- or 11-digit number)",
+        "variable": "evID"
+      },
+      {
+        "description": "X position of a vertex in the OPERA detector system of reference (in cm)",
+        "variable": "globPosX"
+      },
+      {
+        "description": "Y position of a vertex in the OPERA detector system of reference (in cm)",
+        "variable": "globPosY"
+      },
+      {
+        "description": "Z position of a vertex in the OPERA detector system of reference (in cm)",
+        "variable": "globPosZ"
+      },
+      {
+        "description": "momentum of a muon (in GeV/c)",
+        "variable": "muMom"
+      },
+      {
+        "description": "For Electronic Detector events, X position of a drift tube, RPC, Target Tracker hit in the OPERA detector system of reference (in cm). For Emulsion Detector events, X position of a track/vertex in the OPERA brick system of reference (in micrometers).",
+        "variable": "posX"
+      },
+      {
+        "description": "X position of the beginning of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posX1"
+      },
+      {
+        "description": "X position of the end of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posX2"
+      },
+      {
+        "description": "For Electronic Detector events, Y position of an RPC hit in the OPERA detector system of reference (in cm). For Emulsion Detector events, Y position of a track/vertex in the OPERA brick system of reference (in micrometers).",
+        "variable": "posY"
+      },
+      {
+        "description": "Y position of the beginning of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posY1"
+      },
+      {
+        "description": "Y position of the end of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posY2"
+      },
+      {
+        "description": "For Electronic Detector events, Z position of a drift tube, RPC, Target Tracker hit in the OPERA detector system of reference (in cm). For Emulsion Detector events, Z position of a track/vertex in the OPERA brick system of reference (in micrometers).",
+        "variable": "posZ "
+      },
+      {
+        "description": "Z position of the beginning of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posZ1"
+      },
+      {
+        "description": "Z position of the end of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posZ2"
+      },
+      {
+        "description": "flag of a vertex: 1 - primary vertex; 0 - not primary vertex",
+        "variable": "primary"
+      },
+      {
+        "description": "tangent of a track angle in XZ view",
+        "variable": "slopeXZ"
+      },
+      {
+        "description": "tangent of a track angle in YZ view",
+        "variable": "slopeYZ"
+      },
+      {
+        "description": "event time in milliseconds since 01/01/1970",
+        "variable": "timestamp"
+      },
+      {
+        "description": "type of a track: 1 - muon; 2 - hadron; 3 - electron/positron; 8 - tau lepton",
+        "variable": "trType"
+      }
+    ],
+    "date_created": "2009",
+    "date_published": "2018",
+    "distribution": {
+      "formats": [
+        "csv"
+      ],
+      "number_events": 1,
+      "number_files": 14,
+      "size": 48586
+    },
+    "doi": "10.7483/OPENDATA.OPERA.EERC.93LM",
+    "experiment": "OPERA",
+    "files": [
+      {
+        "checksum": "adler32:39ea167f",
+        "size": 82,
+        "uri": "root://eospublic.cern.ch//eos/opendata/opera/events/tau-appearance/9234119599_EventInfo.csv"
+      },
+      {
+        "checksum": "adler32:504b0766",
+        "size": 20,
+        "uri": "root://eospublic.cern.ch//eos/opendata/opera/events/tau-appearance/9234119599_FilteredDTHitsXZ.csv"
+      },
+      {
+        "checksum": "adler32:47ea06ea",
+        "size": 19,
+        "uri": "root://eospublic.cern.ch//eos/opendata/opera/events/tau-appearance/9234119599_FilteredRPCHitsXZ.csv"
+      },
+      {
+        "checksum": "adler32:47fa06eb",
+        "size": 19,
+        "uri": "root://eospublic.cern.ch//eos/opendata/opera/events/tau-appearance/9234119599_FilteredRPCHitsYZ.csv"
+      },
+      {
+        "checksum": "adler32:877a371d",
+        "size": 1639,
+        "uri": "root://eospublic.cern.ch//eos/opendata/opera/events/tau-appearance/9234119599_FilteredTTHitsXZ.csv"
+      },
+      {
+        "checksum": "adler32:715a6ca0",
+        "size": 1926,
+        "uri": "root://eospublic.cern.ch//eos/opendata/opera/events/tau-appearance/9234119599_FilteredTTHitsYZ.csv"
+      },
+      {
+        "checksum": "adler32:2e045b81",
+        "size": 14881,
+        "uri": "root://eospublic.cern.ch//eos/opendata/opera/events/tau-appearance/9234119599_Lines.csv"
+      },
+      {
+        "checksum": "adler32:504b0766",
+        "size": 20,
+        "uri": "root://eospublic.cern.ch//eos/opendata/opera/events/tau-appearance/9234119599_RawDTHitsXZ.csv"
+      },
+      {
+        "checksum": "adler32:47ea06ea",
+        "size": 19,
+        "uri": "root://eospublic.cern.ch//eos/opendata/opera/events/tau-appearance/9234119599_RawRPCHitsXZ.csv"
+      },
+      {
+        "checksum": "adler32:47fa06eb",
+        "size": 19,
+        "uri": "root://eospublic.cern.ch//eos/opendata/opera/events/tau-appearance/9234119599_RawRPCHitsYZ.csv"
+      },
+      {
+        "checksum": "adler32:807a00d1",
+        "size": 4078,
+        "uri": "root://eospublic.cern.ch//eos/opendata/opera/events/tau-appearance/9234119599_RawTTHitsXZ.csv"
+      },
+      {
+        "checksum": "adler32:bac2a421",
+        "size": 4959,
+        "uri": "root://eospublic.cern.ch//eos/opendata/opera/events/tau-appearance/9234119599_RawTTHitsYZ.csv"
+      },
+      {
+        "checksum": "adler32:83c1553f",
+        "size": 12431,
+        "uri": "root://eospublic.cern.ch//eos/opendata/opera/events/tau-appearance/9234119599_Tracks.csv"
+      },
+      {
+        "checksum": "adler32:03ca25f2",
+        "size": 150,
+        "uri": "root://eospublic.cern.ch//eos/opendata/opera/events/tau-appearance/9234119599_Vertices.csv"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "10100",
+    "relations": [
+      {
+        "description": "This event is part of OPERA Electronic Detector tau appearance dataset",
+        "recid": "10000",
+        "type": "isPartOf"
+      },
+      {
+        "description": "This event is part of OPERA Emulsion Detector tau appearance dataset",
+        "recid": "10001",
+        "type": "isPartOf"
+      }
+    ],
+    "title": "OPERA tau neutrino candidate event 9234119599",
+    "title_additional": "OPERA tau neutrino candidate event 9234119599",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": "These OPERA event data files can be visualised using the online OPERA event display",
+      "links": [
+        {
+          "description": "Visualise OPERA detector event 9234119599",
+          "url": "/visualise/events/opera/9234119599"
+        }
+      ]
+    }
+  }
+]

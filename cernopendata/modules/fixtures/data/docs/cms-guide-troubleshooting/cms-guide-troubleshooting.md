@@ -87,7 +87,7 @@ can be safely ignored, they do not affect the results.
 
 **When reading AOD data, I get fatal access error messages from eospublic on specific files**
 
-* According to the CERN eos-admin team, disk access problems to eospublic may occur occasionally and are automatically corrected within a few hours. If the access problem to a particular file lasts longer than about a day send a mail to [eos-admins@cern.ch](mailto://eos-admins@cern.ch), providing the file name and a log of the error message.
+* According to the CERN EOS team, disk access problems to eospublic may occur occasionally and are automatically corrected within a few hours. If the access problem to a particular file lasts longer than about a day send a mail to [eos-support@cern.ch](mailto://eos-support@cern.ch), providing the file name and a log of the error message.
 
 
 **Any other problem you cannot solve yourself or with the help of your local administrator(s), not related to your local setup**

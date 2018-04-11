@@ -387,7 +387,7 @@ a {
 
 .list-nobullets {
     list-style: none;
-    padding-left: $loading-size;
+    padding-left: 22px;
 }
 
 #loading-bar .bar{
@@ -441,6 +441,11 @@ a {
 
 invenio-search-results {
     color: #35495e;
+    font-weight: $font-heavy;
+}
+
+#invenio-search .pagination {
+    margin-bottom: 22px;
 }
 
 invenio-search-facets {
@@ -579,7 +584,7 @@ invenio-search-facets {
 
 .facet-count {
     float: right;
-    width: 50px;
+    width: 40px;
 }
 
 .searchbar {

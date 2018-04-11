@@ -108,5 +108,160 @@
     "validation": {
       "description": "During the data taking, all the runs recorded by OPERA are certified as good for physics analysis if the trigger and all sub-detectors show the expected performance. Moreover, the time stamp of the event should lie within the gate open by the CNGS beam signal. The data certification is based first on the offline shifters evaluation and later on the feedback provided by all sub-detector experts. Based on the above information, stored in a specific database, the Data Quality Monitoring group verifies the consistency of the certification and prepares an ascii file of certified runs to be used for physics analysis. Calibration procedures taking into account the specific geometry of the target associated to each event are applied to raw data and they are converted into a root file for each event that is then used for physics analysis"
     }
+  },
+  {
+    "abstract": {
+      "description": "The dataset was extracted from the official OPERA data repository. It contains 10 tau neutrino candidate events. FIXME"
+    },
+    "accelerator": "CERN-SPS",
+    "collaboration": {
+      "name": "OPERA collaboration",
+      "recid": "452"
+    },
+    "collections": [
+      "OPERA-Electronic-Detector-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "PMT amplitude measured from the \"left\" side of a scintillator strip (in photo-electrons)",
+        "variable": "amplL"
+      },
+      {
+        "description": "PMT amplitude measured from the \"right\" side of a scintillator strip (in photo-electrons)",
+        "variable": "amplR"
+      },
+      {
+        "description": "PMT amplitude reconstructed from the \"left\" and \"right\" side amplitudes of a scintillator strip taking into account light attenuation in a WLS fiber (in photo-electrons)",
+        "variable": "amplRec"
+      },
+      {
+        "description": "cluster length (in cm)",
+        "variable": "clLength"
+      },
+      {
+        "description": "drift distance (in cm)",
+        "variable": "driftDist"
+      },
+      {
+        "description": "energy of a hadron jet (in GeV)",
+        "variable": "enHad"
+      },
+      {
+        "description": "energy of a neutrino (in GeV)",
+        "variable": "enNeu"
+      },
+      {
+        "description": "visible energy (in MeV)",
+        "variable": "enVis"
+      },
+      {
+        "description": "event Id (10- or 11-digit number)",
+        "variable": "evID"
+      },
+      {
+        "description": "X position of a vertex in the OPERA detector system of reference (in cm)",
+        "variable": "globPosX"
+      },
+      {
+        "description": "Y position of a vertex in the OPERA detector system of reference (in cm)",
+        "variable": "globPosY"
+      },
+      {
+        "description": "Z position of a vertex in the OPERA detector system of reference (in cm)",
+        "variable": "globPosZ"
+      },
+      {
+        "description": "momentum of a muon (in GeV/c)",
+        "variable": "muMom"
+      },
+      {
+        "description": "For Electronic Detector events, X position of a drift tube, RPC, Target Tracker hit in the OPERA detector system of reference (in cm). For Emulsion Detector events, X position of a track/vertex in the OPERA brick system of reference (in micrometers).",
+        "variable": "posX"
+      },
+      {
+        "description": "X position of the beginning of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posX1"
+      },
+      {
+        "description": "X position of the end of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posX2"
+      },
+      {
+        "description": "For Electronic Detector events, Y position of an RPC hit in the OPERA detector system of reference (in cm). For Emulsion Detector events, Y position of a track/vertex in the OPERA brick system of reference (in micrometers).",
+        "variable": "posY"
+      },
+      {
+        "description": "Y position of the beginning of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posY1"
+      },
+      {
+        "description": "Y position of the end of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posY2"
+      },
+      {
+        "description": "For Electronic Detector events, Z position of a drift tube, RPC, Target Tracker hit in the OPERA detector system of reference (in cm). For Emulsion Detector events, Z position of a track/vertex in the OPERA brick system of reference (in micrometers).",
+        "variable": "posZ "
+      },
+      {
+        "description": "Z position of the beginning of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posZ1"
+      },
+      {
+        "description": "Z position of the end of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posZ2"
+      },
+      {
+        "description": "flag of a vertex: 1 - primary vertex; 0 - not primary vertex",
+        "variable": "primary"
+      },
+      {
+        "description": "tangent of a track angle in XZ view",
+        "variable": "slopeXZ"
+      },
+      {
+        "description": "tangent of a track angle in YZ view",
+        "variable": "slopeYZ"
+      },
+      {
+        "description": "event time in milliseconds since 01/01/1970",
+        "variable": "timestamp"
+      },
+      {
+        "description": "type of a track: 1 - muon; 2 - hadron; 3 - electron/positron; 8 - tau lepton",
+        "variable": "trType"
+      }
+    ],
+    "date_created": "2010-2012",
+    "date_published": "2018",
+    "distribution": {
+      "formats": [
+        "csv",
+        "zip"
+      ],
+      "number_events": 10,
+      "number_files": 1,
+      "size": 0
+    },
+    "doi": "10.7483/OPENDATA.OPERA.NS3I.LL21",
+    "experiment": "OPERA",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "FIXME"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "10000",
+    "title": "Electronic detector data for tau neutrino appearance studies",
+    "title_additional": "Electronic detector data for tau neutrino appearance studies",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "validation": {
+      "description": "FIXME"
+    }
   }
 ]
