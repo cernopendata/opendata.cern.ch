@@ -111,7 +111,7 @@
   },
   {
     "abstract": {
-      "description": "The dataset was extracted from the official OPERA data repository. It contains 10 tau neutrino candidate events. FIXME"
+      "description": "The dataset was extracted from the official OPERA data repository. It contains 10 tau neutrino candidate events that are also <a href=\"/search?page=1&size=20&q=title%3A%22opera%20tau%20neutrino%20candidate%20event%22\">described separately</a>."
     },
     "accelerator": "CERN-SPS",
     "collaboration": {
@@ -240,10 +240,17 @@
       ],
       "number_events": 10,
       "number_files": 1,
-      "size": 0
+      "size": 52251
     },
     "doi": "10.7483/OPENDATA.OPERA.NS3I.LL21",
     "experiment": "OPERA",
+    "files": [
+      {
+        "checksum": "adler32:8c785b0e",
+        "size": 52251,
+        "uri": "root://eospublic.cern.ch//eos/opendata/opera/datasets/tau-appearance/electronic-detector-data-for-tau-appearance.zip"
+      }
+    ],
     "license": {
       "attribution": "CC0"
     },
@@ -261,7 +268,7 @@
       ]
     },
     "validation": {
-      "description": "FIXME"
+      "description": "During the data taking, all the runs recorded by OPERA are certified as good for physics analysis if the trigger and all sub-detectors show the expected performance. Moreover, the time stamp of the event should lie within the gate open by the CNGS beam signal. The data certification is based first on the offline shifters evaluation and later on the feedback provided by all sub-detector experts. Based on the above information, stored in a specific database, the Data Quality Monitoring group verifies the consistency of the certification and prepares an ascii file of certified runs to be used for physics analysis. Calibration procedures taking into account the specific geometry of the target associated to each event are applied to raw data and they are converted into a root file for each event that is then used for physics analysis"
     }
   }
 ]
