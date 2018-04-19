@@ -1,6 +1,8 @@
-ATLAS (A Toroidal LHC ApparatuS) is one of the two general-purpose detectors at the LHC, the other being CMS. Both detectors are geared towards covering a large range of physics produced in proton collisions such as the search for the Higgs Boson or Vector Boson Scattering.
+[ATLAS](https://atlas.cern) (A Toroidal LHC ApparatuS) is one of the two general-purpose detectors at the LHC, the other being CMS. Both detectors are geared towards covering a large range of physics produced in proton collisions such as the search for the Higgs Boson or Vector Boson Scattering.
 
-## About ATLAS Data
+## About ATLAS Open Data
+
+[ATLAS Open Data project](http://opendata.atlas.cern)
 
 The available dataset is derived from actual data recored by ATLAS during the 2011 run. There are 6 packages of 1000 events each totalling 6000 events. These events have been preselected to provide a high amount of interesting physics events. The data are saved in an XML format that can be read with the event display program MINERVA. A python-based framework for the analysis of the data is in the works.
 
