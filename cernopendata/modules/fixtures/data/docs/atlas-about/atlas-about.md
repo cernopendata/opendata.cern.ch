@@ -4,7 +4,7 @@
 
 ATLAS physicists test the predictions of the [Standard Model](https://home.cern/about/physics/standard-model), which encapsulates our current understanding of what the building blocks of matter are and how they interact. These studies can lead to ground-breaking discoveries, such as that of the Higgs boson, physics beyond the Standard Model and the development of new theories to better describe our universe.
 
-For more about the ATLAS Collaboration, the experiment, the physics and its members, please visit the [Official Site](https://atlas.cern/discover/experiment).
+For more about the ATLAS Collaboration, the experiment, the physics and its members, please visit our [Official Site](https://atlas.cern/discover/experiment).
 
 
 ## About [ATLAS Open Data](http://opendata.atlas.cern)
