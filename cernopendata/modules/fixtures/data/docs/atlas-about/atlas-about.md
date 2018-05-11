@@ -1,6 +1,6 @@
-**[ATLAS](https://atlas.cern)** (A Toroidal LHC ApparatuS) is one of the four major experiments at the [Large Hadron Collider](http://home.web.cern.ch/topics/large-hadron-collider) (LHC) at [CERN](https://home.cern). It is a general-purpose particle physics experiment run by an international collaboration and, together with [ATLAS](https://atlas.cern), is designed to exploit the full discovery potential and the vast range of physics opportunities that the LHC provides.
+**[ATLAS](https://atlas.cern)** (A Toroidal LHC ApparatuS) is one of the four major experiments at the [Large Hadron Collider](http://home.web.cern.ch/topics/large-hadron-collider) (LHC) at [CERN](https://home.cern). It is a general-purpose particle physics experiment run by an international collaboration and, together with [CMS](https://cms.cern), is designed to exploit the full discovery potential and the vast range of physics opportunities that the LHC provides.
 
-[ATLAS](https://atlas.cern)' scientific exploration uses precision measurement to push the frontiers of knowledge by seeking answers to fundamental questions such as: What are the basic building blocks of matter? What are the fundamental forces of nature? Could there be a greater underlying symmetry to our universe?
+[ATLAS](https://atlas.cern)'s scientific exploration uses precision measurement to push the frontiers of knowledge by seeking answers to fundamental questions such as: What are the basic building blocks of matter? What are the fundamental forces of nature? Could there be a greater underlying symmetry to our universe?
 
 ATLAS physicists test the predictions of the [Standard Model](https://home.cern/about/physics/standard-model), which encapsulates our current understanding of what the building blocks of matter are and how they interact. These studies can lead to ground-breaking discoveries, such as that of the Higgs boson, physics beyond the Standard Model and the development of new theories to better describe our universe.
 
@@ -12,13 +12,13 @@ For more about the ATLAS Collaboration, the experiment, the physics and its memb
 **The ATLAS Collaboration's current approach on the release of datasets is intended for Education, Training and Outreach activities around the World**.
 In order to fulfil that objective, the **[ATLAS Open Data project](http://opendata.atlas.cern) was created**.
 
-[ATLAS Open Data](http://opendata.atlas.cern) project aims to provide data and tools to high school, masters and undergraduate students, to help educate them in physics analysis techniques used in experimental particle physics. Sharing data collected by the [ATLAS](https://atlas.cern) experiment aims to generate excitement and enthusiasm for fundamental research, inspiring physicists of the future.
+[ATLAS Open Data](http://opendata.atlas.cern) project aims to provide data and tools to high-school, masters and undergraduate students, to help educate them in physics analysis techniques used in experimental particle physics. Sharing data collected by the [ATLAS](https://atlas.cern) experiment aims to generate excitement and enthusiasm for fundamental research, inspiring physicists of the future.
 
-[International Masterclasses](http://physicsmasterclasses.org/) introduce particle physics to high school students and have been running very successfully for the last 20 years.
+[International Masterclasses](http://physicsmasterclasses.org/) introduce particle physics to high-school students and have been running very successfully for the last 20 years.
 ATLAS data [were first used in 2011](https://www.interactions.org/press-release/high-school-students-analyse-first-time-real-lhc-data), and 8 TeV ATLAS Open Data in 2015.
 Inspired by the success of International Masterclasses, a new [ATLAS Open Data](http://opendata.atlas.cern) initiative [was launched in 2016](http://atlas.cern/updates/atlas-news/explore-lhc-data-new-atlas-educational-platform).
 
- The target audience is physics undergraduate and masters students, but may also include advanced high school students or indeed anyone with some basic understanding of particle physics and coding experience. A comprehensive **educational platform was developed featuring a new 8 TeV dataset and a set of educational tools at a more advanced level. The objectives of this initiative are to provide**:
+ The target audience is physics undergraduate and masters students, but may also include advanced high-school students or indeed anyone with some basic understanding of particle physics and coding experience. A comprehensive **educational platform was developed featuring a new 8 TeV dataset and a set of educational tools at a more advanced level. The objectives of this initiative are to provide**:
 
 * 8 TeV proton–proton data collected by ATLAS plus associated simulated data.
 * 13 TeV proton–proton data collected by ATLAS plus associated simulated data.
