@@ -28,6 +28,7 @@ FROM centos:7
 # Install CERN Open Data Portal web node pre-requisites:
 RUN yum update -y && \
     yum install -y \
+        ca-certificates \
         curl \
         git \
         rlwrap \
