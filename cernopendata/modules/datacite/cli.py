@@ -23,6 +23,8 @@
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 """Command line interface for DataCite related commands."""
 
+import os
+
 import click
 from datacite import schema40
 from flask import current_app
@@ -86,11 +88,12 @@ def gen_doi(exp):
 
 @datacite.command()
 @click.option(
-    '--uuid',
-    help='Register record with given uuid')
+    '--recid',
+    help='Register record with given recid')
 @with_appcontext
-def register(uuid):
-    """Register record with given uuid in DataCite."""
+def register(recid):
+    """Register record with given recid in DataCite."""
+    uuid = PersistentIdentifier.get('recid', recid).object_uuid
     record = Record.get_record(uuid)
     experiment = record.get('experiment', None)
     doi = record['doi']
@@ -106,9 +109,10 @@ def register(uuid):
     doc = DataCiteSerializer().dump(record).data
     schema40.validate(doc)
     doc = schema40.tostring(doc)
-    landing_page = '{}/{}'.format(
+    landing_page = os.path.join(
         current_app.config.get('PIDSTORE_LANDING_BASE_URL'),
-        doi)
+        recid)
+
     provider.register(url=landing_page,
                       doc=doc)
     db.session.commit()
