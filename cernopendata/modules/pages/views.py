@@ -152,118 +152,11 @@ def visualise_histograms(experiment='cms'):
         return abort(404)
 
 
-@blueprint.route('/about')
-def about():
-    """Render view for general about page."""
-    return redirect('/docs/about')
-
-
-@blueprint.route('/about/<exp>')
-def about_exp(exp):
-    """Render about <experiment> pages."""
-    if exp in ['lhcb', 'atlas', 'cms', 'alice', 'opera']:
-        return redirect('/docs/about-{}'.format(exp))
-    else:
-        abort(404)
-
-
 # FIXME quick fix
 @blueprint.route('/record/<recid>/')
 def record_redirect(recid):
     """Redirect to deal with trailing slash."""
     return redirect('/record/{}'.format(recid))
-
-
-@blueprint.route('/about/cms-pileup-simulation')
-def cms_pileup_simulation():
-    """Render cms pileup simulation template."""
-    return redirect('/docs/cms-guide-pileup-simulation')
-
-
-@blueprint.route('/about/cms-simulated-dataset-names')
-def about_cms_dataset_names():
-    """Render about CMS simulated dataset names template."""
-    return redirect('/docs/cms-simulated-dataset-names')
-
-
-@blueprint.route('/getstarted/cms/<year>')
-@blueprint.route('/getting-started/cms/<year>')
-def getting_started_cms_redirect(year):
-    """Redirect for the CMS records."""
-    return redirect('/docs/cms-getting-started-{}'.format(year),
-                    code=302)
-
-
-@blueprint.route('/<exp>/getstarted')
-@blueprint.route('/getting-started/<exp>')
-def getting_started_redirect(exp):
-    """Redirects to associated experiment."""
-    if exp == "cms":
-        return redirect('/docs/cms-getting-started-2011')
-    elif exp in ['lhcb', 'alice']:  # FIXME to be appended with new docs
-        return redirect('/docs/%s-getting-started' % exp)
-    else:
-        abort(404)
-
-
-@blueprint.route('/vm/<exp>')
-def vm_redirect(exp):
-    """Redirects to associated experiment."""
-    if exp == "cms":
-        return redirect('/docs/cms-virtual-machine-2011')
-    elif exp in ['lhcb', 'alice']:  # FIXME to be appended with new docs
-        return redirect('/docs/%s-virtual-machine' % exp)
-    else:
-        abort(404)
-
-
-def check_year(year):
-    """Check if an argument is a year."""
-    if len(year) == 4 and year.isdigit():
-        return True
-    return False
-
-
-@blueprint.route('/vm/validation/report')
-@blueprint.route('/vm/cms/validation/report')
-def validation_report_redirect():
-    """Redirects to CMS VM validation document."""
-    return redirect('/docs/cms-vm-validation-2010')
-
-
-@blueprint.route('/vm/<exp>/<year>')
-def vm_redirect_year(exp, year):
-    """Redirects to associated experiment."""
-    if check_year(year) and exp in ['lhcb', 'cms', 'alice']:  # FIXME add exp
-        return redirect('/docs/%s-virtual-machine-%s' % (exp, year), code=302)
-    else:
-        abort(404)
-
-
-@blueprint.route('/cms-physics-objects/')
-@blueprint.route('/cms-physics-objects/<year>')
-@blueprint.route('/about/cms-physics-objects/')
-@blueprint.route('/about/cms-physics-objects/<year>')
-def cms_physics_objects_redirect(year='2011'):
-    """Redirects to CMS physics objects page of given year.
-
-    If no year is given, redirects to latest available
-    physics objects page (the default parameter).
-    """
-    if check_year(year):
-        return redirect('/docs/cms-physics-objects-{}'.format(year), code=302)
-
-
-@blueprint.route('/terms-of-use')
-def terms():
-    """Render terms of use."""
-    return redirect('docs/terms-of-use')
-
-
-@blueprint.route('/privacy-policy')
-def privacy():
-    """Render privacy policy."""
-    return redirect('/docs/privacy-policy')
 
 
 @blueprint.route('/glossary')
@@ -286,14 +179,14 @@ def glossary_json():
 @blueprint.route('/resources')
 @blueprint.route('/research')
 @blueprint.route('/research'
-                 '/<any("cms","lhcb","alice","atlas"):experiment>')
+                 '/<any("lhcb","alice","atlas"):experiment>')
 @blueprint.route('/resources'
                  '/<any("cms","lhcb","alice","atlas"):experiment>')
 @blueprint.route('/collection/<string:collection>')
 @blueprint.route('/<any("getting-started","getstarted", "vm","news",'
                  '"datasets","documentation","software"):page>')
 @blueprint.route('/<any("getting-started","getstarted","vm"):page>'
-                 '/<any("cms","lhcb","opera", "alice","atlas"):experiment>')
+                 '/<any("opera", "atlas"):experiment>')
 def faceted_search(page=None, experiment=None, collection=None):
     """Faceted search view.
 
@@ -374,54 +267,36 @@ def faceted_search(page=None, experiment=None, collection=None):
     return redirect(url_for('invenio_search_ui.search', **filters))
 
 
-@blueprint.route('/<any("research","education"):page>')
-@blueprint.route('/<any("research","education"):page>'
-                 '/<any("cms","lhcb","opera","alice","atlas"):experiment>')
-def education_research_pages(page, experiment=None):
-    """Research and education pages."""
+@blueprint.route('/education')
+@blueprint.route('/education'
+                 '/<any("lhcb","opera","alice","atlas"):experiment>')
+def education_pages(experiment=None):
+    """Education pages."""
     collections = {
-        'research': {'cms': ['CMS-Primary-Datasets',
-                             'CMS-Simulated-Datasets',
-                             'CMS-Derived-Datasets',
-                             'CMS-Tools',
-                             'CMS-Validation-Utilities',
-                             'CMS-Learning-Resources',
-                             'CMS-Simulated-Datasets',
-                             'CMS-Open-Data-Instructions',
-                             'CMS-Trigger-Information',
-                             'CMS-Condition-Data',
-                             'CMS-Configuration-Files',
-                             'CMS-Luminosity-Information'
-                             ]
-                     },
-        'education': {'cms': ['CMS-Derived-Datasets',
-                              'CMS-Tools',
-                              'CMS-Learning-Resources',
-                              'CMS-Open-Data-Instructions'
-                              ],
-                      'alice': ['ALICE-Derived-Datasets',
-                                'ALICE-Reconstructed-Data',
-                                'ALICE-Tools',
-                                'ALICE-Learning-Resources'
-                                ],
-                      'atlas': ['ATLAS-Derived-Datasets',
-                                'ATLAS-Learning-Resources',
-                                'ATLAS-Tools',
-                                'ATLAS-Higgs-Challenge-2014',
-                                'ATLAS-Simulated-Datasets'
-                                ],
-                      'lhcb': ['LHCb-Derived-Datasets',
-                               'LHCb-Tools',
-                               'LHCb-Learning-Resources'
-                               ],
-                      'opera': ['OPERA-Detector-Events',
-                                'OPERA-Electronic-Detector-Datasets',
-                                'OPERA-Emulsion-Detector-Datasets'
-                                ]
-                      }
+        'education': {
+            'alice': ['ALICE-Derived-Datasets',
+                      'ALICE-Reconstructed-Data',
+                      'ALICE-Tools',
+                      'ALICE-Learning-Resources'
+                      ],
+            'atlas': ['ATLAS-Derived-Datasets',
+                      'ATLAS-Learning-Resources',
+                      'ATLAS-Tools',
+                      'ATLAS-Higgs-Challenge-2014',
+                      'ATLAS-Simulated-Datasets'
+                      ],
+            'lhcb': ['LHCb-Derived-Datasets',
+                     'LHCb-Tools',
+                     'LHCb-Learning-Resources'
+                     ],
+            'opera': ['OPERA-Detector-Events',
+                      'OPERA-Electronic-Detector-Datasets',
+                      'OPERA-Emulsion-Detector-Datasets'
+                      ]
+             }
     }
 
-    collections = collections.get(page)
+    collections = collections.get('education')
 
     if not experiment:
         # use collections defined for all experiments
@@ -429,6 +304,49 @@ def education_research_pages(page, experiment=None):
     else:
         filters = {'collections': collections.get(experiment) or abort(404)}
 
-    # return redirect(url_for('invenio_search_ui.search', **filters))
-    # FIXME quick workaround
-    return redirect(url_for('invenio_search_ui.search'))
+    return redirect(url_for('invenio_search_ui.search', **filters))
+
+
+@blueprint.route('/<path:path>/<int(fixed_digits=4):year>')
+@blueprint.route('/<path:path>')
+def redirect_old_urls(path, year=None):
+    """Redirect old urls."""
+    old_to_new_url_map = {
+        'about': 'docs/about',
+        'about/cms': 'docs/about-cms',
+        'about/cms-pileup-simulation':
+            'docs/cms-guide-pileup-simulation',
+        'about/cms-simulated-dataset-names':
+            'docs/cms-simulated-dataset-names',
+        'about/cms-physics-objects':
+            '/docs/cms-physics-objects-{}'.format(year or 2011),
+        'about/lhcb': 'docs/about-lhcb',
+        'about/atlas': 'docs/about-atlas',
+        'about/alice': 'docs/about-alice',
+        'about/opera': 'docs/about-opera',
+        'alice/getstarted': 'docs/alice-getting-started',
+        'cms/getstarted':
+            'docs/cms-getting-started-{}'.format(year or 2011),
+        'cms-physics-objects':
+            '/docs/cms-physics-objects-{}'.format(year or 2011),
+        'education/cms': 'docs/about-cms',
+        'getstarted/cms':
+            'docs/cms-getting-started-{}'.format(year or 2011),
+        'getting-started/alice': 'docs/alice-getting-started',
+        'getting-started/cms':
+            'docs/cms-getting-started-{}'.format(year or 2011),
+        'getting-started/lhcb': 'docs/lhcb-getting-started',
+        'lhcb/getstarted': 'docs/lhcb-getting-started',
+        'privacy-policy': 'docs/privacy-policy',
+        'research/cms': 'docs/about-cms',
+        'terms-of-use': 'docs/terms-of-use',
+        'vm/alice': 'docs/alice-virtual-machine',
+        'vm/cms': 'docs/cms-virtual-machine-{}'.format(year or 2011),
+        'vm/lhcb': 'docs/lhcb-virtual-machine',
+        'vm/validation/report': 'docs/cms-vm-validation-2010',
+        'vm/cms/validation/report': 'docs/cms-vm-validation-2010',
+    }
+
+    new_url = old_to_new_url_map.get(path) or abort(404)
+
+    return redirect(new_url)
