@@ -38,21 +38,26 @@
     "abstract": {
       "properties": {
         "description": {
+          "description": "A summary of the resource",
           "type": "string"
         },
         "links": {
           "items": {
             "properties": {
               "description": {
+                "description": "A brief description of the link associated with the abstract",
                 "type": "string"
               },
               "recid": {
+                "description": "If the link is to another CERN Open Data portal record, the record ID of that record",
                 "type": "string"
               },
               "title": {
+                "description": "The title of the associated link",
                 "type": "string"
               },
               "url": {
+                "description": "The URL for the link associated with the abstract",
                 "type": "string"
               }
             },
@@ -64,21 +69,30 @@
       "type": "object"
     },
     "accelerator": {
+      "description": "The accelerator involved in the production of the data (e.g. CERN-LHC)",
       "type": "string"
     },
     "authors": {
       "items": {
         "properties": {
           "affiliation": {
+            "description": "The affiliation of the author",
             "type": "string"
           },
           "ccid": {
+            "description": "The author's CCID",
             "type": "string"
           },
           "inspireid": {
+            "description": "The author's inspire ID",
+            "type": "string"
+          },
+          "orcid": {
+            "description": "The author's ORCID iD",
             "type": "string"
           },
           "name": {
+            "description": "The name of the author",
             "type": "string"
           }
         },
@@ -87,17 +101,21 @@
       "type": "array"
     },
     "cms_confdb_id": {
+      "description": "the cms_confdb_id (applies to CMS records)",
       "type": "string"
     },
     "collaboration": {
       "properties": {
         "group": {
+          "description": "The name of the group the author is part of",
           "type": "string"
         },
         "name": {
+          "description": "The name of the collaboration the author is part of",
           "type": "string"
         },
         "recid": {
+          "description": "The recid containing a collaboration's author list within COD. E.g. for the CMS collaboration, the author list is record 453 for 2012 data",
           "type": "string"
         }
       },
@@ -105,6 +123,7 @@
     },
     "collections": {
       "items": {
+        "description": "The name of the collection the record belongs to (internal)",
         "type": "string"
       },
       "type": "array"
@@ -112,6 +131,7 @@
     "collision_information": {
       "properties": {
         "energy": {
+          "description": "E.g. 8TeV",
           "type": "string"
         }
       },
@@ -121,9 +141,11 @@
       "items": {
         "properties": {
           "description": {
+            "description": "Description or explanation for a variable",
             "type": "string"
           },
           "variable": {
+            "description": "A variable",
             "type": "string"
           }
         },
@@ -132,47 +154,58 @@
       "type": "array"
     },
     "date_created": {
+      "description": "The year the resource was created or the data-taking year for datasets",
       "type": "string"
     },
     "date_published": {
+      "description": "The year of publication on the portal",
       "type": "string"
     },
     "date_reprocessed": {
+      "description": "The year the resource was reprocessed",
       "type": "string"
     },
     "distribution": {
       "properties": {
         "formats": {
           "items": {
+            "description": "All the file formats included in the record (e.g. aodsim, root)",
             "type": "string"
           },
           "type": "array"
         },
         "number_events": {
+          "description": "The total number of events",
           "type": "integer"
         },
         "number_files": {
+          "description": "The total number of files attached to the record",
           "type": "integer"
         },
         "size": {
+          "description": "The total size of the files in bytes",
           "type": "integer"
         }
       },
       "type": "object"
     },
     "doi": {
+      "description": "The Digital Object Identifier that has been registered for the resource",
       "type": "string"
     },
     "experiment": {
+      "description": "The name of the experiment the author is part of",
       "type": "string"
     },
     "generator": {
       "properties": {
         "global_tag": {
+          "description": "The global tag for the generator",
           "type": "string"
         },
         "names": {
           "items": {
+            "description": "The names of the generator",
             "type": "string"
           },
           "type": "array"
@@ -182,16 +215,19 @@
     },
     "keywords": {
       "items": {
+        "description": "Relevant keywords for the record",
         "type": "string"
       },
       "type": "array"
     },
     "language": {
+      "description": "The language of the resource, based on ISO 639-2 (e.g. 'eng' for English)",
       "type": "string"
     },
     "license": {
       "properties": {
         "attribution": {
+          "description": "The license this resource is published under. Most of the content in the portal is released under the Creative Commons CC0 waiver and, if the resource is software, under another open-source license (usually GNU General Public License or Apache)",
           "type": "string"
         }
       },
@@ -201,15 +237,19 @@
       "items": {
         "properties": {
           "description": {
+            "description": "A brief description of the link",
             "type": "string"
           },
           "recid": {
+            "description": "If the link is to another CERN Open Data portal record, the record ID of that record",
             "type": "string"
           },
           "title": {
+            "description": "The title for the link",
             "type": "string"
           },
           "url": {
+            "description": "The URL for the link associated with this record (for an external URL)",
             "type": "string"
           }
         },
@@ -220,21 +260,26 @@
     "methodology": {
       "properties": {
         "description": {
+          "description": "A description of the methodology used for the production of this data/software",
           "type": "string"
         },
         "links": {
           "items": {
             "properties": {
               "description": {
+                "description": "A brief description of the link associated with the methodology",
                 "type": "string"
               },
               "recid": {
+                "description": "If the link is to another CERN Open Data portal record, the record ID of that record",
                 "type": "string"
               },
               "title": {
+                "description": "The title for the link",
                 "type": "string"
               },
               "url": {
+                "description": "The URL for the link associated with this record (for an external URL)",
                 "type": "string"
               }
             },
@@ -248,21 +293,26 @@
     "note": {
       "properties": {
         "description": {
+          "description": "Any other notes of interest for the given resource",
           "type": "string"
         },
         "links": {
           "items": {
             "properties": {
               "description": {
+                "description": "A brief description of the link associated with the notes",
                 "type": "string"
               },
               "recid": {
+                "description": "If the link is to another CERN Open Data portal record, the record ID of that record",
                 "type": "string"
               },
               "title": {
+                "description": "The title of the link",
                 "type": "string"
               },
               "url": {
+                "description": "The URL for the link associated with this record (for an external URL)",
                 "type": "string"
               }
             },
@@ -276,21 +326,26 @@
     "pileup": {
       "properties": {
         "description": {
+          "description": "Note about pile-up events (applies to simulated records",
           "type": "string"
         },
         "links": {
           "items": {
             "properties": {
               "description": {
+                "description": "A brief description of the link associated with the pile-up information",
                 "type": "string"
               },
               "recid": {
+                "description": "If the link is to another CERN Open Data portal record, the record ID of that record. Usually, the record included here is a configuration file",
                 "type": "string"
               },
               "title": {
+                "description": "The title for the link",
                 "type": "string"
               },
               "url": {
+                "description": "The URL for the link associated with this record (for an external URL)",
                 "type": "string"
               }
             },
@@ -304,42 +359,53 @@
     "prepublication": {
       "properties": {
         "date": {
+          "description": "The prepublication date, based on ISO 8601 (YYYY-MM-DD)",
           "type": "string"
         },
         "place": {
+          "description": "The place of publication",
           "type": "string"
         },
         "publisher": {
+          "description": "The name of the publisher",
           "type": "string"
         },
         "report_number": {
+          "description": "The report number",
           "type": "string"
         }
       },
       "type": "object"
     },
     "publisher": {
+      "description": "The name of the publisher (internal)",
       "type": "string"
     },
     "recid": {
+      "description": "The record ID for this record (internal)",
       "type": "string"
     },
     "relations": {
       "items": {
         "properties": {
           "description": {
+            "description": "A description about the related dataset",
             "type": "string"
           },
           "doi": {
+            "description": "The DOI assigned to the related dataset",
             "type": "string"
           },
           "recid": {
+            "description": "The internal ID of the related record, if it is another Open Data record",
             "type": "string"
           },
           "title": {
+            "description": "The title of the related record",
             "type": "string"
           },
           "type": {
+            "description": "The type of relation between the records (most common is 'isChildOf' for linking derived datasets to their parent)",
             "type": "string"
           }
         },
@@ -348,6 +414,7 @@
       "type": "array"
     },
     "run_period": {
+      "description": "The run during which the data/software was produced, in a format such as 'Run2011A'",
       "type": "string"
     },
     "system_details": {
@@ -356,12 +423,14 @@
           "type": "string"
         },
         "global_tag": {
+          "description": "E.g. FT_53_LV5_AN1",
           "type": "string"
         },
         "recid": {
           "type": "string"
         },
         "release": {
+          "description": "The software version (e.g. CMSSW_5_3_32)",
           "type": "string"
         },
         "url": {
@@ -371,9 +440,11 @@
       "type": "object"
     },
     "title": {
+      "description": "The title for this resource",
       "type": "string"
     },
     "title_additional": {
+      "description": "A more descriptive, human-readble title",
       "type": "string"
     },
     "topic": {
@@ -390,10 +461,12 @@
     "type": {
       "properties": {
         "primary": {
+          "description": "The primary category this resource belongs to (what appears in the UI facets)",
           "type": "string"
         },
         "secondary": {
           "items": {
+            "description": "The secondary category this resource belongs to (what appears in the UI facets)",
             "type": "string"
           },
           "type": "array"
@@ -404,21 +477,26 @@
     "usage": {
       "properties": {
         "description": {
+          "description": "Instructions on how this resource can be used/accessed",
           "type": "string"
         },
         "links": {
           "items": {
             "properties": {
               "description": {
+                "description": "A brief description of the link associated with the usage information",
                 "type": "string"
               },
               "recid": {
+                "description": "The internal ID of the related record, if it is another Open Data record",
                 "type": "string"
               },
               "title": {
+                "description": "The title for the link",
                 "type": "string"
               },
               "url": {
+                "description": "The URL for the link associated with this record (for an external URL)",
                 "type": "string"
               }
             },
@@ -432,21 +510,26 @@
     "use_with": {
       "properties": {
         "description": {
+          "description": "Information regarding other resources that can be used alongside this one",
           "type": "string"
         },
         "links": {
           "items": {
             "properties": {
               "description": {
+                "description": "A brief description of the link associated with the use-with information",
                 "type": "string"
               },
               "recid": {
+                "description": "The internal ID of the related record, if it is another Open Data record",
                 "type": "string"
               },
               "title": {
+                "description": "The title for the link",
                 "type": "string"
               },
               "url": {
+                "description": "The URL for the link associated with this record (for an external URL)",
                 "type": "string"
               }
             },
@@ -460,21 +543,26 @@
     "validation": {
       "properties": {
         "description": {
+          "description": "Information regarding the validation process this resource has undergone",
           "type": "string"
         },
         "links": {
           "items": {
             "properties": {
               "description": {
+                "description": "A brief description of the link associated with the validation information",
                 "type": "string"
               },
               "recid": {
+                "description": "The internal ID of the related record, if it is another Open Data record",
                 "type": "string"
               },
               "title": {
+                "description": "The title for the link",
                 "type": "string"
               },
               "url": {
+                "description": "The URL for the link associated with this record (for an external URL)",
                 "type": "string"
               }
             },
@@ -486,5 +574,6 @@
       "type": "object"
     }
   },
-  "type": "object"
+  "type": "object",
+  "required": ["collections", "date_published", "experiment", "publisher", "recid", "title", "type"]
 }
