@@ -15,9 +15,9 @@ The *RECO* step uses simulated or real data for the reconstruction the events in
 
 There are two ways to produce generator level datasets:
 
-* using a *general purpose generator* to simulate the event and the hadronization.
+* using a *general purpose generator* to simulate the event and the hadronization. Examples are: [Pythia](http://home.thep.lu.se/~torbjorn/Pythia.html), [Herwig](http://herwig.hepforge.org/), [Tauola](https://tauolapp.web.cern.ch/tauolapp/).
 
-* using a *Matrix Element (ME)* calculator to deliver the event at the parton level and then a general purpose generator to hadronize the event.
+* using a *Matrix Element (ME)* calculator to deliver the event at the parton level and then a general purpose generator to hadronize the event. Examples are: [Powheg](http://powhegbox.mib.infn.it/), [MadGraph5_aMCatNLO](http://amcatnlo.web.cern.ch/amcatnlo/), [Alpgen](http://mlm.home.cern.ch/mlm/alpgen/).
 
 In addition, it is also possible to use a *particle gun* simulator, or a specific generator for diffractive physics, cosmic muon generators, heavy ions...
 
@@ -27,7 +27,9 @@ To extract the information about the generator parameters, look for the initiali
 
     Monte Carlo sample: [QCD_Pt-15to30_TuneZ2_7TeV_pythia6](../record/1366).
 
-    This dataset used [Pythia6](http://home.thep.lu.se/~torbjorn/Pythia.html) as generator. All the parameters are defined in the `PythiaParameters` PSet. Lines 67-102 of the python configuration script:
+    Under the section *How were these data selected?*, download the Python configuration file for the *Step SIM*.
+
+    This dataset used [Pythia6](http://home.thep.lu.se/~torbjorn/Pythia.html) as generator. All the parameters are defined in the `PythiaParameters` [PSet](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideAboutPythonConfigFile?rev=85#Parameter_Set_PSet_Objects). Lines 67-102 of the python configuration script:
 
     ```
     process.generator = cms.EDFilter("Pythia6GeneratorFilter",
@@ -72,7 +74,7 @@ To extract the information about the generator parameters, look for the initiali
 
     Monte Carlo sample: [VBFHiggs0MToZZTo4L_M-125p6_7TeV-JHUGenV4](../record/1352).
 
-    Lines 30-34 define the input of the generator as a [`PoolSource`](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookGeneration#FwkSources):
+    Lines 30-34 of the configuration file define the input of the generator as a [`PoolSource`](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookGeneration#FwkSources):
 
     ```
     # Input source
@@ -134,7 +136,7 @@ To extract the information about the generator parameters, look for the initiali
     )
     ```
 
-    To extract the LHE information about this dataset, download the file index (that contains the path to the root files), select one item of the list and run the `dumpLHEHeader.py` script available in the [CMS working environment](/docs/cms-getting-started-2011) on the [CMS Open Data Vm](/docs/cms-virtual-machine-2011):
+    To extract the LHE information about this dataset, which contain details about the generator used, download the file index (that contains the path to the root files), select one item of the list and run the `dumpLHEHeader.py` script available in the [CMS working environment](/docs/cms-getting-started-2011) on the [CMS Open Data Vm](/docs/cms-virtual-machine-2011):
 
     ```
     cmsrel CMSSW_5_3_32
