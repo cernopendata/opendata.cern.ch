@@ -37,6 +37,34 @@
     }
   },
   {
+    "anchor": "barn",
+    "category": "generic",
+    "definition": "Barn is a unit of area, used to express cross sections, and is equivalent to $10^{-24}$ cm². The inverse femtobarn ($fb^{-1}$) is the typical unit used for time-integrated Luminosity.",
+    "links": [
+      {
+        "text": "Read more in Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Barn_(unit)"
+      }
+    ],
+    "see_also": [
+      {
+        "term": "Cross section"
+      },
+      {
+        "term": "Luminosity"
+      }
+    ],
+    "term": [
+      "Barn",
+      "barn",
+      "Femtobarn",
+      "femtobarn"
+    ],
+    "type": {
+      "primary": "Glossary"
+    }
+  },
+  {
     "anchor": "CMSSW",
     "category": "specific",
     "definition": "Stands for CMS Software and refers to (1) the so-called \u201cOffline\u201d software needed to simulate, reconstruct and analyse CMS data, and (2) the \u201cOnline\u201d software needed for data selection and storage.",
@@ -79,6 +107,9 @@
       },
       {
         "term": "Luminosity"
+      },
+      {
+        "term": "barn"
       },
       {
         "term": "hadron"
@@ -199,8 +230,12 @@
     "definition": "An event is a collision of the beams. In the LHC, it is primarily a collision of protons, but it can also use beams of ions.",
     "links": [
       {
-        "text": "Read more on Wikipedia",
+        "text": "Read more on Wikipedia, ",
         "url": "https://en.wikipedia.org/wiki/Event_(particle_physics)"
+      },
+      {
+        "text": "Read more on Guide to the CMS Trigger System",
+        "url": "/docs/cms-guide-trigger-system"
       }
     ],
     "see_also": [
@@ -423,7 +458,7 @@
   {
     "anchor": "Luminosity",
     "category": "generic",
-    "definition": "The Luminosity (L) indicates the number of events per time per cross section. The \u201dIntegrated Luminosity\u201d is the sum of the luminosity over time.",
+    "definition": "The Luminosity (L) indicates the number of events per time per cross section. The \u201dIntegrated Luminosity\u201d is the sum of the luminosity over time, and is typically measured in units of inverse femtobarn.",
     "links": [
       {
         "text": "Read more on Wikipedia,",
@@ -436,6 +471,9 @@
       },
       {
         "term": "Events"
+      },
+      {
+        "term": "barn"
       },
       {
         "term": "lumisection"
@@ -646,8 +684,12 @@
     "definition": "Pile-up is the effect of multiple interactions per beam crossing and/or the effects of events overlay. These so called minimum bias events or pile-up add a non-negligible level of background to the response of the detector system. At high luminosities several separate events are likely to occur at the same bunch crossing.",
     "links": [
       {
-        "text": "Read more on CMS WorkBook",
+        "text": "Read more on CMS WorkBook, ",
         "url": "https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideSimulation"
+      },
+      {
+        "text": "Read more on CMS Pile-up Simulation",
+        "url": "/docs/cms-guide-pileup-simulation"
       }
     ],
     "see_also": [
@@ -940,8 +982,12 @@
     "definition": "A system that determines which particle collisions are stored in primary datasets and which ones are discarded. The triggering is done first by a lower-level hardware-based trigger (L1) and then by the High-Level Trigger (HLT) on a computing farm.",
     "links": [
       {
-        "text": "Read more on Wikipedia",
+        "text": "Read more on Wikipedia, ",
         "url": "https://en.wikipedia.org/wiki/Trigger_%28particle_physics%29"
+      },
+      {
+        "text": "Read more on Guide to the CMS Trigger System",
+        "url": "/docs/cms-guide-trigger-system"
       }
     ],
     "see_also": [
