@@ -38,6 +38,16 @@ mounted in the container in this case. A usage example:
 Development tips
 ================
 
+Working with Markdown
+---------------------
+
+The portal uses `Python-markdown <https://python-markdown.github.io/>`_ for
+Markdown rendering. There are `some differences
+<https://python-markdown.github.io/#differences>`_ between this implementation
+and the `syntax rules <https://daringfireball.net/projects/markdown/syntax>`_,
+mainly concerning lists. You must always use 4 spaces (or a tab) for indentation
+and the same character (-, *, +, numbers) for items list.
+
 Working with docs
 -----------------
 
