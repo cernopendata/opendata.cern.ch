@@ -92,11 +92,16 @@ class CernopendataMarkdown(object):
         # Extension for Python-Markdown
         pymd_extensions = []
 
-        # GitHub Flavored Markdown -support.
-        # http://facelessuser.github.io/pymdown-extensions/extensions/github/
-        # Alternative GFM extension:
-        # https://github.com/Zopieux/py-gfm
-        pymd_extensions.append('pymdownx.github')
+        # GitHub Flavored Markdown.
+        # github extension is deprecated, workaround is to use other extensions
+        # https://facelessuser.github.io/pymdown-extensions/faq/
+        pymd_extensions.append('markdown.extensions.tables')
+        pymd_extensions.append('pymdownx.magiclink')
+        pymd_extensions.append('pymdownx.betterem')
+        pymd_extensions.append('pymdownx.tilde')
+        pymd_extensions.append('pymdownx.emoji')
+        pymd_extensions.append('pymdownx.tasklist')
+        pymd_extensions.append('pymdownx.superfences')
 
         # TeX-syntax math notation support.
         pymd_extensions.append('mdx_math')
@@ -105,10 +110,8 @@ class CernopendataMarkdown(object):
         # For config format see:
         # https://pythonhosted.org/Markdown/reference.html#extension_configs
         pymd_extension_configs = {
-            'pymdownx.github': {
-                'pymdownx.tilde': {
-                    'subscript': True
-                }
+            'pymdownx.tilde': {
+                'subscript': True
             },
             'mdx_math': {
                 'enable_dollar_delimiter': 'True',

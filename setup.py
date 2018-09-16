@@ -96,10 +96,8 @@ install_requires = [
     'invenio-theme==1.0.0b2',
     'invenio-xrootd>=1.0.0a4',
     'mistune>=0.7.4',
-    'py-gfm>=0.1.3',
-    'pymdown-extensions>=3.5',
+    'pymdown-extensions>=5.0.0',
     'python-markdown-math>=0.3',
-    'python-slugify>=1.2.4',
     'raven>=6.3.0',  # required by invenio-logging
     'uWSGI>=2.0.15',
     'uwsgitop>=0.10',
