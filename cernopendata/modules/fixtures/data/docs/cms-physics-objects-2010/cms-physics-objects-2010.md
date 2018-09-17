@@ -78,9 +78,9 @@ Most of the muon properties (e.g. momentum and isolation variables) are availabl
 
 3. The isolation variables, i.e. energy or momentum deposits in cones centred around the muon track, are stored in the `reco::Muon` object, and can be used to compute different isolation definitions. The recommended ones for 2010 data analysis are the following:
 
-    *   Tracker relative isolation: scalar sum of the p<sub>T</sub> of all Tracker tracks reconstructed in a cone of radius ΔR = √(Δη2 + Δφ2) < 0.3 centred on the muon track direction;
-    *   combined relative isolation: sum of the pT of all Tracker tracks and of the transverse energy of all ECAL and HCAL towers in a cone of radius ΔR < 0.3 centred on the muon track direction;
-    *   particle-ﬂow relative isolation: sum of the p<sub>T</sub> of all charged hadrons and of the transverse energy of all neutral hadrons and photons reconstructed by the particle-flow algorithm in a cone of radius ΔR < 0.4 centred on the muon track direction.
+    *   Tracker relative isolation: scalar sum of the p<sub>T</sub> of all Tracker tracks reconstructed in a cone of radius $\Delta R = \sqrt (\Delta r^2 + \Delta \phi^2) < 0.3$ centred on the muon track direction;
+    *   combined relative isolation: sum of the pT of all Tracker tracks and of the transverse energy of all ECAL and HCAL towers in a cone of radius $\Delta R < 0.3$ centred on the muon track direction;
+    *   particle-ﬂow relative isolation: sum of the p<sub>T</sub> of all charged hadrons and of the transverse energy of all neutral hadrons and photons reconstructed by the particle-flow algorithm in a cone of radius $\Delta R < 0.4$ centred on the muon track direction.
 
 
 <br>
@@ -112,7 +112,7 @@ For most educational purposes, the PF jets and MET are ready to use after JEC an
 1. Quality flags: MET should be cleaned for detector problems; there should be several flags for these
 2. Type-I: whether or not JEC is propagated to MET, the JEC is an important systematic
 3. Important uncertainties are JER, JES and unclustered energy: the JER resmearing (uncertainty on JER per jet: 5–20%) and JES systematics should be propagated to MET, and unclustered energy should be considered as an extra systematic by scaling it up and down by 10%.
-4. For SUSY-type analysis, MET tails often come from jets (ECAL holes, heavy flavour, JER), so analyses typically apply cuts on Δφ(jet, MET) to ensure MET is not aligned with one of the jets
+4. For SUSY-type analysis, MET tails often come from jets (ECAL holes, heavy flavour, JER), so analyses typically apply cuts on $\Delta \phi$(jet, MET) to ensure MET is not aligned with one of the jets
 
 <br>
 
