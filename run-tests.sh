@@ -71,6 +71,7 @@ if [[ "$@" = *"--check-fixtures-only"* ]]; then
 fi
 
 # check source code style:
+pycodestyle cernopendata
 pydocstyle cernopendata
 isort -rc -c -df **/*.py
 check-manifest --ignore ".travis-*"

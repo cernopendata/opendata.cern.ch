@@ -119,7 +119,7 @@ def eos_send_file_or_404(file_path=""):
 
     try:
         return storage.send_file(filename[0])
-    except:
+    except Exception:
         abort(404)
 
 
@@ -138,7 +138,7 @@ def record_file_page(pid, record, page=1, **kwargs):
     items_per_page = request.args.get('perPage', 5)
     try:
         items_per_page = int(items_per_page)
-    except:
+    except Exception:
         items_per_page = 5
 
     if request.args.get('group'):
@@ -245,7 +245,7 @@ def export_json_view(pid, record, template=None, **kwargs):
             serializer = obj_or_import_string(fmt['serializer'])
             data = serializer.serialize(pid, record)
             data = json.loads(data)
-        except:
+        except Exception:
             data = {}
 
         return jsonify(data)

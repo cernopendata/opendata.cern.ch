@@ -44,6 +44,7 @@ tests_require = [
     'locustio>=0.8',
     'mock>=1.3.0',
     'pydocstyle>=1.0.0',
+    'pycodestyle>=2.4.0',
     'pytest-cache>=1.0',
     'pytest-cov>=1.8.0',
     'pytest-pep8>=1.0.6',

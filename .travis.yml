@@ -71,9 +71,7 @@ install:
   - "docker-compose build"
 
 script:
-  - "docker-compose run --rm web pydocstyle cernopendata"
-  - "docker-compose run --rm web isort -rc -c -df **/*.py"
-  - "docker-compose run --rm web python setup.py test"
+  - "docker-compose run --rm web ./run-tests.sh"
 
 after_success:
   - coveralls

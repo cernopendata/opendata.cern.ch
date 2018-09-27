@@ -77,7 +77,7 @@ def index():
     try:
         results = FeaturedArticlesSearch().sort(
             'featured')[:6].execute().hits.hits
-    except:
+    except Exception:
         pass
     return render_template('cernopendata_pages/front/index.html',
                            featured_articles=results)

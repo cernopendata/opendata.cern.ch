@@ -31,6 +31,7 @@ def _(x):
     """Identity function for string extraction."""
     return x
 
+
 # Default language and timezone
 BABEL_DEFAULT_LANGUAGE = 'en'
 BABEL_DEFAULT_TIMEZONE = 'Europe/Zurich'

@@ -30,21 +30,19 @@ import click
 import pkg_resources
 from flask import current_app
 from flask.cli import with_appcontext
+from invenio_db import db
+from invenio_files_rest.models import Bucket, FileInstance, ObjectVersion
+from invenio_indexer.api import RecordIndexer
+from invenio_pidstore.errors import PIDDoesNotExistError
+from invenio_pidstore.models import PersistentIdentifier
+from invenio_records_files.api import Record
+from invenio_records_files.models import RecordsBuckets
 from sqlalchemy.orm.attributes import flag_modified
 
-from invenio_db import db
-from invenio_records_files.api import Record
-from invenio_indexer.api import RecordIndexer
-from cernopendata.modules.records.minters.recid import \
-    cernopendata_recid_minter
 from cernopendata.modules.records.minters.docid import \
     cernopendata_docid_minter
-
-from invenio_files_rest.models import \
-    Bucket, FileInstance, ObjectVersion
-from invenio_records_files.models import RecordsBuckets
-from invenio_pidstore.models import PersistentIdentifier
-from invenio_pidstore.errors import PIDDoesNotExistError
+from cernopendata.modules.records.minters.recid import \
+    cernopendata_recid_minter
 
 
 def get_jsons_from_dir(dir):

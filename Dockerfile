@@ -43,6 +43,7 @@ RUN yum update -y && \
         libxml2-devel \
         libxslt-devel \
         npm \
+        jq \
         python-devel \
         python-pip
 
@@ -70,7 +71,7 @@ RUN yum clean -y all
 ENV APP_INSTANCE_PATH=/usr/local/var/cernopendata/var/cernopendata-instance
 
 RUN pip install --upgrade pip==9 setuptools wheel && \
-    npm install -g node-sass@3.8.0 clean-css@3.4.24 requirejs uglify-js
+    npm install -g node-sass@3.8.0 clean-css@3.4.24 requirejs uglify-js jsonlint
 
 ADD requirements-production-local-forks.txt /tmp
 ADD requirements-production.txt /tmp

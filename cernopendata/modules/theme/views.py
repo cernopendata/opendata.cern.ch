@@ -58,10 +58,10 @@ def get_record_title(id, type='recid'):
 @blueprint.app_template_filter('get_first_file')
 def get_first_file(file_list):
     """Fetches first file from a list."""
-    l = [f.get('key') for f in file_list
-         if f.get('key', '').endswith('.ig')]
-    if l:
-        return l[0]
+    keys = [f.get('key') for f in file_list
+            if f.get('key', '').endswith('.ig')]
+    if keys:
+        return keys[0]
 
 
 @blueprint.app_template_filter('sort_multi')
