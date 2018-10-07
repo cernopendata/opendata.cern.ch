@@ -179,9 +179,9 @@ def glossary_json():
 @blueprint.route('/resources')
 @blueprint.route('/research')
 @blueprint.route('/research'
-                 '/<any("lhcb","alice","atlas"):experiment>')
+                 '/<any("jade","lhcb","alice","atlas"):experiment>')
 @blueprint.route('/resources'
-                 '/<any("cms","lhcb","alice","atlas"):experiment>')
+                 '/<any("jade","cms","lhcb","alice","atlas"):experiment>')
 @blueprint.route('/collection/<string:collection>')
 @blueprint.route('/<any("getting-started","getstarted", "vm","news",'
                  '"datasets","documentation","software"):page>')
@@ -210,6 +210,7 @@ def faceted_search(page=None, experiment=None, collection=None):
         'cms': ('experiment', 'CMS'),
         'alice': ('experiment', 'ALICE'),
         'atlas': ('experiment', 'ATLAS'),
+        'jade': ('experiment', 'JADE'),
         'lhcb': ('experiment', 'LHCb'),
         'opera': ('experiment', 'OPERA'),
         'data-policies': ('collections', 'Data-Policies'),
