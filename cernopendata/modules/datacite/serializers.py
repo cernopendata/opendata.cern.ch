@@ -46,7 +46,16 @@ class DataCiteSerializer(Schema):
     def get_creators(self, obj):
         """Get creators based on authors or collaboration field."""
         authors = obj.get('authors', [obj.get('collaboration', None)])
-        return [{'creatorName': x['name']} for x in authors]
+        creators = [
+            {
+                'creatorName': author['name'],
+                'nameIdentifiers': [{
+                    'nameIdentifier': author['orcid'],
+                    'nameIdentifierScheme': 'ORCID',
+                    'schemeURI': 'http://orcid.org/'
+                }] if 'orcid' in author else []
+            } for author in authors]
+        return creators
 
     def get_titles(self, obj):
         """Get title."""
