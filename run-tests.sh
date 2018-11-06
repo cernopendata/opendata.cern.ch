@@ -65,6 +65,14 @@ if [ "${whitespace_found_p}" != "0" ]; then
     exit 1
 fi
 
+# check for empty secondary type in fixtures
+for file in $(find cernopendata/modules/fixtures/data/{records,docs}/ -name "*.json"); do
+    secondaries=$(jq '.[].type.secondary' $file -c | sort | uniq)
+    if echo $secondaries | grep -q -e '\[\]' -e "null"; then
+        echo "[Warning] empty type.secondary field in $file"
+    fi
+done
+
 # do we need to continue?
 if [[ "$@" = *"--check-fixtures-only"* ]]; then
     exit 0
