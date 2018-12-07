@@ -45,8 +45,31 @@ The portal uses `Python-markdown <https://python-markdown.github.io/>`_ for
 Markdown rendering. There are `some differences
 <https://python-markdown.github.io/#differences>`_ between this implementation
 and the `syntax rules <https://daringfireball.net/projects/markdown/syntax>`_,
-mainly concerning lists. You must always use 4 spaces (or a tab) for indentation
-and the same character (-, *, +, numbers) for items list.
+mainly concerning lists:
+
+* You must always use 4 spaces (or a tab) for indentation and the same
+  character (-, *, +, numbers) for items list.
+* To add a Table Of Contents to a document place the identifier ``[TOC]``
+  where you want it to be.
+
+The following extensions are enabled:
+
+* `markdown.extensions.attr_list <https://python-markdown.github.io/extensions/attr_list/>`_
+* `markdown.extensions.tables <https://python-markdown.github.io/extensions/tables/>`_
+* `markdown.extensions.toc <https://python-markdown.github.io/extensions/toc/>`_
+* `pymdownx.magiclink <https://facelessuser.github.io/pymdown-extensions/extensions/magiclink/>`_
+* `pymdownx.betterem <https://facelessuser.github.io/pymdown-extensions/extensions/betterem/>`_
+* `pymdownx.tilde <https://facelessuser.github.io/pymdown-extensions/extensions/tilde/>`_
+* `pymdownx.emoji <https://facelessuser.github.io/pymdown-extensions/extensions/emoji/>`_
+* `pymdownx.tasklist <https://facelessuser.github.io/pymdown-extensions/extensions/tasklist/>`_
+* `pymdownx.superfences <https://facelessuser.github.io/pymdown-extensions/extensions/superfences/>`_
+* `mdx_math <https://pypi.org/project/python-markdown-math/>`_
+
+Working with LaTeX
+------------------
+
+LaTeX is enabled with the `mdx_math` extension. Inline equations are between
+single ``$``, e.g. ``$E = m c^2$``. For standalone math, use ``\[...\]``.
 
 Working with docs
 -----------------

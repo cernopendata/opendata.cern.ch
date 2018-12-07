@@ -95,7 +95,9 @@ class CernopendataMarkdown(object):
         # GitHub Flavored Markdown.
         # github extension is deprecated, workaround is to use other extensions
         # https://facelessuser.github.io/pymdown-extensions/faq/
+        pymd_extensions.append('markdown.extensions.attr_list')
         pymd_extensions.append('markdown.extensions.tables')
+        pymd_extensions.append('markdown.extensions.toc')
         pymd_extensions.append('pymdownx.magiclink')
         pymd_extensions.append('pymdownx.betterem')
         pymd_extensions.append('pymdownx.tilde')
@@ -110,6 +112,11 @@ class CernopendataMarkdown(object):
         # For config format see:
         # https://pythonhosted.org/Markdown/reference.html#extension_configs
         pymd_extension_configs = {
+            'markdown.extensions.toc.': {
+                'anchorlink': True,
+                'permalink': True,
+                'toc_depth': 3
+            },
             'pymdownx.tilde': {
                 'subscript': True
             },

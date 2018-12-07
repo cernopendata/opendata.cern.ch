@@ -1,12 +1,11 @@
 This page will guide you through contents of the CMS Open Data collections that are meant for educational use (or for physics enthusiasts!). It is roughly broken down into three levels of difficulty:
 
-* Beginner: *Visualise collisions*
-* Intermediate: *Make histograms with collision data*
-* Advanced: *Dive deeper into the data*
+* Beginner: [*Visualise collisions*](#visualise-collisions)
+* Intermediate: [*Make histograms with collision data*](#make-histograms-with-collision-data)
+* Advanced: [*Dive deeper into the data*](#dive-deeper-into-the-data)
 
----
 
-#### Visualise collisions
+## Visualise collisions
 
 If you are new to particle physics, your time is limited, or you want to do something online fairly quickly, have a look at visual displays of real particle collisions. For example, here are collision events which contributed to the discovery of the Higgs boson in 2012:
 
@@ -34,9 +33,8 @@ You can also download these files directly from the records on this portal.
 
 To learn how to use the [CMS event display](/visualise/events/cms), click on `Need help?` link on the top right side of the screen. For suggestions for classroom activities see [Tutorials and worksheets for CMS Event Display](/record/5103).
 
----
 
-#### Make histograms with collision data
+## Make histograms with collision data
 
 You can get an overview of our education resources through [this search query](/search?page=1&size=20&q=learning%20school%20education&experiment=CMS) with your keyword of interest (you can change the pre-defined keywords here). Here are some highlights:
 
@@ -49,9 +47,9 @@ You can get an overview of our education resources through [this search query](/
     * [Analysing CMS Open Data in Jupyter using **R**](/record/5102), with a brief intro to the R programming language
 * All applications mentioned above use open data in simplified CSV (comma-separated values) format. See [all available CSV datasets](/search?page=1&size=20&q=&type=Dataset&experiment=CMS&subtype=Derived&file_type=csv), which have been extracted directly from the original collision datasets.
     * If you are interested in producing your own selection of open data in CSV format, see [example software ](/record/552) for the processing step.
----
 
-#### Dive deeper into the data
+
+## Dive deeper into the data
 
 If you want a more detailed understanding of particle physics or an introduction aimed at the university level, take a look at some of the other resources in [this search query](/search?page=1&size=20&q=&keywords=education&experiment=CMS).
 
