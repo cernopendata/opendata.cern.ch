@@ -414,8 +414,11 @@
       "type": "array"
     },
     "run_period": {
-      "description": "The run during which the data/software was produced, in a format such as 'Run2011A'",
-      "type": "string"
+      "items": {
+        "description": "The data-taking run period during which the collision data or for which the simulated data or software was produced, in a format such as 'Run2011A'",
+        "type": "string"
+      },
+      "type": "array"
     },
     "system_details": {
       "properties": {

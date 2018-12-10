@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": " <p> This file contains events from the MultiJet primary dataset from the CMS open data release, and computes the razor variables MR and Rsq, used in supersymmetric particle searches. More details on the razor variables can be found in <a href=\u201chttp://dx.doi.org/10.1103/PhysRevD.90.112001\">Phys. Rev. D 90, 112001</a> </p> "
+      "description": " <p> This file contains events from the MultiJet primary dataset from the CMS open data release, and computes the razor variables MR and Rsq, used in supersymmetric particle searches. More details on the razor variables can be found in <a href=“http://dx.doi.org/10.1103/PhysRevD.90.112001\">Phys. Rev. D 90, 112001</a> </p> "
     },
     "accelerator": "CERN-LHC",
     "authors": [
@@ -87,7 +87,9 @@
         "type": "isChildOf"
       }
     ],
-    "run_period": "Run2010B",
+    "run_period": [
+      "Run2010B"
+    ],
     "title": "Example CSV output file for SUSYBSMAnalysis-RazorFilter",
     "type": {
       "primary": "Dataset",
@@ -208,7 +210,9 @@
         "type": "isChildOf"
       }
     ],
-    "run_period": "Run2010B",
+    "run_period": [
+      "Run2010B"
+    ],
     "title": "Dimuon event information derived from the Run2010B public Mu dataset",
     "type": {
       "primary": "Dataset",
