@@ -180,35 +180,23 @@ setup(
             'cernopendata_recid_minter = '
             ' cernopendata.modules.records.minters.recid:'
             'cernopendata_recid_minter',
-            'cernopendata_softid_minter = '
-            ' cernopendata.modules.records.minters.softid:'
-            'cernopendata_softid_minter',
             'cernopendata_termid_minter = '
             ' cernopendata.modules.records.minters.termid:'
             'cernopendata_termid_minter',
             'cernopendata_docid_minter = '
             ' cernopendata.modules.records.minters.docid:'
             'cernopendata_docid_minter',
-            'cernopendata_datasetid_minter = '
-            'cernopendata.modules.records.minters.datasetid:'
-            'cernopendata_datasetid_minter',
         ],
         'invenio_pidstore.fetchers': [
             'cernopendata_recid_fetcher = '
             ' cernopendata.modules.records.fetchers.recid:'
             'cernopendata_recid_fetcher',
-            'cernopendata_softid_fetcher = '
-            ' cernopendata.modules.records.fetchers.softid:'
-            'cernopendata_softid_fetcher',
             'cernopendata_termid_fetcher = '
             ' cernopendata.modules.records.fetchers.termid:'
             'cernopendata_termid_fetcher',
             'cernopendata_docid_fetcher = '
             ' cernopendata.modules.records.fetchers.docid:'
             'cernopendata_docid_fetcher',
-            'cernopendata_datasetid_fetcher = '
-            'cernopendata.modules.records.fetchers.datasetid:'
-            'cernopendata_datasetid_fetcher',
         ],
         'invenio_search.mappings': [
             'records = cernopendata.mappings',
