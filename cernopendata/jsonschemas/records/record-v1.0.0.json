@@ -100,6 +100,26 @@
       },
       "type": "array"
     },
+    "categories": {
+      "properties": {
+        "primary": {
+          "description": "Primary category of the simulated dataset or related asset",
+          "type": "string"
+        },
+        "secondary": {
+          "items": {
+            "description": "The secondary category of the simulated dataset of related asset",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "source": {
+          "description": "The authority who attributed the category",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "cms_confdb_id": {
       "description": "the cms_confdb_id (applies to CMS records)",
       "type": "string"
@@ -449,17 +469,6 @@
     "title_additional": {
       "description": "A more descriptive, human-readble title",
       "type": "string"
-    },
-    "topic": {
-      "properties": {
-        "category": {
-          "type": "string"
-        },
-        "source": {
-          "type": "string"
-        }
-      },
-      "type": "object"
     },
     "type": {
       "properties": {

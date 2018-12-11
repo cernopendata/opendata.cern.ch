@@ -303,9 +303,12 @@ RECORDS_REST_FACETS = {
             collision_energy=dict(terms=dict(
                 field='collision_information.energy.keyword',
                 order=dict(_term='asc'))),
-            topic_category=dict(terms=dict(
-                field='topic.category.keyword',
-                order=dict(_term='asc'))),
+            category=dict(terms=dict(
+                field='categories.primary.keyword',
+                order=dict(_term='asc')),
+                aggs=dict(subcategory=dict(terms=dict(
+                          field="categories.secondary.keyword",
+                          order=dict(_term='asc'))))),
         ),
         'post_filters': dict(
             experiment=terms_filter('experiment.keyword'),
@@ -317,7 +320,8 @@ RECORDS_REST_FACETS = {
             collision_type=terms_filter('collision_information.type.keyword'),
             collision_energy=terms_filter('collision_information.energy'
                                           '.keyword'),
-            topic_category=terms_filter('topic.category.keyword'),
+            category=terms_filter('categories.primary.keyword'),
+            subcategory=terms_filter('categories.secondary.keyword'),
             file_type=terms_filter('distribution.formats.keyword'),
             collections=terms_filter('collections.keyword'),
         ),
