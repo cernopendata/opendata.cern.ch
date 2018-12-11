@@ -44938,5 +44938,108 @@
     "validation": {
       "description": "The generation and simulation of simulated Monte Carlo data has been validated through general CMS validation procedures."
     }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset GluGluToHToGG_M-125_7TeV-powheg-pythia6 in AODSIM format for 2011 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Higgs Physics",
+      "secondary": [
+        "Standard Model"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "7TeV",
+      "type": "pp"
+    },
+    "date_created": "2011",
+    "date_published": "2018",
+    "date_reprocessed": "2011",
+    "distribution": {
+      "formats": [
+        "aodsim",
+        "root"
+      ],
+      "number_events": 99988,
+      "number_files": 7,
+      "size": 21339915896
+    },
+    "doi": "10.7483/OPENDATA.CMS.6D1T.JT47",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:da5e71c4",
+        "description": "GluGluToHToGG_M-125_7TeV-powheg-pythia6 AOD dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 2291,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2011/Fall11/GluGluToHToGG_M-125_7TeV-powheg-pythia6/AODSIM/PU_S6_START44_V9B-v1/file-indexes/CMS_MonteCarlo2011_Fall11_GluGluToHToGG_M-125_7TeV-powheg-pythia6_AODSIM_PU_S6_START44_V9B-v1_0000_file_index.json"
+      },
+      {
+        "checksum": "adler32:6f328076",
+        "description": "GluGluToHToGG_M-125_7TeV-powheg-pythia6 AOD dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 1260,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2011/Fall11/GluGluToHToGG_M-125_7TeV-powheg-pythia6/AODSIM/PU_S6_START44_V9B-v1/file-indexes/CMS_MonteCarlo2011_Fall11_GluGluToHToGG_M-125_7TeV-powheg-pythia6_AODSIM_PU_S6_START44_V9B-v1_0000_file_index.txt"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "note": {
+      "description": "These simulated datasets correspond to the collision data collected by the CMS experiment in 2011."
+    },
+    "pileup": {
+      "description": " <p> To make these simulated data comparable with the collision data, <a href=\"/docs/cms-guide-pileup-simulation\">pile-up events</a> are added to the simulated event in this step. </p> ",
+      "links": [
+        {
+          "recid": "3600",
+          "title": "/MinBias_TuneZ2_7TeV-pythia6/Summer11Leg-START53_LV4-v1/GEN-SIM"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "1681",
+    "run_period": [
+      "Run2011A",
+      "Run2011B"
+    ],
+    "system_details": {
+      "global_tag": "START53_LV6A1::All",
+      "release": "CMSSW_5_3_32"
+    },
+    "title": "/GluGluToHToGG_M-125_7TeV-powheg-pythia6/Fall11-PU_S6_START44_V9B-v1/AODSIM",
+    "title_additional": "Simulated dataset GluGluToHToGG_M-125_7TeV-powheg-pythia6 in AODSIM format for 2011 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of simulated Monte Carlo data has been validated through general CMS validation procedures."
+    }
   }
 ]
