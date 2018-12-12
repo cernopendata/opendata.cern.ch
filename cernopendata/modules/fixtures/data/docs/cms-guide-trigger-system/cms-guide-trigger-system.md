@@ -61,3 +61,29 @@ Find the software and usage instructions in
 
 - [Analysis code for extracting the trigger information from the CMS 2010 data](/record/5003)
 - [Analysis code for extracting the trigger information from the CMS 2011 data](/record/5004)
+
+### HLT Trigger Path definitions
+
+For each dataset, the possible HLT trigger paths are listed in the dataset record. Each HLT path is composed of different algorithms and they are defined in the data-taking configuration files, which are given in
+
+- [High-Level Trigger information for 2010 CMS open data](/record/FIXME)
+- [High-Level Trigger information for 2011 CMS open data](/record/1700)
+- [High-Level Trigger information for 2012 CMS open data](/record/1701)
+
+The exact parameters (such as pT or eta cuts, or else) for each component of the HLT path can be found in the data-taking configuration file.
+
+As an example, if you are looking for information about `HLT_Dimuon10_Jpsi` trigger, look for a string `process.HLT_Dimuon10_Jpsi`
+in the data-taking configuration file corresponding to the event range of your interest.
+You will find the corresponding CMSSW path, which consists of all the modules (i.e., specifically python-configured CMSSW code)
+and/or sequences (groups of modules) that make up that trigger path.
+You can then look for each of these modules or sequences in the same configuration file until your find
+the parameters with which they are configured.
+As an example, you will find one of the modules of this path, `hltDimuon10JpsiL3Filtered`, by searching for
+`process.hltDimuon10JpsiL3Filtered`and you will see that it is an instantiation of class `HLTMuonDimuonL3Filter`:
+
+`process.hltDimuon10JpsiL3Filtered = cms.EDFilter( "HLTMuonDimuonL3Filter",`
+
+followed by the values of different parameters for this algorithm.
+All HLT algorithm classes and definitions of the parameters therein can be found in
+[HLTrigger](https://github.com/cms-sw/cmssw/tree/CMSSW_5_3_X/HLTrigger "HLTrigger"), the example class above in
+[HLTMuonDimuonL3Filter.h](https://github.com/cms-sw/cmssw/blob/CMSSW_5_3_X/HLTrigger/Muon/interface/HLTMuonDimuonL3Filter.h "HLTMuonDimuonL3Filter.h").
