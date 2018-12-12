@@ -101,16 +101,19 @@
     {% if record.distribution and (record.distribution.number_events or record.distribution.number_files or record.distribution.size) %}
         <div class="row">
             <div class="col-md-12">
-                <h2> Characteristics </h2>
-                <label> Dataset: </label>
+                {% if record.type.primary == 'Dataset' %}
+                <h2>Dataset Characteristics</h2>
+                {% else %}
+                <h2>Characteristics</h2>
+                {% endif %}
                 {% if record.distribution.number_events %}
-                <span><strong>{{record.distribution.number_events}}</strong> events</span>
+                <span><strong>{{record.distribution.number_events}}</strong> events. </span>
                 {% endif %}
                 {% if record.distribution.number_files %}
-                <span><strong>{{record.distribution.number_files}}</strong> files</span>
+                <span><strong>{{record.distribution.number_files}}</strong> files. </span>
                 {% endif %}
                 {% if record.distribution.size %}
-                <span><strong>{{record.distribution.size | filesizeformat }}</strong> in total</span>
+                <span><strong>{{record.distribution.size | filesizeformat }}</strong> in total.</span>
                 {% endif %}
             </div>
         </div>
@@ -131,7 +134,7 @@
             {% if record.system_details.release %}
                 {% if record.type.primary == 'Software' %}
                 <label>Software release:</label>
-                {% elif 'aod' in record.distribution.formats %}
+                {% elif 'aod' in record.distribution.formats or 'aodsim' in record.distribution.formats %}
                 <label>Recommended release for analysis:</label>
                 {% elif 'raw' in record.distribution.formats %}
                 <label>Recommended release for reconstruction:</label>
@@ -176,8 +179,14 @@
             <h2>Data Selection</h2>
             {% elif record.type.primary == 'Environment' %}
             <h2>How was this built?</h2>
+            {% elif record.type.primary == 'Dataset' %}
+                {% if 'Simulated' in record.type.secondary %}
+                <h2>How were these data generated?</h2>
+                {% else %}
+                <h2>How were these data selected?</h2>
+                {% endif %}
             {% else %}
-            <h2>How were these data selected?</h2>
+            <h2>Methodology</h2>
             {% endif %}
             <p>{{ record.methodology.description | safe}}</p>
             {{ link_list(record.methodology.links) }}
