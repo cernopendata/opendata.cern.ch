@@ -259,8 +259,8 @@ def records(skip_files, files, profile, mode):
 
 @fixtures.command()
 @with_appcontext
-def glossary_terms():
-    """Load demo terms records."""
+def glossary():
+    """Load glossary term records."""
     from invenio_db import db
     from invenio_records import Record
     from invenio_indexer.api import RecordIndexer
@@ -277,7 +277,7 @@ def glossary_terms():
 
     for filename in glossary_terms_json:
 
-        click.echo('Loading glossary-terms from {0} ...'.format(filename))
+        click.echo('Loading glossary terms from {0} ...'.format(filename))
 
         with open(filename, 'rb') as source:
             for data in json.load(source):
