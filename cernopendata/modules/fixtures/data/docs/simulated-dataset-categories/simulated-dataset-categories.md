@@ -17,7 +17,7 @@ structures.
     - Forward and Small-x QCD Physics
     - Minimum Bias
     - QCD
-    - ttbar
+    - Top physics
     - Miscalleneous
 - Heavy-Ion Physics
 - Beyond 2 Generations
@@ -59,7 +59,7 @@ Datasets for jet, vector-boson production and production of vector-bosons with a
 - Drell Yan and Z/W production (including additional jets).
 - Multi vector-boson production.
 - Forward and small-X physics (including difractive processes).
-- Processes for ttbar production.
+- Processes for top quark production.
 - Inclusive and multi-jet production.
 
 ### Heavy-Ion Physics
