@@ -19,7 +19,7 @@ The following are provided through this portal:
 
 * Downloadable datasets
     * [Primary datasets](/search?page=1&size=20&subtype=Collision&type=Dataset&experiment=CMS): full reconstructed collision data with no other selections. The data here are referred to as "reconstructed data"; fragmented data from various sub-detectors are processed or "reconstructed" to provide coherent information about individual [physics objects](/docs/cms-physics-objects-2011) such as electrons or particle jets.
-    * [Simulation data](/search?page=1&size=20&subtype=Simulated&type=Dataset&experiment=CMS) (for data starting from 2011)
+    * [Simulation data](/search?page=1&size=20&subtype=Simulated&type=Dataset&experiment=CMS)
     * Examples of [simplified datasets](/search?page=1&size=20&subtype=Derived&type=Dataset&experiment=CMS) derived from the primary ones for use in different applications and analyses
 * Tools
     * A downloadable [Virtual Machine (VM)](/docs/cms-virtual-machine-2011) image with the CMS software environment through which the datasets can be accessed
@@ -39,6 +39,12 @@ The following are provided through this portal:
     * It may have double-counting (i.e. a physics object may appear as a single object of its own type, but it may also be part of a jet).
     * Additional knowledge is needed to define a "good" physics object.
     * Definition of same objects is different in each analysis.
+* Some simulated datasets are provided in the MiniAODSIM format, which is the format used in physics analysis starting from Run2 (2015):
+    * MiniAOD/MiniAODSIM is approximately one tenth of the size of AOD/AODSIM.
+    * The reduction is obtained defining light-weight physics-object candidate representations, increasing transverse momentum thresholds for storing physics-object candidates, and reduced numerical precision when it is not required at the analysis level.
+    * More information on the MiniAOD format
+        * [Mini-AOD: A New Analysis Data Format for CMS G Petrucciani, A Rizzi, C Vuosalo on behalf of the CMS Collaboration](https://doi.org/10.1088/1742-6596/664/7/072052)
+        * [MiniAOD analysis documentation](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016)
 * The files can be read in [ROOT](http://root.cern.ch/), but they cannot be opened (and understood) as simple data tables.
 * Only the runs that are validated by data quality monitoring should be used in any analysis. The [list of the validated runs](/search?page=1&size=20&q=&type=Environment&subtype=Validation) is provided.
 * A small sample of [raw data](/search?page=1&size=20&q=&experiment=CMS&file_type=raw) is also provided.
