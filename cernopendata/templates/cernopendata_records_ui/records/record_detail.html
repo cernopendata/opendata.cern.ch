@@ -134,7 +134,7 @@
             {% if record.system_details.release %}
                 {% if record.type.primary == 'Software' %}
                 <label>Software release:</label>
-                {% elif 'aod' in record.distribution.formats or 'aodsim' in record.distribution.formats %}
+                {% elif 'aod' in record.distribution.formats or 'aodsim' in record.distribution.formats or 'gen-sim' in record.distribution.formats %}
                 <label>Recommended release for analysis:</label>
                 {% elif 'raw' in record.distribution.formats %}
                 <label>Recommended release for reconstruction:</label>

@@ -1,0 +1,84 @@
+[
+  {
+    "abstract": {
+      "description": "\n          <p>Simulated pile-up event dataset MinBias_TuneZ2star_8TeV-pythia6 in GEN-SIM format. Events were sampled from this dataset and added to simulated data to make them comparable with the 2011 collision data, see <a href=\"/docs/cms-guide-pileup-simulation\">the guide to pile-up simulation</a>. </p>\n          <p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p>\n   "
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "7TeV",
+      "type": "pp"
+    },
+    "date_created": "2011",
+    "date_published": "2018",
+    "distribution": {
+      "formats": [
+        "root",
+        "gen-sim"
+      ],
+      "number_events": 50000529,
+      "number_files": 2954,
+      "size": 10708466553936
+    },
+    "experiment": "CMS",
+    "generator": {
+      "global_tag": "START53_LV4::All",
+      "names": [
+        "pythia6"
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>These data were processed with:  </p>\n\n\n<p><strong>Step SIM</strong><br>Release: CMSSW_5_3_11_patch6<br>Global tag: START53_LV4::All<br>FIXME either gen fragment, cmsdriver or config <br>Output dataset: /MinBias_TuneZ2_7TeV-pythia6/Summer11Leg-START53_LV4-v1/GEN-SIM</p>\n"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "36",
+    "run_period": [
+      "Run2011A",
+      "Run2011B"
+    ],
+    "simulated_dataset_categories": {
+      "primary": "Standard Model",
+      "secondary": [
+        "Minimum Bias"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "system_details": {
+      "global_tag": "START53_LV6A1",
+      "release": "CMSSW_5_3_32"
+    },
+    "title": "/MinBias_TuneZ2star_8TeV-pythia6/Summer12-START50_V13-v3/GEN-SIM",
+    "title_additional": "Simulated pile-up dataset MinBias_TuneZ2star_8TeV-pythia6 in GEN-SIM format for 2011 data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "These data are needed to add pile-up events if you generate and simulate new Monte Carlo data. See the instructions for Monte Carlo generation in FIXME. You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of simulated Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  }
+]
