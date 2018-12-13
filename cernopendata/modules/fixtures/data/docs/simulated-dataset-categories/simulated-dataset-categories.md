@@ -28,7 +28,7 @@ structures.
     - Excited Fermions
     - Extra Dimensions
     - Gravitons
-    - Heavy Fermions, Heavy Righ-Handed Neutrinos
+    - Heavy Fermions, Heavy Right-Handed Neutrinos
     - Heavy Gauge Bosons
     - Leptoquarks
     - Resonances
@@ -56,9 +56,9 @@ Datasets related Higgs Boson physics including Standard Model and (N)MSSM.
 
 Datasets for jet, vector-boson production and production of vector-bosons with associated jets:
 
-- Drell Yan and Z/W production (including additional jets).
+- Drell-Yan and Z/W production (including additional jets).
 - Multi vector-boson production.
-- Forward and small-X physics (including difractive processes).
+- Forward and small-X physics (including diffractive processes).
 - Processes for top quark production.
 - Inclusive and multi-jet production.
 
@@ -68,7 +68,7 @@ Datasets for p-Pb, Pb-Pb collisions, and p-p reference set.
 
 ### Beyond 2 Generations
 
-Datasets for new heavy particles, including heavy resonances like Z' and W', diboson resonances, heavy partners of top quark (with vector-like VLQ properties).
+Datasets for new heavy particles, including heavy resonances like Z' and W', diboson resonances, heavy partners of top quark (with vector-like quark (VLQ) properties).
 
 ### Exotica
 
@@ -80,8 +80,8 @@ Datasets for production of supersymmetric (SUSY) particles including both R-pari
 
 ### Physics Modeling
 
-Datasets for Monte Carlo generator studies and tuning, as well as Standard Model Systematic Variations.
+Datasets for Monte Carlo generator studies and tuning, and for studies of systematic variations in different physics processes.
 
 ---
 
-A word of advice: the categorisation is done automatically. It might happen that one dataset is misscategorised.
+A word of advice: the categorisation is done automatically. It might happen that one dataset is miscategorised.
