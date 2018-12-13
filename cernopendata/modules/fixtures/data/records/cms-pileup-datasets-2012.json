@@ -1,34 +1,34 @@
 [
   {
     "abstract": {
-      "description": "\n          <p>Simulated pile-up event dataset MinBias_TuneZ2_7TeV-pythia6 in GEN-SIM format. Events were sampled from this dataset and added to simulated data to make them comparable with the 2011 collision data, see <a href=\"/docs/cms-guide-pileup-simulation\">the guide to pile-up simulation</a>. </p>\n          <p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p>\n   "
+      "description": "\n          <p>Simulated pile-up event dataset MinBias_TuneZ2star_8TeV-pythia6 in GEN-SIM format. Events were sampled from this dataset and added to simulated data to make them comparable with the 2012 collision data, see <a href=\"/docs/cms-guide-pileup-simulation\">the guide to pile-up simulation</a>. </p>\n          <p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p>\n   "
     },
     "accelerator": "CERN-LHC",
     "collaboration": {
       "name": "CMS collaboration",
-      "recid": "451"
+      "recid": "453"
     },
     "collections": [
       "CMS-Simulated-Datasets"
     ],
     "collision_information": {
-      "energy": "7TeV",
+      "energy": "8TeV",
       "type": "pp"
     },
-    "date_created": "2011",
+    "date_created": "2012",
     "date_published": "2018",
     "distribution": {
       "formats": [
         "root",
         "gen-sim"
       ],
-      "number_events": 49408233,
-      "number_files": 3064,
-      "size": 10955144670537
+      "number_events": 50000529,
+      "number_files": 2954,
+      "size": 10708466553936
     },
     "experiment": "CMS",
     "generator": {
-      "global_tag": "START53_LV4::All",
+      "global_tag": "START50_V13::All",
       "names": [
         "pythia6"
       ]
@@ -37,13 +37,13 @@
       "attribution": "CC0"
     },
     "methodology": {
-      "description": "<p>These data were processed with:  </p>\n\n\n<p><strong>Step SIM</strong><br>Release: CMSSW_5_3_11_patch6<br>Global tag: START53_LV4::All<br>FIXME either gen fragment, cmsdriver or config <br>Output dataset: /MinBias_TuneZ2_7TeV-pythia6/Summer11Leg-START53_LV4-v1/GEN-SIM</p>\n"
+      "description": "<p>These data were processed with:  </p>\n\n\n<p><strong>Step SIM</strong><br>Release: CMSSW_5_0_0_patch2<br>Global tag: START50_V13::All<br>FIXME either gen fragment, cmsdriver or config <br>Output dataset: FIXME</p>\n"
     },
     "publisher": "CERN Open Data Portal",
-    "recid": "36",
+    "recid": "37",
     "run_period": [
-      "Run2011A",
-      "Run2011B"
+      "Run2012A",
+      "Run2012B"
     ],
     "simulated_dataset_categories": {
       "primary": "Standard Model",
@@ -56,8 +56,8 @@
       "global_tag": "START53_LV6A1",
       "release": "CMSSW_5_3_32"
     },
-    "title": "/MinBias_TuneZ2_7TeV-pythia6/Summer11Leg-START53_LV4-v1/GEN-SIM",
-    "title_additional": "Simulated pile-up dataset MinBias_TuneZ2_7TeV-pythia6 in GEN-SIM format for 2011 data",
+    "title": "/MinBias_TuneZ2star_8TeV-pythia6/Summer12-START50_V13-v3/GEN-SIM",
+    "title_additional": "Simulated pile-up dataset MinBias_TuneZ2star_8TeV-pythia6 in GEN-SIM format for 2012 data",
     "type": {
       "primary": "Dataset",
       "secondary": [
@@ -69,11 +69,11 @@
       "links": [
         {
           "description": "How to install the CMS Virtual Machine",
-          "url": "/docs/cms-virtual-machine-2011"
+          "url": "/docs/cms-virtual-machine-2012"
         },
         {
           "description": "Getting started with CMS open data",
-          "url": "/docs/cms-getting-started-2011"
+          "url": "/docs/cms-getting-started-2012"
         }
       ]
     },
