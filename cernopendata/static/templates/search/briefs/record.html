@@ -14,6 +14,12 @@
                 <a class="badge badge-subtype" ng-if="record.metadata.type.secondary" ng-repeat="subtype in record.metadata.type.secondary" href="/search?subtype={{subtype}}">
                     {{ subtype }}
                 </a>
+                <a class="badge badge-category" ng-if="record.metadata.categories.primary" href="/search?category={{record.metadata.categories.primary}}">
+                  {{ record.metadata.categories.primary }}
+                </a>
+                <a class="badge badge-subcategory" ng-if="record.metadata.categories.secondary" ng-repeat="subcategory in record.metadata.categories.secondary" href="/search?subcategory={{subcategory}}">
+                  {{ subcategory }}
+                </a>
                 <a class="badge badge-tag" ng-if="record.metadata.tags" ng-repeat="tag in record.metadata.tags" href="/search?tags={{tag}}">
                     {{ tag }}
                 </a>

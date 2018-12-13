@@ -32,9 +32,16 @@
             {% endfor %}
             {% endif %}
         {% endif %}
+        {% if record.categories.primary %} <a class="badge badge-category"  href="/search?category={{ record.categories.primary }}"> {{ record.categories.primary }}</a>
+            {% if record.categories.secondary %}
+              {% for subcategory in record.categories.secondary %}
+                <a class="badge badge-subcategory" href="/search?category={{ record.categories.primary }}&subcategory={{ subcategory }}"> {{ subcategory }}</a>
+              {% endfor %}
+            {% endif %}
+        {% endif %}
         {% if record.experiment %} <a class="badge badge-experiment" href="/search?experiment={{ record.experiment }}">{{ record.experiment }}</a> {% endif %}
-        {% if record.collision_information %} <a class="badge badge-tag" href="/search?q={{ record.collision_information.energy }}">Collision energy {{ record.collision_information.energy }}</a> {% endif %}
-        {% if record.accelerator %} <a class="badge badge-tag"  href="/search?q={{ record.accelerator }}">Accelerator {{ record.accelerator }}</a> {% endif %}
+        {% if record.collision_information %} <a class="badge badge-tag" href="/search?q={{ record.collision_information.energy }}"> {{ record.collision_information.energy }}</a> {% endif %}
+        {% if record.accelerator %} <a class="badge badge-tag"  href="/search?q={{ record.accelerator }}"> {{ record.accelerator }}</a> {% endif %}
         {% if record.relations %}
         {% for relation in record.relations %}
             {% if relation.type == 'isChildOf' and relation.recid %} <a  class="badge badge-tag" href="/record/{{ relation.recid or relation.title }}"> Parent Dataset: {{relation.title}}</a> {% endif %}

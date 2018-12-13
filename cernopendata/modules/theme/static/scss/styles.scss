@@ -534,6 +534,25 @@ invenio-search-facets {
     }
 }
 
+.badge-category {
+    background-color: #0f6d7c;
+    color: white;
+
+    &:hover {
+        background-color: darken(#0f6d7c, $darken-on-hover);
+    }
+
+}
+
+.badge-subcategory {
+    background-color: #0a454e;
+    color: white;
+
+    &:hover {
+        background-color: darken(#0a454e, $darken-on-hover);
+    }
+}
+
 .badge-tag {
     background-color: #7c818f;
     color: white;
@@ -654,4 +673,3 @@ invenio-search-facets {
 .file-row {
     display: flex;
 }
-
