@@ -29,7 +29,7 @@ To extract the generator parameters, look for the initialization of the `cms.EDF
 
 - Example dataset: [QCD_Pt-15to30_TuneZ2_7TeV_pythia6](../record/1366)
 
-Under the section *How were these data selected?*, download the Python configuration file for the *Step SIM*.
+Under the section *How were these data generated?*, download the Python configuration file for the *Step SIM*.
 
 This dataset used [Pythia6](http://home.thep.lu.se/~torbjorn/Pythia.html) as generator. All the parameters are defined in the `PythiaParameters` [PSet](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideAboutPythonConfigFile?rev=85#Parameter_Set_PSet_Objects). Lines 67-102 of the python configuration script:
 
@@ -138,7 +138,7 @@ process.generator = cms.EDFilter("Pythia6HadronizerFilter",
 )
 ```
 
-To extract the LHE information about this dataset, which contain details about the generator used, download the file index (that contains the path to the root files), select one item of the list and run the `dumpLHEHeader.py` script available in the [CMS working environment](/docs/cms-getting-started-2011) on the [CMS Open Data Vm](/docs/cms-virtual-machine-2011):
+To extract the LHE information, which contain details about the generator used, download the file index (that contains the path to the root files), select one item of the list and run the `dumpLHEHeader.py` script available in the [CMS working environment](/docs/cms-getting-started-2011) on the [CMS Open Data VM](/docs/cms-virtual-machine-2011):
 
 ```
 cmsrel CMSSW_5_3_32
@@ -236,6 +236,8 @@ parameters for that process.
 
 - Example dataset: [/BBH_HToTauTau_M_125_TuneZ2star_8TeV_pythia6_tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM](../record/7299)
 
+The `genFragment` is:
+
 ```
 import FWCore.ParameterSet.Config as cms
 
@@ -316,6 +318,9 @@ with `CMSSW_5_3_X`, the links to these parameters are:
 `CMSSW` also provides `edmProvDump` utility which prints out all the tracked parameters. The output is lengthy, it is recommended to redirect the output to a file:
 
 ```
+cmsrel CMSSW_5_3_32
+cd CMSSW_5_3_32/src
+cmsenv
 edmProvDump root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2012/Summer12_DR53X/DiPhotonBox_Pt-10To25_8TeV-pythia6/AODSIM/PU_RD1_START53_V7N-v1/20000/78CFFDF5-29CF-E211-B7C7-1CC1DE056008.root > edmProvDump.out
 ```
 
@@ -392,5 +397,6 @@ More information can be found in the `--help` command of `edmProvDump`.
 
 ---
 
-Read more about the CMS Computing Model
-[here](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookComputingModel).
+Read more in the [Introduction to Generation and Simulation](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookGenIntro)
+and
+[CMS Computing Model](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookComputingModel).
