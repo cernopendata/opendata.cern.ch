@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # This file is part of Invenio.
-# Copyright (C) 2015, 2016, 2017 CERN.
+# Copyright (C) 2015, 2016, 2017, 2018 CERN.
 #
 # Invenio is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -26,8 +26,12 @@
 set -o errexit
 set -o nounset
 
-# destroy database:
-cernopendata db destroy --yes-i-know
+# drop or destroy database:
+if [[ "$@" = *"--drop"* ]]; then
+    cernopendata db drop --yes-i-know
+else
+    cernopendata db destroy --yes-i-know
+fi
 
 # destroy indexes:
 cernopendata index destroy --force --yes-i-know
