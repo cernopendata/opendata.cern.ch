@@ -32,11 +32,13 @@
             {% endfor %}
             {% endif %}
         {% endif %}
-        {% if record.categories.primary %} <a class="badge badge-category"  href="/search?category={{ record.categories.primary }}"> {{ record.categories.primary }}</a>
-            {% if record.categories.secondary %}
-              {% for subcategory in record.categories.secondary %}
-                <a class="badge badge-subcategory" href="/search?category={{ record.categories.primary }}&subcategory={{ subcategory }}"> {{ subcategory }}</a>
-              {% endfor %}
+        {% if record.categories %}
+            {% if record.categories.primary %} <a class="badge badge-category"  href="/search?category={{ record.categories.primary }}"> {{ record.categories.primary }}</a>
+                {% if record.categories.secondary %}
+                  {% for subcategory in record.categories.secondary %}
+                    <a class="badge badge-subcategory" href="/search?category={{ record.categories.primary }}&subcategory={{ subcategory }}"> {{ subcategory }}</a>
+                  {% endfor %}
+                {% endif %}
             {% endif %}
         {% endif %}
         {% if record.experiment %} <a class="badge badge-experiment" href="/search?experiment={{ record.experiment }}">{{ record.experiment }}</a> {% endif %}
