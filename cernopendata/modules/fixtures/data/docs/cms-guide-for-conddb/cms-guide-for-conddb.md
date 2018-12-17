@@ -29,6 +29,24 @@ process.GlobalTag.globaltag = 'FT_R_42_V10A::All'
 
 Note that **this only works in the "CMS-OpenData-1.1.2" version** of the 2010 CMS Open Data VM.
 
+---
+
+**For 2010 Montecarlo data**, the global tag is START42_V17B. To access the condition database, first, set the symbolic links:
+
+```shell
+ln -sf /cvmfs/cms-opendata-conddb.cern.ch/START42_V17B START42_V17B
+ln -sf /cvmfs/cms-opendata-conddb.cern.ch/START42_V17B.db START42_V17B.db
+```
+
+Then, define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
+
+```shell
+#globaltag for 2010 MC
+process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/START42_V17B.db')
+process.GlobalTag.globaltag = 'START42_V17B::All'
+```
+
+Note that **this only works in the "CMS-OpenData-1.1.2" version** of the 2010 CMS Open Data VM.
 
 ---
 
@@ -113,7 +131,9 @@ Note that three sets of condition data for 2011 data are provided:
 * FT53_V21A_AN6 valid for the run range of 2012 RunB (public data)
 * FT53_V21A_AN6_RUNC valid for the run range of 2012 RunC (public data)
 
-It is convenient to use FT53_V21A_AN6_FULL as instructed above, as you will not need to load RunB and RunC condition data separately. You should use the CMS Open Data VM version CMS-Open-Data-1.3.0.ova with a large enough cache area.
+It is convenient to use FT53_V21A_AN6_FULL as instructed above, as you will not need to load RunB and RunC condition data separately. You should use the CMS Open Data VM version CMS-Open-Data-1.3.0.ova which has a large enough cache area.
+
+In addition, condition data for the Global Tag START53_V7N is provided. This was used to produce simulated data with dose-dependent detector characteristics, run-dependent pile-up and beam spot conditions for the Higgs boson discovery analysis. The simulated data produced with this Global Tag can be analysed with the other Global Tag above.
 
 ---
 
@@ -138,4 +158,48 @@ process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.c
 process.GlobalTag.globaltag = 'START53_V27::All'
 ```
 
+---
 
+**For Run2 Montecarlo data**, the global tag is 80X_mcRun2_asymptotic_2016_TrancheIV_v8. To access the condition database, first, set the symbolic links:
+
+```shell
+ln -sf /cvmfs/cms-opendata-conddb.cern.ch/80X_mcRun2_asymptotic_2016_TrancheIV_v8.db 80X_mcRun2_asymptotic_2016_TrancheIV_v8.db
+```
+Make sure the `cms-opendata-conddb.cern.ch` directory has actually expanded in your VM. One way of doing this is executing:
+
+```shell
+ls -l
+ls -l /cvmfs/
+```
+
+Then, define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
+
+```shell
+#globaltag for Run2 MC
+process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/80X_mcRun2_asymptotic_2016_TrancheIV_v8.db')
+process.GlobalTag.globaltag = '80X_mcRun2_asymptotic_2016_TrancheIV_v8'
+process.GlobalTag.snapshotTime = cms.string("9999-12-31 23:59:59.000")
+```
+
+---
+
+**For Upgrade Montecarlo data**, the global tag is 102X_upgrade2018_design_v9. To access the condition database, first, set the symbolic links:
+
+```shell
+ln -sf /cvmfs/cms-opendata-conddb.cern.ch/102X_upgrade2018_design_v9.db 102X_upgrade2018_design_v9.db
+```
+Make sure the `cms-opendata-conddb.cern.ch` directory has actually expanded in your VM. One way of doing this is executing:
+
+```shell
+ls -l
+ls -l /cvmfs/
+```
+
+Then, define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
+
+```shell
+#globaltag for upgrade MC
+process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/102X_upgrade2018_design_v9.db')
+process.GlobalTag.globaltag = '102X_upgrade2018_design_v9'
+process.GlobalTag.snapshotTime = cms.string("9999-12-31 23:59:59.000")
+```
