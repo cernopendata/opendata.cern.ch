@@ -200,7 +200,11 @@
             <p>{{ record.methodology.description | safe}}</p>
             {{ link_list(record.methodology.links) }}
             {% if record.pileup %}
-            <p>{{ record.pileup.description | safe}}</p>
+              <p>{{ record.pileup.description | safe}}</p>
+              {% if record.pileup.links %}
+                <p>The pile-up dataset is:</p>
+                {{ link_list(record.pileup.links) }}
+              {% endif %}
             {% endif %}
        </div>
     </div>
