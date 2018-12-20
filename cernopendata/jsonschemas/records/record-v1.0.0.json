@@ -174,8 +174,11 @@
       "type": "array"
     },
     "date_created": {
-      "description": "The year the resource was created or the data-taking year for datasets",
-      "type": "string"
+      "items": {
+        "description": "The data-taking year during which the collision data or for which the simulated data, software and other assets were produced",
+        "type": "string"
+      },
+      "type": "array"
     },
     "date_published": {
       "description": "The year of publication on the portal",

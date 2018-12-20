@@ -46,8 +46,7 @@ class RecordSchemaorgSchema(Schema):
     identifier = fields.Method('get_identifier', dump_to='identifier')
     url = fields.Method('get_url', dump_to='url')
     creator = fields.Method('get_creator', dump_to='creator')
-    date_created = fields.Str(attribute='date_created',
-                              dump_to='dateCreated')
+    date_created = fields.Method('get_date_created', dump_to='dateCreated')
     date_published = fields.Str(attribute='date_published',
                                 dump_to='datePublished')
     publisher = fields.Method('get_publisher', dump_to='publisher')
@@ -88,6 +87,10 @@ class RecordSchemaorgSchema(Schema):
         else:
             recid = obj.get('recid', None)
             return "{}/record/{}".format(SITE_URL, recid)
+
+    def get_date_created(self, obj):
+        """Get most recent date_created year."""
+        return max(obj.get('date_created', ['0', ]))
 
     def get_publisher(self, obj):
         """Get publisher based on publisher field."""
