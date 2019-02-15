@@ -31,6 +31,9 @@ cernopendata index init
 sleep 20
 
 cernopendata files location local var/data --default
+cernopendata files location archive var/archive
+
+cernopendata fixtures sipmetadata
 
 cernopendata fixtures glossary
 
