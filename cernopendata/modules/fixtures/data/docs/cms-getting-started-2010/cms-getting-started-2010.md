@@ -55,7 +55,7 @@ You can exit the ROOT browser through the GUI by clicking on `Browser` on the me
 
 ## <a name="nice">"Nice! But how do I analyse these data?"</a>
 
-In AOD files, reconstructed [physics objects](/docs/cms-physics-objects-2010) are included without checking their "quality", i.e. in case of our electron collection that you opened in ROOT, without ensuring that the reconstructed object is really an electron. In order to analyse only the "good quality" data, you must apply some selection criteria.
+In AOD files, reconstructed [physics objects](/docs/cms-physics-objects-2010) are included without checking their "quality". For example, the reconstructed objects in the electron collection that you opened in ROOT were not actually verified to be electrons. In order to analyse only the "good quality" data, you must apply some selection criteria.
 
 With these criteria, you are in effect reducing the dataset, either in terms of the number of collisions events it contains or in terms of the information carried by each event. Following this, you run your analysis code on the reduced dataset.
 
