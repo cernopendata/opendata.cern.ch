@@ -313,39 +313,6 @@
       },
       "type": "object"
     },
-    "note": {
-      "properties": {
-        "description": {
-          "description": "Any other notes of interest for the given resource",
-          "type": "string"
-        },
-        "links": {
-          "items": {
-            "properties": {
-              "description": {
-                "description": "A brief description of the link associated with the notes",
-                "type": "string"
-              },
-              "recid": {
-                "description": "If the link is to another CERN Open Data portal record, the record ID of that record",
-                "type": "string"
-              },
-              "title": {
-                "description": "The title of the link",
-                "type": "string"
-              },
-              "url": {
-                "description": "The URL for the link associated with this record (for an external URL)",
-                "type": "string"
-              }
-            },
-            "type": "object"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    },
     "pileup": {
       "properties": {
         "description": {

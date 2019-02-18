@@ -65,20 +65,6 @@
     {{ link_list(record.use_with.links) }}
     {% endif %}
 
-    {% if record.note %}
-    <div class="row">
-        <div class="col-md-12">
-            {% if record.type.primary == 'Dataset' or record.type.primary == 'Software' %}
-            <h2>Notes</h2>
-            {% else %}
-            <h2>Issues & Limitations</h2>
-            {% endif %}
-            <p>{{ record.note.description | safe }}</p>
-            {{ link_list(record.note.links) }}
-        </div>
-    </div>
-    {% endif %}
-
     {% if record.relations %}
     <div class="row">
         <div class="col-md-12">

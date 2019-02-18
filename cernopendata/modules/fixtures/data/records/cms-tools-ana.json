@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": "Software to produce the intermediate data files, derived from the primary datasets, for a simple analysis on Z decays to two leptons and ZZ decays to four leptons, of CMS open data. "
+      "description": "<p>Software to produce the intermediate data files, derived from the primary datasets, for a simple analysis on Z decays to two leptons and ZZ decays to four leptons, of CMS open data. </p> <p>Only muon and electron collections are kept. Processing the full primary datasets took 220 hours.</p>"
     },
     "accelerator": "CERN-LHC",
     "authors": [
@@ -42,9 +42,6 @@
     ],
     "methodology": {
       "description": "The software produces the physics object in PAT candidate format. Only muon and electron PAT candidate collections are stored. No further selection, apart from accepting only the validated runs, is applied."
-    },
-    "note": {
-      "description": "Only muon and electron collections are kept. Processing the full primary datasets took 220 hours."
     },
     "publisher": "CERN Open Data Portal",
     "recid": "200",
@@ -106,7 +103,7 @@
   },
   {
     "abstract": {
-      "description": "Example code for a simple analysis on Z decays to two leptons and ZZ decays to four leptons.  Please see below the details on data selection and the generated example plots."
+      "description": "<p>Example code for a simple analysis on Z decays to two leptons and ZZ decays to four leptons.  Please see below the details on data selection and the generated example plots.</p> <p>Running the analysis code on the pre-processed datasets takes several hours.</p>"
     },
     "accelerator": "CERN-LHC",
     "authors": [
@@ -158,9 +155,6 @@
     ],
     "methodology": {
       "description": " <p> An event selection is applied in the two analysis cases:\n      <ol class=\"text\"><li>In the Z analysis at least two leptons with opposite charge, with invariant mass ”mll” between 12 GeV and 120 GeV are required. The pair with the invariant mass closest to the Z boson mass is selected as the Z candidate.</li>\n      <li>In the ZZ analysis two Z candidates are required, and for both candidates, two leptons with opposite charge are required. The first Z candidate is required to have higher lepton momentum: 20 GeV for the first lepton and 10 GeV for the second lepton. The invariant mass is required to be in the range 40 GeV to 120 GeV. The second candidate is required to have an invariant mass higher then 4 GeV. The first candidate is the one with the invariant mass closest to the Z boson mass.</li></ol></p>\n      <p>Selection criteria for electron candidates:\n      <ul class=\"text\"><li>pT > 7 GeV and |η| &lt; 2.5;</li>\n      <li>Distance between the electron z-vertex and the interaction z-vertex &lt; 0.2 cm;</li>\n      <li>Transverse impact parameter w.r.t. the beam spot &lt; 0.04 cm;</li>\n      <li>Symmetrised impact parameter w.r.t. the beam sport &lt; 4 cm;</li>\n      <li>Photon conversion rejection: number of lost hits in the tracker &lt; 1;</li>\n      <li>Electron identification: eIDLoose;</li>\n      <li>Electron Isolation depends on the η region, regions with <i>1.44 &lt; η 0.09; electron.dr03EcalRecHitSumEt()/electron.pt() &gt; 0.07; and electron.dr03HcalTowerSumEt()/electron.pt() > 0.10.</i> If <i>η &gt; 1.57: electron.dr03TkSumPt()/electron.pt() &gt; 0.04; electron.dr03EcalRecHitSumEt()/electron.pt() &gt; 0.05; and electron.dr03HcalTowerSumEt()/electron.pt() &gt; 0.025.</i> Each component is computed from Isodeposits in a cone of 0.3 around the electron direction.</li></ul></p>\n      <p>Selection criteria for muon candidates:\n      <ul class=\"text\">\n      <li>pT &gt; 5 GeV and |η| &lt; 2.4;</li>\n      <li>Distance between the muon z-vertex and the interaction z-vertex &lt; 0.2 cm;</li>\n      <li>Is a GlobalMuon and TrackerMuon;</li>\n      <li>Number of valid hits in the inner tracker &gt; 10;</li>\n      <li>χ2 /ndo f &lt; 10 for the global muon fit;</li>\n      <li>Transverse impact parameter w.r.t. the beam spot &lt; 0.02 cm;</li>\n      <li>Symmetrised impact parameter w.r.t. the beam sport &lt; 4 cm;</li>\n      <li>Relative Muon Isolation (RMI) &lt; 0.15, with RMI = (ChargedHadronIso + NeutralHadronIso + PhotonIso)/pT(µ)</li></ul>\n      <br/>Each component is computed from Isodeposits in a cone of 0.3 around the muon direction. </p> "
-    },
-    "note": {
-      "description": "Running the analysis code on the pre-processed datasets takes several hours."
     },
     "publisher": "CERN Open Data Portal",
     "recid": "101",
