@@ -286,6 +286,75 @@
           "description": "A description of the methodology used for the production of this data/software",
           "type": "string"
         },
+        "steps": {
+          "items": [
+            {
+              "properties": {
+                "configuration_files": {
+                  "items": [
+                    {
+                      "properties": {
+                        "script": {
+                          "description": "Production script",
+                          "type": "string"
+                        },
+                        "title": {
+                          "description": "Title of the script",
+                          "type": "string"
+                        },
+                        "cms_confdb_id": {
+                          "description": "the cms_confdb_id (applies to CMS records)",
+                          "type": "string"
+                        },
+                        "process": {
+                          "description": "Indicating the process level (e.x. HLT, RECO etc.)",
+                          "type": "string"
+                        },
+                        "recid": {
+                          "description": "The internal ID of the related record, if it is another Open Data record",
+                          "type": "string"
+                        },
+                        "url": {
+                          "description": "External link to the configuration file",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  ],
+                  "type": "array"
+                },
+                "generators": {
+                  "items": [
+                    {
+                      "description": "Generator used in production of dataset",
+                      "type": "string"
+                    }
+                  ],
+                  "type": "array"
+                },
+                "global_tag": {
+                  "description": "The global tag for generator",
+                  "type": "string"
+                },
+                "release": {
+                  "description": "CMS software version used in production",
+                  "type": "string"
+                },
+                "output_dataset": {
+                  "description": "Output for production",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Format of the dataset",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          ],
+          "type": "array"
+        },
         "links": {
           "items": {
             "properties": {
