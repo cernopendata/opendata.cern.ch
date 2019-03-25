@@ -202,7 +202,57 @@
       "attribution": "CC0"
     },
     "methodology": {
-      "description": "<p>These data were processed in several steps:</p>\n<p><p><strong>Note</strong>\n        <br>\nTo get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a>.</p>\n\n\n<strong>Step SIM</strong><br><a href=\"/record/11276\">Configuration file for SIM step config_0_1_cfg</a><br>Output dataset: /Diphoton2Jets_EW4_TuneZ2star_8TeV-madgraph-tauola/Summer12-START53_V7C-v2/GEN-SIM</p>\n\n<p><strong>Step HLT RECO</strong><br><a href=\"/record/11233\">Configuration file for HLT step HIG-Summer12DR53X-01394_1_cfg</a><br><a href=\"/record/11153\">Configuration file for RECO step HIG-Summer12DR53X-01394_2_cfg</a><br>Output dataset: /Diphoton2Jets_EW4_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_RD1_START53_V7N-v1/AODSIM</p>\n"
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nexport SCRAM_ARCH=None\nif [ -r CMSSW_5_3_11_patch2/src ] ; then \n echo release CMSSW_5_3_11_patch2 already exists\nelse\nscram p CMSSW CMSSW_5_3_11_patch2\nfi\ncd CMSSW_5_3_11_patch2/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/Diphoton2Jets_EW4_TuneZ2star_8TeV-madgraph-tauola/Summer12-START53_V7C-v2/GEN-SIM\" --fileout file:HIG-Summer12DR53X-01394_step1.root --pileup_input \"dbs:/MinBias_TuneZ2star_8TeV-pythia6/Summer12-START50_V13-v3/GEN-SIM\" --mc --eventcontent RAWSIM --runsScenarioForMC Run2012_AB_C_D_oneRunPerEra --pileup fromDB --datatier GEN-SIM-RAW --conditions START53_V7N::All --step DIGI,L1,DIGI2RAW,HLT:7E33v2 --python_filename HIG-Summer12DR53X-01394_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 288 || exit $? ; \n\ncmsDriver.py step2 --filein file:HIG-Summer12DR53X-01394_step1.root --fileout file:HIG-Summer12DR53X-01394.root --mc --eventcontent AODSIM,DQM --datatier AODSIM,DQM --conditions START53_V7N::All --step RAW2DIGI,L1Reco,RECO,VALIDATION:validation_prod,DQM:DQMOfflinePOGMC --python_filename HIG-Summer12DR53X-01394_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 288 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "f83bc23f20bdf9090c24e193b7f5b3c6",
+              "process": "RECO",
+              "recid": "11153",
+              "title": "conffile"
+            },
+            {
+              "cms_confdb_id": "f83bc23f20bdf9090c24e193b7f17112",
+              "process": "HLT",
+              "recid": "11233",
+              "title": "conffile"
+            }
+          ],
+          "global_tag": "START53_V7N::All",
+          "release": "CMSSW_5_3_11_patch2",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nexport SCRAM_ARCH=None\nif [ -r CMSSW_5_3_11_patch2/src ] ; then \n echo release CMSSW_5_3_11_patch2 already exists\nelse\nscram p CMSSW CMSSW_5_3_11_patch2\nfi\ncd CMSSW_5_3_11_patch2/src\neval `scram runtime -sh`\ncurl  -s https://raw.githubusercontent.com/cms-sw/genproductions/V02-04-12/python/EightTeV/Hadronizer_TuneZ2star_8TeV_generic_LHE_pythia_tauola_cff.py --retry 2 --create-dirs -o  Configuration/GenProduction/python/EightTeV/Hadronizer_TuneZ2star_8TeV_generic_LHE_pythia_tauola_cff.py \n[ -s Configuration/GenProduction/python/EightTeV/Hadronizer_TuneZ2star_8TeV_generic_LHE_pythia_tauola_cff.py ] || exit $?;\n\n\nscram b\ncd ../../\ncmsDriver.py Configuration/GenProduction/python/EightTeV/Hadronizer_TuneZ2star_8TeV_generic_LHE_pythia_tauola_cff.py --filein lhe:9202  --fileout file:HIG-Summer12-01191.root --mc --eventcontent RAWSIM --pileup NoPileUp --datatier GEN-SIM --conditions START53_V7C::All --beamspot Realistic8TeVCollision --step GEN,SIM --datamix NODATAMIXER --python_filename HIG-Summer12-01191_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 66 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            },
+            {
+              "script": "import FWCore.ParameterSet.Config as cms\n\nfrom Configuration.Generator.PythiaUEZ2starSettings_cfi import *\nfrom GeneratorInterface.ExternalDecays.TauolaSettings_cff import *\n\ngenerator = cms.EDFilter(\"Pythia6HadronizerFilter\",\n    pythiaHepMCVerbosity = cms.untracked.bool(True),\n    maxEventsToPrint = cms.untracked.int32(0),\n    pythiaPylistVerbosity = cms.untracked.int32(1),\n    comEnergy = cms.double(8000.0),\n    ExternalDecays = cms.PSet(\n        Tauola = cms.untracked.PSet(\n            TauolaPolar,\n            TauolaDefaultInputCards\n        ),\n        parameterSets = cms.vstring('Tauola')\n    ),\n    UseExternalGenerators = cms.untracked.bool(True),   \n    PythiaParameters = cms.PSet(\n        pythiaUESettingsBlock,\n        processParameters = cms.vstring('MSEL=0          ! User defined processes',\n                                        'PMAS(5,1)=4.8   ! b quark mass',\n                                        'PMAS(6,1)=172.5 ! t quark mass'),\n        # This is a vector of ParameterSet names to be read, in this order\n        parameterSets = cms.vstring('pythiaUESettings',\n                                    'processParameters'\n                                    )\n        )\n)\n\nconfigurationMetadata = cms.untracked.PSet(\n    version = cms.untracked.string('$Revision: 1.1 $'),\n    name = cms.untracked.string ('$Source: /local/reps/CMSSW/CMSSW/Configuration/GenProduction/python/EightTeV/Hadronizer_TuneZ2star_8TeV_generic_LHE_pythia_tauola_cff.py,v $'),\n    annotation = cms.untracked.string('runs Z2* Pythia6')\n)\n\n",
+              "title": "Genfragment",
+              "url": "https://raw.githubusercontent.com/cms-sw/genproductions/V02-04-12/python/EightTeV/Hadronizer_TuneZ2star_8TeV_generic_LHE_pythia_tauola_cff.py"
+            },
+            {
+              "cms_confdb_id": "32e6e06e42ce14eaad2990144133985b",
+              "process": "SIM",
+              "recid": "11276",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "pythia6"
+          ],
+          "global_tag": "START53_V7C::All",
+          "release": "CMSSW_5_3_11_patch2",
+          "type": "GEN-SIM"
+        }
+      ]
     },
     "pileup": {
       "description": "<p>To make these simulated data comparable with the collision data, <a href=\"/docs/cms-guide-pileup-simulation\">pile-up events</a> are added to the simulated event in this step.</p>",
