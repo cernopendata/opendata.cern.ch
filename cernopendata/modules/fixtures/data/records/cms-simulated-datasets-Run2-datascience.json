@@ -1,0 +1,3089 @@
+[
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset BulkGravTohhTohbbhbb_narrow_M-600_13TeV-madgraph in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Exotica",
+      "secondary": [
+        "Gravitons"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 290144,
+      "number_files": 17,
+      "size": 14302329043
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:0e35a49d",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-600_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 6651,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-600_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-600_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1_60000_file_index.json"
+      },
+      {
+        "checksum": "adler32:385e66e3",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-600_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 4233,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-600_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-600_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1_60000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-600_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/AODSIM\" --fileout file:B2G-RunIISummer16MiniAODv2-01594.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename B2G-RunIISummer16MiniAODv2-01594_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-600_13TeV-madgraph/RunIISummer15wmLHEGS-MCRUN2_71_V1_ext1-v1/GEN-SIM\" --fileout file:B2G-RunIISummer16DR80Premix-01592_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename B2G-RunIISummer16DR80Premix-01592_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:B2G-RunIISummer16DR80Premix-01592_step1.root --fileout file:B2G-RunIISummer16DR80Premix-01592.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename B2G-RunIISummer16DR80Premix-01592_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            }
+          ],
+          "generators": [
+            "madgraph",
+            "pythia8"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12000",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/BulkGravTohhTohbbhbb_narrow_M-600_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset BulkGravTohhTohbbhbb_narrow_M-600_13TeV-madgraph in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset BulkGravTohhTohbbhbb_narrow_M-1000_13TeV-madgraph in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Exotica",
+      "secondary": [
+        "Gravitons"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 300000,
+      "number_files": 25,
+      "size": 15678466424
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:99c03e61",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-1000_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 9797,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-1000_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-1000_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1_60000_file_index.json"
+      },
+      {
+        "checksum": "adler32:1143f4f5",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-1000_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 6250,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-1000_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-1000_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1_60000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-1000_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/AODSIM\" --fileout file:B2G-RunIISummer16MiniAODv2-01591.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename B2G-RunIISummer16MiniAODv2-01591_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-1000_13TeV-madgraph/RunIISummer15wmLHEGS-MCRUN2_71_V1_ext1-v1/GEN-SIM\" --fileout file:B2G-RunIISummer16DR80Premix-01589_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename B2G-RunIISummer16DR80Premix-01589_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:B2G-RunIISummer16DR80Premix-01589_step1.root --fileout file:B2G-RunIISummer16DR80Premix-01589.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename B2G-RunIISummer16DR80Premix-01589_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            }
+          ],
+          "generators": [
+            "madgraph",
+            "pythia8"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12001",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/BulkGravTohhTohbbhbb_narrow_M-1000_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset BulkGravTohhTohbbhbb_narrow_M-1000_13TeV-madgraph in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset BulkGravTohhTohbbhbb_narrow_M-1200_13TeV-madgraph in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Exotica",
+      "secondary": [
+        "Gravitons"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 50000,
+      "number_files": 2,
+      "size": 2661525915
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:f55de3fb",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-1200_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 778,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-1200_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-1200_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_60000_file_index.json"
+      },
+      {
+        "checksum": "adler32:ebcb9f54",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-1200_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 490,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-1200_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-1200_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_60000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-1200_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:EXO-RunIISummer16MiniAODv2-02849.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16MiniAODv2-02849_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "e0fcad7e25794ff32db7f96b8a873f7e",
+              "process": "",
+              "title": "conffile"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-1200_13TeV-madgraph/RunIISummer15GS-MCRUN2_71_V1-v1/GEN-SIM\" --fileout file:EXO-RunIISummer16DR80Premix-00947_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename EXO-RunIISummer16DR80Premix-00947_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:EXO-RunIISummer16DR80Premix-00947_step1.root --fileout file:EXO-RunIISummer16DR80Premix-00947.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16DR80Premix-00947_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "18df0acce05f1d95a9d86ab8241e7d33",
+              "process": "",
+              "title": "Configuration file"
+            },
+            {
+              "cms_confdb_id": "18df0acce05f1d95a9d86ab8241f2b63",
+              "process": "",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "madgraph"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12002",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/BulkGravTohhTohbbhbb_narrow_M-1200_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset BulkGravTohhTohbbhbb_narrow_M-1200_13TeV-madgraph in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset BulkGravTohhTohbbhbb_narrow_M-1400_13TeV-madgraph in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Exotica",
+      "secondary": [
+        "Gravitons"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 50000,
+      "number_files": 1,
+      "size": 2654952282
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:29747223",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-1400_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 391,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-1400_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-1400_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_80000_file_index.json"
+      },
+      {
+        "checksum": "adler32:cc394f9a",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-1400_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 245,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-1400_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-1400_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_80000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-1400_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:EXO-RunIISummer16MiniAODv2-00321.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16MiniAODv2-00321_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "2206482e3309b8511cb58602a76373f0",
+              "process": "",
+              "title": "conffile"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-1400_13TeV-madgraph/RunIISummer15GS-MCRUN2_71_V1-v1/GEN-SIM\" --fileout file:EXO-RunIISummer16DR80Premix-00949_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename EXO-RunIISummer16DR80Premix-00949_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:EXO-RunIISummer16DR80Premix-00949_step1.root --fileout file:EXO-RunIISummer16DR80Premix-00949.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16DR80Premix-00949_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "18df0acce05f1d95a9d86ab8241e7d33",
+              "process": "",
+              "title": "Configuration file"
+            },
+            {
+              "cms_confdb_id": "18df0acce05f1d95a9d86ab8241f2b63",
+              "process": "",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "madgraph"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12003",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/BulkGravTohhTohbbhbb_narrow_M-1400_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset BulkGravTohhTohbbhbb_narrow_M-1400_13TeV-madgraph in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset BulkGravTohhTohbbhbb_narrow_M-1600_13TeV-madgraph in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Exotica",
+      "secondary": [
+        "Gravitons"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 50000,
+      "number_files": 2,
+      "size": 2670609386
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:c834e436",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-1600_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 778,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-1600_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-1600_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.json"
+      },
+      {
+        "checksum": "adler32:d5dd9f5c",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-1600_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 490,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-1600_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-1600_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-1600_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:EXO-RunIISummer16MiniAODv2-00521.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16MiniAODv2-00521_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "9646767ce02b20c08534c68603b18952",
+              "process": "",
+              "title": "conffile"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-1600_13TeV-madgraph/RunIISummer15GS-MCRUN2_71_V1-v1/GEN-SIM\" --fileout file:EXO-RunIISummer16DR80Premix-00951_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename EXO-RunIISummer16DR80Premix-00951_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:EXO-RunIISummer16DR80Premix-00951_step1.root --fileout file:EXO-RunIISummer16DR80Premix-00951.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16DR80Premix-00951_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "18df0acce05f1d95a9d86ab8241e7d33",
+              "process": "",
+              "title": "Configuration file"
+            },
+            {
+              "cms_confdb_id": "18df0acce05f1d95a9d86ab8241f2b63",
+              "process": "",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "madgraph"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12004",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/BulkGravTohhTohbbhbb_narrow_M-1600_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset BulkGravTohhTohbbhbb_narrow_M-1600_13TeV-madgraph in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraph in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Exotica",
+      "secondary": [
+        "Gravitons"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 49200,
+      "number_files": 3,
+      "size": 2667738610
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:8ae971b5",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraphMINIAODSIM dataset file index (1 of 2) for access to data via CMS virtual machine",
+        "size": 391,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_120000_file_index.json"
+      },
+      {
+        "checksum": "adler32:dc5ce3fd",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraphMINIAODSIM dataset file index (2 of 2) for access to data via CMS virtual machine",
+        "size": 778,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.json"
+      },
+      {
+        "checksum": "adler32:20784fe9",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraphMINIAODSIM dataset file index (1 of 2) for access to data via CMS virtual machine",
+        "size": 246,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_120000_file_index.txt"
+      },
+      {
+        "checksum": "adler32:e38a9f76",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraphMINIAODSIM dataset file index (2 of 2) for access to data via CMS virtual machine",
+        "size": 490,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:EXO-RunIISummer16MiniAODv2-04201.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16MiniAODv2-04201_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "f059d46d5a163815a3533ab8ef4e4c68",
+              "process": "",
+              "title": "conffile"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraph/RunIISummer15GS-MCRUN2_71_V1-v1/GEN-SIM\" --fileout file:EXO-RunIISummer16DR80Premix-00953_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename EXO-RunIISummer16DR80Premix-00953_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:EXO-RunIISummer16DR80Premix-00953_step1.root --fileout file:EXO-RunIISummer16DR80Premix-00953.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16DR80Premix-00953_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "18df0acce05f1d95a9d86ab8241f2b63",
+              "process": "",
+              "title": "Configuration file"
+            },
+            {
+              "cms_confdb_id": "18df0acce05f1d95a9d86ab8241e7d33",
+              "process": "",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "madgraph"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12005",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraph in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Exotica",
+      "secondary": [
+        "Gravitons"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 50000,
+      "number_files": 2,
+      "size": 2711928855
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:81e4e474",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 778,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.json"
+      },
+      {
+        "checksum": "adler32:e48d9f6d",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 490,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:EXO-RunIISummer16MiniAODv2-00523.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16MiniAODv2-00523_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "9646767ce02b20c08534c68603b18952",
+              "process": "",
+              "title": "conffile"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph/RunIISummer15GS-MCRUN2_71_V1-v1/GEN-SIM\" --fileout file:EXO-RunIISummer16DR80Premix-00955_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename EXO-RunIISummer16DR80Premix-00955_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:EXO-RunIISummer16DR80Premix-00955_step1.root --fileout file:EXO-RunIISummer16DR80Premix-00955.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16DR80Premix-00955_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "18df0acce05f1d95a9d86ab8241e7d33",
+              "process": "",
+              "title": "Configuration file"
+            },
+            {
+              "cms_confdb_id": "18df0acce05f1d95a9d86ab8241f2b63",
+              "process": "",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "madgraph"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12006",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Exotica",
+      "secondary": [
+        "Gravitons"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 295640,
+      "number_files": 39,
+      "size": 16210907340
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:2d9b8714",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 15284,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1_70000_file_index.json"
+      },
+      {
+        "checksum": "adler32:1e986840",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 9750,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1_70000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/AODSIM\" --fileout file:B2G-RunIISummer16MiniAODv2-01592.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename B2G-RunIISummer16MiniAODv2-01592_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph/RunIISummer15wmLHEGS-MCRUN2_71_V1_ext1-v1/GEN-SIM\" --fileout file:B2G-RunIISummer16DR80Premix-01590_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename B2G-RunIISummer16DR80Premix-01590_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:B2G-RunIISummer16DR80Premix-01590_step1.root --fileout file:B2G-RunIISummer16DR80Premix-01590.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename B2G-RunIISummer16DR80Premix-01590_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            }
+          ],
+          "generators": [
+            "madgraph",
+            "pythia8"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12007",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset BulkGravTohhTohbbhbb_narrow_M-2500_13TeV-madgraph in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Exotica",
+      "secondary": [
+        "Gravitons"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 50000,
+      "number_files": 2,
+      "size": 2732133758
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:3934e490",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-2500_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 778,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-2500_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-2500_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_80000_file_index.json"
+      },
+      {
+        "checksum": "adler32:e3a09f77",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-2500_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 490,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-2500_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-2500_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_80000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-2500_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:EXO-RunIISummer16MiniAODv2-00524.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16MiniAODv2-00524_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "9646767ce02b20c08534c68603b18952",
+              "process": "",
+              "title": "conffile"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-2500_13TeV-madgraph/RunIISummer15GS-MCRUN2_71_V1-v1/GEN-SIM\" --fileout file:EXO-RunIISummer16DR80Premix-00956_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename EXO-RunIISummer16DR80Premix-00956_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:EXO-RunIISummer16DR80Premix-00956_step1.root --fileout file:EXO-RunIISummer16DR80Premix-00956.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16DR80Premix-00956_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "18df0acce05f1d95a9d86ab8241e7d33",
+              "process": "",
+              "title": "Configuration file"
+            },
+            {
+              "cms_confdb_id": "18df0acce05f1d95a9d86ab8241f2b63",
+              "process": "",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "madgraph"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12008",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/BulkGravTohhTohbbhbb_narrow_M-2500_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset BulkGravTohhTohbbhbb_narrow_M-2500_13TeV-madgraph in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset BulkGravTohhTohbbhbb_narrow_M-3000_13TeV-madgraph in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Exotica",
+      "secondary": [
+        "Gravitons"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 297984,
+      "number_files": 31,
+      "size": 16774571059
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:7b1df0e1",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-3000_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 12152,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-3000_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-3000_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1_70000_file_index.json"
+      },
+      {
+        "checksum": "adler32:5f08debd",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-3000_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 7750,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-3000_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-3000_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1_70000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-3000_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/AODSIM\" --fileout file:B2G-RunIISummer16MiniAODv2-01593.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename B2G-RunIISummer16MiniAODv2-01593_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-3000_13TeV-madgraph/RunIISummer15wmLHEGS-MCRUN2_71_V1_ext1-v1/GEN-SIM\" --fileout file:B2G-RunIISummer16DR80Premix-01591_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename B2G-RunIISummer16DR80Premix-01591_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:B2G-RunIISummer16DR80Premix-01591_step1.root --fileout file:B2G-RunIISummer16DR80Premix-01591.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename B2G-RunIISummer16DR80Premix-01591_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            }
+          ],
+          "generators": [
+            "madgraph",
+            "pythia8"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12009",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/BulkGravTohhTohbbhbb_narrow_M-3000_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset BulkGravTohhTohbbhbb_narrow_M-3000_13TeV-madgraph in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset BulkGravTohhTohbbhbb_narrow_M-4000_13TeV-madgraph in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Exotica",
+      "secondary": [
+        "Gravitons"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 50000,
+      "number_files": 2,
+      "size": 2884717504
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:1449e455",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-4000_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 779,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-4000_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-4000_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.json"
+      },
+      {
+        "checksum": "adler32:e52b9fa3",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-4000_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 490,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-4000_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-4000_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-4000_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:EXO-RunIISummer16MiniAODv2-01815.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16MiniAODv2-01815_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "315e153b2d3225a9cd5c3ff68186ba50",
+              "process": "",
+              "title": "conffile"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-4000_13TeV-madgraph/RunIISummer15GS-MCRUN2_71_V1-v1/GEN-SIM\" --fileout file:EXO-RunIISummer16DR80Premix-00961_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename EXO-RunIISummer16DR80Premix-00961_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:EXO-RunIISummer16DR80Premix-00961_step1.root --fileout file:EXO-RunIISummer16DR80Premix-00961.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16DR80Premix-00961_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "18df0acce05f1d95a9d86ab8241f2b63",
+              "process": "",
+              "title": "Configuration file"
+            },
+            {
+              "cms_confdb_id": "18df0acce05f1d95a9d86ab8241e7d33",
+              "process": "",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "madgraph"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12010",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/BulkGravTohhTohbbhbb_narrow_M-4000_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset BulkGravTohhTohbbhbb_narrow_M-4000_13TeV-madgraph in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset BulkGravTohhTohbbhbb_narrow_M-4500_13TeV-madgraph in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Exotica",
+      "secondary": [
+        "Gravitons"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 49600,
+      "number_files": 2,
+      "size": 2873547134
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:ce4ee40b",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-4500_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 778,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-4500_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-4500_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.json"
+      },
+      {
+        "checksum": "adler32:11af9fcc",
+        "description": "BulkGravTohhTohbbhbb_narrow_M-4500_13TeV-madgraphMINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 490,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-4500_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-4500_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-4500_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:EXO-RunIISummer16MiniAODv2-03778.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16MiniAODv2-03778_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "f48fdba7ddeedbdacad7b277ba72098b",
+              "process": "",
+              "title": "conffile"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-4500_13TeV-madgraph/RunIISummer15GS-MCRUN2_71_V1-v1/GEN-SIM\" --fileout file:EXO-RunIISummer16DR80Premix-00964_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename EXO-RunIISummer16DR80Premix-00964_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:EXO-RunIISummer16DR80Premix-00964_step1.root --fileout file:EXO-RunIISummer16DR80Premix-00964.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16DR80Premix-00964_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "18df0acce05f1d95a9d86ab8241e7d33",
+              "process": "",
+              "title": "Configuration file"
+            },
+            {
+              "cms_confdb_id": "18df0acce05f1d95a9d86ab8241f2b63",
+              "process": "",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "madgraph"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12011",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/BulkGravTohhTohbbhbb_narrow_M-4500_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset BulkGravTohhTohbbhbb_narrow_M-4500_13TeV-madgraph in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset QCD_Pt_300to470_TuneCUETP8M1_13TeV_pythia8 in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Standard Model Physics",
+      "secondary": [
+        "QCD"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 4150588,
+      "number_files": 70,
+      "size": 173229955599
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:b1faf352",
+        "description": "QCD_Pt_300to470_TuneCUETP8M1_13TeV_pythia8MINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 26671,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_300to470_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_300to470_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_80000_file_index.json"
+      },
+      {
+        "checksum": "adler32:8cfbab75",
+        "description": "QCD_Pt_300to470_TuneCUETP8M1_13TeV_pythia8MINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 16660,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_300to470_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_300to470_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_80000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_300to470_TuneCUETP8M1_13TeV_pythia8/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:BTV-RunIISummer16MiniAODv2-00058.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16MiniAODv2-00058_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "2206482e3309b8511cb58602a76373f0",
+              "process": "",
+              "title": "conffile"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_300to470_TuneCUETP8M1_13TeV_pythia8/RunIISummer15GS-MCRUN2_71_V1-v1/GEN-SIM\" --fileout file:BTV-RunIISummer16DR80Premix-00011_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename BTV-RunIISummer16DR80Premix-00011_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:BTV-RunIISummer16DR80Premix-00011_step1.root --fileout file:BTV-RunIISummer16DR80Premix-00011.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16DR80Premix-00011_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "f03809e756223bdcac0be791dd71b654",
+              "process": "",
+              "title": "Configuration file"
+            },
+            {
+              "cms_confdb_id": "3e5262e868a5cca32157c2c47bb93762",
+              "process": "",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "pythia8"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12012",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/QCD_Pt_300to470_TuneCUETP8M1_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset QCD_Pt_300to470_TuneCUETP8M1_13TeV_pythia8 in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset QCD_Pt_470to600_TuneCUETP8M1_13TeV_pythia8 in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Standard Model Physics",
+      "secondary": [
+        "QCD"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 3959986,
+      "number_files": 55,
+      "size": 176191648601
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:43fa9392",
+        "description": "QCD_Pt_470to600_TuneCUETP8M1_13TeV_pythia8MINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 20958,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_470to600_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_470to600_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_60000_file_index.json"
+      },
+      {
+        "checksum": "adler32:c049439e",
+        "description": "QCD_Pt_470to600_TuneCUETP8M1_13TeV_pythia8MINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 13090,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_470to600_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_470to600_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_60000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_470to600_TuneCUETP8M1_13TeV_pythia8/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:BTV-RunIISummer16MiniAODv2-00002.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16MiniAODv2-00002_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "f63c282e2deedc5e7ec23a3df4d9e567",
+              "process": "",
+              "title": "conffile"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_470to600_TuneCUETP8M1_13TeV_pythia8/RunIISummer15GS-MCRUN2_71_V1-v1/GEN-SIM\" --fileout file:BTV-RunIISummer16DR80Premix-00015_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename BTV-RunIISummer16DR80Premix-00015_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:BTV-RunIISummer16DR80Premix-00015_step1.root --fileout file:BTV-RunIISummer16DR80Premix-00015.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16DR80Premix-00015_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "f03809e756223bdcac0be791dd71b654",
+              "process": "",
+              "title": "Configuration file"
+            },
+            {
+              "cms_confdb_id": "3e5262e868a5cca32157c2c47bb93762",
+              "process": "",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "pythia8"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12013",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/QCD_Pt_470to600_TuneCUETP8M1_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset QCD_Pt_470to600_TuneCUETP8M1_13TeV_pythia8 in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8 in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Standard Model Physics",
+      "secondary": [
+        "QCD"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 3896412,
+      "number_files": 75,
+      "size": 179562159987
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:12ac155f",
+        "description": "QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8MINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 28568,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.json"
+      },
+      {
+        "checksum": "adler32:12dc2691",
+        "description": "QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8MINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 17850,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:BTV-RunIISummer16MiniAODv2-00043.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16MiniAODv2-00043_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "f63c282e2deedc5e7ec23a3df4d9e567",
+              "process": "",
+              "title": "conffile"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8/RunIISummer15GS-MCRUN2_71_V1-v1/GEN-SIM\" --fileout file:BTV-RunIISummer16DR80Premix-00019_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename BTV-RunIISummer16DR80Premix-00019_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:BTV-RunIISummer16DR80Premix-00019_step1.root --fileout file:BTV-RunIISummer16DR80Premix-00019.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16DR80Premix-00019_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "3e5262e868a5cca32157c2c47bb93762",
+              "process": "",
+              "title": "Configuration file"
+            },
+            {
+              "cms_confdb_id": "f03809e756223bdcac0be791dd71b654",
+              "process": "",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "pythia8"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12014",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8 in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset QCD_Pt_800to1000_TuneCUETP8M1_13TeV_pythia8 in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Standard Model Physics",
+      "secondary": [
+        "QCD"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 3992112,
+      "number_files": 61,
+      "size": 190159018152
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:e77a3738",
+        "description": "QCD_Pt_800to1000_TuneCUETP8M1_13TeV_pythia8MINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 23364,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_800to1000_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_800to1000_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_120000_file_index.json"
+      },
+      {
+        "checksum": "adler32:99011db8",
+        "description": "QCD_Pt_800to1000_TuneCUETP8M1_13TeV_pythia8MINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 14640,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_800to1000_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_800to1000_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_120000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_800to1000_TuneCUETP8M1_13TeV_pythia8/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:BTV-RunIISummer16MiniAODv2-00014.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16MiniAODv2-00014_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "f63c282e2deedc5e7ec23a3df4d9e567",
+              "process": "",
+              "title": "conffile"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_800to1000_TuneCUETP8M1_13TeV_pythia8/RunIISummer15GS-MCRUN2_71_V1-v1/GEN-SIM\" --fileout file:BTV-RunIISummer16DR80Premix-00024_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename BTV-RunIISummer16DR80Premix-00024_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:BTV-RunIISummer16DR80Premix-00024_step1.root --fileout file:BTV-RunIISummer16DR80Premix-00024.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16DR80Premix-00024_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "3e5262e868a5cca32157c2c47bb93762",
+              "process": "",
+              "title": "Configuration file"
+            },
+            {
+              "cms_confdb_id": "f03809e756223bdcac0be791dd71b654",
+              "process": "",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "pythia8"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12015",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/QCD_Pt_800to1000_TuneCUETP8M1_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset QCD_Pt_800to1000_TuneCUETP8M1_13TeV_pythia8 in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset QCD_Pt_1000to1400_TuneCUETP8M1_13TeV_pythia8 in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Standard Model Physics",
+      "secondary": [
+        "QCD"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 2999069,
+      "number_files": 56,
+      "size": 146578174359
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:3f690ad2",
+        "description": "QCD_Pt_1000to1400_TuneCUETP8M1_13TeV_pythia8MINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 21451,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_1000to1400_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_1000to1400_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_80000_file_index.json"
+      },
+      {
+        "checksum": "adler32:ebec9e52",
+        "description": "QCD_Pt_1000to1400_TuneCUETP8M1_13TeV_pythia8MINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 13440,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_1000to1400_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_1000to1400_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_80000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_1000to1400_TuneCUETP8M1_13TeV_pythia8/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:BTV-RunIISummer16MiniAODv2-00016.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16MiniAODv2-00016_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "46f5867b5cea01b6c3ea30a77fd1a004",
+              "process": "",
+              "title": "conffile"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_1000to1400_TuneCUETP8M1_13TeV_pythia8/RunIISummer15GS-MCRUN2_71_V1-v1/GEN-SIM\" --fileout file:BTV-RunIISummer16DR80Premix-00028_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename BTV-RunIISummer16DR80Premix-00028_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:BTV-RunIISummer16DR80Premix-00028_step1.root --fileout file:BTV-RunIISummer16DR80Premix-00028.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16DR80Premix-00028_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "3e5262e868a5cca32157c2c47bb93762",
+              "process": "",
+              "title": "Configuration file"
+            },
+            {
+              "cms_confdb_id": "f03809e756223bdcac0be791dd71b654",
+              "process": "",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "pythia8"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12016",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/QCD_Pt_1000to1400_TuneCUETP8M1_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset QCD_Pt_1000to1400_TuneCUETP8M1_13TeV_pythia8 in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset QCD_Pt_1400to1800_TuneCUETP8M1_13TeV_pythia8 in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Standard Model Physics",
+      "secondary": [
+        "QCD"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 396409,
+      "number_files": 7,
+      "size": 20107082146
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:036802a3",
+        "description": "QCD_Pt_1400to1800_TuneCUETP8M1_13TeV_pythia8MINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 2690,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_1400to1800_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_1400to1800_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_110000_file_index.json"
+      },
+      {
+        "checksum": "adler32:1555152a",
+        "description": "QCD_Pt_1400to1800_TuneCUETP8M1_13TeV_pythia8MINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 1687,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_1400to1800_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_1400to1800_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_110000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_1400to1800_TuneCUETP8M1_13TeV_pythia8/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:BTV-RunIISummer16MiniAODv2-00018.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16MiniAODv2-00018_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "f63c282e2deedc5e7ec23a3df4d9e567",
+              "process": "",
+              "title": "conffile"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_1400to1800_TuneCUETP8M1_13TeV_pythia8/RunIISummer15GS-MCRUN2_71_V1-v1/GEN-SIM\" --fileout file:BTV-RunIISummer16DR80Premix-00032_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename BTV-RunIISummer16DR80Premix-00032_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:BTV-RunIISummer16DR80Premix-00032_step1.root --fileout file:BTV-RunIISummer16DR80Premix-00032.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16DR80Premix-00032_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "f03809e756223bdcac0be791dd71b654",
+              "process": "",
+              "title": "Configuration file"
+            },
+            {
+              "cms_confdb_id": "3e5262e868a5cca32157c2c47bb93762",
+              "process": "",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "pythia8"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12017",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/QCD_Pt_1400to1800_TuneCUETP8M1_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset QCD_Pt_1400to1800_TuneCUETP8M1_13TeV_pythia8 in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset QCD_Pt_1800to2400_TuneCUETP8M1_13TeV_pythia8 in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Standard Model Physics",
+      "secondary": [
+        "QCD"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 397660,
+      "number_files": 7,
+      "size": 20828080726
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:aec00117",
+        "description": "QCD_Pt_1800to2400_TuneCUETP8M1_13TeV_pythia8MINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 2684,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_1800to2400_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_1800to2400_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.json"
+      },
+      {
+        "checksum": "adler32:64891445",
+        "description": "QCD_Pt_1800to2400_TuneCUETP8M1_13TeV_pythia8MINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 1680,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_1800to2400_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_1800to2400_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_1800to2400_TuneCUETP8M1_13TeV_pythia8/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:BTV-RunIISummer16MiniAODv2-00019.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16MiniAODv2-00019_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "f63c282e2deedc5e7ec23a3df4d9e567",
+              "process": "",
+              "title": "conffile"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_1800to2400_TuneCUETP8M1_13TeV_pythia8/RunIISummer15GS-MCRUN2_71_V1-v1/GEN-SIM\" --fileout file:BTV-RunIISummer16DR80Premix-00036_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename BTV-RunIISummer16DR80Premix-00036_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:BTV-RunIISummer16DR80Premix-00036_step1.root --fileout file:BTV-RunIISummer16DR80Premix-00036.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16DR80Premix-00036_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "3e5262e868a5cca32157c2c47bb93762",
+              "process": "",
+              "title": "Configuration file"
+            },
+            {
+              "cms_confdb_id": "f03809e756223bdcac0be791dd71b654",
+              "process": "",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "pythia8"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12018",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/QCD_Pt_1800to2400_TuneCUETP8M1_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset QCD_Pt_1800to2400_TuneCUETP8M1_13TeV_pythia8 in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset QCD_Pt_2400to3200_TuneCUETP8M1_13TeV_pythia8 in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Standard Model Physics",
+      "secondary": [
+        "QCD"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 399226,
+      "number_files": 9,
+      "size": 21474575515
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:f250df45",
+        "description": "QCD_Pt_2400to3200_TuneCUETP8M1_13TeV_pythia8MINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 3457,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_2400to3200_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_2400to3200_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_110000_file_index.json"
+      },
+      {
+        "checksum": "adler32:9328ad9a",
+        "description": "QCD_Pt_2400to3200_TuneCUETP8M1_13TeV_pythia8MINIAODSIM dataset file index (1 of 1) for access to data via CMS virtual machine",
+        "size": 2169,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_2400to3200_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_2400to3200_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_110000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_2400to3200_TuneCUETP8M1_13TeV_pythia8/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:BTV-RunIISummer16MiniAODv2-00034.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16MiniAODv2-00034_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "f63c282e2deedc5e7ec23a3df4d9e567",
+              "process": "",
+              "title": "conffile"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_2400to3200_TuneCUETP8M1_13TeV_pythia8/RunIISummer15GS-MCRUN2_71_V1-v1/GEN-SIM\" --fileout file:BTV-RunIISummer16DR80Premix-00040_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename BTV-RunIISummer16DR80Premix-00040_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:BTV-RunIISummer16DR80Premix-00040_step1.root --fileout file:BTV-RunIISummer16DR80Premix-00040.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16DR80Premix-00040_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            },
+            {
+              "cms_confdb_id": "3e5262e868a5cca32157c2c47bb93762",
+              "process": "",
+              "title": "Configuration file"
+            },
+            {
+              "cms_confdb_id": "f03809e756223bdcac0be791dd71b654",
+              "process": "",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "pythia8"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12019",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/QCD_Pt_2400to3200_TuneCUETP8M1_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset QCD_Pt_2400to3200_TuneCUETP8M1_13TeV_pythia8 in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8 in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Standard Model Physics",
+      "secondary": [
+        "QCD"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 391735,
+      "number_files": 23,
+      "size": 21906492445
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:bafb0c99",
+        "description": "QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8MINIAODSIM dataset file index (1 of 2) for access to data via CMS virtual machine",
+        "size": 8011,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v3/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v3_60000_file_index.json"
+      },
+      {
+        "checksum": "adler32:5625dcb6",
+        "description": "QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8MINIAODSIM dataset file index (2 of 2) for access to data via CMS virtual machine",
+        "size": 765,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v3/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v3_80000_file_index.json"
+      },
+      {
+        "checksum": "adler32:098e438d",
+        "description": "QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8MINIAODSIM dataset file index (1 of 2) for access to data via CMS virtual machine",
+        "size": 5019,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v3/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v3_60000_file_index.txt"
+      },
+      {
+        "checksum": "adler32:42209881",
+        "description": "QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8MINIAODSIM dataset file index (2 of 2) for access to data via CMS virtual machine",
+        "size": 478,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v3/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v3_80000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v2/AODSIM\" --fileout file:BTV-RunIISummer16MiniAODv2-00045.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16MiniAODv2-00045_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [],
+          "generators": [
+            "pythia8"
+          ],
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12020",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v3/MINIAODSIM",
+    "title_additional": "Simulated dataset QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8 in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8 in <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2016\">MINIAODSIM</a> format for 2016 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2016.</p> <p>They were released in the context of data science sample production.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Standard Model Physics",
+      "secondary": [
+        "QCD"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "miniaodsim",
+        "root"
+      ],
+      "number_events": 9754240,
+      "number_files": 122,
+      "size": 355958898793
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:cd503717",
+        "description": "QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8MINIAODSIM dataset file index (1 of 3) for access to data via CMS virtual machine",
+        "size": 6337,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8/MINIAODSIM/PUMoriond17_magnetOn_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8_MINIAODSIM_PUMoriond17_magnetOn_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_100000_file_index.json"
+      },
+      {
+        "checksum": "adler32:3634f306",
+        "description": "QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8MINIAODSIM dataset file index (2 of 3) for access to data via CMS virtual machine",
+        "size": 28118,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8/MINIAODSIM/PUMoriond17_magnetOn_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8_MINIAODSIM_PUMoriond17_magnetOn_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_110000_file_index.json"
+      },
+      {
+        "checksum": "adler32:d441b873",
+        "description": "QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8MINIAODSIM dataset file index (3 of 3) for access to data via CMS virtual machine",
+        "size": 13823,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8/MINIAODSIM/PUMoriond17_magnetOn_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8_MINIAODSIM_PUMoriond17_magnetOn_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_80000_file_index.json"
+      },
+      {
+        "checksum": "adler32:0b34143b",
+        "description": "QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8MINIAODSIM dataset file index (1 of 3) for access to data via CMS virtual machine",
+        "size": 4048,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8/MINIAODSIM/PUMoriond17_magnetOn_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8_MINIAODSIM_PUMoriond17_magnetOn_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_100000_file_index.txt"
+      },
+      {
+        "checksum": "adler32:00548251",
+        "description": "QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8MINIAODSIM dataset file index (2 of 3) for access to data via CMS virtual machine",
+        "size": 17963,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8/MINIAODSIM/PUMoriond17_magnetOn_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8_MINIAODSIM_PUMoriond17_magnetOn_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_110000_file_index.txt"
+      },
+      {
+        "checksum": "adler32:541b1259",
+        "description": "QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8MINIAODSIM dataset file index (3 of 3) for access to data via CMS virtual machine",
+        "size": 8820,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8/MINIAODSIM/PUMoriond17_magnetOn_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8_MINIAODSIM_PUMoriond17_magnetOn_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_80000_file_index.txt"
+      }
+    ],
+    "generation": {
+      "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8/RunIISummer16DR80Premix-PUMoriond17_magnetOn_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:JME-RunIISummer16MiniAODv2-00021.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename JME-RunIISummer16MiniAODv2-00021_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
+              "type": "cmsDriver script"
+            }
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8/RunIISummer15GS-magnetOn_MCRUN2_71_V1-v1/GEN-SIM\" --fileout file:JME-RunIISummer16DR80Premix-00011_step1.root  --pileup_input \"dbs:/Neutrino_E-10_gun/RunIISpring15PrePremix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v2-v2/GEN-SIM-DIGI-RAW\" --mc --eventcontent PREMIXRAW --datatier GEN-SIM-RAW --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step DIGIPREMIX_S2,DATAMIX,L1,DIGI2RAW,HLT:@frozen2016 --nThreads 4 --datamix PreMix --era Run2_2016 --python_filename JME-RunIISummer16DR80Premix-00011_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\ncmsDriver.py step2 --filein file:JME-RunIISummer16DR80Premix-00011_step1.root --fileout file:JME-RunIISummer16DR80Premix-00011.root --mc --eventcontent AODSIM --runUnscheduled --datatier AODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step RAW2DIGI,RECO,EI --nThreads 4 --era Run2_2016 --python_filename JME-RunIISummer16DR80Premix-00011_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 169 || exit $? ; \n\n",
+              "title": "cmsDriver script"
+            }
+          ],
+          "generators": [
+            "Pythia8"
+          ],
+          "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
+          "release": "CMSSW_8_0_21",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12021",
+    "run_period": [
+      "Run2016A",
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "global_tag": "",
+      "release": ""
+    },
+    "title": "/QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_magnetOn_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+    "title_additional": "Simulated dataset QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8 in MINIAODSIM format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  }
+]
