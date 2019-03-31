@@ -1,0 +1,412 @@
+[
+  {
+    "abstract": {
+      "description": "<p>The dataset consists of particle jets extracted from simulated proton-proton collision events at a center-of-mass energy of 13 TeV generated with Pythia 8. The particles emerging from the collisions traverse through a simulation of the CMS detector. The particles were reconstructed from the simulated detector signals using the particle-flow (PF) algorithm. The reconstructed particles are also called PF candidates. The jets in this dataset were clustered from the PF candidates of each collision event using the anti-$k_t$ algorithm with distance parameter $R = 0.4$.</p> <p>From each collision event, only those jets with transverse momentum exceeding 30 GeV were saved to file. The jets were also required to have pseudorapidity of less than 2.5 (this indicates the jet's position in the detector). For each jet, there are variables describing the jet on a high-level, particle-level and generator-level. There are also some variables describing the collision event and the conditions of its simulation. All of the variables are saved on a jet-by-jet basis, which means that one row of data corresponds to one jet.</p> <p>The origin of a jet is particularly interesting. This so-called flavor of the jet is obtained from the generator-level particles by a jet flavor algorithm, which attempts to match a reconstructed jet to a single initiating particle. As a consequence, the jet flavor definition depends on the chosen algorithm. Here three different flavor definitions are available. The \u2018hadron\u2019 definition identifies b- and c-hadrons from the jet\u2019s constituents, so it is only useful for b-tagging studies. The \u2018parton\u2019 definition extends this to include the light jet flavors (u, d, s and gluon). Finally there is the \u2018physics\u2019 definition, which looks at the quarks and gluons of the initial collision. The \u2018parton\u2019 and \u2018physics\u2019 definitions both identify all jet flavors, but the former is more biased towards b- and c-quarks. If in doubt, it is recommended to use the \u2018physics\u2019 definition.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Kallonen, Kimmo",
+        "orcid": "0000-0001-9769-7163"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Transverse momentum of the jet.",
+        "type": "Float_t",
+        "variable": "jetPt"
+      },
+      {
+        "description": "Pseudorapidity (\u03b7) of the jet.",
+        "type": "Float_t",
+        "variable": "jetEta"
+      },
+      {
+        "description": "Azimuthal angle (\u03d5) of the jet.",
+        "type": "Float_t",
+        "variable": "jetPhi"
+      },
+      {
+        "description": "Mass of the jet.",
+        "type": "Float_t",
+        "variable": "jetMass"
+      },
+      {
+        "description": "Girth of the jet (as defined in arXiv:1106.3076 [hep-ph]).",
+        "type": "Float_t",
+        "variable": "jetGirth"
+      },
+      {
+        "description": "Catchment area of the jet; used for jet energy corrections.",
+        "type": "Float_t",
+        "variable": "jetArea"
+      },
+      {
+        "description": "Transverse momentum of the jet before the energy corrections.",
+        "type": "Float_t",
+        "variable": "jetRawPt"
+      },
+      {
+        "description": "Mass of the jet before the energy corrections.",
+        "type": "Float_t",
+        "variable": "jetRawMass"
+      },
+      {
+        "description": "Binary variable indicating whether the jet passes 'loose' criteria for being a real jet.",
+        "type": "UInt_t",
+        "variable": "jetLooseID"
+      },
+      {
+        "description": "Binary variable indicating whether the jet passes 'tight' criteria for being a real jet.",
+        "type": "UInt_t",
+        "variable": "jetTightID"
+      },
+      {
+        "description": "1: if a matched generator level jet exists; 0: if no match was found.",
+        "type": "UInt_t",
+        "variable": "jetGenMatch"
+      },
+      {
+        "description": "Quark-Gluon jet likelihood discriminant variable built out of the three following variables (see the report CMS-PAS-JME-13-002 for more information).",
+        "type": "Float_t",
+        "variable": "jetQGl"
+      },
+      {
+        "description": "Jet energy variable (see CMS-PAS-JME-13-002).",
+        "type": "Float_t",
+        "variable": "QG_ptD"
+      },
+      {
+        "description": "Minor axis of the jet (see CMS-PAS-JME-13-002).",
+        "type": "Float_t",
+        "variable": "QG_axis2"
+      },
+      {
+        "description": "Jet constituent multiplicity with additional cuts (see CMS-PAS-JME-13-002).",
+        "type": "UInt_t",
+        "variable": "QG_mult"
+      },
+      {
+        "description": "Flavour of the jet, as defined by the CMS parton-based definition.",
+        "type": "Int_t",
+        "variable": "partonFlav"
+      },
+      {
+        "description": "Flavour of the jet, as defined by the CMS hadron-based definition.",
+        "type": "Int_t",
+        "variable": "hadronFlav"
+      },
+      {
+        "description": "Flavour of the jet, as defined by the CMS 'physics' definition (if in doubt, use this).",
+        "type": "Int_t",
+        "variable": "physFlav"
+      },
+      {
+        "description": "Indicates light quark (Up, Down, Strange) jets: partonFlav = 1, 2, 3.",
+        "type": "UInt_t",
+        "variable": "isPartonUDS"
+      },
+      {
+        "description": "Indicates gluon jets: partonFlav = 21.",
+        "type": "UInt_t",
+        "variable": "isPartonG"
+      },
+      {
+        "description": "Indicates any other kind of jet: partonflav != 1, 2, 3, 21.",
+        "type": "UInt_t",
+        "variable": "isPartonOther"
+      },
+      {
+        "description": "Indicates light quark (Up, Down, Strange) jets: physFlav = 1, 2, 3.",
+        "type": "UInt_t",
+        "variable": "isPhysUDS"
+      },
+      {
+        "description": "Indicates gluon jets: physFlav = 21.",
+        "type": "UInt_t",
+        "variable": "isPhysG"
+      },
+      {
+        "description": "Indicates any other kind of jet: physFlav != 1, 2, 3, 21.",
+        "type": "UInt_t",
+        "variable": "isPhysOther"
+      },
+      {
+        "description": "Multiplicity of charged hadron jet constituents.",
+        "type": "UInt_t",
+        "variable": "jetChargedHadronMult"
+      },
+      {
+        "description": "Multiplicity of neutral hadron jet constituents.",
+        "type": "UInt_t",
+        "variable": "jetNeutralHadronMult"
+      },
+      {
+        "description": "Multiplicity of charged jet constituents.",
+        "type": "UInt_t",
+        "variable": "jetChargedMult"
+      },
+      {
+        "description": "Multiplicity of neutral jet constituents.",
+        "type": "UInt_t",
+        "variable": "jetNeutralMult"
+      },
+      {
+        "description": "Multiplicity of jet constituents.",
+        "type": "UInt_t",
+        "variable": "jetMult"
+      },
+      {
+        "description": "Number of particle flow (PF) candidates (particles reconstructed by the particle flow algorithm); contains all particles within |\u0394\u03d5| < 1 and |\u0394\u03b7| < 1 from the center of the jet.",
+        "type": "UInt_t",
+        "variable": "nPF"
+      },
+      {
+        "description": "Transverse momentum of a PF candidate.",
+        "type": "Float_t",
+        "variable": "PF_pT[nPF]"
+      },
+      {
+        "description": "Distance of a PF candidate to the center of the jet.",
+        "type": "Float_t",
+        "variable": "PF_dR[nPF]"
+      },
+      {
+        "description": "Polar angle (\u03b8) of a PF candidate.",
+        "type": "Float_t",
+        "variable": "PF_dTheta[nPF]"
+      },
+      {
+        "description": "Azimuthal angle (\u03d5) of a PF candidate.",
+        "type": "Float_t",
+        "variable": "PF_dPhi[nPF]"
+      },
+      {
+        "description": "Pseudorapidity (\u03b7) of a PF candidate.",
+        "type": "Float_t",
+        "variable": "PF_dEta[nPF]"
+      },
+      {
+        "description": "Mass of a PF candidate.",
+        "type": "Float_t",
+        "variable": "PF_mass[nPF]"
+      },
+      {
+        "description": "Generator level particle identifier for the particle flow candidates, as defined in the PDG particle numbering scheme.",
+        "type": "Int_t",
+        "variable": "PF_id[nPF]"
+      },
+      {
+        "description": "A number indicating how tightly a particle is associated with the primary vertex (ranges from 3 to 0).",
+        "type": "UInt_t",
+        "variable": "PF_fromPV[nPF]"
+      },
+      {
+        "description": "1: if the particle flow candidate is a constituent of the reconstructed AK4 jet; 0: if it is not a constituent of the jet.",
+        "type": "UInt_t",
+        "variable": "PF_fromAK4Jet"
+      },
+      {
+        "description": "Transverse momentum of the matched generator level jet.",
+        "type": "Float_t",
+        "variable": "genJetPt"
+      },
+      {
+        "description": "Pseudorapidity (\u03b7) of the matched generator level jet.",
+        "type": "Float_t",
+        "variable": "genJetEta"
+      },
+      {
+        "description": "Azimuthal angle (\u03d5) of the matched generator level jet.",
+        "type": "Float_t",
+        "variable": "genJetPhi"
+      },
+      {
+        "description": "Mass of the matched generator level jet.",
+        "type": "Float_t",
+        "variable": "genJetMass"
+      },
+      {
+        "description": "Number of particles in the matched generator level jet.",
+        "type": "UInt_t",
+        "variable": "nGenJetPF"
+      },
+      {
+        "description": "Transverse momentum of a particle in the matched generator level jet.",
+        "type": "Float_t",
+        "variable": "genPF_pT[nGenJetPF]"
+      },
+      {
+        "description": "Distance of a particle to the center of the matched generator level jet.",
+        "type": "Float_t",
+        "variable": "genPF_dR[nGenJetPF]"
+      },
+      {
+        "description": "Polar angle (\u03b8) of a particle in the matched generator level jet.",
+        "type": "Float_t",
+        "variable": "genPF_dTheta[nGenJetPF]"
+      },
+      {
+        "description": "Mass of a particle in the matched generator level jet.",
+        "type": "Float_t",
+        "variable": "genPF_mass[nGenJetPF]"
+      },
+      {
+        "description": "Generator level particle identifier for the particles in the matched generator level jet, as defined in the PDG particle numbering scheme.",
+        "type": "Int_t",
+        "variable": "genPF_id[nGenJetPF]"
+      },
+      {
+        "description": "Multiplicity of jets in the event.",
+        "type": "UInt_t",
+        "variable": "eventJetMult"
+      },
+      {
+        "description": "Indicates the ranking number of the jet, as the jets are ordered by their transverse momenta within a single event.",
+        "type": "UInt_t",
+        "variable": "jetPtOrder (UInt_t)"
+      },
+      {
+        "description": "The phi difference of the two leading jets.",
+        "type": "Float_t",
+        "variable": "dPhiJetsLO"
+      },
+      {
+        "description": "The eta difference of the two leading jets.",
+        "type": "Float_t",
+        "variable": "dEtaJetsLO"
+      },
+      {
+        "description": "If there are at least 3 jets in the event, alpha is the third jet's transverse momentum divided by the average transverse momentum of the two leading jets.",
+        "type": "Float_t",
+        "variable": "alpha"
+      },
+      {
+        "description": "Event number.",
+        "type": "ULong64_t",
+        "variable": "event"
+      },
+      {
+        "description": "Run number.",
+        "type": "UInt_t",
+        "variable": "run"
+      },
+      {
+        "description": "Luminosity block.",
+        "type": "UInt_t",
+        "variable": "lumi"
+      },
+      {
+        "description": "Transverse momentum of the generated hard process.",
+        "type": "Float_t",
+        "variable": "pthat"
+      },
+      {
+        "description": "Weight assigned to the generated event.",
+        "type": "Float_t",
+        "variable": "eventWeight"
+      },
+      {
+        "description": "The median density (in GeV/A) of pile-up contamination per event; computed from all PF candidates of the event.",
+        "type": "Float_t",
+        "variable": "rhoAll"
+      },
+      {
+        "description": "Same as above, computed from all PF candidates with |\u03b7| < 2.5.",
+        "type": "Float_t",
+        "variable": "rhoCentral"
+      },
+      {
+        "description": "Same as above, computed from all neutral PF candidates with |\u03b7| < 2.5.",
+        "type": "Float_t",
+        "variable": "rhoCentralNeutral"
+      },
+      {
+        "description": "Same as above, computed from all PF charged hadrons associated to pileup vertices and with |\u03b7| < 2.5.",
+        "type": "Float_t",
+        "variable": "rhoCentralChargedPileUp"
+      },
+      {
+        "description": "The number of good reconstructed primary vertices.",
+        "type": "UInt_t",
+        "variable": "PV_npvsGood"
+      },
+      {
+        "description": "The number of pileup interactions that have been added to the event in the current bunch crossing.",
+        "type": "UInt_t",
+        "variable": "Pileup_nPU"
+      },
+      {
+        "description": "The true mean number of the poisson distribution for this event from which the number of interactions in each bunch crossing has been sampled.",
+        "type": "Float_t",
+        "variable": "Pileup_nTrueInt"
+      }
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "root",
+        "h5"
+      ],
+      "number_events": 11111,
+      "number_files": 244,
+      "size": 204611954128
+    },
+    "doi": "10.7483/OPENDATA.CMS.RY2V.T797",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:4d096eae",
+        "size": 32558,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/datascience/JetNTuple_QCD_RunII_13TeV_MC/file-indexes/CMS_JetNTuple_QCD_RunII_13TeV_MC_h5_file_index.json"
+      },
+      {
+        "checksum": "adler32:7d368ee3",
+        "size": 15020,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/datascience/JetNTuple_QCD_RunII_13TeV_MC/file-indexes/CMS_JetNTuple_QCD_RunII_13TeV_MC_h5_file_index.txt"
+      },
+      {
+        "checksum": "adler32:b89578d0",
+        "size": 32964,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/datascience/JetNTuple_QCD_RunII_13TeV_MC/file-indexes/CMS_JetNTuple_QCD_RunII_13TeV_MC_root_file_index.json"
+      },
+      {
+        "checksum": "adler32:c1e21b88",
+        "size": 15264,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/datascience/JetNTuple_QCD_RunII_13TeV_MC/file-indexes/CMS_JetNTuple_QCD_RunII_13TeV_MC_root_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "datascience"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12100",
+    "relations": [
+      {
+        "recid": "12021",
+        "title": "/QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_magnetOn_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+        "type": "isChildOf"
+      }
+    ],
+    "title": "JetNTuple_QCD_RunII_13TeV_MC",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": "The use of these files does not require any software specific to the CMS experiment. There are two sets of equivalent files in two different formats: ROOT and H5."
+    }
+  }
+]
