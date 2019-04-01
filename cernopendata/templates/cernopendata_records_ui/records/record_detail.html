@@ -183,7 +183,42 @@
             {% else %}
             <h2>Methodology</h2>
             {% endif %}
-            <p>{{ record.methodology.description | safe}}</p>
+            <p>{{ record.methodology.get("description") | safe}}</p>
+            {% for step in record.methodology.get("steps", []) %}
+            <p>
+                <strong>Step {{ step.get("type")}}</strong><br>
+                Release: {{ step.get("release")}}<br>
+                Global Tag: {{ step.get("global_tag")}}<br>
+
+                {% for conf_file in step.get("configuration_files") %}
+                    <span class="oi" data-glyph="file"></span>
+                    {% if conf_file.get("script") %}
+                    {{ conf_file.get("title", "File #"+ loop.index|string) }}
+                    <a href="#" ng-controller="filePreviewModalCtrl as $fPrevModalCtrl"
+                        ng-click='$fPrevModalCtrl.openModal({{conf_file.script | tojson}})'>
+                        (preview)
+                    </a>
+                    {% if conf_file.get("url") %}
+                        <a href="{{conf_file.url}}">
+                            (link)
+                        </a>
+                    {% endif %}
+                    <br>
+                    {% else %}
+                    {{ conf_file.get("title")}} for {{ conf_file.get("process") }}
+                    <a href="{{ url_for('invenio_records_ui.recid', pid_value=conf_file.get('recid') ) }}"> (link)
+                    </a><br>
+                    {% endif %}
+                {% endfor %}
+                {% if step.get("description") %}
+                <div class="col-sm-10" style="padding: 10px;background-color: #f5f5f5">
+                    <strong>Note</strong><br>
+                    To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a>
+                </div>
+                {% endif %}
+            </p>
+            <hr>
+            {% endfor %}
             {{ link_list(record.methodology.links) }}
             {% if record.pileup %}
               <p>{{ record.pileup.description | safe}}</p>
@@ -253,7 +288,6 @@
         {{ files_box() }}
     </div>
 {% endblock files_block %}
-
 
 {% block disclaimer %}
     {{ super() }}

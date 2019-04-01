@@ -148,6 +148,10 @@ setup(
             ':ispy_js',
             'ispy_css = cernopendata.modules.theme.bundles'
             ':ispy_css',
+            'codemirror_js = cernopendata.modules.theme.bundles'
+            ':codemirror_js',
+            'codemirror_css = cernopendata.modules.theme.bundles'
+            ':codemirror_css',
         ],
         'invenio_base.apps': [
             'cernopendata_xrootd = cernopendata.modules.xrootd:CODPXRootD',

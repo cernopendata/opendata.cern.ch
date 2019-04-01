@@ -41,7 +41,7 @@ js = NpmBundle(
         'jquery': '~1.9.1',
         'popper.js': '~1.11.0',
         'bootstrap': '~4.0.0-beta',
-        'angular-ui-bootstrap': '~2.2.0'
+        'angular-ui-bootstrap': '~2.2.0',
     },
 )
 
@@ -217,5 +217,30 @@ ispy_css = NpmBundle(
     output='gen/cernopendata.ispy.%(version)s.css',
     npm={
         "ispy-webgl": "0.9.8-COD3.11"
+    }
+)
+
+
+codemirror_js = NpmBundle(
+    'node_modules/codemirror/lib/codemirror.js',
+    'node_modules/codemirror/mode/scheme/scheme.js',
+    'node_modules/codemirror/mode/javascript/javascript.js',
+    'node_modules/codemirror/mode/xml/xml.js',
+    'node_modules/angular-ui-codemirror/src/ui-codemirror.js',
+    output='gen/cernopendata.codemirror.%(version)s.js',
+    npm={
+        "angular-ui-codemirror": "0.3.0",
+        "codemirror": "*",
+    },
+)
+
+codemirror_css = NpmBundle(
+    Bundle(
+        'node_modules/codemirror/lib/codemirror.css',
+        filters='cleancssurl',
+    ),
+    depends=('scss/*.scss',),
+    output='gen/cernopendata.codemirror.%(version)s.css',
+    npm={
     }
 )
