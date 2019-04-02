@@ -192,23 +192,26 @@
 
                 {% for conf_file in step.get("configuration_files") %}
                     <span class="oi" data-glyph="file"></span>
-                    {% if conf_file.get("script") %}
                     {{ conf_file.get("title", "File #"+ loop.index|string) }}
-                    <a href="#" ng-controller="filePreviewModalCtrl as $fPrevModalCtrl"
-                        ng-click='$fPrevModalCtrl.openModal({{conf_file.script | tojson}})'>
-                        (preview)
-                    </a>
+                    {% if conf_file.get("process") %}
+                        for {{ conf_file.process }}
+                    {% endif %}
+
+                    {% if conf_file.get("script") %}
+                        <a href="#" ng-controller="filePreviewModalCtrl as $fPrevModalCtrl"
+                            ng-click='$fPrevModalCtrl.openModal({{conf_file.script | tojson}})'>
+                            (preview)
+                        </a>
+                    {% endif %}
                     {% if conf_file.get("url") %}
                         <a href="{{conf_file.url}}">
                             (link)
                         </a>
                     {% endif %}
-                    <br>
-                    {% else %}
-                    {{ conf_file.get("title")}} for {{ conf_file.get("process") }}
-                    <a href="{{ url_for('invenio_records_ui.recid', pid_value=conf_file.get('recid') ) }}"> (link)
-                    </a><br>
+                    {% if conf_file.get('recid') %}
+                        <a href="{{ url_for('invenio_records_ui.recid', pid_value=conf_file.recid ) }}"> (link)</a>
                     {% endif %}
+                    <br>
                 {% endfor %}
                 {% if step.get("description") %}
                 <div class="col-sm-10" style="padding: 10px;background-color: #f5f5f5">
