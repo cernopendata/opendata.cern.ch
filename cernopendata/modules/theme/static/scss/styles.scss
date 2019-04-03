@@ -704,3 +704,54 @@ invenio-search-facets {
         height: 100%!important;
     }
 }
+
+
+.files-table {
+    display: flex;
+    flex-direction: column;
+
+    .files-table-header {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 600;
+        border-top: 1px solid #ccc;
+        border-bottom: 2px solid #ccc;
+
+        > div {
+            justify-content: start;
+        }
+    }
+
+
+    .files-row {
+        display: flex;
+        border-bottom: 1px solid #ccc;
+        font-size: 14px;
+        padding: 5px;
+
+        > div {
+            align-items: center;
+            display: flex;
+        }
+    }
+    .file-item-name {
+        flex: 1;
+        overflow: hidden;
+        padding-right: 15px;
+
+        > div {
+            overflow: hidden;
+        }
+    }
+    .file-item-size {
+        width: 60px;
+    }
+    .file-item-actions {
+        width: 155px;
+
+        a.btn {
+            font-size: 12px;
+            padding: 5px;
+        }
+    }
+}

@@ -13,19 +13,16 @@
     {% raw %}
     {{$ctrlTbl.files = $ctrl.{% endraw %}{{type}}{% raw %}.files; ""}}
     {{$ctrlTbl.totalItems = $ctrl.{% endraw %}{{type}}{% raw %}.total; ""}}
-    <table ng-if="$ctrlTbl.s_files.length == 0" class="table">
-      <thead>
-        <tr>
-          <th>Filename</th>
-          <th>Size</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr id="" ng-repeat="file in $ctrl.{% endraw %}{{type}}{% raw %}.files">
-          <td>{{ file.key }}</td>
-          <td>{{ file.size | bytes }}</td>
-          <td class="file-row justify-content-end">
+    <div ng-if="$ctrlTbl.s_files.length == 0" class="files-table">
+      <div class="files-row files-table-header">
+        <div class="file-item-name">Filename</div>
+        <div class="file-item-size">Size</div>
+        <div class="file-item-actions"></div>
+      </div>
+      <div class="files-row" ng-repeat="file in $ctrl.{% endraw %}{{type}}{% raw %}.files">
+          <div class="file-item-name"><div>{{ file.key }}</div></div>
+          <div class="file-item-size">{{ file.size | bytes }}</div>
+          <div class="file-item-actions justify-content-end">
             {% endraw %}
             <div class="btn-group" role="group" aria-label="Button group" ng-init="download_uri = '/record/{{pid.pid_value}}/files/'+file.key">
               <a
@@ -45,24 +42,19 @@
                   <span class="oi" data-glyph="eye"></span> Preview
               </a>
             </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <table ng-if="$ctrlTbl.s_files.length > 0" class="table">
-      <thead>
-        <tr>
-          <th>Filename</th>
-          <th>Size</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {{ file.key }}
-        <tr id="" ng-repeat="file in $ctrlTbl.s_files">
-          <td>{{ file.key }}</td>
-          <td>{{ file.size | bytes }}</td>
-          <td class="file-row justify-content-end">
+          </div>
+      </div>
+    </div>
+    <div ng-if="$ctrlTbl.s_files.length > 0" class="files-table">
+      <div class="files-row files-table-header">
+        <div class="file-item-name">Filename</div>
+        <div class="file-item-size">Size</div>
+        <div class="file-item-actions"></div>
+      </div>
+      <div class="files-row" ng-repeat="file in $ctrlTbl.s_files">
+          <div class="file-item-name"><div>{{ file.key }}</div></div>
+          <div class="file-item-size">{{ file.size | bytes }}</div>
+          <div class="file-item-actions justify-content-end">
             {% endraw %}
             <div class="btn-group" role="group" aria-label="Button group" ng-init="download_uri = '/record/{{pid.pid_value}}/files/'+file.key">
               <a
@@ -82,10 +74,9 @@
                   <span class="oi" data-glyph="eye"></span> Preview
               </a>
             </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </div>
+      </div>
+    </div>
     <div ng-if="$ctrlTbl.totalItems > $ctrlTbl.itemsPerPage">
       <ul uib-pagination
         class="pagination file-pagination pagination-sm"
