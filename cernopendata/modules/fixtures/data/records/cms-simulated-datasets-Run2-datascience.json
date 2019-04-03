@@ -52,14 +52,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-600_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-600_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1_60000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-600_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/AODSIM\" --fileout file:B2G-RunIISummer16MiniAODv2-01594.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename B2G-RunIISummer16MiniAODv2-01594_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             }
           ],
           "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
@@ -180,14 +180,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-1000_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-1000_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1_60000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-1000_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/AODSIM\" --fileout file:B2G-RunIISummer16MiniAODv2-01591.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename B2G-RunIISummer16MiniAODv2-01591_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             }
           ],
           "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
@@ -308,14 +308,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-1200_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-1200_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_60000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-1200_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:EXO-RunIISummer16MiniAODv2-02849.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16MiniAODv2-02849_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             },
             {
               "cms_confdb_id": "e0fcad7e25794ff32db7f96b8a873f7e",
@@ -450,14 +450,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-1400_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-1400_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_80000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-1400_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:EXO-RunIISummer16MiniAODv2-00321.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16MiniAODv2-00321_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             },
             {
               "cms_confdb_id": "2206482e3309b8511cb58602a76373f0",
@@ -592,14 +592,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-1600_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-1600_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-1600_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:EXO-RunIISummer16MiniAODv2-00521.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16MiniAODv2-00521_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             },
             {
               "cms_confdb_id": "9646767ce02b20c08534c68603b18952",
@@ -748,14 +748,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:EXO-RunIISummer16MiniAODv2-04201.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16MiniAODv2-04201_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             },
             {
               "cms_confdb_id": "f059d46d5a163815a3533ab8ef4e4c68",
@@ -890,14 +890,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:EXO-RunIISummer16MiniAODv2-00523.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16MiniAODv2-00523_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             },
             {
               "cms_confdb_id": "9646767ce02b20c08534c68603b18952",
@@ -1032,14 +1032,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1_70000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/AODSIM\" --fileout file:B2G-RunIISummer16MiniAODv2-01592.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename B2G-RunIISummer16MiniAODv2-01592_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             }
           ],
           "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
@@ -1160,14 +1160,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-2500_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-2500_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_80000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-2500_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:EXO-RunIISummer16MiniAODv2-00524.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16MiniAODv2-00524_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             },
             {
               "cms_confdb_id": "9646767ce02b20c08534c68603b18952",
@@ -1302,14 +1302,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-3000_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-3000_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1_70000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-3000_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/AODSIM\" --fileout file:B2G-RunIISummer16MiniAODv2-01593.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename B2G-RunIISummer16MiniAODv2-01593_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             }
           ],
           "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
@@ -1430,14 +1430,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-4000_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-4000_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-4000_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:EXO-RunIISummer16MiniAODv2-01815.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16MiniAODv2-01815_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             },
             {
               "cms_confdb_id": "315e153b2d3225a9cd5c3ff68186ba50",
@@ -1572,14 +1572,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/BulkGravTohhTohbbhbb_narrow_M-4500_13TeV-madgraph/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_BulkGravTohhTohbbhbb_narrow_M-4500_13TeV-madgraph_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/BulkGravTohhTohbbhbb_narrow_M-4500_13TeV-madgraph/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:EXO-RunIISummer16MiniAODv2-03778.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename EXO-RunIISummer16MiniAODv2-03778_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             },
             {
               "cms_confdb_id": "f48fdba7ddeedbdacad7b277ba72098b",
@@ -1714,14 +1714,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_300to470_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_300to470_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_80000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_300to470_TuneCUETP8M1_13TeV_pythia8/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:BTV-RunIISummer16MiniAODv2-00058.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16MiniAODv2-00058_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             },
             {
               "cms_confdb_id": "2206482e3309b8511cb58602a76373f0",
@@ -1856,14 +1856,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_470to600_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_470to600_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_60000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_470to600_TuneCUETP8M1_13TeV_pythia8/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:BTV-RunIISummer16MiniAODv2-00002.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16MiniAODv2-00002_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             },
             {
               "cms_confdb_id": "f63c282e2deedc5e7ec23a3df4d9e567",
@@ -1998,14 +1998,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:BTV-RunIISummer16MiniAODv2-00043.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16MiniAODv2-00043_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             },
             {
               "cms_confdb_id": "f63c282e2deedc5e7ec23a3df4d9e567",
@@ -2140,14 +2140,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_800to1000_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_800to1000_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_120000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_800to1000_TuneCUETP8M1_13TeV_pythia8/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:BTV-RunIISummer16MiniAODv2-00014.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16MiniAODv2-00014_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             },
             {
               "cms_confdb_id": "f63c282e2deedc5e7ec23a3df4d9e567",
@@ -2282,14 +2282,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_1000to1400_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_1000to1400_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_80000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_1000to1400_TuneCUETP8M1_13TeV_pythia8/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:BTV-RunIISummer16MiniAODv2-00016.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16MiniAODv2-00016_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             },
             {
               "cms_confdb_id": "46f5867b5cea01b6c3ea30a77fd1a004",
@@ -2424,14 +2424,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_1400to1800_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_1400to1800_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_110000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_1400to1800_TuneCUETP8M1_13TeV_pythia8/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:BTV-RunIISummer16MiniAODv2-00018.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16MiniAODv2-00018_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             },
             {
               "cms_confdb_id": "f63c282e2deedc5e7ec23a3df4d9e567",
@@ -2566,14 +2566,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_1800to2400_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_1800to2400_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_70000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_1800to2400_TuneCUETP8M1_13TeV_pythia8/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:BTV-RunIISummer16MiniAODv2-00019.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16MiniAODv2-00019_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             },
             {
               "cms_confdb_id": "f63c282e2deedc5e7ec23a3df4d9e567",
@@ -2708,14 +2708,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_2400to3200_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_2400to3200_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_110000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_2400to3200_TuneCUETP8M1_13TeV_pythia8/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:BTV-RunIISummer16MiniAODv2-00034.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16MiniAODv2-00034_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             },
             {
               "cms_confdb_id": "f63c282e2deedc5e7ec23a3df4d9e567",
@@ -2864,14 +2864,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v3/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8_MINIAODSIM_PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v3_80000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8/RunIISummer16DR80Premix-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v2/AODSIM\" --fileout file:BTV-RunIISummer16MiniAODv2-00045.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename BTV-RunIISummer16MiniAODv2-00045_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             }
           ],
           "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
@@ -3012,14 +3012,14 @@
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2016/RunIISummer16MiniAODv2/QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8/MINIAODSIM/PUMoriond17_magnetOn_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/file-indexes/CMS_MonteCarlo2016_RunIISummer16MiniAODv2_QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8_MINIAODSIM_PUMoriond17_magnetOn_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1_80000_file_index.txt"
       }
     ],
-    "generation": {
+    "methodology": {
       "description": "<p>These data were generated in several steps:</p><p><strong>Note</strong><br>\n                              To get the exact LHE and generator's parameters, see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production Overview</a></p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
               "script": "#!/bin/bash\nexport SCRAM_ARCH=slc6_amd64_gcc530\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_8_0_21/src ] ; then \n echo release CMSSW_8_0_21 already exists\nelse\nscram p CMSSW CMSSW_8_0_21\nfi\ncd CMSSW_8_0_21/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8/RunIISummer16DR80Premix-PUMoriond17_magnetOn_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/AODSIM\" --fileout file:JME-RunIISummer16MiniAODv2-00021.root --mc --eventcontent MINIAODSIM --runUnscheduled --datatier MINIAODSIM --conditions 80X_mcRun2_asymptotic_2016_TrancheIV_v6 --step PAT --nThreads 4 --era Run2_2016 --python_filename JME-RunIISummer16MiniAODv2-00021_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 5760 || exit $? ; \n\n",
-              "type": "cmsDriver script"
+              "title": "cmsDriver script"
             }
           ],
           "global_tag": "80X_mcRun2_asymptotic_2016_TrancheIV_v6",
