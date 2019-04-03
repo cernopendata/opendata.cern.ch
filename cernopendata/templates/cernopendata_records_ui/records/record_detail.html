@@ -183,12 +183,18 @@
             {% else %}
             <h2>Methodology</h2>
             {% endif %}
-            <p>{{ record.methodology.get("description") | safe}}</p>
+            {% if record.methodology.get("description") %}
+                <p>{{ record.methodology.description | safe}}</p>
+            {% endif %}
             {% for step in record.methodology.get("steps", []) %}
             <p>
                 <strong>Step {{ step.get("type")}}</strong><br>
-                Release: {{ step.get("release")}}<br>
-                Global Tag: {{ step.get("global_tag")}}<br>
+                {% if step.get("release") %}
+                    Release: {{ step.release }}<br>
+                {% endif %}
+                {% if step.get("global_tag") %}
+                    Global Tag: {{ step.global_tag }}<br>
+                {% endif %}
 
                 {% for conf_file in step.get("configuration_files") %}
                     <span class="oi" data-glyph="file"></span>
