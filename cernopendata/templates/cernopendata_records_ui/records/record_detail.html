@@ -219,6 +219,13 @@
                     {% endif %}
                     <br>
                 {% endfor %}
+                {% if step.get("output_dataset") %}
+                    Output dataset: {{ step.output_dataset }}<br>
+                {% endif %}
+                {% if step.get("note") %}
+                    Note: {{ step.note | safe }}<br>
+                {% endif %}
+
                 {% if step.get("description") %}
                 <div class="col-sm-10" style="padding: 10px;background-color: #f5f5f5">
                     <strong>Note</strong><br>
