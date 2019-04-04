@@ -150,7 +150,7 @@ $('#download_caution').on('show.bs.modal', function (event) {
         modal.find('#download-msg-uri').attr("href", file_uri)
 })
 
-var recordApp = angular.module('recordApp', ['ui.codemirror', 'ui.bootstrap' ]);
+var recordApp = angular.module('recordApp', ['angular-clipboard', 'ui.codemirror', 'ui.bootstrap' ]);
 
 recordApp.controller('paginationCtrl', ['$scope', '$element', '$http', function($scope, $element, $http){
     var $ctrl = this;
@@ -338,28 +338,31 @@ recordApp.controller(
     }
   ]);
 
-
 recordApp.controller(
   'filePreviewModalInstanceCtrl', [
     '$scope',
     '$uibModalInstance',
     'content',
-  function ($scope, $uibModalInstance, content){
+    'clipboard',
+  function ($scope, $uibModalInstance, content, clipboard){
     var $ctrl = this;
 
+    $ctrl.msg = null;
     $scope.contents = content;
 
     $scope.codemirrorLoaded = function(_editor){
-      setTimeout(function(){
-        _editor.refresh()
-      });
+      $ctrl.copyEditor = function() {
+        clipboard.copyText(content);
+        $ctrl.msg = "copied!";
+      }
+
+      setTimeout( function(){ _editor.refresh() } );
     };
 
     $ctrl.closeModal = function () {
       $uibModalInstance.close();
     };
   }]);
-
 
 recordApp.controller(
   'indexFileListModalCtrl',
@@ -370,7 +373,6 @@ recordApp.controller(
     '$uibModal',
     function($scope,  $interpolate , $http, $uibModal) {
       var $ctrl = this;
-
 
       $ctrl.openModal = function (pid, file) {
         var modalInstance = $uibModal.open({
@@ -430,7 +432,6 @@ recordApp.filter('bytes', function() {
     return (bytes / Math.pow(1024, Math.floor(number))).toFixed(precision) +  ' ' + units[number];
   }
 });
-
 
 </script>
 {% endblock javascript %}

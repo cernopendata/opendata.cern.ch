@@ -227,10 +227,12 @@ codemirror_js = NpmBundle(
     'node_modules/codemirror/mode/javascript/javascript.js',
     'node_modules/codemirror/mode/xml/xml.js',
     'node_modules/angular-ui-codemirror/src/ui-codemirror.js',
+    'node_modules/angular-clipboard/angular-clipboard.js',
     output='gen/cernopendata.codemirror.%(version)s.js',
     npm={
         "angular-ui-codemirror": "0.3.0",
         "codemirror": "*",
+        "angular-clipboard": "1.6.2",
     },
 )
 
