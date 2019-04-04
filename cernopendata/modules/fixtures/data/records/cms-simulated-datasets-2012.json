@@ -48839,5 +48839,144 @@
     "validation": {
       "description": "The generation and simulation of simulated Monte Carlo data has been validated through general CMS validation procedures."
     }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset ADDdiLepton_LambdaT-1600_Tune4C_8TeV-pythia8 in AODSIM format for 2012 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Exotica",
+      "secondary": [
+        "Extra Dimensions"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration",
+      "recid": "453"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "8TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2012"
+    ],
+    "date_published": "2018",
+    "date_reprocessed": "2012",
+    "distribution": {
+      "availability": "ondemand",
+      "formats": [
+        "aodsim",
+        "root"
+      ],
+      "number_events": 200000,
+      "number_files": 29,
+      "size": 73407378326
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>These data were generated in several steps (see also <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo Production Overview</a>):</p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=None\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_5_3_11_patch2/src ] ; then \n echo release CMSSW_5_3_11_patch2 already exists\nelse\nscram p CMSSW CMSSW_5_3_11_patch2\nfi\ncd CMSSW_5_3_11_patch2/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/ADDdiLepton_LambdaT-1600_Tune4C_8TeV-pythia8/Summer12-START50_V13-v3/GEN-SIM\" --fileout file:EXO-Summer12DR53X-02487_step1.root --pileup_input \"dbs:/MinBias_TuneZ2star_8TeV-pythia6/Summer12-START50_V13-v3/GEN-SIM\" --mc --eventcontent RAWSIM --pileup 2012_Summer_50ns_PoissonOOTPU --datatier GEN-SIM-RAW --conditions START53_V19E::All --step DIGI,L1,DIGI2RAW,HLT:7E33v2 --python_filename EXO-Summer12DR53X-02487_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 360 || exit $? ; \n\ncmsDriver.py step2 --filein file:EXO-Summer12DR53X-02487_step1.root --fileout file:EXO-Summer12DR53X-02487.root --mc --eventcontent AODSIM,DQM --datatier AODSIM,DQM --conditions START53_V19E::All --step RAW2DIGI,L1Reco,RECO,VALIDATION:validation_prod,DQM:DQMOfflinePOGMC --python_filename EXO-Summer12DR53X-02487_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 360 || exit $? ; \n\n",
+              "title": "Production script"
+            },
+            {
+              "cms_confdb_id": "1937ebea238cd2fc28f3c019b0eb54ae",
+              "process": "HLT",
+              "title": "Configuration file"
+            },
+            {
+              "cms_confdb_id": "1937ebea238cd2fc28f3c019b0f1dd0b",
+              "process": "RECO",
+              "title": "Configuration file"
+            }
+          ],
+          "global_tag": "START53_V19E::All",
+          "release": "CMSSW_5_3_11_patch2",
+          "type": "RECO-HLT"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\nexport SCRAM_ARCH=None\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_5_1_3/src ] ; then \n echo release CMSSW_5_1_3 already exists\nelse\nscram p CMSSW CMSSW_5_1_3\nfi\ncd CMSSW_5_1_3/src\neval `scram runtime -sh`\ncurl  -s https://raw.githubusercontent.com/cms-sw/genproductions/V02-01-22/python/EightTeV/ADD_Dilepton_LambdaT_1600_8TeV_pythia8_cff.py --retry 2 --create-dirs -o  Configuration/GenProduction/python/EightTeV/ADD_Dilepton_LambdaT_1600_8TeV_pythia8_cff.py \n[ -s Configuration/GenProduction/python/EightTeV/ADD_Dilepton_LambdaT_1600_8TeV_pythia8_cff.py ] || exit $?;\n\n\nscram b\ncd ../../\ncmsDriver.py Configuration/GenProduction/python/EightTeV/ADD_Dilepton_LambdaT_1600_8TeV_pythia8_cff.py --fileout file:EXO-Summer12-01139.root --mc --eventcontent RAWSIM --pileup NoPileUp --datatier GEN-SIM --conditions START50_V13::All --beamspot Realistic8TeVCollision --step GEN,SIM --datamix NODATAMIXER --python_filename EXO-Summer12-01139_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 61 || exit $? ; \n\n",
+              "title": "Production script"
+            },
+            {
+              "script": "import FWCore.ParameterSet.Config as cms\n\ngenerator = cms.EDFilter(\"Pythia8GeneratorFilter\",\n   comEnergy = cms.double(8000.0),\n   crossSection = cms.untracked.double(1.435),\n   filterEfficiency = cms.untracked.double(1),\n   maxEventsToPrint = cms.untracked.int32(0),\n   pythiaHepMCVerbosity = cms.untracked.bool(False),\n   pythiaPylistVerbosity = cms.untracked.int32(0),\n\n   PythiaParameters = cms.PSet(\n      processParameters = cms.vstring(\n         'Main:timesAllowErrors    = 10000',\n         'ParticleDecays:limitTau0 = on',\n         'ParticleDecays:tauMax = 10',\n         'Tune:pp 5',\n         'Tune:ee 3',\n         'PDF:pSet = 5',\n         'ExtraDimensionsLED:ffbar2llbar = on', \n         'ExtraDimensionsLED:gg2llbar = on', \n         'PhaseSpace:mHatMin = 1050',\n         'ExtraDimensionsLED:CutOffmode = 0',\n         'ExtraDimensionsLED:LambdaT = 1600'\n      ),\n      parameterSets = cms.vstring('processParameters')\n   )\n)\n\nconfigurationMetadata = cms.untracked.PSet(\n   version = cms.untracked.string('\\$Revision: 1.0 $'),\n   name = cms.untracked.string('\\$Source: /cvs_server/repositories/CMSSW/CMSSW/Configuration/GenProduction/python/EightTeV/ADD_Dilepton_LambdaT_1600_8TeV_pythia8_cff.py,v $'),\n   annotation = cms.untracked.string('2012 sample with PYTHIA8 at 8 TeV: ADD Dilepton samples with LambdaT = 1600 GeV, Tune4C, pdf: MSTW 2008 LO')\n)\n",
+              "title": "Generator parameters",
+              "url": "https://raw.githubusercontent.com/cms-sw/genproductions/V02-01-22/python/EightTeV/ADD_Dilepton_LambdaT_1600_8TeV_pythia8_cff.py"
+            },
+            {
+              "cms_confdb_id": "294fcd8902949eb73ba3813549dc621a",
+              "process": "SIM",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "pythia8"
+          ],
+          "global_tag": "START50_V13::All",
+          "release": "CMSSW_5_1_3",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "note": {
+      "description": "These simulated datasets correspond to the collision data collected by the CMS experiment in 2012."
+    },
+    "pileup": {
+      "description": "<p>To make these simulated data comparable with the collision data, <a href=\"/docs/cms-guide-pileup-simulation\">pile-up events</a> are added to the simulated event in this step.</p>",
+      "links": [
+        {
+          "recid": "37",
+          "title": "/MinBias_TuneZ2star_8TeV-pythia6/Summer12-START50_V13-v3/GEN-SIM"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "7200",
+    "run_period": [
+      "Run2012A",
+      "Run2012B"
+    ],
+    "system_details": {
+      "global_tag": "START53_V27::All",
+      "release": "CMSSW_5_3_32"
+    },
+    "title": "/ADDdiLepton_LambdaT-1600_Tune4C_8TeV-pythia8/Summer12_DR53X-PU_S10_START53_V19E-v1/AODSIM",
+    "title_additional": "Simulated dataset ADDdiLepton_LambdaT-1600_Tune4C_8TeV-pythia8 in AODSIM format for 2012 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2012"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
   }
 ]

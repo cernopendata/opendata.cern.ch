@@ -198,6 +198,11 @@
     },
     "distribution": {
       "properties": {
+        "availability": {
+          "description": "Specifies if dataset is on-demand, online in future might be also tape, disk",
+          "type": "string",
+          "enum": ["ondemand", "online"]
+        },
         "formats": {
           "items": {
             "description": "All the file formats included in the record (e.g. aodsim, root)",
