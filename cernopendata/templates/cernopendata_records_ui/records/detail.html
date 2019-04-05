@@ -352,7 +352,12 @@ recordApp.controller(
 
     $scope.codemirrorLoaded = function(_editor){
       $ctrl.copyEditor = function() {
-        clipboard.copyText(content);
+        var selected_content = _editor.getSelection();
+
+        if (selected_content)
+          clipboard.copyText(selected_content);
+        else
+          clipboard.copyText(content);
         $ctrl.msg = "copied!";
       }
 
