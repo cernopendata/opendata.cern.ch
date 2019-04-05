@@ -75,7 +75,7 @@
                         {% if record.type.primary == 'Software' %}
                             <h2>Related items</h2>
                         {% else %}
-                            <h2>Related Datasets</h2>
+                            <h2>Related datasets</h2>
                         {% endif %}
                         {% if is_title_set.update({'value': True}) %} {% endif %}
                     {% endif %}
@@ -97,7 +97,7 @@
         <div class="row">
             <div class="col-md-12">
                 {% if record.type.primary == 'Dataset' %}
-                <h2>Dataset Characteristics</h2>
+                <h2>Dataset characteristics</h2>
                 {% else %}
                 <h2>Characteristics</h2>
                 {% endif %}
@@ -127,7 +127,7 @@
     {% if record.system_details %}
     <div class="row">
         <div class="col-md-12">
-            <h2>System Details</h2>
+            <h2>System details</h2>
             {% if record.system_details.description %}
             <span>{{record.system_details.description}}</span>
             {% endif %}
@@ -158,7 +158,7 @@
     {% if record.dataset_semantics %}
     <div class="row">
         <div class="col-md-12">
-            <h2>Dataset Semantics</h2>
+            <h2>Dataset semantics</h2>
             <p>
                 {% for semantic in record.dataset_semantics %}
                    <strong>{{semantic.variable}}</strong>
@@ -185,7 +185,7 @@
     <div class="row">
         <div class="col-md-12">
             {% if record.type.primary == 'Software' %}
-            <h2>Data Selection</h2>
+            <h2>Data selection</h2>
             {% elif record.type.primary == 'Environment' %}
             <h2>How was this built?</h2>
             {% elif record.type.primary == 'Dataset' %}
