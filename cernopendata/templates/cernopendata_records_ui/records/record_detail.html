@@ -52,7 +52,7 @@
     </p>
 {% endblock heading %}
 {% block metadata_block %}
-{{ super() }}
+    {{ super() }}
 
     {% if 'ig' in record.get('distribution', {}).get('formats', []) %}
     <h2 id="previewer">Preview</h2>
@@ -112,7 +112,17 @@
                 {% endif %}
             </div>
         </div>
+
+        {% if record.distribution.get("availability", "online") != "online" %}
+
+        <div class="file-availability-disclaimer">
+            <h6>Availability: <strong style="color: {{ '#a24d4d' if record.distribution.availability else '#af7c2a' }}">{{record.distribution.availability | upper}}</strong>
+            </h6>
+            <p>Please note that this dataset is released with the bibliographic information content only. The dataset files are not available online as of yet. If you are interested in accessing the files, please <a href="mailto:opendata-support@cern.ch">contact us</a>. Note that the file transfer to online storage may take several weeks or months in case of large amount of data.</p>
+        </div>
+        {% endif %}
     {% endif %}
+
 
     {% if record.system_details %}
     <div class="row">
