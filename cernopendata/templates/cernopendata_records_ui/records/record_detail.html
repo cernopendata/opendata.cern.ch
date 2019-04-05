@@ -161,7 +161,11 @@
             <h2>Dataset Semantics</h2>
             <p>
                 {% for semantic in record.dataset_semantics %}
-                    <strong>{{semantic.variable}}:</strong><span>{{semantic.description}}</span><br>
+                   <strong>{{semantic.variable}}</strong>
+                   {% if semantic.type %}
+                   <em>({{semantic.type}})</em>
+                   {% endif %}
+                   <span>{{semantic.description}}</span><br>
                 {% endfor %}
             </p>
         </div>
