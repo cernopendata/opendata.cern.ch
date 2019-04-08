@@ -1,0 +1,63 @@
+[
+  {
+    "abstract": {
+      "description": "This is a CMSSW module for producing flat tuples containing jet properties from 13 TeV Run2 MC samples. The code is intended to run inside the CMS Open Data environment."
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Kallonen, Kimmo",
+        "orcid": "0000-0001-9769-7163"
+      }
+    ],
+    "collections": [
+      "CMS-Tools"
+    ],
+    "date_created": [
+      "2019"
+    ],
+    "date_published": "2019",
+    "experiment": "CMS",
+    "keywords": [
+      "datascience"
+    ],
+    "license": {
+      "attribution": "GNU General Public License (GPL) version 3"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12101",
+    "relations": [
+      {
+        "description": "The ouput dataset of this software tool is available in",
+        "recid": "12100",
+        "type": "isRelatedTo"
+      }
+    ],
+    "run_period": [
+      "Run2"
+    ],
+    "system_details": {
+      "description": "Use this code with the CMS Open Data VM environment",
+      "recid": "252",
+      "release": "CMSSW_8_0_26"
+    },
+    "title": "JetNtupleProducerTool - a Jet tuple producer from CMS Run2 MiniAOD",
+    "type": {
+      "primary": "Software",
+      "secondary": [
+        "Tool"
+      ]
+    },
+    "usage": {
+      "description": "<p>If you do not have the CERN Virtual Machine for CMS open data installed, follow the instructions in step 1 at <a href=\"/VM/CMS/2011\">How to install a CERN Virtual Machine</a>.  <p>To run the analysis, follow the instructions in <a href=\"https://github.com/cms-opendata-analyses/JetNtupleProducerTool\">JetNtupleProducerTool documentation on GitHub</a>.</p>"
+    },
+    "use_with": {
+      "description": "Use this with Run2 QCD MiniAODSIM dataset (or any Run2 MiniAOD containing jets).",
+      "links": [
+        {
+          "recid": "12021"
+        }
+      ]
+    }
+  }
+]
