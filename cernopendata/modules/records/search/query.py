@@ -37,21 +37,29 @@ from .facets import cernopendata_facets_factory
 def cernopendata_search_factory(self, search, query_parser=None):
     """Customized Parse query using Invenio-Query-Parser.
 
+    By default we hide the results that have availability:ondemand.
+
     :param self: REST view.
     :param search: Elastic search DSL search instance.
     :returns: Tuple with search instance and URL arguments.
     """
-    def _default_parser(qstr=None):
+    def _default_parser(qstr=None, ondemand=None):
         """Default parser that uses the Q() from elasticsearch_dsl."""
-        if qstr:
-            return Q('query_string', query=qstr)
-        return Q()
+        q = Q('query_string', query=qstr) if qstr else Q()
+
+        # by default hide ondemand ones
+        if not ondemand:
+            q = q & ~Q('match', **{'availability.keyword': 'ondemand'})
+
+        return q
 
     query_string = request.values.get('q')
+    ondemand = request.values.get('ondemand', False)  # this is a workaround
     query_parser = query_parser or _default_parser
 
     try:
-        search = search.query(query_parser(query_string))
+        search = search.query(query_parser(query_string, ondemand))
+
     except SyntaxError:
         current_app.logger.debug(
             "Failed parsing query: {0}".format(

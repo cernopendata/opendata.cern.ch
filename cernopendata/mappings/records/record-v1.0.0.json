@@ -85,6 +85,15 @@
                 }
               },
               "type": "text"
+            },
+            "availability": {
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              },
+              "type": "text",
+              "copy_to": "availability"
             }
           },
           "type": "object"

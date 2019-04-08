@@ -309,6 +309,9 @@ RECORDS_REST_FACETS = {
                 aggs=dict(subcategory=dict(terms=dict(
                           field="categories.secondary.keyword",
                           order=dict(_term='asc'))))),
+            availability=dict(terms=dict(
+                field='distribution.availability.keyword',
+                order=dict(_term='asc'))),
         ),
         'post_filters': dict(
             experiment=terms_filter('experiment.keyword'),
@@ -324,7 +327,8 @@ RECORDS_REST_FACETS = {
             subcategory=terms_filter('categories.secondary.keyword'),
             file_type=terms_filter('distribution.formats.keyword'),
             collections=terms_filter('collections.keyword'),
-        ),
+            availability=terms_filter('distribution.availability.keyword'),
+        )
     }
 }
 

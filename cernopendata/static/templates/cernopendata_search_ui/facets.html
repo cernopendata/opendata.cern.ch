@@ -23,6 +23,15 @@
     <!-- end of clean filters buttons -->
 
     <!-- facets -->
+    <div class="facets-box">
+        <div class="facets-first-level-container-inner">
+            <input
+                type="checkbox"
+                ng-checked="isFacetChecked('ondemand', 'True')"
+                ng-click="handleClick('ondemand', 'True');"/>
+            <label>include on-demand datasets</label>
+        </div>
+    </div>
     <div class="facets-box"
          ng-init="tree=[]; tree_more=[];"
          ng-repeat="aggr in orderedAggs track by $index"
