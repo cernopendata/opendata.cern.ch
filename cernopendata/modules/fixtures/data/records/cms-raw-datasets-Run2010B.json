@@ -1,0 +1,310 @@
+[
+  {
+    "abstract": {
+      "description": "<p>A sample from MinimumBias primary dataset in RAW format from RunB of 2010. Run range [146428,146514].</p> <p>This dataset contains selected runs from 2010 RunB. The list of validated lumi sections, which must be applied to all analyses, can be found in</p>",
+      "links": [
+        {
+          "recid": "1000"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "450"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "7TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2010"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "root",
+        "raw"
+      ],
+      "number_events": 2451242
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p> <br/><p><strong>Data taking / HLT</strong>\n The collision data were assigned to different RAW datasets using the following <a href=\"/record/1699\">HLT configuration</a>.</p>\n    <p><strong>HLT trigger paths</strong>\n      There are four categories of triggers in the MinimumBias dataset: </p>\n        <p> ~60% Minimum-bias-like triggers (some tagger requirements or random triggers):\n         <br/>HLT_L1_BPTX_MinusOnly\n         <br/>HLT_L1_BPTX_PlusOnly\n         <br/>HLT_L1_BPTX\n         <br/>HLT_L1Tech_BSC_HighMultiplicity\n         <br/>HLT_ZeroBias\n         <br/>HLT_Random</p>\n        <p> ~10% large track multiplicity triggers (three subcategories: >75, 85, 100 tracks) for \"ridge\" studies:\n         <br/>HLT_PixelTracks_Multiplicity100\n         <br/>HLT_PixelTracks_Multiplicity85\n         <br/>HLT_PixelTracks_Multiplicity70</p>\n        <p> ~28% triggers for exotic stopped High mass Stable Charged Particles:\n         <br/>HLT_StoppedHSCP35_v3\n         <br/>HLT_StoppedHSCP20_v3\n         <br/>HLT_StoppedHSCP_v2\n         <br/>HLT_StoppedHSCP</p>\n        <p> ~2%, a technical \"muon\" (RPC based) trigger:\n         <br/>HLT_L1Tech_RPC_TTU_RBst1_collisions</p>\n         <br/>The possible HLT trigger paths in this dataset are:      <br/>HLT_BackwardBSC      <br/>HLT_DoublePhoton5_eeRes_L1R      <br/>HLT_EgammaSuperClusterOnly_L1R      <br/>HLT_ForwardBSC      <br/>HLT_HFThreshold10      <br/>HLT_HFThreshold3      <br/>HLT_HighMult40      <br/>HLT_HighMultiplicityBSC      <br/>HLT_IsoTrackHB      <br/>HLT_IsoTrackHB_8E29      <br/>HLT_IsoTrackHE      <br/>HLT_IsoTrackHE_8E29      <br/>HLT_L1SingleEG1      <br/>HLT_L1SingleEG1_NoBPTX      <br/>HLT_L1SingleEG20_NoBPTX      <br/>HLT_L1SingleEG2_NoBPTX      <br/>HLT_L1SingleEG5_NoBPTX      <br/>HLT_L1Tech_BSC_HighMultiplicity      <br/>HLT_L1Tech_BSC_halo_forPhysicsBackground      <br/>HLT_L1Tech_BSC_minBias      <br/>HLT_L1Tech_BSC_minBias_OR      <br/>HLT_L1Tech_HCAL_HF      <br/>HLT_L1Tech_HCAL_HF_coincidence_PM      <br/>HLT_L1Tech_RPC_TTU_RBst1_collisions      <br/>HLT_L1_BPTX      <br/>HLT_L1_BPTX_MinusOnly      <br/>HLT_L1_BPTX_PlusOnly      <br/>HLT_L1_BSC      <br/>HLT_L1_BscMinBiasOR_BeamGas      <br/>HLT_L1_BscMinBiasOR_BptxPlusORMinus      <br/>HLT_L1_BscMinBiasOR_BptxPlusORMinus_NoBPTX      <br/>HLT_L1_HFtech      <br/>HLT_MinBias      <br/>HLT_MinBiasBSC      <br/>HLT_MinBiasBSC_NoBPTX      <br/>HLT_MinBiasBSC_OR      <br/>HLT_MinBiasEcal      <br/>HLT_MinBiasHcal      <br/>HLT_MinBiasPixel_DoubleIsoTrack5      <br/>HLT_MinBiasPixel_DoubleTrack      <br/>HLT_MinBiasPixel_SingleTrack      <br/>HLT_MultiVertex6      <br/>HLT_MultiVertex8_L1ETT60      <br/>HLT_PixelTracks_Multiplicity100      <br/>HLT_PixelTracks_Multiplicity40      <br/>HLT_PixelTracks_Multiplicity70      <br/>HLT_PixelTracks_Multiplicity85      <br/>HLT_SplashBSC      <br/>HLT_StoppedHSCP      <br/>HLT_StoppedHSCP20      <br/>HLT_StoppedHSCP35      <br/>HLT_StoppedHSCP_8E29      <br/>HLT_ZeroBias      <br/>HLT_ZeroBiasPixel_SingleTrack</p> "
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "42",
+    "run_period": [
+      "Run2010B"
+    ],
+    "system_details": {
+      "global_tag": "FT_R_42_V10A::All",
+      "release": "CMSSW_4_2_8"
+    },
+    "title": "/MinimumBias/Run2010B-v1/RAW",
+    "title_additional": "MinimumBias primary dataset sample in RAW format from RunB of 2010 (from /MinimumBias/Run2010B-v1/RAW)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p> These data are in RAW format and not directly usable in analysis. The reconstructed data reprocessed from these RAW data are included in the data of <a href=\"/record/8\">this record</a>. \n  The reconstruction step can be repeated with the configuration file attached to this record and the resulting AOD has been confirmed to be identical with the original one with comparison code available in <a href=\"/record/464\">Validation code to plot basic physics objects from AOD</a></p> "
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>A sample from Mu primary dataset in RAW format from RunB of 2010. Run range [146589,146710].</p> <p>This dataset contains selected runs from 2010 RunB. The list of validated lumi sections, which must be applied to all analyses on events reconstructed from these data, can be found in</p>",
+      "links": [
+        {
+          "recid": "1000"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "450"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "7TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2010"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "root",
+        "raw"
+      ],
+      "number_events": 2102829
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<br/><p><strong>Data taking / HLT</strong>\n The collision data were assigned to different RAW datasets using the following <a href=\"/record/1699\">HLT configuration</a>.</p>\n    <p><strong>HLT trigger paths</strong>\n  <p> There are four categories of triggers in the Mu dataset (with significant overlaps): </p>\n        <p> ~70% inclusive single muon triggers with varying trigger pt threshold 3,5,7,9,11,13,15,17,19,21 GeV\n        plus a few with loosened quality cuts.</p>\n        <p> ~20% isolated single muon triggers with varying trigger pt threshold 9,11,13,15,17 GeV.</p>\n        <p> ~10% inclusive dimuon triggers with varying trigger pt threshold 3,5 GeV plus one Z->mumu trigger with loosened quality cuts.</p>\n        <p> ~20% combinations of muon triggers with various pt thresholds 3,5,7,8,9,11 GeV with some EM/e/gamma or hadronic/jet energy deposit with thresholds 6-100 GeV.</p>\n      <p>     <br/>The possible HLT trigger paths in this dataset are:      <br/>HLT_DoubleMu3      <br/>HLT_DoubleMu3_HT50U      <br/>HLT_DoubleMu5      <br/>HLT_IsoMu11      <br/>HLT_IsoMu13      <br/>HLT_IsoMu15      <br/>HLT_IsoMu17      <br/>HLT_IsoMu3      <br/>HLT_IsoMu9      <br/>HLT_IsoMu9_PFTau15      <br/>HLT_L1Mu14_L1ETM30      <br/>HLT_L1Mu14_L1SingleEG10      <br/>HLT_L1Mu14_L1SingleJet6U      <br/>HLT_L1Mu20      <br/>HLT_L1Mu30      <br/>HLT_L2DoubleMu20_NoVertex      <br/>HLT_L2Mu11      <br/>HLT_L2Mu15      <br/>HLT_L2Mu25      <br/>HLT_L2Mu5_Photon9_L1R      <br/>HLT_L2Mu9      <br/>HLT_Mu11      <br/>HLT_Mu11_Ele8      <br/>HLT_Mu11_PFTau15      <br/>HLT_Mu13      <br/>HLT_Mu15      <br/>HLT_Mu17      <br/>HLT_Mu19      <br/>HLT_Mu20_NoVertex      <br/>HLT_Mu21      <br/>HLT_Mu3      <br/>HLT_Mu30_NoVertex      <br/>HLT_Mu3_Ele8_HT70U      <br/>HLT_Mu5      <br/>HLT_Mu5_Ele13      <br/>HLT_Mu5_Ele17      <br/>HLT_Mu5_Ele5      <br/>HLT_Mu5_Ele9      <br/>HLT_Mu5_HT100U      <br/>HLT_Mu5_HT50U      <br/>HLT_Mu5_HT70U      <br/>HLT_Mu5_Jet35U      <br/>HLT_Mu5_Jet50U      <br/>HLT_Mu5_Jet70U      <br/>HLT_Mu5_MET45      <br/>HLT_Mu5_Photon11_Cleaned_L1R      <br/>HLT_Mu5_Photon9_Cleaned_L1R      <br/>HLT_Mu7      <br/>HLT_Mu7_Photon13_Cleaned_L1R      <br/>HLT_Mu8_Ele8      <br/>HLT_Mu9</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "43",
+    "run_period": [
+      "Run2010B"
+    ],
+    "system_details": {
+      "global_tag": "FT_R_42_V10A::All",
+      "release": "CMSSW_4_2_8"
+    },
+    "title": "/Mu/Run2010B-v1/RAW",
+    "title_additional": "Mu primary dataset sample in RAW format from RunB of 2010 (from /Mu/Run2010B-v1/RAW)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p> These data are in RAW format and not directly usable in analysis. The reconstructed data reprocessed from these RAW data are included in the data of <a href=\"/record/14\">this record</a>. \n    The reconstruction step can be repeated with the configuration file attached to this record and the resulting AOD has been confirmed to be identical with the original one with comparison code available in <a href=\"/record/464\">Validation code to plot basic physics objects from AOD</a> </p> "
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>A sample from Electron primary dataset in RAW format from RunB of 2010. Run range [146712,146804].</p> <p>This dataset contains selected runs from 2010 RunB. The list of validated lumi sections, which must be applied to all analyses on events reconstructed from these data, can be found in</p>",
+      "links": [
+        {
+          "recid": "1000"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "450"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "7TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2012"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "root",
+        "raw"
+      ],
+      "number_events": 2554874
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset were selected because of presence of at least one high-energy electron in the event.</p>     <br/><p><strong>Data taking / HLT</strong>\n The collision data were assigned to different RAW datasets using the following <a href=\"/record/1699\">HLT configuration</a>.</p>\n   <p><strong>HLT trigger paths</strong>      <br/>The possible HLT trigger paths in this dataset are:      <br/>HLT_DoubleEle15_SW_L1R      <br/>HLT_DoubleEle17_SW_L1R      <br/>HLT_DoubleEle8_SW_HT70U_L1R      <br/>HLT_Ele10_MET45      <br/>HLT_Ele10_SW_EleId_HT70U_L1R      <br/>HLT_Ele10_SW_HT100U_L1R      <br/>HLT_Ele10_SW_HT70U_L1R      <br/>HLT_Ele12_SW_TightEleIdIsol_L1R      <br/>HLT_Ele12_SW_TightEleIdIsol_NoDEtaInEE_L1R      <br/>HLT_Ele12_SW_TighterEleIdIsol_L1R      <br/>HLT_Ele17_SW_CaloEleId_L1R      <br/>HLT_Ele17_SW_EleId_L1R      <br/>HLT_Ele17_SW_LooseEleId_L1R      <br/>HLT_Ele17_SW_TightCaloEleId_Ele8HE_L1R      <br/>HLT_Ele17_SW_TightCaloEleId_SC8HE_L1R      <br/>HLT_Ele17_SW_TightEleIdIsol_L1R      <br/>HLT_Ele17_SW_TightEleId_L1R      <br/>HLT_Ele17_SW_TighterEleIdIsol_L1R      <br/>HLT_Ele17_SW_TighterEleId_L1R      <br/>HLT_Ele22_SW_CaloEleId_L1R      <br/>HLT_Ele22_SW_TighterCaloIdIsol_L1R      <br/>HLT_Ele22_SW_TighterEleId_L1R      <br/>HLT_Ele27_SW_TightCaloEleIdTrack_L1R      <br/>HLT_Ele32_SW_TightCaloEleIdTrack_L1R      <br/>HLT_Ele32_SW_TighterEleId_L1R      <br/>HLT_Ele40_SW_L1R      <br/>HLT_IsoEle12_PFTau15</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "44",
+    "run_period": [
+      "Run2010B"
+    ],
+    "system_details": {
+      "global_tag": "FT_R_42_V10A::All",
+      "release": "CMSSW_4_2_8"
+    },
+    "title": "/Electron/Run2010B-v1/RAW",
+    "title_additional": "Electron primary dataset sample in RAW format from RunB of 2010 (from /Electron/Run2010B-v1/RAW)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p> These data are in RAW format and not directly usable in analysis. The reconstructed data reprocessed from these RAW data are included in the data of <a href=\"/record/4\">this record</a>. \n    The reconstruction step can be repeated with the configuration file attached to this record and the resulting AOD has been confirmed to be identical with the original one with comparison code available in <a href=\"/record/464\">Validation code to plot basic physics objects from AOD</a> </p> "
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>A sample from Jet primary dataset in RAW format from RunB of 2010. Run range [146807, 147043].</p> <p>This dataset contains selected runs from 2010 RunB. The list of validated lumi sections, which must be applied to all analyses on events reconstructed from these data, can be found in</p>",
+      "links": [
+        {
+          "recid": "1000"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "450"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "7TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2010"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "root",
+        "raw"
+      ],
+      "number_events": 2415753
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset were selected because of presence of at least one high-energy jet in the event. </p>    <br/><p><strong>Data taking / HLT</strong>\n The collision data were assigned to different RAW datasets using the following <a href=\"/record/1699\">HLT configuration</a>.</p>\n    <p><strong>HLT trigger paths</strong>\n       <br/>The possible HLT trigger paths in this dataset are:      <br/>HLT_DiJetAve100U      <br/>HLT_DiJetAve140U      <br/>HLT_DiJetAve15U      <br/>HLT_DiJetAve30U      <br/>HLT_DiJetAve50U      <br/>HLT_DiJetAve70U      <br/>HLT_HT120U      <br/>HLT_HT140U      <br/>HLT_Jet100U      <br/>HLT_Jet140U      <br/>HLT_Jet15U      <br/>HLT_Jet15U_HcalNoiseFiltered      <br/>HLT_Jet180U      <br/>HLT_Jet30U      <br/>HLT_Jet50U      <br/>HLT_Jet70U      <br/>HLT_QuadJet20U      <br/>HLT_QuadJet25U</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "45",
+    "run_period": [
+      "Run2010B"
+    ],
+    "system_details": {
+      "global_tag": "FT_R_42_V10A::All",
+      "release": " CMSSW_4_2_8"
+    },
+    "title": "/Jet/Run2010B-v1/RAW",
+    "title_additional": "Jet primary dataset sample in RAW format from RunB of 2010 (from /Jet/Run2010B-v1/RAW)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p> These data are in RAW format and not directly usable in analysis. The reconstructed data reprocessed from these RAW data are included in the data of <a href=\"/record/5\">this record</a>. \n    The reconstruction step can be repeated with the configuration file attached to this record and the resulting AOD has been confirmed to be identical with the original one with comparison code available in <a href=\"/record/464\">Validation code to plot basic physics objects from AOD</a> </p> "
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
+  }
+]

@@ -92,5 +92,390 @@
         }
       ]
     }
+  },
+  {
+    "abstract": {
+      "description": "<p>A sample from SingleMu primary dataset in RAW format from RunA of 2011. Run range [163289, 163370].</p> <p>This dataset contains selected runs from 2011 RunA. The list of validated lumi sections, which must be applied to all analyses on events reconstructed from these data, can be found in</p>",
+      "links": [
+        {
+          "recid": "1001"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "7TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "root",
+        "raw"
+      ],
+      "number_events": 2079006
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": " <p>Events stored in this primary dataset were selected because of the presence of at least one isolated or not-high-energy muon in the event.</p>\n        <p><strong>Data taking / HLT</strong>\n        <br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1700\">HLT configuration</a>.</p>\n        <p><strong>HLT trigger paths</strong>\n      <br/>The possible HLT trigger paths in this dataset are:\n      <br/><a href=\"/search?p=HLT_IsoMu12\">HLT_IsoMu12</a>\n      <br/><a href=\"/search?p=HLT_IsoMu15\">HLT_IsoMu15</a>\n      <br/><a href=\"/search?p=HLT_IsoMu15_eta2p1\">HLT_IsoMu15_eta2p1</a>\n      <br/><a href=\"/search?p=HLT_IsoMu17\">HLT_IsoMu17</a>\n      <br/><a href=\"/search?p=HLT_IsoMu17_eta2p1\">HLT_IsoMu17_eta2p1</a>\n      <br/><a href=\"/search?p=HLT_IsoMu20\">HLT_IsoMu20</a>\n      <br/><a href=\"/search?p=HLT_IsoMu20_eta2p1\">HLT_IsoMu20_eta2p1</a>\n      <br/><a href=\"/search?p=HLT_IsoMu24\">HLT_IsoMu24</a>\n      <br/><a href=\"/search?p=HLT_IsoMu24_eta2p1\">HLT_IsoMu24_eta2p1</a>\n      <br/><a href=\"/search?p=HLT_IsoMu30\">HLT_IsoMu30</a>\n      <br/><a href=\"/search?p=HLT_IsoMu30_eta2p1\">HLT_IsoMu30_eta2p1</a>\n      <br/><a href=\"/search?p=HLT_IsoMu34_eta2p1\">HLT_IsoMu34_eta2p1</a>\n      <br/><a href=\"/search?p=HLT_IsoMu40_eta2p1\">HLT_IsoMu40_eta2p1</a>\n      <br/><a href=\"/search?p=HLT_L1SingleMu10\">HLT_L1SingleMu10</a>\n      <br/><a href=\"/search?p=HLT_L1SingleMu20\">HLT_L1SingleMu20</a>\n      <br/><a href=\"/search?p=HLT_L2Mu10\">HLT_L2Mu10</a>\n      <br/><a href=\"/search?p=HLT_L2Mu20\">HLT_L2Mu20</a>\n      <br/><a href=\"/search?p=HLT_Mu100\">HLT_Mu100</a>\n      <br/><a href=\"/search?p=HLT_Mu100_eta2p1\">HLT_Mu100_eta2p1</a>\n      <br/><a href=\"/search?p=HLT_Mu12\">HLT_Mu12</a>\n      <br/><a href=\"/search?p=HLT_Mu15\">HLT_Mu15</a>\n      <br/><a href=\"/search?p=HLT_Mu20\">HLT_Mu20</a>\n      <br/><a href=\"/search?p=HLT_Mu200_eta2p1\">HLT_Mu200_eta2p1</a>\n      <br/><a href=\"/search?p=HLT_Mu24\">HLT_Mu24</a>\n      <br/><a href=\"/search?p=HLT_Mu24_eta2p1\">HLT_Mu24_eta2p1</a>\n      <br/><a href=\"/search?p=HLT_Mu3\">HLT_Mu3</a>\n      <br/><a href=\"/search?p=HLT_Mu30\">HLT_Mu30</a>\n      <br/><a href=\"/search?p=HLT_Mu30_eta2p1\">HLT_Mu30_eta2p1</a>\n      <br/><a href=\"/search?p=HLT_Mu40\">HLT_Mu40</a>\n      <br/><a href=\"/search?p=HLT_Mu40_eta2p1\">HLT_Mu40_eta2p1</a>\n      <br/><a href=\"/search?p=HLT_Mu5\">HLT_Mu5</a>\n      <br/><a href=\"/search?p=HLT_Mu50_eta2p1\">HLT_Mu50_eta2p1</a>\n      <br/><a href=\"/search?p=HLT_Mu60\">HLT_Mu60</a>\n      <br/><a href=\"/search?p=HLT_Mu60_eta2p1\">HLT_Mu60_eta2p1</a>\n      <br/><a href=\"/search?p=HLT_Mu8\">HLT_Mu8</a></p> "
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "38",
+    "run_period": [
+      "Run2011A"
+    ],
+    "system_details": {
+      "global_tag": "FT_53_LV5_AN1",
+      "release": "CMSSW_5_3_32"
+    },
+    "title": "/SingleMu/Run2011A-v1/RAW",
+    "title_additional": "SingleMu primary dataset sample in RAW format from RunA of 2011 (from /SingleMu/Run2011A-v1/RAW)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p> These data are in RAW format and not directly usable in analysis. The reconstructed data reprocessed from these RAW data are included in the data of <a href=\"/record/32\">this record</a>. \n    The reconstruction step can be repeated with the configuration file attached to this record and the resulting AOD has been confirmed to be identical with the original one with comparison code available in <a href=\"/record/464\">Validation code to plot basic physics objects from AOD</a> </p> "
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>A sample from SingleElectron primary dataset in RAW format from RunA of 2011. Run range [161224,163286].</p> <p>This dataset contains selected runs from 2011 RunA. The list of validated lumi sections, which must be applied to all analyses on events reconstructed from these data, can be found in</p>",
+      "links": [
+        {
+          "recid": "1001"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "7TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "root",
+        "raw"
+      ],
+      "number_events": 2064298
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": " <p>Events stored in this primary dataset were selected because of the presence of at least one high-energy electron in the event.</p>\n        <p><strong>Data taking / HLT</strong>\n        <br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1700\">HLT configuration</a>.</p>\n        <p><strong>HLT trigger paths</strong>\n      <br/>The possible HLT trigger paths in this dataset are:\n      <br/><a href=\"/search?p=HLT_Ele100_CaloIdVL_CaloIsoVL_TrkIdVL_TrkIsoVL\">HLT_Ele100_CaloIdVL_CaloIsoVL_TrkIdVL_TrkIsoVL</a>\n      <br/><a href=\"/search?p=HLT_Ele100_CaloIdVT_TrkIdT\">HLT_Ele100_CaloIdVT_TrkIdT</a>\n      <br/><a href=\"/search?p=HLT_Ele17_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL_Ele8_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL\">HLT_Ele17_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL_Ele8_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL</a>\n      <br/><a href=\"/search?p=HLT_Ele25_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL\">HLT_Ele25_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL</a>\n      <br/><a href=\"/search?p=HLT_Ele25_WP80_PFMT40\">HLT_Ele25_WP80_PFMT40</a>\n      <br/><a href=\"/search?p=HLT_Ele27_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL\">HLT_Ele27_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL</a>\n      <br/><a href=\"/search?p=HLT_Ele27_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT\">HLT_Ele27_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT</a>\n      <br/><a href=\"/search?p=HLT_Ele27_WP70_PFMT40_PFMHT20\">HLT_Ele27_WP70_PFMT40_PFMHT20</a>\n      <br/><a href=\"/search?p=HLT_Ele27_WP80\">HLT_Ele27_WP80</a>\n      <br/><a href=\"/search?p=HLT_Ele27_WP80_PFMT50\">HLT_Ele27_WP80_PFMT50</a>\n      <br/><a href=\"/search?p=HLT_Ele32_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL\">HLT_Ele32_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL</a>\n      <br/><a href=\"/search?p=HLT_Ele32_CaloIdVL_CaloIsoVL_TrkIdVL_TrkIsoVL\">HLT_Ele32_CaloIdVL_CaloIsoVL_TrkIdVL_TrkIsoVL</a>\n      <br/><a href=\"/search?p=HLT_Ele32_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT\">HLT_Ele32_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT</a>\n      <br/><a href=\"/search?p=HLT_Ele32_WP70\">HLT_Ele32_WP70</a>\n      <br/><a href=\"/search?p=HLT_Ele32_WP70_PFMT50\">HLT_Ele32_WP70_PFMT50</a>\n      <br/><a href=\"/search?p=HLT_Ele42_CaloIdVL_CaloIsoVL_TrkIdVL_TrkIsoVL\">HLT_Ele42_CaloIdVL_CaloIsoVL_TrkIdVL_TrkIsoVL</a>\n      <br/><a href=\"/search?p=HLT_Ele42_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT\">HLT_Ele42_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT</a>\n      <br/><a href=\"/search?p=HLT_Ele45_CaloIdVT_TrkIdT\">HLT_Ele45_CaloIdVT_TrkIdT</a>\n      <br/><a href=\"/search?p=HLT_Ele52_CaloIdVT_TrkIdT\">HLT_Ele52_CaloIdVT_TrkIdT</a>\n      <br/><a href=\"/search?p=HLT_Ele65_CaloIdVT_TrkIdT\">HLT_Ele65_CaloIdVT_TrkIdT</a>\n      <br/><a href=\"/search?p=HLT_Ele80_CaloIdVT_TrkIdT\">HLT_Ele80_CaloIdVT_TrkIdT</a>\n      <br/><a href=\"/search?p=HLT_Ele90_NoSpikeFilter\">HLT_Ele90_NoSpikeFilter</a></p> "
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "39",
+    "run_period": [
+      "Run2011A"
+    ],
+    "system_details": {
+      "global_tag": "FT_53_LV5_AN1",
+      "release": "CMSSW_5_3_32"
+    },
+    "title": "/SingleElectron/Run2011A-v1/RAW",
+    "title_additional": "SingleElectron primary dataset sample in RAW format from RunA of 2011 (from /SingleElectron/Run2011A-v1/RAW)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p> These data are in RAW format and not directly usable in analysis. The reconstructed data reprocessed from these RAW data are included in the data of <a href=\"/record/31\">this record</a>. \n    The reconstruction step can be repeated with the configuration file attached to this record and the resulting AOD has been confirmed to be identical with the original one with comparison code available in <a href=\"/record/464\">Validation code to plot basic physics objects from AOD</a> </p> "
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>A sample from DoubleElectron primary dataset in RAW format from RunA of 2011. Run range [160431,161223].</p> <p>This dataset contains selected runs from 2011 RunA. The list of validated lumi sections, which must be applied to all analyses on events reconstructed from these data, can be found in</p>",
+      "links": [
+        {
+          "recid": "1001"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "7TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "root",
+        "raw"
+      ],
+      "number_events": 2035725
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset were selected because of the presence of at least two high-energy electrons in the event.</p>\n        <p><strong>Data taking / HLT</strong>\n        <br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1700\">HLT configuration</a>.</p>\n        <p><strong>HLT trigger paths</strong>\n      <br/>The possible HLT trigger paths in this dataset are:\n      <br/><a href=\"/search?p=HLT_DoubleEle10_CaloIdL_TrkIdVL_Ele10\">HLT_DoubleEle10_CaloIdL_TrkIdVL_Ele10</a>\n      <br/><a href=\"/search?p=HLT_DoubleEle10_CaloIdL_TrkIdVL_Ele10_CaloIdT_TrkIdVL\">HLT_DoubleEle10_CaloIdL_TrkIdVL_Ele10_CaloIdT_TrkIdVL</a>\n      <br/><a href=\"/search?p=HLT_DoubleEle45_CaloIdL\">HLT_DoubleEle45_CaloIdL</a>\n      <br/><a href=\"/search?p=HLT_Ele17_CaloIdL_CaloIsoVL\">HLT_Ele17_CaloIdL_CaloIsoVL</a>\n      <br/><a href=\"/search?p=HLT_Ele17_CaloIdL_CaloIsoVL_Ele15_HFL\">HLT_Ele17_CaloIdL_CaloIsoVL_Ele15_HFL</a>\n      <br/><a href=\"/search?p=HLT_Ele17_CaloIdL_CaloIsoVL_Ele15_HFT\">HLT_Ele17_CaloIdL_CaloIsoVL_Ele15_HFT</a>\n      <br/><a href=\"/search?p=HLT_Ele17_CaloIdL_CaloIsoVL_Ele8_CaloIdL_CaloIsoVL\">HLT_Ele17_CaloIdL_CaloIsoVL_Ele8_CaloIdL_CaloIsoVL</a>\n      <br/><a href=\"/search?p=HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL\">HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL</a>\n      <br/><a href=\"/search?p=HLT_Ele17_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL_Ele8_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL\">HLT_Ele17_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL_Ele8_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL</a>\n      <br/><a href=\"/search?p=HLT_Ele17_CaloIdVT_CaloIsoVT_TrkIdT_TrkIsoVT_Ele8_Mass30\">HLT_Ele17_CaloIdVT_CaloIsoVT_TrkIdT_TrkIsoVT_Ele8_Mass30</a>\n      <br/><a href=\"/search?p=HLT_Ele17_CaloIdVT_CaloIsoVT_TrkIdT_TrkIsoVT_SC8_Mass30\">HLT_Ele17_CaloIdVT_CaloIsoVT_TrkIdT_TrkIsoVT_SC8_Mass30</a>\n      <br/><a href=\"/search?p=HLT_Ele22_CaloIdL_CaloIsoVL_Ele15_HFT\">HLT_Ele22_CaloIdL_CaloIsoVL_Ele15_HFT</a>\n      <br/><a href=\"/search?p=HLT_Ele32_CaloIdL_CaloIsoVL_SC17\">HLT_Ele32_CaloIdL_CaloIsoVL_SC17</a>\n      <br/><a href=\"/search?p=HLT_Ele32_CaloIdT_CaloIsoT_TrkIdT_TrkIsoT_Ele17\">HLT_Ele32_CaloIdT_CaloIsoT_TrkIdT_TrkIsoT_Ele17</a>\n      <br/><a href=\"/search?p=HLT_Ele32_CaloIdT_CaloIsoT_TrkIdT_TrkIsoT_SC17\">HLT_Ele32_CaloIdT_CaloIsoT_TrkIdT_TrkIsoT_SC17</a>\n      <br/><a href=\"/search?p=HLT_Ele8\">HLT_Ele8</a>\n      <br/><a href=\"/search?p=HLT_Ele8_CaloIdL_CaloIsoVL\">HLT_Ele8_CaloIdL_CaloIsoVL</a>\n      <br/><a href=\"/search?p=HLT_Ele8_CaloIdL_CaloIsoVL_Jet40\">HLT_Ele8_CaloIdL_CaloIsoVL_Jet40</a>\n      <br/><a href=\"/search?p=HLT_Ele8_CaloIdL_TrkIdVL\">HLT_Ele8_CaloIdL_TrkIdVL</a>\n      <br/><a href=\"/search?p=HLT_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL\">HLT_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL</a>\n      <br/><a href=\"/search?p=HLT_Ele8_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL\">HLT_Ele8_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL</a>\n      <br/><a href=\"/search?p=HLT_Photon20_CaloIdVT_IsoT_Ele8_CaloIdL_CaloIsoVL\">HLT_Photon20_CaloIdVT_IsoT_Ele8_CaloIdL_CaloIsoVL</a>\n      <br/><a href=\"/search?p=HLT_TripleEle10_CaloIdL_TrkIdVL\">HLT_TripleEle10_CaloIdL_TrkIdVL</a></p> "
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "46",
+    "run_period": [
+      "Run2011A"
+    ],
+    "system_details": {
+      "global_tag": "FT_53_LV5_AN1",
+      "release": "CMSSW_5_3_32"
+    },
+    "title": "/DoubleElectron/Run2011A-v1/RAW",
+    "title_additional": "DoubleElectron primary dataset sample in RAW format from RunA of 2011 (from /DoubleElectron/Run2011A-v1/RAW)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p> These data are in RAW format and not directly usable in analysis. The reconstructed data reprocessed from these RAW data are included in the data of <a href=\"/record/16\">this record</a>. \n    The reconstruction step can be repeated with the configuration file attached to this record and the resulting AOD has been confirmed to be identical with the original one with comparison code available in <a href=\"/record/464\">Validation code to plot basic physics objects from AOD</a> </p> "
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>A sample from DoubleMu primary dataset in RAW format from RunA of 2011. Run range [163371,163588].</p> <p>This dataset contains selected runs from 2011 RunA. The list of validated lumi sections, which must be applied to all analyses on events reconstructed from these data, can be found in</p>",
+      "links": [
+        {
+          "recid": "1001"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "7TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "root",
+        "raw"
+      ],
+      "number_events": 2070977
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset were selected because of the presence of at least two high-energy muon in the event.</p>\n        <p><strong>Data taking / HLT</strong>\n        <br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1700\">HLT configuration</a>.</p>\n        <p><strong>HLT trigger paths</strong>\n      <br/>The possible HLT trigger paths in this dataset are:\n      <br/><a href=\"/search?p=HLT_DoubleMu3\">HLT_DoubleMu3</a>\n      <br/><a href=\"/search?p=HLT_DoubleMu45\">HLT_DoubleMu45</a>\n      <br/><a href=\"/search?p=HLT_DoubleMu4_Acoplanarity03\">HLT_DoubleMu4_Acoplanarity03</a>\n      <br/><a href=\"/search?p=HLT_DoubleMu5\">HLT_DoubleMu5</a>\n      <br/><a href=\"/search?p=HLT_DoubleMu5_Acoplanarity03\">HLT_DoubleMu5_Acoplanarity03</a>\n      <br/><a href=\"/search?p=HLT_DoubleMu5_IsoMu5\">HLT_DoubleMu5_IsoMu5</a>\n      <br/><a href=\"/search?p=HLT_DoubleMu6\">HLT_DoubleMu6</a>\n      <br/><a href=\"/search?p=HLT_DoubleMu6_Acoplanarity03\">HLT_DoubleMu6_Acoplanarity03</a>\n      <br/><a href=\"/search?p=HLT_DoubleMu7\">HLT_DoubleMu7</a>\n      <br/><a href=\"/search?p=HLT_DoubleMu7_Acoplanarity03\">HLT_DoubleMu7_Acoplanarity03</a>\n      <br/><a href=\"/search?p=HLT_L1DoubleMu0\">HLT_L1DoubleMu0</a>\n      <br/><a href=\"/search?p=HLT_L2DoubleMu0\">HLT_L2DoubleMu0</a>\n      <br/><a href=\"/search?p=HLT_L2DoubleMu23_NoVertex\">HLT_L2DoubleMu23_NoVertex</a>\n      <br/><a href=\"/search?p=HLT_L2DoubleMu30_NoVertex\">HLT_L2DoubleMu30_NoVertex</a>\n      <br/><a href=\"/search?p=HLT_L2DoubleMu30_NoVertex_dPhi2p5\">HLT_L2DoubleMu30_NoVertex_dPhi2p5</a>\n      <br/><a href=\"/search?p=HLT_L2DoubleMu35_NoVertex\">HLT_L2DoubleMu35_NoVertex</a>\n      <br/><a href=\"/search?p=HLT_L2DoubleMu45_NoVertex\">HLT_L2DoubleMu45_NoVertex</a>\n      <br/><a href=\"/search?p=HLT_Mu13_Mu8\">HLT_Mu13_Mu8</a>\n      <br/><a href=\"/search?p=HLT_Mu17_Mu8\">HLT_Mu17_Mu8</a>\n      <br/><a href=\"/search?p=HLT_Mu17_TkMu8\">HLT_Mu17_TkMu8</a>\n      <br/><a href=\"/search?p=HLT_Mu8_Jet40\">HLT_Mu8_Jet40</a>\n      <br/><a href=\"/search?p=HLT_TripleMu5\">HLT_TripleMu5</a></p> "
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "47",
+    "run_period": [
+      "Run2011A"
+    ],
+    "system_details": {
+      "global_tag": "FT_53_LV5_AN1",
+      "release": "CMSSW_5_3_32"
+    },
+    "title": "/DoubleMu/Run2011A-v1/RAW",
+    "title_additional": "DoubleMu primary dataset sample in RAW format from RunA of 2011 (from /DoubleMu/Run2011A-v1/RAW)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p> These data are in RAW format and not directly usable in analysis. The reconstructed data reprocessed from these RAW data are included in the data of <a href=\"/record/17\">this record</a>. \n    The reconstruction step can be repeated with the configuration file attached to this record and the resulting AOD has been confirmed to be identical with the original one with comparison code available in <a href=\"/record/464\">Validation code to plot basic physics objects from AOD</a> </p> "
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>A sample from Jet primary dataset in RAW format from RunA of 2011. Run range [163589,165121].</p> <p>This dataset contains selected runs from 2011 RunA. The list of validated lumi sections, which must be applied to all analyses on events reconstructed from these data, can be found in</p>",
+      "links": [
+        {
+          "recid": "1001"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "7TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "root",
+        "raw"
+      ],
+      "number_events": 2177197
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset were selected because of the presence of at least one high-energy jet in the event.</p>\n        <p><strong>Data taking / HLT</strong>\n        <br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1700\">HLT configuration</a>.</p>\n        <p><strong>HLT trigger paths</strong>\n      <br/>The possible HLT trigger paths in this dataset are:\n      <br/><a href=\"/search?p=HLT_DiJetAve100U\">HLT_DiJetAve100U</a>\n      <br/><a href=\"/search?p=HLT_DiJetAve110\">HLT_DiJetAve110</a>\n      <br/><a href=\"/search?p=HLT_DiJetAve140U\">HLT_DiJetAve140U</a>\n      <br/><a href=\"/search?p=HLT_DiJetAve150\">HLT_DiJetAve150</a>\n      <br/><a href=\"/search?p=HLT_DiJetAve15U\">HLT_DiJetAve15U</a>\n      <br/><a href=\"/search?p=HLT_DiJetAve180U\">HLT_DiJetAve180U</a>\n      <br/><a href=\"/search?p=HLT_DiJetAve190\">HLT_DiJetAve190</a>\n      <br/><a href=\"/search?p=HLT_DiJetAve240\">HLT_DiJetAve240</a>\n      <br/><a href=\"/search?p=HLT_DiJetAve30\">HLT_DiJetAve30</a>\n      <br/><a href=\"/search?p=HLT_DiJetAve300\">HLT_DiJetAve300</a>\n      <br/><a href=\"/search?p=HLT_DiJetAve300U\">HLT_DiJetAve300U</a>\n      <br/><a href=\"/search?p=HLT_DiJetAve30U\">HLT_DiJetAve30U</a>\n      <br/><a href=\"/search?p=HLT_DiJetAve370\">HLT_DiJetAve370</a>\n      <br/><a href=\"/search?p=HLT_DiJetAve50U\">HLT_DiJetAve50U</a>\n      <br/><a href=\"/search?p=HLT_DiJetAve60\">HLT_DiJetAve60</a>\n      <br/><a href=\"/search?p=HLT_DiJetAve70U\">HLT_DiJetAve70U</a>\n      <br/><a href=\"/search?p=HLT_DiJetAve80\">HLT_DiJetAve80</a>\n      <br/><a href=\"/search?p=HLT_Jet110\">HLT_Jet110</a>\n      <br/><a href=\"/search?p=HLT_Jet150\">HLT_Jet150</a>\n      <br/><a href=\"/search?p=HLT_Jet190\">HLT_Jet190</a>\n      <br/><a href=\"/search?p=HLT_Jet240\">HLT_Jet240</a>\n      <br/><a href=\"/search?p=HLT_Jet240_CentralJet30_BTagIP\">HLT_Jet240_CentralJet30_BTagIP</a>\n      <br/><a href=\"/search?p=HLT_Jet240_L1FastJet\">HLT_Jet240_L1FastJet</a>\n      <br/><a href=\"/search?p=HLT_Jet270_CentralJet30_BTagIP\">HLT_Jet270_CentralJet30_BTagIP</a>\n      <br/><a href=\"/search?p=HLT_Jet30\">HLT_Jet30</a>\n      <br/><a href=\"/search?p=HLT_Jet300\">HLT_Jet300</a>\n      <br/><a href=\"/search?p=HLT_Jet300_L1FastJet\">HLT_Jet300_L1FastJet</a>\n      <br/><a href=\"/search?p=HLT_Jet30_L1FastJet\">HLT_Jet30_L1FastJet</a>\n      <br/><a href=\"/search?p=HLT_Jet370\">HLT_Jet370</a>\n      <br/><a href=\"/search?p=HLT_Jet370_L1FastJet\">HLT_Jet370_L1FastJet</a>\n      <br/><a href=\"/search?p=HLT_Jet370_NoJetID\">HLT_Jet370_NoJetID</a>\n      <br/><a href=\"/search?p=HLT_Jet60\">HLT_Jet60</a>\n      <br/><a href=\"/search?p=HLT_Jet60_L1FastJet\">HLT_Jet60_L1FastJet</a>\n      <br/><a href=\"/search?p=HLT_Jet80\">HLT_Jet80</a>\n      <br/><a href=\"/search?p=HLT_Jet800\">HLT_Jet800</a></p> "
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "48",
+    "run_period": [
+      "Run2011A"
+    ],
+    "system_details": {
+      "global_tag": "FT_53_LV5_AN1",
+      "release": "CMSSW_5_3_32"
+    },
+    "title": "/Jet/Run2011A-v1/RAW",
+    "title_additional": "Jet primary dataset sample in RAW format from RunA of 2011 (from /Jet/Run2011A-v1/RAW)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p> These data are in RAW format and not directly usable in analysis. The reconstructed data reprocessed from these RAW data are included in the data of <a href=\"/record/17\">this record</a>. \n    The reconstruction step can be repeated with the configuration file attached to this record and the resulting AOD has been confirmed to be identical with the original one with comparison code available in <a href=\"/record/464\">Validation code to plot basic physics objects from AOD</a> </p> "
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
   }
 ]
