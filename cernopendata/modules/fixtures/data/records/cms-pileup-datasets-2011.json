@@ -39,7 +39,33 @@
       "attribution": "CC0"
     },
     "methodology": {
-      "description": "<p>These data were processed with:  </p>\n\n\n<p><strong>Step SIM</strong><br>Release: CMSSW_5_3_11_patch6<br>Global tag: START53_LV4::All<br>FIXME either gen fragment, cmsdriver or config <br>Output dataset: /MinBias_TuneZ2_7TeV-pythia6/Summer11Leg-START53_LV4-v1/GEN-SIM</p>\n"
+      "description": "<p>These data were generated with:</p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash \nexport SCRAM_ARCH=slc5_amd64_gcc462 \nsource /cvmfs/cms.cern.ch/cmsset_default.sh \nif [ -r CMSSW_5_3_11_patch6/src ] ; then  \n echo release CMSSW_5_3_11_patch6 already exists \nelse \nscram p CMSSW CMSSW_5_3_11_patch6 \nfi \ncd CMSSW_5_3_11_patch6/src \neval `scram runtime -sh` \ncurl  -s https://raw.githubusercontent.com/cms-sw/genproductions/V01-00-46/python/MinBias_TuneZ2_7TeV_pythia6_cff.py --retry 2 --create-dirs -o  Configuration/GenProduction/python/MinBias_TuneZ2_7TeV_pythia6_cff.py  \n[ -s Configuration/GenProduction/python/MinBias_TuneZ2_7TeV_pythia6_cff.py ] || exit $?; \n \n \nscram b \ncd ../../ \ncmsDriver.py Configuration/GenProduction/python/MinBias_TuneZ2_7TeV_pythia6_cff.py --fileout file:EWK-Summer11Leg-00012.root --mc --eventcontent RAWSIM --customise SimG4Core/Application/reproc2011_2012_cff.customiseG4,Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM --conditions START53_LV4::All --beamspot Realistic7TeV2011CollisionV2 --step GEN,SIM --python_filename EWK-Summer11Leg-00012_1_cfg.py --no_exec -n 303 || exit $? ;\n\n",
+              "title": "Production script"
+            },
+            {
+              "script": "import FWCore.ParameterSet.Config as cms \n \nfrom Configuration.Generator.PythiaUEZ2Settings_cfi import * \ngenerator = cms.EDFilter(\"Pythia6GeneratorFilter\", \n    pythiaHepMCVerbosity = cms.untracked.bool(False), \n    maxEventsToPrint = cms.untracked.int32(0), \n    pythiaPylistVerbosity = cms.untracked.int32(1), \n    filterEfficiency = cms.untracked.double(1.0), \n    crossSection = cms.untracked.double(71260000000.), \n    comEnergy = cms.double(7000.0), \n    PythiaParameters = cms.PSet( \n        pythiaUESettingsBlock, \n        processParameters = cms.vstring('MSEL=0         ! User defined processes',  \n            'MSUB(11)=1     ! Min bias process',  \n            'MSUB(12)=1     ! Min bias process',  \n            'MSUB(13)=1     ! Min bias process',  \n            'MSUB(28)=1     ! Min bias process',  \n            'MSUB(53)=1     ! Min bias process',  \n            'MSUB(68)=1     ! Min bias process',  \n            'MSUB(92)=1     ! Min bias process, single diffractive',  \n            'MSUB(93)=1     ! Min bias process, single diffractive',  \n            'MSUB(94)=1     ! Min bias process, double diffractive',  \n            'MSUB(95)=1     ! Min bias process'), \n        # This is a vector of ParameterSet names to be read, in this order \n        parameterSets = cms.vstring('pythiaUESettings',  \n            'processParameters') \n    ) \n) \n \nconfigurationMetadata = cms.untracked.PSet( \n    version = cms.untracked.string('$Revision: 1.2 $'), \n    name = cms.untracked.string('$Source: /cvs_server/repositories/CMSSW/CMSSW/Configuration/GenProduction/python/MinBias_TuneZ2_7TeV_pythia6_cff.py,v $'), \n    annotation = cms.untracked.string('PYTHIA6-MinBias TuneZ2 at 7TeV') \n) \n \nProductionFilterSequence = cms.Sequence(generator)\n",
+              "title": "Generator parameters",
+              "url": "https://raw.githubusercontent.com/cms-sw/genproductions/V01-00-46/python/MinBias_TuneZ2_7TeV_pythia6_cff.py"
+           },
+           {
+              "cms_confdb_id": "e75da0ef8a4c51a102040e9de55704a4",
+              "process": "SIM",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "pythia6"
+          ],
+          "global_tag": "START53_LV4::All",
+          "release": "CMSSW_5_3_11_patch6",
+          "type": "GEN-SIM"
+        }
+      ]
     },
     "publisher": "CERN Open Data Portal",
     "recid": "36",
@@ -67,7 +93,7 @@
       ]
     },
     "usage": {
-      "description": "These data are needed to add pile-up events if you generate and simulate new Monte Carlo data. See the instructions for Monte Carlo generation in FIXME. You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "description": "These data are needed to add pile-up events if you generate and simulate new Monte Carlo data. See the instructions for Monte Carlo generation in <a href=\"/docs/cms-guide-event-production\">the guide to event production</a>. You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
       "links": [
         {
           "description": "How to install the CMS Virtual Machine",
