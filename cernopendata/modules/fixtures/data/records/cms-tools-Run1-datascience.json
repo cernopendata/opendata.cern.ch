@@ -1,0 +1,90 @@
+[
+ {
+  "created": "FIXME", 
+  "id": 0, 
+  "metadata": {
+    "$schema": "http://opendata.cern.ch/schema/records/record-v1.0.0.json", 
+    "abstract": {
+      "description": " <p> An example workflow to produce CMS Run1 AODSIM enriched with tracker RecHits. All steps from event generation to reconstruction (step0-step2) are provided, including instructions how to store Tracker RecHit information from CMS full simulation events, and the tool to extract the information in a format appropriate to ML studies (step3) is included. The code can be run inside the CMS Open Data environment</p>"
+    }, 
+    "accelerator": "CERN-LHC", 
+    "authors": [
+      {
+        "name": "Usai, Emanuele",
+        "orcid": "0000-0001-9323-2107"
+      },
+      {
+        "name": "Andrews, Michael",
+        "orcid": "0000-0001-5537-4518"
+      },
+      {
+        "name": "Burkle, Bjorn",
+        "orcid": "0000-0003-1645-822X"
+      },
+      {
+        "name": "Gleyzer, Sergei",
+        "orcid": "0000-0002-6222-8102"
+      },
+      {
+        "name": "Narain, Meenakshi",
+        "orcid": "0000-0002-7857-7403"
+      }
+    ],
+    "control_number": "FIXME", 
+    "date_created": [
+      "2019"
+    ], 
+    "date_published": "2019", 
+    "distribution": {
+      "formats": [
+        "gz"
+      ], 
+      "number_files": 1, 
+      "size": FIXME
+    }, 
+    "doi": "FIXME", 
+    "experiment": "CMS", 
+    "files": [
+      {
+        "checksum": "FIXME", 
+        "filename": "FIXME check TrackerRecHitProducerTool-1.0.0.tar.gz", 
+        "size": 0, 
+        "uri_http": "FIXME", 
+        "uri_root": "FIXME"
+      }
+    ], 
+    "index_files": [], 
+    "license": {
+      "attribution": "GNU General Public License (GPL) version 3"
+    }, 
+    "publisher": "CERN Open Data Portal", 
+    "recid": "FIXME", 
+    "run_period": [
+      "Run1"
+    ], 
+    "system_details": {
+      "description": "Use this code with the CMS Open Data VM environment", 
+      "recid": "252", 
+      "release": "CMSSW_5_3_32"
+    }, 
+    "title": "TrackerRecHitProducerTool - an example workflow to add tracker hits to CMS Run1 AOD", 
+    "type": {
+      "primary": "Software", 
+      "secondary": [
+        "Tool"
+      ]
+    }, 
+    "usage": {
+      "description": " <p>If you do not have the CERN Virtual Machine for CMS open data installed, follow the instructions in step 1 at <a href=\"/VM/CMS/2011\">How to install a CERN Virtual Machine</a>.  <p>To run the analysis, follow the instructions in FIXME <a href=\"https://github.com/cms-legacydata-analyses/TrackerRecHitProducerTool\">https://github.com/cms-legacydata-analyses/TrackerRecHitProducerTool</a>.</p> "
+    }, 
+    "use_with": {
+      "description": "The ouput of step2 can be used as an input to step3 (FIXME from #2526):", 
+      "links": [
+        {
+          "recid": "FIXME"   
+        }
+      ]
+    }
+  }
+ }
+]
