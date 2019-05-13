@@ -22,7 +22,8 @@ def clean_json_file(filename):
     with open(filename, 'r') as fdesc:
         records = json.loads(fdesc.read())
 
-    new_content = json.dumps(records, indent=2, sort_keys=records)
+    new_content = json.dumps(records, indent=2, sort_keys=records,
+                             ensure_ascii=False)
 
     with open(filename, 'w') as fdesc:
         for line in new_content.split('\n'):
