@@ -1,13 +1,9 @@
 [
- {
-  "created": "FIXME", 
-  "id": 0, 
-  "metadata": {
-    "$schema": "http://opendata.cern.ch/schema/records/record-v1.0.0.json", 
+  {
     "abstract": {
-      "description": " <p> An example workflow to produce CMS Run1 AODSIM enriched with tracker RecHits. All steps from event generation to reconstruction (step0-step2) are provided, including instructions how to store Tracker RecHit information from CMS full simulation events, and the tool to extract the information in a format appropriate to ML studies (step3) is included. The code can be run inside the CMS Open Data environment</p>"
-    }, 
-    "accelerator": "CERN-LHC", 
+      "description": "An example workflow to produce CMS Run1 AODSIM enriched with tracker RecHits. All steps from event generation to reconstruction (step0-step2) are provided, including instructions how to store Tracker RecHit information from CMS full simulation events, and the tool to extract the information in a format appropriate to ML studies (step3) is included. The code can be run inside the CMS Open Data environment."
+    },
+    "accelerator": "CERN-LHC",
     "authors": [
       {
         "name": "Usai, Emanuele",
@@ -30,61 +26,63 @@
         "orcid": "0000-0002-7857-7403"
       }
     ],
-    "control_number": "FIXME", 
+    "collections": [
+      "CMS-Tools"
+    ],
     "date_created": [
       "2019"
-    ], 
-    "date_published": "2019", 
-    "distribution": {
-      "formats": [
-        "gz"
-      ], 
-      "number_files": 1, 
-      "size": FIXME
-    }, 
-    "doi": "FIXME", 
-    "experiment": "CMS", 
-    "files": [
-      {
-        "checksum": "FIXME", 
-        "filename": "FIXME check TrackerRecHitProducerTool-1.0.0.tar.gz", 
-        "size": 0, 
-        "uri_http": "FIXME", 
-        "uri_root": "FIXME"
-      }
-    ], 
-    "index_files": [], 
+    ],
+    "date_published": "2019",
+    "experiment": "CMS",
+    "keywords": [
+      "datascience"
+    ],
     "license": {
       "attribution": "GNU General Public License (GPL) version 3"
-    }, 
-    "publisher": "CERN Open Data Portal", 
-    "recid": "FIXME", 
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12210",
     "run_period": [
       "Run1"
-    ], 
+    ],
+    "relations": [
+      {
+        "description": "The ouput dataset of this software tool is available in",
+        "recid": "12220",
+        "type": "isRelatedTo"
+      }
+    ],
     "system_details": {
-      "description": "Use this code with the CMS Open Data VM environment", 
-      "recid": "252", 
+      "description": "Use this code with the CMS Open Data VM environment",
+      "recid": "252",
       "release": "CMSSW_5_3_32"
-    }, 
-    "title": "TrackerRecHitProducerTool - an example workflow to add tracker hits to CMS Run1 AOD", 
+    },
+    "title": "TrackerRecHitProducerTool - an example workflow to add tracker hits to CMS Run1 AOD",
     "type": {
-      "primary": "Software", 
+      "primary": "Software",
       "secondary": [
         "Tool"
       ]
-    }, 
+    },
     "usage": {
-      "description": " <p>If you do not have the CERN Virtual Machine for CMS open data installed, follow the instructions in step 1 at <a href=\"/VM/CMS/2011\">How to install a CERN Virtual Machine</a>.  <p>To run the analysis, follow the instructions in FIXME <a href=\"https://github.com/cms-legacydata-analyses/TrackerRecHitProducerTool\">https://github.com/cms-legacydata-analyses/TrackerRecHitProducerTool</a>.</p> "
-    }, 
+      "description": " <p>If you do not have the CERN Virtual Machine for CMS open data installed, follow the instructions in step 1 at <a href=\"/VM/CMS/2011\">How to install a CERN Virtual Machine</a>.  <p>To run the analysis, follow the instructions in <a href=\"https://github.com/cms-legacydata-analyses/TrackerRecHitProducerTool\">TrackerRecHitProducerTool GitHub documentationb</a>.</p> "
+    },
     "use_with": {
-      "description": "The ouput of step2 can be used as an input to step3 (FIXME from #2526):", 
+      "description": "Use this with Run1 QCD MiniAODSIM dataset enriched with tracker hits.",
       "links": [
         {
-          "recid": "FIXME"   
+          "recid": "12200"
+        },
+        {
+          "recid": "12201"
+        },
+        {
+          "recid": "12202"
+        },
+        {
+          "recid": "12203"
         }
       ]
     }
   }
- }
 ]
