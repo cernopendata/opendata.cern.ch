@@ -178,7 +178,7 @@
                     {% if semantic.type %}
                       <td><em>{{semantic.type}}</em></td>
                     {% endif %}
-                    <td><span>{{semantic.description}}</span></td>
+                    <td><span>{{semantic.description | safe}}</span></td>
                   </tr>
                 {% endfor %}
             </table>

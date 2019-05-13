@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": "<p>The dataset consists of particle jets extracted from simulated proton-proton collision events at a center-of-mass energy of 13 TeV generated with Pythia 8. The particles emerging from the collisions traverse through a simulation of the CMS detector. The particles were reconstructed from the simulated detector signals using the particle-flow (PF) algorithm. The reconstructed particles are also called PF candidates. The jets in this dataset were clustered from the PF candidates of each collision event using the anti-$k_t$ algorithm with distance parameter $R = 0.4$.</p> <p>From each collision event, only those jets with transverse momentum exceeding 30 GeV were saved to file. The jets were also required to have pseudorapidity of less than 2.5 (this indicates the jet's position in the detector). For each jet, there are variables describing the jet on a high-level, particle-level and generator-level. There are also some variables describing the collision event and the conditions of its simulation. All of the variables are saved on a jet-by-jet basis, which means that one row of data corresponds to one jet.</p> <p>The origin of a jet is particularly interesting. This so-called flavor of the jet is obtained from the generator-level particles by a jet flavor algorithm, which attempts to match a reconstructed jet to a single initiating particle. As a consequence, the jet flavor definition depends on the chosen algorithm. Here three different flavor definitions are available. The \u2018hadron\u2019 definition identifies b- and c-hadrons from the jet\u2019s constituents, so it is only useful for b-tagging studies. The \u2018parton\u2019 definition extends this to include the light jet flavors (u, d, s and gluon). Finally there is the \u2018physics\u2019 definition, which looks at the quarks and gluons of the initial collision. The \u2018parton\u2019 and \u2018physics\u2019 definitions both identify all jet flavors, but the former is more biased towards b- and c-quarks. If in doubt, it is recommended to use the \u2018physics\u2019 definition.</p>"
+      "description": "<p>The dataset consists of particle jets extracted from simulated proton-proton collision events at a center-of-mass energy of 13 TeV generated with Pythia 8. The particles emerging from the collisions traverse through a simulation of the CMS detector. The particles were reconstructed from the simulated detector signals using the particle-flow (PF) algorithm. The reconstructed particles are also called PF candidates. The jets in this dataset were clustered from the PF candidates of each collision event using the anti-$k_t$ algorithm with distance parameter $R = 0.4$.</p> <p>From each collision event, only those jets with transverse momentum exceeding 30 GeV were saved to file. The jets were also required to have pseudorapidity of less than 2.5 (this indicates the jet's position in the detector). For each jet, there are variables describing the jet on a high-level, particle-level and generator-level. There are also some variables describing the collision event and the conditions of its simulation. All of the variables are saved on a jet-by-jet basis, which means that one row of data corresponds to one jet.</p> <p>The origin of a jet is particularly interesting. This so-called flavor of the jet is obtained from the generator-level particles by a jet flavor algorithm, which attempts to match a reconstructed jet to a single initiating particle. As a consequence, the jet flavor definition depends on the chosen algorithm. Here three different flavor definitions are available. The ‘hadron’ definition identifies b- and c-hadrons from the jet’s constituents, so it is only useful for b-tagging studies. The ‘parton’ definition extends this to include the light jet flavors (u, d, s and gluon). Finally there is the ‘physics’ definition, which looks at the quarks and gluons of the initial collision. The ‘parton’ and ‘physics’ definitions both identify all jet flavors, but the former is more biased towards b- and c-quarks. If in doubt, it is recommended to use the ‘physics’ definition.</p>"
     },
     "accelerator": "CERN-LHC",
     "authors": [
@@ -20,12 +20,12 @@
         "variable": "jetPt"
       },
       {
-        "description": "Pseudorapidity (\u03b7) of the jet.",
+        "description": "Pseudorapidity (η) of the jet.",
         "type": "Float_t",
         "variable": "jetEta"
       },
       {
-        "description": "Azimuthal angle (\u03d5) of the jet.",
+        "description": "Azimuthal angle (ϕ) of the jet.",
         "type": "Float_t",
         "variable": "jetPhi"
       },
@@ -160,7 +160,7 @@
         "variable": "jetMult"
       },
       {
-        "description": "Number of particle flow (PF) candidates (particles reconstructed by the particle flow algorithm); contains all particles within |\u0394\u03d5| < 1 and |\u0394\u03b7| < 1 from the center of the jet.",
+        "description": "Number of particle flow (PF) candidates (particles reconstructed by the particle flow algorithm); contains all particles within |Δϕ| < 1 and |Δη| < 1 from the center of the jet.",
         "type": "UInt_t",
         "variable": "nPF"
       },
@@ -175,17 +175,17 @@
         "variable": "PF_dR[nPF]"
       },
       {
-        "description": "Polar angle (\u03b8) of a PF candidate.",
+        "description": "Polar angle (θ) of a PF candidate.",
         "type": "Float_t",
         "variable": "PF_dTheta[nPF]"
       },
       {
-        "description": "Azimuthal angle (\u03d5) of a PF candidate.",
+        "description": "Azimuthal angle (ϕ) of a PF candidate.",
         "type": "Float_t",
         "variable": "PF_dPhi[nPF]"
       },
       {
-        "description": "Pseudorapidity (\u03b7) of a PF candidate.",
+        "description": "Pseudorapidity (η) of a PF candidate.",
         "type": "Float_t",
         "variable": "PF_dEta[nPF]"
       },
@@ -215,12 +215,12 @@
         "variable": "genJetPt"
       },
       {
-        "description": "Pseudorapidity (\u03b7) of the matched generator level jet.",
+        "description": "Pseudorapidity (η) of the matched generator level jet.",
         "type": "Float_t",
         "variable": "genJetEta"
       },
       {
-        "description": "Azimuthal angle (\u03d5) of the matched generator level jet.",
+        "description": "Azimuthal angle (ϕ) of the matched generator level jet.",
         "type": "Float_t",
         "variable": "genJetPhi"
       },
@@ -245,7 +245,7 @@
         "variable": "genPF_dR[nGenJetPF]"
       },
       {
-        "description": "Polar angle (\u03b8) of a particle in the matched generator level jet.",
+        "description": "Polar angle (θ) of a particle in the matched generator level jet.",
         "type": "Float_t",
         "variable": "genPF_dTheta[nGenJetPF]"
       },
@@ -315,17 +315,17 @@
         "variable": "rhoAll"
       },
       {
-        "description": "Same as above, computed from all PF candidates with |\u03b7| < 2.5.",
+        "description": "Same as above, computed from all PF candidates with |η| < 2.5.",
         "type": "Float_t",
         "variable": "rhoCentral"
       },
       {
-        "description": "Same as above, computed from all neutral PF candidates with |\u03b7| < 2.5.",
+        "description": "Same as above, computed from all neutral PF candidates with |η| < 2.5.",
         "type": "Float_t",
         "variable": "rhoCentralNeutral"
       },
       {
-        "description": "Same as above, computed from all PF charged hadrons associated to pileup vertices and with |\u03b7| < 2.5.",
+        "description": "Same as above, computed from all PF charged hadrons associated to pileup vertices and with |η| < 2.5.",
         "type": "Float_t",
         "variable": "rhoCentralChargedPileUp"
       },
@@ -392,7 +392,7 @@
       "description": "This dataset was produced with the software available in:",
       "links": [
         {
-          "recid": "FIXME"
+          "recid": "12101"
         }
       ]
     },
@@ -419,7 +419,7 @@
   },
   {
     "abstract": {
-      "description": "<p>The dataset consists of particle jets extracted from simulated proton-proton collision events at a center-of-mass energy of 13 TeV generated with Pythia 8. The particles emerging from the collisions traverse through a simulation of the CMS detector. The particles were reconstructed from the simulated detector signals using the particle-flow (PF) algorithm. The reconstructed particles are also called PF candidates. The jets in this dataset were clustered from the PF candidates of each collision event using the anti-$k_t$ algorithm with distance parameter $R = 0.8$.</p> <p>From each collision event, only those jets with transverse momentum exceeding 30 GeV were saved to file. The jets were also required to have pseudorapidity of less than 2.5 (this indicates the jet's position in the detector). For each jet, there are variables describing the jet on a high-level, particle-level and generator-level. There are also some variables describing the collision event and the conditions of its simulation. All of the variables are saved on a jet-by-jet basis, which means that one row of data corresponds to one jet.</p> <p>The origin of a jet is particularly interesting. This so-called flavor of the jet is obtained from the generator-level particles by a jet flavor algorithm, which attempts to match a reconstructed jet to a single initiating particle. As a consequence, the jet flavor definition depends on the chosen algorithm. Here three different flavor definitions are available. The \u2018hadron\u2019 definition identifies b- and c-hadrons from the jet\u2019s constituents, so it is only useful for b-tagging studies. The \u2018parton\u2019 definition extends this to include the light jet flavors (u, d, s and gluon). Finally there is the \u2018physics\u2019 definition, which looks at the quarks and gluons of the initial collision. The \u2018parton\u2019 and \u2018physics\u2019 definitions both identify all jet flavors, but the former is more biased towards b- and c-quarks. If in doubt, it is recommended to use the \u2018physics\u2019 definition.</p>"
+      "description": "<p>The dataset consists of particle jets extracted from simulated proton-proton collision events at a center-of-mass energy of 13 TeV generated with Pythia 8. The particles emerging from the collisions traverse through a simulation of the CMS detector. The particles were reconstructed from the simulated detector signals using the particle-flow (PF) algorithm. The reconstructed particles are also called PF candidates. The jets in this dataset were clustered from the PF candidates of each collision event using the anti-$k_t$ algorithm with distance parameter $R = 0.8$.</p> <p>From each collision event, only those jets with transverse momentum exceeding 30 GeV were saved to file. The jets were also required to have pseudorapidity of less than 2.5 (this indicates the jet's position in the detector). For each jet, there are variables describing the jet on a high-level, particle-level and generator-level. There are also some variables denscribing the collision event and the conditions of its simulation. All of the variables are saved on a jet-by-jet basis, which means that one row of data corresponds to one jet.</p> <p>The origin of a jet is particularly interesting. This so-called flavor of the jet is obtained from the generator-level particles by a jet flavor algorithm, which attempts to match a reconstructed jet to a single initiating particle. As a consequence, the jet flavor definition depends on the chosen algorithm. Here three different flavor definitions are available. The ‘hadron’ definition identifies b- and c-hadrons from the jet’s constituents, so it is only useful for b-tagging studies. The ‘parton’ definition extends this to include the light jet flavors (u, d, s and gluon). Finally there is the ‘physics’ definition, which looks at the quarks and gluons of the initial collision. The ‘parton’ and ‘physics’ definitions both identify all jet flavors, but the former is more biased towards b- and c-quarks. If in doubt, it is recommended to use the ‘physics’ definition.</p>"
     },
     "accelerator": "CERN-LHC",
     "authors": [
@@ -432,866 +432,866 @@
       "CMS-Derived-Datasets"
     ],
     "dataset_semantics": [
-     {
-       "description": " Event number ",
-       "type": " UInt_t ",
-       "variable": " `event_no` "
-     },
-     {
-       "description": " Number of reconstructed primary vertices (PVs) ",
-       "type": " Float_t ",
-       "variable": " `npv` "
-     },
-     {
-       "description": " True mean number of the poisson distribution for this event from which the number of interactions in each bunch crossing has been sampled ",
-       "type": " Float_t ",
-       "variable": " `ntrueInt` "
-     },
-     {
-       "description": " Median density (in GeV/A) of pile-up contamination per event; computed from all PF candidates of the event ",
-       "type": " Float_t ",
-       "variable": " `rho` "
-     },
-     {
-       "description": " Boolean that is 1 if the simulated sample corresponds to QCD multijet production ",
-       "type": " Float_t ",
-       "variable": " `sample_isQCD` "
-     },
-     {
-       "description": " Double-b tagging discriminant based on a boosted decision tree calculated for the AK8 jet (see [CMS-BTV-16-002](http://cms-results.web.cern.ch/cms-results/public-results/publications/BTV-16-002/)) ",
-       "type": " Float_t ",
-       "variable": " `fj_doubleb` "
-     },
-     {
-       "description": " Pseudorapidity η of the AK8 jet ",
-       "type": " Float_t ",
-       "variable": " `fj_eta` "
-     },
-     {
-       "description": " Pseudorapidity η of the generator-level, matched heavy particle: H, W, Z, top, etc. (default = -999) ",
-       "type": " Float_t ",
-       "variable": " `fj_gen_eta` "
-     },
-     {
-       "description": " Transverse momentum of the generator-level, geometrically matched heavy particle: H, W, Z, t, etc. (default = -999)  ",
-       "type": " Float_t ",
-       "variable": " `fj_gen_pt` "
-     },
-     {
-       "description": " Boolean that is 1 if two or more b hadrons are clustered within the AK8 jet (see [SWGuideBTagMCTools](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideBTagMCTools)) ",
-       "type": " Int_t ",
-       "variable": " `fj_isBB` "
-     },
-     {
-       "description": " Boolean that is 1 if fewer than two b hadrons are clustered within the AK8 jet (see [SWGuideBTagMCTools](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideBTagMCTools)) ",
-       "type": " Int_t ",
-       "variable": " `fj_isNonBB` "
-     },
-     {
-       "description": " Number of b hadrons that are clustered within the AK8 jet (see [SWGuideBTagMCTools](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideBTagMCTools)) ",
-       "type": " Int_t ",
-       "variable": " `fj_nbHadrons` "
-     },
-     {
-       "description": " Number of c hadrons that are clustered within the AK8 jet (see [SWGuideBTagMCTools](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideBTagMCTools)) ",
-       "type": " Int_t ",
-       "variable": " `fj_ncHadrons` "
-     },
-     {
-       "description": " Boolean that is 1 if a generator-level Higgs boson and its daughters are geometrically matched to the AK8 jet ",
-       "type": " Int_t ",
-       "variable": " `fj_isH` "
-     },
-     {
-       "description": " Boolean that is 1 if a generator-level top quark and its daughters are geometrically matched to the AK8 jet ",
-       "type": " Int_t ",
-       "variable": " `fj_isTop` "
-     },
-     {
-       "description": " Boolean that is 1 if a generator-level W boson and its daughters are geometrically matched to the AK8 jet ",
-       "type": " Int_t ",
-       "variable": " `fj_isW` "
-     },
-     {
-       "description": " Boolean that is 1 if a generator-level Z boson and its daughters are geometrically matched to the AK8 jet ",
-       "type": " Int_t ",
-       "variable": " `fj_isZ` "
-     },
-     {
-       "description": " Boolean that is 1 if none of the above matching criteria are satisfied (H, top, W, Z) ",
-       "type": " Int_t ",
-       "variable": " `fj_isQCD` "
-     },
-     {
-       "description": " Integer label: `Invalid=0,  Top_all=10, Top_bcq=11, Top_bqq=12, Top_bc=13, Top_bq=14, W_all=20, W_cq=21, W_qq=22, Z_all=30, Z_bb=31, Z_cc=32, Z_qq=33, H_all=40, H_bb=41, H_cc=42, H_qqqq=43, QCD_all=50, QCD_bb=51, QCD_cc=52, QCD_b=53, QCD_c=54, QCD_others=55` ",
-       "type": " Int_t ",
-       "variable": " `fj_label` "
-     },
-     {
-       "description": " Alternative integer label from the CMS Jet/MET and Resolution (JMAR) group:  `Default=0, Top=1, W=2, Z=3, H=4` ",
-       "type": " Int_t ",
-       "variable": " `fj_labelJMAR` "
-     },
-     {
-       "description": " Alternative (legacy) integer label: `Default=0, Top=1, W=2, Z=3, H=4` ",
-       "type": " Int_t ",
-       "variable": " `fj_labelLegacy` "
-     },
-     {
-       "description": " Number of tracks associated with the AK8 jet ",
-       "type": " Float_t ",
-       "variable": " `fj_jetNTracks` "
-     },
-     {
-       "description": " Number of SVs associated with the AK8 jet (∆R < 0.7) ",
-       "type": " Float_t ",
-       "variable": " `fj_nSV` "
-     },
-     {
-       "description": " Number of soft drop subjets in the AK8 jet (up to 2) ",
-       "type": " Float_t ",
-       "variable": " `fj_n_sdsubjets` "
-     },
-     {
-       "description": " Ungroomed mass of the AK8 jet ",
-       "type": " Float_t ",
-       "variable": " `fj_mass` "
-     },
-     {
-       "description": " Azimuthal angle ϕ of the AK8 jet ",
-       "type": " Float_t ",
-       "variable": " `fj_phi` "
-     },
-     {
-       "description": " Transverse momentum of the AK8 jet ",
-       "type": " Float_t ",
-       "variable": " `fj_pt` "
-     },
-     {
-       "description": " N-subjettiness variable for a 1-prong jet hypothesis ",
-       "type": " Float_t ",
-       "variable": " `fj_tau1` "
-     },
-     {
-       "description": " N-subjettiness variable for a 2-prong jet hypothesis ",
-       "type": " Float_t ",
-       "variable": " `fj_tau2` "
-     },
-     {
-       "description": " N-subjettiness variable for a 3-prong jet hypothesis ",
-       "type": " Float_t ",
-       "variable": " `fj_tau3` "
-     },
-     {
-       "description": " N-subjettiness variable for 2-prong vs 1-prong jet discrimination (`fj_tau2/fj_tau1`) ",
-       "type": " Float_t ",
-       "variable": " `fj_tau21` "
-     },
-     {
-       "description": " N-subjettiness variable for 3-prong vs 2-prong jet discrimination (`fj_tau3/fj_tau2`) ",
-       "type": " Float_t ",
-       "variable": " `fj_tau32` "
-     },
-     {
-       "description": " Soft drop mass of the AK8 jet ",
-       "type": " Float_t ",
-       "variable": " `fj_sdmass` "
-     },
-     {
-       "description": " Transverse momentum times the ΔR between the two soft drop subjets ",
-       "type": " Float_t ",
-       "variable": " `fj_ptDR` "
-     },
-     {
-       "description": " Absolute relative difference between the transverse momenta of the two softdrop subjets ",
-       "type": " Float_t ",
-       "variable": " `fj_relptdiff` "
-     },
-     {
-       "description": " Fraction of second subjet transverse momentum times ∆R squared ",
-       "type": " Float_t ",
-       "variable": " `fj_sdn2` "
-     },
-     {
-       "description": " First axis of the first subjet ",
-       "type": " Float_t ",
-       "variable": " `fj_sdsj1_axis1` "
-     },
-     {
-       "description": " Second axis of the first subjet ",
-       "type": " Float_t ",
-       "variable": " `fj_sdsj1_axis2` "
-     },
-     {
-       "description": " Combined secondary vertex (CSV) b-tagging discriminant for the first subjet ",
-       "type": " Float_t ",
-       "variable": " `fj_sdsj1_csv` "
-     },
-     {
-       "description": " Pseudorapidity η of the first subjet ",
-       "type": " Float_t ",
-       "variable": " `fj_sdsj1_eta` "
-     },
-     {
-       "description": " Mass of the first subjet ",
-       "type": " Float_t ",
-       "variable": " `fj_sdsj1_mass` "
-     },
-     {
-       "description": " Particle multiplicity of the first subjet ",
-       "type": " Float_t ",
-       "variable": " `fj_sdsj1_mult` "
-     },
-     {
-       "description": " Azimuthal angle ϕ of the first subjet ",
-       "type": " Float_t ",
-       "variable": " `fj_sdsj1_phi` "
-     },
-     {
-       "description": " Transverse momentum of the first subjet ",
-       "type": " Float_t ",
-       "variable": " `fj_sdsj1_pt` "
-     },
-     {
-       "description": " ptD variable, defined as the square root of the sum in quadrature of the transverse momentum of the subjet constituents divided by the scalar sum of the transverse momentum of the subjet constituents, for the first subjet (see [CMS-PAS-JME-13-002](https://cds.cern.ch/record/1599732)) ",
-       "type": " Float_t ",
-       "variable": " `fj_sdsj1_ptD` "
-     },
-     {
-       "description": " First axis of the first subjet ",
-       "type": " Float_t ",
-       "variable": " `fj_sdsj2_axis1` "
-     },
-     {
-       "description": " Second axis of the first subjet ",
-       "type": " Float_t ",
-       "variable": " `fj_sdsj2_axis2` "
-     },
-     {
-       "description": " Combined secondary vertex (CSV) b-tagging discriminant for the first subject ",
-       "type": " Float_t ",
-       "variable": " `fj_sdsj2_csv` "
-     },
-     {
-       "description": " Pseudorapidity η of the second subjet ",
-       "type": " Float_t ",
-       "variable": " `fj_sdsj2_eta` "
-     },
-     {
-       "description": " Mass of the second subjet ",
-       "type": " Float_t ",
-       "variable": " `fj_sdsj2_mass` "
-     },
-     {
-       "description": " Particle multiplicity of the second subjet ",
-       "type": " Float_t ",
-       "variable": " `fj_sdsj2_mult` "
-     },
-     {
-       "description": " Azimuthal angle ϕ of the second subjet ",
-       "type": " Float_t ",
-       "variable": " `fj_sdsj2_phi` "
-     },
-     {
-       "description": " Transverse momentum of the second subjet ",
-       "type": " Float_t ",
-       "variable": " `fj_sdsj2_pt` "
-     },
-     {
-       "description": " ptD variable, defined as the square root of the sum in quadrature of the transverse momentum of the subjet constituents divided by the scalar sum of the transverse momentum of the subjet constituents, for the second subjet (see [CMS-PAS-JME-13-002](https://cds.cern.ch/record/1599732)) ",
-       "type": " Float_t ",
-       "variable": " `fj_sdsj2_ptD` "
-     },
-     {
-       "description": " z ratio variable as defined in [CMS-BTV-16-002](http://cms-results.web.cern.ch/cms-results/public-results/publications/BTV-16-002/) ",
-       "type": " Float_t ",
-       "variable": " `fj_z_ratio` "
-     },
-     {
-       "description": " First largest track 3D signed impact parameter significance (see [CMS-BTV-16-002](http://cms-results.web.cern.ch/cms-results/public-results/publications/BTV-16-002/) ) ",
-       "type": " Float_t ",
-       "variable": " `fj_trackSipdSig_0` "
-     },
-     {
-       "description": " Second largest track 3D signed impact parameter significance (see [CMS-BTV-16-002](http://cms-results.web.cern.ch/cms-results/public-results/publications/BTV-16-002/) ) ",
-       "type": " Float_t ",
-       "variable": " `fj_trackSipdSig_1` "
-     },
-     {
-       "description": " Third largest track 3D signed impact parameter significance (see [CMS-BTV-16-002](http://cms-results.web.cern.ch/cms-results/public-results/publications/BTV-16-002/) )  ",
-       "type": " Float_t ",
-       "variable": " `fj_trackSipdSig_2` "
-     },
-     {
-       "description": " Fourth largest track 3D signed impact parameter significance (see [CMS-BTV-16-002](http://cms-results.web.cern.ch/cms-results/public-results/publications/BTV-16-002/) )  ",
-       "type": " Float_t ",
-       "variable": " `fj_trackSipdSig_3` "
-     },
-     {
-       "description": " First largest track 3D signed impact parameter significance associated to the first N-subjettiness axis ",
-       "type": " Float_t ",
-       "variable": " `fj_trackSipdSig_0_0` "
-     },
-     {
-       "description": " Second largest track 3D signed impact parameter significance associated to the first N-subjettiness axis ",
-       "type": " Float_t ",
-       "variable": " `fj_trackSipdSig_0_1` "
-     },
-     {
-       "description": " First largest track 3D signed impact parameter significance associated to the second N-subjettiness axis ",
-       "type": " Float_t ",
-       "variable": " `fj_trackSipdSig_1_0` "
-     },
-     {
-       "description": " Second largest track 3D signed impact parameter significance associated to the second N-subjettiness axis ",
-       "type": " Float_t ",
-       "variable": " `fj_trackSipdSig_1_1` "
-     },
-     {
-       "description": " Track 2D signed impact parameter significance of the first track lifting the combined invariant mass of the tracks above the c hadron threshold mass (1.5 GeV) ",
-       "type": " Float_t ",
-       "variable": " `fj_trackSip2dSigAboveCharm_0` "
-     },
-     {
-       "description": " Track 2D signed impact parameter significance of the first track lifting the combined invariant mass of the tracks above b hadron threshold mass (5.2 GeV) ",
-       "type": " Float_t ",
-       "variable": " `fj_trackSip2dSigAboveBottom_0` "
-     },
-     {
-       "description": " Track 2D signed impact parameter significance of the second track lifting the combined invariant mass of the tracks above b hadron threshold mass (5.2 GeV) ",
-       "type": " Float_t ",
-       "variable": " `fj_trackSip2dSigAboveBottom_1` "
-     },
-     {
-       "description": " Smallest track pseudorapidity ∆η, relative to the jet axis, associated to the first N-subjettiness axis ",
-       "type": " Float_t ",
-       "variable": " `fj_tau0_trackEtaRel_0` "
-     },
-     {
-       "description": " Second smallest track pseudorapidity ∆η, relative to the jet axis, associated to the first N-subjettiness axis ",
-       "type": " Float_t ",
-       "variable": " `fj_tau0_trackEtaRel_1` "
-     },
-     {
-       "description": " Third smallest track pseudorapidity ∆η, relative to the jet axis, associated to the first N-subjettiness axis ",
-       "type": " Float_t ",
-       "variable": " `fj_tau0_trackEtaRel_2` "
-     },
-     {
-       "description": " Smallest track pseudorapidity ∆η, relative to the jet axis, associated to the second N-subjettiness axis ",
-       "type": " Float_t ",
-       "variable": " `fj_tau1_trackEtaRel_0` "
-     },
-     {
-       "description": " Second smallest track pseudorapidity ∆η, relative to the jet axis, associated to the second N-subjettiness axis ",
-       "type": " Float_t ",
-       "variable": " `fj_tau1_trackEtaRel_1` "
-     },
-     {
-       "description": " Third smallest track pseudorapidity ∆η, relative to the jet axis, associated to the second N-subjettiness axis ",
-       "type": " Float_t ",
-       "variable": " `fj_tau1_trackEtaRel_2` "
-     },
-     {
-       "description": " Total SV mass for the first N-subjettiness axis, defined as the invariant mass of all tracks from SVs associated with the first N-subjettiness axis ",
-       "type": " Float_t ",
-       "variable": " `fj_tau_vertexMass_0` "
-     },
-     {
-       "description": " Total SV mass for the second N-subjettiness axis, defined as the invariant mass of all tracks from SVs associated with the second N-subjettiness axis ",
-       "type": " Float_t ",
-       "variable": " `fj_tau_vertexMass_1` "
-     },
-     {
-       "description": " SV vertex energy ratio for the first N-subjettiness axis, defined as the total energy of all SVs associated with the first N-subjettiness axis divided by the total energy of all the tracks associated with the AK8 jet that are consistent with the PV ",
-       "type": " Float_t ",
-       "variable": " `fj_tau_vertexEnergyRatio_0` "
-     },
-     {
-       "description": " SV energy ratio for the second N-subjettiness axis, defined as the total energy of all SVs associated with the first N-subjettiness axis divided by the total energy of all the tracks associated with the AK8 jet that are consistent with the PV ",
-       "type": " Float_t ",
-       "variable": " `fj_tau_vertexEnergyRatio_1` "
-     },
-     {
-       "description": " Transverse (2D) flight distance significance between the PV and the SV with the smallest uncertainty on the 3D flight distance associated to the first N-subjettiness axis ",
-       "type": " Float_t ",
-       "variable": " `fj_tau_flightDistance2dSig_0` "
-     },
-     {
-       "description": " Transverse (2D) flight distance significance between the PV and the SV with the smallest uncertainty on the 3D flight distance associated to the second N-subjettiness axis ",
-       "type": " Float_t ",
-       "variable": " `fj_tau_flightDistance2dSig_1` "
-     },
-     {
-       "description": " Pseudoangular distance ∆R between the first N-subjettiness axis and SV direction ",
-       "type": " Float_t ",
-       "variable": " `fj_tau_vertexDeltaR_0` "
-     },
-     {
-       "description": " Number of particle flow (PF) candidates associated to the AK8 jet with transverse momentum greater than 0.95 GeV ",
-       "type": " Int_t ",
-       "variable": " `n_pfcands` "
-     },
-     {
-       "description": " Number of particle flow (PF) candidates associated to the AK8 jet with transverse momentum greater than 0.95 GeV ",
-       "type": " Float_t ",
-       "variable": " `npfcands` "
-     },
-     {
-       "description": " PV association quality for the PF candiate: `UsedInFitTight=7`, the track is used in the PV fit and the weight is above 0.5; `UsedInFitLoose=6`,  the track is used in the PV fit and the weight is below 0.5; `CompatibilityDz=5` the track is not used in fit but is very close in `dz` to the PV (`dzsig` < 5 or `dz` < 300 um); `CompatibilityBTag=4`, the track is not compatible with the PV but it is close to the nearest jet axis starting from the PV (distance to jet axis < 700 um); `NotReconstructedPrimary=0`, the track is not associated to any PV and is compatible with the beam spot hence it is likely to be originating from an interaction for which we did not reconstruct the PV (beam spot compatibility: `dxysig` < 2 and `dxy` < 200 um); `OtherDeltaZ=1`, none of the above criteria is satisfied, hence the closest in `dz` vertex is associated) ",
-       "type": " Int_t ",
-       "variable": " `pfcand_VTX_ass` "
-     },
-     {
-       "description": " Electric charge of the PF candidate  ",
-       "type": " Float_t ",
-       "variable": " `pfcand_charge` "
-     },
-     {
-       "description": " Pseudoangular distance ∆R between the PF candidate and the AK8 jet axis ",
-       "type": " Float_t ",
-       "variable": " `pfcand_deltaR` "
-     },
-     {
-       "description": " Minimum pseudoangular distance ∆R between the associated SVs and the PF candidate ",
-       "type": " Float_t ",
-       "variable": " `pfcand_drminsv` "
-     },
-     {
-       "description": " Pseudoangular distance ∆R between the PF candidate and the first soft drop subjet ",
-       "type": " Float_t ",
-       "variable": " `pfcand_drsubjet1` "
-     },
-     {
-       "description": " Pseudoangular distance ∆R between the PF candidate and the second soft drop subjet ",
-       "type": " Float_t ",
-       "variable": " `pfcand_drsubjet2` "
-     },
-     {
-       "description": " Transverse (2D) impact paramater of the PF candidate, defined as the distance of closest approach of the PF candidate trajectory to the beam line in the transverse plane to the beam ",
-       "type": " Float_t ",
-       "variable": " `pfcand_dxy` "
-     },
-     {
-       "description": " Transverse (2D) impact paramater significance of the PF candidate ",
-       "type": " Float_t ",
-       "variable": " `pfcand_dxysig` "
-     },
-     {
-       "description": " Longitudinal impact parameter, defined as the distance of closest approach of the PF candidate trajectory to the PV projected on to the z direction ",
-       "type": " Float_t ",
-       "variable": " `pfcand_dz` "
-     },
-     {
-       "description": " Longitudinal impact parameter significance of the PF candidate ",
-       "type": " Float_t ",
-       "variable": " `pfcand_dzsig` "
-     },
-     {
-       "description": " Energy of the PF candidate divided by the energy of the AK8 jet ",
-       "type": " Float_t ",
-       "variable": " `pfcand_erel` "
-     },
-     {
-       "description": " Pseudorapidity of the PF candidate relative to the AK8 jet axis ",
-       "type": " Float_t ",
-       "variable": " `pfcand_etarel` "
-     },
-     {
-       "description": " Azimuthal angular distance ∆ϕ between the PF candidate and the AK8 jet axis ",
-       "type": " Float_t ",
-       "variable": " `pfcand_phirel` "
-     },
-     {
-       "description": " Transverse momentum of the PF candidate divided by the transverse momentum of the AK8 jet ",
-       "type": " Float_t ",
-       "variable": " `pfcand_ptrel` "
-     },
-     {
-       "description": " Integer indicating whether the PF candidate is consistent with the PV: `PVUsedInFit=3`, if the track is used in the PV fit; `PVTight=2` if the track is not used in the fit of any of the other PVs and is closest in z to the PV, `PVLoose=1` if the track is closest in z to a PV other then the PV; `NoPV=0` if the track is used in the fit of another PV ",
-       "type": " Float_t ",
-       "variable": " `pfcand_fromPV` "
-     },
-     {
-       "description": " Fraction of energy of the PF candidate deposited in the hadron calorimeter ",
-       "type": " Float_t ",
-       "variable": " `pfcand_hcalFrac` "
-     },
-     {
-       "description": " Boolean that is 1 if the PF candidate is classified as a charged hadron ",
-       "type": " Float_t ",
-       "variable": " `pfcand_isChargedHad` "
-     },
-     {
-       "description": " Boolean that is 1 if the PF candidate is classified as an electron ",
-       "type": " Float_t ",
-       "variable": " `pfcand_isEl` "
-     },
-     {
-       "description": " Boolean that is 1 if the PF candidate is classified as an photon ",
-       "type": " Float_t ",
-       "variable": " `pfcand_isGamma` "
-     },
-     {
-       "description": " Boolean that is 1 if the PF candidate is classified as an muon ",
-       "type": " Float_t ",
-       "variable": " `pfcand_isMu` "
-     },
-     {
-       "description": " Boolean that is 1 if the PF candidate is classified as a neutral hadron ",
-       "type": " Float_t ",
-       "variable": " `pfcand_isNeutralHad` "
-     },
-     {
-       "description": " Integer with information related to inner silicon tracker hits for the PF candidate: `validHitInFirstPixelBarrelLayer=-1`, if the track has a valid hit in the first pixel barrel layer; `noLostInnerHits=0` if it does not have such hit because of geometrical or detector inefficiencies (i.e. the hit wasn't expected to be there); `oneLostHit=1`, if the track extrapolation towards the beam line crosses an active detector but no hit is found there; `moreLostHits=2` if there are at least two missing expected inner hits ",
-       "type": " Float_t ",
-       "variable": " `pfcand_lostInnerHits` "
-     },
-     {
-       "description": " Mass of the PF candidate ",
-       "type": " Float_t ",
-       "variable": " `pfcand_mass` "
-     },
-     {
-       "description": " Pileup per-particle identification (PUPPI) weight indicating whether the PF candidate is pileup-like (0) or not (1) ",
-       "type": " Float_t ",
-       "variable": " `pfcand_puppiw` "
-     },
-     {
-       "description": " Number of tracks associated with the AK8 jet ",
-       "type": " Int_t ",
-       "variable": " `n_tracks` "
-     },
-     {
-       "description": " Number of tracks associated with the AK8 jet ",
-       "type": " Float_t ",
-       "variable": " `ntracks` "
-     },
-     {
-       "description": " Pseudoangular distance ∆R between the track and the AK8 jet axis ",
-       "type": " Float_t ",
-       "variable": " `trackBTag_DeltaR` "
-     },
-     {
-       "description": " Pseudorapidity η of the track ",
-       "type": " Float_t ",
-       "variable": " `trackBTag_Eta` "
-     },
-     {
-       "description": " Pseudorapidity ∆η of the track relative the AK8 jet axis ",
-       "type": " Float_t ",
-       "variable": " `trackBTag_EtaRel` "
-     },
-     {
-       "description": " Minimum track approach distance to the AK8 jet axis ",
-       "type": " Float_t ",
-       "variable": " `trackBTag_JetDistVal` "
-     },
-     {
-       "description": " Momentum of the track ",
-       "type": " Float_t ",
-       "variable": " `trackBTag_Momentum` "
-     },
-     {
-       "description": " Component of track momentum parallel to the AK8 jet axis ",
-       "type": " Float_t ",
-       "variable": " `trackBTag_PPar` "
-     },
-     {
-       "description": " Component of track momentum parallel to the AK8 jet axis, normalized to the track momentum ",
-       "type": " Float_t ",
-       "variable": " `trackBTag_PParRatio` "
-     },
-     {
-       "description": " Component of track momentum perpendicular to the AK8 jet axis, normalized to the track momentum ",
-       "type": " Float_t ",
-       "variable": " `trackBTag_PtRatio` "
-     },
-     {
-       "description": " Component of track momentum perpendicular to the AK8 jet axis ",
-       "type": " Float_t ",
-       "variable": " `trackBTag_PtRel` "
-     },
-     {
-       "description": " Transverse (2D) signed impact paramater of the track ",
-       "type": " Float_t ",
-       "variable": " `trackBTag_Sip2dVal` "
-     },
-     {
-       "description": " Transverse (2D) signed impact paramater significance of the track ",
-       "type": " Float_t ",
-       "variable": " `trackBTag_Sip2dSig` "
-     },
-     {
-       "description": " 3D signed impact parameter significance of the track ",
-       "type": " Float_t ",
-       "variable": " `trackBTag_Sip3dSig` "
-     },
-     {
-       "description": " 3D signed impact parameter of the track ",
-       "type": " Float_t ",
-       "variable": " `trackBTag_Sip3dVal` "
-     },
-     {
-       "description": " PV association quality for the track: `UsedInFitTight=7`, the track is used in the PV fit and the weight is above 0.5; `UsedInFitLoose=6`, the track is used in the PV fit and the weight is below 0.5; `CompatibilityDz=5` the track is not used in fit but is very close in `dz` to the PV (`dzsig` < 5 or `dz` < 300 um); `CompatibilityBTag=4`, the track is not compatible with the PV but it is close to the nearest jet axis starting from the PV (distance to jet axis < 700 um); `NotReconstructedPrimary=0`, the track is not associated to any PV and is compatible with the BeamSpot hence it is likely to be originating from an interaction for which we did not reconstruct the PV (beam spot compatibility: `dxysig` < 2 and `dxy` < 200 um); `OtherDeltaZ=1`, none of the above criteria is satisfied, hence the closest in dZ vertex is associated) ",
-       "type": " Float_t ",
-       "variable": " `track_VTX_ass` "
-     },
-     {
-       "description": " Electric charge of the charged PF candidate ",
-       "type": " Float_t ",
-       "variable": " `track_charge` "
-     },
-     {
-       "description": " Pseudoangular distance (∆R) between the charged PF candidate and the AK8 jet axis ",
-       "type": " Float_t ",
-       "variable": " `track_deltaR` "
-     },
-     {
-       "description": " Track covariance matrix entry (eta, eta) ",
-       "type": " Float_t ",
-       "variable": " `track_detadeta` "
-     },
-     {
-       "description": " Track covariance matrix entry (lambda, dz)  ",
-       "type": " Float_t ",
-       "variable": " `track_dlambdadz` "
-     },
-     {
-       "description": " Track covariance matrix entry (phi, phi)  ",
-       "type": " Float_t ",
-       "variable": " `track_dphidphi` "
-     },
-     {
-       "description": " Track covariance matrix entry (phi, xy) ",
-       "type": " Float_t ",
-       "variable": " `track_dphidxy` "
-     },
-     {
-       "description": " Track covariance matrix entry (pT, pT) ",
-       "type": " Float_t ",
-       "variable": " `track_dptdpt` "
-     },
-     {
-       "description": " Track covariance matrix entry (dxy, dxy)  ",
-       "type": " Float_t ",
-       "variable": " `track_dxydxy` "
-     },
-     {
-       "description": " Track covariance matrix entry (dxy, dz) ",
-       "type": " Float_t ",
-       "variable": " `track_dxydz` "
-     },
-     {
-       "description": " Track covariance matrix entry (dz, dz) ",
-       "type": " Float_t ",
-       "variable": " `track_dzdz` "
-     },
-     {
-       "description": " Minimum pseudoangular distance ∆R between the associated SVs and the charged PF candidate ",
-       "type": " Float_t ",
-       "variable": " `track_drminsv` "
-     },
-     {
-       "description": " Pseudoangular distance ∆R between the charged PF candidate and the first soft drop subjet ",
-       "type": " Float_t ",
-       "variable": " `track_drsubjet1` "
-     },
-     {
-       "description": " Pseudoangular distance ∆R between the charged PF candidate and the second soft drop subjet  ",
-       "type": " Float_t ",
-       "variable": " `track_drsubjet2` "
-     },
-     {
-       "description": " Transverse (2D) impact parameter of the track, defined as the distance of closest approach of the track trajectory to the beam line in the transverse plane to the beam ",
-       "type": " Float_t ",
-       "variable": " `track_dxy` "
-     },
-     {
-       "description": " Transverse (2D) impact parameter significance of the track ",
-       "type": " Float_t ",
-       "variable": " `track_dxysig` "
-     },
-     {
-       "description": " Longitudinal impact parameter, defined as the distance of closest approach of the track trajectory to the PV projected on to the z direction ",
-       "type": " Float_t ",
-       "variable": " `track_dz` "
-     },
-     {
-       "description": " Longitudinal impact parameter significance of the track ",
-       "type": " Float_t ",
-       "variable": " `track_dzsig` "
-     },
-     {
-       "description": " Energy of the charged PF candidate divided by the energy of the AK8 jet ",
-       "type": " Float_t ",
-       "variable": " `track_erel` "
-     },
-     {
-       "description": " Pseudorapidity ∆η of the track relative to the jet axis ",
-       "type": " Float_t ",
-       "variable": " `track_etarel` "
-     },
-     {
-       "description": " Integer indicating whether the charged PF candidate is consistent with the PV: `PVUsedInFit=3`, if the track is used in the PV fit; `PVTight=2` if the track is not used in the fit of any of the other PVs and is closest in z to the PV, `PVLoose=1` if the track is closest in z to a PV other then the PV; `NoPV=0` if the track is used in the fit of another PV ",
-       "type": " Float_t ",
-       "variable": " `track_fromPV` "
-     },
-     {
-       "description": " Boolean that is 1 if the charged PF candidate is classified as a charged hadron ",
-       "type": " Float_t ",
-       "variable": " `track_isChargedHad` "
-     },
-     {
-       "description": " Boolean that is 1 if the charged PF candidate is classified as an electron  ",
-       "type": " Float_t ",
-       "variable": " `track_isEl` "
-     },
-     {
-       "description": " Boolean that is 1 if the charged PF candidate is classified as a muon ",
-       "type": " Float_t ",
-       "variable": " `track_isMu` "
-     },
-     {
-       "description": " Integer with information related to inner silicon tracker hits for the track: `validHitInFirstPixelBarrelLayer=-1`, if the track has a valid hit in the first pixel barrel layer; `noLostInnerHits=0` if it does not have such hit because of geometrical or detector inefficiencies (i.e. the hit wasn't expected to be there); `oneLostHit=1`, if the track extrapolation towards the beam line crosses an active detector but no hit is found there; `moreLostHits=2` if there are at least two missing expected inner hits ",
-       "type": " Float_t ",
-       "variable": " `track_lostInnerHits` "
-     },
-     {
-       "description": " Mass of the charged PF candidate ",
-       "type": " Float_t ",
-       "variable": " `track_mass` "
-     },
-     {
-       "description": " Normalized χ2 of the track fit ",
-       "type": " Float_t ",
-       "variable": " `track_normchi2` "
-     },
-     {
-       "description": " Azimuthal angular distance ∆ϕ between the charged PF candidate and the AK8 jet axis ",
-       "type": " Float_t ",
-       "variable": " `track_phirel` "
-     },
-     {
-       "description": " Transverse momentum of the charged PF candidate ",
-       "type": " Float_t ",
-       "variable": " `track_pt` "
-     },
-     {
-       "description": " Transverse momentum of the charged PF candidate divided by the transverse momentum of the AK8 jet ",
-       "type": " Float_t ",
-       "variable": " `track_ptrel` "
-     },
-     {
-       "description": " Pileup per-particle identification (PUPPI) weight indicating whether the PF candidate is pileup-like (0) or not (1)  ",
-       "type": " Float_t ",
-       "variable": " `track_puppiw` "
-     },
-     {
-       "description": " Track quality: `undefQuality=-1`; `loose=0`; `tight=1`; `highPurity=2`; `confirmed=3`, if track found by more than one iteration; `looseSetWithPV=5`; `highPuritySetWithPV=6`, `discarded=7` if a better track found; `qualitySize=8` ",
-       "type": " Float_t ",
-       "variable": " `track_quality` "
-     },
-     {
-       "description": " Number of secondary vertices (SV) associated with the AK8 jet (∆R < 0.8) ",
-       "type": " Int_t ",
-       "variable": " `n_sv` "
-     },
-     {
-       "description": " Number of secondary vertices (SV) associated with the AK8 jet (∆R < 0.8)",
-       "type": " Float_t ",
-       "variable": " `nsv` "
-     },
-     {
-       "description": " χ2 of the vertex fit ",
-       "type": " Float_t ",
-       "variable": " `sv_chi2` "
-     },
-     {
-       "description": " number of degrees of freedom of the vertex fit ",
-       "type": " Float_t ",
-       "variable": " `sv_ndf` "
-     },
-     {
-       "description": " χ2 divided by the number of degrees of freedom for the vertex fit ",
-       "type": " Float_t ",
-       "variable": " `sv_normchi2` "
-     },
-     {
-       "description": " Cosine of the angle cos(θ) between the SV and the PV ",
-       "type": " Float_t ",
-       "variable": " `sv_costhetasvpv` "
-     },
-     {
-       "description": " 3D flight distance of the SV ",
-       "type": " Float_t ",
-       "variable": " `sv_d3d` "
-     },
-     {
-       "description": " 3D flight distance uncertainty of the SV ",
-       "type": " Float_t ",
-       "variable": " `sv_d3derr` "
-     },
-     {
-       "description": " 3D flight distance significance of the SV ",
-       "type": " Float_t ",
-       "variable": " `sv_d3dsig` "
-     },
-     {
-       "description": " Transverse (2D) flight distance of the SV ",
-       "type": " Float_t ",
-       "variable": " `sv_dxy` "
-     },
-     {
-       "description": " Transverse (2D) flight distance uncertainty of the SV ",
-       "type": " Float_t ",
-       "variable": " `sv_dxyerr` "
-     },
-     {
-       "description": " Transverse (2D) flight distance significance of the SV ",
-       "type": " Float_t ",
-       "variable": " `sv_dxysig` "
-     },
-     {
-       "description": " Pseudoangular distance ∆R between the SV and the AK8 jet ",
-       "type": " Float_t ",
-       "variable": " `sv_deltaR` "
-     },
-     {
-       "description": " Energy of the SV divided by the energy of the AK8 jet ",
-       "type": " Float_t ",
-       "variable": " `sv_erel` "
-     },
-     {
-       "description": " Pseudorapidity ∆η of the SV relative to the AK8 jet axis ",
-       "type": " Float_t ",
-       "variable": " `sv_etarel` "
-     },
-     {
-       "description": " Mass of the SV ",
-       "type": " Float_t ",
-       "variable": " `sv_mass` "
-     },
-     {
-       "description": " Number of tracks associated with the SV ",
-       "type": " Float_t ",
-       "variable": " `sv_ntracks` "
-     },
-     {
-       "description": " Azimuthal angular distance ∆ϕ of the SV relative to the jet axis ",
-       "type": " Float_t ",
-       "variable": " `sv_phirel` "
-     },
-     {
-       "description": " Transverse momentum of the SV ",
-       "type": " Float_t ",
-       "variable": " `sv_pt` "
-     },
-     {
-       "description": " Transverse momentum of the SV divided by the transverse momentum of the AK8 jet ",
-       "type": " Float_t ",
-       "variable": " `sv_ptrel` "
-     }
+      {
+        "description": "Event number",
+        "type": "UInt_t",
+        "variable": "event_no"
+      },
+      {
+        "description": "Number of reconstructed primary vertices (PVs)",
+        "type": "Float_t",
+        "variable": "npv"
+      },
+      {
+        "description": "True mean number of the poisson distribution for this event from which the number of interactions in each bunch crossing has been sampled",
+        "type": "Float_t",
+        "variable": "ntrueInt"
+      },
+      {
+        "description": "Median density (in GeV/A) of pile-up contamination per event; computed from all PF candidates of the event",
+        "type": "Float_t",
+        "variable": "rho"
+      },
+      {
+        "description": "Boolean that is 1 if the simulated sample corresponds to QCD multijet production",
+        "type": "Float_t",
+        "variable": "sample_isQCD"
+      },
+      {
+        "description": "Double-b tagging discriminant based on a boosted decision tree calculated for the AK8 jet (see <a href=\"http://cms-results.web.cern.ch/cms-results/public-results/publications/BTV-16-002/\">CMS-BTV-16-002</a>)",
+        "type": "Float_t",
+        "variable": "fj_doubleb"
+      },
+      {
+        "description": "Pseudorapidity η of the AK8 jet",
+        "type": "Float_t",
+        "variable": "fj_eta"
+      },
+      {
+        "description": "Pseudorapidity η of the generator-level, matched heavy particle: H, W, Z, top, etc. (default = -999)",
+        "type": "Float_t",
+        "variable": "fj_gen_eta"
+      },
+      {
+        "description": "Transverse momentum of the generator-level, geometrically matched heavy particle: H, W, Z, t, etc. (default = -999)",
+        "type": "Float_t",
+        "variable": "fj_gen_pt"
+      },
+      {
+        "description": "Boolean that is 1 if two or more b hadrons are clustered within the AK8 jet (see <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideBTagMCTools\">SWGuideBTagMCTools</a>)",
+        "type": "Int_t",
+        "variable": "fj_isBB"
+      },
+      {
+        "description": "Boolean that is 1 if fewer than two b hadrons are clustered within the AK8 jet (see <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideBTagMCTools\">SWGuideBTagMCTools</a>)",
+        "type": "Int_t",
+        "variable": "fj_isNonBB"
+      },
+      {
+        "description": "Number of b hadrons that are clustered within the AK8 jet (see <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideBTagMCTools\">SWGuideBTagMCTools</a>)",
+        "type": "Int_t",
+        "variable": "fj_nbHadrons"
+      },
+      {
+        "description": "Number of c hadrons that are clustered within the AK8 jet (see <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideBTagMCTools\">SWGuideBTagMCTools</a>)",
+        "type": "Int_t",
+        "variable": "fj_ncHadrons"
+      },
+      {
+        "description": "Boolean that is 1 if a generator-level Higgs boson and its daughters are geometrically matched to the AK8 jet",
+        "type": "Int_t",
+        "variable": "fj_isH"
+      },
+      {
+        "description": "Boolean that is 1 if a generator-level top quark and its daughters are geometrically matched to the AK8 jet",
+        "type": "Int_t",
+        "variable": "fj_isTop"
+      },
+      {
+        "description": "Boolean that is 1 if a generator-level W boson and its daughters are geometrically matched to the AK8 jet",
+        "type": "Int_t",
+        "variable": "fj_isW"
+      },
+      {
+        "description": "Boolean that is 1 if a generator-level Z boson and its daughters are geometrically matched to the AK8 jet",
+        "type": "Int_t",
+        "variable": "fj_isZ"
+      },
+      {
+        "description": "Boolean that is 1 if none of the above matching criteria are satisfied (H, top, W, Z)",
+        "type": "Int_t",
+        "variable": "fj_isQCD"
+      },
+      {
+        "description": "Integer label: `Invalid=0,  Top_all=10, Top_bcq=11, Top_bqq=12, Top_bc=13, Top_bq=14, W_all=20, W_cq=21, W_qq=22, Z_all=30, Z_bb=31, Z_cc=32, Z_qq=33, H_all=40, H_bb=41, H_cc=42, H_qqqq=43, QCD_all=50, QCD_bb=51, QCD_cc=52, QCD_b=53, QCD_c=54, QCD_others=55`",
+        "type": "Int_t",
+        "variable": "fj_label"
+      },
+      {
+        "description": "Alternative integer label from the CMS Jet/MET and Resolution (JMAR) group:  `Default=0, Top=1, W=2, Z=3, H=4`",
+        "type": "Int_t",
+        "variable": "fj_labelJMAR"
+      },
+      {
+        "description": "Alternative (legacy) integer label: `Default=0, Top=1, W=2, Z=3, H=4`",
+        "type": "Int_t",
+        "variable": "fj_labelLegacy"
+      },
+      {
+        "description": "Number of tracks associated with the AK8 jet",
+        "type": "Float_t",
+        "variable": "fj_jetNTracks"
+      },
+      {
+        "description": "Number of SVs associated with the AK8 jet (∆R < 0.7)",
+        "type": "Float_t",
+        "variable": "fj_nSV"
+      },
+      {
+        "description": "Number of soft drop subjets in the AK8 jet (up to 2)",
+        "type": "Float_t",
+        "variable": "fj_n_sdsubjets"
+      },
+      {
+        "description": "Ungroomed mass of the AK8 jet",
+        "type": "Float_t",
+        "variable": "fj_mass"
+      },
+      {
+        "description": "Azimuthal angle ϕ of the AK8 jet",
+        "type": "Float_t",
+        "variable": "fj_phi"
+      },
+      {
+        "description": "Transverse momentum of the AK8 jet",
+        "type": "Float_t",
+        "variable": "fj_pt"
+      },
+      {
+        "description": "N-subjettiness variable for a 1-prong jet hypothesis",
+        "type": "Float_t",
+        "variable": "fj_tau1"
+      },
+      {
+        "description": "N-subjettiness variable for a 2-prong jet hypothesis",
+        "type": "Float_t",
+        "variable": "fj_tau2"
+      },
+      {
+        "description": "N-subjettiness variable for a 3-prong jet hypothesis",
+        "type": "Float_t",
+        "variable": "fj_tau3"
+      },
+      {
+        "description": "N-subjettiness variable for 2-prong vs 1-prong jet discrimination (`fj_tau2/fj_tau1`)",
+        "type": "Float_t",
+        "variable": "fj_tau21"
+      },
+      {
+        "description": "N-subjettiness variable for 3-prong vs 2-prong jet discrimination (`fj_tau3/fj_tau2`)",
+        "type": "Float_t",
+        "variable": "fj_tau32"
+      },
+      {
+        "description": "Soft drop mass of the AK8 jet",
+        "type": "Float_t",
+        "variable": "fj_sdmass"
+      },
+      {
+        "description": "Transverse momentum times the ΔR between the two soft drop subjets",
+        "type": "Float_t",
+        "variable": "fj_ptDR"
+      },
+      {
+        "description": "Absolute relative difference between the transverse momenta of the two softdrop subjets",
+        "type": "Float_t",
+        "variable": "fj_relptdiff"
+      },
+      {
+        "description": "Fraction of second subjet transverse momentum times ∆R squared",
+        "type": "Float_t",
+        "variable": "fj_sdn2"
+      },
+      {
+        "description": "First axis of the first subjet",
+        "type": "Float_t",
+        "variable": "fj_sdsj1_axis1"
+      },
+      {
+        "description": "Second axis of the first subjet",
+        "type": "Float_t",
+        "variable": "fj_sdsj1_axis2"
+      },
+      {
+        "description": "Combined secondary vertex (CSV) b-tagging discriminant for the first subjet",
+        "type": "Float_t",
+        "variable": "fj_sdsj1_csv"
+      },
+      {
+        "description": "Pseudorapidity η of the first subjet",
+        "type": "Float_t",
+        "variable": "fj_sdsj1_eta"
+      },
+      {
+        "description": "Mass of the first subjet",
+        "type": "Float_t",
+        "variable": "fj_sdsj1_mass"
+      },
+      {
+        "description": "Particle multiplicity of the first subjet",
+        "type": "Float_t",
+        "variable": "fj_sdsj1_mult"
+      },
+      {
+        "description": "Azimuthal angle ϕ of the first subjet",
+        "type": "Float_t",
+        "variable": "fj_sdsj1_phi"
+      },
+      {
+        "description": "Transverse momentum of the first subjet",
+        "type": "Float_t",
+        "variable": "fj_sdsj1_pt"
+      },
+      {
+        "description": "ptD variable, defined as the square root of the sum in quadrature of the transverse momentum of the subjet constituents divided by the scalar sum of the transverse momentum of the subjet constituents, for the first subjet (see <a href=\"https://cds.cern.ch/record/1599732\">CMS-PAS-JME-13-002</a>)",
+        "type": "Float_t",
+        "variable": "fj_sdsj1_ptD"
+      },
+      {
+        "description": "First axis of the first subjet",
+        "type": "Float_t",
+        "variable": "fj_sdsj2_axis1"
+      },
+      {
+        "description": "Second axis of the first subjet",
+        "type": "Float_t",
+        "variable": "fj_sdsj2_axis2"
+      },
+      {
+        "description": "Combined secondary vertex (CSV) b-tagging discriminant for the first subject",
+        "type": "Float_t",
+        "variable": "fj_sdsj2_csv"
+      },
+      {
+        "description": "Pseudorapidity η of the second subjet",
+        "type": "Float_t",
+        "variable": "fj_sdsj2_eta"
+      },
+      {
+        "description": "Mass of the second subjet",
+        "type": "Float_t",
+        "variable": "fj_sdsj2_mass"
+      },
+      {
+        "description": "Particle multiplicity of the second subjet",
+        "type": "Float_t",
+        "variable": "fj_sdsj2_mult"
+      },
+      {
+        "description": "Azimuthal angle ϕ of the second subjet",
+        "type": "Float_t",
+        "variable": "fj_sdsj2_phi"
+      },
+      {
+        "description": "Transverse momentum of the second subjet",
+        "type": "Float_t",
+        "variable": "fj_sdsj2_pt"
+      },
+      {
+        "description": "ptD variable, defined as the square root of the sum in quadrature of the transverse momentum of the subjet constituents divided by the scalar sum of the transverse momentum of the subjet constituents, for the second subjet (see <a href=\"https://cds.cern.ch/record/1599732\">CMS-PAS-JME-13-002</a>)",
+        "type": "Float_t",
+        "variable": "fj_sdsj2_ptD"
+      },
+      {
+        "description": "z ratio variable as defined in <a href=\"http://cms-results.web.cern.ch/cms-results/public-results/publications/BTV-16-002/\">CMS-BTV-16-002</a>",
+        "type": "Float_t",
+        "variable": "fj_z_ratio"
+      },
+      {
+        "description": "First largest track 3D signed impact parameter significance (see <a href=\"http://cms-results.web.cern.ch/cms-results/public-results/publications/BTV-16-002/\">CMS-BTV-16-002</a>)",
+        "type": "Float_t",
+        "variable": "fj_trackSipdSig_0"
+      },
+      {
+        "description": "Second largest track 3D signed impact parameter significance (see <a href=\"http://cms-results.web.cern.ch/cms-results/public-results/publications/BTV-16-002/\">CMS-BTV-16-002</a>)",
+        "type": "Float_t",
+        "variable": "fj_trackSipdSig_1"
+      },
+      {
+        "description": "Third largest track 3D signed impact parameter significance (see <a href=\"http://cms-results.web.cern.ch/cms-results/public-results/publications/BTV-16-002/\">CMS-BTV-16-002</a>)",
+        "type": "Float_t",
+        "variable": "fj_trackSipdSig_2"
+      },
+      {
+        "description": "Fourth largest track 3D signed impact parameter significance (see <a href=\"http://cms-results.web.cern.ch/cms-results/public-results/publications/BTV-16-002/\">CMS-BTV-16-002</a>)",
+        "type": "Float_t",
+        "variable": "fj_trackSipdSig_3"
+      },
+      {
+        "description": "First largest track 3D signed impact parameter significance associated to the first N-subjettiness axis",
+        "type": "Float_t",
+        "variable": "fj_trackSipdSig_0_0"
+      },
+      {
+        "description": "Second largest track 3D signed impact parameter significance associated to the first N-subjettiness axis",
+        "type": "Float_t",
+        "variable": "fj_trackSipdSig_0_1"
+      },
+      {
+        "description": "First largest track 3D signed impact parameter significance associated to the second N-subjettiness axis",
+        "type": "Float_t",
+        "variable": "fj_trackSipdSig_1_0"
+      },
+      {
+        "description": "Second largest track 3D signed impact parameter significance associated to the second N-subjettiness axis",
+        "type": "Float_t",
+        "variable": "fj_trackSipdSig_1_1"
+      },
+      {
+        "description": "Track 2D signed impact parameter significance of the first track lifting the combined invariant mass of the tracks above the c hadron threshold mass (1.5 GeV)",
+        "type": "Float_t",
+        "variable": "fj_trackSip2dSigAboveCharm_0"
+      },
+      {
+        "description": "Track 2D signed impact parameter significance of the first track lifting the combined invariant mass of the tracks above b hadron threshold mass (5.2 GeV)",
+        "type": "Float_t",
+        "variable": "fj_trackSip2dSigAboveBottom_0"
+      },
+      {
+        "description": "Track 2D signed impact parameter significance of the second track lifting the combined invariant mass of the tracks above b hadron threshold mass (5.2 GeV)",
+        "type": "Float_t",
+        "variable": "fj_trackSip2dSigAboveBottom_1"
+      },
+      {
+        "description": "Smallest track pseudorapidity ∆η, relative to the jet axis, associated to the first N-subjettiness axis",
+        "type": "Float_t",
+        "variable": "fj_tau0_trackEtaRel_0"
+      },
+      {
+        "description": "Second smallest track pseudorapidity ∆η, relative to the jet axis, associated to the first N-subjettiness axis",
+        "type": "Float_t",
+        "variable": "fj_tau0_trackEtaRel_1"
+      },
+      {
+        "description": "Third smallest track pseudorapidity ∆η, relative to the jet axis, associated to the first N-subjettiness axis",
+        "type": "Float_t",
+        "variable": "fj_tau0_trackEtaRel_2"
+      },
+      {
+        "description": "Smallest track pseudorapidity ∆η, relative to the jet axis, associated to the second N-subjettiness axis",
+        "type": "Float_t",
+        "variable": "fj_tau1_trackEtaRel_0"
+      },
+      {
+        "description": "Second smallest track pseudorapidity ∆η, relative to the jet axis, associated to the second N-subjettiness axis",
+        "type": "Float_t",
+        "variable": "fj_tau1_trackEtaRel_1"
+      },
+      {
+        "description": "Third smallest track pseudorapidity ∆η, relative to the jet axis, associated to the second N-subjettiness axis",
+        "type": "Float_t",
+        "variable": "fj_tau1_trackEtaRel_2"
+      },
+      {
+        "description": "Total SV mass for the first N-subjettiness axis, defined as the invariant mass of all tracks from SVs associated with the first N-subjettiness axis",
+        "type": "Float_t",
+        "variable": "fj_tau_vertexMass_0"
+      },
+      {
+        "description": "Total SV mass for the second N-subjettiness axis, defined as the invariant mass of all tracks from SVs associated with the second N-subjettiness axis",
+        "type": "Float_t",
+        "variable": "fj_tau_vertexMass_1"
+      },
+      {
+        "description": "SV vertex energy ratio for the first N-subjettiness axis, defined as the total energy of all SVs associated with the first N-subjettiness axis divided by the total energy of all the tracks associated with the AK8 jet that are consistent with the PV",
+        "type": "Float_t",
+        "variable": "fj_tau_vertexEnergyRatio_0"
+      },
+      {
+        "description": "SV energy ratio for the second N-subjettiness axis, defined as the total energy of all SVs associated with the first N-subjettiness axis divided by the total energy of all the tracks associated with the AK8 jet that are consistent with the PV",
+        "type": "Float_t",
+        "variable": "fj_tau_vertexEnergyRatio_1"
+      },
+      {
+        "description": "Transverse (2D) flight distance significance between the PV and the SV with the smallest uncertainty on the 3D flight distance associated to the first N-subjettiness axis",
+        "type": "Float_t",
+        "variable": "fj_tau_flightDistance2dSig_0"
+      },
+      {
+        "description": "Transverse (2D) flight distance significance between the PV and the SV with the smallest uncertainty on the 3D flight distance associated to the second N-subjettiness axis",
+        "type": "Float_t",
+        "variable": "fj_tau_flightDistance2dSig_1"
+      },
+      {
+        "description": "Pseudoangular distance ∆R between the first N-subjettiness axis and SV direction",
+        "type": "Float_t",
+        "variable": "fj_tau_vertexDeltaR_0"
+      },
+      {
+        "description": "Number of particle flow (PF) candidates associated to the AK8 jet with transverse momentum greater than 0.95 GeV",
+        "type": "Int_t",
+        "variable": "n_pfcands"
+      },
+      {
+        "description": "Number of particle flow (PF) candidates associated to the AK8 jet with transverse momentum greater than 0.95 GeV",
+        "type": "Float_t",
+        "variable": "npfcands"
+      },
+      {
+        "description": "PV association quality for the PF candiate: `UsedInFitTight=7`, the track is used in the PV fit and the weight is above 0.5; `UsedInFitLoose=6`,  the track is used in the PV fit and the weight is below 0.5; `CompatibilityDz=5` the track is not used in fit but is very close in `dz` to the PV (`dzsig` < 5 or `dz` < 300 um); `CompatibilityBTag=4`, the track is not compatible with the PV but it is close to the nearest jet axis starting from the PV (distance to jet axis < 700 um); `NotReconstructedPrimary=0`, the track is not associated to any PV and is compatible with the beam spot hence it is likely to be originating from an interaction for which we did not reconstruct the PV (beam spot compatibility: `dxysig` < 2 and `dxy` < 200 um); `OtherDeltaZ=1`, none of the above criteria is satisfied, hence the closest in `dz` vertex is associated)",
+        "type": "Int_t",
+        "variable": "pfcand_VTX_ass"
+      },
+      {
+        "description": "Electric charge of the PF candidate ",
+        "type": "Float_t",
+        "variable": "pfcand_charge"
+      },
+      {
+        "description": "Pseudoangular distance ∆R between the PF candidate and the AK8 jet axis",
+        "type": "Float_t",
+        "variable": "pfcand_deltaR"
+      },
+      {
+        "description": "Minimum pseudoangular distance ∆R between the associated SVs and the PF candidate",
+        "type": "Float_t",
+        "variable": "pfcand_drminsv"
+      },
+      {
+        "description": "Pseudoangular distance ∆R between the PF candidate and the first soft drop subjet",
+        "type": "Float_t",
+        "variable": "pfcand_drsubjet1"
+      },
+      {
+        "description": "Pseudoangular distance ∆R between the PF candidate and the second soft drop subjet",
+        "type": "Float_t",
+        "variable": "pfcand_drsubjet2"
+      },
+      {
+        "description": "Transverse (2D) impact paramater of the PF candidate, defined as the distance of closest approach of the PF candidate trajectory to the beam line in the transverse plane to the beam",
+        "type": "Float_t",
+        "variable": "pfcand_dxy"
+      },
+      {
+        "description": "Transverse (2D) impact paramater significance of the PF candidate",
+        "type": "Float_t",
+        "variable": "pfcand_dxysig"
+      },
+      {
+        "description": "Longitudinal impact parameter, defined as the distance of closest approach of the PF candidate trajectory to the PV projected on to the z direction",
+        "type": "Float_t",
+        "variable": "pfcand_dz"
+      },
+      {
+        "description": "Longitudinal impact parameter significance of the PF candidate",
+        "type": "Float_t",
+        "variable": "pfcand_dzsig"
+      },
+      {
+        "description": "Energy of the PF candidate divided by the energy of the AK8 jet",
+        "type": "Float_t",
+        "variable": "pfcand_erel"
+      },
+      {
+        "description": "Pseudorapidity of the PF candidate relative to the AK8 jet axis",
+        "type": "Float_t",
+        "variable": "pfcand_etarel"
+      },
+      {
+        "description": "Azimuthal angular distance ∆ϕ between the PF candidate and the AK8 jet axis",
+        "type": "Float_t",
+        "variable": "pfcand_phirel"
+      },
+      {
+        "description": "Transverse momentum of the PF candidate divided by the transverse momentum of the AK8 jet",
+        "type": "Float_t",
+        "variable": "pfcand_ptrel"
+      },
+      {
+        "description": "Integer indicating whether the PF candidate is consistent with the PV: `PVUsedInFit=3`, if the track is used in the PV fit; `PVTight=2` if the track is not used in the fit of any of the other PVs and is closest in z to the PV, `PVLoose=1` if the track is closest in z to a PV other then the PV; `NoPV=0` if the track is used in the fit of another PV",
+        "type": "Float_t",
+        "variable": "pfcand_fromPV"
+      },
+      {
+        "description": "Fraction of energy of the PF candidate deposited in the hadron calorimeter",
+        "type": "Float_t",
+        "variable": "pfcand_hcalFrac"
+      },
+      {
+        "description": "Boolean that is 1 if the PF candidate is classified as a charged hadron",
+        "type": "Float_t",
+        "variable": "pfcand_isChargedHad"
+      },
+      {
+        "description": "Boolean that is 1 if the PF candidate is classified as an electron",
+        "type": "Float_t",
+        "variable": "pfcand_isEl"
+      },
+      {
+        "description": "Boolean that is 1 if the PF candidate is classified as an photon",
+        "type": "Float_t",
+        "variable": "pfcand_isGamma"
+      },
+      {
+        "description": "Boolean that is 1 if the PF candidate is classified as an muon",
+        "type": "Float_t",
+        "variable": "pfcand_isMu"
+      },
+      {
+        "description": "Boolean that is 1 if the PF candidate is classified as a neutral hadron",
+        "type": "Float_t",
+        "variable": "pfcand_isNeutralHad"
+      },
+      {
+        "description": "Integer with information related to inner silicon tracker hits for the PF candidate: `validHitInFirstPixelBarrelLayer=-1`, if the track has a valid hit in the first pixel barrel layer; `noLostInnerHits=0` if it does not have such hit because of geometrical or detector inefficiencies (i.e. the hit wasn't expected to be there); `oneLostHit=1`, if the track extrapolation towards the beam line crosses an active detector but no hit is found there; `moreLostHits=2` if there are at least two missing expected inner hits",
+        "type": "Float_t",
+        "variable": "pfcand_lostInnerHits"
+      },
+      {
+        "description": "Mass of the PF candidate",
+        "type": "Float_t",
+        "variable": "pfcand_mass"
+      },
+      {
+        "description": "Pileup per-particle identification (PUPPI) weight indicating whether the PF candidate is pileup-like (0) or not (1)",
+        "type": "Float_t",
+        "variable": "pfcand_puppiw"
+      },
+      {
+        "description": "Number of tracks associated with the AK8 jet",
+        "type": "Int_t",
+        "variable": "n_tracks"
+      },
+      {
+        "description": "Number of tracks associated with the AK8 jet",
+        "type": "Float_t",
+        "variable": "ntracks"
+      },
+      {
+        "description": "Pseudoangular distance ∆R between the track and the AK8 jet axis",
+        "type": "Float_t",
+        "variable": "trackBTag_DeltaR"
+      },
+      {
+        "description": "Pseudorapidity η of the track",
+        "type": "Float_t",
+        "variable": "trackBTag_Eta"
+      },
+      {
+        "description": "Pseudorapidity ∆η of the track relative the AK8 jet axis",
+        "type": "Float_t",
+        "variable": "trackBTag_EtaRel"
+      },
+      {
+        "description": "Minimum track approach distance to the AK8 jet axis",
+        "type": "Float_t",
+        "variable": "trackBTag_JetDistVal"
+      },
+      {
+        "description": "Momentum of the track",
+        "type": "Float_t",
+        "variable": "trackBTag_Momentum"
+      },
+      {
+        "description": "Component of track momentum parallel to the AK8 jet axis",
+        "type": "Float_t",
+        "variable": "trackBTag_PPar"
+      },
+      {
+        "description": "Component of track momentum parallel to the AK8 jet axis, normalized to the track momentum",
+        "type": "Float_t",
+        "variable": "trackBTag_PParRatio"
+      },
+      {
+        "description": "Component of track momentum perpendicular to the AK8 jet axis, normalized to the track momentum",
+        "type": "Float_t",
+        "variable": "trackBTag_PtRatio"
+      },
+      {
+        "description": "Component of track momentum perpendicular to the AK8 jet axis",
+        "type": "Float_t",
+        "variable": "trackBTag_PtRel"
+      },
+      {
+        "description": "Transverse (2D) signed impact paramater of the track",
+        "type": "Float_t",
+        "variable": "trackBTag_Sip2dVal"
+      },
+      {
+        "description": "Transverse (2D) signed impact paramater significance of the track",
+        "type": "Float_t",
+        "variable": "trackBTag_Sip2dSig"
+      },
+      {
+        "description": "3D signed impact parameter significance of the track",
+        "type": "Float_t",
+        "variable": "trackBTag_Sip3dSig"
+      },
+      {
+        "description": "3D signed impact parameter of the track",
+        "type": "Float_t",
+        "variable": "trackBTag_Sip3dVal"
+      },
+      {
+        "description": "PV association quality for the track: `UsedInFitTight=7`, the track is used in the PV fit and the weight is above 0.5; `UsedInFitLoose=6`, the track is used in the PV fit and the weight is below 0.5; `CompatibilityDz=5` the track is not used in fit but is very close in `dz` to the PV (`dzsig` < 5 or `dz` < 300 um); `CompatibilityBTag=4`, the track is not compatible with the PV but it is close to the nearest jet axis starting from the PV (distance to jet axis < 700 um); `NotReconstructedPrimary=0`, the track is not associated to any PV and is compatible with the BeamSpot hence it is likely to be originating from an interaction for which we did not reconstruct the PV (beam spot compatibility: `dxysig` < 2 and `dxy` < 200 um); `OtherDeltaZ=1`, none of the above criteria is satisfied, hence the closest in dZ vertex is associated)",
+        "type": "Float_t",
+        "variable": "track_VTX_ass"
+      },
+      {
+        "description": "Electric charge of the charged PF candidate",
+        "type": "Float_t",
+        "variable": "track_charge"
+      },
+      {
+        "description": "Pseudoangular distance (∆R) between the charged PF candidate and the AK8 jet axis",
+        "type": "Float_t",
+        "variable": "track_deltaR"
+      },
+      {
+        "description": "Track covariance matrix entry (eta, eta)",
+        "type": "Float_t",
+        "variable": "track_detadeta"
+      },
+      {
+        "description": "Track covariance matrix entry (lambda, dz) ",
+        "type": "Float_t",
+        "variable": "track_dlambdadz"
+      },
+      {
+        "description": "Track covariance matrix entry (phi, phi) ",
+        "type": "Float_t",
+        "variable": "track_dphidphi"
+      },
+      {
+        "description": "Track covariance matrix entry (phi, xy)",
+        "type": "Float_t",
+        "variable": "track_dphidxy"
+      },
+      {
+        "description": "Track covariance matrix entry (pT, pT)",
+        "type": "Float_t",
+        "variable": "track_dptdpt"
+      },
+      {
+        "description": "Track covariance matrix entry (dxy, dxy) ",
+        "type": "Float_t",
+        "variable": "track_dxydxy"
+      },
+      {
+        "description": "Track covariance matrix entry (dxy, dz)",
+        "type": "Float_t",
+        "variable": "track_dxydz"
+      },
+      {
+        "description": "Track covariance matrix entry (dz, dz)",
+        "type": "Float_t",
+        "variable": "track_dzdz"
+      },
+      {
+        "description": "Minimum pseudoangular distance ∆R between the associated SVs and the charged PF candidate",
+        "type": "Float_t",
+        "variable": "track_drminsv"
+      },
+      {
+        "description": "Pseudoangular distance ∆R between the charged PF candidate and the first soft drop subjet",
+        "type": "Float_t",
+        "variable": "track_drsubjet1"
+      },
+      {
+        "description": "Pseudoangular distance ∆R between the charged PF candidate and the second soft drop subjet ",
+        "type": "Float_t",
+        "variable": "track_drsubjet2"
+      },
+      {
+        "description": "Transverse (2D) impact parameter of the track, defined as the distance of closest approach of the track trajectory to the beam line in the transverse plane to the beam",
+        "type": "Float_t",
+        "variable": "track_dxy"
+      },
+      {
+        "description": "Transverse (2D) impact parameter significance of the track",
+        "type": "Float_t",
+        "variable": "track_dxysig"
+      },
+      {
+        "description": "Longitudinal impact parameter, defined as the distance of closest approach of the track trajectory to the PV projected on to the z direction",
+        "type": "Float_t",
+        "variable": "track_dz"
+      },
+      {
+        "description": "Longitudinal impact parameter significance of the track",
+        "type": "Float_t",
+        "variable": "track_dzsig"
+      },
+      {
+        "description": "Energy of the charged PF candidate divided by the energy of the AK8 jet",
+        "type": "Float_t",
+        "variable": "track_erel"
+      },
+      {
+        "description": "Pseudorapidity ∆η of the track relative to the jet axis",
+        "type": "Float_t",
+        "variable": "track_etarel"
+      },
+      {
+        "description": "Integer indicating whether the charged PF candidate is consistent with the PV: `PVUsedInFit=3`, if the track is used in the PV fit; `PVTight=2` if the track is not used in the fit of any of the other PVs and is closest in z to the PV, `PVLoose=1` if the track is closest in z to a PV other then the PV; `NoPV=0` if the track is used in the fit of another PV",
+        "type": "Float_t",
+        "variable": "track_fromPV"
+      },
+      {
+        "description": "Boolean that is 1 if the charged PF candidate is classified as a charged hadron",
+        "type": "Float_t",
+        "variable": "track_isChargedHad"
+      },
+      {
+        "description": "Boolean that is 1 if the charged PF candidate is classified as an electron ",
+        "type": "Float_t",
+        "variable": "track_isEl"
+      },
+      {
+        "description": "Boolean that is 1 if the charged PF candidate is classified as a muon",
+        "type": "Float_t",
+        "variable": "track_isMu"
+      },
+      {
+        "description": "Integer with information related to inner silicon tracker hits for the track: `validHitInFirstPixelBarrelLayer=-1`, if the track has a valid hit in the first pixel barrel layer; `noLostInnerHits=0` if it does not have such hit because of geometrical or detector inefficiencies (i.e. the hit wasn't expected to be there); `oneLostHit=1`, if the track extrapolation towards the beam line crosses an active detector but no hit is found there; `moreLostHits=2` if there are at least two missing expected inner hits",
+        "type": "Float_t",
+        "variable": "track_lostInnerHits"
+      },
+      {
+        "description": "Mass of the charged PF candidate",
+        "type": "Float_t",
+        "variable": "track_mass"
+      },
+      {
+        "description": "Normalized χ2 of the track fit",
+        "type": "Float_t",
+        "variable": "track_normchi2"
+      },
+      {
+        "description": "Azimuthal angular distance ∆ϕ between the charged PF candidate and the AK8 jet axis",
+        "type": "Float_t",
+        "variable": "track_phirel"
+      },
+      {
+        "description": "Transverse momentum of the charged PF candidate",
+        "type": "Float_t",
+        "variable": "track_pt"
+      },
+      {
+        "description": "Transverse momentum of the charged PF candidate divided by the transverse momentum of the AK8 jet",
+        "type": "Float_t",
+        "variable": "track_ptrel"
+      },
+      {
+        "description": "Pileup per-particle identification (PUPPI) weight indicating whether the PF candidate is pileup-like (0) or not (1) ",
+        "type": "Float_t",
+        "variable": "track_puppiw"
+      },
+      {
+        "description": "Track quality: `undefQuality=-1`; `loose=0`; `tight=1`; `highPurity=2`; `confirmed=3`, if track found by more than one iteration; `looseSetWithPV=5`; `highPuritySetWithPV=6`, `discarded=7` if a better track found; `qualitySize=8`",
+        "type": "Float_t",
+        "variable": "track_quality"
+      },
+      {
+        "description": "Number of secondary vertices (SV) associated with the AK8 jet (∆R < 0.8)",
+        "type": "Int_t",
+        "variable": "n_sv"
+      },
+      {
+        "description": "Number of secondary vertices (SV) associated with the AK8 jet (∆R < 0.8)",
+        "type": "Float_t",
+        "variable": "nsv"
+      },
+      {
+        "description": "χ2 of the vertex fit",
+        "type": "Float_t",
+        "variable": "sv_chi2"
+      },
+      {
+        "description": "number of degrees of freedom of the vertex fit",
+        "type": "Float_t",
+        "variable": "sv_ndf"
+      },
+      {
+        "description": "χ2 divided by the number of degrees of freedom for the vertex fit",
+        "type": "Float_t",
+        "variable": "sv_normchi2"
+      },
+      {
+        "description": "Cosine of the angle cos(θ) between the SV and the PV",
+        "type": "Float_t",
+        "variable": "sv_costhetasvpv"
+      },
+      {
+        "description": "3D flight distance of the SV",
+        "type": "Float_t",
+        "variable": "sv_d3d"
+      },
+      {
+        "description": "3D flight distance uncertainty of the SV",
+        "type": "Float_t",
+        "variable": "sv_d3derr"
+      },
+      {
+        "description": "3D flight distance significance of the SV",
+        "type": "Float_t",
+        "variable": "sv_d3dsig"
+      },
+      {
+        "description": "Transverse (2D) flight distance of the SV",
+        "type": "Float_t",
+        "variable": "sv_dxy"
+      },
+      {
+        "description": "Transverse (2D) flight distance uncertainty of the SV",
+        "type": "Float_t",
+        "variable": "sv_dxyerr"
+      },
+      {
+        "description": "Transverse (2D) flight distance significance of the SV",
+        "type": "Float_t",
+        "variable": "sv_dxysig"
+      },
+      {
+        "description": "Pseudoangular distance ∆R between the SV and the AK8 jet",
+        "type": "Float_t",
+        "variable": "sv_deltaR"
+      },
+      {
+        "description": "Energy of the SV divided by the energy of the AK8 jet",
+        "type": "Float_t",
+        "variable": "sv_erel"
+      },
+      {
+        "description": "Pseudorapidity ∆η of the SV relative to the AK8 jet axis",
+        "type": "Float_t",
+        "variable": "sv_etarel"
+      },
+      {
+        "description": "Mass of the SV",
+        "type": "Float_t",
+        "variable": "sv_mass"
+      },
+      {
+        "description": "Number of tracks associated with the SV",
+        "type": "Float_t",
+        "variable": "sv_ntracks"
+      },
+      {
+        "description": "Azimuthal angular distance ∆ϕ of the SV relative to the jet axis",
+        "type": "Float_t",
+        "variable": "sv_phirel"
+      },
+      {
+        "description": "Transverse momentum of the SV",
+        "type": "Float_t",
+        "variable": "sv_pt"
+      },
+      {
+        "description": "Transverse momentum of the SV divided by the transverse momentum of the AK8 jet",
+        "type": "Float_t",
+        "variable": "sv_ptrel"
+      }
     ],
     "date_published": "2019",
     "distribution": {
@@ -1302,7 +1302,6 @@
       "number_files": 0,
       "size": 0
     },
-    "doi": "FIXME",
     "experiment": "CMS",
     "keywords": [
       "datascience"
@@ -1314,17 +1313,117 @@
       "description": "This dataset was produced with the software available in:",
       "links": [
         {
-          "recid": "FIXME"
+          "recid": "12103"
         }
       ]
     },
     "publisher": "CERN Open Data Portal",
-    "recid": "FIXME",
+    "recid": "12102",
     "relations": [
       {
         "description": "This dataset was derived from:",
-        "recid": "FIXME",
-        "title": "FIXME all MINIADSIM but /QCD_Pt-15to7000_TuneCUETP8M1_Flat_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_magnetOn_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+        "recid": "12000",
+        "title": "/BulkGravTohhTohbbhbb_narrow_M-600_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM",
+        "type": "isChildOf"
+      },
+      {
+        "recid": "12001",
+        "title": "/BulkGravTohhTohbbhbb_narrow_M-1000_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM",
+        "type": "isChildOf"
+      },
+      {
+        "recid": "12002",
+        "title": "/BulkGravTohhTohbbhbb_narrow_M-1200_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+        "type": "isChildOf"
+      },
+      {
+        "recid": "12003",
+        "title": "/BulkGravTohhTohbbhbb_narrow_M-1400_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+        "type": "isChildOf"
+      },
+      {
+        "recid": "12004",
+        "title": "/BulkGravTohhTohbbhbb_narrow_M-1600_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+        "type": "isChildOf"
+      },
+      {
+        "recid": "12005",
+        "title": "/BulkGravTohhTohbbhbb_narrow_M-1800_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+        "type": "isChildOf"
+      },
+      {
+        "recid": "12006",
+        "title": "/BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+        "type": "isChildOf"
+      },
+      {
+        "recid": "12007",
+        "title": "/BulkGravTohhTohbbhbb_narrow_M-2000_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM",
+        "type": "isChildOf"
+      },
+      {
+        "recid": "12008",
+        "title": "/BulkGravTohhTohbbhbb_narrow_M-2500_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+        "type": "isChildOf"
+      },
+      {
+        "recid": "12009",
+        "title": "/BulkGravTohhTohbbhbb_narrow_M-3000_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM",
+        "type": "isChildOf"
+      },
+      {
+        "recid": "12010",
+        "title": "/BulkGravTohhTohbbhbb_narrow_M-4000_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+        "type": "isChildOf"
+      },
+      {
+        "recid": "12011",
+        "title": "/BulkGravTohhTohbbhbb_narrow_M-4500_13TeV-madgraph/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+        "type": "isChildOf"
+      },
+      {
+        "recid": "12012",
+        "title": "/QCD_Pt_300to470_TuneCUETP8M1_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+        "type": "isChildOf"
+      },
+      {
+        "recid": "12013",
+        "title": "/QCD_Pt_470to600_TuneCUETP8M1_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+        "type": "isChildOf"
+      },
+      {
+        "recid": "12014",
+        "title": "/QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+        "type": "isChildOf"
+      },
+      {
+        "recid": "12015",
+        "title": "/QCD_Pt_800to1000_TuneCUETP8M1_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+        "type": "isChildOf"
+      },
+      {
+        "recid": "12016",
+        "title": "/QCD_Pt_1000to1400_TuneCUETP8M1_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+        "type": "isChildOf"
+      },
+      {
+        "recid": "12017",
+        "title": "/QCD_Pt_1400to1800_TuneCUETP8M1_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+        "type": "isChildOf"
+      },
+      {
+        "recid": "12018",
+        "title": "/QCD_Pt_1800to2400_TuneCUETP8M1_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+        "type": "isChildOf"
+      },
+      {
+        "recid": "12019",
+        "title": "/QCD_Pt_2400to3200_TuneCUETP8M1_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM",
+        "type": "isChildOf"
+      },
+      {
+        "recid": "12020",
+        "title": "/QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v3/MINIAODSIM",
         "type": "isChildOf"
       }
     ],
@@ -1338,5 +1437,5 @@
     "usage": {
       "description": "The use of these files does not require any software specific to the CMS experiment. There are two sets of equivalent files in two different formats: ROOT and H5."
     }
-  },
+  }
 ]
