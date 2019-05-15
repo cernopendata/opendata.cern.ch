@@ -105,6 +105,118 @@
   },
   {
     "abstract": {
+      "description": "<p>Simulated dataset TTToHadronic_TuneCP5_13TeV-powheg-pythia8 in FEVTDEBUGHLT format (see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production overview</a> and <a href=\"https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideTrackingTruth\">information about FEVTDEBUG</a>) for LHC Phase2 studies. This dataset is used as the input in <a href=\"/record/12310\">ML studies</a>). </p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data that will be collected by the CMS experiment during Phase2.</p> <p>They were released in the context of data science sample production.  </p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Standard Model Physics",
+      "secondary": [
+        "Top physics"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2019"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2019",
+    "distribution": {
+      "formats": [
+        "fevtdebughlt",
+        "root"
+      ],
+      "number_events": 20000,
+      "number_files": 9,
+      "size": 641012348787
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>These data were generated in several steps (see also <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo Production Overview</a>). The input dataset to this step is in <a href=\"/record/12300\">Simulated dataset TTToHadronic_TuneCP5_13TeV-powheg-pythia8 in GEN-SIM format</a>, and the production step of this dataset is: </p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash \nexport SCRAM_ARCH=slc6_amd64_gcc700 \nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_10_2_5/src ] ; then \n echo release CMSSW_10_2_5 already exists\nelse\nscram p CMSSW CMSSW_10_2_5\nfi\ncd CMSSW_10_2_5/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/RunIIFall18wmLHEGS-IdealConditions_102X_upgrade2018_design_v9_ext1-v2/GEN-SIM\" --fileout file:PPD-RunIIAutumn18DR-00008_step1.root --pileup_input \"dbs:/MinBias_TuneCP5_13TeV-pythia8/RunIIFall18GS-IdealGeometry_102X_upgrade2018_design_v9-v1/GEN-SIM\" --mc --eventcontent FEVTDEBUGHLT --pileup AVE_50_BX_25ns --datatier GEN-SIM-DIGI-RAW --conditions 102X_upgrade2018_design_v9 --step DIGI:pdigi_valid,L1,DIGI2RAW,HLT:@relval2018 --nThreads 8 --geometry DB:Extended --era Run2_2018 --python_filename PPD-RunIIAutumn18DR-00008_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 87 || exit $? ; \n",
+              "title": "Production script"
+            },
+            {
+              "cms_confdb_id": "439614e270574edc46f51733936d93c8",
+              "process": "HLT",
+              "title": "Configuration file"
+            }
+          ],
+          "global_tag": "102X_upgrade2018_design_v9",
+          "release": "CMSSW_10_2_5",
+          "type": "HLT"
+        }
+      ]
+    },
+    "pileup": {
+      "description": "<p>To make these simulated data comparable with the collision data, <a href=\"/docs/cms-guide-pileup-simulation\">pile-up events</a> are added to the simulated event in this step.</p>",
+      "links": [
+        {
+          "recid": "12302",
+          "title": "/MinBias_TuneCP5_13TeV-pythia8/RunIIFall18GS-IdealGeometry_102X_upgrade2018_design_v9-v1/GEN-SIM"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12303",
+    "relations": [
+      {
+        "description": "This dataset is processed from:",
+        "recid": "12300",
+        "title": "/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/RunIIFall18wmLHEGS-IdealConditions_102X_upgrade2018_design_v9_ext1-v2/GEN-SIM",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "Phase2"
+    ],
+    "system_details": {
+      "global_tag": "102X_upgrade2018_design_v9",
+      "release": "CMSSW_10_2_5"
+    },
+    "title": "/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/RunIIAutumn18DR-PUAvg50IdealConditions_IdealConditions_102X_upgrade2018_design_v9_ext1-v2/FEVTDEBUGHLT/",
+    "title_additional": "TTToHadronic_TuneCP5_13TeV-powheg-pythia8 in FEVTDEBUGHLT format for LHC Phase2 studies",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2011"
+        }
+      ]
+    },
+    "validation": {
+      "description": "These data were generated in context of machine learning and they have been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
       "description": "<p>Simulated dataset TTToHadronic_TuneCP5_13TeV-powheg-pythia8 in GEN-SIM-DIGI-RAW (see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production overview</a>) format for LHC Phase2 studies. This dataset is used as the input in <a href=\"/record/12310\">ML studies</a>). </p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data that will be collected by the CMS experiment during Phase2.</p> <p>They were released in the context of data science sample production.  </p>"
     },
     "accelerator": "CERN-LHC",
@@ -144,17 +256,17 @@
       "attribution": "CC0"
     },
     "methodology": {
-      "description": "<p>These data were generated in several steps (see also <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo Production Overview</a>). The input dataset to this step is in <a href=\"/record/12300\">Simulated dataset TTToHadronic_TuneCP5_13TeV-powheg-pythia8 in GEN-SIM format</a>, and the production step of this dataset is: </p>\n                           ",
+      "description": "<p>These data were generated in several steps (see also <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo Production Overview</a>). The input dataset to this step is in <a href=\"/record/12300\">Simulated dataset TTToHadronic_TuneCP5_13TeV-powheg-pythia8 in FEVTDEBUGHLT format</a>, and the production step of this dataset is: </p>\n                           ",
       "steps": [
         {
           "configuration_files": [
             {
-              "script": "#!/bin/bash \nexport SCRAM_ARCH=slc6_amd64_gcc700 \nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_10_2_5/src ] ; then \n echo release CMSSW_10_2_5 already exists\nelse\nscram p CMSSW CMSSW_10_2_5\nfi\ncd CMSSW_10_2_5/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/RunIIFall18wmLHEGS-IdealConditions_102X_upgrade2018_design_v9_ext1-v2/GEN-SIM\" --fileout file:PPD-RunIIAutumn18DR-00008_step1.root --pileup_input \"dbs:/MinBias_TuneCP5_13TeV-pythia8/RunIIFall18GS-IdealGeometry_102X_upgrade2018_design_v9-v1/GEN-SIM\" --mc --eventcontent FEVTDEBUGHLT --pileup AVE_50_BX_25ns --datatier GEN-SIM-DIGI-RAW --conditions 102X_upgrade2018_design_v9 --step DIGI:pdigi_valid,L1,DIGI2RAW,HLT:@relval2018 --nThreads 8 --geometry DB:Extended --era Run2_2018 --python_filename PPD-RunIIAutumn18DR-00008_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 87 || exit $? ; \n",
+              "script": "#!/bin/bash \nexport SCRAM_ARCH=slc6_amd64_gcc700 \nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_10_2_5/src ] ; then \n echo release CMSSW_10_2_5 already exists\nelse\nscram p CMSSW CMSSW_10_2_5\nfi\ncd CMSSW_10_2_5/src\neval `scram runtime -sh`\n\n\nscram b\ncd ../../\ncmsDriver.py step1 --filein \"dbs:/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/RunIIFall18wmLHEGS-IdealConditions_102X_upgrade2018_design_v9_ext1-v2/GEN-SIM\" --fileout file:PPD-RunIIAutumn18DR-00008_step1.root --pileup_input \"dbs:/MinBias_TuneCP5_13TeV-pythia8/RunIIFall18GS-IdealGeometry_102X_upgrade2018_design_v9-v1/GEN-SIM\" --mc --eventcontent FEVTDEBUGHLT --pileup AVE_50_BX_25ns --datatier GEN-SIM-DIGI-RAW --conditions 102X_upgrade2018_design_v9 --step DIGI:pdigi_valid,L1,DIGI2RAW,HLT:@relval2018 --nThreads 8 --geometry DB:Extended --era Run2_2018 --python_filename PPD-RunIIAutumn18DR-00008_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 87 || exit $? ; \ncmsDriver.py step2 --filein file:PPD-RunIIAutumn18DR-00008_step1.root --fileout file:PPD-RunIIAutumn18DR-00008.root --mc --eventcontent FEVTDEBUGHLT --runUnscheduled --datatier FEVTDEBUGHLT --conditions 102X_upgrade2018_design_v9 --step RAW2DIGI,L1Reco,RECO,RECOSIM,EI --nThreads 8 --geometry DB:Extended --era Run2_2018 --python_filename PPD-RunIIAutumn18DR-00008_2_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 87 || exit $? ;\n",
               "title": "Production script"
             },
             {
-              "cms_confdb_id": "439614e270574edc46f51733936d93c8",
-              "process": "HLT",
+              "cms_confdb_id": "dbde940aa8762e4da0bac23833d80c27",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
@@ -178,8 +290,7 @@
     "relations": [
       {
         "description": "This dataset is processed from:",
-        "recid": "12300",
-        "title": "/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/RunIIFall18wmLHEGS-IdealConditions_102X_upgrade2018_design_v9_ext1-v2/GEN-SIM",
+        "title": "/TTToHadronic_TuneCP5_13TeV-powheg-pythia8/RunIIFall18wmLHEGS-IdealConditions_102X_upgrade2018_design_v9_ext1-v2/FEVTDEBUGHLT",
         "type": "isChildOf"
       }
     ],
