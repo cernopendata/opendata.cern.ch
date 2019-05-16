@@ -103,5 +103,43 @@
         "Condition"
       ]
     }
+  },
+  {
+    "abstract": {
+      "description": "<p>Condition database includes non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for simulation/reconstruction/analysis software.</p>\n <p> These files are needed when running a CMSSW job on the Open Data VM. They are automatically read from the /cvmfs/cms-opendata-conddb.cern.ch runtime, you do not need to download these files from here separately.</p>\n <p>START53_V7N was used to generate the simulated data used in the Higgs discovery analysis with dose-dependent detector characteristics, run-dependent pile-up and beam spot conditions.</p>\n These condition data are only needed for production of samples and not for analysis of the already available simulated data. <p>See further information in <a href=\"/docs/cms-guide-for-condition-database\">the guide to CMS condition database</a>.</p>\n <p>For 2012 CMS collision data see:</p>",
+      "links": [
+        {
+          "recid": "1803"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Condition-Data"
+    ],
+    "date_created": [
+      "2012"
+    ],
+    "date_published": "2019",
+    "experiment": "CMS",
+    "publisher": "CERN Open Data Portal",
+    "recid": "1805",
+    "run_period": [
+      "Run2012A",
+      "Run2012B",
+      "Run2012C",
+      "Run2012D"
+    ],
+    "title": "Condition data for 2012 run-dependent simulated data production",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "Condition"
+      ]
+    }
   }
 ]
