@@ -41,13 +41,20 @@
     },
     "publisher": "CERN Open Data Portal",
     "recid": "12310",
+    "relations": [
+      {
+        "description": "The ouput dataset of this software tool is available in",
+        "recid": "12320",
+        "type": "isRelatedTo"
+      }
+    ],
     "run_period": [
       "Phase2"
     ],
     "system_details": {
       "description": "Use this code with the CMS Open Data VM environment",
       "recid": "252",
-      "release": "CMSSW_10_3_5"
+      "release": "CMSSW_10_2_5"
     },
     "title": "CNNPixelSeedsProducerTool - Example workflow using ML in track reconstruction with CMS Phase2 simulated data",
     "type": {
@@ -60,13 +67,10 @@
       "description": " <p>If you do not have the CERN Virtual Machine for CMS open data installed, follow the instructions in step 1 at <a href=\"/VM/CMS/2011\">How to install a CERN Virtual Machine</a>.  <p>To run the analysis, follow the instructions in <a href=\"https://github.com/cms-legacydata-analyses/CNNPixelSeedsProducerTool\">CNNPixelSeedsProducerTool documentation on Github</a>.</p>"
     },
     "use_with": {
-      "description": "Use this with CMS Phase2 ttbar GEN-SIM-DIGI-RAW and pile-up GEN-SIM datasets:",
+      "description": "Use this with:",
       "links": [
         {
-          "recid": "12301"
-        },
-        {
-          "recid": "12302"
+          "recid": "12303"
         }
       ]
     }

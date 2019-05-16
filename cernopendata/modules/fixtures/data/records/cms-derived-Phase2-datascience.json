@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": "<p>The daset consists of a collection of pixel doublet seeds, i.e. the hit pairs that could belong to the same particle. The compatibility between two hits is evaluated only on the basis of geometrical considerations, such as cuts in η, ϕ and r. These doublets define the building blocks for further tracks. Each doublet is charcaterised by a set of features, such as its coordinates and the charge released in ther Pixel detector, and the pixel cluster shape, projected on 2D histogram.</p> <p>These data can be used in one of the first steps of the track finding workflow is the creation of track seeds, i.e. compatible pairs of hits from different detector layers, that are subsequently fed to to higher level pattern recognition steps. However the set of compatible hit pairs is highly affected by combinatorial background resulting in the next steps of the tracking algorithm to process a significant fraction of fake doublets. </p>"
+      "description": "<p>The dataset consists of a collection of pixel doublet seeds, i.e. the hit pairs that could belong to the same particle. The compatibility between two hits is evaluated only on the basis of geometrical considerations, such as cuts in η, ϕ and r. These doublets define the building blocks for further tracks. Each doublet is charcaterised by a set of features, such as its coordinates and the charge released in ther Pixel detector, and the pixel cluster shape, projected on 2D histogram.</p> <p>These data can be used in one of the first steps of the track finding workflow, which is the creation of track seeds, i.e. compatible pairs of hits from different detector layers, that are subsequently fed to to higher level pattern recognition steps. However the set of compatible hit pairs is highly affected by combinatorial background resulting in the next steps of the tracking algorithm to process a significant fraction of fake doublets. </p>"
     },
     "accelerator": "CERN-LHC",
     "authors": [
@@ -3148,8 +3148,8 @@
     "relations": [
       {
         "description": "This dataset was derived from:",
-        "recid": "12301",
-        "title": "TTToHadronic_TuneCP5_13TeV-powheg-pythia8 in GEN-SIM-DIGI-RAW format for LHC Phase2 studies",
+        "recid": "12303",
+        "title": "TTToHadronic_TuneCP5_13TeV-powheg-pythia8 in FEVTDEBUGHLT format for LHC Phase2 studies",
         "type": "isChildOf"
       }
     ],
@@ -3161,18 +3161,7 @@
       ]
     },
     "usage": {
-      "description": "The use of these files does not require any software specific to the CMS experiment. An example on how to access the files is provided in"
-    },
-    "use_with": {
-      "description": "Use this with CMS Phase2 ttbar GEN-SIM-DIGI-RAW and pile-up GEN-SIM datasets:",
-      "links": [
-        {
-          "recid": "12301"
-        },
-        {
-          "recid": "12302"
-        }
-      ]
+      "description": "The use of these files does not require any software specific to the CMS experiment. An example on how to access the files is provided in FIXME"
     }
   }
 ]
