@@ -1,0 +1,112 @@
+[
+  {
+    "abstract": {
+      "description": "<p>This dataset contains about 60 mio. data events from the CMS detector taken in 2012 during Run B and C. The original AOD dataset is converted to the NanoAOD format and reduced to the muon collections. The dataset in the file is called <code>Events</code> and contains columns as described in the table below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Wunsch, Stefan"
+      }
+    ],
+    "collections": [
+      "CMS-Tools"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Number of muons in this event",
+        "type": "unsigned int",
+        "variable": "nMuon"
+      },
+      {
+        "description": "Transverse momentum of the muons (stored as an array of size nMuon)",
+        "type": "float[nMuon]",
+        "variable": "Muon_pt"
+      },
+      {
+        "description": "Pseudorapidity of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_eta"
+      },
+      {
+        "description": "Azimuth of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_phi"
+      },
+      {
+        "description": "Mass of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_mass"
+      },
+      {
+        "description": "Charge of the muons (either 1 or -1)",
+        "type": "int[nMuon]",
+        "variable": "Muon_charge"
+      }
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "root",
+        "nanoaod"
+      ],
+      "number_events": 61540413,
+      "number_files": 1,
+      "size": 2244449133
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:1fa61aca",
+        "size": 2244449133,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/Run2012BC_DoubleMuParked_Muons.root"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12341",
+    "relations": [
+      {
+        "description": "",
+        "recid": "12340",
+        "type": "isRelatedTo"
+      },
+      {
+        "description": "",
+        "recid": "12342",
+        "type": "isRelatedTo"
+      },
+      {
+        "description": "",
+        "recid": "6004",
+        "type": "isRelatedTo"
+      },
+      {
+        "description": "",
+        "recid": "6030",
+        "type": "isRelatedTo"
+      }
+    ],
+    "run_period": [
+      "Run2012A",
+      "Run2012B"
+    ],
+    "title": "DoubleMuParked dataset from 2012 in NanoAOD format reduced on muons",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "use_with": {
+      "description": "This dataset can be used with the following analysis:",
+      "links": [
+        {
+          "recid": "12342"
+        }
+      ]
+    }
+  }
+]
