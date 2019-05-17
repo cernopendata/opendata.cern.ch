@@ -47,7 +47,24 @@
     ],
     "relations": [
       {
-        "description": "The ouput dataset of this software tool is available in",
+        "description": "The tracker-hit-enriched AODSIM files produced by step 2 of this software tool are available in",
+        "recid": "12200",
+        "type": "isRelatedTo"
+      },
+      {
+        "recid": "12201",
+        "type": "isRelatedTo"
+      },
+      {
+        "recid":   "12202",
+        "type": "isRelatedTo"
+      },
+      {
+        "recid":   "12203",
+        "type": "isRelatedTo"
+      },
+      {
+        "description": "The ROOT ntuple produced by the final step of this software tool is available in",
         "recid": "12220",
         "type": "isRelatedTo"
       }
@@ -57,7 +74,7 @@
       "recid": "252",
       "release": "CMSSW_5_3_32"
     },
-    "title": "TrackerRecHitProducerTool - Example workflow to add tracker hits to CMS Run1 AOD",
+    "title": "TrackerRecHitProducerTool - Example workflow to add tracker hits to CMS Run1 AOD and to produce full event ROOT ntuple with tracker hits",
     "type": {
       "primary": "Software",
       "secondary": [
@@ -65,10 +82,10 @@
       ]
     },
     "usage": {
-      "description": " <p>If you do not have the CERN Virtual Machine for CMS open data installed, follow the instructions in step 1 at <a href=\"/VM/CMS/2011\">How to install a CERN Virtual Machine</a>.  <p>To run this workflow, follow the instructions in <a href=\"https://github.com/cms-legacydata-analyses/TrackerRecHitProducerTool\">TrackerRecHitProducerTool GitHub documentationb</a>.</p> "
+      "description": " <p>If you do not have the CERN Virtual Machine for CMS open data installed, follow the instructions in step 1 at <a href=\"/VM/CMS/2011\">How to install a CERN Virtual Machine</a>.  <p>To run this workflow, follow the instructions in <a href=\"https://github.com/cms-legacydata-analyses/TrackerRecHitProducerTool\">TrackerRecHitProducerTool GitHub documentation</a>.</p> "
     },
     "use_with": {
-      "description": "Use this with Run1 QCD MiniAODSIM dataset enriched with tracker hits.",
+      "description": "The ROOT ntuple production step (step3) can be run independently using these Run1 tracker-hit-enriched AODSIM datasets:",
       "links": [
         {
           "recid": "12200"
