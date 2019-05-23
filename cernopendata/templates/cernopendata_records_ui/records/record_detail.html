@@ -223,7 +223,9 @@
                 {% if step.get("global_tag") %}
                     Global Tag: {{ step.global_tag }}<br>
                 {% endif %}
-
+                {% if step.get("generators") %}
+                    Generators: {% for generator in step.generators %} {{generator}} {% endfor %}<br>
+                {% endif %}
                 {% for conf_file in step.get("configuration_files") %}
                     <span class="oi" data-glyph="file"></span>
                     {{ conf_file.get("title", "File #"+ loop.index|string) }}
