@@ -58,6 +58,11 @@
               "script": "import FWCore.ParameterSet.Config as cms\n\ndef customise(process): # Using SL instead GFlash AND turn on castor and compensation\n    process.g4SimHits.HCalSD.UseShowerLibrary = cms.bool(True)\n    process.g4SimHits.HCalSD.UseParametrize = cms.bool(False)\n    process.g4SimHits.HCalSD.UsePMTHits = cms.bool(False)\n    process.g4SimHits.HCalSD.UseFibreBundleHits = cms.bool(False)\n    process.g4SimHits.HFShower.UseShowerLibrary = cms.bool(True)\n    process.g4SimHits.HFShower.UseHFGflash = cms.bool(False)\n    process.g4SimHits.HFShower.ApplyFiducialCut = cms.bool(False)\n    process.g4SimHits.Generator.MinEtaCut = cms.double(-7.0)\n    process.g4SimHits.CastorSD.nonCompensationFactor = cms.double(0.77)\n\n    return(process)\n\n\n\n",
               "title": "Generator parameters",
               "url": "https://raw.githubusercontent.com/cms-sw/genproductions/d45de22e7af5816cb5ee3b90c446eaff93ae187d/python/lowpu2010_customise.py"
+            },
+            {
+              "cms_confdb_id": "065c6764b943c992bab22c0731db34f6",
+              "process": "SIM",
+              "title": "Configuration file"
             }
           ],
           "generators": [
@@ -188,20 +193,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "2f7ddb928d33dd11b2685ad44df58b69",
-              "process": "RECO",
+              "cms_confdb_id": "2f7ddb928d33dd11b2685ad44dec4bf4",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "2f7ddb928d33dd11b2685ad44dec4bf4",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "2f7ddb928d33dd11b2685ad44df58b69",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/CS_Pt_120to9999_CTEQ6L1_HFshowerLibrary_7TeV_herwig6/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -638,6 +643,11 @@
               "script": "import FWCore.ParameterSet.Config as cms\n\ndef customise(process): # Using SL instead GFlash AND turn on castor and compensation\n    process.g4SimHits.HCalSD.UseShowerLibrary = cms.bool(True)\n    process.g4SimHits.HCalSD.UseParametrize = cms.bool(False)\n    process.g4SimHits.HCalSD.UsePMTHits = cms.bool(False)\n    process.g4SimHits.HCalSD.UseFibreBundleHits = cms.bool(False)\n    process.g4SimHits.HFShower.UseShowerLibrary = cms.bool(True)\n    process.g4SimHits.HFShower.UseHFGflash = cms.bool(False)\n    process.g4SimHits.HFShower.ApplyFiducialCut = cms.bool(False)\n    process.g4SimHits.Generator.MinEtaCut = cms.double(-7.0)\n    process.g4SimHits.CastorSD.nonCompensationFactor = cms.double(0.77)\n\n    return(process)\n\n\n\n",
               "title": "Generator parameters",
               "url": "https://raw.githubusercontent.com/cms-sw/genproductions/d45de22e7af5816cb5ee3b90c446eaff93ae187d/python/lowpu2010_customise.py"
+            },
+            {
+              "cms_confdb_id": "065c6764b943c992bab22c0731e67920",
+              "process": "SIM",
+              "title": "Configuration file"
             }
           ],
           "generators": [
@@ -655,20 +665,20 @@
               "title": "Production script"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca615",
-              "process": "RECO",
+              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca1dd",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca1dd",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca615",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/DPEDijets_Pt30_7TeV-pomwig/Summer12-LowPU2010_DR42_BS2011_PU_S0_START42_V17B-v2/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -881,20 +891,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "2f7ddb928d33dd11b2685ad44df58b69",
-              "process": "RECO",
+              "cms_confdb_id": "2f7ddb928d33dd11b2685ad44dec4bf4",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "2f7ddb928d33dd11b2685ad44dec4bf4",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "2f7ddb928d33dd11b2685ad44df58b69",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/DYToEE_M_50To130_Tune4C_HFshowerLibrary_7TeV_pythia8/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -994,20 +1004,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "e9bd6a6ef1f54b9e06526fad200c0700",
-              "process": "RECO",
+              "cms_confdb_id": "e9bd6a6ef1f54b9e06526fad200c0447",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "e9bd6a6ef1f54b9e06526fad200c0447",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "e9bd6a6ef1f54b9e06526fad200c0700",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/DYToMuMu_M-20_TuneZ2Star_HFshowerLibrary_7TeV_pythia6/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -1107,20 +1117,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "950a1c715eb6d4293d88162a1005b191",
-              "process": "RECO",
+              "cms_confdb_id": "950a1c715eb6d4293d88162a1005a238",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "950a1c715eb6d4293d88162a1005a238",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "950a1c715eb6d4293d88162a1005b191",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/MinBias_Tune4C_7TeV_pythia8/Summer12-LowPU2010_DR42-PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -1333,20 +1343,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "950a1c715eb6d4293d88162a1005b191",
-              "process": "RECO",
+              "cms_confdb_id": "950a1c715eb6d4293d88162a1005a238",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "950a1c715eb6d4293d88162a1005a238",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "950a1c715eb6d4293d88162a1005b191",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/MinBias_Tune4C_Castor_7TeV_pythia8/Summer12-LowPU2010_DR42-PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -1446,20 +1456,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "950a1c715eb6d4293d88162a1005963c",
-              "process": "RECO",
+              "cms_confdb_id": "950a1c715eb6d4293d88162a10058d09",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "950a1c715eb6d4293d88162a10058d09",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "950a1c715eb6d4293d88162a1005963c",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17C::All",
           "output_dataset": "/MinBias_Tune4C_Castor_7TeV_pythia8/Summer12-LowPU2010_DR42-PU_S0_START42_V17C-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -1672,20 +1682,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "70d6766611f8d0924ace67e606b0c1df",
-              "process": "RECO",
+              "cms_confdb_id": "70d6766611f8d0924ace67e606ab6006",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "70d6766611f8d0924ace67e606ab6006",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "70d6766611f8d0924ace67e606b0c1df",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17C::All",
           "output_dataset": "/MinBias_TuneD6T_HFshowerLibrary_7TeV_pythia6/Summer12-LowPU2010_DR42_NoPileUp_START42_V17C-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -2011,20 +2021,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "950a1c715eb6d4293d88162a1005b191",
-              "process": "RECO",
+              "cms_confdb_id": "950a1c715eb6d4293d88162a1005a238",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "950a1c715eb6d4293d88162a1005a238",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "950a1c715eb6d4293d88162a1005b191",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/MinBias_TuneZ2star_7TeV_pythia6/Summer12-LowPU2010_DR42-PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -2124,20 +2134,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "950a1c715eb6d4293d88162a1005963c",
-              "process": "RECO",
+              "cms_confdb_id": "950a1c715eb6d4293d88162a10058d09",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "950a1c715eb6d4293d88162a10058d09",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "950a1c715eb6d4293d88162a1005963c",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17C::All",
           "output_dataset": "/MinBias_TuneZ2star_7TeV_pythia6/Summer12-LowPU2010_DR42-PU_S0_START42_V17C-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -2576,20 +2586,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "fe35a6e3bcf89a49c7b3140c99b5e37e",
-              "process": "RECO",
+              "cms_confdb_id": "fe35a6e3bcf89a49c7b3140c99b59cde",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "fe35a6e3bcf89a49c7b3140c99b59cde",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "fe35a6e3bcf89a49c7b3140c99b5e37e",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/MinBias_TuneZ2star_HFshowerLibrary_7TeV_pythia6/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v2/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -2724,20 +2734,20 @@
               "title": "Production script"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca615",
-              "process": "RECO",
+              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca1dd",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca1dd",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca615",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_HT-1000ToInf_TuneZ2Star_7TeV-madgraph-pythia6/Summer12-LowPU2010_DR42_BS2011_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -3020,20 +3030,20 @@
               "title": "Production script"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca615",
-              "process": "RECO",
+              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca1dd",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca1dd",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca615",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_HT-250To500_TuneZ2Star_7TeV-madgraph-pythia6/Summer12-LowPU2010_DR42_BS2011_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -3316,20 +3326,20 @@
               "title": "Production script"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca615",
-              "process": "RECO",
+              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca1dd",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca1dd",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca615",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_HT-50To100_TuneZ2Star_7TeV-madgraph-pythia6/Summer12-LowPU2010_DR42_BS2011_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -3562,20 +3572,20 @@
               "title": "Production script"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca615",
-              "process": "RECO",
+              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca1dd",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca1dd",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca615",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt-15to1000_TuneEE3C_Flat_7TeV_herwigpp/Summer12-LowPU2010_DR42_BS2011_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -3690,20 +3700,20 @@
               "title": "Production script"
             },
             {
-              "cms_confdb_id": "42642b9c91fe93ccc4ec15da37681bd8",
-              "process": "RECO",
+              "cms_confdb_id": "42642b9c91fe93ccc4ec15da375e4d57",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "42642b9c91fe93ccc4ec15da375e4d57",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "42642b9c91fe93ccc4ec15da37681bd8",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt-15to1000_fwdJet_bwdJet_Tune4C_Flat_7TeV_pythia8/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -4185,13 +4195,13 @@
               "title": "Production script"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca615",
-              "process": "RECO",
+              "cms_confdb_id": "42642b9c91fe93ccc4ec15da375e4d57",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca1dd",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "42642b9c91fe93ccc4ec15da37681bd8",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
@@ -4201,7 +4211,7 @@
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt-15to3000_Tune4C_Flat_HFshowerLibrary_7TeV_pythia8/Summer12-LowPU2010_DR42_BS2011_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -5220,20 +5230,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "34b5be84d9a7c90a4924f7cf9c8dbe86",
-              "process": "RECO",
+              "cms_confdb_id": "34b5be84d9a7c90a4924f7cf9c8d81f9",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "34b5be84d9a7c90a4924f7cf9c8d81f9",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "34b5be84d9a7c90a4924f7cf9c8dbe86",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt-50to80_Tune23_HFshowerLibrary_7TeV_herwigpp/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -5333,20 +5343,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "8bf830006a8493f7e7b1551d16783853",
-              "process": "RECO",
+              "cms_confdb_id": "8bf830006a8493f7e7b1551d16782ade",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "8bf830006a8493f7e7b1551d16782ade",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "8bf830006a8493f7e7b1551d16783853",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt-600to800_Tune23_HFshowerLibrary_7TeV_herwigpp/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -6011,20 +6021,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "5699673a1e36526f07dc2da3fd1b006b",
-              "process": "RECO",
+              "cms_confdb_id": "5699673a1e36526f07dc2da3fd1ab0ae",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "5699673a1e36526f07dc2da3fd1ab0ae",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "5699673a1e36526f07dc2da3fd1b006b",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_10to25_fwdJet_TuneZ2star_HFshowerLibrary_7TeV_pythia6/Summer12-LowPU2010_DR42-PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -6463,20 +6473,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "1cce1be4ff841028987380e485d2fce6",
-              "process": "RECO",
+              "cms_confdb_id": "1cce1be4ff841028987380e485d2f0fe",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "1cce1be4ff841028987380e485d2f0fe",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "1cce1be4ff841028987380e485d2fce6",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_150toInf_fwdJet_Tune4C_HFshowerLibrary_7TeV_pythia8/Summer12-LowPU2010_DR42-PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -6576,20 +6586,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "20df86a8d2a6767511e8c70c16761285",
-              "process": "RECO",
+              "cms_confdb_id": "20df86a8d2a6767511e8c70c16760806",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "20df86a8d2a6767511e8c70c16760806",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "20df86a8d2a6767511e8c70c16761285",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_150toInf_fwdJet_TuneD6T_HFshowerLibrary_7TeV_pythia6/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v2/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -6689,20 +6699,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "5699673a1e36526f07dc2da3fd1b006b",
-              "process": "RECO",
+              "cms_confdb_id": "5699673a1e36526f07dc2da3fd1ab0ae",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "5699673a1e36526f07dc2da3fd1ab0ae",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "5699673a1e36526f07dc2da3fd1b006b",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_150toInf_fwdJet_TuneZ2star_HFshowerLibrary_7TeV_pythia6/Summer12-LowPU2010_DR42-PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -6915,20 +6925,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "e9bd6a6ef1f54b9e06526fad200c0700",
-              "process": "RECO",
+              "cms_confdb_id": "e9bd6a6ef1f54b9e06526fad200c0447",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "e9bd6a6ef1f54b9e06526fad200c0447",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "e9bd6a6ef1f54b9e06526fad200c0700",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_15to30_TuneZ2star_HFshowerLibrary_7TeV_pythia6/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -7141,20 +7151,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "ffda6faab4a5706f819a52c5152b9f93",
-              "process": "RECO",
+              "cms_confdb_id": "ffda6faab4a5706f819a52c5152b89f8",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "ffda6faab4a5706f819a52c5152b89f8",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "ffda6faab4a5706f819a52c5152b9f93",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_170to300_TuneZ2star_HFshowerLibrary_7TeV_pythia6/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -7254,20 +7264,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "d6f77e87e94b455d49e4e5982ed2ab3a",
-              "process": "RECO",
+              "cms_confdb_id": "d6f77e87e94b455d49e4e5982eca7b74",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "d6f77e87e94b455d49e4e5982eca7b74",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "d6f77e87e94b455d49e4e5982ed2ab3a",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_25to40_fwdJet_Tune23_HFshowerLibrary_7TeV_herwigpp/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -7367,20 +7377,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "1cce1be4ff841028987380e485d2fce6",
-              "process": "RECO",
+              "cms_confdb_id": "1cce1be4ff841028987380e485d2f0fe",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "1cce1be4ff841028987380e485d2f0fe",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "1cce1be4ff841028987380e485d2fce6",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_25to40_fwdJet_Tune4C_HFshowerLibrary_7TeV_pythia8/Summer12-LowPU2010_DR42-PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -7706,20 +7716,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "fa09878571c00c1f0d62c320e484c511",
-              "process": "RECO",
+              "cms_confdb_id": "fa09878571c00c1f0d62c320e484a464",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "fa09878571c00c1f0d62c320e484a464",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "fa09878571c00c1f0d62c320e484c511",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_300to470_Tune4C_HFshowerLibrary_7TeV_pythia8/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -7932,20 +7942,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "69014bd02166e652ad8e145474a68b74",
-              "process": "RECO",
+              "cms_confdb_id": "69014bd02166e652ad8e145474a66838",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "69014bd02166e652ad8e145474a66838",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "69014bd02166e652ad8e145474a68b74",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_30to50_Tune4C_HFshowerLibrary_7TeV_pythia8/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -8045,20 +8055,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "69014bd02166e652ad8e145474a68b74",
-              "process": "RECO",
+              "cms_confdb_id": "69014bd02166e652ad8e145474a66838",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "69014bd02166e652ad8e145474a66838",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "69014bd02166e652ad8e145474a68b74",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_30to50_TuneZ2star_HFshowerLibrary_7TeV_pythia6/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -8158,20 +8168,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "2f7ddb928d33dd11b2685ad44df58b69",
-              "process": "RECO",
+              "cms_confdb_id": "2f7ddb928d33dd11b2685ad44dec4bf4",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "2f7ddb928d33dd11b2685ad44dec4bf4",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "2f7ddb928d33dd11b2685ad44df58b69",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_40to80_fwdJet_Tune23_HFshowerLibrary_7TeV_herwigpp/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -8384,20 +8394,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "70ed77c68a7d31d941249f48606d9eab",
-              "process": "RECO",
+              "cms_confdb_id": "70ed77c68a7d31d941249f48606d1941",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "70ed77c68a7d31d941249f48606d1941",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "70ed77c68a7d31d941249f48606d9eab",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_40to80_fwdJet_TuneD6T_HFshowerLibrary_7TeV_pythia6/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -8497,20 +8507,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "5699673a1e36526f07dc2da3fd1b006b",
-              "process": "RECO",
+              "cms_confdb_id": "5699673a1e36526f07dc2da3fd1ab0ae",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "5699673a1e36526f07dc2da3fd1ab0ae",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "5699673a1e36526f07dc2da3fd1b006b",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_40to80_fwdJet_TuneZ2star_HFshowerLibrary_7TeV_pythia6/Summer12-LowPU2010_DR42-PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -8610,20 +8620,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "429e00f769683de0712feb6c5ba765ab",
-              "process": "RECO",
+              "cms_confdb_id": "429e00f769683de0712feb6c5ba663b2",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "429e00f769683de0712feb6c5ba663b2",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "429e00f769683de0712feb6c5ba765ab",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_470to600_Tune4C_HFshowerLibrary_7TeV_pythia8/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -8836,20 +8846,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "e9bd6a6ef1f54b9e06526fad200c0700",
-              "process": "RECO",
+              "cms_confdb_id": "e9bd6a6ef1f54b9e06526fad200c0447",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "e9bd6a6ef1f54b9e06526fad200c0447",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "e9bd6a6ef1f54b9e06526fad200c0700",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_50to80_Tune4C_HFshowerLibrary_7TeV_pythia8/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -8949,20 +8959,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "fa09878571c00c1f0d62c320e484c511",
-              "process": "RECO",
+              "cms_confdb_id": "fa09878571c00c1f0d62c320e484a464",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "fa09878571c00c1f0d62c320e484a464",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "fa09878571c00c1f0d62c320e484c511",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_50to80_TuneZ2star_HFshowerLibrary_7TeV_pythia6/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -9062,20 +9072,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "86795293e0f0a28c0259541ea4a8e6a9",
-              "process": "RECO",
+              "cms_confdb_id": "86795293e0f0a28c0259541ea4a8e57f",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "86795293e0f0a28c0259541ea4a8e57f",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "86795293e0f0a28c0259541ea4a8e6a9",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_5to15_TuneZ2star_HFshowerLibrary_7TeV_pythia6/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -9288,20 +9298,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "fa09878571c00c1f0d62c320e484c511",
-              "process": "RECO",
+              "cms_confdb_id": "fa09878571c00c1f0d62c320e484a464",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "fa09878571c00c1f0d62c320e484a464",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "fa09878571c00c1f0d62c320e484c511",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_600to800_TuneZ2star_HFshowerLibrary_7TeV_pythia6/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -9401,20 +9411,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "69014bd02166e652ad8e145474a68b74",
-              "process": "RECO",
+              "cms_confdb_id": "69014bd02166e652ad8e145474a66838",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "69014bd02166e652ad8e145474a66838",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "69014bd02166e652ad8e145474a68b74",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_80to120_Tune4C_HFshowerLibrary_7TeV_pythia8/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -9627,20 +9637,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "2f7ddb928d33dd11b2685ad44df58b69",
-              "process": "RECO",
+              "cms_confdb_id": "2f7ddb928d33dd11b2685ad44dec4bf4",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "2f7ddb928d33dd11b2685ad44dec4bf4",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "2f7ddb928d33dd11b2685ad44df58b69",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_80to150_fwdJet_Tune23_HFshowerLibrary_7TeV_herwigpp/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -9853,20 +9863,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "70ed77c68a7d31d941249f48606d9eab",
-              "process": "RECO",
+              "cms_confdb_id": "70ed77c68a7d31d941249f48606d1941",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "70ed77c68a7d31d941249f48606d1941",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "70ed77c68a7d31d941249f48606d9eab",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_80to150_fwdJet_TuneD6T_HFshowerLibrary_7TeV_pythia6/Summer12-LowPU2010_DR42_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -9966,20 +9976,20 @@
         {
           "configuration_files": [
             {
-              "cms_confdb_id": "5699673a1e36526f07dc2da3fd1b006b",
-              "process": "RECO",
+              "cms_confdb_id": "5699673a1e36526f07dc2da3fd1ab0ae",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "5699673a1e36526f07dc2da3fd1ab0ae",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "5699673a1e36526f07dc2da3fd1b006b",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/QCD_Pt_80to150_fwdJet_TuneZ2star_HFshowerLibrary_7TeV_pythia6/Summer12-LowPU2010_DR42-PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -10077,6 +10087,11 @@
               "script": "import FWCore.ParameterSet.Config as cms\n\ndef customise(process): # Using SL instead GFlash AND turn on castor and compensation\n    process.g4SimHits.HCalSD.UseShowerLibrary = cms.bool(True)\n    process.g4SimHits.HCalSD.UseParametrize = cms.bool(False)\n    process.g4SimHits.HCalSD.UsePMTHits = cms.bool(False)\n    process.g4SimHits.HCalSD.UseFibreBundleHits = cms.bool(False)\n    process.g4SimHits.HFShower.UseShowerLibrary = cms.bool(True)\n    process.g4SimHits.HFShower.UseHFGflash = cms.bool(False)\n    process.g4SimHits.HFShower.ApplyFiducialCut = cms.bool(False)\n    process.g4SimHits.Generator.MinEtaCut = cms.double(-7.0)\n    process.g4SimHits.CastorSD.nonCompensationFactor = cms.double(0.77)\n\n    return(process)\n\n\n\n",
               "title": "Generator parameters",
               "url": "https://raw.githubusercontent.com/cms-sw/genproductions/d45de22e7af5816cb5ee3b90c446eaff93ae187d/python/lowpu2010_customise.py"
+            },
+            {
+              "cms_confdb_id": "065c6764b943c992bab22c0731dbc204",
+              "process": "SIM",
+              "title": "Configuration file"
             }
           ],
           "generators": [
@@ -10205,6 +10220,11 @@
               "script": "import FWCore.ParameterSet.Config as cms\n\ndef customise(process): # Using SL instead GFlash AND turn on castor and compensation\n    process.g4SimHits.HCalSD.UseShowerLibrary = cms.bool(True)\n    process.g4SimHits.HCalSD.UseParametrize = cms.bool(False)\n    process.g4SimHits.HCalSD.UsePMTHits = cms.bool(False)\n    process.g4SimHits.HCalSD.UseFibreBundleHits = cms.bool(False)\n    process.g4SimHits.HFShower.UseShowerLibrary = cms.bool(True)\n    process.g4SimHits.HFShower.UseHFGflash = cms.bool(False)\n    process.g4SimHits.HFShower.ApplyFiducialCut = cms.bool(False)\n    process.g4SimHits.Generator.MinEtaCut = cms.double(-7.0)\n    process.g4SimHits.CastorSD.nonCompensationFactor = cms.double(0.77)\n\n    return(process)\n\n\n\n",
               "title": "Generator parameters",
               "url": "https://raw.githubusercontent.com/cms-sw/genproductions/d45de22e7af5816cb5ee3b90c446eaff93ae187d/python/lowpu2010_customise.py"
+            },
+            {
+              "cms_confdb_id": "065c6764b943c992bab22c0731e1f407",
+              "process": "SIM",
+              "title": "Configuration file"
             }
           ],
           "generators": [
@@ -10355,20 +10375,20 @@
               "title": "Production script"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca615",
-              "process": "RECO",
+              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca1dd",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca1dd",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca615",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/SingleDiffractiveWToENu_eta-minus_7TeV-pomwig/Summer12-LowPU2010_DR42_BS2011_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -10754,20 +10774,20 @@
               "title": "Production script"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca615",
-              "process": "RECO",
+              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca1dd",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca1dd",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca615",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/SingleDiffractiveWToMuNu_eta-plus_7TeV-pomwig/Summer12-LowPU2010_DR42_BS2011_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -11137,13 +11157,13 @@
               "title": "Production script"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca615",
-              "process": "RECO",
+              "cms_confdb_id": "42642b9c91fe93ccc4ec15da375e4d57",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca1dd",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "42642b9c91fe93ccc4ec15da37681bd8",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
@@ -11153,7 +11173,7 @@
           "global_tag": "START42_V17B::All",
           "output_dataset": "/SingleDiffractiveZToMuMu_M-20_eta-minus_7TeV-pomwig/Summer12-LowPU2010_DR42_BS2011_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -11273,20 +11293,20 @@
               "title": "Production script"
             },
             {
-              "cms_confdb_id": "42642b9c91fe93ccc4ec15da37681bd8",
-              "process": "RECO",
+              "cms_confdb_id": "42642b9c91fe93ccc4ec15da375e4d57",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "42642b9c91fe93ccc4ec15da375e4d57",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "42642b9c91fe93ccc4ec15da37681bd8",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/SingleDiffractiveZToMuMu_M-20_eta-minus_7TeV-pomwig/Summer12-LowPU2010_DR42_BS2011_PU_S0_START42_V17B-v2/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -11390,13 +11410,13 @@
               "title": "Production script"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca615",
-              "process": "RECO",
+              "cms_confdb_id": "42642b9c91fe93ccc4ec15da375e4d57",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca1dd",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "42642b9c91fe93ccc4ec15da37681bd8",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
@@ -11406,7 +11426,7 @@
           "global_tag": "START42_V17B::All",
           "output_dataset": "/SingleDiffractiveZToMuMu_M-20_eta-plus_7TeV-pomwig/Summer12-LowPU2010_DR42_BS2011_PU_S0_START42_V17B-v1/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -11526,20 +11546,20 @@
               "title": "Production script"
             },
             {
-              "cms_confdb_id": "42642b9c91fe93ccc4ec15da37681bd8",
-              "process": "RECO",
+              "cms_confdb_id": "42642b9c91fe93ccc4ec15da375e4d57",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "42642b9c91fe93ccc4ec15da375e4d57",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "42642b9c91fe93ccc4ec15da37681bd8",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/SingleDiffractiveZToMuMu_M-20_eta-plus_7TeV-pomwig/Summer12-LowPU2010_DR42_BS2011_PU_S0_START42_V17B-v2/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
@@ -11659,20 +11679,20 @@
               "title": "Production script"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca615",
-              "process": "RECO",
+              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca1dd",
+              "process": "DIGI2RAW",
               "title": "Configuration file"
             },
             {
-              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca1dd",
-              "process": "DIGI2RAW",
+              "cms_confdb_id": "c23dc5a1674bfa99196ee5fafc3ca615",
+              "process": "RECO",
               "title": "Configuration file"
             }
           ],
           "global_tag": "START42_V17B::All",
           "output_dataset": "/WToENu_TuneZ2star_7TeV-pythia6/Summer12-LowPU2010_DR42_BS2011_PU_S0_START42_V17B-v2/AODSIM",
           "release": "CMSSW_4_2_8_lowpupatch1",
-          "type": "RECO DIGI2RAW"
+          "type": "DIGI2RAW RECO"
         }
       ]
     },
