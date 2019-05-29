@@ -7,13 +7,13 @@
 
 ## <a name="vm">"I have installed the CERN Virtual Machine: now what?"</a>
 
-To analyse CMS data collected in 2011 and 2012, you need **version 5.3.32** of CMSSW, supported only on **Scientific Linux 6**. If you are unfamiliar with Linux, take a look at [this short introduction to Linux](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookBasicLinux) or try this interactive [command-line bootcamp](http://rik.smith-unna.com/command_line_bootcamp/). Once you have installed the [CMS-specific CERN Virtual Machine](/docs/cms-virtual-machine-2011), you need to open a terminal. In the "CMS-OpenData-1.5.0" VM, always use the "CMS shell" terminal available from the "CMS Shell" icon on the desktop for all CMSSW-specific commands, such as compilation and run (only if using the VM version "CMS-OpenData-1.2.0" or "CMS-OpenData-1.3.0, open a terminal with the X terminal emulator from an icon bottom-left of the VM screen). Execute the following command in the terminal if you haven't done so before; it ensures that you have this version of CMSSW running:
+To analyse CMS data collected in 2011 and 2012, you need **version 5.3.32** of CMSSW, supported only on **Scientific Linux 6**. If you are unfamiliar with Linux, take a look at [this short introduction to Linux](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookBasicLinux) or try this interactive [command-line bootcamp](http://rik.smith-unna.com/command_line_bootcamp/). Once you have installed the [CMS-specific CERN Virtual Machine](/docs/cms-virtual-machine-2011), you need to open a terminal. In the "CMS-OpenData-1.5.1" VM, always use the "CMS shell" terminal available from the "CMS Shell" icon on the desktop for all CMSSW-specific commands, such as compilation and run (only if using the VM version "CMS-OpenData-1.2.0" or "CMS-OpenData-1.3.0, open a terminal with the X terminal emulator from an icon bottom-left of the VM screen). Execute the following command in the terminal if you haven't done so before; it ensures that you have this version of CMSSW running:
 
 ```shell
 $ cmsrel CMSSW_5_3_32
 ```
 
-Then, make sure that you are always in the **CMSSW_5_3_32/src/** directory ((and in the "CMS Shell" terminal, if using the "CMS-OpenData-1.5.0" VM), and that the CMS analysis environment is properly setup by entering the following commands in the terminal (you must do so every time you boot the VM before you can proceed):
+Then, make sure that you are always in the **CMSSW_5_3_32/src/** directory ((and in the "CMS Shell" terminal, if using the "CMS-OpenData-1.5.1" VM), and that the CMS analysis environment is properly setup by entering the following commands in the terminal (you must do so every time you boot the VM before you can proceed):
 
 ```shell
 $ cd CMSSW_5_3_32/src/

@@ -131,7 +131,7 @@ Note that three sets of condition data for 2011 data are provided:
 * FT53_V21A_AN6 valid for the run range of 2012 RunB (public data)
 * FT53_V21A_AN6_RUNC valid for the run range of 2012 RunC (public data)
 
-It is convenient to use FT53_V21A_AN6_FULL as instructed above, as you will not need to load RunB and RunC condition data separately. You should use the CMS Open Data VM version CMS-Open-Data-1.5.0.ova (or CMS-Open-Data-1.3.0.ova), which has a large enough cache area.
+It is convenient to use FT53_V21A_AN6_FULL as instructed above, as you will not need to load RunB and RunC condition data separately. You should use the CMS Open Data VM version CMS-Open-Data-1.5.1.ova (or CMS-Open-Data-1.3.0.ova), which has a large enough cache area.
 
 In addition, condition data for the Global Tag START53_V7N is provided. This was used to produce simulated data with dose-dependent detector characteristics, run-dependent pile-up and beam spot conditions for the Higgs boson discovery analysis. The simulated data produced with this Global Tag can be analysed with the other Global Tag above.
 

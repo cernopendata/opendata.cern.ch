@@ -19,7 +19,7 @@ Note: the latest tested version of VirtualBox working with this CMS-specific Cer
 
 **Important**: Before you download the CernVM, note that the imported settings may not always work on your host machine. Please see [Issues and Limitations](#issue) or [the CMS guide to troubleshooting](/docs/cms-guide-troubleshooting) if you encounter any problems with booting the VM.
 
-Next download the CMS-specific CernVM image as OVA file from: [CMS VM Image for 2011 CMS Open Data][cmsvmimage2011]. It is recommended using the version "CMS-OpenData-1.5.0". This VM Image can be used for data from 2011 and 2012 (for data from 2010 follow the instruction in [CMS 2010 Virtual Machines: How to install](/docs/cms-virtual-machine-2010)).
+Next download the CMS-specific CernVM image as OVA file from: [CMS VM Image for 2011 CMS Open Data][cmsvmimage2011]. It is recommended using the version "CMS-OpenData-1.5.1". This VM Image can be used for data from 2011 and 2012 (for data from 2010 follow the instruction in [CMS 2010 Virtual Machines: How to install](/docs/cms-virtual-machine-2010)).
 
 By double clicking the downloaded file, VirtualBox imports the image with ready-to-run settings. Then, you launch the CMS-specific CernVM, which boots into the graphical user interface and sets up the CMS environment. Be patient, it will take a while.
 
@@ -30,7 +30,7 @@ The validation procedure tests that the CMS environment is installed and operati
 
 ### Set up the CMS environment and run a demo analyzer
 
-In the "CMS-OpenData-1.5.0" VM, open a terminal from the "CMS Shell" icon from the desktop (only if using the other VM versions, "CMS-Open-Data-1.2.0" or "CMS-Open-Data-1.3.0", open a terminal with the X terminal emulator from an icon bottom-left of the VM screen, in "CMS-OpenData-1.5.0" this will open a shell with an operating system incompatible with the CMS software release to be used).
+In the "CMS-OpenData-1.5.1" VM, open a terminal from the "CMS Shell" icon from the desktop (only if using the other VM versions, "CMS-Open-Data-1.2.0" or "CMS-Open-Data-1.3.0", open a terminal with the X terminal emulator from an icon bottom-left of the VM screen, in "CMS-OpenData-1.5.1" this will open a shell with an operating system incompatible with the CMS software release to be used).
 
 Execute the following command; this command builds the local release area (the directory structure) for CMSSW, and only needs to be run once (note that it may take a while):
 
@@ -165,7 +165,7 @@ Please check the validation report for the VM image for our 2010 data, which may
 
 **Question:**  When I try to compile with 'scram b', I get a warning 'SCRAM warning: You are trying to compile/build for architecture slc6_amd64_gcc530 on SLC7 OS which might not work. If you know this SCRAM_ARCH/OS combination works then please first run 'scram build --ignore-arch'.'
 
-> **Answer:** You are very likely in the wrong shell of the VM machine. When using the "CMS-OpenData-1.5.0" VM, all CMSSW-specific commands (compilation, run) must be given in the "CMS Shell", which can be opened from the desk top icon, not in the "Outer shell".
+> **Answer:** You are very likely in the wrong shell of the VM machine. When using the "CMS-OpenData-1.5.1" VM, all CMSSW-specific commands (compilation, run) must be given in the "CMS Shell", which can be opened from the desk top icon, not in the "Outer shell".
 
 **Question:** On Ubuntu running the latest version of VirtualBox, an error appears when opening the CMS-specific virtual machine: the message is about a missing path to a definition file.
 
