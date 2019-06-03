@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": " <p>The virtual machine image is based on CernVM (cernvm.cern.ch), with Scientific Linux CERN 6 (slc6), which is the environment needed for the CMSSW release\n      to be used with the 2011 and 2012 CMS open data. It gets the CMS software (CMSSW) from /cvmfs/cms.cern.ch and the jobs running on the CMS open data VM read the condition data from /cvmfs/cms-opendata-conddb.cern.ch. Access to the data is through XRootD.</p> <p>CMS-Open-Data-1.2.0.ova has a 20G virtual hard disk and a 10G cvmfs cache. CMS-Open-Data-1.3.0.ova has a 40G virtual hard disk and a 20G cvmfs cache. Use CMS-Open-Data-1.3.0.ova if you access the condition data for full event range for 2012 data (see <a href=\"/docs/cms-guide-for-condition-database\">the CMS guide to the condition database</a> for further details).</p>  <p>For known issues and limitations see</p>",
+      "description": " <p>This virtual machine image provides CMS computing environment to be used with the 2011 and 2012 CMS open data. The virtual machine is based on the CernVM (cernvm.cern.ch) and uses Scientific Linux CERN. The image gets the CMS software (CMSSW) from /cvmfs/cms.cern.ch and the jobs running on the CMS open data VM read the condition data from /cvmfs/cms-opendata-conddb.cern.ch. Access to the data is through XRootD.</p> <p>CMS-OpenData-1.5.1.ova is recommended. It has a 40G virtual hard disk and a 20G cvmfs cache, which is large enough for condition data for full event range for 2012 data (see <a href=\"/docs/cms-guide-for-condition-database\">the CMS guide to the condition database</a> for further details). It has an embedded CERN Scientific Linux 6 (slc6) shell, where all CMS software specific commands should be executed. Additionally, it has a CERN CentOS 7 (cc7) shell, which can be used in the same session.</p> <p>The earlier versions CMS-Open-Data-1.2.0.ova and Open-Data-1.3.0.ova are slc6 only.  CMS-Open-Data-1.2.0.ova has a 20G virtual hard disk and a 10G cvmfs cache. CMS-Open-Data-1.3.0.ova has a 40G virtual hard disk and a 20G cvmfs cache. </p>  <p>For known issues and limitations see</p>",
       "links": [
         {
           "title": "CMS Virtual Machines - Known Issues and Limitations",
@@ -25,8 +25,8 @@
       "formats": [
         "ova"
       ],
-      "number_files": 2,
-      "size": 36874240
+      "number_files": 3,
+      "size": 57528320
     },
     "experiment": "CMS",
     "files": [
@@ -39,6 +39,11 @@
         "checksum": "adler32:4a0b475e",
         "size": 18728960,
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/environment/2012/CMS-Open-Data-1.3.0.ova"
+      },
+      {
+        "checksum": "adler32:4fc34c4a",
+        "size": 20654080,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/environment/1.5.1/CMS-Open-Data-1.5.1.ova"
       }
     ],
     "methodology": {
@@ -49,6 +54,9 @@
         },
         {
           "recid": "253"
+        },
+        {
+          "recid": "254"
         }
       ]
     },
@@ -137,7 +145,7 @@
     "run_period": [
       "Run2011A"
     ],
-    "title": "Contextualisation scripts to create the CMS VM Image, for 2011 data release",
+    "title": "Contextualisation scripts to create the CMS VM Image version 1.2.0",
     "type": {
       "primary": "Environment",
       "secondary": [
@@ -146,6 +154,75 @@
     },
     "usage": {
       "description": " <p> First, you need to run a normal Micro-CernVM, using your own context so you can login. Copy the attached files to the running VM and then\n      login.</p><p>Inside the VM, you first need a copy of the latest Micro-CernVM release as a template for the Open Data image. Download it, inside the running VM, from:\n      http://cernvm.cern.ch/releases/testing/ucernvm-prod.2.5-2.cernvm.x86_64.hdd <br/>placing it in the same directory as the other files.<br/>Run\n      the script:<br/>./cernvm-script <br/>which will produce some output on the terminal, and then finish.\n      <p>The result should be a file with the title coming from the -n field in the script. In this case, the file we're interested in is:\n      <br/>CMS-OpenData-1.2.0.ova\n      <br/>which can be copied from the running VM to elsewhere. </p> "
+    }
+  },
+  {
+    "abstract": {
+      "description": " <p>The scripts provided create the CMS virtual machine image based on <a href=\"https://cernvm.cern.ch\">CernVM</a>, with Scientific Linux CERN 6 (slc6).</p> "
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Blomer, Jakob"
+      }
+    ],
+    "collections": [
+      "CMS-Tools"
+    ],
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "txt"
+      ],
+      "number_files": 3,
+      "size": 4585
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:a1353787",
+        "size": 181,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/environment/1.5.1/cernvm-script"
+      },
+      {
+        "checksum": "adler32:084361f5",
+        "size": 4252,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/environment/1.5.1/cms-user-data.txt"
+      },
+      {
+        "checksum": "adler32:786f33c7",
+        "size": 152,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/environment/1.5.1/opendata-desktop-settings"
+      }
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "254",
+    "relations": [
+      {
+        "description": "The final CERN VM image can be found here:",
+        "recid": "252",
+        "type": "isRelatedTo"
+      }
+    ],
+    "run_period": [
+      "Run2011A",
+      "Run2012A",
+      "Run2012B",
+      "Run2012C",
+      "Run2012D"
+    ],
+    "title": "Contextualisation scripts to create the CMS VM Image version 1.5.1",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "VM"
+      ]
+    },
+    "usage": {
+      "description": " <p> First, you need to run a normal Micro-CernVM, using your own context so you can login. Copy the attached files to the running VM and then   login.</p>\n <p>Inside the VM, you first need a copy of the latest Micro-CernVM release as a template for the Open Data image. Download it, inside the running VM, from: <a href=\"http://cernvm.cern.ch/releases/production/cernvm4-micro-2018.10-1.hdd\">http://cernvm.cern.ch/releases/production/cernvm4-micro-2018.10-1.hdd</a>  placing it in the same directory as the other files. </p>\n <p> Run the script:<code>./cernvm-script </code>which will produce some output on the terminal, and then finish. </p>\n      <p>The result should be a file with the title coming from the -n field in the script. In this case, the file we're interested in is: <code>CMS-OpenData-1.5.1.ova </code>which can be copied from the running VM to elsewhere. </p> "
     }
   }
 ]
