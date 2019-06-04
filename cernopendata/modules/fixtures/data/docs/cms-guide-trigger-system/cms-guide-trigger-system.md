@@ -66,7 +66,7 @@ Find the software and usage instructions in
 
 For each dataset, the possible HLT trigger paths are listed in the dataset record. Each HLT path is composed of different algorithms and they are defined in the data-taking configuration files, which are given in
 
-- [High-Level Trigger information for 2010 CMS open data](/record/FIXME)
+- [High-Level Trigger information for 2010 CMS open data](/record/1699)
 - [High-Level Trigger information for 2011 CMS open data](/record/1700)
 - [High-Level Trigger information for 2012 CMS open data](/record/1701)
 
