@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": "<p>The dataset consists of a collection of pixel doublet seeds, i.e. the hit pairs that could belong to the same particle. The compatibility between two hits is evaluated only on the basis of geometrical considerations, such as cuts in η, ϕ and r. These doublets define the building blocks for further tracks. Each doublet is charcaterised by a set of features, such as its coordinates and the charge released in ther Pixel detector, and the pixel cluster shape, projected on 2D histogram.</p> <p>These data can be used in one of the first steps of the track finding workflow, which is the creation of track seeds, i.e. compatible pairs of hits from different detector layers, that are subsequently fed to to higher level pattern recognition steps. However the set of compatible hit pairs is highly affected by combinatorial background resulting in the next steps of the tracking algorithm to process a significant fraction of fake doublets. </p>"
+      "description": "<p>This dataset consists of a collection of pixel doublet seeds, i.e. the hit pairs that could belong to the same particle flying through the CMS Silicon Pixel Detector. These can be used in ML studies of particle tracking algorithms. Particle tracking is the process of clustering the recorded hits into groups of points arranged along an helix. </p> <p> One of the first steps of the track finding workflow is the creation of track seeds, i.e. compatible pairs of hits from different detector layers, that are subsequently fed to to higher level pattern recognition steps.  The compatibility between two hits is evaluated only on the basis of geometrical considerations, such as cuts in $\\eta$, $\\phi$ and $r$, and these doublets define the building blocks for further tracks. However the set of compatible hit pairs is highly affected by combinatorial background resulting in the next steps of the tracking algorithm to process a significant fraction of fake doublets. For each event an $O(10^6)$ doublets are produced while only an $O(10^3)$ are genuine resulting in a fake ratio of $O(10^3)$. </p> <p> Each doublet in this dataset is charcaterised by a set of features, such as its coordinates and the charge released in ther Pixel Detector, and the pixel cluster shape, projected on 2D histogram. A possible way of reducing the huge combinatorial background is using Machine Learning and Deep Learning techniques to check the compatibility between two hits. Indeed the task of fake rejection can be seen as a typical classification problem for which networks and MVA methods have been widely proven to provide reliable results. The dataset provided is intended to be used to explore this techniques. </p>"
     },
     "accelerator": "CERN-LHC",
     "authors": [
@@ -38,6 +38,31 @@
         "variable": "lumi"
       },
       {
+        "description": "Number of simultaneous pp collisions in the event",
+        "type": "float",
+        "variable": "PU"
+      },
+      {
+        "description": "Beam spot x coordinate",
+        "type": "float",
+        "variable": "bSX"
+      },
+      {
+        "description": "Beam spot y coordinate",
+        "type": "float",
+        "variable": "bSY"
+      },
+      {
+        "description": "Beam spot z coordinate",
+        "type": "float",
+        "variable": "bSZ"
+      },
+      {
+        "description": "Label indicating if a doublet is true (1.0) or fake (-1.0)",
+        "type": "float",
+        "variable": "label"
+      },
+      {
         "description": "Sequential number for the inner hit hit layer. For the silicon pixel detectors these numbers may be {0,1,2,3} for the four pixel barrel layers {14,15,16} for the three negative encap and {29,30,31} for the three positive endcap layers.",
         "type": "float",
         "variable": "inDetSeq"
@@ -46,11 +71,6 @@
         "description": "Sequential number for the outer hit hit layer.",
         "type": "float",
         "variable": "outDetSeq"
-      },
-      {
-        "description": "Event Lumisection Number",
-        "type": "float",
-        "variable": "lumi"
       },
       {
         "description": "Doublet inner hit X coordinate.",
@@ -343,12 +363,7 @@
         "variable": "outSkew"
       },
       {
-        "description": "Inner hit pixel 0 A.D.C.level. The pixel index spans from top left pad corner to bottom right: e.g. the last bottom row will span from inPix240 to inPix255.",
-        "type": "float",
-        "variable": "inPix0"
-      },
-      {
-        "description": "Inner hit pixel 1 A.D.C.level.",
+        "description": "Inner hit pixel 1 A.D.C.level. The pixel index spans from top left pad corner to bottom right: e.g. the last bottom row will span from inPix241 to inPix256.",
         "type": "float",
         "variable": "inPix1"
       },
@@ -1623,12 +1638,12 @@
         "variable": "inPix255"
       },
       {
-        "description": "Outer hit pixel 0 A.D.C.level. The pixel index spans from top left pad corner to bottom right: e.g. the last bottom row will span from outPix240 to outPix255.",
+        "description": "Inner hit pixel 255 A.D.C.level.",
         "type": "float",
-        "variable": "outPix0"
+        "variable": "inPix256"
       },
       {
-        "description": "Outer hit pixel 1 A.D.C.level.",
+        "description": "Outer hit pixel 1 A.D.C.level. The pixel index spans from top left pad corner to bottom right: e.g. the last bottom row will span from outPix241 to outPix256.",
         "type": "float",
         "variable": "outPix1"
       },
@@ -2903,219 +2918,219 @@
         "variable": "outPix255"
       },
       {
-        "description": "Flag set to 1.0 (-1.0) if the inner hit is (not) matched.",
+        "description": "Outer hit pixel 256 A.D.C.level.",
         "type": "float",
-        "variable": "inPId"
+        "variable": "outPix256"
       },
       {
         "description": "Inner hit matched tracking particle key number in the event collection of tracking particles. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "inTId"
+        "variable": "inTpTId"
       },
       {
         "description": "Inner hit matched tracking particle momentum component along global x axis. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "inPx"
+        "variable": "inTpPx"
       },
       {
         "description": "Inner hit matched tracking particle momentum component along global y axis. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "inPy"
+        "variable": "inTpPy"
       },
       {
         "description": "Inner hit matched tracking particle momentum component along global z axis. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "inPz"
+        "variable": "inTpPz"
       },
       {
         "description": "Inner hit matched tracking particle transverse momentum. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "inPt"
+        "variable": "inTpPt"
       },
       {
         "description": "Inner hit matched tracking particle transverse mass. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "inMT"
+        "variable": "inTpMT"
       },
       {
         "description": "Inner hit matched tracking particle transverse energy. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "inET"
+        "variable": "inTpET"
       },
       {
         "description": "Inner hit matched tracking particle mass squared. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "inMSqr"
+        "variable": "inTpMSqr"
       },
       {
         "description": "Inner hit matched tracking particle PDG id, i.e. the index indicating which kind of particle it is. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "inPdgId"
+        "variable": "inTpPdgId"
       },
       {
         "description": "Inner hit matched tracking particle charge. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "inCharge"
+        "variable": "inTpCharge"
       },
       {
         "description": "Inner hit matched tracking particle number of tracker hits. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "inNTrackerHits"
+        "variable": "inTpNTrackerHits"
       },
       {
         "description": "The number of tracker layers crossed by the inner hit matched tracking particle. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "inNTrackerLayers"
+        "variable": "inTpNTrackerLayers"
       },
       {
         "description": "Inner hit matched tracking particle azimuthal angle (ϕ). Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "inPhi"
+        "variable": "inTpPhi"
       },
       {
         "description": "Inner hit matched tracking particle pseudorapidity (η). Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "inEta"
+        "variable": "inTpEta"
       },
       {
         "description": "Inner hit matched tracking particle rapidity (y). Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "inRapidity"
+        "variable": "inTpRapidity"
       },
       {
         "description": "Inner hit matched tracking particle vertex global X coordinate. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "inVX"
+        "variable": "inTpVX"
       },
       {
         "description": "Inner hit matched tracking particle vertex global Y coordinate. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "inVY"
+        "variable": "inTpVY"
       },
       {
         "description": "Inner hit matched tracking particle vertex global Z coordinate. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "inVZ"
+        "variable": "inTpVZ"
       },
       {
         "description": "Inner hit matched tracking particle vertex transverse impact parameter. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "inDXY"
+        "variable": "inTpDXY"
       },
       {
         "description": "Inner hit matched tracking particle vertex longitudinal impact parameter. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "inDZ"
+        "variable": "inTpDZ"
       },
       {
-        "description": "Flag set to 1.0 (-1.0) if the outer hit is (not) matched.",
+        "description": "outTpPId",
         "type": "float",
-        "variable": "outPId"
+        "variable": "Flag set to 1.0 (-1.0) if the outer hit is (not) matched."
       },
       {
         "description": "Outer hit matched tracking particle key number in the event collection of tracking particles. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "outTId"
+        "variable": "outTpTId"
       },
       {
         "description": "Outer hit matched tracking particle momentum component along global x axis.Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "outPx"
+        "variable": "outTpPx"
       },
       {
         "description": "Outer hit matched tracking particle momentum component along global y axis.Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "outPy"
+        "variable": "outTpPy"
       },
       {
         "description": "Outer hit matched tracking particle momentum component along global z axis.Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "outPz"
+        "variable": "outTpPz"
       },
       {
         "description": "Outer hit matched tracking particle transverse momentum.Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "outPt"
+        "variable": "outTpPt"
       },
       {
         "description": "Outer hit matched tracking particle transverse mass.Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "outMT"
+        "variable": "outTpMT"
       },
       {
         "description": "Outer hit matched tracking particle transverse energy.Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "outET"
+        "variable": "outTpET"
       },
       {
         "description": "Outer hit matched tracking particle mass squared.Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "outMSqr"
+        "variable": "outTpMSqr"
       },
       {
         "description": "Outer hit matched tracking particle PDG id, i.e. the index indicating which kind of particle it is.Set to -1.0 if the hit is not matched to any tracking particle. ",
         "type": "float",
-        "variable": "outPdgId"
+        "variable": "outTpPdgId"
       },
       {
         "description": "Outer hit matched tracking particle charge.Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "outNTrackerHits"
+        "variable": "outTpNTrackerHits"
       },
       {
         "description": "Outer hit matched tracking particle number of tracker hits.Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "outNTrackerHits"
+        "variable": "outTpNTrackerHits"
       },
       {
         "description": "The number of tracker layers crossed by the outer hit matched tracking particle.Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "outNTrackerLayers"
+        "variable": "outTpNTrackerLayers"
       },
       {
         "description": "Outer hit matched tracking particle azimuthal angle (ϕ).Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "outPhi"
+        "variable": "outTpPhi"
       },
       {
         "description": "Outer hit matched tracking particle pseudorapidity (η). Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "outEta"
+        "variable": "outTpEta"
       },
       {
         "description": "Outer hit matched tracking particle rapidity (y). Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "outRapidity"
+        "variable": "outTpRapidity"
       },
       {
         "description": "Outer hit matched tracking particle vertex global X coordinate. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "outVX"
+        "variable": "outTpVX"
       },
       {
         "description": "Outer hit matched tracking particle vertex global Y coordinate. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "outVY"
+        "variable": "outTpVY"
       },
       {
         "description": "Outer hit matched tracking particle vertex global Z coordinate. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "outVZ"
+        "variable": "outTpVZ"
       },
       {
         "description": "Outer hit matched tracking particle vertex transverse impact parameter. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "outDXY"
+        "variable": "outTpDXY"
       },
       {
         "description": "Outer hit matched tracking particle vertex longitudinal impact parameter. Set to -1.0 if the hit is not matched to any tracking particle.",
         "type": "float",
-        "variable": "outDZ"
+        "variable": "outTpDZ"
       },
       {
         "description": "Event bunch crossing number.",
         "type": "float",
-        "variable": "inBunchCrossing"
+        "variable": "BunchCrossing"
       }
     ],
     "date_created": [
@@ -3126,7 +3141,7 @@
       "formats": [
         "h5"
       ],
-      "number_files": 3547
+      "number_files": 472
     },
     "experiment": "CMS",
     "keywords": [
