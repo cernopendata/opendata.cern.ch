@@ -1,9 +1,10 @@
 1. ["I have installed the CERN Virtual Machine: now what?"](#vm)
-2. ["OK! Where can I get the CMS data?"](#data)
-3. ["Nice! But how do I analyse these data?"](#nice)
-4. [Option A: Analysing the primary dataset](#a)
-5. [Option B: Analysing reduced datasets](#b)
-6. [Performing your analysis on the PATtuples](#pat)
+2. ["Do I have to use a virtual machine?"](#container)
+3. ["OK! Where can I get the CMS data?"](#data)
+4. ["Nice! But how do I analyse these data?"](#nice)
+5. [Option A: Analysing the primary dataset](#a)
+6. [Option B: Analysing reduced datasets](#b)
+7. [Performing your analysis on the PATtuples](#pat)
 
 ## <a name="vm">"I have installed the CERN Virtual Machine: now what?"</a>
 
@@ -19,6 +20,11 @@ Then, make sure that you are always in the **CMSSW_4_2_8/src/** directory and th
 $ cd CMSSW_4_2_8/src/
 $ cmsenv
 ```
+
+## <a name="container">"Do I have to use a virtual machine?"</a>
+
+Not necessarily. You can also try to analyse CMS data in a Docker container instead of in a virtual machine. If you are interested in that,
+[instructions are here](/docs/cms-guide-docker).
 
 ## <a name="data">"OK! Where can I get the CMS data?"</a>
 

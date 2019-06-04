@@ -1,6 +1,6 @@
 If you are interested in step-by-step instructions to start working with CMS Open Data, please consult these pages:
 
-* [Install Virtual Machine](/docs/cms-virtual-machine-2011)
+* [Install Virtual Machine](/docs/cms-virtual-machine-2011) or [Use a container](/docs/cms-guide-docker)
 * [Get started with CMS Open Data](/docs/cms-getting-started-2011)
 
 However, if you are interested in finding hints, tips and guidance for conducting a research-oriented analysis using CMS Open Data, please see our notes on this page. Note that possible solutions to frequently encountered issues can be found on [our page of known errors](/docs/cms-guide-troubleshooting).
@@ -43,6 +43,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 **I want to install the CMS software environment needed for access to and analysis of CMS Research level data.**
 
 * Install the appropriate virtual machine, [2010 VM](/record/250) for 2010 data, and [2011 VM](/record/252) for 2011/2012 data.
+* As an alternative to a virtual machine you can try running the CMS software environment in a container by following [these instructions](/docs/cms-guide-docker).
 * Go to ["Getting started with CMS 2010 open data"](/docs/cms-getting-started-2010) for 2010 or ["Getting started with CMS 2011 open data"](/docs/cms-getting-started-2011) for 2011/2012 data.
 
 **Note**: The 2010 (SL5) virtual machine will only work on 2010 data with CMSSW 4-2-8 (and other SLC5-based CMSSW releases). The 2011 (SL6) virtual machine will only work on 2011/2012 data and MC with CMSSW 5-3-32 (and other SLC6-based CMSSW releases).

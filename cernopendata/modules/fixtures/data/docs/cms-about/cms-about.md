@@ -24,6 +24,7 @@ The following are provided through this portal:
 * Tools
     * A downloadable [Virtual Machine (VM)](/docs/cms-virtual-machine-2011) image with the CMS software environment through which the datasets can be accessed
     * An [analysis example chain](/docs/cms-getting-started-2011), reading the primary dataset and producing intermediate derived data for the final analysis
+    * Downloadable [Docker images](/docs/cms-guide-docker) with the CMS software environment
     * Ready-to-use online applications, such as [an event display](/visualise/events/cms) and [simple histogramming software](/visualise/histograms/cms)
     * Source code for the various examples and applications, available in the [CMS software](/search?page=1&size=20&q=&type=Software&experiment=CMS) collection
 
