@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": "<p>Simulated dataset TTJets_HadronicMGDecays_8TeV-madgraph with boosted jets, enriched with simulated tracks and tracker hit data for tracking algorithm studies in AODSIM format for 2012 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2012. They are in the standard CMS AODSIM format plus a series of low-level tracker-related collections that allow the extraction of the tracker hits. They were released in the context of data science sample production.</p>"
+      "description": "<p>Simulated dataset TTJets_HadronicMGDecays_8TeV-madgraph with boosted jets, enriched with simulated tracks and tracker hit data for tracking algorithm studies in AODSIM format for 2012 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated data correspond to the collision data collected by the CMS experiment in 2012. They are in the standard CMS AODSIM format plus a series of low-level tracker-related collections that allow the extraction of the tracker hits. They were released in the context of data science sample production.</p>"
     },
     "accelerator": "CERN-LHC",
     "categories": {
@@ -49,7 +49,8 @@
           "configuration_files": [
             {
               "process": "SIM",
-              "title": "Modified SIM config to force all-jets decays and pT of both of the tops > 400 GeV and to keep simulated tracks from <a href=\"https://github.com/cms-legacydata-analyses/TrackerRecHitProducerTool/blob/master/configs/step0_ttbar.py\">step0_ttbar.py</a>"
+              "title": "Configuration file for SIM step step0_ttbar.py",
+              "url": "https://github.com/cms-opendata-analyses/TrackerRecHitProducerTool/blob/v12.0.0/configs/step0_ttbar.py"
             }
           ],
           "global_tag": "START53_V27",
@@ -60,11 +61,13 @@
           "configuration_files": [
             {
               "process": "HLT",
-              "title": "Modified configuration file for HLT step to keep tracker recHits from https://github.com/cms-legacydata-analyses/TrackerRecHitProducerTool/blob/master/configs/step1.py"
+              "title": "Configuration file for HLT step step1.py",
+              "url": "https://github.com/cms-opendata-analyses/TrackerRecHitProducerTool/blob/v12.0.0/configs/step1.py"
             },
             {
               "process": "RECO",
-              "title": "Modified configuration file for RECO step to keep tracker recHits from https://github.com/cms-legacydata-analyses/TrackerRecHitProducerTool/blob/master/configs/step2.py"
+              "title": "Configuration file for RECO step step2.py",
+              "url": "https://github.com/cms-opendata-analyses/TrackerRecHitProducerTool/blob/v12.0.0/configs/step2.py"
             }
           ],
           "global_tag": "START53_V27",
@@ -131,7 +134,7 @@
   },
   {
     "abstract": {
-      "description": "<p>Simulated dataset for the 300 to 600 bin of QCD_Pt-15to3000_TuneZ2star_Flat_8TeV_pythia6 enriched with simulated tracks and tracker hit data for tracking algorithm studies in AODSIM format for 2012 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2012. They are in the standard CMS AODSIM format plus a series of low-level tracker-related collections that allow the extraction of the tracker hits. They were released in the context of data science sample production.</p>"
+      "description": "<p>Simulated dataset for the 300 to 600 bin of QCD_Pt-15to3000_TuneZ2star_Flat_8TeV_pythia6 enriched with simulated tracks and tracker hit data for tracking algorithm studies in AODSIM format for 2012 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated data correspond to the collision data collected by the CMS experiment in 2012. They are in the standard CMS AODSIM format plus a series of low-level tracker-related collections that allow the extraction of the tracker hits. They were released in the context of data science sample production.</p>"
     },
     "accelerator": "CERN-LHC",
     "categories": {
@@ -179,7 +182,8 @@
           "configuration_files": [
             {
               "process": "SIM",
-              "title": "Modified SIM config to keep simulated tracks from https://github.com/cms-legacydata-analyses/TrackerRecHitProducerTool/blob/master/configs/step0_QCD300to600.py"
+              "title": "Configuration file for SIM step step0_QCD300to600.py",
+              "url": "https://github.com/cms-opendata-analyses/TrackerRecHitProducerTool/blob/v12.0.0/configs/step0_QCD300to600.py"
             }
           ],
           "global_tag": "START53_V27",
@@ -190,11 +194,13 @@
           "configuration_files": [
             {
               "process": "HLT",
-              "title": "Modified configuration file for HLT step to keep tracker recHits from https://github.com/cms-legacydata-analyses/TrackerRecHitProducerTool/blob/master/configs/step1.py"
+              "title": "Configuration file for HLT step step1.py",
+              "url": "https://github.com/cms-opendata-analyses/TrackerRecHitProducerTool/blob/v12.0.0/configs/step1.py"
             },
             {
               "process": "RECO",
-              "title": "Modified configuration file for RECO step to keep tracker recHits from https://github.com/cms-legacydata-analyses/TrackerRecHitProducerTool/blob/master/configs/step2.py"
+              "title": "Configuration file for RECO step step2.py",
+              "url": "https://github.com/cms-opendata-analyses/TrackerRecHitProducerTool/blob/v12.0.0/configs/step2.py"
             }
           ],
           "global_tag": "START53_V27",
@@ -239,7 +245,7 @@
         "Simulated"
       ]
     },
-     "usage": {
+    "usage": {
       "description": "You can access these data through the CMS Virtual Machine. See the instructions below for setting up the Virtual Machine and getting started. The dataset can also be used as an input to the final step of the workflow to produce ROOT ntuples with full event information for ML studies.",
       "links": [
         {
@@ -261,7 +267,7 @@
   },
   {
     "abstract": {
-      "description": "<p>Simulated dataset for the 400 to 600 bin of QCD_Pt-15to3000_TuneZ2star_Flat_8TeV_pythia6 enriched with simulated tracks and tracker hit data for tracking algorithm studies in AODSIM format for 2012 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2012. They are in the standard CMS AODSIM format plus a series of low-level tracker-related collections that allow the extraction of the tracker hits. They were released in the context of data science sample production.</p>"
+      "description": "<p>Simulated dataset for the 400 to 600 bin of QCD_Pt-15to3000_TuneZ2star_Flat_8TeV_pythia6 enriched with simulated tracks and tracker hit data for tracking algorithm studies in AODSIM format for 2012 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated data correspond to the collision data collected by the CMS experiment in 2012. They are in the standard CMS AODSIM format plus a series of low-level tracker-related collections that allow the extraction of the tracker hits. They were released in the context of data science sample production.</p>"
     },
     "accelerator": "CERN-LHC",
     "categories": {
@@ -309,7 +315,8 @@
           "configuration_files": [
             {
               "process": "SIM",
-              "title": "Modified SIM config to keep simulated tracks from https://github.com/cms-legacydata-analyses/TrackerRecHitProducerTool/blob/master/configs/step0_QCD400to600.py"
+              "title": "Configuration file for SIM step step0_QCD400to600.py",
+              "url": "https://github.com/cms-opendata-analyses/TrackerRecHitProducerTool/blob/v12.0.0/configs/step0_QCD400to600.py"
             }
           ],
           "global_tag": "START53_V27",
@@ -320,11 +327,13 @@
           "configuration_files": [
             {
               "process": "HLT",
-              "title": "Modified configuration file for HLT step to keep tracker recHits from https://github.com/cms-legacydata-analyses/TrackerRecHitProducerTool/blob/master/configs/step1.py"
+              "title": "Configuration file for HLT step step1.py",
+              "url": "https://github.com/cms-opendata-analyses/TrackerRecHitProducerTool/blob/v12.0.0/configs/step1.py"
             },
             {
               "process": "RECO",
-              "title": "Modified configuration file for RECO step to keep tracker recHits from https://github.com/cms-legacydata-analyses/TrackerRecHitProducerTool/blob/master/configs/step2.py"
+              "title": "Configuration file for RECO step step2.py",
+              "url": "https://github.com/cms-opendata-analyses/TrackerRecHitProducerTool/blob/v12.0.0/configs/step2.py"
             }
           ],
           "global_tag": "START53_V27",
@@ -369,7 +378,7 @@
         "Simulated"
       ]
     },
-     "usage": {
+    "usage": {
       "description": "You can access these data through the CMS Virtual Machine. See the instructions below for setting up the Virtual Machine and getting started. The dataset can also be used as an input to the final step of the workflow to produce ROOT ntuples with full event information for ML studies.",
       "links": [
         {
@@ -391,7 +400,7 @@
   },
   {
     "abstract": {
-      "description": "<p>Simulated dataset for the 600 to 3000 bin of QCD_Pt-15to3000_TuneZ2star_Flat_8TeV_pythia6 enriched with simulated tracks and tracker hit data for tracking algorithm studies in AODSIM format for 2012 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2012. They are in the standard CMS AODSIM format plus a series of low-level tracker-related collections that allow the extraction of the tracker hits. They were released in the context of data science sample production.</p>"
+      "description": "<p>Simulated dataset for the 600 to 3000 bin of QCD_Pt-15to3000_TuneZ2star_Flat_8TeV_pythia6 enriched with simulated tracks and tracker hit data for tracking algorithm studies in AODSIM format for 2012 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated data correspond to the collision data collected by the CMS experiment in 2012. They are in the standard CMS AODSIM format plus a series of low-level tracker-related collections that allow the extraction of the tracker hits. They were released in the context of data science sample production.</p>"
     },
     "accelerator": "CERN-LHC",
     "categories": {
@@ -439,7 +448,8 @@
           "configuration_files": [
             {
               "process": "SIM",
-              "title": "Modified SIM config to keep simulated tracks from https://github.com/cms-legacydata-analyses/TrackerRecHitProducerTool/blob/master/configs/step0_QCD600to3000.py"
+              "title": "Configuration file for SIM step step0_QCD600to3000.py",
+              "url": "https://github.com/cms-opendata-analyses/TrackerRecHitProducerTool/blob/v12.0.0/configs/step0_QCD600to3000.py"
             }
           ],
           "global_tag": "START53_V27",
@@ -450,11 +460,13 @@
           "configuration_files": [
             {
               "process": "HLT",
-              "title": "Modified configuration file for HLT step to keep tracker recHits from https://github.com/cms-legacydata-analyses/TrackerRecHitProducerTool/blob/master/configs/step1.py"
+              "title": "Configuration file for HLT step step1.py",
+              "url": "https://github.com/cms-opendata-analyses/TrackerRecHitProducerTool/blob/v12.0.0/configs/step1.py"
             },
             {
               "process": "RECO",
-              "title": "Modified configuration file for RECO step to keep tracker recHits from https://github.com/cms-legacydata-analyses/TrackerRecHitProducerTool/blob/master/configs/step2.py"
+              "title": "Configuration file for RECO step step2.py",
+              "url": "https://github.com/cms-opendata-analyses/TrackerRecHitProducerTool/blob/v12.0.0/configs/step2.py"
             }
           ],
           "global_tag": "START53_V27",
