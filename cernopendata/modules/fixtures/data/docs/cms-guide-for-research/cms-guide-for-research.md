@@ -16,7 +16,7 @@ However, if you are interested in finding hints, tips and guidance for conductin
 
 **I want to learn about the terms under which I can access and use the CMS Open Data, and publish results obtained from them.**
 
-* Go to ["Data preservation and open access policy"](/record/411) (if you are a CMS member, also see the internal document ["Rules for use of open access CMS data by individual members of CMS"](https://cms-docdb.cern.ch/cgi-bin/DocDB/ShowDocument?docid=12242)).
+* Go to ["Data preservation and open access policy"](/record/414) (if you are a CMS member, also see the internal document ["Rules for use of open access CMS data by individual members of CMS"](https://cms-docdb.cern.ch/cgi-bin/DocDB/ShowDocument?docid=12242)).
 
 
 **I want to get inspiration for some potential physics topics.**

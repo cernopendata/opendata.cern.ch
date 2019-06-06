@@ -58,7 +58,7 @@ The following are provided through this portal:
 * No further development is foreseen for either the data released or the software version needed to analyse them.
     * The methods have evolved since the released data were recorded.
     * More advanced techniques are used with recent data but the software is not compatible out-of-the-box with older data samples.
-* The release of 2010 data is not accompanied by any simulated data. The release of 2011 data includes simulated data. However, this is not a full set of simulations, but only those datasets that have been reprocessed with a software release compatible with the 2011 collision data. The release of 2012 data includes a larger sample of simulated data.
+* The release of 2010 data is accompanied by a small set of simulated data, and the release of 2011 data includes some simulated data. However, these are not a full set of simulations, but only those datasets that have been reprocessed with a software release compatible with the respective collision data. The release of 2012 data includes a larger sample of simulated data. A part of simulated datasets is released with the bibliographic information content only, and they will be made available online on demand.
 * If you are interested in joining the CMS Collaboration, please contact nearest [CMS university/institute](https://cms.cern/content/cms-collaboration)
 
 ## <a name="other">Other CMS open data</a>
@@ -68,5 +68,5 @@ The following are provided through this portal:
 
 ## <a name="policies">Policies</a>
 
-* [Data preservation and open access policy](/record/411)
+* [Data preservation and open access policy](/record/414)
 * [Papers by CMS members using public data [internal]](https://cms-docdb.cern.ch/cgi-bin/DocDB/ShowDocument?docid=12242)
