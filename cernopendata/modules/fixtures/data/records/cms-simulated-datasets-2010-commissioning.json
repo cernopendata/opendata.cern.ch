@@ -31,9 +31,9 @@
         "gen-sim-reco",
         "root"
       ],
-      "number_events": 20000,
-      "number_files": 4,
-      "size": 19291020935
+      "number_events": 2235000,
+      "number_files": 90,
+      "size": 220474285048
     },
     "experiment": "CMS",
     "license": {
@@ -81,6 +81,531 @@
     },
     "title": "/MinBias_TuneZ2_900GeV_pythia6_cff_py_GEN_SIM_START311_V2_Dec11_v2/hvanhaev-MinBias_TuneZ2_900GeV_pythia6_cff_py_Step3_START42_V11_Dec11_v3-04745fc182f9123f750cb5f7764a36c5/USER",
     "title_additional": "Simulated dataset MinBias_TuneZ2_900GeV_pythia6_cff_py_GEN_SIM_START311_V2_Dec11_v2 in GEN-SIM-RECO format for 2010 commissioning data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started with CASTOR calorimeter data in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/VM/CMS"
+        },
+        {
+          "description": "Analysis recipe to use CASTOR objects with 2010 CMS OpenData",
+          "url": "https://twiki.cern.ch/twiki/bin/view/CMSPublic/CASTOROpenData2010"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of simulated Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset MinBias_TuneZ2_2760GeV_pythia6_cff_py_GEN_SIM_START311_V2_Dec11_v2 in GEN-SIM-RECO format (see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production overview</a>) format for 2010 Commissioning run. </p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated data correspond to the collision data that were collected by the CMS experiment during 2010 Commissioning run and contain the simulation of <a href=\"http://inspirehep.net/record/1227802/\">the CASTOR calorimeter</a>.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Standard Model Physics",
+      "secondary": [
+        "Minimum Bias"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "2.76TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2010"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2011",
+    "distribution": {
+      "formats": [
+        "gen-sim-reco",
+        "root"
+      ],
+      "number_events": 2005000,
+      "number_files": 81,
+      "size": 255752539574
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>These data were generated in several steps (see also <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production overview</a>):</p>\n",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "cmsDriver.py Configuration/GenProduction/python/MinBias_TuneZ2_2760GeV_pythia6_cff.py --step GEN,SIM --beamspot Realistic7TeVCollision --conditions START311_V2::All --pileup NoPileUp --datamix NODATAMIXER --customise Configuration/StandardSequences/SimWithCastor_cff.customise --eventcontent RAWSIM -- datatier GEN-SIM —no_exec  \n\n",
+              "title": "Production script (manual adjustment of CASTOR non compensation)"
+            }
+          ],
+          "global_tag": "START311_V2::All",
+          "release": "CMSSW_4_1_6",
+          "type": "SIM"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "cmsDriver.py REDIGI --step DIGI,L1,DIGI2RAW,HLT:GRun --conditions START42_V11::All --pileup NoPileUp --datamix NODATAMIXER --customise Configuration/StandardSequences/DigiToRecoNoPU.customise --eventcontent RAWSIM --datatier GEN-SIM-RAW —no_exec  \n\n",
+              "title": "Production script"
+            },
+            {
+              "script": "cmsDriver.py STEP2 --step RAW2DIGI,L1Reco,RECO --conditions START42_V11::All --pileup NoPileUp --datamix NODATAMIXER --customise Configuration/GlobalRuns/reco_TLR_42X.customisePPMC --eventcontent RECOSIM --datatier GEN-SIM-RECO —no_exec  \n\n",
+              "title": "Production script (manual inclusion of specific beamspot settings)"
+            }
+          ],
+          "global_tag": "START42_V11::All",
+          "release": "CMSSW_4_2_3_patch3",
+          "type": "HLT RECO"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "14101",
+    "run_period": [
+      "Commissioning2010"
+    ],
+    "system_details": {
+      "global_tag": "START42_V11::All",
+      "release": "CMSSW_4_2_8_lowpupatch1"
+    },
+    "title": "/MinBias_TuneZ2_2760GeV_pythia6_cff_py_GEN_SIM_START311_V2_Dec11_v2/hvanhaev-MinBias_TuneZ2_2760GeV_pythia6_cff_py_Step3_START42_V11_Dec11_v2-2d9bf05578d0689d9cfc440754686e87/USER",
+    "title_additional": "Simulated dataset MinBias_TuneZ2_2760GeV_pythia6_cff_py_GEN_SIM_START311_V2_Dec11_v2 in GEN-SIM-RECO format for 2010 commissioning data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started with CASTOR calorimeter data in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/VM/CMS"
+        },
+        {
+          "description": "Analysis recipe to use CASTOR objects with 2010 CMS OpenData",
+          "url": "https://twiki.cern.ch/twiki/bin/view/CMSPublic/CASTOROpenData2010"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of simulated Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset MinBias_TuneZ2_7TeV_pythia6_cff_py_GEN_SIM_START311_V2_Dec11_v2 in GEN-SIM-RECO format (see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production overview</a>) format for 2010 Commissioning run. </p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated data correspond to the collision data that were collected by the CMS experiment during 2010 Commissioning run and contain the simulation of <a href=\"http://inspirehep.net/record/1227802/\">the CASTOR calorimeter</a>.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Standard Model Physics",
+      "secondary": [
+        "Minimum Bias"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "7TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2010"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2011",
+    "distribution": {
+      "formats": [
+        "gen-sim-reco",
+        "root"
+      ],
+      "number_events": 2005000,
+      "number_files": 81,
+      "size": 300743148163
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>These data were generated in several steps (see also <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production overview</a>):</p>\n",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "cmsDriver.py Configuration/GenProduction/python/MinBias_TuneZ2_7TeV_pythia6_cff.py --step GEN,SIM --beamspot Realistic7TeVCollision --conditions START311_V2::All --pileup NoPileUp --datamix NODATAMIXER --customise Configuration/StandardSequences/SimWithCastor_cff.customise --eventcontent RAWSIM -- datatier GEN-SIM —no_exec  \n\n",
+              "title": "Production script (manual adjustment of CASTOR non compensation)"
+            }
+          ],
+          "global_tag": "START311_V2::All",
+          "release": "CMSSW_4_1_6",
+          "type": "SIM"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "cmsDriver.py REDIGI --step DIGI,L1,DIGI2RAW,HLT:GRun --conditions START42_V11::All --pileup NoPileUp --datamix NODATAMIXER --customise Configuration/StandardSequences/DigiToRecoNoPU.customise --eventcontent RAWSIM --datatier GEN-SIM-RAW —no_exec  \n\n",
+              "title": "Production script"
+            },
+            {
+              "script": "cmsDriver.py STEP2 --step RAW2DIGI,L1Reco,RECO --conditions START42_V11::All --pileup NoPileUp --datamix NODATAMIXER --customise Configuration/GlobalRuns/reco_TLR_42X.customisePPMC --eventcontent RECOSIM --datatier GEN-SIM-RECO —no_exec  \n\n",
+              "title": "Production script (manual inclusion of specific beamspot settings)"
+            }
+          ],
+          "global_tag": "START42_V11::All",
+          "release": "CMSSW_4_2_3_patch3",
+          "type": "HLT RECO"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "14102",
+    "run_period": [
+      "Commissioning2010"
+    ],
+    "system_details": {
+      "global_tag": "START42_V11::All",
+      "release": "CMSSW_4_2_8_lowpupatch1"
+    },
+    "title": "/MinBias_TuneZ2_7TeV_pythia6_cff_py_GEN_SIM_START311_V2_Dec11_v2/hvanhaev-MinBias_TuneZ2_7TeV_pythia6_cff_py_Step3_START42_V11_Dec11_v2-86bcdbe9c73956c342e477ba771c41c7/USER",
+    "title_additional": "Simulated dataset MinBias_TuneZ2_7TeV_pythia6_cff_py_GEN_SIM_START311_V2_Dec11_v2 in GEN-SIM-RECO format for 2010 commissioning data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started with CASTOR calorimeter data in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/VM/CMS"
+        },
+        {
+          "description": "Analysis recipe to use CASTOR objects with 2010 CMS OpenData",
+          "url": "https://twiki.cern.ch/twiki/bin/view/CMSPublic/CASTOROpenData2010"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of simulated Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset MinBias_Tune4C_900GeV_pythia8_cff_py_GEN_SIM_START311_V2_Dec11_v2 in GEN-SIM-RECO format (see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production overview</a>) format for 2010 Commissioning run. </p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated data correspond to the collision data that were collected by the CMS experiment during 2010 Commissioning run and contain the simulation of <a href=\"http://inspirehep.net/record/1227802/\">the CASTOR calorimeter</a>.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Standard Model Physics",
+      "secondary": [
+        "Minimum Bias"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "0.9TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2010"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2011",
+    "distribution": {
+      "formats": [
+        "gen-sim-reco",
+        "root"
+      ],
+      "number_events": 2270000,
+      "number_files": 91,
+      "size": 246096880337
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>These data were generated in several steps (see also <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production overview</a>):</p>\n",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "cmsDriver.py Configuration/GenProduction/python/MinBias_Tune4C_900GeV_pythia8_cff.py --step GEN,SIM --beamspot Realistic7TeVCollision --conditions START311_V2::All --pileup NoPileUp --datamix NODATAMIXER --customise Configuration/StandardSequences/SimWithCastor_cff.customise --eventcontent RAWSIM -- datatier GEN-SIM —no_exec  \n\n",
+              "title": "Production script (manual adjustment of CASTOR non compensation)"
+            }
+          ],
+          "global_tag": "START311_V2::All",
+          "release": "CMSSW_4_1_6",
+          "type": "SIM"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "cmsDriver.py REDIGI --step DIGI,L1,DIGI2RAW,HLT:GRun --conditions START42_V11::All --pileup NoPileUp --datamix NODATAMIXER --customise Configuration/StandardSequences/DigiToRecoNoPU.customise --eventcontent RAWSIM --datatier GEN-SIM-RAW —no_exec  \n\n",
+              "title": "Production script"
+            },
+            {
+              "script": "cmsDriver.py STEP2 --step RAW2DIGI,L1Reco,RECO --conditions START42_V11::All --pileup NoPileUp --datamix NODATAMIXER --customise Configuration/GlobalRuns/reco_TLR_42X.customisePPMC --eventcontent RECOSIM --datatier GEN-SIM-RECO —no_exec  \n\n",
+              "title": "Production script (manual inclusion of specific beamspot settings)"
+            }
+          ],
+          "global_tag": "START42_V11::All",
+          "release": "CMSSW_4_2_3_patch3",
+          "type": "HLT RECO"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "14103",
+    "run_period": [
+      "Commissioning2010"
+    ],
+    "system_details": {
+      "global_tag": "START42_V11::All",
+      "release": "CMSSW_4_2_8_lowpupatch1"
+    },
+    "title": "/MinBias_Tune4C_900GeV_pythia8_cff_py_GEN_SIM_START311_V2_Dec11_v2/hvanhaev-MinBias_Tune4C_900GeV_pythia8_cff_py_Step3_START42_V11_Dec11_v2-04745fc182f9123f750cb5f7764a36c5/USER",
+    "title_additional": "Simulated dataset MinBias_Tune4C_900GeV_pythia8_cff_py_GEN_SIM_START311_V2_Dec11_v2 in GEN-SIM-RECO format for 2010 commissioning data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started with CASTOR calorimeter data in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/VM/CMS"
+        },
+        {
+          "description": "Analysis recipe to use CASTOR objects with 2010 CMS OpenData",
+          "url": "https://twiki.cern.ch/twiki/bin/view/CMSPublic/CASTOROpenData2010"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of simulated Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset MinBias_Tune4C_2760GeV_pythia8_cff_py_GEN_SIM_START311_V2_Dec11_v1 in GEN-SIM-RECO format (see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production overview</a>) format for 2010 Commissioning run. </p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated data correspond to the collision data that were collected by the CMS experiment during 2010 Commissioning run and contain the simulation of <a href=\"http://inspirehep.net/record/1227802/\">the CASTOR calorimeter</a>.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Standard Model Physics",
+      "secondary": [
+        "Minimum Bias"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "2.76TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2010"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2011",
+    "distribution": {
+      "formats": [
+        "gen-sim-reco",
+        "root"
+      ],
+      "number_events": 2100000,
+      "number_files": 84,
+      "size": 306950689428
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>These data were generated in several steps (see also <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production overview</a>):</p>\n",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "cmsDriver.py Configuration/GenProduction/python/MinBias_Tune4C_2760GeV_pythia8_cff.py --step GEN,SIM --beamspot Realistic7TeVCollision --conditions START311_V2::All --pileup NoPileUp --datamix NODATAMIXER --customise Configuration/StandardSequences/SimWithCastor_cff.customise --eventcontent RAWSIM -- datatier GEN-SIM —no_exec  \n\n",
+              "title": "Production script (manual adjustment of CASTOR non compensation)"
+            }
+          ],
+          "global_tag": "START311_V2::All",
+          "release": "CMSSW_4_1_6",
+          "type": "SIM"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "cmsDriver.py REDIGI --step DIGI,L1,DIGI2RAW,HLT:GRun --conditions START42_V11::All --pileup NoPileUp --datamix NODATAMIXER --customise Configuration/StandardSequences/DigiToRecoNoPU.customise --eventcontent RAWSIM --datatier GEN-SIM-RAW —no_exec  \n\n",
+              "title": "Production script"
+            },
+            {
+              "script": "cmsDriver.py STEP2 --step RAW2DIGI,L1Reco,RECO --conditions START42_V11::All --pileup NoPileUp --datamix NODATAMIXER --customise Configuration/GlobalRuns/reco_TLR_42X.customisePPMC --eventcontent RECOSIM --datatier GEN-SIM-RECO —no_exec  \n\n",
+              "title": "Production script (manual inclusion of specific beamspot settings)"
+            }
+          ],
+          "global_tag": "START42_V11::All",
+          "release": "CMSSW_4_2_3_patch3",
+          "type": "HLT RECO"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "14104",
+    "run_period": [
+      "Commissioning2010"
+    ],
+    "system_details": {
+      "global_tag": "START42_V11::All",
+      "release": "CMSSW_4_2_8_lowpupatch1"
+    },
+    "title": "/MinBias_Tune4C_2760GeV_pythia8_cff_py_GEN_SIM_START311_V2_Dec11_v1/hvanhaev-MinBias_Tune4C_2760GeV_pythia8_cff_py_Step3_START42_V11_Dec11_v2-2d9bf05578d0689d9cfc440754686e87/USER",
+    "title_additional": "Simulated dataset MinBias_Tune4C_2760GeV_pythia8_cff_py_GEN_SIM_START311_V2_Dec11_v1 in GEN-SIM-RECO format for 2010 commissioning data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started with CASTOR calorimeter data in",
+      "links": [
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/VM/CMS"
+        },
+        {
+          "description": "Analysis recipe to use CASTOR objects with 2010 CMS OpenData",
+          "url": "https://twiki.cern.ch/twiki/bin/view/CMSPublic/CASTOROpenData2010"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of simulated Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  },
+   {
+    "abstract": {
+      "description": "<p>Simulated dataset MinBias_Tune4C_7TeV_pythia8_cff_py_GEN_SIM_START311_V2_Dec11_v1 in GEN-SIM-RECO format (see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production overview</a>) format for 2010 Commissioning run. </p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p> <p>These simulated data correspond to the collision data that were collected by the CMS experiment during 2010 Commissioning run and contain the simulation of <a href=\"http://inspirehep.net/record/1227802/\">the CASTOR calorimeter</a>.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Standard Model Physics",
+      "secondary": [
+        "Minimum Bias"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "7TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2010"
+    ],
+    "date_published": "2019",
+    "date_reprocessed": "2011",
+    "distribution": {
+      "formats": [
+        "gen-sim-reco",
+        "root"
+      ],
+      "number_events": 1995000,
+      "number_files": 80,
+      "size": 355637228587
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>These data were generated in several steps (see also <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production overview</a>):</p>\n",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "cmsDriver.py Configuration/GenProduction/python/MinBias_Tune4C_7TeV_pythia8_cff.py --step GEN,SIM --beamspot Realistic7TeVCollision --conditions START311_V2::All --pileup NoPileUp --datamix NODATAMIXER --customise Configuration/StandardSequences/SimWithCastor_cff.customise --eventcontent RAWSIM -- datatier GEN-SIM —no_exec  \n\n",
+              "title": "Production script (manual adjustment of CASTOR non compensation)"
+            }
+          ],
+          "global_tag": "START311_V2::All",
+          "release": "CMSSW_4_1_6",
+          "type": "SIM"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "cmsDriver.py REDIGI --step DIGI,L1,DIGI2RAW,HLT:GRun --conditions START42_V11::All --pileup NoPileUp --datamix NODATAMIXER --customise Configuration/StandardSequences/DigiToRecoNoPU.customise --eventcontent RAWSIM --datatier GEN-SIM-RAW —no_exec  \n\n",
+              "title": "Production script"
+            },
+            {
+              "script": "cmsDriver.py STEP2 --step RAW2DIGI,L1Reco,RECO --conditions START42_V11::All --pileup NoPileUp --datamix NODATAMIXER --customise Configuration/GlobalRuns/reco_TLR_42X.customisePPMC --eventcontent RECOSIM --datatier GEN-SIM-RECO —no_exec  \n\n",
+              "title": "Production script (manual inclusion of specific beamspot settings)"
+            }
+          ],
+          "global_tag": "START42_V11::All",
+          "release": "CMSSW_4_2_3_patch3",
+          "type": "HLT RECO"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "14105",
+    "run_period": [
+      "Commissioning2010"
+    ],
+    "system_details": {
+      "global_tag": "START42_V11::All",
+      "release": "CMSSW_4_2_8_lowpupatch1"
+    },
+    "title": "/MinBias_Tune4C_7TeV_pythia8_cff_py_GEN_SIM_START311_V2_Dec11_v1/hvanhaev-MinBias_Tune4C_7TeV_pythia8_cff_py_Step3_START42_V11_Dec11_v1-86bcdbe9c73956c342e477ba771c41c7/USER",
+    "title_additional": "Simulated dataset MinBias_Tune4C_7TeV_pythia8_cff_py_GEN_SIM_START311_V2_Dec11_v1 in GEN-SIM-RECO format for 2010 commissioning data",
     "type": {
       "primary": "Dataset",
       "secondary": [
