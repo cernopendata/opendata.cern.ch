@@ -1,10 +1,12 @@
+This guide gives a brief overview of the main steps in the production chain of simulated data, and its main objective is to explain how to find the parameters used in event generation for datasets that are available as public data. These parameters are displayed in the simulated dataset records whenever possible, but in some cases they are well-hidden in different configuration files, or only available with a command-line script reading them from a data file directly. If you are interested in producing new simulated data, read [the guide for event production](/docs/cms-guide-event-production).
+
 The CMS data files have gone through several processing steps before they are in format good for analysis. The following diagram shows an overview of these steps. The arrows describe the direction of the flow of information.
 
 <p align="center">
 <img alt="CMS data flow overview" src="/static/docs/cms-mc-production-overview/diagram.png" width=75%>
 </p>
 
-The data records  on this portal keep track of this information, and provide the job configuration files used in the processing as well as the CMSSW version and the Global Tag for condition data. This information describes the exact setup for the CMS software executable which was used in data-processing steps and it is provided only for information purposes. Although all the components required to analyse the public primary datasets - such as corresponding input data, condition data, software version - are provided on this portal, it is not necessarily possible to reproduce all the described data-processing steps.
+The data records on this portal keep track of this information, and provide the job configuration files used in the processing as well as the CMSSW version and the Global Tag for condition data. This information describes the exact setup for the CMS software executable which was used in data-processing steps and it is provided only for information purposes. Although all the components required to analyse the public primary datasets - such as corresponding input data, condition data, software version - are provided on this portal, it is not necessarily possible to reproduce all the described data-processing steps.
 
 The *GEN* (Generation) step uses one of the available event generators to simulate beam collisions.
 
@@ -231,8 +233,7 @@ Output from the JHUGenerator v4.3.2 described in arXiv:1001.3396 [hep-ph],arXiv:
 
 ### From a `GenFragment`
 
-`GenFragment` is a code snippet that contains only the specific generator
-parameters for that process.
+`GenFragment` is a code snippet that contains only the specific generator parameters for that process.
 
 - Example dataset: [/BBH_HToTauTau_M_125_TuneZ2star_8TeV_pythia6_tauola/Summer12_DR53X-PU_S10_START53_V19-v1/AODSIM](../record/7299)
 
@@ -385,8 +386,7 @@ Module: generator SIM
 [...]
 ```
 
-It is also possible to get only the information about the modules with contain
-the string `generator SIM`:
+It is also possible to get only the information about the modules with contain the string `generator SIM`:
 
 ```
 $ edmProvDump -f "generator SIM" root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2012/Summer12_DR53X/DiPhotonBox_Pt-10To25_8TeV-pythia6/AODSIM/PU_RD1_START53_V7N-v1/20000/78CFFDF5-29CF-E211-B7C7-1CC1DE056008.root > edmProvDump.out
