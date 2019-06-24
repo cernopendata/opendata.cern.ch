@@ -4,6 +4,13 @@
       "description": "\n          <p>Simulated pile-up event dataset MinBias_TuneZ2star_8TeV-pythia6 in GEN-SIM format. Events were sampled from this dataset and added to simulated data to make them comparable with the 2012 collision data, see <a href=\"/docs/cms-guide-pileup-simulation\">the guide to pile-up simulation</a>. </p>\n          <p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p>\n   "
     },
     "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Standard Model Physics",
+      "secondary": [
+        "Minimum Bias"
+      ],
+      "source": "CMS Collaboration"
+    },
     "collaboration": {
       "name": "CMS collaboration",
       "recid": "453"
@@ -51,8 +58,8 @@
               "script": "import FWCore.ParameterSet.Config as cms \n \nfrom Configuration.Generator.PythiaUEZ2starSettings_cfi import * \ngenerator = cms.EDFilter(\"Pythia6GeneratorFilter\", \n    pythiaHepMCVerbosity = cms.untracked.bool(False), \n    maxEventsToPrint = cms.untracked.int32(0), \n    pythiaPylistVerbosity = cms.untracked.int32(1), \n    filterEfficiency = cms.untracked.double(1.0), \n    crossSection = cms.untracked.double(72700000000), \n    comEnergy = cms.double(8000.0), \n    PythiaParameters = cms.PSet( \n        pythiaUESettingsBlock, \n        processParameters = cms.vstring('MSEL=0         ! User defined processes',  \n            'MSUB(11)=1     ! Min bias process',  \n            'MSUB(12)=1     ! Min bias process',  \n            'MSUB(13)=1     ! Min bias process',  \n            'MSUB(28)=1     ! Min bias process',  \n            'MSUB(53)=1     ! Min bias process',  \n            'MSUB(68)=1     ! Min bias process',  \n            'MSUB(92)=1     ! Min bias process, single diffractive',  \n            'MSUB(93)=1     ! Min bias process, single diffractive',  \n            'MSUB(94)=1     ! Min bias process, double diffractive',  \n            'MSUB(95)=1     ! Min bias process'), \n        # This is a vector of ParameterSet names to be read, in this order \n        parameterSets = cms.vstring('pythiaUESettings',  \n            'processParameters') \n    ) \n) \n \nconfigurationMetadata = cms.untracked.PSet( \n    version = cms.untracked.string('$Revision: 1.1 $'), \n    name = cms.untracked.string('$Source: /afs/cern.ch/project/cvs/reps/CMSSW/CMSSW/Configuration/GenProduction/python/EightTeV/MinBias_TuneZ2star_8TeV_pythia6_cff.py,v $'), \n    annotation = cms.untracked.string('PYTHIA6-MinBias TuneZ2star at 8TeV') \n) \n \nProductionFilterSequence = cms.Sequence(generator)\n",
               "title": "Generator parameters",
               "url": "https://raw.githubusercontent.com/cms-sw/genproductions/V02-00-09/python/EightTeV/MinBias_TuneZ2star_8TeV_pythia6_cff.py"
-           },
-           {
+            },
+            {
               "cms_confdb_id": "af4431aa75037618429e3164db9f3415",
               "process": "SIM",
               "title": "Configuration file"
@@ -73,13 +80,6 @@
       "Run2012A",
       "Run2012B"
     ],
-    "simulated_dataset_categories": {
-      "primary": "Standard Model",
-      "secondary": [
-        "Minimum Bias"
-      ],
-      "source": "CMS Collaboration"
-    },
     "system_details": {
       "global_tag": "START53_LV6A1",
       "release": "CMSSW_5_3_32"
