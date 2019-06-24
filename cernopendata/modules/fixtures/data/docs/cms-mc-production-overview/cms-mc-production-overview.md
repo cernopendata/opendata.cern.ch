@@ -1,12 +1,12 @@
-This guide gives a brief overview of the main steps in the production chain of simulated data, and its main objective is to explain how to find the parameters used in event generation for datasets that are available as public data. These parameters are displayed in the simulated dataset records whenever possible, but in some cases they are well-hidden in different configuration files, or only available with a command-line script reading them from a data file directly. If you are interested in producing new simulated data, read [the guide for event production](/docs/cms-guide-event-production).
+This guide gives a brief overview of the main steps in the production chain of simulated data. Its primary objective is to explain how to find the parameters used in event generation for datasets that are available as public data. These parameters are displayed in the simulated-dataset records whenever possible, but in some cases they are hidden in different configuration files, or only available with a command-line script reading them from a data file directly. If you are interested in producing new simulated data, read [the guide for event production](/docs/cms-guide-event-production).
 
-The CMS data files have gone through several processing steps before they are in format good for analysis. The following diagram shows an overview of these steps. The arrows describe the direction of the flow of information.
+The CMS data files have gone through several processing steps before they are in a format that is good for analysis. The following diagram shows an overview of these steps. The arrows describe the direction of the flow of information.
 
 <p align="center">
-<img alt="CMS data flow overview" src="/static/docs/cms-mc-production-overview/diagram.png" width=75%>
+<img alt="CMS data-flow overview" src="/static/docs/cms-mc-production-overview/diagram.png" width=75%>
 </p>
 
-The data records on this portal keep track of this information, and provide the job configuration files used in the processing as well as the CMSSW version and the Global Tag for condition data. This information describes the exact setup for the CMS software executable which was used in data-processing steps and it is provided only for information purposes. Although all the components required to analyse the public primary datasets - such as corresponding input data, condition data, software version - are provided on this portal, it is not necessarily possible to reproduce all the described data-processing steps.
+The data records on this portal keep track of this information, and provide the job-configuration files used in the processing as well as the CMSSW version and the Global Tag for condition data. This information describes the exact setup for the CMS software executable that was used in the data-processing steps and it is provided only for information purposes. Although all the components required to analyse the public primary datasets – such as corresponding input data, condition data, software version – are provided on this portal, it is not necessarily possible to reproduce all the described data-processing steps.
 
 The *GEN* (Generation) step uses one of the available event generators to simulate beam collisions.
 
@@ -14,28 +14,27 @@ The next step is to simulate the effect of the detectors and electronics. The *L
 
 The *RECO* step uses simulated or real data for the reconstruction the events in the collisions. The reconstructed data is then used in the analysis.
 
-
 ## Finding the generator parameters
 
-Generator level datasets are produced in two ways:
+Generator-level datasets are produced in two ways:
 
-* using a *general purpose generator* to simulate the event and the hadronization. Examples are: [Pythia](http://home.thep.lu.se/~torbjorn/Pythia.html), [Herwig](http://herwig.hepforge.org/), [Tauola](https://tauolapp.web.cern.ch/tauolapp/).
+* using a *general-purpose generator* to simulate the event and the hadronisation. Examples are: [Pythia](http://home.thep.lu.se/~torbjorn/Pythia.html), [Herwig](http://herwig.hepforge.org/), [Tauola](https://tauolapp.web.cern.ch/tauolapp/).
 
-* using a *Matrix Element (ME) generator* to deliver the event at the parton level and then a general purpose generator to hadronize the event. Examples are: [Powheg](http://powhegbox.mib.infn.it/), [MadGraph5_aMCatNLO](http://amcatnlo.web.cern.ch/amcatnlo/), [Alpgen](http://mlm.home.cern.ch/mlm/alpgen/).
+* using a *Matrix Element (ME) generator* to deliver the event at the parton level and then a general-purpose generator to hadronise the event. Examples are: [Powheg](http://powhegbox.mib.infn.it/), [MadGraph5_aMCatNLO](http://amcatnlo.web.cern.ch/amcatnlo/), [Alpgen](http://mlm.home.cern.ch/mlm/alpgen/).
 
-In addition, it is also possible to use a *particle gun simulator*, or a specific generator for diffractive physics, cosmic muon generators, heavy ions...
+In addition, it is also possible to use a *particle-gun simulator*, or a specific generator for diffractive physics, cosmic-muon generators, heavy ions&hellip;
 
-To extract the generator parameters, look for the initialization of the `cms.EDFilter` in the python config file for the *SIM* step. Some examples are presented below of how to obtain this data.
+To extract the generator parameters, look for the initialisation of the `cms.EDFilter` in the python config file for the *SIM* step. Some examples of how to obtain these data are presented below.
 
-### For general purpose generators
+### For general-purpose generators
 
 - Example dataset: [QCD_Pt-15to30_TuneZ2_7TeV_pythia6](../record/1366)
 
-Under the section *How were these data generated?*, download the Python configuration file for the *Step SIM*.
+Under the section *How were these data generated?*, download the Python configuration file for the step *SIM*.
 
-This dataset used [Pythia6](http://home.thep.lu.se/~torbjorn/Pythia.html) as generator. All the parameters are defined in the `PythiaParameters` [PSet](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideAboutPythonConfigFile?rev=85#Parameter_Set_PSet_Objects). Lines 67-102 of the python configuration script:
+This dataset used [Pythia6](http://home.thep.lu.se/~torbjorn/Pythia.html) as generator. All the parameters are defined in the `PythiaParameters` [PSet](https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideAboutPythonConfigFile?rev=85#Parameter_Set_PSet_Objects). Lines 67–102 of the python configuration script:
 
-```
+```python
 process.generator = cms.EDFilter("Pythia6GeneratorFilter",
      pythiaPylistVerbosity = cms.untracked.int32(0),
      filterEfficiency = cms.untracked.double(1),
@@ -78,9 +77,9 @@ process.generator = cms.EDFilter("Pythia6GeneratorFilter",
 
 - Example dataset: [VBFHiggs0MToZZTo4L_M-125p6_7TeV-JHUGenV4](../record/1352)
 
-Lines 30-34 of the configuration file define the input of the generator as a [`PoolSource`](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookGeneration#FwkSources):
+Lines 30–34 of the configuration file define the input of the generator as a [`PoolSource`](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookGeneration#FwkSources):
 
-```
+```python
 # Input source
 process.source = cms.Source("PoolSource",
     secondaryFileNames = cms.untracked.vstring(),
@@ -88,10 +87,10 @@ process.source = cms.Source("PoolSource",
 )
 ```
 
-That means this dataset had the parton level events generated with an external tool. The next step is to generate fully hadronized events, for example using Pythia.
-Lines 70-115 defines an `cms.EDFilter` named `Pythia6HadronizerFilter` for this purpose:
+That means this dataset had the parton-level events generated with an external tool. The next step is to generate fully hadronised events, for example using Pythia.
+Lines 70–115 defines an `cms.EDFilter` named `Pythia6HadronizerFilter` for this purpose:
 
-```
+```python
 process.generator = cms.EDFilter("Pythia6HadronizerFilter",
     ExternalDecays = cms.PSet(
         Tauola = cms.untracked.PSet(
@@ -140,9 +139,9 @@ process.generator = cms.EDFilter("Pythia6HadronizerFilter",
 )
 ```
 
-To extract the LHE information, which contain details about the generator used, download the file index (that contains the path to the root files), select one item of the list and run the `dumpLHEHeader.py` script available in the [CMS working environment](/docs/cms-getting-started-2011) on the [CMS Open Data VM](/docs/cms-virtual-machine-2011):
+To extract the LHE information, which contains details about the generator used, download the file index (that contains the path to the root files), select one item of the list and run the `dumpLHEHeader.py` script available in the [CMS working environment](/docs/cms-getting-started-2011) on the [CMS Open Data VM](/docs/cms-virtual-machine-2011):
 
-```
+```bash
 cmsrel CMSSW_5_3_32
 cd CMSSW_5_3_32/src
 cmsenv
@@ -239,7 +238,7 @@ Output from the JHUGenerator v4.3.2 described in arXiv:1001.3396 [hep-ph],arXiv:
 
 The `genFragment` is:
 
-```
+```python
 import FWCore.ParameterSet.Config as cms
 
 from Configuration.Generator.PythiaUEZ2starSettings_cfi import *
@@ -304,11 +303,7 @@ configurationMetadata = cms.untracked.PSet(
 )
 ```
 
-Apart from the process specific parameters, there are some general Pythia and
-Tauola parameters. Those parameters are not in the `genFragment`, but they can
-be found in `CMSSW` source code. In this example, the first two lines of the
-`genFragment` indicate where they can be found. As this dataset was generated
-with `CMSSW_5_3_X`, the links to these parameters are:
+Apart from the process-specific parameters, there are some general Pythia and Tauola parameters. Those parameters are not in the `genFragment`, but they can be found in `CMSSW` source code. In this example, the first two lines of the `genFragment` indicate where they can be found. As this dataset was generated with `CMSSW_5_3_X`, the links to these parameters are:
 
 - [TauolaPolar, TauolaDefaultInputCards](https://github.com/cms-sw/cmssw/blob/CMSSW_5_3_X/GeneratorInterface/ExternalDecays/python/TauolaSettings_cff.py)
 - [pythiaUESettings](https://github.com/cms-sw/cmssw/blob/CMSSW_5_3_X/Configuration/Generator/python/PythiaUEZ2starSettings_cfi.py)
@@ -316,9 +311,9 @@ with `CMSSW_5_3_X`, the links to these parameters are:
 
 ### For any dataset
 
-`CMSSW` also provides `edmProvDump` utility which prints out all the tracked parameters. The output is lengthy, it is recommended to redirect the output to a file:
+`CMSSW` also provides the `edmProvDump` utility, which prints out all the tracked parameters. The output is lengthy and it is recommended to redirect the output to a file:
 
-```
+```bash
 cmsrel CMSSW_5_3_32
 cd CMSSW_5_3_32/src
 cmsenv
@@ -388,12 +383,11 @@ Module: generator SIM
 
 It is also possible to get only the information about the modules with contain the string `generator SIM`:
 
-```
-$ edmProvDump -f "generator SIM" root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2012/Summer12_DR53X/DiPhotonBox_Pt-10To25_8TeV-pythia6/AODSIM/PU_RD1_START53_V7N-v1/20000/78CFFDF5-29CF-E211-B7C7-1CC1DE056008.root > edmProvDump.out
+```bash
+edmProvDump -f "generator SIM" root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2012/Summer12_DR53X/DiPhotonBox_Pt-10To25_8TeV-pythia6/AODSIM/PU_RD1_START53_V7N-v1/20000/78CFFDF5-29CF-E211-B7C7-1CC1DE056008.root > edmProvDump.out
 ```
 
 More information can be found in the `--help` command of `edmProvDump`.
-
 
 ---
 
