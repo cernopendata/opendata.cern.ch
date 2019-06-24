@@ -1,4 +1,4 @@
-The CERN Open Data Portal classifies each simulated dataset in one category or
+The CERN Open Data portal classifies each simulated dataset into one category or
 subcategory. The scheme used here follows closely the
 [CMS Physics Publications](https://cms-results.web.cern.ch/cms-results/public-results/publications/)
 and
@@ -43,45 +43,45 @@ Please find below the description of each category.
 
 ### B Physics and Quarkonia
 
-Datasets for bottom and charm quarks production:
+Datasets for bottom- and charm-quark production:
 
-- Heavy-quark hadron production, decay and properties.
-- Quarkonia properties.
+- Heavy-quark hadron production, decay and properties
+- Quarkonia properties
 
 ### Higgs Physics
 
-Datasets related Higgs Boson physics including Standard Model and (N)MSSM.
+Datasets related to Higgs physics including Standard Model and (N)MSSM
 
 ### Standard Model Physics
 
 Datasets for jet, vector-boson production and production of vector-bosons with associated jets:
 
-- Drell-Yan and Z/W production (including additional jets).
-- Multi vector-boson production.
-- Forward and small-X physics (including diffractive processes).
-- Processes for top quark production.
-- Inclusive and multi-jet production.
+- Drell-Yan and Z/W production (including additional jets)
+- Multi vector-boson production
+- Forward and small-X physics (including diffractive processes)
+- Processes for top-quark production
+- Inclusive and multi-jet production
 
 ### Heavy-Ion Physics
 
-Datasets for p-Pb, Pb-Pb collisions, and p-p reference set.
+Datasets for p–Pb, Pb–Pb collisions, and p–p reference set
 
 ### Beyond 2 Generations
 
-Datasets for new heavy particles, including heavy resonances like Z' and W', diboson resonances, heavy partners of top quark (with vector-like quark (VLQ) properties).
+Datasets for new heavy particles, including heavy resonances like Z&prime; and W&prime;, di-boson resonances, heavy partners of the top quark (with vector-like quark (VLQ) properties)
 
 ### Exotica
 
-Datasets for non-supersymmetric physics beyond the Standard Model: Extra Dimensions, mini Black Holes, Dark Matter, extended Higgs models, Compositeness.
+Datasets for non-supersymmetric physics beyond the Standard Model: extra dimensions, mini black holes, dark matter, extended Higgs models, compositeness
 
 ### Supersymmetry
 
-Datasets for production of supersymmetric (SUSY) particles including both R-parity conserving and violating scenarios. ((N)MSSM Higgs boson production is under _Higgs Physics_)
+Datasets for production of supersymmetric (SUSY) particles including scenarios for both R-parity conservation and violation. ((N)MSSM Higgs production is under _Higgs Physics_)
 
 ### Physics Modeling
 
-Datasets for Monte Carlo generator studies and tuning, and for studies of systematic variations in different physics processes.
+Datasets for Monte Carlo generator studies and tuning, and for studies of systematic variations in different physics processes
 
 ---
 
-A word of advice: the categorisation is done automatically. It might happen that one dataset is miscategorised.
+A word of advice: the categorisation is done automatically, so some datasets may be miscategorised.
