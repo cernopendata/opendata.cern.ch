@@ -137,17 +137,21 @@
             <span>{{record.system_details.description}}</span>
             {% endif %}
             {% if record.system_details.global_tag %}
-            <label>Recommended <a href="/docs/cms-guide-for-condition-database">global tag</a> for analysis:</label>
+              {% if 'raw' in record.get('distribution', {}).get('formats', []) %}
+              <label>Recommended <a href="/docs/cms-guide-for-condition-database">global tag</a> for reconstruction:</label>
+              {% else %}
+              <label>Recommended <a href="/docs/cms-guide-for-condition-database">global tag</a> for analysis:</label>
+              {% endif %}
             <span>{{record.system_details.global_tag}}</span>
             {% endif %}
             <br>
             {% if record.system_details.release %}
                 {% if record.type.primary == 'Software' %}
                 <label>Software release:</label>
-                {% elif 'aod' in record.distribution.formats or 'aodsim' in record.distribution.formats or 'gen-sim' in record.distribution.formats %}
-                <label>Recommended release for analysis:</label>
-                {% elif 'raw' in record.distribution.formats %}
+                {% elif 'raw' in record.get('distribution', {}).get('formats', []) %}
                 <label>Recommended release for reconstruction:</label>
+                {% else %}
+                <label>Recommended release for analysis:</label>
                 {% endif %}
                 <span>{{record.system_details.release}}</span>
             {% endif %}
