@@ -141,7 +141,7 @@ process.generator = cms.EDFilter("Pythia6HadronizerFilter",
 
 To extract the LHE information, which contains details about the generator used, download the file index (that contains the path to the root files), select one item of the list and run the `dumpLHEHeader.py` script available in the [CMS working environment](/docs/cms-getting-started-2011) on the [CMS Open Data VM](/docs/cms-virtual-machine-2011):
 
-```bash
+```sh
 cmsrel CMSSW_5_3_32
 cd CMSSW_5_3_32/src
 cmsenv
@@ -313,7 +313,7 @@ Apart from the process-specific parameters, there are some general Pythia and Ta
 
 `CMSSW` also provides the `edmProvDump` utility, which prints out all the tracked parameters. The output is lengthy and it is recommended to redirect the output to a file:
 
-```bash
+```sh
 cmsrel CMSSW_5_3_32
 cd CMSSW_5_3_32/src
 cmsenv
@@ -383,7 +383,7 @@ Module: generator SIM
 
 It is also possible to get only the information about the modules with contain the string `generator SIM`:
 
-```bash
+```sh
 edmProvDump -f "generator SIM" root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2012/Summer12_DR53X/DiPhotonBox_Pt-10To25_8TeV-pythia6/AODSIM/PU_RD1_START53_V7N-v1/20000/78CFFDF5-29CF-E211-B7C7-1CC1DE056008.root > edmProvDump.out
 ```
 
