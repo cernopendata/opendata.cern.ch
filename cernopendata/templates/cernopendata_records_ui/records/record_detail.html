@@ -251,7 +251,10 @@
                     {% if conf_file.get('recid') %}
                         <a href="{{ url_for('invenio_records_ui.recid', pid_value=conf_file.recid ) }}"> (link)</a>
                     {% endif %}
-                    <br>
+                    {% if conf_file.get('cms_confdb_id') %}
+                        <a href="/eos/opendata/cms/configuration-files/MonteCarlo{{record.get('date_created', [''])[0]}}/{{conf_file.get('cms_confdb_id')}}.configFile.py"> (link)</a>
+                    {% endif %}
+                   <br>
                 {% endfor %}
                 {% if step.get("output_dataset") %}
                     Output dataset: {{ step.output_dataset }}<br>
