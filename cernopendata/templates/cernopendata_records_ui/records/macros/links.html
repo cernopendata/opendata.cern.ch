@@ -21,7 +21,7 @@
         {% elif link.title %}
         {{link.title}}
         {% else %}
-        {{get_record_title}}
+        {{link.recid | get_record_title}}
         {% endif %}
       </a>
     </p>
