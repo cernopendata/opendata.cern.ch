@@ -33,7 +33,27 @@
       "2019"
     ],
     "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "png",
+        "zip"
+      ],
+      "number_files": 2,
+      "size": 1153192
+    },
     "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:55ee172d",
+        "size": 515026,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/TrackerRecHitProducerTool/TrackerRecHitProducerTool-12.0.0.zip"
+      },
+      {
+        "checksum": "adler32:82805097",
+        "size": 638166,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/TrackerRecHitProducerTool/production-workflow.png"
+      }
+    ],
     "keywords": [
       "datascience"
     ],
@@ -42,9 +62,6 @@
     },
     "publisher": "CERN Open Data Portal",
     "recid": "12210",
-    "run_period": [
-      "Run1"
-    ],
     "relations": [
       {
         "description": "The tracker-hit-enriched AODSIM files produced by step 2 of this software tool are available in",
@@ -56,11 +73,11 @@
         "type": "isRelatedTo"
       },
       {
-        "recid":   "12202",
+        "recid": "12202",
         "type": "isRelatedTo"
       },
       {
-        "recid":   "12203",
+        "recid": "12203",
         "type": "isRelatedTo"
       },
       {
@@ -68,6 +85,9 @@
         "recid": "12220",
         "type": "isRelatedTo"
       }
+    ],
+    "run_period": [
+      "Run1"
     ],
     "system_details": {
       "description": "Use this code with the CMS Open Data VM environment",
@@ -82,7 +102,7 @@
       ]
     },
     "usage": {
-      "description": " <p>If you do not have the CERN Virtual Machine for CMS open data installed, follow the instructions in step 1 at <a href=\"/VM/CMS/2011\">How to install a CERN Virtual Machine</a>.  <p>To run this workflow, follow the instructions in <a href=\"https://github.com/cms-legacydata-analyses/TrackerRecHitProducerTool\">TrackerRecHitProducerTool GitHub documentation</a>.</p> "
+      "description": " <p>If you do not have the CERN Virtual Machine for CMS open data installed, follow the instructions in step 1 at <a href=\"/VM/CMS/2011\">How to install a CERN Virtual Machine</a>.  <p>To run this workflow, follow the instructions in <a href=\"https://github.com/cms-opendata-analyses/TrackerRecHitProducerTool\">TrackerRecHitProducerTool GitHub documentation</a>.</p> "
     },
     "use_with": {
       "description": "The ROOT ntuple production step (step3) can be run independently using these Run1 tracker-hit-enriched AODSIM datasets:",
