@@ -98,13 +98,16 @@
     </div>
     {% endif %}
 
-    {% if record.distribution and (record.distribution.number_events or record.distribution.number_files or record.distribution.size) %}
+    {% if record.distribution and (record.distribution.number_entries or record.distribution.number_events or record.distribution.number_files or record.distribution.size) %}
         <div class="row">
             <div class="col-md-12">
                 {% if record.type.primary == 'Dataset' %}
                 <h2>Dataset characteristics</h2>
                 {% else %}
                 <h2>Characteristics</h2>
+                {% endif %}
+                {% if record.distribution.number_entries %}
+                <span><strong>{{record.distribution.number_entries}}</strong> entries. </span>
                 {% endif %}
                 {% if record.distribution.number_events %}
                 <span><strong>{{record.distribution.number_events}}</strong> events. </span>
