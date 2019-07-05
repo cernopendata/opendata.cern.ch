@@ -38,6 +38,8 @@ Execute the following command; this command builds the local release area (the d
 cmsrel CMSSW_5_3_32
 ```
 
+Note that if you get a warning message about the current OS being SLC7, you are using a wrong terminal ("Outer Shell"). Open a "CMS Shell" terminal as explained above and execute the cmsrel command there.
+
 Change to the ```CMSSW_5_3_32/src/``` directory:
 
 ```

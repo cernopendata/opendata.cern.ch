@@ -14,6 +14,8 @@ To analyse CMS data collected in 2011 and 2012, you need **version 5.3.32** of C
 $ cmsrel CMSSW_5_3_32
 ```
 
+Note that if you get a warning message about the current OS being SLC7, you are using a wrong terminal ("Outer Shell"). Open a "CMS Shell" terminal as explained above and execute the cmsrel command there.
+
 Then, make sure that you are always in the **CMSSW_5_3_32/src/** directory ((and in the "CMS Shell" terminal, if using the "CMS-OpenData-1.5.1" VM), and that the CMS analysis environment is properly setup by entering the following commands in the terminal (you must do so every time you boot the VM before you can proceed):
 
 ```shell
