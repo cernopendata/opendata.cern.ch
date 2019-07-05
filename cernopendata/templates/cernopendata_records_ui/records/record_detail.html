@@ -193,7 +193,7 @@
     {% if record.links %}
     <div class="row">
         <div class="col-md-12">
-            <h2>URLs</h2>
+            <h2>External links</h2>
             {{ link_list(record.links) }}
         </div>
     </div>
@@ -332,6 +332,18 @@
             <p>{{record.usage.description | safe}}</p>
             <p>{{ link_list(record.usage.links) }}</p>
         </div>
+    </div>
+    {% endif %}
+
+    {% if record.source_code_repository %}
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Source code repository</h2>
+        {% if record.source_code_repository.description %}
+        {{ record.source_code_repository.description }}<br>
+        {% endif %}
+        <a href="{{ record.source_code_repository.url }}">{{ record.source_code_repository.url }}</a>
+      </div>
     </div>
     {% endif %}
 {% endblock metadata_block %}
