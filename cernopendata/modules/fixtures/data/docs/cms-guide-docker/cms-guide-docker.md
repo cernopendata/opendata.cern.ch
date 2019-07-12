@@ -9,21 +9,21 @@ As an alternative to using a virtual machine, you can run CMS analysis code in a
 Once Docker is installed, you can fetch a CMSSW image, and create and start a container using the `docker run` command:
 
 ```sh
-docker run --name opendata -it clelange/cmssw:5_3_32 /bin/bash
+docker run --name opendata -it cmsopendata/cmssw_5_3_32 /bin/bash
 ```
 
-Here we fetch the `CMSSW_5_3_32` docker image from [dockerhub](https://hub.docker.com/r/clelange/cmssw/tags) and name the container `opendata`.
+Here we fetch the `CMSSW_5_3_32` docker image from [dockerhub](https://cloud.docker.com/u/cmsopendata/repository/list) and name the container `opendata`.
 
 As described [in this GitHub repository](https://github.com/clelange/cmssw-docker/), this will install a stand-alone CMSSW image (a few gigabytes). Therefore this may take a few minutes. However, the image will only have to be downloaded once. The following will appear in your terminal once you type the `docker run` command:
 
 ```console
-Unable to find image 'clelange/cmssw:5_3_32' locally
-5_3_32: Pulling from clelange/cmssw
+Unable to find image 'cmsopendata/cmssw_5_3_32' locally
+latest: Pulling from cmsopendata/cmssw_5_3_32
 e8114d4b0d10: Pull complete
 a3eda0944a81: Pull complete
 a88502447863: Pull complete
 Digest: sha256:6b9a12992ba088a168b87df98a841d3c56dede326684f5551368fd359acfb43c
-Status: Downloaded newer image for clelange/cmssw:5_3_32
+Status: Downloaded newer image for cmsopendata/cmssw_5_3_32:latest
 Setting up CMSSW_5_3_32
 CMSSW should now be available.
 ```
@@ -39,21 +39,21 @@ cmsusr@eb9ecf54fd2a ~/CMSSW_5_3_32/src $
 Once Docker is installed, you can fetch a CMSSW image and create and start a container using the `docker run` command:
 
 ```sh
-docker run --name opendata-2010 -it clelange/cmssw:4_2_8 /bin/bash
+docker run --name opendata-2010 -it cmsopendata/cmssw_4_2_8 /bin/bash
 ```
 
-Here we fetch the `CMSSW_4_2_8` docker image from [dockerhub](https://hub.docker.com/r/clelange/cmssw/tags) and name the container `opendata-2010`.
+Here we fetch the `CMSSW_4_2_8` docker image from [dockerhub](https://cloud.docker.com/u/cmsopendata/repository/list) and name the container `opendata-2010`.
 
 As described [in this GitHub repository](https://github.com/clelange/cmssw-docker/), this will install a stand-alone CMSSW image that is a few GBs. Therefore this may take a few minutes. However, the image will only have to be downloaded once. The following will appear in your terminal once you type the `docker run` command:
 
 ```console
-Unable to find image 'clelange/cmssw:4_2_8' locally
-4_2_8: Pulling from clelange/cmssw
+Unable to find image 'cmsopendata/cmssw_4_2_8' locally
+latest: Pulling from cmsopendata/cmssw_4_2_8
 acb4e939ccb9: Pull complete
 99519598bf9e: Pull complete
 bd33a5d7d5de: Pull complete
 Digest: sha256:511ece0c921dffa39470c785e5cade41bfd25f8ebc4e7ac72e6a622bb1a477c9
-Status: Downloaded newer image for clelange/cmssw:4_2_8
+Status: Downloaded newer image for cmsopendata/cmssw_4_2_8:latest
 Setting up CMSSW_4_2_8
 CMSSW should now be available.
 ```
