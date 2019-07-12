@@ -1,0 +1,2756 @@
+[
+  {
+    "abstract": {
+      "description": "<p>Dataset in reduced NanoAOD format for education and outreach derived from the primary dataset in AOD format linked below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Wunsch, Stefan"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Run number",
+        "type": "int",
+        "variable": "run"
+      },
+      {
+        "description": "Luminosity block number",
+        "type": "unsigned int",
+        "variable": "luminosityBlock"
+      },
+      {
+        "description": "Event number",
+        "type": "unsigned long",
+        "variable": "event"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu24"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu24_eta2p1"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu17_eta2p1_LooseIsoPFTau20"
+      },
+      {
+        "description": "Number of primary vertices",
+        "type": "int",
+        "variable": "PV_npvs"
+      },
+      {
+        "description": "Number of muons in this event",
+        "type": "unsigned int",
+        "variable": "nMuon"
+      },
+      {
+        "description": "Transverse momentum of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_pt"
+      },
+      {
+        "description": "Pseudorapidity of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_eta"
+      },
+      {
+        "description": "Azimuth of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_phi"
+      },
+      {
+        "description": "Mass of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_mass"
+      },
+      {
+        "description": "Charge of the muons (either 1 or -1)",
+        "type": "int[nMuon]",
+        "variable": "Muon_charge"
+      },
+      {
+        "description": "Muon object identification with soft requirements",
+        "type": "bool[nMuon]",
+        "variable": "Muon_softId"
+      },
+      {
+        "description": "Muon object identification with tight requirements",
+        "type": "bool[nMuon]",
+        "variable": "Muon_tightId"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso03_all"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.4$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso04_all"
+      },
+      {
+        "description": "Indices for the muons pointing to the related objects in the generator particle collection",
+        "type": "int[nMuon]",
+        "variable": "Muon_genPartIdx"
+      },
+      {
+        "description": "Number of taus in this event",
+        "type": "unsigned int",
+        "variable": "nTau"
+      },
+      {
+        "description": "Transverse momentum of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_pt"
+      },
+      {
+        "description": "Pseudorapidity of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_eta"
+      },
+      {
+        "description": "Azimuth of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_phi"
+      },
+      {
+        "description": "Mass of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_mass"
+      },
+      {
+        "description": "Charge of the taus (either 0, 1 or -1). 0 indicates that the charge could not be determined.",
+        "type": "int[nTau]",
+        "variable": "Tau_charge"
+      },
+      {
+        "description": "Hadronic decay mode of the taus",
+        "type": "int[nTau]",
+        "variable": "Tau_decayMode"
+      },
+      {
+        "description": "Tau isolation divided by the transverse momentum",
+        "type": "float[nTau]",
+        "variable": "Tau_relIso_all"
+      },
+      {
+        "description": "Indicates passed decay mode finding of the taus",
+        "type": "bool[nTau]",
+        "variable": "Tau_idDecayMode"
+      },
+      {
+        "description": "Indicates passed tau isolation with [very loose, loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idIso[VLoose,Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indicates passed anti-electron discriminator with [loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idAntiEle[Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indicates passed anti-muon discriminator with [loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idAntiMu[Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indices for the taus pointing to the related objects in the generator particle collection",
+        "type": "int[nTau]",
+        "variable": "Tau_genPartIdx"
+      },
+      {
+        "description": "Number of jets in this event",
+        "type": "unsigned int",
+        "variable": "nJet"
+      },
+      {
+        "description": "Transverse momentum of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_pt"
+      },
+      {
+        "description": "Pseudorapidity of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_eta"
+      },
+      {
+        "description": "Azimuth of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_phi"
+      },
+      {
+        "description": "Mass of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_mass"
+      },
+      {
+        "description": "Jet pile-up identification flag",
+        "type": "bool[nJet]",
+        "variable": "Jet_puId"
+      },
+      {
+        "description": "b-Jet identification score",
+        "type": "float[nJet]",
+        "variable": "Jet_btag"
+      },
+      {
+        "description": "Missing transverse energy",
+        "type": "float",
+        "variable": "MET_pt"
+      },
+      {
+        "description": "Azimuth of the missing transverse energy",
+        "type": "float",
+        "variable": "MET_phi"
+      },
+      {
+        "description": "Number of stored generator particles",
+        "type": "unsigned int",
+        "variable": "nGenPart"
+      },
+      {
+        "description": "Transverse momentum of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_pt"
+      },
+      {
+        "description": "Pseudorapidity of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_eta"
+      },
+      {
+        "description": "Azimuth of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_phi"
+      },
+      {
+        "description": "Mass of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_mass"
+      },
+      {
+        "description": "Particle identification number of the generator particles",
+        "type": "int[nGenPart]",
+        "variable": "GenPart_pdgId"
+      }
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_events": 476963,
+      "number_files": 1,
+      "size": 196517149
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:2b025925",
+        "size": 196517149,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/GluGluToHToTauTau.root"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "The datasets were produced with the software available in the record linked below.",
+      "links": [
+        {
+          "recid": "12340"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12351",
+    "relations": [
+      {
+        "description": "This dataset was derived from:",
+        "recid": "8001",
+        "type": "isChildOf"
+      }
+    ],
+    "title": "GluGluToHToTauTau dataset in reduced NanoAOD format for education and outreach",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "use_with": {
+      "description": "This dataset can be used with the following analysis:",
+      "links": [
+        {
+          "recid": "12350"
+        }
+      ]
+    },
+    "validation": {
+      "description": "<p>These data were derived from the primary datasets linked below using only the validated runs. No further validation was done for the output.</p>",
+      "links": [
+        {
+          "recid": "8001"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Dataset in reduced NanoAOD format for education and outreach derived from the primary dataset in AOD format linked below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Wunsch, Stefan"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Run number",
+        "type": "int",
+        "variable": "run"
+      },
+      {
+        "description": "Luminosity block number",
+        "type": "unsigned int",
+        "variable": "luminosityBlock"
+      },
+      {
+        "description": "Event number",
+        "type": "unsigned long",
+        "variable": "event"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu24"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu24_eta2p1"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu17_eta2p1_LooseIsoPFTau20"
+      },
+      {
+        "description": "Number of primary vertices",
+        "type": "int",
+        "variable": "PV_npvs"
+      },
+      {
+        "description": "Number of muons in this event",
+        "type": "unsigned int",
+        "variable": "nMuon"
+      },
+      {
+        "description": "Transverse momentum of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_pt"
+      },
+      {
+        "description": "Pseudorapidity of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_eta"
+      },
+      {
+        "description": "Azimuth of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_phi"
+      },
+      {
+        "description": "Mass of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_mass"
+      },
+      {
+        "description": "Charge of the muons (either 1 or -1)",
+        "type": "int[nMuon]",
+        "variable": "Muon_charge"
+      },
+      {
+        "description": "Muon object identification with soft requirements",
+        "type": "bool[nMuon]",
+        "variable": "Muon_softId"
+      },
+      {
+        "description": "Muon object identification with tight requirements",
+        "type": "bool[nMuon]",
+        "variable": "Muon_tightId"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso03_all"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.4$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso04_all"
+      },
+      {
+        "description": "Indices for the muons pointing to the related objects in the generator particle collection",
+        "type": "int[nMuon]",
+        "variable": "Muon_genPartIdx"
+      },
+      {
+        "description": "Number of taus in this event",
+        "type": "unsigned int",
+        "variable": "nTau"
+      },
+      {
+        "description": "Transverse momentum of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_pt"
+      },
+      {
+        "description": "Pseudorapidity of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_eta"
+      },
+      {
+        "description": "Azimuth of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_phi"
+      },
+      {
+        "description": "Mass of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_mass"
+      },
+      {
+        "description": "Charge of the taus (either 0, 1 or -1). 0 indicates that the charge could not be determined.",
+        "type": "int[nTau]",
+        "variable": "Tau_charge"
+      },
+      {
+        "description": "Hadronic decay mode of the taus",
+        "type": "int[nTau]",
+        "variable": "Tau_decayMode"
+      },
+      {
+        "description": "Tau isolation divided by the transverse momentum",
+        "type": "float[nTau]",
+        "variable": "Tau_relIso_all"
+      },
+      {
+        "description": "Indicates passed decay mode finding of the taus",
+        "type": "bool[nTau]",
+        "variable": "Tau_idDecayMode"
+      },
+      {
+        "description": "Indicates passed tau isolation with [very loose, loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idIso[VLoose,Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indicates passed anti-electron discriminator with [loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idAntiEle[Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indicates passed anti-muon discriminator with [loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idAntiMu[Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indices for the taus pointing to the related objects in the generator particle collection",
+        "type": "int[nTau]",
+        "variable": "Tau_genPartIdx"
+      },
+      {
+        "description": "Number of jets in this event",
+        "type": "unsigned int",
+        "variable": "nJet"
+      },
+      {
+        "description": "Transverse momentum of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_pt"
+      },
+      {
+        "description": "Pseudorapidity of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_eta"
+      },
+      {
+        "description": "Azimuth of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_phi"
+      },
+      {
+        "description": "Mass of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_mass"
+      },
+      {
+        "description": "Jet pile-up identification flag",
+        "type": "bool[nJet]",
+        "variable": "Jet_puId"
+      },
+      {
+        "description": "b-Jet identification score",
+        "type": "float[nJet]",
+        "variable": "Jet_btag"
+      },
+      {
+        "description": "Missing transverse energy",
+        "type": "float",
+        "variable": "MET_pt"
+      },
+      {
+        "description": "Azimuth of the missing transverse energy",
+        "type": "float",
+        "variable": "MET_phi"
+      },
+      {
+        "description": "Number of stored generator particles",
+        "type": "unsigned int",
+        "variable": "nGenPart"
+      },
+      {
+        "description": "Transverse momentum of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_pt"
+      },
+      {
+        "description": "Pseudorapidity of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_eta"
+      },
+      {
+        "description": "Azimuth of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_phi"
+      },
+      {
+        "description": "Mass of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_mass"
+      },
+      {
+        "description": "Particle identification number of the generator particles",
+        "type": "int[nGenPart]",
+        "variable": "GenPart_pdgId"
+      }
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_events": 491653,
+      "number_files": 1,
+      "size": 231849713
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:8967f330",
+        "size": 231849713,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/VBF_HToTauTau.root"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "The datasets were produced with the software available in the record linked below.",
+      "links": [
+        {
+          "recid": "12340"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12352",
+    "relations": [
+      {
+        "description": "This dataset was derived from:",
+        "recid": "9743",
+        "type": "isChildOf"
+      }
+    ],
+    "title": "VBF_HToTauTau dataset in reduced NanoAOD format for education and outreach",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "use_with": {
+      "description": "This dataset can be used with the following analysis:",
+      "links": [
+        {
+          "recid": "12350"
+        }
+      ]
+    },
+    "validation": {
+      "description": "<p>These data were derived from the primary datasets linked below using only the validated runs. No further validation was done for the output.</p>",
+      "links": [
+        {
+          "recid": "9743"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Dataset in reduced NanoAOD format for education and outreach derived from the primary dataset in AOD format linked below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Wunsch, Stefan"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Run number",
+        "type": "int",
+        "variable": "run"
+      },
+      {
+        "description": "Luminosity block number",
+        "type": "unsigned int",
+        "variable": "luminosityBlock"
+      },
+      {
+        "description": "Event number",
+        "type": "unsigned long",
+        "variable": "event"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu24"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu24_eta2p1"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu17_eta2p1_LooseIsoPFTau20"
+      },
+      {
+        "description": "Number of primary vertices",
+        "type": "int",
+        "variable": "PV_npvs"
+      },
+      {
+        "description": "Number of muons in this event",
+        "type": "unsigned int",
+        "variable": "nMuon"
+      },
+      {
+        "description": "Transverse momentum of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_pt"
+      },
+      {
+        "description": "Pseudorapidity of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_eta"
+      },
+      {
+        "description": "Azimuth of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_phi"
+      },
+      {
+        "description": "Mass of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_mass"
+      },
+      {
+        "description": "Charge of the muons (either 1 or -1)",
+        "type": "int[nMuon]",
+        "variable": "Muon_charge"
+      },
+      {
+        "description": "Muon object identification with soft requirements",
+        "type": "bool[nMuon]",
+        "variable": "Muon_softId"
+      },
+      {
+        "description": "Muon object identification with tight requirements",
+        "type": "bool[nMuon]",
+        "variable": "Muon_tightId"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso03_all"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.4$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso04_all"
+      },
+      {
+        "description": "Indices for the muons pointing to the related objects in the generator particle collection",
+        "type": "int[nMuon]",
+        "variable": "Muon_genPartIdx"
+      },
+      {
+        "description": "Number of taus in this event",
+        "type": "unsigned int",
+        "variable": "nTau"
+      },
+      {
+        "description": "Transverse momentum of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_pt"
+      },
+      {
+        "description": "Pseudorapidity of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_eta"
+      },
+      {
+        "description": "Azimuth of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_phi"
+      },
+      {
+        "description": "Mass of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_mass"
+      },
+      {
+        "description": "Charge of the taus (either 0, 1 or -1). 0 indicates that the charge could not be determined.",
+        "type": "int[nTau]",
+        "variable": "Tau_charge"
+      },
+      {
+        "description": "Hadronic decay mode of the taus",
+        "type": "int[nTau]",
+        "variable": "Tau_decayMode"
+      },
+      {
+        "description": "Tau isolation divided by the transverse momentum",
+        "type": "float[nTau]",
+        "variable": "Tau_relIso_all"
+      },
+      {
+        "description": "Indicates passed decay mode finding of the taus",
+        "type": "bool[nTau]",
+        "variable": "Tau_idDecayMode"
+      },
+      {
+        "description": "Indicates passed tau isolation with [very loose, loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idIso[VLoose,Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indicates passed anti-electron discriminator with [loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idAntiEle[Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indicates passed anti-muon discriminator with [loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idAntiMu[Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indices for the taus pointing to the related objects in the generator particle collection",
+        "type": "int[nTau]",
+        "variable": "Tau_genPartIdx"
+      },
+      {
+        "description": "Number of jets in this event",
+        "type": "unsigned int",
+        "variable": "nJet"
+      },
+      {
+        "description": "Transverse momentum of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_pt"
+      },
+      {
+        "description": "Pseudorapidity of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_eta"
+      },
+      {
+        "description": "Azimuth of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_phi"
+      },
+      {
+        "description": "Mass of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_mass"
+      },
+      {
+        "description": "Jet pile-up identification flag",
+        "type": "bool[nJet]",
+        "variable": "Jet_puId"
+      },
+      {
+        "description": "b-Jet identification score",
+        "type": "float[nJet]",
+        "variable": "Jet_btag"
+      },
+      {
+        "description": "Missing transverse energy",
+        "type": "float",
+        "variable": "MET_pt"
+      },
+      {
+        "description": "Azimuth of the missing transverse energy",
+        "type": "float",
+        "variable": "MET_phi"
+      },
+      {
+        "description": "Number of stored generator particles",
+        "type": "unsigned int",
+        "variable": "nGenPart"
+      },
+      {
+        "description": "Transverse momentum of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_pt"
+      },
+      {
+        "description": "Pseudorapidity of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_eta"
+      },
+      {
+        "description": "Azimuth of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_phi"
+      },
+      {
+        "description": "Mass of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_mass"
+      },
+      {
+        "description": "Particle identification number of the generator particles",
+        "type": "int[nGenPart]",
+        "variable": "GenPart_pdgId"
+      }
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_events": 30458871,
+      "number_files": 1,
+      "size": 9247252629
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:dfd0d57c",
+        "size": 9247252629,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/DYJetsToLL.root"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "The datasets were produced with the software available in the record linked below.",
+      "links": [
+        {
+          "recid": "12340"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12353",
+    "relations": [
+      {
+        "description": "This dataset was derived from:",
+        "recid": "7730",
+        "type": "isChildOf"
+      }
+    ],
+    "title": "DYJetsToLL dataset in reduced NanoAOD format for education and outreach",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "use_with": {
+      "description": "This dataset can be used with the following analysis:",
+      "links": [
+        {
+          "recid": "12350"
+        }
+      ]
+    },
+    "validation": {
+      "description": "<p>These data were derived from the primary datasets linked below using only the validated runs. No further validation was done for the output.</p>",
+      "links": [
+        {
+          "recid": "7730"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Dataset in reduced NanoAOD format for education and outreach derived from the primary dataset in AOD format linked below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Wunsch, Stefan"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Run number",
+        "type": "int",
+        "variable": "run"
+      },
+      {
+        "description": "Luminosity block number",
+        "type": "unsigned int",
+        "variable": "luminosityBlock"
+      },
+      {
+        "description": "Event number",
+        "type": "unsigned long",
+        "variable": "event"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu24"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu24_eta2p1"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu17_eta2p1_LooseIsoPFTau20"
+      },
+      {
+        "description": "Number of primary vertices",
+        "type": "int",
+        "variable": "PV_npvs"
+      },
+      {
+        "description": "Number of muons in this event",
+        "type": "unsigned int",
+        "variable": "nMuon"
+      },
+      {
+        "description": "Transverse momentum of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_pt"
+      },
+      {
+        "description": "Pseudorapidity of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_eta"
+      },
+      {
+        "description": "Azimuth of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_phi"
+      },
+      {
+        "description": "Mass of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_mass"
+      },
+      {
+        "description": "Charge of the muons (either 1 or -1)",
+        "type": "int[nMuon]",
+        "variable": "Muon_charge"
+      },
+      {
+        "description": "Muon object identification with soft requirements",
+        "type": "bool[nMuon]",
+        "variable": "Muon_softId"
+      },
+      {
+        "description": "Muon object identification with tight requirements",
+        "type": "bool[nMuon]",
+        "variable": "Muon_tightId"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso03_all"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.4$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso04_all"
+      },
+      {
+        "description": "Indices for the muons pointing to the related objects in the generator particle collection",
+        "type": "int[nMuon]",
+        "variable": "Muon_genPartIdx"
+      },
+      {
+        "description": "Number of taus in this event",
+        "type": "unsigned int",
+        "variable": "nTau"
+      },
+      {
+        "description": "Transverse momentum of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_pt"
+      },
+      {
+        "description": "Pseudorapidity of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_eta"
+      },
+      {
+        "description": "Azimuth of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_phi"
+      },
+      {
+        "description": "Mass of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_mass"
+      },
+      {
+        "description": "Charge of the taus (either 0, 1 or -1). 0 indicates that the charge could not be determined.",
+        "type": "int[nTau]",
+        "variable": "Tau_charge"
+      },
+      {
+        "description": "Hadronic decay mode of the taus",
+        "type": "int[nTau]",
+        "variable": "Tau_decayMode"
+      },
+      {
+        "description": "Tau isolation divided by the transverse momentum",
+        "type": "float[nTau]",
+        "variable": "Tau_relIso_all"
+      },
+      {
+        "description": "Indicates passed decay mode finding of the taus",
+        "type": "bool[nTau]",
+        "variable": "Tau_idDecayMode"
+      },
+      {
+        "description": "Indicates passed tau isolation with [very loose, loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idIso[VLoose,Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indicates passed anti-electron discriminator with [loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idAntiEle[Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indicates passed anti-muon discriminator with [loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idAntiMu[Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indices for the taus pointing to the related objects in the generator particle collection",
+        "type": "int[nTau]",
+        "variable": "Tau_genPartIdx"
+      },
+      {
+        "description": "Number of jets in this event",
+        "type": "unsigned int",
+        "variable": "nJet"
+      },
+      {
+        "description": "Transverse momentum of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_pt"
+      },
+      {
+        "description": "Pseudorapidity of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_eta"
+      },
+      {
+        "description": "Azimuth of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_phi"
+      },
+      {
+        "description": "Mass of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_mass"
+      },
+      {
+        "description": "Jet pile-up identification flag",
+        "type": "bool[nJet]",
+        "variable": "Jet_puId"
+      },
+      {
+        "description": "b-Jet identification score",
+        "type": "float[nJet]",
+        "variable": "Jet_btag"
+      },
+      {
+        "description": "Missing transverse energy",
+        "type": "float",
+        "variable": "MET_pt"
+      },
+      {
+        "description": "Azimuth of the missing transverse energy",
+        "type": "float",
+        "variable": "MET_phi"
+      },
+      {
+        "description": "Number of stored generator particles",
+        "type": "unsigned int",
+        "variable": "nGenPart"
+      },
+      {
+        "description": "Transverse momentum of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_pt"
+      },
+      {
+        "description": "Pseudorapidity of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_eta"
+      },
+      {
+        "description": "Azimuth of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_phi"
+      },
+      {
+        "description": "Mass of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_mass"
+      },
+      {
+        "description": "Particle identification number of the generator particles",
+        "type": "int[nGenPart]",
+        "variable": "GenPart_pdgId"
+      }
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_events": 6423106,
+      "number_files": 1,
+      "size": 3528995041
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:99ffd168",
+        "size": 3528995041,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/TTbar.root"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "The datasets were produced with the software available in the record linked below.",
+      "links": [
+        {
+          "recid": "12340"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12354",
+    "relations": [
+      {
+        "description": "This dataset was derived from:",
+        "recid": "9518",
+        "type": "isChildOf"
+      }
+    ],
+    "title": "TTbar dataset in reduced NanoAOD format for education and outreach",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "use_with": {
+      "description": "This dataset can be used with the following analysis:",
+      "links": [
+        {
+          "recid": "12350"
+        }
+      ]
+    },
+    "validation": {
+      "description": "<p>These data were derived from the primary datasets linked below using only the validated runs. No further validation was done for the output.</p>",
+      "links": [
+        {
+          "recid": "9518"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Dataset in reduced NanoAOD format for education and outreach derived from the primary dataset in AOD format linked below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Wunsch, Stefan"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Run number",
+        "type": "int",
+        "variable": "run"
+      },
+      {
+        "description": "Luminosity block number",
+        "type": "unsigned int",
+        "variable": "luminosityBlock"
+      },
+      {
+        "description": "Event number",
+        "type": "unsigned long",
+        "variable": "event"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu24"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu24_eta2p1"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu17_eta2p1_LooseIsoPFTau20"
+      },
+      {
+        "description": "Number of primary vertices",
+        "type": "int",
+        "variable": "PV_npvs"
+      },
+      {
+        "description": "Number of muons in this event",
+        "type": "unsigned int",
+        "variable": "nMuon"
+      },
+      {
+        "description": "Transverse momentum of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_pt"
+      },
+      {
+        "description": "Pseudorapidity of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_eta"
+      },
+      {
+        "description": "Azimuth of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_phi"
+      },
+      {
+        "description": "Mass of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_mass"
+      },
+      {
+        "description": "Charge of the muons (either 1 or -1)",
+        "type": "int[nMuon]",
+        "variable": "Muon_charge"
+      },
+      {
+        "description": "Muon object identification with soft requirements",
+        "type": "bool[nMuon]",
+        "variable": "Muon_softId"
+      },
+      {
+        "description": "Muon object identification with tight requirements",
+        "type": "bool[nMuon]",
+        "variable": "Muon_tightId"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso03_all"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.4$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso04_all"
+      },
+      {
+        "description": "Indices for the muons pointing to the related objects in the generator particle collection",
+        "type": "int[nMuon]",
+        "variable": "Muon_genPartIdx"
+      },
+      {
+        "description": "Number of taus in this event",
+        "type": "unsigned int",
+        "variable": "nTau"
+      },
+      {
+        "description": "Transverse momentum of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_pt"
+      },
+      {
+        "description": "Pseudorapidity of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_eta"
+      },
+      {
+        "description": "Azimuth of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_phi"
+      },
+      {
+        "description": "Mass of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_mass"
+      },
+      {
+        "description": "Charge of the taus (either 0, 1 or -1). 0 indicates that the charge could not be determined.",
+        "type": "int[nTau]",
+        "variable": "Tau_charge"
+      },
+      {
+        "description": "Hadronic decay mode of the taus",
+        "type": "int[nTau]",
+        "variable": "Tau_decayMode"
+      },
+      {
+        "description": "Tau isolation divided by the transverse momentum",
+        "type": "float[nTau]",
+        "variable": "Tau_relIso_all"
+      },
+      {
+        "description": "Indicates passed decay mode finding of the taus",
+        "type": "bool[nTau]",
+        "variable": "Tau_idDecayMode"
+      },
+      {
+        "description": "Indicates passed tau isolation with [very loose, loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idIso[VLoose,Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indicates passed anti-electron discriminator with [loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idAntiEle[Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indicates passed anti-muon discriminator with [loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idAntiMu[Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indices for the taus pointing to the related objects in the generator particle collection",
+        "type": "int[nTau]",
+        "variable": "Tau_genPartIdx"
+      },
+      {
+        "description": "Number of jets in this event",
+        "type": "unsigned int",
+        "variable": "nJet"
+      },
+      {
+        "description": "Transverse momentum of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_pt"
+      },
+      {
+        "description": "Pseudorapidity of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_eta"
+      },
+      {
+        "description": "Azimuth of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_phi"
+      },
+      {
+        "description": "Mass of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_mass"
+      },
+      {
+        "description": "Jet pile-up identification flag",
+        "type": "bool[nJet]",
+        "variable": "Jet_puId"
+      },
+      {
+        "description": "b-Jet identification score",
+        "type": "float[nJet]",
+        "variable": "Jet_btag"
+      },
+      {
+        "description": "Missing transverse energy",
+        "type": "float",
+        "variable": "MET_pt"
+      },
+      {
+        "description": "Azimuth of the missing transverse energy",
+        "type": "float",
+        "variable": "MET_phi"
+      },
+      {
+        "description": "Number of stored generator particles",
+        "type": "unsigned int",
+        "variable": "nGenPart"
+      },
+      {
+        "description": "Transverse momentum of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_pt"
+      },
+      {
+        "description": "Pseudorapidity of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_eta"
+      },
+      {
+        "description": "Azimuth of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_phi"
+      },
+      {
+        "description": "Mass of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_mass"
+      },
+      {
+        "description": "Particle identification number of the generator particles",
+        "type": "int[nGenPart]",
+        "variable": "GenPart_pdgId"
+      }
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_events": 29784800,
+      "number_files": 1,
+      "size": 10731401995
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:e5d19fd7",
+        "size": 10731401995,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/W1JetsToLNu.root"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "The datasets were produced with the software available in the record linked below.",
+      "links": [
+        {
+          "recid": "12340"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12355",
+    "relations": [
+      {
+        "description": "This dataset was derived from:",
+        "recid": "9863",
+        "type": "isChildOf"
+      }
+    ],
+    "title": "W1JetsToLNu dataset in reduced NanoAOD format for education and outreach",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "use_with": {
+      "description": "This dataset can be used with the following analysis:",
+      "links": [
+        {
+          "recid": "12350"
+        }
+      ]
+    },
+    "validation": {
+      "description": "<p>These data were derived from the primary datasets linked below using only the validated runs. No further validation was done for the output.</p>",
+      "links": [
+        {
+          "recid": "9863"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Dataset in reduced NanoAOD format for education and outreach derived from the primary dataset in AOD format linked below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Wunsch, Stefan"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Run number",
+        "type": "int",
+        "variable": "run"
+      },
+      {
+        "description": "Luminosity block number",
+        "type": "unsigned int",
+        "variable": "luminosityBlock"
+      },
+      {
+        "description": "Event number",
+        "type": "unsigned long",
+        "variable": "event"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu24"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu24_eta2p1"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu17_eta2p1_LooseIsoPFTau20"
+      },
+      {
+        "description": "Number of primary vertices",
+        "type": "int",
+        "variable": "PV_npvs"
+      },
+      {
+        "description": "Number of muons in this event",
+        "type": "unsigned int",
+        "variable": "nMuon"
+      },
+      {
+        "description": "Transverse momentum of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_pt"
+      },
+      {
+        "description": "Pseudorapidity of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_eta"
+      },
+      {
+        "description": "Azimuth of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_phi"
+      },
+      {
+        "description": "Mass of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_mass"
+      },
+      {
+        "description": "Charge of the muons (either 1 or -1)",
+        "type": "int[nMuon]",
+        "variable": "Muon_charge"
+      },
+      {
+        "description": "Muon object identification with soft requirements",
+        "type": "bool[nMuon]",
+        "variable": "Muon_softId"
+      },
+      {
+        "description": "Muon object identification with tight requirements",
+        "type": "bool[nMuon]",
+        "variable": "Muon_tightId"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso03_all"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.4$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso04_all"
+      },
+      {
+        "description": "Indices for the muons pointing to the related objects in the generator particle collection",
+        "type": "int[nMuon]",
+        "variable": "Muon_genPartIdx"
+      },
+      {
+        "description": "Number of taus in this event",
+        "type": "unsigned int",
+        "variable": "nTau"
+      },
+      {
+        "description": "Transverse momentum of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_pt"
+      },
+      {
+        "description": "Pseudorapidity of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_eta"
+      },
+      {
+        "description": "Azimuth of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_phi"
+      },
+      {
+        "description": "Mass of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_mass"
+      },
+      {
+        "description": "Charge of the taus (either 0, 1 or -1). 0 indicates that the charge could not be determined.",
+        "type": "int[nTau]",
+        "variable": "Tau_charge"
+      },
+      {
+        "description": "Hadronic decay mode of the taus",
+        "type": "int[nTau]",
+        "variable": "Tau_decayMode"
+      },
+      {
+        "description": "Tau isolation divided by the transverse momentum",
+        "type": "float[nTau]",
+        "variable": "Tau_relIso_all"
+      },
+      {
+        "description": "Indicates passed decay mode finding of the taus",
+        "type": "bool[nTau]",
+        "variable": "Tau_idDecayMode"
+      },
+      {
+        "description": "Indicates passed tau isolation with [very loose, loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idIso[VLoose,Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indicates passed anti-electron discriminator with [loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idAntiEle[Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indicates passed anti-muon discriminator with [loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idAntiMu[Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indices for the taus pointing to the related objects in the generator particle collection",
+        "type": "int[nTau]",
+        "variable": "Tau_genPartIdx"
+      },
+      {
+        "description": "Number of jets in this event",
+        "type": "unsigned int",
+        "variable": "nJet"
+      },
+      {
+        "description": "Transverse momentum of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_pt"
+      },
+      {
+        "description": "Pseudorapidity of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_eta"
+      },
+      {
+        "description": "Azimuth of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_phi"
+      },
+      {
+        "description": "Mass of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_mass"
+      },
+      {
+        "description": "Jet pile-up identification flag",
+        "type": "bool[nJet]",
+        "variable": "Jet_puId"
+      },
+      {
+        "description": "b-Jet identification score",
+        "type": "float[nJet]",
+        "variable": "Jet_btag"
+      },
+      {
+        "description": "Missing transverse energy",
+        "type": "float",
+        "variable": "MET_pt"
+      },
+      {
+        "description": "Azimuth of the missing transverse energy",
+        "type": "float",
+        "variable": "MET_phi"
+      },
+      {
+        "description": "Number of stored generator particles",
+        "type": "unsigned int",
+        "variable": "nGenPart"
+      },
+      {
+        "description": "Transverse momentum of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_pt"
+      },
+      {
+        "description": "Pseudorapidity of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_eta"
+      },
+      {
+        "description": "Azimuth of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_phi"
+      },
+      {
+        "description": "Mass of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_mass"
+      },
+      {
+        "description": "Particle identification number of the generator particles",
+        "type": "int[nGenPart]",
+        "variable": "GenPart_pdgId"
+      }
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_events": 30693853,
+      "number_files": 1,
+      "size": 12161887620
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:26b03d60",
+        "size": 12161887620,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/W2JetsToLNu.root"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "The datasets were produced with the software available in the record linked below.",
+      "links": [
+        {
+          "recid": "12340"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12356",
+    "relations": [
+      {
+        "description": "This dataset was derived from:",
+        "recid": "9864",
+        "type": "isChildOf"
+      }
+    ],
+    "title": "W2JetsToLNu dataset in reduced NanoAOD format for education and outreach",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "use_with": {
+      "description": "This dataset can be used with the following analysis:",
+      "links": [
+        {
+          "recid": "12350"
+        }
+      ]
+    },
+    "validation": {
+      "description": "<p>These data were derived from the primary datasets linked below using only the validated runs. No further validation was done for the output.</p>",
+      "links": [
+        {
+          "recid": "9864"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Dataset in reduced NanoAOD format for education and outreach derived from the primary dataset in AOD format linked below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Wunsch, Stefan"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Run number",
+        "type": "int",
+        "variable": "run"
+      },
+      {
+        "description": "Luminosity block number",
+        "type": "unsigned int",
+        "variable": "luminosityBlock"
+      },
+      {
+        "description": "Event number",
+        "type": "unsigned long",
+        "variable": "event"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu24"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu24_eta2p1"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu17_eta2p1_LooseIsoPFTau20"
+      },
+      {
+        "description": "Number of primary vertices",
+        "type": "int",
+        "variable": "PV_npvs"
+      },
+      {
+        "description": "Number of muons in this event",
+        "type": "unsigned int",
+        "variable": "nMuon"
+      },
+      {
+        "description": "Transverse momentum of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_pt"
+      },
+      {
+        "description": "Pseudorapidity of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_eta"
+      },
+      {
+        "description": "Azimuth of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_phi"
+      },
+      {
+        "description": "Mass of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_mass"
+      },
+      {
+        "description": "Charge of the muons (either 1 or -1)",
+        "type": "int[nMuon]",
+        "variable": "Muon_charge"
+      },
+      {
+        "description": "Muon object identification with soft requirements",
+        "type": "bool[nMuon]",
+        "variable": "Muon_softId"
+      },
+      {
+        "description": "Muon object identification with tight requirements",
+        "type": "bool[nMuon]",
+        "variable": "Muon_tightId"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso03_all"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.4$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso04_all"
+      },
+      {
+        "description": "Indices for the muons pointing to the related objects in the generator particle collection",
+        "type": "int[nMuon]",
+        "variable": "Muon_genPartIdx"
+      },
+      {
+        "description": "Number of taus in this event",
+        "type": "unsigned int",
+        "variable": "nTau"
+      },
+      {
+        "description": "Transverse momentum of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_pt"
+      },
+      {
+        "description": "Pseudorapidity of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_eta"
+      },
+      {
+        "description": "Azimuth of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_phi"
+      },
+      {
+        "description": "Mass of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_mass"
+      },
+      {
+        "description": "Charge of the taus (either 0, 1 or -1). 0 indicates that the charge could not be determined.",
+        "type": "int[nTau]",
+        "variable": "Tau_charge"
+      },
+      {
+        "description": "Hadronic decay mode of the taus",
+        "type": "int[nTau]",
+        "variable": "Tau_decayMode"
+      },
+      {
+        "description": "Tau isolation divided by the transverse momentum",
+        "type": "float[nTau]",
+        "variable": "Tau_relIso_all"
+      },
+      {
+        "description": "Indicates passed decay mode finding of the taus",
+        "type": "bool[nTau]",
+        "variable": "Tau_idDecayMode"
+      },
+      {
+        "description": "Indicates passed tau isolation with [very loose, loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idIso[VLoose,Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indicates passed anti-electron discriminator with [loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idAntiEle[Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indicates passed anti-muon discriminator with [loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idAntiMu[Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indices for the taus pointing to the related objects in the generator particle collection",
+        "type": "int[nTau]",
+        "variable": "Tau_genPartIdx"
+      },
+      {
+        "description": "Number of jets in this event",
+        "type": "unsigned int",
+        "variable": "nJet"
+      },
+      {
+        "description": "Transverse momentum of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_pt"
+      },
+      {
+        "description": "Pseudorapidity of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_eta"
+      },
+      {
+        "description": "Azimuth of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_phi"
+      },
+      {
+        "description": "Mass of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_mass"
+      },
+      {
+        "description": "Jet pile-up identification flag",
+        "type": "bool[nJet]",
+        "variable": "Jet_puId"
+      },
+      {
+        "description": "b-Jet identification score",
+        "type": "float[nJet]",
+        "variable": "Jet_btag"
+      },
+      {
+        "description": "Missing transverse energy",
+        "type": "float",
+        "variable": "MET_pt"
+      },
+      {
+        "description": "Azimuth of the missing transverse energy",
+        "type": "float",
+        "variable": "MET_phi"
+      },
+      {
+        "description": "Number of stored generator particles",
+        "type": "unsigned int",
+        "variable": "nGenPart"
+      },
+      {
+        "description": "Transverse momentum of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_pt"
+      },
+      {
+        "description": "Pseudorapidity of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_eta"
+      },
+      {
+        "description": "Azimuth of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_phi"
+      },
+      {
+        "description": "Mass of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_mass"
+      },
+      {
+        "description": "Particle identification number of the generator particles",
+        "type": "int[nGenPart]",
+        "variable": "GenPart_pdgId"
+      }
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_events": 15241144,
+      "number_files": 1,
+      "size": 6544850738
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:5a2b198a",
+        "size": 6544850738,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/W3JetsToLNu.root"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "The datasets were produced with the software available in the record linked below.",
+      "links": [
+        {
+          "recid": "12340"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12357",
+    "relations": [
+      {
+        "description": "This dataset was derived from:",
+        "recid": "9865",
+        "type": "isChildOf"
+      }
+    ],
+    "title": "W3JetsToLNu dataset in reduced NanoAOD format for education and outreach",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "use_with": {
+      "description": "This dataset can be used with the following analysis:",
+      "links": [
+        {
+          "recid": "12350"
+        }
+      ]
+    },
+    "validation": {
+      "description": "<p>These data were derived from the primary datasets linked below using only the validated runs. No further validation was done for the output.</p>",
+      "links": [
+        {
+          "recid": "9865"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Dataset in reduced NanoAOD format for education and outreach derived from the primary dataset in AOD format linked below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Wunsch, Stefan"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Run number",
+        "type": "int",
+        "variable": "run"
+      },
+      {
+        "description": "Luminosity block number",
+        "type": "unsigned int",
+        "variable": "luminosityBlock"
+      },
+      {
+        "description": "Event number",
+        "type": "unsigned long",
+        "variable": "event"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu24"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu24_eta2p1"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu17_eta2p1_LooseIsoPFTau20"
+      },
+      {
+        "description": "Number of primary vertices",
+        "type": "int",
+        "variable": "PV_npvs"
+      },
+      {
+        "description": "Number of muons in this event",
+        "type": "unsigned int",
+        "variable": "nMuon"
+      },
+      {
+        "description": "Transverse momentum of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_pt"
+      },
+      {
+        "description": "Pseudorapidity of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_eta"
+      },
+      {
+        "description": "Azimuth of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_phi"
+      },
+      {
+        "description": "Mass of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_mass"
+      },
+      {
+        "description": "Charge of the muons (either 1 or -1)",
+        "type": "int[nMuon]",
+        "variable": "Muon_charge"
+      },
+      {
+        "description": "Muon object identification with soft requirements",
+        "type": "bool[nMuon]",
+        "variable": "Muon_softId"
+      },
+      {
+        "description": "Muon object identification with tight requirements",
+        "type": "bool[nMuon]",
+        "variable": "Muon_tightId"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso03_all"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.4$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso04_all"
+      },
+      {
+        "description": "Indices for the muons pointing to the related objects in the generator particle collection",
+        "type": "int[nMuon]",
+        "variable": "Muon_genPartIdx"
+      },
+      {
+        "description": "Number of taus in this event",
+        "type": "unsigned int",
+        "variable": "nTau"
+      },
+      {
+        "description": "Transverse momentum of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_pt"
+      },
+      {
+        "description": "Pseudorapidity of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_eta"
+      },
+      {
+        "description": "Azimuth of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_phi"
+      },
+      {
+        "description": "Mass of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_mass"
+      },
+      {
+        "description": "Charge of the taus (either 0, 1 or -1). 0 indicates that the charge could not be determined.",
+        "type": "int[nTau]",
+        "variable": "Tau_charge"
+      },
+      {
+        "description": "Hadronic decay mode of the taus",
+        "type": "int[nTau]",
+        "variable": "Tau_decayMode"
+      },
+      {
+        "description": "Tau isolation divided by the transverse momentum",
+        "type": "float[nTau]",
+        "variable": "Tau_relIso_all"
+      },
+      {
+        "description": "Indicates passed decay mode finding of the taus",
+        "type": "bool[nTau]",
+        "variable": "Tau_idDecayMode"
+      },
+      {
+        "description": "Indicates passed tau isolation with [very loose, loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idIso[VLoose,Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indicates passed anti-electron discriminator with [loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idAntiEle[Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indicates passed anti-muon discriminator with [loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idAntiMu[Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indices for the taus pointing to the related objects in the generator particle collection",
+        "type": "int[nTau]",
+        "variable": "Tau_genPartIdx"
+      },
+      {
+        "description": "Number of jets in this event",
+        "type": "unsigned int",
+        "variable": "nJet"
+      },
+      {
+        "description": "Transverse momentum of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_pt"
+      },
+      {
+        "description": "Pseudorapidity of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_eta"
+      },
+      {
+        "description": "Azimuth of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_phi"
+      },
+      {
+        "description": "Mass of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_mass"
+      },
+      {
+        "description": "Jet pile-up identification flag",
+        "type": "bool[nJet]",
+        "variable": "Jet_puId"
+      },
+      {
+        "description": "b-Jet identification score",
+        "type": "float[nJet]",
+        "variable": "Jet_btag"
+      },
+      {
+        "description": "Missing transverse energy",
+        "type": "float",
+        "variable": "MET_pt"
+      },
+      {
+        "description": "Azimuth of the missing transverse energy",
+        "type": "float",
+        "variable": "MET_phi"
+      },
+      {
+        "description": "Number of stored generator particles",
+        "type": "unsigned int",
+        "variable": "nGenPart"
+      },
+      {
+        "description": "Transverse momentum of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_pt"
+      },
+      {
+        "description": "Pseudorapidity of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_eta"
+      },
+      {
+        "description": "Azimuth of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_phi"
+      },
+      {
+        "description": "Mass of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_mass"
+      },
+      {
+        "description": "Particle identification number of the generator particles",
+        "type": "int[nGenPart]",
+        "variable": "GenPart_pdgId"
+      }
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_events": 35647508,
+      "number_files": 1,
+      "size": 10918632568
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:8b8629d5",
+        "size": 10918632568,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/Run2012B_TauPlusX.root"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "The datasets were produced with the software available in the record linked below.",
+      "links": [
+        {
+          "recid": "12340"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12358",
+    "relations": [
+      {
+        "description": "This dataset was derived from:",
+        "recid": "6024",
+        "type": "isChildOf"
+      }
+    ],
+    "title": "Run2012B_TauPlusX dataset in reduced NanoAOD format for education and outreach",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "use_with": {
+      "description": "This dataset can be used with the following analysis:",
+      "links": [
+        {
+          "recid": "12350"
+        }
+      ]
+    },
+    "validation": {
+      "description": "<p>These data were derived from the primary datasets linked below using only the validated runs. No further validation was done for the output.</p>",
+      "links": [
+        {
+          "recid": "6024"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Dataset in reduced NanoAOD format for education and outreach derived from the primary dataset in AOD format linked below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Wunsch, Stefan"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Run number",
+        "type": "int",
+        "variable": "run"
+      },
+      {
+        "description": "Luminosity block number",
+        "type": "unsigned int",
+        "variable": "luminosityBlock"
+      },
+      {
+        "description": "Event number",
+        "type": "unsigned long",
+        "variable": "event"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu24"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu24_eta2p1"
+      },
+      {
+        "description": "Flag indicating whether the event passed the respective trigger",
+        "type": "bool",
+        "variable": "HLT_IsoMu17_eta2p1_LooseIsoPFTau20"
+      },
+      {
+        "description": "Number of primary vertices",
+        "type": "int",
+        "variable": "PV_npvs"
+      },
+      {
+        "description": "Number of muons in this event",
+        "type": "unsigned int",
+        "variable": "nMuon"
+      },
+      {
+        "description": "Transverse momentum of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_pt"
+      },
+      {
+        "description": "Pseudorapidity of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_eta"
+      },
+      {
+        "description": "Azimuth of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_phi"
+      },
+      {
+        "description": "Mass of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_mass"
+      },
+      {
+        "description": "Charge of the muons (either 1 or -1)",
+        "type": "int[nMuon]",
+        "variable": "Muon_charge"
+      },
+      {
+        "description": "Muon object identification with soft requirements",
+        "type": "bool[nMuon]",
+        "variable": "Muon_softId"
+      },
+      {
+        "description": "Muon object identification with tight requirements",
+        "type": "bool[nMuon]",
+        "variable": "Muon_tightId"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso03_all"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.4$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso04_all"
+      },
+      {
+        "description": "Indices for the muons pointing to the related objects in the generator particle collection",
+        "type": "int[nMuon]",
+        "variable": "Muon_genPartIdx"
+      },
+      {
+        "description": "Number of taus in this event",
+        "type": "unsigned int",
+        "variable": "nTau"
+      },
+      {
+        "description": "Transverse momentum of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_pt"
+      },
+      {
+        "description": "Pseudorapidity of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_eta"
+      },
+      {
+        "description": "Azimuth of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_phi"
+      },
+      {
+        "description": "Mass of the taus",
+        "type": "float[nTau]",
+        "variable": "Tau_mass"
+      },
+      {
+        "description": "Charge of the taus (either 0, 1 or -1). 0 indicates that the charge could not be determined.",
+        "type": "int[nTau]",
+        "variable": "Tau_charge"
+      },
+      {
+        "description": "Hadronic decay mode of the taus",
+        "type": "int[nTau]",
+        "variable": "Tau_decayMode"
+      },
+      {
+        "description": "Tau isolation divided by the transverse momentum",
+        "type": "float[nTau]",
+        "variable": "Tau_relIso_all"
+      },
+      {
+        "description": "Indicates passed decay mode finding of the taus",
+        "type": "bool[nTau]",
+        "variable": "Tau_idDecayMode"
+      },
+      {
+        "description": "Indicates passed tau isolation with [very loose, loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idIso[VLoose,Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indicates passed anti-electron discriminator with [loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idAntiEle[Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indicates passed anti-muon discriminator with [loose, medium, tight] requirements",
+        "type": "bool[nTau]",
+        "variable": "Tau_idAntiMu[Loose,Medium,Tight]"
+      },
+      {
+        "description": "Indices for the taus pointing to the related objects in the generator particle collection",
+        "type": "int[nTau]",
+        "variable": "Tau_genPartIdx"
+      },
+      {
+        "description": "Number of jets in this event",
+        "type": "unsigned int",
+        "variable": "nJet"
+      },
+      {
+        "description": "Transverse momentum of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_pt"
+      },
+      {
+        "description": "Pseudorapidity of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_eta"
+      },
+      {
+        "description": "Azimuth of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_phi"
+      },
+      {
+        "description": "Mass of the jets",
+        "type": "float[nJet]",
+        "variable": "Jet_mass"
+      },
+      {
+        "description": "Jet pile-up identification flag",
+        "type": "bool[nJet]",
+        "variable": "Jet_puId"
+      },
+      {
+        "description": "b-Jet identification score",
+        "type": "float[nJet]",
+        "variable": "Jet_btag"
+      },
+      {
+        "description": "Missing transverse energy",
+        "type": "float",
+        "variable": "MET_pt"
+      },
+      {
+        "description": "Azimuth of the missing transverse energy",
+        "type": "float",
+        "variable": "MET_phi"
+      },
+      {
+        "description": "Number of stored generator particles",
+        "type": "unsigned int",
+        "variable": "nGenPart"
+      },
+      {
+        "description": "Transverse momentum of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_pt"
+      },
+      {
+        "description": "Pseudorapidity of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_eta"
+      },
+      {
+        "description": "Azimuth of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_phi"
+      },
+      {
+        "description": "Mass of the generator particles",
+        "type": "float[nGenPart]",
+        "variable": "GenPart_mass"
+      },
+      {
+        "description": "Particle identification number of the generator particles",
+        "type": "int[nGenPart]",
+        "variable": "GenPart_pdgId"
+      }
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_events": 51303171,
+      "number_files": 1,
+      "size": 15886107547
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:5590ee9f",
+        "size": 15886107547,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/Run2012C_TauPlusX.root"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "The datasets were produced with the software available in the record linked below.",
+      "links": [
+        {
+          "recid": "12340"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12359",
+    "relations": [
+      {
+        "description": "This dataset was derived from:",
+        "recid": "6050",
+        "type": "isChildOf"
+      }
+    ],
+    "title": "Run2012C_TauPlusX dataset in reduced NanoAOD format for education and outreach",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "use_with": {
+      "description": "This dataset can be used with the following analysis:",
+      "links": [
+        {
+          "recid": "12350"
+        }
+      ]
+    },
+    "validation": {
+      "description": "<p>These data were derived from the primary datasets linked below using only the validated runs. No further validation was done for the output.</p>",
+      "links": [
+        {
+          "recid": "6050"
+        }
+      ]
+    }
+  }
+]
