@@ -12,7 +12,7 @@ Monte Carlo simulation of pileup is controlled by the code and configuration fil
 
 ## Monte Carlo Pileup Distributions
 
-The "ideal" distributions input for each year's Monte Carlo production samples are catalogued on [this page FIXME](https://twiki.cern.ch/twiki/bin/view/CMS/Pileup_MC_Gen_Scenarios), which contains the actual numerical contents of each bin represented in the plots below.
+The "ideal" distributions input for each year's Monte Carlo production samples are catalogued on [this page](https://twiki.cern.ch/twiki/bin/view/CMSPublic/Pileup_MC_Gen_Scenarios), which contains the actual numerical contents of each bin represented in the plots below.
 
 ### 2011
 
