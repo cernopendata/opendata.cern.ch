@@ -22,13 +22,11 @@ def clean_json_file(filename):
     with open(filename, 'r') as fdesc:
         records = json.loads(fdesc.read())
 
-    new_content = json.dumps(records, indent=2, sort_keys=records,
-                             ensure_ascii=False)
+    new_content = json.dumps(records, indent=2, sort_keys=True,
+                             ensure_ascii=False, separators=(',', ': '))
 
     with open(filename, 'w') as fdesc:
-        for line in new_content.split('\n'):
-            line = line.rstrip()
-            fdesc.write(line + '\n')
+        fdesc.write(new_content + '\n')
 
 
 if __name__ == '__main__':
