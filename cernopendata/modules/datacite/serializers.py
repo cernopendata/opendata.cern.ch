@@ -63,9 +63,9 @@ class DataCiteSerializer(Schema):
 
     def get_resourcetype(self, obj):
         """Get resource type based on type field."""
-        if obj['type'] in ['Software', 'Dataset']:
-            resource_type = obj['type']
-        else:
-            resource_type = 'Other'
-
+        resource_type = 'Other'
+        if obj['type']:
+            type_primary = obj['type'].get('primary', '')
+            if type_primary in ['Software', 'Dataset']:
+                resource_type = type_primary
         return {'resourceTypeGeneral': resource_type}

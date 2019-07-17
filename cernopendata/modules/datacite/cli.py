@@ -90,6 +90,24 @@ def gen_doi(exp):
 @datacite.command()
 @click.option(
     '--recid',
+    help='Test serialisation of record with given recid')
+@with_appcontext
+def test_serialisation(recid):
+    """Test serialisation of record with given recid."""
+    uuid = PersistentIdentifier.get('recid', recid).object_uuid
+    record = Record.get_record(uuid)
+    experiment = record.get('experiment', None)
+    doi = record['doi']
+    # serialize record to schema40
+    doc = DataCiteSerializer().dump(record).data
+    schema40.validate(doc)
+    doc = schema40.tostring(doc)
+    click.echo(doc)
+
+
+@datacite.command()
+@click.option(
+    '--recid',
     help='Register record with given recid')
 @with_appcontext
 def register(recid):
