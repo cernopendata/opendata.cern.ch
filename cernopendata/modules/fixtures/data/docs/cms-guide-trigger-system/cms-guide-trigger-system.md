@@ -79,7 +79,7 @@ and/or sequences (groups of modules) that make up that trigger path.
 You can then look for each of these modules or sequences in the same configuration file until your find
 the parameters with which they are configured.
 As an example, you will find one of the modules of this path, `hltDimuon10JpsiL3Filtered`, by searching for
-`process.hltDimuon10JpsiL3Filtered`and you will see that it is an instantiation of class `HLTMuonDimuonL3Filter`:
+`process.hltDimuon10JpsiL3Filtered` and you will see that it is an instantiation of class `HLTMuonDimuonL3Filter`:
 
 `process.hltDimuon10JpsiL3Filtered = cms.EDFilter( "HLTMuonDimuonL3Filter",`
 
