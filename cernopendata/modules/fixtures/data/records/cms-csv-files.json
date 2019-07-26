@@ -121,6 +121,44 @@
     "collections": [
       "CMS-Derived-Datasets"
     ],
+    "dataset_semantics": [
+      {
+        "description": "The run number of the event.",
+        "variable": "Run"
+      },
+      {
+        "description": "The event number.",
+        "variable": "Event"
+      },
+      {
+        "description": "The total energy of the muon GeV).",
+        "variable": "E"
+      },
+      {
+        "description": "The components of the momemtum of the muon (GeV).",
+        "variable": "px,py,pz"
+      },
+      {
+        "description": "The transverse momentum of the muon (GeV).",
+        "variable": "pt"
+      },
+      {
+        "description": "The pseudorapidity of the muon.",
+        "variable": "eta"
+      },
+      {
+        "description": "The phi angle of the muon (rad).",
+        "variable": "phi"
+      },
+      {
+        "description": "The charge of the muon.",
+        "variable": "Q"
+      },
+      {
+        "description": "The invariant mass of two muons (GeV).",
+        "variable": "M"
+      }
+    ],
     "date_created": [
       "2010"
     ],
@@ -189,6 +227,9 @@
         "size": 1517640,
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Mu/CSV/Apr21ReReco-v1/MuRun2010B_9.csv"
       }
+    ],
+    "keywords": [
+      "education"
     ],
     "methodology": {
       "description": "The events in this derived dataset were selected because of the presence of precisely two muons with invariant mass between 2-110 GeV, one of which is a high-quality \"global\" muon. More information on the selections applied for the Mu primary dataset can be found there.",
