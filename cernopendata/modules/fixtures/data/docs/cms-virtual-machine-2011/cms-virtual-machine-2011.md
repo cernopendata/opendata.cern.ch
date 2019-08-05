@@ -153,6 +153,7 @@ Please check the validation report for the VM image for our 2010 data, which may
 
 > **Answer:** Change the Network settings for adapter 2 from "Host-only Adapter" to "NAT". The VM should then start correctly.
 
+
 **Question:** What is the root password for the CMS Open Data VM?
 
 > **Answer:** The root password for the CMS Open Data VM is password.
@@ -160,6 +161,10 @@ Please check the validation report for the VM image for our 2010 data, which may
 **Question:** The CMS Open Data VM does not open correctly
 
 > **Answer:** In some versions of VirtualBox, it has happened that the CMS Open Data VM does not open correctly. This was the case for example for VirtulBox 5.0.32, but more recent versions from the VirtualBox website have been tested and are working properly. Note that it can take a while to launch the CMS Open Data VM for the first time.
+
+**Question:** In VirtualBox version 6, importing the CMS Open Data VM gives an error message '<vbox:Machine> element in OVF contains a medium attachment for the disk image but the OVF describes no such image.'
+
+> **Answer:** Uncheck the default option "Import hard drives as VDI" in the VirtualBox import menu. It may also happen that the folder in which VirtualBox writes the images ('/users/[username]/VirtualBox VMs') does not get created. In this case you can create it manually.
 
 **Question:**  When/after installing CERN VM, I get a message that my VM uses too much memory
 
