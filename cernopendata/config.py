@@ -315,6 +315,38 @@ RECORDS_REST_FACETS = {
             signature=dict(terms=dict(
                 field='signature.keyword',
                 order=dict(_term='asc'))),
+            event_number= {
+                'range': {
+                    'field': 'distribution.number_events',
+                    'ranges': [
+                        {
+                            'key' : '0 - 999',
+                            'from': 0,
+                            'to': 999
+                        },
+                        {
+                            'key' : '1000 - 9999',
+                            'from': 1000,
+                            'to': 9999
+                        },
+                        {
+                            'key' : '10 000 - 99 999',
+                            'from': 10000,
+                            'to': 99999
+                        },
+                        {
+                            'key' : '100 000 - 999 999',
+                            'from': 100000,
+                            'to': 999999
+                        },
+                        {
+                            'key' : '1 000 000 -',
+                            'from': 1000000,
+                            'to': 100000000
+                        }
+                    ]
+                }
+            }
         ),
         'post_filters': dict(
             experiment=terms_filter('experiment.keyword'),
@@ -332,6 +364,7 @@ RECORDS_REST_FACETS = {
             collections=terms_filter('collections.keyword'),
             availability=terms_filter('distribution.availability.keyword'),
             signature=terms_filter('signature.keyword'),
+            event_number= None,
         )
     }
 }
