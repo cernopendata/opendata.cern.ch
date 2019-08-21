@@ -161,7 +161,8 @@
         "csv",
         "ig",
         "json"
-      ]
+      ],
+      "number_events": 2000
     },
     "doi": "10.7483/OPENDATA.CMS.SW96.PFX3",
     "experiment": "CMS",
@@ -291,7 +292,11 @@
     "run_period": [
       "Run2010B"
     ],
-    "title": "Dimuon events with invariant mass range 2-5 GeV for public education and outreach",
+    "signature": [
+      "muon",
+      "Jpsi"
+    ],
+    "title": "J/psi to two muons from 2010",
     "type": {
       "primary": "Dataset",
       "secondary": [
@@ -373,7 +378,8 @@
         "ig",
         "csv",
         "json"
-      ]
+      ],
+      "number_events": 2000
     },
     "doi": "10.7483/OPENDATA.CMS.97YF.C4AH",
     "experiment": "CMS",
@@ -498,12 +504,17 @@
     "methodology": {
       "description": "The events in this derived dataset were selected because of the presence of two electrons with invariant mass between 2-5 GeV."
     },
+    "number_events": 2000,
     "publisher": "CERN Open Data Portal",
     "recid": "302",
     "run_period": [
       "Run2010B"
     ],
-    "title": "Dielectron events with invariant mass range 2-5 GeV for public education and outreach",
+    "signature": [
+      "electron",
+      "Jpsi"
+    ],
+    "title": "J/psi to two electrons from 2010",
     "type": {
       "primary": "Dataset",
       "secondary": [
@@ -589,7 +600,8 @@
         "json",
         "ig",
         "csv"
-      ]
+      ],
+      "number_events": 100000
     },
     "doi": "10.7483/OPENDATA.CMS.4M97.3SQ9",
     "experiment": "CMS",
@@ -669,7 +681,10 @@
     "run_period": [
       "Run2010B"
     ],
-    "title": "Dimuon events for use in outreach and education",
+    "signature": [
+      "muon"
+    ],
+    "title": "Events with two muons from 2010",
     "type": {
       "primary": "Dataset",
       "secondary": [
@@ -751,7 +766,8 @@
         "ig",
         "csv",
         "json"
-      ]
+      ],
+      "number_events": 100000
     },
     "doi": "10.7483/OPENDATA.CMS.PCSW.AHVG",
     "experiment": "CMS",
@@ -831,7 +847,10 @@
     "run_period": [
       "Run2010B"
     ],
-    "title": "Dielectron events for use in education and outreach",
+    "signature": [
+      "electron"
+    ],
+    "title": "Events with two electrons from 2010",
     "type": {
       "primary": "Dataset",
       "secondary": [
@@ -913,7 +932,8 @@
         "ig",
         "csv",
         "json"
-      ]
+      ],
+      "number_events": 2000
     },
     "doi": "10.7483/OPENDATA.CMS.P95A.KMRE",
     "experiment": "CMS",
@@ -1043,7 +1063,11 @@
     "run_period": [
       "Run2010B"
     ],
-    "title": "Dielectron events with invariant mass range 8-12 GeV for public education and outreach",
+    "signature": [
+      "electron",
+      "Y"
+    ],
+    "title": "Y to two electrons from 2010",
     "type": {
       "primary": "Dataset",
       "secondary": [
@@ -1129,7 +1153,8 @@
         "csv",
         "json",
         "ig"
-      ]
+      ],
+      "number_events": 663
     },
     "doi": "10.7483/OPENDATA.CMS.A6A3.43X5",
     "experiment": "CMS",
@@ -1184,7 +1209,11 @@
     "run_period": [
       "Run2010B"
     ],
-    "title": "Z to ee candidate events for public use",
+    "signature": [
+      "electron",
+      "Z"
+    ],
+    "title": "Z to two electrons from 2010",
     "type": {
       "primary": "Dataset",
       "secondary": [
@@ -1270,7 +1299,8 @@
         "ig",
         "csv",
         "json"
-      ]
+      ],
+      "number_events": 2304
     },
     "doi": "10.7483/OPENDATA.CMS.XBN9.HFGT",
     "experiment": "CMS",
@@ -1325,7 +1355,11 @@
     "run_period": [
       "Run2010B"
     ],
-    "title": "Z to mu mu candidate events for public use",
+    "signature": [
+      "muon",
+      "Z"
+    ],
+    "title": "Z to two muons from 2010",
     "type": {
       "primary": "Dataset",
       "secondary": [
@@ -1411,7 +1445,8 @@
         "csv",
         "ig",
         "json"
-      ]
+      ],
+      "number_events": 1000
     },
     "doi": "10.7483/OPENDATA.CMS.US2A.EKV9",
     "experiment": "CMS",
@@ -1491,7 +1526,12 @@
     "run_period": [
       "Run2010B"
     ],
-    "title": "W to enu events approved for educational use",
+    "signature": [
+      "electron",
+      "W",
+      "missing transverse energy"
+    ],
+    "title": "W to electron and neutrino from 2010",
     "type": {
       "primary": "Dataset",
       "secondary": [
@@ -1577,7 +1617,8 @@
         "csv",
         "ig",
         "json"
-      ]
+      ],
+      "number_events": 1000
     },
     "doi": "10.7483/OPENDATA.CMS.SQG7.44B9",
     "experiment": "CMS",
@@ -1657,7 +1698,12 @@
     "run_period": [
       "Run2010B"
     ],
-    "title": "W to munu events approved for educational use",
+    "signature": [
+      "muon",
+      "W",
+      "missing transverse energy"
+    ],
+    "title": "W to muon and neutrino from 2010",
     "type": {
       "primary": "Dataset",
       "secondary": [
@@ -2123,6 +2169,237 @@
           "recid": "5100"
         }
       ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>This document contains 10 gamma-gamma Higgs candidate events (with an invariant mass between 120-130 GeV). Events have been released by CMS for use in education and outreach. </p> <p>Data was selected for use in education and outreach and contain a subset of the total event information. They are not suitable for a full physics analysis. </p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "McCauley, Thomas"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "The run number of the event.",
+        "variable": "Run"
+      },
+      {
+        "description": "The event number.",
+        "variable": "Event"
+      },
+      {
+        "description": "The transverse momentum of the photon (GeV).",
+        "variable": "pt"
+      },
+      {
+        "description": "The pseudorapidity of the photon.",
+        "variable": "eta"
+      },
+      {
+        "description": "The phi angle of the photon (rad).",
+        "variable": "phi"
+      },
+      {
+        "description": "The invariant mass of two photon (GeV).",
+        "variable": "M"
+      }
+    ],
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "csv"
+      ],
+      "number_events": 10
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:dca4af81",
+        "size": 869,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/masterclass-2014/files/diphoton.csv"
+      }
+    ],
+    "keywords": [
+      "education"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>These events were selected by the CMS Higgs Physics Analysis Group</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "5209",
+    "run_period": [
+      "Run2011A"
+    ],
+    "relations": [
+      {
+        "description": "This data file and other similar data files can be found from ",
+        "doi": "10.7483/OPENDATA.CMS.N9MJ.QEEC",
+        "recid": "300",
+        "title": "Higgs candidate events for use in education and outreach",
+        "type": "isChildOf"
+      }
+    ],
+    "signature": [
+      "H",
+      "photon"
+    ],
+    "title": "Higgs to two photons from 2011",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": " <p>Comma-separated value (csv) files can be used in online applications such as <a href=\"/visualise/histograms/CMS\">the histogram visualizer</a> and other applications, examples are given in</p> ",
+      "links": [
+        {
+          "recid": "5101"
+        },
+        {
+          "recid": "5102"
+        },
+        {
+          "recid": "5100"
+        }
+      ]
+    },
+    "validation": {
+      "description": "These events were validated by the CMS Higgs Physics Analysis Group"
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>This document contains 3 Higgs candidate events (with an invariant mass between 120-130 GeV), where Higgs decays to four leptons. Events have been released by CMS for use in education and outreach. </p> <p>Data was selected for use in education and outreach and contain a subset of the total event information. They are not suitable for a full physics analysis. </p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "McCauley, Thomas"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "The event number.",
+        "variable": "Event"
+      },
+      {
+        "description": "The run number of the event.",
+        "variable": "Run"
+      },
+      {
+        "description": "The total energy of the lepton (GeV).",
+        "variable": "E"
+      },
+      {
+        "description": "The components of the momemtum of the lepton (GeV).",
+        "variable": "px,py,pz"
+      },
+      {
+        "description": "The transverse momentum of the lepton (GeV).",
+        "variable": "pt"
+      },
+      {
+        "description": "The pseudorapidity of the lepton.",
+        "variable": "eta"
+      },
+      {
+        "description": "The phi angle of the lepton (rad).",
+        "variable": "phi"
+      },
+      {
+        "description": "The charge of the lepton.",
+        "variable": "Q"
+      },
+      {
+        "description": "The invariant mass of four leptons (GeV).",
+        "variable": "M"
+      }
+    ],
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "csv"
+      ],
+      "number_events": 3
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:554607ac",
+        "size": 1256,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/masterclass-2014/files/4lepton.csv"
+      }
+    ],
+    "keywords": [
+      "education"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>These events were selected by the CMS Higgs Physics Analysis Group</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "5210",
+    "run_period": [
+      "Run2011A"
+    ],
+    "relations": [
+      {
+        "description": "This data file and other similar data files can be found from ",
+        "doi": "10.7483/OPENDATA.CMS.N9MJ.QEEC",
+        "recid": "300",
+        "title": "Higgs candidate events for use in education and outreach",
+        "type": "isChildOf"
+      }
+    ],
+    "signature": [
+      "muon",
+      "electron",
+      "H"
+    ],
+    "title": "Higgs to four leptons from 2011",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": " <p>Comma-separated value (csv) files can be used in online applications such as <a href=\"/visualise/histograms/CMS\">the histogram visualizer</a> and other applications, examples are given in</p> ",
+      "links": [
+        {
+          "recid": "5101"
+        },
+        {
+          "recid": "5102"
+        },
+        {
+          "recid": "5100"
+        }
+      ]
+    },
+    "validation": {
+      "description": "These events were validated by the CMS Higgs Physics Analysis Group"
     }
   }
 ]

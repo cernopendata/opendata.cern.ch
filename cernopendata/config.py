@@ -312,6 +312,9 @@ RECORDS_REST_FACETS = {
             availability=dict(terms=dict(
                 field='distribution.availability.keyword',
                 order=dict(_term='asc'))),
+            signature=dict(terms=dict(
+                field='signature.keyword',
+                order=dict(_term='asc'))),
         ),
         'post_filters': dict(
             experiment=terms_filter('experiment.keyword'),
@@ -328,6 +331,7 @@ RECORDS_REST_FACETS = {
             file_type=terms_filter('distribution.formats.keyword'),
             collections=terms_filter('collections.keyword'),
             availability=terms_filter('distribution.availability.keyword'),
+            signature=terms_filter('signature.keyword'),
         )
     }
 }

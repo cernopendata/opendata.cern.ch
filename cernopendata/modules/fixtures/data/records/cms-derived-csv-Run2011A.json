@@ -1,6 +1,994 @@
 [
   {
     "abstract": {
+      "description": "<p>This document contains 100k events, where two muon candidates were observed. The data was selected from the primary dataset DoubleMu 2011. These data were selected for use in education and outreach and contain a subset of the total event information. They are not suitable for a full physics analysis.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "McCauley, Thomas"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "The run number of the event.",
+        "variable": "Run"
+      },
+      {
+        "description": "The event number.",
+        "variable": "Event"
+      },
+      {
+        "description": "Either T or G: whether the muon is a tracker or global muon.",
+        "variable": "type"
+      },
+      {
+        "description": "The total energy of the muon (GeV).",
+        "variable": "E"
+      },
+      {
+        "description": "The components of the momemtum of the muon (GeV).",
+        "variable": "px,py,pz"
+      },
+      {
+        "description": "The transverse momentum of the muon (GeV).",
+        "variable": "pt"
+      },
+      {
+        "description": "The pseudorapidity of the muon.",
+        "variable": "eta"
+      },
+      {
+        "description": "The phi angle of the muon (rad).",
+        "variable": "phi"
+      },
+      {
+        "description": "The charge of the muon.",
+        "variable": "Q"
+      },
+      {
+        "description": "The invariant mass of two muons (GeV).",
+        "variable": "M"
+      }
+    ],
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "csv"
+      ],
+      "number_events": 100000
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:5b87a72a",
+        "size": 13935840,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/DoubleMu/CSV/12Oct2013-v1/files/Dimuon_DoubleMu.csv"
+      }
+    ],
+    "keywords": [
+      "education"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>An event was selected if there were two muons in the event, both with |eta| < 2.4, at least one muon was a global muon, the invariant mass of the two muons was > 0.3 GeV and < 300 GeV, and they have opposite-sign charge.</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "5201",
+    "relations": [
+      {
+	"description": "This data file and other similar data files can be found from ",
+        "recid": "545",
+        "title": "Datasets derived from the Run2011A SingleElectron, SingleMu, DoubleElectron, and DoubleMu primary datasets",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "Run2011A"
+    ],
+    "signature": [
+      "muon"
+    ],
+    "title": "Events with two muons from 2011 (Primary dataset DoubleMu 2011A)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": " <p>Comma-separated value (csv) files can be used in online applications such as <a href=\"/visualise/histograms/CMS\">the histogram visualizer</a> and other applications, examples are given in</p> ",
+      "links": [
+        {
+          "recid": "5101"
+        },
+        {
+          "recid": "5102"
+        },
+        {
+          "recid": "5100"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>This document contains 100k events, where two muon candidates were observed. The data was selected from the primary dataset SingleMu 2011. These data were selected for use in education and outreach and contain a subset of the total event information. They are not suitable for a full physics analysis.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "McCauley, Thomas"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "The run number of the event.",
+        "variable": "Run"
+      },
+      {
+        "description": "The event number.",
+        "variable": "Event"
+      },
+      {
+        "description": "Either T or G: whether the muon is a tracker or global muon.",
+        "variable": "type"
+      },
+      {
+        "description": "The charge of the muon.",
+        "variable": "Q"
+      },
+      {
+        "description": "The transverse momentum of the muon (GeV).",
+        "variable": "pt"
+      },
+      {
+        "description": "The pseudorapidity of the muon.",
+        "variable": "eta"
+      },
+      {
+        "description": "The phi angle of the muon (rad).",
+        "variable": "phi"
+      },
+      {
+        "description": "The total energy of the muon (GeV).",
+        "variable": "E"
+      },
+      {
+        "description": "The components of the momemtum of the muon (GeV).",
+        "variable": "px,py,pz"
+      },
+      {
+        "description": "The invariant mass of two muons (GeV).",
+        "variable": "M"
+      }
+    ],
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "csv"
+      ],
+      "number_events": 83761
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:3f2809bc",
+        "size": 11806904,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/SingleMu/CSV/12Oct2013-v1/files/Dimuon_SingleMu.csv"
+      }
+    ],
+    "keywords": [
+      "education"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>An event was selected if there were two muons in the event, both with |eta| < 2.4, at least one muon was a global muon, the invariant mass of the two muons was > 0.3 GeV and < 300 GeV, and they have opposite-sign charge.</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "5202",
+    "relations": [
+      {
+	"description": "This data file and other similar data files can be found from ",
+        "recid": "545",
+        "title": "Datasets derived from the Run2011A SingleElectron, SingleMu, DoubleElectron, and DoubleMu primary datasets",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "Run2011A"
+    ],
+    "signature": [
+      "muon"
+    ],
+    "title": "Events with two muons from 2011 (Primary dataset SingleMu 2011)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": " <p>Comma-separated value (csv) files can be used in online applications such as <a href=\"/visualise/histograms/CMS\">the histogram visualizer</a> and other applications, examples are given in</p> ",
+      "links": [
+        {
+          "recid": "5101"
+        },
+        {
+          "recid": "5102"
+        },
+        {
+          "recid": "5100"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>This document contains 20k events where two muon candidates with invariant mass near the mass of J/psi were observed. The data was selected from the primary dataset DoubleMu 2011. These data were selected for use in education and outreach and contain a subset of the total event information. They are not suitable for a full physics analysis.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "McCauley, Thomas"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "The run number of the event.",
+        "variable": "Run"
+      },
+      {
+        "description": "The event number.",
+        "variable": "Event"
+      },
+      {
+        "description": "Either T or G: whether the muon is a tracker or global muon.",
+        "variable": "type"
+      },
+      {
+        "description": "The total energy of the muon (GeV).",
+        "variable": "E"
+      },
+      {
+        "description": "The components of the momemtum of the muon (GeV).",
+        "variable": "px,py,pz"
+      },
+      {
+        "description": "The transverse momentum of the muon (GeV).",
+        "variable": "pt"
+      },
+      {
+        "description": "The pseudorapidity of the muon.",
+        "variable": "eta"
+      },
+      {
+        "description": "The phi angle of the muon (rad).",
+        "variable": "phi"
+      },
+      {
+        "description": "The charge of the muon.",
+        "variable": "Q"
+      }
+    ],
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "csv"
+      ],
+      "number_events": 20000
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:214e4077",
+        "size": 2639302,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/DoubleMu/CSV/12Oct2013-v1/files/Jpsimumu.csv"
+      }
+    ],
+    "keywords": [
+      "education"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "An event was selected if there were two muons in the event, both with |eta| < 2.4, at least one muon was a global muon, the invariant mass of the two muons was > 2 GeV and < 5 GeV, and they have opposite-sign charge.</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "5203",
+    "relations": [
+      {
+	"description": "This data file and other similar data files can be found from ",
+        "recid": "545",
+        "title": "Datasets derived from the Run2011A SingleElectron, SingleMu, DoubleElectron, and DoubleMu primary datasets",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "Run2011A"
+    ],
+    "signature": [
+      "muon",
+      "Jpsi"
+    ],
+    "title": "J/psi to two muons from 2011",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": " <p>Comma-separated value (csv) files can be used in online applications such as <a href=\"/visualise/histograms/CMS\">the histogram visualizer</a> and other applications, examples are given in</p> ",
+      "links": [
+        {
+          "recid": "5101"
+        },
+        {
+          "recid": "5102"
+        },
+        {
+          "recid": "5100"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>This document contains 100k events where one electron candidate was observed and missing energy implies to the presence of a neutrino. The data was selected from the primary dataset SingleElectron 2011. These data were selected for use in education and outreach and contain a subset of the total event information. They are not suitable for a full physics analysis.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "McCauley, Thomas"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "The run number of the event.",
+        "variable": "Run"
+      },
+      {
+        "description": "The event number.",
+        "variable": "Event"
+      },
+      {
+        "description": "The transverse momentum of the electron (GeV).",
+        "variable": "pt"
+      },
+      {
+        "description": "The pseudorapidity of the electron.",
+        "variable": "eta"
+      },
+      {
+        "description": "The phi angle of the electron (rad).",
+        "variable": "phi"
+      },
+      {
+        "description": "The charge of the electron.",
+        "variable": "Q"
+      },
+      {
+        "description": "Either EB or EE: whether the electron is in the barrel or in the endcap.",
+        "variable": "type"
+      },
+      {
+        "description": "The difference in eta between the electron track and the associated cluster in the ECAL (rad).",
+        "variable": "delEta"
+      },
+      {
+        "description": "The difference in phi between the electron track and the associated cluster in the ECAL (rad).",
+        "variable": "delPhi"
+      },
+      {
+        "description": "The weighted cluster rms along eta for an electron.",
+        "variable": "sigmaEtaEta"
+      },
+      {
+        "description": "The energy of the electron in the HCAL divided by the energy of the electron in the ECAL. ",
+        "variable": "HoverE"
+      },
+      {
+        "description": "The isolation variable for the electron in the tracker.",
+        "variable": "isoTrack"
+      },
+      {
+        "description": "The isolation variable for the electron in the ECAL.",
+        "variable": "isoEcal"
+      },
+      {
+        "description": "The isolation variable for the electron in the HCAL.",
+        "variable": "isoHcal"
+      },
+      {
+        "description": "The missing transverse momentum of the event (GeV).",
+        "variable": "MET"
+      },
+      {
+        "description": "The phi angle of the missing transverse momentum (rad).",
+        "variable": "phiMET"
+      }
+    ],
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "csv"
+      ],
+      "number_events": 100000
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:1b06bb5d",
+        "size": 9992209,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/SingleElectron/CSV/12Oct2013-v1/files/Wenu.csv"
+      }
+    ],
+    "keywords": [
+      "education"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>An event was selected if there is was one electron in the event with pT > 25.0 GeV. Furthermore, the event was rejected if there was a second electron present with pT > 20 GeV.</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "5204",
+    "relations": [
+      {
+	"description": "This data file and other similar data files can be found from ",
+        "recid": "545",
+        "title": "Datasets derived from the Run2011A SingleElectron, SingleMu, DoubleElectron, and DoubleMu primary datasets",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "Run2011A"
+    ],
+    "signature": [
+      "electron",
+      "missing transverse energy",
+      "W"
+    ],
+    "title": "W to electron and neutrino from 2011",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": " <p>Comma-separated value (csv) files can be used in online applications such as <a href=\"/visualise/histograms/CMS\">the histogram visualizer</a> and other applications, examples are given in</p> ",
+      "links": [
+        {
+          "recid": "5101"
+        },
+        {
+          "recid": "5102"
+        },
+        {
+          "recid": "5100"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>This document contains 100k events where one muon candidate was observed and missing energy implies to the presence of a neutrino. The data was selected from the primary dataset SingleMu 2011. These data were selected for use in education and outreach and contain a subset of the total event information. They are not suitable for a full physics analysis.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "McCauley, Thomas"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "The run number of the event.",
+        "variable": "Run"
+      },
+      {
+        "description": "The event number.",
+        "variable": "Event"
+      },
+      {
+        "description": "The transverse momentum of the muon (GeV).",
+        "variable": "pt"
+      },
+      {
+        "description": "The pseudorapidity of the muon.",
+        "variable": "eta"
+      },
+      {
+        "description": "The phi angle of the muon (rad).",
+        "variable": "phi"
+      },
+      {
+        "description": "The charge of the muon.",
+        "variable": "Q"
+      },
+      {
+        "description": "The chi-squared per degree-of-freedom of the muon.",
+        "variable": "chiSq"
+      },
+      {
+        "description": "The impact parameter in the transverse plane with respect to the vertex of the muon.",
+        "variable": "dxy"
+      },
+      {
+        "description": "The combined isolation (Itrack + Iecal + Ihcal) of the muon.",
+        "variable": "iso"
+      },
+      {
+        "description": "The missing transverse momentum of the event (GeV).",
+        "variable": "MET"
+      },
+      {
+        "description": "The phi angle of the missing transverse momentum (rad).",
+        "variable": "phiMET"
+      }
+    ],
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "csv"
+      ],
+      "number_events": 100000
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:0607d5ee",
+        "size": 7969331,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/SingleMu/CSV/12Oct2013-v1/files/Wmunu.csv"
+      }
+    ],
+    "keywords": [
+      "education"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>An event was selected if there was one (and only one) global muon in the event that satisfies: pT > 25.0 GeV and |eta| < 2.1. Furthermore, the event was rejected if there was another global muon in the event with pT > 10 GeV in the acceptance region |eta| < 2.4.</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "5205",
+    "relations": [
+      {
+	"description": "This data file and other similar data files can be found from ",
+        "recid": "545",
+        "title": "Datasets derived from the Run2011A SingleElectron, SingleMu, DoubleElectron, and DoubleMu primary datasets",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "Run2011A"
+    ],
+    "signature": [
+      "muon",
+      "missing transverse energy",
+      "W"
+    ],
+    "title": "W to muon and neutrino 2011",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": " <p>Comma-separated value (csv) files can be used in online applications such as <a href=\"/visualise/histograms/CMS\">the histogram visualizer</a> and other applications, examples are given in</p> ",
+      "links": [
+        {
+          "recid": "5101"
+        },
+        {
+          "recid": "5102"
+        },
+        {
+          "recid": "5100"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>This document contains 20k events where two muon candidates with invariant mass near the mass of upsilon were observed. The data was selected from the primary dataset DoubleMu 2011. These data were selected for use in education and outreach and contain a subset of the total event information. They are not suitable for a full physics analysis.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "McCauley, Thomas"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "The run number of the event.",
+        "variable": "Run"
+      },
+      {
+        "description": "The event number.",
+        "variable": "Event"
+      },
+      {
+        "description": "Either T or G: whether the muon is a tracker or global muon.",
+        "variable": "type"
+      },
+      {
+        "description": "The total energy of the muon (GeV).",
+        "variable": "E"
+      },
+      {
+        "description": "The components of the momemtum of the muon (GeV).",
+        "variable": "px,py,pz"
+      },
+      {
+        "description": "The transverse momentum of the muon (GeV).",
+        "variable": "pt"
+      },
+      {
+        "description": "The pseudorapidity of the muon.",
+        "variable": "eta"
+      },
+      {
+        "description": "The phi angle of the muon (rad).",
+        "variable": "phi"
+      },
+      {
+        "description": "The charge of the muon.",
+        "variable": "Q"
+      }
+    ],
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "csv"
+      ],
+      "number_events": 20000
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:5eef7b87",
+        "size": 2599212,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/DoubleMu/CSV/12Oct2013-v1/files/Ymumu.csv"
+      }
+    ],
+    "keywords": [
+      "education"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>An event was selected if there were two muons in the event, both with |eta| < 2.4, at least one muon was a global muon, the invariant mass of the two muons was > 8 GeV and < 12 GeV, and they have opposite-sign charge.</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "5206",
+    "relations": [
+      {
+	"description": "This data file and other similar data files can be found from ",
+        "recid": "545",
+        "title": "Datasets derived from the Run2011A SingleElectron, SingleMu, DoubleElectron, and DoubleMu primary datasets",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "Run2011A"
+    ],
+    "signature": [
+      "muon",
+      "Y"
+    ],
+    "title": "Y to two muons from 2011",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": " <p>Comma-separated value (csv) files can be used in online applications such as <a href=\"/visualise/histograms/CMS\">the histogram visualizer</a> and other applications, examples are given in</p> ",
+      "links": [
+        {
+          "recid": "5101"
+        },
+        {
+          "recid": "5102"
+        },
+        {
+          "recid": "5100"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>This document contains 10k events where two electron candidates with invariant mass near the mass of Z-boson were observed. The data was selected from the primary dataset DoubleElectron 2011. These data were selected for use in education and outreach and contain a subset of the total event information. They are not suitable for a full physics analysis.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "McCauley, Thomas"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "The run number of the event.",
+        "variable": "Run"
+      },
+      {
+        "description": "The event number.",
+        "variable": "Event"
+      },
+      {
+        "description": "The transverse momentum of the electron (GeV).",
+        "variable": "pt"
+      },
+      {
+        "description": "The pseudorapidity of the electron.",
+        "variable": "eta"
+      },
+      {
+        "description": "The phi angle of the electron (rad).",
+        "variable": "phi"
+      },
+      {
+        "description": "The charge of the electron.",
+        "variable": "Q"
+      },
+      {
+        "description": "Either EB or EE: whether the electron is in the barrel or in the endcap.",
+        "variable": "type"
+      },
+      {
+        "description": "The weighted cluster rms along eta for an electron.",
+        "variable": "sigmaEtaEta"
+      },
+      {
+        "description": "The energy of the electron in the HCAL divided by the energy of the electron in the ECAL. ",
+        "variable": "HoverE"
+      },
+      {
+        "description": "The isolation variable for the electron in the tracker.",
+        "variable": "isoTrack"
+      },
+      {
+        "description": "The isolation variable for the electron in the ECAL.",
+        "variable": "isoEcal"
+      },
+      {
+        "description": "The isolation variable for the electron in the HCAL.",
+        "variable": "isoHcal"
+      }
+    ],
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "csv"
+      ],
+      "number_events": 10000
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:3ad4c332",
+        "size": 1445651,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/DoubleElectron/CSV/12Oct2013-v1/files/Zee.csv"
+      }
+    ],
+    "keywords": [
+      "education"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>An event was selected if there were two electrons in the event with pT > 25 GeV and the invariant mass of the two electrons was > 60 GeV and < 120 GeV.</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "5207",
+    "relations": [
+      {
+	"description": "This data file and other similar data files can be found from ",
+        "recid": "545",
+        "title": "Datasets derived from the Run2011A SingleElectron, SingleMu, DoubleElectron, and DoubleMu primary datasets",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "Run2011A"
+    ],
+    "signature": [
+      "electron",
+      "Z"
+    ],
+    "title": "Z to two electrons from 2011",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": " <p>Comma-separated value (csv) files can be used in online applications such as <a href=\"/visualise/histograms/CMS\">the histogram visualizer</a> and other applications, examples are given in</p> ",
+      "links": [
+        {
+          "recid": "5101"
+        },
+        {
+          "recid": "5102"
+        },
+        {
+          "recid": "5100"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>This document contains 10k events where two muon candidates with invariant mass near the mass of Z-boson were observed. The data was selected from the primary dataset DoubleMu 2011. These data were selected for use in education and outreach and contain a subset of the total event information. They are not suitable for a full physics analysis.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "McCauley, Thomas"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "The run number of the event.",
+        "variable": "Run"
+      },
+      {
+        "description": "The event number.",
+        "variable": "Event"
+      },
+      {
+        "description": "The transverse momentum of the muon (GeV).",
+        "variable": "pt"
+      },
+      {
+        "description": "The pseudorapidity of the muon.",
+        "variable": "eta"
+      },
+      {
+        "description": "The phi angle of the muon (rad).",
+        "variable": "phi"
+      },
+      {
+        "description": "The charge of the muon.",
+        "variable": "Q"
+      },
+      {
+        "description": "The impact parameter in the transverse plane with respect to the vertex of the muon.",
+        "variable": "dxy"
+      },
+      {
+        "description": "The combined isolation (Itrack + Iecal + Ihcal) of the muon.",
+        "variable": "iso"
+      }
+    ],
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "csv"
+      ],
+      "number_events": 10000
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:0d4cfe9f",
+        "size": 970550,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/DoubleMu/CSV/12Oct2013-v1/files/Zmumu.csv"
+      }
+    ],
+    "keywords": [
+      "education"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>An event was selected if there were two muons in the event with pT > 20 GeV and |eta| < 2.1 and the invariant mass of the two muons was > 60 GeV and < 120 GeV.</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "5208",
+    "relations": [
+      {
+	"description": "This data file and other similar data files can be found from ",
+        "recid": "545",
+        "title": "Datasets derived from the Run2011A SingleElectron, SingleMu, DoubleElectron, and DoubleMu primary datasets",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "Run2011A"
+    ],
+    "signature": [
+      "muon",
+      "Z"
+    ],
+    "title": "Z to two muons from 2011",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": " <p>Comma-separated value (csv) files can be used in online applications such as <a href=\"/visualise/histograms/CMS\">the histogram visualizer</a> and other applications, examples are given in</p> ",
+      "links": [
+        {
+          "recid": "5101"
+        },
+        {
+          "recid": "5102"
+        },
+        {
+          "recid": "5100"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
       "description": "<p>These data were selected from the primary datasets in order to obtain candidate J/psi and Y events, candidate W and Z boson events, and general di-electron and dimuon spectra.</p> <p>These data were selected for use in education and outreach and contain a subset of the total event information. They are not suitable for a full physics analysis.</p>"
     },
     "accelerator": "CERN-LHC",
@@ -167,6 +1155,15 @@
     "recid": "545",
     "run_period": [
       "Run2011A"
+    ],
+    "signature": [
+      "muon",
+      "electron",
+      "Jpsi",
+      "W",
+      "Z",
+      "Y",
+      "missing transverse energy"
     ],
     "title": "Datasets derived from the Run2011A SingleElectron, SingleMu, DoubleElectron, and DoubleMu primary datasets",
     "type": {
