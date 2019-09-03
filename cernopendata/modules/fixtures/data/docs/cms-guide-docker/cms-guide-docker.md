@@ -12,7 +12,7 @@ Once Docker is installed, you can fetch a CMSSW image, and create and start a co
 docker run --name opendata -it cmsopendata/cmssw_5_3_32 /bin/bash
 ```
 
-Here we fetch the `CMSSW_5_3_32` docker image from [dockerhub](https://cloud.docker.com/u/cmsopendata/repository/list) and name the container `opendata`.
+Here we fetch the `CMSSW_5_3_32` docker image from [dockerhub](https://hub.docker.com/u/cmsopendata) and name the container `opendata`.
 
 As described [in this GitHub repository](https://github.com/clelange/cmssw-docker/), this will install a stand-alone CMSSW image (a few gigabytes). Therefore this may take a few minutes. However, the image will only have to be downloaded once. The following will appear in your terminal once you type the `docker run` command:
 
