@@ -136,7 +136,7 @@ opera_js = NpmBundle(
     'node_modules/demobbed-viewer/js/Vertex-def.js',
     'node_modules/demobbed-viewer/js/TrackECC-def.js',
     'node_modules/demobbed-viewer/js/Event-def.js',
-    'node_modules/demobbed-viewer/js/loadEvent.js',
+    'node_modules/demobbed-viewer/js/loadUserSpecifiedEvent.js',
     'node_modules/demobbed-viewer/js/changeEventSample.js',
     'node_modules/demobbed-viewer/js/DetElems-defs.js',
     'node_modules/demobbed-viewer/js/MgrGeomED-def.js',
@@ -151,7 +151,8 @@ opera_js = NpmBundle(
     'node_modules/demobbed-viewer/js/MgrDrawECC-funcAdd.js',
     output='gen/cernopendata.opera.%(version)s.js',
     npm={
-        "demobbed-viewer": "~1.2.0"
+        "demobbed-viewer":
+            "git+https://git@github.com/dmitr25/demobbed-viewer.git#a202309"
     },
 )
 
@@ -160,7 +161,8 @@ opera_css = NpmBundle(
     filters='node-scss, cleancss',
     output='gen/cernopendata.opera.%(version)s.css',
     npm={
-        "demobbed-viewer": "~1.2.0"
+        "demobbed-viewer":
+            "git+https://git@github.com/dmitr25/demobbed-viewer.git#a202309"
     }
 )
 

@@ -11,7 +11,7 @@
 {% assets "opera_js" %}
 <script src="{{ ASSET_URL }}"></script>{% endassets %}
 
-<div id="body-demobbed-viewer" style="margin-top: 1%;">
+<div id="body-demobbed-viewer" style="margin-top: 1%;" data-event-id="{{ eventid if eventid }}">
 
   <div class="container-fluid" id="div-container-fluid">
 
@@ -30,7 +30,7 @@
           </select>
 
           <label for="input-event-ED">Event:</label>
-          <input id="input-event-ED" onkeypress="loadEvent(this, event, value);" size="11">
+          <input id="input-event-ED" onkeypress="loadUserSpecifiedEvent(this, event, value);" size="11">
 
           <!-- ----------------------------------------- -->
 
@@ -168,7 +168,7 @@
           </select>
 
           <label for="input-event-ECC">Event:</label>
-          <input id="input-event-ECC" onkeypress="loadEvent(this, event, value);" size="11">
+          <input id="input-event-ECC" onkeypress="loadUserSpecifiedEvent(this, event, value);" size="11">
 
           <div class="btn-group" role="group">
             <button type="button" class="btn btn-default btn-xs" onclick="demobbed.loadPrevOrNextEvent(-1);"
@@ -282,7 +282,7 @@
 
 <div id="div-ScrLoadEvent">
   <script id="script-LoadEvent"
-          src="/static/node_modules/demobbed-viewer/js/nuEventsData/nuMu/loadEvent10120009376.js"></script>
+          src="/static/node_modules/demobbed-viewer/js/loadFirstEvent.js"></script>
 </div>
 
 </div>
