@@ -62,7 +62,7 @@
       },
       {
         "description": "Z position of a drift tube, RPC, Target Tracker hit in the OPERA detector system of reference (in cm)",
-        "variable": "posZ "
+        "variable": "posZ"
       },
       {
         "description": "event time in milliseconds since 01/01/1970",
@@ -179,7 +179,7 @@
         "variable": "muMom"
       },
       {
-        "description": "For Electronic Detector events, X position of a drift tube, RPC, Target Tracker hit in the OPERA detector system of reference (in cm). For Emulsion Detector events, X position of a track/vertex in the OPERA brick system of reference (in micrometers).",
+        "description": "X position of a drift tube, RPC, Target Tracker hit in the OPERA detector system of reference (in cm)",
         "variable": "posX"
       },
       {
@@ -191,7 +191,7 @@
         "variable": "posX2"
       },
       {
-        "description": "For Electronic Detector events, Y position of an RPC hit in the OPERA detector system of reference (in cm). For Emulsion Detector events, Y position of a track/vertex in the OPERA brick system of reference (in micrometers).",
+        "description": "Y position of an RPC hit in the OPERA detector system of reference (in cm)",
         "variable": "posY"
       },
       {
@@ -203,8 +203,8 @@
         "variable": "posY2"
       },
       {
-        "description": "For Electronic Detector events, Z position of a drift tube, RPC, Target Tracker hit in the OPERA detector system of reference (in cm). For Emulsion Detector events, Z position of a track/vertex in the OPERA brick system of reference (in micrometers).",
-        "variable": "posZ "
+        "description": "Z position of a drift tube, RPC, Target Tracker hit in the OPERA detector system of reference (in cm)",
+        "variable": "posZ"
       },
       {
         "description": "Z position of the beginning of a line in the OPERA brick system of reference (in micrometers)",
@@ -278,6 +278,160 @@
     },
     "validation": {
       "description": "During the data taking, all the runs recorded by OPERA are certified as good for physics analysis if the trigger and all sub-detectors show the expected performance. Moreover, the time-stamp of the event should lie within the gate open by the CNGS beam signal. The data certification is based first on the offline shifters evaluation and later on the feedback provided by all sub-detector experts. Based on the above information, stored in a specific database, the Data Quality Monitoring group verifies the consistency of the certification and prepares an ascii file of certified runs to be used for physics analysis. Calibration procedures taking into account the specific geometry of the target associated to each event are applied to raw data and they are converted into a root file for each event that is then used for physics analysis."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>The dataset was extracted from the official OPERA data repository. It contains 50 muon neutrino interactions with the lead target where a charmed hadron is reconstructed in the final state. Neutrino-induced charm production happens in the so-called charged-current (CC) interactions of a muon neutrino.</p><p>For this data sample, the Collaboration performed a dedicated analysis, searching for decay topologies. Charmed hadrons have masses and lifetimes similar to those of the tau lepton and we can observe both its production and decay vertices. Given this feature, they constitute one of the main background sources for the tau neutrino observation, when the muon at the primary vertex is not detected. At the same time, they represent the most powerful tool for a data-driven test of the experiment capability of detecting tau decays, given the same topology.</p><p>Over a sample of 2925 muon neutrino CC events fully analysed, 50 charm decay candidates were observed while 54 ± 4 were expected. Moreover, the comparison between observed and simulated data for several relevant variables proved that the detector performance and the full analysis chain applied to neutrino events are well reproduced by the OPERA simulation, thus validating the methods for tau neutrino appearance detection, which was one of the main goals of the analysis.</p><p>This data record contains all the electronic detector hits produced by the neutrino interactions in their propagation through the detector. It includes hits in the scintillating target tracker, drift tubes and resistive plate chambers. The hits in the drift tubes and in the resistive plate chambers are used to reconstruct the muon tracks and measure its charge and momentum. The hits in the target tracker are used to predict the location of the neutrino interaction in the target units, the so-called bricks. This leads to the subsequent phase of the analysis where the neutrino interaction is located with micrometric accuracy, all tracks attached are measured and decay topologies are searched for.</p>"
+    },
+    "accelerator": "CERN-SPS",
+    "collaboration": {
+      "name": "OPERA collaboration",
+      "recid": "452"
+    },
+    "collections": [
+      "OPERA-Electronic-Detector-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "PMT amplitude measured from the \"left\" side of a scintillator strip (in photo-electrons)",
+        "variable": "amplL"
+      },
+      {
+        "description": "PMT amplitude measured from the \"right\" side of a scintillator strip (in photo-electrons)",
+        "variable": "amplR"
+      },
+      {
+        "description": "PMT amplitude reconstructed from the \"left\" and \"right\" side amplitudes of a scintillator strip taking into account light attenuation in a WLS fiber (in photo-electrons)",
+        "variable": "amplRec"
+      },
+      {
+        "description": "cluster length (in cm)",
+        "variable": "clLength"
+      },
+      {
+        "description": "drift distance (in cm)",
+        "variable": "driftDist"
+      },
+      {
+        "description": "event Id",
+        "variable": "evID"
+      },
+      {
+        "description": "X position of a vertex in the OPERA detector system of reference (in cm)",
+        "variable": "globPosX"
+      },
+      {
+        "description": "Y position of a vertex in the OPERA detector system of reference (in cm)",
+        "variable": "globPosY"
+      },
+      {
+        "description": "Z position of a vertex in the OPERA detector system of reference (in cm)",
+        "variable": "globPosZ"
+      },
+      {
+        "description": "momentum of a muon (in GeV/c)",
+        "variable": "muMom"
+      },
+      {
+        "description": "X position of a drift tube, RPC, Target Tracker hit in the OPERA detector system of reference (in cm)",
+        "variable": "posX"
+      },
+      {
+        "description": "X position of the beginning of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posX1"
+      },
+      {
+        "description": "X position of the end of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posX2"
+      },
+      {
+        "description": "Y position of an RPC hit in the OPERA detector system of reference (in cm)",
+        "variable": "posY"
+      },
+      {
+        "description": "Y position of the beginning of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posY1"
+      },
+      {
+        "description": "Y position of the end of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posY2"
+      },
+      {
+        "description": "Z position of a drift tube, RPC, Target Tracker hit in the OPERA detector system of reference (in cm)",
+        "variable": "posZ"
+      },
+      {
+        "description": "Z position of the beginning of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posZ1"
+      },
+      {
+        "description": "Z position of the end of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posZ2"
+      },
+      {
+        "description": "flag of a vertex: 1 - primary vertex; 0 - not primary vertex",
+        "variable": "primary"
+      },
+      {
+        "description": "tangent of a track angle in XZ view",
+        "variable": "slopeXZ"
+      },
+      {
+        "description": "tangent of a track angle in YZ view",
+        "variable": "slopeYZ"
+      },
+      {
+        "description": "event time in milliseconds since 01/01/1970",
+        "variable": "timestamp"
+      },
+      {
+        "description": "type of a track: 9 - charmed hadron, 1 - muon; 10 - daughter particle; 2 - hadron at primary vertex",
+        "variable": "trType"
+      }
+    ],
+    "date_created": [
+      "2009",
+      "2010",
+      "2011",
+      "2012"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "csv",
+        "zip"
+      ],
+      "number_events": 50,
+      "number_files": 1,
+      "size": 385303
+    },
+    "experiment": "OPERA",
+    "files": [
+      {
+        "checksum": "adler32:c05f4467",
+        "size": 385303,
+        "uri": "root://eospublic.cern.ch//eos/opendata/opera/datasets/neutrino-induced-charm/electronic-detector-data-for-charm-studies.zip"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this dataset were collected between 2008 and 2010. Events are classified as “1mu” if one track is tagged as a muon after the analysis of the electronic detectors data, “0mu” otherwise. In this samples all events have been classified as “1mu”. For the first two runs, an inclusive analysis of all predicted events has been carried out. For the 2010 run, only events with a muon momentum lower than 15 GeV/c were selected, since they are richer in terms of their possible tau neutrino content.</p><p>The events reported in this data set have also undergone a full tri-dimensional reconstruction of the neutrino vertex in the nuclear emulsion films.</p><p>A search for possible decay topologies was applied to a sample of 2925 “1mu” events with a procedure explained in the description of the emulsion data. A final selection was performed by applying kinematical cuts which selected the 50 events reported in this sample.</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "13100",
+    "title": "Electronic detector data for neutrino-induced charmed hadron production studies",
+    "title_additional": "Electronic detector data for neutrino-induced charmed hadron production studies",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "validation": {
+      "description": "During the data taking, all the runs recorded by OPERA are certified as good for physics analysis if the trigger and all sub-detectors show the expected performance. Moreover, the time stamp of the event should lie within the gate open by the CNGS beam signal. The data certification is based first on the offline shifters evaluation and later on the feedback provided by all sub-detector experts. Based on the above information, stored in a specific database, the Data Quality Monitoring group verifies the consistency of the certification and prepares an ascii file of certified runs to be used for physics analysis. Calibration procedures taking into account the specific geometry of the target associated to each event are applied to raw data and they are converted into a root file for each event that is then used for physics analysis."
     }
   }
 ]
