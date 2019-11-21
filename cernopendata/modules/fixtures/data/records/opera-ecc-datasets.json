@@ -413,5 +413,123 @@
     "validation": {
       "description": "During the data taking, all the runs recorded by OPERA are certified as good for physics analysis if the trigger and all sub-detectors show the expected performance. Moreover, the time stamp of the event should lie within the gate open by the CNGS beam signal. The data certification is based first on the offline shifters evaluation and later on the feedback provided by all sub-detector experts. Based on the above information, stored in a specific database, the Data Quality Monitoring group verifies the consistency of the certification and prepares an ascii file of certified runs to be used for physics analysis. For this specific data record, dedicated calibration procedures are performed to align the emulsion films each other and with the electronic detectors. These procedures with the corresponding results are saved in a dedicated database where data quality experts certify the results and prepare files to be used for the track and vertex reconstruction, thus being available for physics analysis."
     }
+  },
+  {
+    "abstract": {
+      "description": "<p>FIXME description</p><p></p><p></p><p></p>"
+    },
+    "accelerator": "CERN-SPS",
+    "collaboration": {
+      "name": "OPERA collaboration",
+      "recid": "452"
+    },
+    "collections": [
+      "OPERA-Emulsion-Detector-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "X position of a vertex in the OPERA detector system of reference (in cm)",
+        "variable": "globPosX"
+      },
+      {
+        "description": "Y position of a vertex in the OPERA detector system of reference (in cm)",
+        "variable": "globPosY"
+      },
+      {
+        "description": "Z position of a vertex in the OPERA detector system of reference (in cm)",
+        "variable": "globPosZ"
+      },
+      {
+        "description": "X position of a track/vertex in the OPERA brick system of reference (in micrometers)",
+        "variable": "posX"
+      },
+      {
+        "description": "X position of the beginning of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posX1"
+      },
+      {
+        "description": "X position of the end of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posX2"
+      },
+      {
+        "description": "Y position of a track/vertex in the OPERA brick system of reference (in micrometers)",
+        "variable": "posY"
+      },
+      {
+        "description": "Y position of the beginning of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posY1"
+      },
+      {
+        "description": "Y position of the end of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posY2"
+      },
+      {
+        "description": "Z position of a track/vertex in the OPERA brick system of reference (in micrometers)",
+        "variable": "posZ"
+      },
+      {
+        "description": "Z position of the beginning of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posZ1"
+      },
+      {
+        "description": "Z position of the end of a line in the OPERA brick system of reference (in micrometers)",
+        "variable": "posZ2"
+      },
+      {
+        "description": "tangent of a track angle in XZ view",
+        "variable": "slopeXZ"
+      },
+      {
+        "description": "tangent of a track angle in YZ view",
+        "variable": "slopeYZ"
+      },
+      {
+        "description": "type of a track: 12 - electron at the neutrino interaction vertex or e+/e- shower, initiated by the electron; 3 - e+/e- shower(s), initiated by gamma conversion",
+        "variable": "trType"
+      }
+    ],
+    "date_created": [
+      "2009",
+      "2010",
+      "2011",
+      "2012"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "csv",
+        "zip"
+      ],
+      "number_events": 19,
+      "number_files": 1,
+      "size": 36383
+    },
+    "experiment": "OPERA",
+    "files": [
+      {
+        "checksum": "adler32:9120689e",
+        "size": 36383,
+        "uri": "root://eospublic.cern.ch//eos/opendata/opera/datasets/electron-neutrinos/emulsion-data-for-electron-neutrino-studies.zip"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>FIXME methodology</p><p></p><p></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "13156",
+    "title": "Emulsion data for electron neutrino studies",
+    "title_additional": "Emulsion data for electron neutrino studies",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "validation": {
+      "description": "FIXME validation"
+    }
   }
 ]

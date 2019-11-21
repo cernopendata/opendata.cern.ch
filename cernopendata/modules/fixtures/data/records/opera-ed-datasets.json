@@ -433,5 +433,111 @@
     "validation": {
       "description": "During the data taking, all the runs recorded by OPERA are certified as good for physics analysis if the trigger and all sub-detectors show the expected performance. Moreover, the time stamp of the event should lie within the gate open by the CNGS beam signal. The data certification is based first on the offline shifters evaluation and later on the feedback provided by all sub-detector experts. Based on the above information, stored in a specific database, the Data Quality Monitoring group verifies the consistency of the certification and prepares an ascii file of certified runs to be used for physics analysis. Calibration procedures taking into account the specific geometry of the target associated to each event are applied to raw data and they are converted into a root file for each event that is then used for physics analysis."
     }
+  },
+  {
+    "abstract": {
+      "description": "<p>FIXME description</p><p></p><p></p><p></p>"
+    },
+    "accelerator": "CERN-SPS",
+    "collaboration": {
+      "name": "OPERA collaboration",
+      "recid": "452"
+    },
+    "collections": [
+      "OPERA-Electronic-Detector-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "PMT amplitude measured from the \"left\" side of a scintillator strip (in photo-electrons)",
+        "variable": "amplL"
+      },
+      {
+        "description": "PMT amplitude measured from the \"right\" side of a scintillator strip (in photo-electrons)",
+        "variable": "amplR"
+      },
+      {
+        "description": "PMT amplitude reconstructed from the \"left\" and \"right\" side amplitudes of a scintillator strip taking into account light attenuation in a WLS fiber (in photo-electrons)",
+        "variable": "amplRec"
+      },
+      {
+        "description": "cluster length (in cm)",
+        "variable": "clLength"
+      },
+      {
+        "description": "drift distance (in cm)",
+        "variable": "driftDist"
+      },
+      {
+        "description": "reconstructed energy of an event (in GeV)",
+        "variable": "Erec"
+      },
+      {
+        "description": "reconstructed energy error (in GeV)",
+        "variable": "ErecErr"
+      },
+      {
+        "description": "event Id",
+        "variable": "evID"
+      },
+      {
+        "description": "X position of a drift tube, RPC, Target Tracker hit in the OPERA detector system of reference (in cm)",
+        "variable": "posX"
+      },
+      {
+        "description": "Y position of an RPC hit in the OPERA detector system of reference (in cm)",
+        "variable": "posY"
+      },
+      {
+        "description": "Z position of a drift tube, RPC, Target Tracker hit in the OPERA detector system of reference (in cm)",
+        "variable": "posZ"
+      },
+      {
+        "description": "event time in milliseconds since 01/01/1970",
+        "variable": "timestamp"
+      }
+    ],
+    "date_created": [
+      "2009",
+      "2010",
+      "2011",
+      "2012"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "csv",
+        "zip"
+      ],
+      "number_events": 19,
+      "number_files": 1,
+      "size": 107974
+    },
+    "experiment": "OPERA",
+    "files": [
+      {
+        "checksum": "adler32:b891c29e",
+        "size": 107974,
+        "uri": "root://eospublic.cern.ch//eos/opendata/opera/datasets/electron-neutrinos/electronic-detector-data-for-electron-neutrino-studies.zip"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>FIXME methodology</p><p></p><p></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "13155",
+    "title": "Electronic detector data for electron neutrino studies",
+    "title_additional": "Electronic detector data for electron neutrino studies",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "validation": {
+      "description": "FIXME validation"
+    }
   }
 ]
