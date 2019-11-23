@@ -1,0 +1,83 @@
+[
+  {
+    "abstract": {
+      "description": "Sample event set from /BTag/Run2011A-12Oct2013-v1/AOD primary dataset in json format readable from the browser-based 3d event display"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "McCauley, Thomas"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "collision_information": {
+      "energy": "7TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2016",
+    "distribution": {
+      "formats": [
+        "ig"
+      ],
+      "number_events": 25
+    },
+    "doi": "10.7483/OPENDATA.CMS.BK3T.NKC6",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "sha1:a100d93d3b27def7954fa5827e9717ab4ec407cc",
+        "size": 2411180,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011A/BTag/IG/12Oct2013-v1/BTag.ig"
+      }
+    ],
+    "methodology": {
+      "description": "These files contain the objects to be displayed with the online event display. No event selection, apart accepting only the validated runs, is applied. The software to produce these files is available in:",
+      "links": [
+        {
+          "recid": "550"
+        }
+      ]
+    },
+    "note": {
+      "description": "No selection or quality criteria have been applied on the individual physics objects, apart from accepting only the validated runs"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "614",
+    "relations": [
+      {
+        "doi": "10.7483/OPENDATA.CMS.N372.QF6S",
+        "recid": "15",
+        "title": "/BTag/Run2011A-12Oct2013-v1/AOD",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "Run2011A"
+    ],
+    "system_details": {
+      "global_tag": "FT_53_LV5_AN1::All",
+      "release": "CMSSW_5_3_30"
+    },
+    "title": "Test Event display file derived from /BTag/Run2011A-12Oct2013-v1/AOD",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": "The data can be accessed from the file menu of the online event display",
+      "links": [
+        {
+          "description": "Explore and visualise events",
+          "url": "/visualise/events/CMS"
+        }
+      ]
+    }
+  }
+]

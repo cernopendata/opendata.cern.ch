@@ -64,6 +64,7 @@ services:
     volumes:
       - ./cernopendata:/code/cernopendata
       - ./scripts:/code/scripts
+      - ./archive:/code/var/archive
     volumes_from:
       - static
     links:

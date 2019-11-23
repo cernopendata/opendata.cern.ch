@@ -439,3 +439,5 @@ SEARCH_ELASTIC_HOSTS = [
         **params
     )
 ]
+
+SIPSTORE_CHECKSUM_ALGORITHM = 'adler32'
