@@ -416,7 +416,7 @@
   },
   {
     "abstract": {
-      "description": "<p>FIXME description</p><p></p><p></p><p></p>"
+      "description": "<p>This dataset was extracted from the official OPERA data repository and it contains all the emulsion data information for 19 electron neutrino candidates, identified after an extensive analysis that includes data from both electronic detectors and nuclear emulsion films after their digitization with fully automated optical microscopes.  The OPERA experiment was able to distinguish all three types of neutrinos, including electron ones. In total, 35 electron neutrino events were found in the complete data sample. Here a subsample of 19 electron neutrino interactions is reported.</p><p>This data record contains in particular the information of the neutrino interaction vertices including all the emulsion tracks produced in the observed interactions. The location of the neutrino interaction and the measurement of the trajectories of all the particles produced is the final step of the event analysis, after the identification of the neutrino interaction bricks done with the electronic detector data. The tracks produced by the electromagnetic shower induced by the electron at the primary vertex are also shown.</p>"
     },
     "accelerator": "CERN-SPS",
     "collaboration": {
@@ -516,12 +516,12 @@
       "attribution": "CC0"
     },
     "methodology": {
-      "description": "<p>FIXME methodology</p><p></p><p></p>"
+      "description": "<p>Events stored in this dataset were collected between 2008 and 2012. Events are classified as “1mu” if one track is tagged as a muon after the analysis of the electronic detectors data, “0mu” otherwise. In this sample only “0mu” events were selected since electron neutrino interactions do not produce any muon in the final state.</p><p>After the analysis of the electronic detector data, the selected brick was extracted from the detector, the so-called changeable-sheets (CS) emulsion film doublets were developed in a dark room and analysed with fully automated optical microscopes in order to complete the brick identification process. The pattern of tracks reconstructed in the CS doublets was used to either confirm the prediction of the electronic detectors or to trigger the extraction of neighbouring bricks. CS doublets were inspected by automatic optical scanning microscopes in a specialised scanning station at the Gran Sasso INFN Laboratory in Italy. After finding a suitable pattern of tracks, the emulsion films of the identified brick were developed and their films were sent to dedicated scanning stations operating in different Institutes of the Collaboration. All the tracks found in the CS films were then followed inside the brick up to the neutrino interaction vertex.</p><p>The brick acted as a high sampling calorimeter with more than five active layers every radiation length (X0), over a total thickness of 10 X0. For most of electron neutrino charged-current interactions, the path of the electron in the brick was long enough for the electromagnetic (e.m.) shower to develop, thus allowing its detection and reconstruction in the emulsion films.</p><p>Detected showers were carefully inspected, by visual scan, in the first two films downstream the interaction vertex to assess whether they were produced by a single particle. Thanks to the high granularity of the OPERA nuclear emulsions, one can recognize an electron-pair from gamma conversion when the e-pair tracks are separated by more than 1 micron. Once the origin of the e.m. shower was confirmed as due to a single charged particle, the event was classified as an electron neutrino candidate.</p><p>Within a total of 1197 fully reconstructed neutrino interactions reconstructed in the 0mu category, 35 were classified as coming from an electron neutrino. All the neutrino interactions were identified by a sequential event number. The subsample reported here includes all the 19 electron neutrino events to which an odd number was assigned.</p>"
     },
     "publisher": "CERN Open Data Portal",
     "recid": "13156",
-    "title": "Emulsion data for electron neutrino studies",
-    "title_additional": "Emulsion data for electron neutrino studies",
+    "title": "Emulsion data for electron neutrino appearance studies",
+    "title_additional": "Emulsion data for electron neutrino appearance studies",
     "type": {
       "primary": "Dataset",
       "secondary": [
@@ -529,7 +529,7 @@
       ]
     },
     "validation": {
-      "description": "FIXME validation"
+      "description": "During the data taking, all the runs recorded by OPERA are certified as good for physics analysis if the trigger and all sub-detectors show the expected performance. Moreover, the time stamp of the event should lie within the gate open by the CNGS beam signal. The data certification is based at first on the offline shifters evaluation and later on the feedback provided by all sub-detector experts. Based on the above information, stored in a specific database, the Data Quality Monitoring group verifies the consistency of the certification and prepares an ascii file of certified runs to be used for physics analysis. For this specific data record, dedicated calibration procedures are performed to align the emulsion films each other and with the electronic detectors. These procedures with the corresponding results are saved in a dedicated database where data quality experts certify the results and prepare files to be used for the track and vertex reconstruction, thus being available for physics analysis."
     }
   }
 ]

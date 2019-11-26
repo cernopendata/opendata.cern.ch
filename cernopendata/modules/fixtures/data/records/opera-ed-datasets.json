@@ -436,7 +436,7 @@
   },
   {
     "abstract": {
-      "description": "<p>FIXME description</p><p></p><p></p><p></p>"
+      "description": "<p>This dataset was extracted from the official OPERA data repository and it contains all the data of the electronic detectors for 19 electron neutrino candidates, identified after an extensive analysis that includes data from both electronic detectors and nuclear emulsion films after their digitization with fully automated optical microscopes. The OPERA experiment was able to distinguish all three types of neutrinos, including electron ones. In total, 35 electron neutrino events were found in the complete data sample.</p><p>This data record contains the electronic detector hits for a subsample of 19 electron neutrino interactions in their propagation through the detector. It includes hits in the scintillating target tracker, drift tubes and resistive plate chambers. The hits in the drift tubes and in the resistive plate chambers are used to reconstruct the muon track, if any, and measure its charge and momentum. The hits in the target tracker are used to predict the location of the neutrino interaction in the target units, the so-called bricks. This leads to the subsequent phase of the analysis where the neutrino interaction is located with micrometric accuracy and all tracks attached are measured.</p>"
     },
     "accelerator": "CERN-SPS",
     "collaboration": {
@@ -524,12 +524,12 @@
       "attribution": "CC0"
     },
     "methodology": {
-      "description": "<p>FIXME methodology</p><p></p><p></p>"
+      "description": "<p>Events stored in this dataset were collected between 2008 and 2012. Events are classified as “1mu” if one track is tagged as a muon after the analysis of the electronic detectors data, “0mu” otherwise. Electron neutrino events are all classified as “0mu”. All the neutrino interactions are identified by a sequential event number. The subsample reported here includes all the 19 electron neutrino events to which an odd number was assigned.</p><p>The events reported in this data set have also undergone a full tri-dimensional reconstruction of the neutrino vertex in the nuclear emulsion films. A total of 1197 fully reconstructed neutrino interactions were reconstructed in the 0mu category to which electron neutrino belong.</p>"
     },
     "publisher": "CERN Open Data Portal",
     "recid": "13155",
-    "title": "Electronic detector data for electron neutrino studies",
-    "title_additional": "Electronic detector data for electron neutrino studies",
+    "title": "Electronic detector data for electron neutrino appearance studies",
+    "title_additional": "Electronic detector data for electron neutrino appearance studies",
     "type": {
       "primary": "Dataset",
       "secondary": [
@@ -537,7 +537,7 @@
       ]
     },
     "validation": {
-      "description": "FIXME validation"
+      "description": "During the data taking, all the runs recorded by OPERA are certified as good for physics analysis if the trigger and all sub-detectors show the expected performance. Moreover, the time-stamp of the event should lie within the gate open by the CNGS beam signal. The data certification is based first on the offline shifters evaluation and later on the feedback provided by all sub-detector experts. Based on the above information, stored in a specific database, the Data Quality Monitoring group verifies the consistency of the certification and prepares an ascii file of certified runs to be used for physics analysis. Calibration procedures taking into account the specific geometry of the target associated to each event are applied to raw data and they are converted into a root file for each event that is then used for physics analysis."
     }
   }
 ]
