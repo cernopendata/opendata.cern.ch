@@ -70,7 +70,7 @@ RUN yum clean -y all
 # Configuration for CERN Open Data Portal instance:
 ENV APP_INSTANCE_PATH=/usr/local/var/cernopendata/var/cernopendata-instance
 
-RUN pip install --upgrade pip==9 setuptools wheel && \
+RUN pip install --upgrade pip==9 setuptools==42.0.2 wheel==0.33.6 && \
     npm install -g node-sass@3.8.0 clean-css@3.4.24 requirejs uglify-js jsonlint
 
 ADD requirements-production-local-forks.txt /tmp
