@@ -90,7 +90,7 @@ install_requires = [
     'invenio-records-files==1.0.0a10',
     'invenio-records-rest==1.0.0b1',
     'invenio-records-ui==1.0.0b1',
-    'invenio-records==1.0.0b2',
+    'invenio-records==1.2.2',
     'invenio-search-ui>=1.0.0a2',
     'invenio-search>=1.0.0a9',
     'invenio-theme==1.0.0b2',
