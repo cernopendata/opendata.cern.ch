@@ -65,10 +65,10 @@ def get_first_file(file_list):
 
 
 @blueprint.app_template_filter('sort_multi')
-def sort_multi(l, *operators):
+def sort_multi(lst, *operators):
     """Sorts list by multiple fields."""
-    l.sort(key=operator.itemgetter(*operators))
-    return l
+    lst.sort(key=operator.itemgetter(*operators))
+    return lst
 
 
 @blueprint.app_template_filter('get_year')
