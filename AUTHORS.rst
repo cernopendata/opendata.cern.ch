@@ -19,6 +19,7 @@ The list of contributors in alphabetical order:
 - `Eric Engestrom <https://github.com/1ace>`_
 - `Felix Socher <https://github.com/fsocher>`_
 - `Filip Maxin <https://orcid.org/0000-0002-2726-3535>`_
+- `Giuliana Galati <https://github.com/galatigiuliana>`_
 - `Harri Hirvonsalo <https://orcid.org/0000-0002-5503-510X>`_
 - `Heitor Pascoal de Bittencourt <https://github.com/heitorPB>`_
 - `Ioannis Tsanaktsidis <https://github.com/ioannistsanaktsidis>`_
