@@ -29,6 +29,7 @@ FROM centos:7
 RUN yum update -y && \
     yum install -y \
         ca-certificates \
+        cmake \
         curl \
         git \
         rlwrap \
@@ -40,9 +41,11 @@ RUN yum update -y && \
     yum groupinstall -y "Development Tools" && \
     yum install -y \
         libffi-devel \
+        libuuid-devel \
         libxml2-devel \
         libxslt-devel \
         npm \
+        openssl-devel \
         jq \
         python-devel \
         python-pip
