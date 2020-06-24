@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": " <p>This virtual machine image provides CMS computing environment to be used with the 2011 and 2012 CMS open data. The virtual machine is based on the CernVM (cernvm.cern.ch) and uses Scientific Linux CERN. The image gets the CMS software (CMSSW) from /cvmfs/cms.cern.ch and the jobs running on the CMS open data VM read the condition data from /cvmfs/cms-opendata-conddb.cern.ch. Access to the data is through XRootD.</p> <p>CMS-OpenData-1.5.2.ova is recommended. It has a 40G virtual hard disk and a 20G cvmfs cache, which is large enough for condition data for full event range for 2012 data (see <a href=\"/docs/cms-guide-for-condition-database\">the CMS guide to the condition database</a> for further details). It has an embedded CERN Scientific Linux 6 (slc6) shell, where all CMS software specific commands should be executed. Additionally, it has a CERN CentOS 7 (cc7) shell, which can be used in the same session.</p> <p>The earlier versions CMS-Open-Data-1.2.0.ova and Open-Data-1.3.0.ova are slc6 only.  CMS-Open-Data-1.2.0.ova has a 20G virtual hard disk and a 10G cvmfs cache. CMS-Open-Data-1.3.0.ova has a 40G virtual hard disk and a 20G cvmfs cache. </p>  <p>For known issues and limitations see</p>",
+      "description": " <p>This virtual machine image provides CMS computing environment to be used with the 2011 and 2012 CMS open data. The virtual machine is based on the CernVM (cernvm.cern.ch) and uses Scientific Linux CERN. The image gets the CMS software (CMSSW) from /cvmfs/cms.cern.ch and the jobs running on the CMS open data VM read the condition data from /cvmfs/cms-opendata-conddb.cern.ch. Access to the data is through XRootD.</p> <p>CMS-OpenData-1.5.2.ova is recommended. It has a 40G virtual hard disk and a 20G cvmfs cache, which is large enough for condition data for full event range for 2012 data (see <a href=\"/docs/cms-guide-for-condition-database\">the CMS guide to the condition database</a> for further details). It has an embedded CERN Scientific Linux 6 (slc6) shell, where all CMS software specific commands should be executed. Additionally, it has a CERN CentOS 7 (cc7) shell, which can be used in the same session.</p> <p>The versions earlier than CMS-OpenData-1.5.2.ova are deprecated; please use the latest available version.</p>  <p>For known issues and limitations see</p>",
       "links": [
         {
           "title": "CMS Virtual Machines - Known Issues and Limitations",
@@ -25,8 +25,8 @@
       "formats": [
         "ova"
       ],
-      "number_files": 3,
-      "size": 57528320
+      "number_files": 4,
+      "size": 78376960
     },
     "experiment": "CMS",
     "files": [
@@ -43,6 +43,11 @@
       {
         "checksum": "adler32:4fc34c4a",
         "size": 20654080,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/environment/1.5.1/CMS-OpenData-1.5.1.ova"
+      },
+      {
+        "checksum": "adler32:7b838c74",
+        "size": 20848640,
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/environment/1.5.2/CMS-OpenData-1.5.2.ova"
       }
     ],
@@ -56,7 +61,10 @@
           "recid": "253"
         },
         {
-          "recid": FIXME
+          "recid": "254"
+        },
+        {
+          "recid": "256"
         }
       ]
     },
@@ -247,12 +255,12 @@
         "txt"
       ],
       "number_files": 3,
-      "size": FIXME
+      "size": 4585
     },
     "experiment": "CMS",
     "files": [
       {
-        "checksum": "adler32:a1353787",
+        "checksum": "adler32:a0103784",
         "size": 181,
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/environment/1.5.2/cernvm-script"
       },
@@ -268,7 +276,7 @@
       }
     ],
     "publisher": "CERN Open Data Portal",
-    "recid": FIXME,
+    "recid": "256",
     "relations": [
       {
         "description": "The final CERN VM image can be found here:",
