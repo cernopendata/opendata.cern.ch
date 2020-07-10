@@ -12,7 +12,7 @@ Note that when you need to access the condition database, the first time you run
 
 ---
 
-**For 2010 collision data**, the global tag available in the  `/cvmfs` area is FT_R_42_V10A. When using the "CMS-OpenData-1.1.2" VM, it is recommended reading the condition data from there. First, set the symbolic links:
+**For 2010 collision data**, the global tag available in the  `/cvmfs` area is FT_R_42_V10A. When using the "CMS-OpenData-1.1.2" VM or a higher version, it is recommended reading the condition data from there. First, set the symbolic links:
 
 ```shell
 ln -sf /cvmfs/cms-opendata-conddb.cern.ch/FT_R_42_V10A FT_R_42_V10A
@@ -27,7 +27,7 @@ process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.c
 process.GlobalTag.globaltag = 'FT_R_42_V10A::All'
 ```
 
-Note that **this only works in the "CMS-OpenData-1.1.2" version** of the 2010 CMS Open Data VM.
+Note that **this only works in the "CMS-OpenData-1.1.2" or a higher version** of the 2010 CMS Open Data VM.
 
 ---
 
@@ -46,7 +46,7 @@ process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.c
 process.GlobalTag.globaltag = 'START42_V17B::All'
 ```
 
-Note that **this only works in the "CMS-OpenData-1.1.2" version** of the 2010 CMS Open Data VM.
+Note that **this only works in the "CMS-OpenData-1.1.2" or a higher version** of the 2010 CMS Open Data VM.
 
 ---
 
