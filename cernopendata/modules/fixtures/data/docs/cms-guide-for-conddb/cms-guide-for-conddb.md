@@ -160,7 +160,7 @@ process.GlobalTag.globaltag = 'START53_V27::All'
 
 ---
 
-**For Run2 Montecarlo data**, the global tag is 80X_mcRun2_asymptotic_2016_TrancheIV_v8. To access the condition database, first, set the symbolic links:
+**For 2016 Montecarlo data**, the global tag is 80X_mcRun2_asymptotic_2016_TrancheIV_v8. To access the condition database, first, set the symbolic links:
 
 ```shell
 ln -sf /cvmfs/cms-opendata-conddb.cern.ch/80X_mcRun2_asymptotic_2016_TrancheIV_v8.db 80X_mcRun2_asymptotic_2016_TrancheIV_v8.db
@@ -175,7 +175,7 @@ ls -l /cvmfs/
 Then, define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
 
 ```shell
-#globaltag for Run2 MC
+#globaltag for 2016 MC
 process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/80X_mcRun2_asymptotic_2016_TrancheIV_v8.db')
 process.GlobalTag.globaltag = '80X_mcRun2_asymptotic_2016_TrancheIV_v8'
 process.GlobalTag.snapshotTime = cms.string("9999-12-31 23:59:59.000")
@@ -183,7 +183,7 @@ process.GlobalTag.snapshotTime = cms.string("9999-12-31 23:59:59.000")
 
 ---
 
-**For Upgrade Montecarlo data**, the global tag is 102X_upgrade2018_design_v9. To access the condition database, first, set the symbolic links:
+**For 2018 Montecarlo data**, the global tag is 102X_upgrade2018_design_v9. To access the condition database, first, set the symbolic links:
 
 ```shell
 ln -sf /cvmfs/cms-opendata-conddb.cern.ch/102X_upgrade2018_design_v9.db 102X_upgrade2018_design_v9.db
@@ -198,7 +198,7 @@ ls -l /cvmfs/
 Then, define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
 
 ```shell
-#globaltag for upgrade MC
+#globaltag for 2018 MC
 process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/102X_upgrade2018_design_v9.db')
 process.GlobalTag.globaltag = '102X_upgrade2018_design_v9'
 process.GlobalTag.snapshotTime = cms.string("9999-12-31 23:59:59.000")

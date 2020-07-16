@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": "<p>Condition database includes non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for simulation/reconstruction/analysis software.</p>\n      <p> These files are needed when running a CMSSW job on the open data environment (VM or container), and they are available in the /cvmfs/cms-opendata-conddb.cern.ch file system. They are automatically read from /cvmfs/cms-opendata-conddb.cern.ch/80X_mcRun2_asymptotic_2016_TrancheIV_v8.db runtime.</p>\n      <p>80X_mcRun2_asymptotic_2016_TrancheIV_v8 is to be used with the Run2 simulated data released for data science studies.</p>\n  <p>See further information in <a href=\"/docs/cms-guide-for-condition-database\">the guide to CMS condition database</a>.</p>\n"
+      "description": "<p>Condition database includes non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for simulation/reconstruction/analysis software.</p>\n      <p> These files are needed when running a CMSSW job on the open data environment (VM or container), and they are available in the /cvmfs/cms-opendata-conddb.cern.ch file system. They are automatically read from /cvmfs/cms-opendata-conddb.cern.ch/80X_mcRun2_asymptotic_2016_TrancheIV_v8.db runtime.</p>\n      <p>80X_mcRun2_asymptotic_2016_TrancheIV_v8 is to be used with the 2016 simulated data released for data science studies.</p>\n  <p>See further information in <a href=\"/docs/cms-guide-for-condition-database\">the guide to CMS condition database</a>.</p>\n"
     },
     "accelerator": "CERN-LHC",
     "collaboration": {
@@ -22,6 +22,36 @@
       "Run2"
     ],
     "title": "Condition data for 2016 CMS simulated datasets released for data science studies",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "Condition"
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Condition database includes non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for simulation/reconstruction/analysis software.</p>\n      <p> These files are needed when running a CMSSW job on the open data environment (VM or container), and they are available in the /cvmfs/cms-opendata-conddb.cern.ch file system. They are automatically read from /cvmfs/cms-opendata-conddb.cern.ch/102X_upgrade2018_design_v9.db runtime.</p>\n      <p>102X_upgrade2018_design_v9 is to be used with the 2018 simulated data released for data science studies.</p>\n  <p>See further information in <a href=\"/docs/cms-guide-for-condition-database\">the guide to CMS condition database</a>.</p>\n"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Condition-Data"
+    ],
+    "date_created": [
+      "2018"
+    ],
+    "date_published": "2019",
+    "experiment": "CMS",
+    "publisher": "CERN Open Data Portal",
+    "recid": "1807",
+    "run_period": [
+      "Run2"
+    ],
+    "title": "Condition data for 2018 CMS simulated datasets released for data science studies",
     "type": {
       "primary": "Environment",
       "secondary": [

@@ -1495,5 +1495,3285 @@
     "usage": {
       "description": "The use of these files does not require any software specific to the CMS experiment. There are two sets of files in two different formats: ROOT and H5. For the H5 files, only information for up to 100 particle candidates, up to 60 charged particles or tracks, and up to 5 secondary vertices are stored in zero-padded arrays. An <a href=\"https://github.com/cernopendata-datascience/HiggsToBBMachineLearning\">example notebook</a> is provided."
     }
+  },
+  {
+    "abstract": {
+      "description": "<p>This dataset consists of a collection of pixel doublet seeds, i.e. the hit pairs that could belong to the same particle flying through the CMS Silicon Pixel Detector. These can be used in ML studies of particle tracking algorithms. Particle tracking is the process of clustering the recorded hits into groups of points arranged along an helix. </p> <p> One of the first steps of the track finding workflow is the creation of track seeds, i.e. compatible pairs of hits from different detector layers, that are subsequently fed to to higher level pattern recognition steps.  The compatibility between two hits is evaluated only on the basis of geometrical considerations, such as cuts in $\\eta$, $\\phi$ and $r$, and these doublets define the building blocks for further tracks. However the set of compatible hit pairs is highly affected by combinatorial background resulting in the next steps of the tracking algorithm to process a significant fraction of fake doublets. For each event an $O(10^6)$ doublets are produced while only an $O(10^3)$ are genuine resulting in a fake ratio of $O(10^3)$. </p> <p> Each doublet in this dataset is charcaterised by a set of features, such as its coordinates and the charge released in ther Pixel Detector, and the pixel cluster shape, projected on 2D histogram. A possible way of reducing the huge combinatorial background is using Machine Learning and Deep Learning techniques to check the compatibility between two hits. Indeed the task of fake rejection can be seen as a typical classification problem for which networks and MVA methods have been widely proven to provide reliable results. The dataset provided is intended to be used to explore this techniques. </p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Di Florio, Adriano",
+        "orcid": "0000-0003-3719-8041"
+      },
+      {
+        "name": "Pantaleo, Felice",
+        "orcid": "0000-0003-3266-4357"
+      },
+      {
+        "name": "Pierini, Maurizio",
+        "orcid": "0000-0003-1939-4268"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Event Run Number",
+        "type": "float",
+        "variable": "run"
+      },
+      {
+        "description": "Event Number",
+        "type": "float",
+        "variable": "evt"
+      },
+      {
+        "description": "Event Lumisection Number",
+        "type": "float",
+        "variable": "lumi"
+      },
+      {
+        "description": "Number of simultaneous pp collisions in the event",
+        "type": "float",
+        "variable": "PU"
+      },
+      {
+        "description": "Beam spot x coordinate",
+        "type": "float",
+        "variable": "bSX"
+      },
+      {
+        "description": "Beam spot y coordinate",
+        "type": "float",
+        "variable": "bSY"
+      },
+      {
+        "description": "Beam spot z coordinate",
+        "type": "float",
+        "variable": "bSZ"
+      },
+      {
+        "description": "Label indicating if a doublet is true (1.0) or fake (-1.0)",
+        "type": "float",
+        "variable": "label"
+      },
+      {
+        "description": "Sequential number for the inner hit hit layer. For the silicon pixel detectors these numbers may be {0,1,2,3} for the four pixel barrel layers {14,15,16} for the three negative encap and {29,30,31} for the three positive endcap layers.",
+        "type": "float",
+        "variable": "inDetSeq"
+      },
+      {
+        "description": "Sequential number for the outer hit hit layer.",
+        "type": "float",
+        "variable": "outDetSeq"
+      },
+      {
+        "description": "Doublet inner hit X coordinate.",
+        "type": "float",
+        "variable": "inX"
+      },
+      {
+        "description": "Doublet inner hit Y coordinate.",
+        "type": "float",
+        "variable": "inY"
+      },
+      {
+        "description": "Doublet inner hit Z coordinate.",
+        "type": "float",
+        "variable": "inZ"
+      },
+      {
+        "description": "Doublet outer hit X coordinate.",
+        "type": "float",
+        "variable": "outX"
+      },
+      {
+        "description": "Doublet outer hit Y coordinate.",
+        "type": "float",
+        "variable": "outY"
+      },
+      {
+        "description": "Doublet outer hit Z coordinate.",
+        "type": "float",
+        "variable": "outZ"
+      },
+      {
+        "description": "Doublet inner hit radial distance from the z axis.",
+        "type": "float",
+        "variable": "inR"
+      },
+      {
+        "description": "Doublet outer hit radial distance from the z axis.",
+        "type": "float",
+        "variable": "outR"
+      },
+      {
+        "description": "Doublet inner hit azimuthal angle (ϕ).",
+        "type": "float",
+        "variable": "inPhi"
+      },
+      {
+        "description": "Doublet outer hit azimuthal angle (ϕ).",
+        "type": "float",
+        "variable": "outPhi"
+      },
+      {
+        "description": "Flag for inner hit being on a barrel layer",
+        "type": "float",
+        "variable": "inIsBarrel"
+      },
+      {
+        "description": "Flag for outer hit being on a barrel layer",
+        "type": "float",
+        "variable": "outIsBarrel"
+      },
+      {
+        "description": "Inner hit detector layer number.",
+        "type": "float",
+        "variable": "inLayer"
+      },
+      {
+        "description": "Inner hit detector ladder number. Valid only for barrel layers. For endcap detector hits is set to -1.0 .",
+        "type": "float",
+        "variable": "inLadder"
+      },
+      {
+        "description": "Inner hit detector side number. Valid only for endcap layers. For barrel detector hits is set to -1.0 .",
+        "type": "float",
+        "variable": "inSide"
+      },
+      {
+        "description": "Inner hit detector disk number. Valid only for endcap layers. For barrel detector hits is set to -1.0 .",
+        "type": "float",
+        "variable": "inDisk"
+      },
+      {
+        "description": "Inner hit detector panel number. Valid only for endcap layers. For barrel detector hits is set to -1.0 .",
+        "type": "float",
+        "variable": "inPanel"
+      },
+      {
+        "description": "Inner hit detector module number.",
+        "type": "float",
+        "variable": "inModule"
+      },
+      {
+        "description": "Outer hit detector layer number.",
+        "type": "float",
+        "variable": "outLayer"
+      },
+      {
+        "description": "Outer hit detector ladder number. Valid only for barrel layers. For endcap detector hits is set to -1.0 .",
+        "type": "float",
+        "variable": "outLadder"
+      },
+      {
+        "description": "Outer hit detector side number. Valid only for endcap layers. For barrel detector hits is set to -1.0 .",
+        "type": "float",
+        "variable": "outSide"
+      },
+      {
+        "description": "Outer hit detector disk number. Valid only for endcap layers. For barrel detector hits is set to -1.0 .",
+        "type": "float",
+        "variable": "outDisk"
+      },
+      {
+        "description": "Outer hit detector panel number. Valid only for endcap layers. For barrel detector hits is set to -1.0 .",
+        "type": "float",
+        "variable": "outPanel"
+      },
+      {
+        "description": "Outer hit detector module number.",
+        "type": "float",
+        "variable": "outModule"
+      },
+      {
+        "description": "Flag indicating if the inner hit detector module is flipped with respect to the standard outward orientation.",
+        "type": "float",
+        "variable": "inIsFlipped"
+      },
+      {
+        "description": "Flag indicating if the outer hit detector module is flipped with respect to the standard outward orientation.",
+        "type": "float",
+        "variable": "outIsFlipped"
+      },
+      {
+        "description": "Length of the vector connecting the the origin to the local module coordinate reference system origin (0,0,0) for the inner hit.",
+        "type": "float",
+        "variable": "inAx1"
+      },
+      {
+        "description": "Length of the vector connecting the the origin to the local module coordinate reference system origin (0,0,1) for the inner hit.",
+        "type": "float",
+        "variable": "inAx2"
+      },
+      {
+        "description": "Length of the vector connecting the the origin to the local module coordinate reference system origin (0,0,0) for the outer hit.",
+        "type": "float",
+        "variable": "outAx1"
+      },
+      {
+        "description": "Length of the vector connecting the the origin to the local module coordinate reference system origin (0,0,1) for the outer hit.",
+        "type": "float",
+        "variable": "outAx2"
+      },
+      {
+        "description": "Pixel cluster local, i.e. in the local module layer system of reference, X coordinate for the inner hit. ",
+        "type": "float",
+        "variable": "inClustX"
+      },
+      {
+        "description": "Pixel cluster local, i.e. in the local module layer system of reference, Y coordinate for the inner hit. ",
+        "type": "float",
+        "variable": "inClustY"
+      },
+      {
+        "description": "Pixel cluster local, i.e. in the local module layer system of reference, X coordinate for the outer hit. ",
+        "type": "float",
+        "variable": "outClustX"
+      },
+      {
+        "description": "Pixel cluster local, i.e. in the local module layer system of reference, Y coordinate for the outer hit. ",
+        "type": "float",
+        "variable": "outClustY"
+      },
+      {
+        "description": "Flags indicating if the the pixel cluster for the inner hit spans over the pad size (16) along the X local detector module axis.",
+        "type": "float",
+        "variable": "inOverFlowX"
+      },
+      {
+        "description": "Flags indicating if the the pixel cluster for the inner hit spans over the pad size (16) along the Y local detector module axis.",
+        "type": "float",
+        "variable": "inOverFlowY"
+      },
+      {
+        "description": "Flags indicating if the the pixel cluster for the outer hit spans over the pad size (16) along the X local detector module axis. ",
+        "type": "float",
+        "variable": "outOverFlowX"
+      },
+      {
+        "description": "Flags indicating if the the pixel cluster for the outer hit spans over the pad size (16) along the Y local detector module axis.",
+        "type": "float",
+        "variable": "outOverFlowY"
+      },
+      {
+        "description": "Inner pixel cluster absolute size, i.e. number of pixel composing it.",
+        "type": "float",
+        "variable": "inClustSize"
+      },
+      {
+        "description": "Inner pixel cluster size along X local detector module axis.",
+        "type": "float",
+        "variable": "inClustSizeX"
+      },
+      {
+        "description": "Inner pixel cluster size along Y local detector module axis.",
+        "type": "float",
+        "variable": "inClustSizeY"
+      },
+      {
+        "description": "Outer pixel cluster absolute size, i.e. number of pixel composing it.",
+        "type": "float",
+        "variable": "outClustSize"
+      },
+      {
+        "description": "Outer pixel cluster size along X local detector module axis.",
+        "type": "float",
+        "variable": "outClustSizeX"
+      },
+      {
+        "description": "Outer pixel cluster size along Y local detector module axis.",
+        "type": "float",
+        "variable": "outClustSizeY"
+      },
+      {
+        "description": "Sum of the A.D.C. levels of all the pixels composing the inner hit cluster.",
+        "type": "float",
+        "variable": "inSumADC"
+      },
+      {
+        "description": "Flag indicating whether the inner hits spans two (or more) ROCs modules.",
+        "type": "float",
+        "variable": "inIsBig"
+      },
+      {
+        "description": "Flag indicating whether at least one pixel composing the inner hit is marked as malfunctioning.",
+        "type": "float",
+        "variable": "inIsBad"
+      },
+      {
+        "description": "Flag indicating whether the inner hit is on the edge of a ROC module.",
+        "type": "float",
+        "variable": "inIsEdge"
+      },
+      {
+        "description": "Highest equivalent released charge (in A.D.C. levels) for a single pixel belonging to the inner hit pixel cluster.",
+        "type": "float",
+        "variable": "inPixelZero"
+      },
+      {
+        "description": "Average charge released on each pixel forming the inner pixel cluster.",
+        "type": "float",
+        "variable": "inAvgCharge"
+      },
+      {
+        "description": "Ratio between the inner pixel cluster Y size and X size.",
+        "type": "float",
+        "variable": "inSkew"
+      },
+      {
+        "description": "Sum of the A.D.C. levels of all the pixels composing the outer hit cluster.",
+        "type": "float",
+        "variable": "outSumADC"
+      },
+      {
+        "description": "Flag indicating whether the outer hits spans two (or more) ROCs modules.",
+        "type": "float",
+        "variable": "outIsBig"
+      },
+      {
+        "description": "Flag indicating whether at least one pixel composing the outer hit is marked as malfunctioning.",
+        "type": "float",
+        "variable": "outIsBad"
+      },
+      {
+        "description": "Flag indicating whether the outer hit is on the edge of a ROC module.",
+        "type": "float",
+        "variable": "outIsEdge"
+      },
+      {
+        "description": "Highest equivalent released charge (in A.D.C. levels) for a single pixel belonging to the outer hit pixel cluster.",
+        "type": "float",
+        "variable": "outPixelZero"
+      },
+      {
+        "description": "Average charge released on each pixel forming the outer pixel cluster.",
+        "type": "float",
+        "variable": "outAvgCharge"
+      },
+      {
+        "description": "Ratio between the outer pixel cluster Y size and X size.",
+        "type": "float",
+        "variable": "outSkew"
+      },
+      {
+        "description": "Inner hit pixel 1 A.D.C.level. The pixel index spans from top left pad corner to bottom right: e.g. the last bottom row will span from inPix241 to inPix256.",
+        "type": "float",
+        "variable": "inPix1"
+      },
+      {
+        "description": "Inner hit pixel 2 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix2"
+      },
+      {
+        "description": "Inner hit pixel 3 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix3"
+      },
+      {
+        "description": "Inner hit pixel 4 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix4"
+      },
+      {
+        "description": "Inner hit pixel 5 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix5"
+      },
+      {
+        "description": "Inner hit pixel 6 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix6"
+      },
+      {
+        "description": "Inner hit pixel 7 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix7"
+      },
+      {
+        "description": "Inner hit pixel 8 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix8"
+      },
+      {
+        "description": "Inner hit pixel 9 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix9"
+      },
+      {
+        "description": "Inner hit pixel 10 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix10"
+      },
+      {
+        "description": "Inner hit pixel 11 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix11"
+      },
+      {
+        "description": "Inner hit pixel 12 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix12"
+      },
+      {
+        "description": "Inner hit pixel 13 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix13"
+      },
+      {
+        "description": "Inner hit pixel 14 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix14"
+      },
+      {
+        "description": "Inner hit pixel 15 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix15"
+      },
+      {
+        "description": "Inner hit pixel 16 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix16"
+      },
+      {
+        "description": "Inner hit pixel 17 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix17"
+      },
+      {
+        "description": "Inner hit pixel 18 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix18"
+      },
+      {
+        "description": "Inner hit pixel 19 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix19"
+      },
+      {
+        "description": "Inner hit pixel 20 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix20"
+      },
+      {
+        "description": "Inner hit pixel 21 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix21"
+      },
+      {
+        "description": "Inner hit pixel 22 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix22"
+      },
+      {
+        "description": "Inner hit pixel 23 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix23"
+      },
+      {
+        "description": "Inner hit pixel 24 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix24"
+      },
+      {
+        "description": "Inner hit pixel 25 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix25"
+      },
+      {
+        "description": "Inner hit pixel 26 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix26"
+      },
+      {
+        "description": "Inner hit pixel 27 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix27"
+      },
+      {
+        "description": "Inner hit pixel 28 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix28"
+      },
+      {
+        "description": "Inner hit pixel 29 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix29"
+      },
+      {
+        "description": "Inner hit pixel 30 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix30"
+      },
+      {
+        "description": "Inner hit pixel 31 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix31"
+      },
+      {
+        "description": "Inner hit pixel 32 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix32"
+      },
+      {
+        "description": "Inner hit pixel 33 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix33"
+      },
+      {
+        "description": "Inner hit pixel 34 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix34"
+      },
+      {
+        "description": "Inner hit pixel 35 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix35"
+      },
+      {
+        "description": "Inner hit pixel 36 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix36"
+      },
+      {
+        "description": "Inner hit pixel 37 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix37"
+      },
+      {
+        "description": "Inner hit pixel 38 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix38"
+      },
+      {
+        "description": "Inner hit pixel 39 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix39"
+      },
+      {
+        "description": "Inner hit pixel 40 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix40"
+      },
+      {
+        "description": "Inner hit pixel 41 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix41"
+      },
+      {
+        "description": "Inner hit pixel 42 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix42"
+      },
+      {
+        "description": "Inner hit pixel 43 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix43"
+      },
+      {
+        "description": "Inner hit pixel 44 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix44"
+      },
+      {
+        "description": "Inner hit pixel 45 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix45"
+      },
+      {
+        "description": "Inner hit pixel 46 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix46"
+      },
+      {
+        "description": "Inner hit pixel 47 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix47"
+      },
+      {
+        "description": "Inner hit pixel 48 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix48"
+      },
+      {
+        "description": "Inner hit pixel 49 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix49"
+      },
+      {
+        "description": "Inner hit pixel 50 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix50"
+      },
+      {
+        "description": "Inner hit pixel 51 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix51"
+      },
+      {
+        "description": "Inner hit pixel 52 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix52"
+      },
+      {
+        "description": "Inner hit pixel 53 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix53"
+      },
+      {
+        "description": "Inner hit pixel 54 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix54"
+      },
+      {
+        "description": "Inner hit pixel 55 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix55"
+      },
+      {
+        "description": "Inner hit pixel 56 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix56"
+      },
+      {
+        "description": "Inner hit pixel 57 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix57"
+      },
+      {
+        "description": "Inner hit pixel 58 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix58"
+      },
+      {
+        "description": "Inner hit pixel 59 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix59"
+      },
+      {
+        "description": "Inner hit pixel 60 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix60"
+      },
+      {
+        "description": "Inner hit pixel 61 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix61"
+      },
+      {
+        "description": "Inner hit pixel 62 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix62"
+      },
+      {
+        "description": "Inner hit pixel 63 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix63"
+      },
+      {
+        "description": "Inner hit pixel 64 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix64"
+      },
+      {
+        "description": "Inner hit pixel 65 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix65"
+      },
+      {
+        "description": "Inner hit pixel 66 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix66"
+      },
+      {
+        "description": "Inner hit pixel 67 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix67"
+      },
+      {
+        "description": "Inner hit pixel 68 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix68"
+      },
+      {
+        "description": "Inner hit pixel 69 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix69"
+      },
+      {
+        "description": "Inner hit pixel 70 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix70"
+      },
+      {
+        "description": "Inner hit pixel 71 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix71"
+      },
+      {
+        "description": "Inner hit pixel 72 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix72"
+      },
+      {
+        "description": "Inner hit pixel 73 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix73"
+      },
+      {
+        "description": "Inner hit pixel 74 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix74"
+      },
+      {
+        "description": "Inner hit pixel 75 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix75"
+      },
+      {
+        "description": "Inner hit pixel 76 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix76"
+      },
+      {
+        "description": "Inner hit pixel 77 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix77"
+      },
+      {
+        "description": "Inner hit pixel 78 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix78"
+      },
+      {
+        "description": "Inner hit pixel 79 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix79"
+      },
+      {
+        "description": "Inner hit pixel 80 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix80"
+      },
+      {
+        "description": "Inner hit pixel 81 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix81"
+      },
+      {
+        "description": "Inner hit pixel 82 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix82"
+      },
+      {
+        "description": "Inner hit pixel 83 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix83"
+      },
+      {
+        "description": "Inner hit pixel 84 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix84"
+      },
+      {
+        "description": "Inner hit pixel 85 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix85"
+      },
+      {
+        "description": "Inner hit pixel 86 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix86"
+      },
+      {
+        "description": "Inner hit pixel 87 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix87"
+      },
+      {
+        "description": "Inner hit pixel 88 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix88"
+      },
+      {
+        "description": "Inner hit pixel 89 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix89"
+      },
+      {
+        "description": "Inner hit pixel 90 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix90"
+      },
+      {
+        "description": "Inner hit pixel 91 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix91"
+      },
+      {
+        "description": "Inner hit pixel 92 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix92"
+      },
+      {
+        "description": "Inner hit pixel 93 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix93"
+      },
+      {
+        "description": "Inner hit pixel 94 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix94"
+      },
+      {
+        "description": "Inner hit pixel 95 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix95"
+      },
+      {
+        "description": "Inner hit pixel 96 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix96"
+      },
+      {
+        "description": "Inner hit pixel 97 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix97"
+      },
+      {
+        "description": "Inner hit pixel 98 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix98"
+      },
+      {
+        "description": "Inner hit pixel 99 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix99"
+      },
+      {
+        "description": "Inner hit pixel 100 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix100"
+      },
+      {
+        "description": "Inner hit pixel 101 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix101"
+      },
+      {
+        "description": "Inner hit pixel 102 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix102"
+      },
+      {
+        "description": "Inner hit pixel 103 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix103"
+      },
+      {
+        "description": "Inner hit pixel 104 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix104"
+      },
+      {
+        "description": "Inner hit pixel 105 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix105"
+      },
+      {
+        "description": "Inner hit pixel 106 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix106"
+      },
+      {
+        "description": "Inner hit pixel 107 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix107"
+      },
+      {
+        "description": "Inner hit pixel 108 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix108"
+      },
+      {
+        "description": "Inner hit pixel 109 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix109"
+      },
+      {
+        "description": "Inner hit pixel 110 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix110"
+      },
+      {
+        "description": "Inner hit pixel 111 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix111"
+      },
+      {
+        "description": "Inner hit pixel 112 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix112"
+      },
+      {
+        "description": "Inner hit pixel 113 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix113"
+      },
+      {
+        "description": "Inner hit pixel 114 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix114"
+      },
+      {
+        "description": "Inner hit pixel 115 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix115"
+      },
+      {
+        "description": "Inner hit pixel 116 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix116"
+      },
+      {
+        "description": "Inner hit pixel 117 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix117"
+      },
+      {
+        "description": "Inner hit pixel 118 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix118"
+      },
+      {
+        "description": "Inner hit pixel 119 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix119"
+      },
+      {
+        "description": "Inner hit pixel 120 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix120"
+      },
+      {
+        "description": "Inner hit pixel 121 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix121"
+      },
+      {
+        "description": "Inner hit pixel 122 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix122"
+      },
+      {
+        "description": "Inner hit pixel 123 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix123"
+      },
+      {
+        "description": "Inner hit pixel 124 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix124"
+      },
+      {
+        "description": "Inner hit pixel 125 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix125"
+      },
+      {
+        "description": "Inner hit pixel 126 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix126"
+      },
+      {
+        "description": "Inner hit pixel 127 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix127"
+      },
+      {
+        "description": "Inner hit pixel 128 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix128"
+      },
+      {
+        "description": "Inner hit pixel 129 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix129"
+      },
+      {
+        "description": "Inner hit pixel 130 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix130"
+      },
+      {
+        "description": "Inner hit pixel 131 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix131"
+      },
+      {
+        "description": "Inner hit pixel 132 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix132"
+      },
+      {
+        "description": "Inner hit pixel 133 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix133"
+      },
+      {
+        "description": "Inner hit pixel 134 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix134"
+      },
+      {
+        "description": "Inner hit pixel 135 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix135"
+      },
+      {
+        "description": "Inner hit pixel 136 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix136"
+      },
+      {
+        "description": "Inner hit pixel 137 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix137"
+      },
+      {
+        "description": "Inner hit pixel 138 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix138"
+      },
+      {
+        "description": "Inner hit pixel 139 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix139"
+      },
+      {
+        "description": "Inner hit pixel 140 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix140"
+      },
+      {
+        "description": "Inner hit pixel 141 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix141"
+      },
+      {
+        "description": "Inner hit pixel 142 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix142"
+      },
+      {
+        "description": "Inner hit pixel 143 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix143"
+      },
+      {
+        "description": "Inner hit pixel 144 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix144"
+      },
+      {
+        "description": "Inner hit pixel 145 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix145"
+      },
+      {
+        "description": "Inner hit pixel 146 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix146"
+      },
+      {
+        "description": "Inner hit pixel 147 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix147"
+      },
+      {
+        "description": "Inner hit pixel 148 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix148"
+      },
+      {
+        "description": "Inner hit pixel 149 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix149"
+      },
+      {
+        "description": "Inner hit pixel 150 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix150"
+      },
+      {
+        "description": "Inner hit pixel 151 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix151"
+      },
+      {
+        "description": "Inner hit pixel 152 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix152"
+      },
+      {
+        "description": "Inner hit pixel 153 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix153"
+      },
+      {
+        "description": "Inner hit pixel 154 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix154"
+      },
+      {
+        "description": "Inner hit pixel 155 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix155"
+      },
+      {
+        "description": "Inner hit pixel 156 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix156"
+      },
+      {
+        "description": "Inner hit pixel 157 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix157"
+      },
+      {
+        "description": "Inner hit pixel 158 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix158"
+      },
+      {
+        "description": "Inner hit pixel 159 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix159"
+      },
+      {
+        "description": "Inner hit pixel 160 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix160"
+      },
+      {
+        "description": "Inner hit pixel 161 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix161"
+      },
+      {
+        "description": "Inner hit pixel 162 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix162"
+      },
+      {
+        "description": "Inner hit pixel 163 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix163"
+      },
+      {
+        "description": "Inner hit pixel 164 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix164"
+      },
+      {
+        "description": "Inner hit pixel 165 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix165"
+      },
+      {
+        "description": "Inner hit pixel 166 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix166"
+      },
+      {
+        "description": "Inner hit pixel 167 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix167"
+      },
+      {
+        "description": "Inner hit pixel 168 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix168"
+      },
+      {
+        "description": "Inner hit pixel 169 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix169"
+      },
+      {
+        "description": "Inner hit pixel 170 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix170"
+      },
+      {
+        "description": "Inner hit pixel 171 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix171"
+      },
+      {
+        "description": "Inner hit pixel 172 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix172"
+      },
+      {
+        "description": "Inner hit pixel 173 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix173"
+      },
+      {
+        "description": "Inner hit pixel 174 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix174"
+      },
+      {
+        "description": "Inner hit pixel 175 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix175"
+      },
+      {
+        "description": "Inner hit pixel 176 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix176"
+      },
+      {
+        "description": "Inner hit pixel 177 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix177"
+      },
+      {
+        "description": "Inner hit pixel 178 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix178"
+      },
+      {
+        "description": "Inner hit pixel 179 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix179"
+      },
+      {
+        "description": "Inner hit pixel 180 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix180"
+      },
+      {
+        "description": "Inner hit pixel 181 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix181"
+      },
+      {
+        "description": "Inner hit pixel 182 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix182"
+      },
+      {
+        "description": "Inner hit pixel 183 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix183"
+      },
+      {
+        "description": "Inner hit pixel 184 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix184"
+      },
+      {
+        "description": "Inner hit pixel 185 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix185"
+      },
+      {
+        "description": "Inner hit pixel 186 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix186"
+      },
+      {
+        "description": "Inner hit pixel 187 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix187"
+      },
+      {
+        "description": "Inner hit pixel 188 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix188"
+      },
+      {
+        "description": "Inner hit pixel 189 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix189"
+      },
+      {
+        "description": "Inner hit pixel 190 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix190"
+      },
+      {
+        "description": "Inner hit pixel 191 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix191"
+      },
+      {
+        "description": "Inner hit pixel 192 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix192"
+      },
+      {
+        "description": "Inner hit pixel 193 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix193"
+      },
+      {
+        "description": "Inner hit pixel 194 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix194"
+      },
+      {
+        "description": "Inner hit pixel 195 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix195"
+      },
+      {
+        "description": "Inner hit pixel 196 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix196"
+      },
+      {
+        "description": "Inner hit pixel 197 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix197"
+      },
+      {
+        "description": "Inner hit pixel 198 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix198"
+      },
+      {
+        "description": "Inner hit pixel 199 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix199"
+      },
+      {
+        "description": "Inner hit pixel 200 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix200"
+      },
+      {
+        "description": "Inner hit pixel 201 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix201"
+      },
+      {
+        "description": "Inner hit pixel 202 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix202"
+      },
+      {
+        "description": "Inner hit pixel 203 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix203"
+      },
+      {
+        "description": "Inner hit pixel 204 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix204"
+      },
+      {
+        "description": "Inner hit pixel 205 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix205"
+      },
+      {
+        "description": "Inner hit pixel 206 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix206"
+      },
+      {
+        "description": "Inner hit pixel 207 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix207"
+      },
+      {
+        "description": "Inner hit pixel 208 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix208"
+      },
+      {
+        "description": "Inner hit pixel 209 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix209"
+      },
+      {
+        "description": "Inner hit pixel 210 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix210"
+      },
+      {
+        "description": "Inner hit pixel 211 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix211"
+      },
+      {
+        "description": "Inner hit pixel 212 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix212"
+      },
+      {
+        "description": "Inner hit pixel 213 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix213"
+      },
+      {
+        "description": "Inner hit pixel 214 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix214"
+      },
+      {
+        "description": "Inner hit pixel 215 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix215"
+      },
+      {
+        "description": "Inner hit pixel 216 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix216"
+      },
+      {
+        "description": "Inner hit pixel 217 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix217"
+      },
+      {
+        "description": "Inner hit pixel 218 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix218"
+      },
+      {
+        "description": "Inner hit pixel 219 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix219"
+      },
+      {
+        "description": "Inner hit pixel 220 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix220"
+      },
+      {
+        "description": "Inner hit pixel 221 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix221"
+      },
+      {
+        "description": "Inner hit pixel 222 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix222"
+      },
+      {
+        "description": "Inner hit pixel 223 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix223"
+      },
+      {
+        "description": "Inner hit pixel 224 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix224"
+      },
+      {
+        "description": "Inner hit pixel 225 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix225"
+      },
+      {
+        "description": "Inner hit pixel 226 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix226"
+      },
+      {
+        "description": "Inner hit pixel 227 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix227"
+      },
+      {
+        "description": "Inner hit pixel 228 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix228"
+      },
+      {
+        "description": "Inner hit pixel 229 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix229"
+      },
+      {
+        "description": "Inner hit pixel 230 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix230"
+      },
+      {
+        "description": "Inner hit pixel 231 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix231"
+      },
+      {
+        "description": "Inner hit pixel 232 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix232"
+      },
+      {
+        "description": "Inner hit pixel 233 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix233"
+      },
+      {
+        "description": "Inner hit pixel 234 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix234"
+      },
+      {
+        "description": "Inner hit pixel 235 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix235"
+      },
+      {
+        "description": "Inner hit pixel 236 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix236"
+      },
+      {
+        "description": "Inner hit pixel 237 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix237"
+      },
+      {
+        "description": "Inner hit pixel 238 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix238"
+      },
+      {
+        "description": "Inner hit pixel 239 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix239"
+      },
+      {
+        "description": "Inner hit pixel 240 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix240"
+      },
+      {
+        "description": "Inner hit pixel 241 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix241"
+      },
+      {
+        "description": "Inner hit pixel 242 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix242"
+      },
+      {
+        "description": "Inner hit pixel 243 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix243"
+      },
+      {
+        "description": "Inner hit pixel 244 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix244"
+      },
+      {
+        "description": "Inner hit pixel 245 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix245"
+      },
+      {
+        "description": "Inner hit pixel 246 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix246"
+      },
+      {
+        "description": "Inner hit pixel 247 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix247"
+      },
+      {
+        "description": "Inner hit pixel 248 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix248"
+      },
+      {
+        "description": "Inner hit pixel 249 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix249"
+      },
+      {
+        "description": "Inner hit pixel 250 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix250"
+      },
+      {
+        "description": "Inner hit pixel 251 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix251"
+      },
+      {
+        "description": "Inner hit pixel 252 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix252"
+      },
+      {
+        "description": "Inner hit pixel 253 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix253"
+      },
+      {
+        "description": "Inner hit pixel 254 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix254"
+      },
+      {
+        "description": "Inner hit pixel 255 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix255"
+      },
+      {
+        "description": "Inner hit pixel 255 A.D.C.level.",
+        "type": "float",
+        "variable": "inPix256"
+      },
+      {
+        "description": "Outer hit pixel 1 A.D.C.level. The pixel index spans from top left pad corner to bottom right: e.g. the last bottom row will span from outPix241 to outPix256.",
+        "type": "float",
+        "variable": "outPix1"
+      },
+      {
+        "description": "Outer hit pixel 2 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix2"
+      },
+      {
+        "description": "Outer hit pixel 3 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix3"
+      },
+      {
+        "description": "Outer hit pixel 4 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix4"
+      },
+      {
+        "description": "Outer hit pixel 5 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix5"
+      },
+      {
+        "description": "Outer hit pixel 6 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix6"
+      },
+      {
+        "description": "Outer hit pixel 7 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix7"
+      },
+      {
+        "description": "Outer hit pixel 8 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix8"
+      },
+      {
+        "description": "Outer hit pixel 9 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix9"
+      },
+      {
+        "description": "Outer hit pixel 10 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix10"
+      },
+      {
+        "description": "Outer hit pixel 11 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix11"
+      },
+      {
+        "description": "Outer hit pixel 12 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix12"
+      },
+      {
+        "description": "Outer hit pixel 13 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix13"
+      },
+      {
+        "description": "Outer hit pixel 14 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix14"
+      },
+      {
+        "description": "Outer hit pixel 15 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix15"
+      },
+      {
+        "description": "Outer hit pixel 16 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix16"
+      },
+      {
+        "description": "Outer hit pixel 17 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix17"
+      },
+      {
+        "description": "Outer hit pixel 18 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix18"
+      },
+      {
+        "description": "Outer hit pixel 19 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix19"
+      },
+      {
+        "description": "Outer hit pixel 20 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix20"
+      },
+      {
+        "description": "Outer hit pixel 21 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix21"
+      },
+      {
+        "description": "Outer hit pixel 22 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix22"
+      },
+      {
+        "description": "Outer hit pixel 23 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix23"
+      },
+      {
+        "description": "Outer hit pixel 24 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix24"
+      },
+      {
+        "description": "Outer hit pixel 25 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix25"
+      },
+      {
+        "description": "Outer hit pixel 26 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix26"
+      },
+      {
+        "description": "Outer hit pixel 27 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix27"
+      },
+      {
+        "description": "Outer hit pixel 28 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix28"
+      },
+      {
+        "description": "Outer hit pixel 29 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix29"
+      },
+      {
+        "description": "Outer hit pixel 30 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix30"
+      },
+      {
+        "description": "Outer hit pixel 31 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix31"
+      },
+      {
+        "description": "Outer hit pixel 32 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix32"
+      },
+      {
+        "description": "Outer hit pixel 33 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix33"
+      },
+      {
+        "description": "Outer hit pixel 34 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix34"
+      },
+      {
+        "description": "Outer hit pixel 35 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix35"
+      },
+      {
+        "description": "Outer hit pixel 36 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix36"
+      },
+      {
+        "description": "Outer hit pixel 37 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix37"
+      },
+      {
+        "description": "Outer hit pixel 38 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix38"
+      },
+      {
+        "description": "Outer hit pixel 39 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix39"
+      },
+      {
+        "description": "Outer hit pixel 40 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix40"
+      },
+      {
+        "description": "Outer hit pixel 41 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix41"
+      },
+      {
+        "description": "Outer hit pixel 42 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix42"
+      },
+      {
+        "description": "Outer hit pixel 43 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix43"
+      },
+      {
+        "description": "Outer hit pixel 44 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix44"
+      },
+      {
+        "description": "Outer hit pixel 45 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix45"
+      },
+      {
+        "description": "Outer hit pixel 46 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix46"
+      },
+      {
+        "description": "Outer hit pixel 47 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix47"
+      },
+      {
+        "description": "Outer hit pixel 48 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix48"
+      },
+      {
+        "description": "Outer hit pixel 49 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix49"
+      },
+      {
+        "description": "Outer hit pixel 50 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix50"
+      },
+      {
+        "description": "Outer hit pixel 51 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix51"
+      },
+      {
+        "description": "Outer hit pixel 52 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix52"
+      },
+      {
+        "description": "Outer hit pixel 53 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix53"
+      },
+      {
+        "description": "Outer hit pixel 54 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix54"
+      },
+      {
+        "description": "Outer hit pixel 55 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix55"
+      },
+      {
+        "description": "Outer hit pixel 56 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix56"
+      },
+      {
+        "description": "Outer hit pixel 57 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix57"
+      },
+      {
+        "description": "Outer hit pixel 58 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix58"
+      },
+      {
+        "description": "Outer hit pixel 59 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix59"
+      },
+      {
+        "description": "Outer hit pixel 60 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix60"
+      },
+      {
+        "description": "Outer hit pixel 61 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix61"
+      },
+      {
+        "description": "Outer hit pixel 62 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix62"
+      },
+      {
+        "description": "Outer hit pixel 63 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix63"
+      },
+      {
+        "description": "Outer hit pixel 64 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix64"
+      },
+      {
+        "description": "Outer hit pixel 65 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix65"
+      },
+      {
+        "description": "Outer hit pixel 66 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix66"
+      },
+      {
+        "description": "Outer hit pixel 67 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix67"
+      },
+      {
+        "description": "Outer hit pixel 68 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix68"
+      },
+      {
+        "description": "Outer hit pixel 69 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix69"
+      },
+      {
+        "description": "Outer hit pixel 70 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix70"
+      },
+      {
+        "description": "Outer hit pixel 71 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix71"
+      },
+      {
+        "description": "Outer hit pixel 72 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix72"
+      },
+      {
+        "description": "Outer hit pixel 73 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix73"
+      },
+      {
+        "description": "Outer hit pixel 74 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix74"
+      },
+      {
+        "description": "Outer hit pixel 75 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix75"
+      },
+      {
+        "description": "Outer hit pixel 76 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix76"
+      },
+      {
+        "description": "Outer hit pixel 77 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix77"
+      },
+      {
+        "description": "Outer hit pixel 78 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix78"
+      },
+      {
+        "description": "Outer hit pixel 79 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix79"
+      },
+      {
+        "description": "Outer hit pixel 80 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix80"
+      },
+      {
+        "description": "Outer hit pixel 81 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix81"
+      },
+      {
+        "description": "Outer hit pixel 82 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix82"
+      },
+      {
+        "description": "Outer hit pixel 83 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix83"
+      },
+      {
+        "description": "Outer hit pixel 84 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix84"
+      },
+      {
+        "description": "Outer hit pixel 85 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix85"
+      },
+      {
+        "description": "Outer hit pixel 86 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix86"
+      },
+      {
+        "description": "Outer hit pixel 87 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix87"
+      },
+      {
+        "description": "Outer hit pixel 88 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix88"
+      },
+      {
+        "description": "Outer hit pixel 89 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix89"
+      },
+      {
+        "description": "Outer hit pixel 90 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix90"
+      },
+      {
+        "description": "Outer hit pixel 91 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix91"
+      },
+      {
+        "description": "Outer hit pixel 92 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix92"
+      },
+      {
+        "description": "Outer hit pixel 93 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix93"
+      },
+      {
+        "description": "Outer hit pixel 94 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix94"
+      },
+      {
+        "description": "Outer hit pixel 95 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix95"
+      },
+      {
+        "description": "Outer hit pixel 96 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix96"
+      },
+      {
+        "description": "Outer hit pixel 97 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix97"
+      },
+      {
+        "description": "Outer hit pixel 98 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix98"
+      },
+      {
+        "description": "Outer hit pixel 99 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix99"
+      },
+      {
+        "description": "Outer hit pixel 100 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix100"
+      },
+      {
+        "description": "Outer hit pixel 101 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix101"
+      },
+      {
+        "description": "Outer hit pixel 102 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix102"
+      },
+      {
+        "description": "Outer hit pixel 103 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix103"
+      },
+      {
+        "description": "Outer hit pixel 104 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix104"
+      },
+      {
+        "description": "Outer hit pixel 105 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix105"
+      },
+      {
+        "description": "Outer hit pixel 106 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix106"
+      },
+      {
+        "description": "Outer hit pixel 107 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix107"
+      },
+      {
+        "description": "Outer hit pixel 108 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix108"
+      },
+      {
+        "description": "Outer hit pixel 109 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix109"
+      },
+      {
+        "description": "Outer hit pixel 110 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix110"
+      },
+      {
+        "description": "Outer hit pixel 111 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix111"
+      },
+      {
+        "description": "Outer hit pixel 112 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix112"
+      },
+      {
+        "description": "Outer hit pixel 113 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix113"
+      },
+      {
+        "description": "Outer hit pixel 114 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix114"
+      },
+      {
+        "description": "Outer hit pixel 115 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix115"
+      },
+      {
+        "description": "Outer hit pixel 116 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix116"
+      },
+      {
+        "description": "Outer hit pixel 117 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix117"
+      },
+      {
+        "description": "Outer hit pixel 118 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix118"
+      },
+      {
+        "description": "Outer hit pixel 119 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix119"
+      },
+      {
+        "description": "Outer hit pixel 120 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix120"
+      },
+      {
+        "description": "Outer hit pixel 121 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix121"
+      },
+      {
+        "description": "Outer hit pixel 122 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix122"
+      },
+      {
+        "description": "Outer hit pixel 123 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix123"
+      },
+      {
+        "description": "Outer hit pixel 124 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix124"
+      },
+      {
+        "description": "Outer hit pixel 125 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix125"
+      },
+      {
+        "description": "Outer hit pixel 126 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix126"
+      },
+      {
+        "description": "Outer hit pixel 127 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix127"
+      },
+      {
+        "description": "Outer hit pixel 128 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix128"
+      },
+      {
+        "description": "Outer hit pixel 129 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix129"
+      },
+      {
+        "description": "Outer hit pixel 130 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix130"
+      },
+      {
+        "description": "Outer hit pixel 131 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix131"
+      },
+      {
+        "description": "Outer hit pixel 132 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix132"
+      },
+      {
+        "description": "Outer hit pixel 133 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix133"
+      },
+      {
+        "description": "Outer hit pixel 134 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix134"
+      },
+      {
+        "description": "Outer hit pixel 135 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix135"
+      },
+      {
+        "description": "Outer hit pixel 136 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix136"
+      },
+      {
+        "description": "Outer hit pixel 137 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix137"
+      },
+      {
+        "description": "Outer hit pixel 138 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix138"
+      },
+      {
+        "description": "Outer hit pixel 139 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix139"
+      },
+      {
+        "description": "Outer hit pixel 140 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix140"
+      },
+      {
+        "description": "Outer hit pixel 141 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix141"
+      },
+      {
+        "description": "Outer hit pixel 142 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix142"
+      },
+      {
+        "description": "Outer hit pixel 143 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix143"
+      },
+      {
+        "description": "Outer hit pixel 144 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix144"
+      },
+      {
+        "description": "Outer hit pixel 145 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix145"
+      },
+      {
+        "description": "Outer hit pixel 146 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix146"
+      },
+      {
+        "description": "Outer hit pixel 147 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix147"
+      },
+      {
+        "description": "Outer hit pixel 148 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix148"
+      },
+      {
+        "description": "Outer hit pixel 149 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix149"
+      },
+      {
+        "description": "Outer hit pixel 150 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix150"
+      },
+      {
+        "description": "Outer hit pixel 151 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix151"
+      },
+      {
+        "description": "Outer hit pixel 152 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix152"
+      },
+      {
+        "description": "Outer hit pixel 153 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix153"
+      },
+      {
+        "description": "Outer hit pixel 154 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix154"
+      },
+      {
+        "description": "Outer hit pixel 155 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix155"
+      },
+      {
+        "description": "Outer hit pixel 156 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix156"
+      },
+      {
+        "description": "Outer hit pixel 157 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix157"
+      },
+      {
+        "description": "Outer hit pixel 158 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix158"
+      },
+      {
+        "description": "Outer hit pixel 159 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix159"
+      },
+      {
+        "description": "Outer hit pixel 160 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix160"
+      },
+      {
+        "description": "Outer hit pixel 161 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix161"
+      },
+      {
+        "description": "Outer hit pixel 162 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix162"
+      },
+      {
+        "description": "Outer hit pixel 163 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix163"
+      },
+      {
+        "description": "Outer hit pixel 164 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix164"
+      },
+      {
+        "description": "Outer hit pixel 165 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix165"
+      },
+      {
+        "description": "Outer hit pixel 166 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix166"
+      },
+      {
+        "description": "Outer hit pixel 167 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix167"
+      },
+      {
+        "description": "Outer hit pixel 168 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix168"
+      },
+      {
+        "description": "Outer hit pixel 169 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix169"
+      },
+      {
+        "description": "Outer hit pixel 170 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix170"
+      },
+      {
+        "description": "Outer hit pixel 171 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix171"
+      },
+      {
+        "description": "Outer hit pixel 172 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix172"
+      },
+      {
+        "description": "Outer hit pixel 173 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix173"
+      },
+      {
+        "description": "Outer hit pixel 174 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix174"
+      },
+      {
+        "description": "Outer hit pixel 175 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix175"
+      },
+      {
+        "description": "Outer hit pixel 176 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix176"
+      },
+      {
+        "description": "Outer hit pixel 177 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix177"
+      },
+      {
+        "description": "Outer hit pixel 178 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix178"
+      },
+      {
+        "description": "Outer hit pixel 179 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix179"
+      },
+      {
+        "description": "Outer hit pixel 180 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix180"
+      },
+      {
+        "description": "Outer hit pixel 181 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix181"
+      },
+      {
+        "description": "Outer hit pixel 182 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix182"
+      },
+      {
+        "description": "Outer hit pixel 183 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix183"
+      },
+      {
+        "description": "Outer hit pixel 184 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix184"
+      },
+      {
+        "description": "Outer hit pixel 185 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix185"
+      },
+      {
+        "description": "Outer hit pixel 186 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix186"
+      },
+      {
+        "description": "Outer hit pixel 187 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix187"
+      },
+      {
+        "description": "Outer hit pixel 188 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix188"
+      },
+      {
+        "description": "Outer hit pixel 189 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix189"
+      },
+      {
+        "description": "Outer hit pixel 190 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix190"
+      },
+      {
+        "description": "Outer hit pixel 191 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix191"
+      },
+      {
+        "description": "Outer hit pixel 192 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix192"
+      },
+      {
+        "description": "Outer hit pixel 193 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix193"
+      },
+      {
+        "description": "Outer hit pixel 194 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix194"
+      },
+      {
+        "description": "Outer hit pixel 195 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix195"
+      },
+      {
+        "description": "Outer hit pixel 196 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix196"
+      },
+      {
+        "description": "Outer hit pixel 197 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix197"
+      },
+      {
+        "description": "Outer hit pixel 198 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix198"
+      },
+      {
+        "description": "Outer hit pixel 199 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix199"
+      },
+      {
+        "description": "Outer hit pixel 200 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix200"
+      },
+      {
+        "description": "Outer hit pixel 201 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix201"
+      },
+      {
+        "description": "Outer hit pixel 202 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix202"
+      },
+      {
+        "description": "Outer hit pixel 203 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix203"
+      },
+      {
+        "description": "Outer hit pixel 204 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix204"
+      },
+      {
+        "description": "Outer hit pixel 205 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix205"
+      },
+      {
+        "description": "Outer hit pixel 206 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix206"
+      },
+      {
+        "description": "Outer hit pixel 207 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix207"
+      },
+      {
+        "description": "Outer hit pixel 208 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix208"
+      },
+      {
+        "description": "Outer hit pixel 209 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix209"
+      },
+      {
+        "description": "Outer hit pixel 210 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix210"
+      },
+      {
+        "description": "Outer hit pixel 211 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix211"
+      },
+      {
+        "description": "Outer hit pixel 212 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix212"
+      },
+      {
+        "description": "Outer hit pixel 213 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix213"
+      },
+      {
+        "description": "Outer hit pixel 214 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix214"
+      },
+      {
+        "description": "Outer hit pixel 215 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix215"
+      },
+      {
+        "description": "Outer hit pixel 216 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix216"
+      },
+      {
+        "description": "Outer hit pixel 217 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix217"
+      },
+      {
+        "description": "Outer hit pixel 218 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix218"
+      },
+      {
+        "description": "Outer hit pixel 219 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix219"
+      },
+      {
+        "description": "Outer hit pixel 220 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix220"
+      },
+      {
+        "description": "Outer hit pixel 221 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix221"
+      },
+      {
+        "description": "Outer hit pixel 222 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix222"
+      },
+      {
+        "description": "Outer hit pixel 223 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix223"
+      },
+      {
+        "description": "Outer hit pixel 224 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix224"
+      },
+      {
+        "description": "Outer hit pixel 225 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix225"
+      },
+      {
+        "description": "Outer hit pixel 226 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix226"
+      },
+      {
+        "description": "Outer hit pixel 227 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix227"
+      },
+      {
+        "description": "Outer hit pixel 228 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix228"
+      },
+      {
+        "description": "Outer hit pixel 229 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix229"
+      },
+      {
+        "description": "Outer hit pixel 230 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix230"
+      },
+      {
+        "description": "Outer hit pixel 231 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix231"
+      },
+      {
+        "description": "Outer hit pixel 232 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix232"
+      },
+      {
+        "description": "Outer hit pixel 233 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix233"
+      },
+      {
+        "description": "Outer hit pixel 234 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix234"
+      },
+      {
+        "description": "Outer hit pixel 235 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix235"
+      },
+      {
+        "description": "Outer hit pixel 236 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix236"
+      },
+      {
+        "description": "Outer hit pixel 237 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix237"
+      },
+      {
+        "description": "Outer hit pixel 238 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix238"
+      },
+      {
+        "description": "Outer hit pixel 239 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix239"
+      },
+      {
+        "description": "Outer hit pixel 240 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix240"
+      },
+      {
+        "description": "Outer hit pixel 241 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix241"
+      },
+      {
+        "description": "Outer hit pixel 242 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix242"
+      },
+      {
+        "description": "Outer hit pixel 243 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix243"
+      },
+      {
+        "description": "Outer hit pixel 244 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix244"
+      },
+      {
+        "description": "Outer hit pixel 245 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix245"
+      },
+      {
+        "description": "Outer hit pixel 246 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix246"
+      },
+      {
+        "description": "Outer hit pixel 247 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix247"
+      },
+      {
+        "description": "Outer hit pixel 248 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix248"
+      },
+      {
+        "description": "Outer hit pixel 249 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix249"
+      },
+      {
+        "description": "Outer hit pixel 250 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix250"
+      },
+      {
+        "description": "Outer hit pixel 251 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix251"
+      },
+      {
+        "description": "Outer hit pixel 252 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix252"
+      },
+      {
+        "description": "Outer hit pixel 253 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix253"
+      },
+      {
+        "description": "Outer hit pixel 254 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix254"
+      },
+      {
+        "description": "Outer hit pixel 255 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix255"
+      },
+      {
+        "description": "Outer hit pixel 256 A.D.C.level.",
+        "type": "float",
+        "variable": "outPix256"
+      },
+      {
+        "description": "Inner hit matched tracking particle key number in the event collection of tracking particles. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "inTpTId"
+      },
+      {
+        "description": "Inner hit matched tracking particle momentum component along global x axis. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "inTpPx"
+      },
+      {
+        "description": "Inner hit matched tracking particle momentum component along global y axis. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "inTpPy"
+      },
+      {
+        "description": "Inner hit matched tracking particle momentum component along global z axis. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "inTpPz"
+      },
+      {
+        "description": "Inner hit matched tracking particle transverse momentum. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "inTpPt"
+      },
+      {
+        "description": "Inner hit matched tracking particle transverse mass. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "inTpMT"
+      },
+      {
+        "description": "Inner hit matched tracking particle transverse energy. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "inTpET"
+      },
+      {
+        "description": "Inner hit matched tracking particle mass squared. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "inTpMSqr"
+      },
+      {
+        "description": "Inner hit matched tracking particle PDG id, i.e. the index indicating which kind of particle it is. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "inTpPdgId"
+      },
+      {
+        "description": "Inner hit matched tracking particle charge. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "inTpCharge"
+      },
+      {
+        "description": "Inner hit matched tracking particle number of tracker hits. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "inTpNTrackerHits"
+      },
+      {
+        "description": "The number of tracker layers crossed by the inner hit matched tracking particle. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "inTpNTrackerLayers"
+      },
+      {
+        "description": "Inner hit matched tracking particle azimuthal angle (ϕ). Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "inTpPhi"
+      },
+      {
+        "description": "Inner hit matched tracking particle pseudorapidity (η). Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "inTpEta"
+      },
+      {
+        "description": "Inner hit matched tracking particle rapidity (y). Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "inTpRapidity"
+      },
+      {
+        "description": "Inner hit matched tracking particle vertex global X coordinate. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "inTpVX"
+      },
+      {
+        "description": "Inner hit matched tracking particle vertex global Y coordinate. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "inTpVY"
+      },
+      {
+        "description": "Inner hit matched tracking particle vertex global Z coordinate. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "inTpVZ"
+      },
+      {
+        "description": "Inner hit matched tracking particle vertex transverse impact parameter. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "inTpDXY"
+      },
+      {
+        "description": "Inner hit matched tracking particle vertex longitudinal impact parameter. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "inTpDZ"
+      },
+      {
+        "description": "outTpPId",
+        "type": "float",
+        "variable": "Flag set to 1.0 (-1.0) if the outer hit is (not) matched."
+      },
+      {
+        "description": "Outer hit matched tracking particle key number in the event collection of tracking particles. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "outTpTId"
+      },
+      {
+        "description": "Outer hit matched tracking particle momentum component along global x axis.Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "outTpPx"
+      },
+      {
+        "description": "Outer hit matched tracking particle momentum component along global y axis.Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "outTpPy"
+      },
+      {
+        "description": "Outer hit matched tracking particle momentum component along global z axis.Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "outTpPz"
+      },
+      {
+        "description": "Outer hit matched tracking particle transverse momentum.Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "outTpPt"
+      },
+      {
+        "description": "Outer hit matched tracking particle transverse mass.Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "outTpMT"
+      },
+      {
+        "description": "Outer hit matched tracking particle transverse energy.Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "outTpET"
+      },
+      {
+        "description": "Outer hit matched tracking particle mass squared.Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "outTpMSqr"
+      },
+      {
+        "description": "Outer hit matched tracking particle PDG id, i.e. the index indicating which kind of particle it is.Set to -1.0 if the hit is not matched to any tracking particle. ",
+        "type": "float",
+        "variable": "outTpPdgId"
+      },
+      {
+        "description": "Outer hit matched tracking particle charge.Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "outTpNTrackerHits"
+      },
+      {
+        "description": "Outer hit matched tracking particle number of tracker hits.Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "outTpNTrackerHits"
+      },
+      {
+        "description": "The number of tracker layers crossed by the outer hit matched tracking particle.Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "outTpNTrackerLayers"
+      },
+      {
+        "description": "Outer hit matched tracking particle azimuthal angle (ϕ).Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "outTpPhi"
+      },
+      {
+        "description": "Outer hit matched tracking particle pseudorapidity (η). Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "outTpEta"
+      },
+      {
+        "description": "Outer hit matched tracking particle rapidity (y). Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "outTpRapidity"
+      },
+      {
+        "description": "Outer hit matched tracking particle vertex global X coordinate. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "outTpVX"
+      },
+      {
+        "description": "Outer hit matched tracking particle vertex global Y coordinate. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "outTpVY"
+      },
+      {
+        "description": "Outer hit matched tracking particle vertex global Z coordinate. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "outTpVZ"
+      },
+      {
+        "description": "Outer hit matched tracking particle vertex transverse impact parameter. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "outTpDXY"
+      },
+      {
+        "description": "Outer hit matched tracking particle vertex longitudinal impact parameter. Set to -1.0 if the hit is not matched to any tracking particle.",
+        "type": "float",
+        "variable": "outTpDZ"
+      },
+      {
+        "description": "Event bunch crossing number.",
+        "type": "float",
+        "variable": "BunchCrossing"
+      }
+    ],
+    "date_created": [
+      "2019"
+    ],
+    "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "h5"
+      ],
+      "number_files": 472,
+      "size": 153564646898
+    },
+    "doi": "10.7483/OPENDATA.CMS.N1IN.TQHD",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:bcbb6b7b",
+        "size": 14475,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/datascience/CNNPixelSeedsProducerTool/TTbar_13TeV_PU50_PixelSeeds/file-indexes/TTbar_13TeV_PU50_PixelSeeds_detachedTripletStepHitDoublets_h5_file_index.json"
+      },
+      {
+        "checksum": "adler32:c1919534",
+        "size": 7397,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/datascience/CNNPixelSeedsProducerTool/TTbar_13TeV_PU50_PixelSeeds/file-indexes/TTbar_13TeV_PU50_PixelSeeds_detachedTripletStepHitDoublets_h5_file_index.txt"
+      },
+      {
+        "checksum": "adler32:3f6cb3dd",
+        "size": 15533,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/datascience/CNNPixelSeedsProducerTool/TTbar_13TeV_PU50_PixelSeeds/file-indexes/TTbar_13TeV_PU50_PixelSeeds_highPtTripletStepHitDoublets_h5_file_index.json"
+      },
+      {
+        "checksum": "adler32:78365889",
+        "size": 7940,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/datascience/CNNPixelSeedsProducerTool/TTbar_13TeV_PU50_PixelSeeds/file-indexes/TTbar_13TeV_PU50_PixelSeeds_highPtTripletStepHitDoublets_h5_file_index.txt"
+      },
+      {
+        "checksum": "adler32:c2baca71",
+        "size": 14933,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/datascience/CNNPixelSeedsProducerTool/TTbar_13TeV_PU50_PixelSeeds/file-indexes/TTbar_13TeV_PU50_PixelSeeds_initialStepHitDoublets_h5_file_index.json"
+      },
+      {
+        "checksum": "adler32:206ce21e",
+        "size": 7640,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/datascience/CNNPixelSeedsProducerTool/TTbar_13TeV_PU50_PixelSeeds/file-indexes/TTbar_13TeV_PU50_PixelSeeds_initialStepHitDoublets_h5_file_index.txt"
+      },
+      {
+        "checksum": "adler32:59f3627b",
+        "size": 13012,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/datascience/CNNPixelSeedsProducerTool/TTbar_13TeV_PU50_PixelSeeds/file-indexes/TTbar_13TeV_PU50_PixelSeeds_lowPtQuadStepHitDoublets_h5_file_index.json"
+      },
+      {
+        "checksum": "adler32:f8e87a77",
+        "size": 6655,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/datascience/CNNPixelSeedsProducerTool/TTbar_13TeV_PU50_PixelSeeds/file-indexes/TTbar_13TeV_PU50_PixelSeeds_lowPtQuadStepHitDoublets_h5_file_index.txt"
+      },
+      {
+        "checksum": "adler32:b4960f92",
+        "size": 12656,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/datascience/CNNPixelSeedsProducerTool/TTbar_13TeV_PU50_PixelSeeds/file-indexes/TTbar_13TeV_PU50_PixelSeeds_lowPtTripletStepHitDoublets_h5_file_index.json"
+      },
+      {
+        "checksum": "adler32:dad34140",
+        "size": 6470,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/datascience/CNNPixelSeedsProducerTool/TTbar_13TeV_PU50_PixelSeeds/file-indexes/TTbar_13TeV_PU50_PixelSeeds_lowPtTripletStepHitDoublets_h5_file_index.txt"
+      },
+      {
+        "checksum": "adler32:488e8774",
+        "size": 15346,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/datascience/CNNPixelSeedsProducerTool/TTbar_13TeV_PU50_PixelSeeds/file-indexes/TTbar_13TeV_PU50_PixelSeeds_mixedTripletStepHitDoublets_h5_file_index.json"
+      },
+      {
+        "checksum": "adler32:93c6497f",
+        "size": 7890,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/datascience/CNNPixelSeedsProducerTool/TTbar_13TeV_PU50_PixelSeeds/file-indexes/TTbar_13TeV_PU50_PixelSeeds_mixedTripletStepHitDoublets_h5_file_index.txt"
+      },
+      {
+        "checksum": "adler32:628c347a",
+        "size": 41684,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/datascience/CNNPixelSeedsProducerTool/TTbar_13TeV_PU50_PixelSeeds/file-indexes/TTbar_13TeV_PU50_PixelSeeds_pixelTracksDoublets_h5_file_index.json"
+      },
+      {
+        "checksum": "adler32:42dd55dd",
+        "size": 21338,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/datascience/CNNPixelSeedsProducerTool/TTbar_13TeV_PU50_PixelSeeds/file-indexes/TTbar_13TeV_PU50_PixelSeeds_pixelTracksDoublets_h5_file_index.txt"
+      },
+      {
+        "checksum": "adler32:c8456993",
+        "size": 15283,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/datascience/CNNPixelSeedsProducerTool/TTbar_13TeV_PU50_PixelSeeds/file-indexes/TTbar_13TeV_PU50_PixelSeeds_tripletElectronHitDoublets_h5_file_index.json"
+      },
+      {
+        "checksum": "adler32:f7ab3881",
+        "size": 7840,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/datascience/CNNPixelSeedsProducerTool/TTbar_13TeV_PU50_PixelSeeds/file-indexes/TTbar_13TeV_PU50_PixelSeeds_tripletElectronHitDoublets_h5_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "datascience"
+    ],
+    "license": {
+      "attribution": "GNU General Public License (GPL) version 3"
+    },
+    "methodology": {
+      "description": "This dataset was produced with the software available in:",
+      "links": [
+        {
+          "recid": "12310"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12320",
+    "relations": [
+      {
+        "description": "This dataset was derived from:",
+        "recid": "12303",
+        "title": "TTToHadronic_TuneCP5_13TeV-powheg-pythia8 in FEVTDEBUGHLT format for 2018 collision data",
+        "type": "isChildOf"
+      }
+    ],
+    "title": "Sample with tracker hit information for tracking algorithm ML studies TTbar_13TeV_PU50_PixelSeeds",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": "The use of these files does not require any software specific to the CMS experiment. An <a href=\"https://github.com/cernopendata-datascience/CNNPixelSeedsMachineLearning\">example notebook</a> is provided."
+    }
   }
 ]
