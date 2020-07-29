@@ -1,0 +1,2603 @@
+[
+{
+  "abstract": {
+    "description": "<p>BTag primary dataset in AOD format from RunB of 2011. Run period from run number 175833 to 180252.</p><p>This dataset contains all runs from 2011 RunB. The list of validated runs, which must be applied to all analyses, can be found in</p>",
+    "links": [
+      {
+        "recid": "1001"
+      }
+    ]
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "CMS collaboration",
+    "recid": "451"
+  },
+  "collections": [
+    "CMS-Primary-Datasets"
+  ],
+  "collision_information": {
+    "energy": "7TeV",
+    "type": "pp"
+  },
+  "date_created": [
+    "2011"
+  ],
+  "date_published": "2020",
+  "date_reprocessed": "2011",
+  "distribution": {
+    "formats": [
+      "aod",
+      "root"
+    ],
+    "number_events": 2927141,
+    "number_files": 185,
+    "size": 649519003919
+  },
+  "doi": "10.7483/OPENDATA.CMS.NBJE.C4YJ",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:665c3ec5b8e863633ec994f8a45f2079834a5f5e",
+      "description": "BTag AOD dataset file index (1 of 1) for access to data via CMS virtual machine",
+      "size": 49028,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/BTag/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_BTag_AOD_12Oct2013-v1_20000_file_index.json"
+    },
+    {
+      "checksum": "sha1:3866b8daf803f8576192b34c656b0205a523dc52",
+      "description": "BTag AOD dataset file index (1 of 1) for access to data via CMS virtual machine",
+      "size": 22570,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/BTag/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_BTag_AOD_12Oct2013-v1_20000_file_index.txt"
+    }
+  ],
+  "license": {
+    "attribution": "CC0"
+  },
+  "methodology": {
+    "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1701\">HLT configuration</a>.</p><p><strong>Data processing / RECO</strong><br/>This primary AOD dataset was processed from the RAW dataset by the following step (identical to 2011 RunA): <br/>Step: RECO<br/>Release: CMSSW_5_3_7_patch5<br/>Global tag: FT_R_53_V18::All\n        <br/><a href=\"/record/3603\">Configuration file for RECO step reco_2011A_BTag</a>\n        </p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_BTagMu_DiJet110_Mu5\">HLT_BTagMu_DiJet110_Mu5</a><br/><a href=\"/search?q=HLT_BTagMu_DiJet20_Mu5\">HLT_BTagMu_DiJet20_Mu5</a><br/><a href=\"/search?q=HLT_BTagMu_DiJet40_Mu5\">HLT_BTagMu_DiJet40_Mu5</a><br/><a href=\"/search?q=HLT_BTagMu_DiJet70_Mu5\">HLT_BTagMu_DiJet70_Mu5</a></p>"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "270",
+  "run_period": [
+    "Run2011B"
+  ],
+  "system_details": {
+    "global_tag": "FT_53_LV5_AN1",
+    "release": "CMSSW_5_3_32"
+  },
+  "title": "/BTag/Run2011B-12Oct2013-v1/AOD",
+  "title_additional": "BTag primary dataset in AOD format from RunB of 2011 (/BTag/Run2011B-12Oct2013-v1/AOD)",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Collision"
+    ]
+  },
+  "usage": {
+    "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+    "links": [
+      {
+        "description": "How to install the CMS Virtual Machine",
+        "url": "/vm/cms/2011"
+      },
+      {
+        "description": "Getting started with CMS open data",
+        "url": "/getting-started/cms/2011"
+      }
+    ]
+  },
+  "validation": {
+    "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+    "links": [
+      {
+        "description": "CMS data quality monitoring: Systems and experiences",
+        "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+      },
+      {
+        "description": "The CMS Data Quality Monitoring software experience and future improvements",
+        "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+      },
+      {
+        "description": "The CMS data quality monitoring software: experience and future prospects",
+        "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "<p>DoubleElectron primary dataset in AOD format from RunB of 2011. Run period from run number 175833 to 180252.</p><p>This dataset contains all runs from 2011 RunB. The list of validated runs, which must be applied to all analyses, can be found in</p>",
+    "links": [
+      {
+        "recid": "1001"
+      }
+    ]
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "CMS collaboration",
+    "recid": "451"
+  },
+  "collections": [
+    "CMS-Primary-Datasets"
+  ],
+  "collision_information": {
+    "energy": "7TeV",
+    "type": "pp"
+  },
+  "date_created": [
+    "2011"
+  ],
+  "date_published": "2020",
+  "date_reprocessed": "2011",
+  "distribution": {
+    "formats": [
+      "aod",
+      "root"
+    ],
+    "number_events": 15603030,
+    "number_files": 986,
+    "size": 3141468884311
+  },
+  "doi": "10.7483/OPENDATA.CMS.MCVJ.1EN6",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:f695563c6f02019651405f431db15029b5603130",
+      "description": "DoubleElectron AOD dataset file index (1 of 2) for access to data via CMS virtual machine",
+      "size": 30584,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/DoubleElectron/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_DoubleElectron_AOD_12Oct2013-v1_00000_file_index.json"
+    },
+    {
+      "checksum": "sha1:e125ae50e67fe2b6a3c3e495796eca898333e81c",
+      "description": "DoubleElectron AOD dataset file index (2 of 2) for access to data via CMS virtual machine",
+      "size": 240352,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/DoubleElectron/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_DoubleElectron_AOD_12Oct2013-v1_20000_file_index.json"
+    },
+    {
+      "checksum": "sha1:a721e0cd45b311e7374f4450c5bb2c848723ecd1",
+      "description": "DoubleElectron AOD dataset file index (1 of 2) for access to data via CMS virtual machine",
+      "size": 14784,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/DoubleElectron/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_DoubleElectron_AOD_12Oct2013-v1_00000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:3d21f9690816b970677256035d6f9afcd55a1da3",
+      "description": "DoubleElectron AOD dataset file index (2 of 2) for access to data via CMS virtual machine",
+      "size": 115368,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/DoubleElectron/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_DoubleElectron_AOD_12Oct2013-v1_20000_file_index.txt"
+    }
+  ],
+  "license": {
+    "attribution": "CC0"
+  },
+  "methodology": {
+    "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1701\">HLT configuration</a>.</p><p><strong>Data processing / RECO</strong><br/>This primary AOD dataset was processed from the RAW dataset by the following step (identical to 2011 RunA): <br/>Step: RECO<br/>Release: CMSSW_5_3_7_patch5<br/>Global tag: FT_R_53_V18::All\n        <br/><a href=\"/record/3617\">Configuration file for RECO step reco_2011A_DoubleElectron</a>\n        </p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_DoubleEle10_CaloIdL_TrkIdVL_Ele10\">HLT_DoubleEle10_CaloIdL_TrkIdVL_Ele10</a><br/><a href=\"/search?q=HLT_DoubleEle10_CaloIdL_TrkIdVL_Ele10_CaloIdT_TrkIdVL\">HLT_DoubleEle10_CaloIdL_TrkIdVL_Ele10_CaloIdT_TrkIdVL</a><br/><a href=\"/search?q=HLT_DoubleEle45_CaloIdL\">HLT_DoubleEle45_CaloIdL</a><br/><a href=\"/search?q=HLT_Ele17_CaloIdL_CaloIsoVL\">HLT_Ele17_CaloIdL_CaloIsoVL</a><br/><a href=\"/search?q=HLT_Ele17_CaloIdL_CaloIsoVL_Ele15_HFL\">HLT_Ele17_CaloIdL_CaloIsoVL_Ele15_HFL</a><br/><a href=\"/search?q=HLT_Ele17_CaloIdL_CaloIsoVL_Ele15_HFT\">HLT_Ele17_CaloIdL_CaloIsoVL_Ele15_HFT</a><br/><a href=\"/search?q=HLT_Ele17_CaloIdL_CaloIsoVL_Ele8_CaloIdL_CaloIsoVL\">HLT_Ele17_CaloIdL_CaloIsoVL_Ele8_CaloIdL_CaloIsoVL</a><br/><a href=\"/search?q=HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL\">HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL</a><br/><a href=\"/search?q=HLT_Ele17_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL_Ele8_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL\">HLT_Ele17_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL_Ele8_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL</a><br/><a href=\"/search?q=HLT_Ele17_CaloIdVT_CaloIsoVT_TrkIdT_TrkIsoVT_Ele8_Mass30\">HLT_Ele17_CaloIdVT_CaloIsoVT_TrkIdT_TrkIsoVT_Ele8_Mass30</a><br/><a href=\"/search?q=HLT_Ele17_CaloIdVT_CaloIsoVT_TrkIdT_TrkIsoVT_SC8_Mass30\">HLT_Ele17_CaloIdVT_CaloIsoVT_TrkIdT_TrkIsoVT_SC8_Mass30</a><br/><a href=\"/search?q=HLT_Ele22_CaloIdL_CaloIsoVL_Ele15_HFT\">HLT_Ele22_CaloIdL_CaloIsoVL_Ele15_HFT</a><br/><a href=\"/search?q=HLT_Ele32_CaloIdL_CaloIsoVL_SC17\">HLT_Ele32_CaloIdL_CaloIsoVL_SC17</a><br/><a href=\"/search?q=HLT_Ele32_CaloIdT_CaloIsoT_TrkIdT_TrkIsoT_Ele17\">HLT_Ele32_CaloIdT_CaloIsoT_TrkIdT_TrkIsoT_Ele17</a><br/><a href=\"/search?q=HLT_Ele32_CaloIdT_CaloIsoT_TrkIdT_TrkIsoT_SC17\">HLT_Ele32_CaloIdT_CaloIsoT_TrkIdT_TrkIsoT_SC17</a><br/><a href=\"/search?q=HLT_Ele8\">HLT_Ele8</a><br/><a href=\"/search?q=HLT_Ele8_CaloIdL_CaloIsoVL\">HLT_Ele8_CaloIdL_CaloIsoVL</a><br/><a href=\"/search?q=HLT_Ele8_CaloIdL_CaloIsoVL_Jet40\">HLT_Ele8_CaloIdL_CaloIsoVL_Jet40</a><br/><a href=\"/search?q=HLT_Ele8_CaloIdL_TrkIdVL\">HLT_Ele8_CaloIdL_TrkIdVL</a><br/><a href=\"/search?q=HLT_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL\">HLT_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL</a><br/><a href=\"/search?q=HLT_Ele8_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL\">HLT_Ele8_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL</a><br/><a href=\"/search?q=HLT_Photon20_CaloIdVT_IsoT_Ele8_CaloIdL_CaloIsoVL\">HLT_Photon20_CaloIdVT_IsoT_Ele8_CaloIdL_CaloIsoVL</a><br/><a href=\"/search?q=HLT_TripleEle10_CaloIdL_TrkIdVL\">HLT_TripleEle10_CaloIdL_TrkIdVL</a></p>"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "271",
+  "run_period": [
+    "Run2011B"
+  ],
+  "system_details": {
+    "global_tag": "FT_53_LV5_AN1",
+    "release": "CMSSW_5_3_32"
+  },
+  "title": "/DoubleElectron/Run2011B-12Oct2013-v1/AOD",
+  "title_additional": "DoubleElectron primary dataset in AOD format from RunB of 2011 (/DoubleElectron/Run2011B-12Oct2013-v1/AOD)",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Collision"
+    ]
+  },
+  "usage": {
+    "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+    "links": [
+      {
+        "description": "How to install the CMS Virtual Machine",
+        "url": "/vm/cms/2011"
+      },
+      {
+        "description": "Getting started with CMS open data",
+        "url": "/getting-started/cms/2011"
+      }
+    ]
+  },
+  "validation": {
+    "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+    "links": [
+      {
+        "description": "CMS data quality monitoring: Systems and experiences",
+        "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+      },
+      {
+        "description": "The CMS Data Quality Monitoring software experience and future improvements",
+        "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+      },
+      {
+        "description": "The CMS data quality monitoring software: experience and future prospects",
+        "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "<p>DoubleMu primary dataset in AOD format from RunB of 2011. Run period from run number 175833 to 180252.</p><p>This dataset contains all runs from 2011 RunB. The list of validated runs, which must be applied to all analyses, can be found in</p>",
+    "links": [
+      {
+        "recid": "1001"
+      }
+    ]
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "CMS collaboration",
+    "recid": "451"
+  },
+  "collections": [
+    "CMS-Primary-Datasets"
+  ],
+  "collision_information": {
+    "energy": "7TeV",
+    "type": "pp"
+  },
+  "date_created": [
+    "2011"
+  ],
+  "date_published": "2020",
+  "date_reprocessed": "2011",
+  "distribution": {
+    "formats": [
+      "aod",
+      "root"
+    ],
+    "number_events": 23792108,
+    "number_files": 1386,
+    "size": 4687125988031
+  },
+  "doi": "10.7483/OPENDATA.CMS.HR3I.ORTL",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:355097179363b3ad063b0daf034ec749b0b3c554",
+      "description": "DoubleMu AOD dataset file index (1 of 2) for access to data via CMS virtual machine",
+      "size": 323312,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/DoubleMu/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_DoubleMu_AOD_12Oct2013-v1_10000_file_index.json"
+    },
+    {
+      "checksum": "sha1:437f12e21e56d1d64a745ed0aaa6019a8e38bef7",
+      "description": "DoubleMu AOD dataset file index (2 of 2) for access to data via CMS virtual machine",
+      "size": 49230,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/DoubleMu/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_DoubleMu_AOD_12Oct2013-v1_10001_file_index.json"
+    },
+    {
+      "checksum": "sha1:1dfac2f0f588c6553fd9f02c2e510c3a4c882f28",
+      "description": "DoubleMu AOD dataset file index (1 of 2) for access to data via CMS virtual machine",
+      "size": 151578,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/DoubleMu/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_DoubleMu_AOD_12Oct2013-v1_10000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:bf55e6dc5af763f94d41a2374a983b5e78f8122e",
+      "description": "DoubleMu AOD dataset file index (2 of 2) for access to data via CMS virtual machine",
+      "size": 23058,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/DoubleMu/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_DoubleMu_AOD_12Oct2013-v1_10001_file_index.txt"
+    }
+  ],
+  "license": {
+    "attribution": "CC0"
+  },
+  "methodology": {
+    "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1701\">HLT configuration</a>.</p><p><strong>Data processing / RECO</strong><br/>This primary AOD dataset was processed from the RAW dataset by the following step (identical to 2011 RunA): <br/>Step: RECO<br/>Release: CMSSW_5_3_7_patch5<br/>Global tag: FT_R_53_V18::All\n        <br/><a href=\"/record/3618\">Configuration file for RECO step reco_2011A_DoubleMu</a>\n        </p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_DoubleMu3\">HLT_DoubleMu3</a><br/><a href=\"/search?q=HLT_DoubleMu45\">HLT_DoubleMu45</a><br/><a href=\"/search?q=HLT_DoubleMu4_Acoplanarity03\">HLT_DoubleMu4_Acoplanarity03</a><br/><a href=\"/search?q=HLT_DoubleMu5\">HLT_DoubleMu5</a><br/><a href=\"/search?q=HLT_DoubleMu5_Acoplanarity03\">HLT_DoubleMu5_Acoplanarity03</a><br/><a href=\"/search?q=HLT_DoubleMu5_IsoMu5\">HLT_DoubleMu5_IsoMu5</a><br/><a href=\"/search?q=HLT_DoubleMu6\">HLT_DoubleMu6</a><br/><a href=\"/search?q=HLT_DoubleMu6_Acoplanarity03\">HLT_DoubleMu6_Acoplanarity03</a><br/><a href=\"/search?q=HLT_DoubleMu7\">HLT_DoubleMu7</a><br/><a href=\"/search?q=HLT_DoubleMu7_Acoplanarity03\">HLT_DoubleMu7_Acoplanarity03</a><br/><a href=\"/search?q=HLT_L1DoubleMu0\">HLT_L1DoubleMu0</a><br/><a href=\"/search?q=HLT_L2DoubleMu0\">HLT_L2DoubleMu0</a><br/><a href=\"/search?q=HLT_L2DoubleMu23_NoVertex\">HLT_L2DoubleMu23_NoVertex</a><br/><a href=\"/search?q=HLT_L2DoubleMu30_NoVertex\">HLT_L2DoubleMu30_NoVertex</a><br/><a href=\"/search?q=HLT_L2DoubleMu30_NoVertex_dPhi2p5\">HLT_L2DoubleMu30_NoVertex_dPhi2p5</a><br/><a href=\"/search?q=HLT_L2DoubleMu35_NoVertex\">HLT_L2DoubleMu35_NoVertex</a><br/><a href=\"/search?q=HLT_L2DoubleMu45_NoVertex\">HLT_L2DoubleMu45_NoVertex</a><br/><a href=\"/search?q=HLT_Mu13_Mu8\">HLT_Mu13_Mu8</a><br/><a href=\"/search?q=HLT_Mu17_Mu8\">HLT_Mu17_Mu8</a><br/><a href=\"/search?q=HLT_Mu17_TkMu8\">HLT_Mu17_TkMu8</a><br/><a href=\"/search?q=HLT_Mu8_Jet40\">HLT_Mu8_Jet40</a><br/><a href=\"/search?q=HLT_TripleMu5\">HLT_TripleMu5</a></p>"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "272",
+  "run_period": [
+    "Run2011B"
+  ],
+  "system_details": {
+    "global_tag": "FT_53_LV5_AN1",
+    "release": "CMSSW_5_3_32"
+  },
+  "title": "/DoubleMu/Run2011B-12Oct2013-v1/AOD",
+  "title_additional": "DoubleMu primary dataset in AOD format from RunB of 2011 (/DoubleMu/Run2011B-12Oct2013-v1/AOD)",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Collision"
+    ]
+  },
+  "usage": {
+    "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+    "links": [
+      {
+        "description": "How to install the CMS Virtual Machine",
+        "url": "/vm/cms/2011"
+      },
+      {
+        "description": "Getting started with CMS open data",
+        "url": "/getting-started/cms/2011"
+      }
+    ]
+  },
+  "validation": {
+    "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+    "links": [
+      {
+        "description": "CMS data quality monitoring: Systems and experiences",
+        "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+      },
+      {
+        "description": "The CMS Data Quality Monitoring software experience and future improvements",
+        "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+      },
+      {
+        "description": "The CMS data quality monitoring software: experience and future prospects",
+        "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "<p>ElectronHad primary dataset in AOD format from RunB of 2011. Run period from run number 175833 to 180252.</p><p>This dataset contains all runs from 2011 RunB. The list of validated runs, which must be applied to all analyses, can be found in</p>",
+    "links": [
+      {
+        "recid": "1001"
+      }
+    ]
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "CMS collaboration",
+    "recid": "451"
+  },
+  "collections": [
+    "CMS-Primary-Datasets"
+  ],
+  "collision_information": {
+    "energy": "7TeV",
+    "type": "pp"
+  },
+  "date_created": [
+    "2011"
+  ],
+  "date_published": "2020",
+  "date_reprocessed": "2011",
+  "distribution": {
+    "formats": [
+      "aod",
+      "root"
+    ],
+    "number_events": 28212796,
+    "number_files": 1865,
+    "size": 6619275537184
+  },
+  "doi": "10.7483/OPENDATA.CMS.LXNH.ZQPA",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:2cccf618d92fceb00070e1f2727da538b820d83e",
+      "description": "ElectronHad AOD dataset file index (1 of 4) for access to data via CMS virtual machine",
+      "size": 1635,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/ElectronHad/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_ElectronHad_AOD_12Oct2013-v1_00000_file_index.json"
+    },
+    {
+      "checksum": "sha1:402f5918753e654ce037111749afcd3f5bd82356",
+      "description": "ElectronHad AOD dataset file index (2 of 4) for access to data via CMS virtual machine",
+      "size": 37936,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/ElectronHad/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_ElectronHad_AOD_12Oct2013-v1_10000_file_index.json"
+    },
+    {
+      "checksum": "sha1:20e8fa44dce851ea4a752b8d9338f07786a8c58a",
+      "description": "ElectronHad AOD dataset file index (3 of 4) for access to data via CMS virtual machine",
+      "size": 271731,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/ElectronHad/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_ElectronHad_AOD_12Oct2013-v1_20000_file_index.json"
+    },
+    {
+      "checksum": "sha1:6c3415ebfac10f66847e7b6135dc9f2bc2dc7114",
+      "description": "ElectronHad AOD dataset file index (4 of 4) for access to data via CMS virtual machine",
+      "size": 195843,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/ElectronHad/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_ElectronHad_AOD_12Oct2013-v1_20001_file_index.json"
+    },
+    {
+      "checksum": "sha1:245be1f1f83cab96393d9117d79d30cf3cfd9b14",
+      "description": "ElectronHad AOD dataset file index (1 of 4) for access to data via CMS virtual machine",
+      "size": 774,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/ElectronHad/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_ElectronHad_AOD_12Oct2013-v1_00000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:5950e145f24e6d6141042a598143e1f201151f2c",
+      "description": "ElectronHad AOD dataset file index (2 of 4) for access to data via CMS virtual machine",
+      "size": 18060,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/ElectronHad/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_ElectronHad_AOD_12Oct2013-v1_10000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:8c808e9f3e34e5e66e84778ecfc76b73a8d28540",
+      "description": "ElectronHad AOD dataset file index (3 of 4) for access to data via CMS virtual machine",
+      "size": 128871,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/ElectronHad/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_ElectronHad_AOD_12Oct2013-v1_20000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:948e3199b8d95de49ede564203c7011230c523aa",
+      "description": "ElectronHad AOD dataset file index (4 of 4) for access to data via CMS virtual machine",
+      "size": 92880,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/ElectronHad/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_ElectronHad_AOD_12Oct2013-v1_20001_file_index.txt"
+    }
+  ],
+  "license": {
+    "attribution": "CC0"
+  },
+  "methodology": {
+    "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1701\">HLT configuration</a>.</p><p><strong>Data processing / RECO</strong><br/>This primary AOD dataset was processed from the RAW dataset by the following step (identical to 2011 RunA): <br/>Step: RECO<br/>Release: CMSSW_5_3_7_patch5<br/>Global tag: FT_R_53_V18::All\n        <br/><a href=\"/record/3607\">Configuration file for RECO step reco_2011A_ElectronHad</a>\n        </p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_DoubleEle8_CaloIdL_TrkIdVL\">HLT_DoubleEle8_CaloIdL_TrkIdVL</a><br/><a href=\"/search?q=HLT_DoubleEle8_CaloIdL_TrkIdVL_HT150\">HLT_DoubleEle8_CaloIdL_TrkIdVL_HT150</a><br/><a href=\"/search?q=HLT_DoubleEle8_CaloIdL_TrkIdVL_HT160\">HLT_DoubleEle8_CaloIdL_TrkIdVL_HT160</a><br/><a href=\"/search?q=HLT_DoubleEle8_CaloIdT_TrkIdVL\">HLT_DoubleEle8_CaloIdT_TrkIdVL</a><br/><a href=\"/search?q=HLT_DoubleEle8_CaloIdT_TrkIdVL_HT150\">HLT_DoubleEle8_CaloIdT_TrkIdVL_HT150</a><br/><a href=\"/search?q=HLT_DoubleEle8_CaloIdT_TrkIdVL_HT160\">HLT_DoubleEle8_CaloIdT_TrkIdVL_HT160</a><br/><a href=\"/search?q=HLT_DoubleEle8_CaloIdT_TrkIdVL_Mass4_HT150\">HLT_DoubleEle8_CaloIdT_TrkIdVL_Mass4_HT150</a><br/><a href=\"/search?q=HLT_DoubleEle8_CaloIdT_TrkIdVL_Mass8_HT150\">HLT_DoubleEle8_CaloIdT_TrkIdVL_Mass8_HT150</a><br/><a href=\"/search?q=HLT_DoubleEle8_CaloIdT_TrkIdVL_Mass8_HT200\">HLT_DoubleEle8_CaloIdT_TrkIdVL_Mass8_HT200</a><br/><a href=\"/search?q=HLT_Ele10_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL_HT200\">HLT_Ele10_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL_HT200</a><br/><a href=\"/search?q=HLT_Ele10_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL_R005_MR200\">HLT_Ele10_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL_R005_MR200</a><br/><a href=\"/search?q=HLT_Ele10_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL_R025_MR200\">HLT_Ele10_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL_R025_MR200</a><br/><a href=\"/search?q=HLT_Ele10_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL_R029_MR200\">HLT_Ele10_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL_R029_MR200</a><br/><a href=\"/search?q=HLT_Ele10_CaloIdL_TrkIdVL_CaloIsoVL_TrkIsoVL_R005_MR200\">HLT_Ele10_CaloIdL_TrkIdVL_CaloIsoVL_TrkIsoVL_R005_MR200</a><br/><a href=\"/search?q=HLT_Ele10_CaloIdL_TrkIdVL_CaloIsoVL_TrkIsoVL_R020_MR200\">HLT_Ele10_CaloIdL_TrkIdVL_CaloIsoVL_TrkIsoVL_R020_MR200</a><br/><a href=\"/search?q=HLT_Ele10_CaloIdL_TrkIdVL_CaloIsoVL_TrkIsoVL_R025_MR200\">HLT_Ele10_CaloIdL_TrkIdVL_CaloIsoVL_TrkIsoVL_R025_MR200</a><br/><a href=\"/search?q=HLT_Ele10_CaloIdT_CaloIsoVL_TrkIdT_TrkIsoVL_HT200\">HLT_Ele10_CaloIdT_CaloIsoVL_TrkIdT_TrkIsoVL_HT200</a><br/><a href=\"/search?q=HLT_Ele10_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL_R020_MR200\">HLT_Ele10_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL_R020_MR200</a><br/><a href=\"/search?q=HLT_Ele12_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL_R005_MR200\">HLT_Ele12_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL_R005_MR200</a><br/><a href=\"/search?q=HLT_Ele12_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL_R014_MR200\">HLT_Ele12_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL_R014_MR200</a><br/><a href=\"/search?q=HLT_Ele12_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL_R025_MR200\">HLT_Ele12_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL_R025_MR200</a><br/><a href=\"/search?q=HLT_Ele12_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL_R029_MR200\">HLT_Ele12_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL_R029_MR200</a><br/><a href=\"/search?q=HLT_Ele12_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL_R033_MR200\">HLT_Ele12_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL_R033_MR200</a><br/><a href=\"/search?q=HLT_Ele15_CaloIdT_CaloIsoVL_TrkIdT_TrkIsoVL\">HLT_Ele15_CaloIdT_CaloIsoVL_TrkIdT_TrkIsoVL</a><br/><a href=\"/search?q=HLT_Ele15_CaloIdT_CaloIsoVL_TrkIdT_TrkIsoVL_HT200\">HLT_Ele15_CaloIdT_CaloIsoVL_TrkIdT_TrkIsoVL_HT200</a><br/><a href=\"/search?q=HLT_Ele15_CaloIdT_CaloIsoVL_TrkIdT_TrkIsoVL_HT250\">HLT_Ele15_CaloIdT_CaloIsoVL_TrkIdT_TrkIsoVL_HT250</a><br/><a href=\"/search?q=HLT_Ele15_CaloIdT_CaloIsoVL_TrkIdT_TrkIsoVL_HT250_PFMHT25\">HLT_Ele15_CaloIdT_CaloIsoVL_TrkIdT_TrkIsoVL_HT250_PFMHT25</a><br/><a href=\"/search?q=HLT_Ele15_CaloIdT_CaloIsoVL_TrkIdT_TrkIsoVL_HT250_PFMHT40\">HLT_Ele15_CaloIdT_CaloIsoVL_TrkIdT_TrkIsoVL_HT250_PFMHT40</a><br/><a href=\"/search?q=HLT_Ele15_CaloIdT_CaloIsoVL_TrkIdT_TrkIsoVL_HT250_PFMHT50\">HLT_Ele15_CaloIdT_CaloIsoVL_TrkIdT_TrkIsoVL_HT250_PFMHT50</a><br/><a href=\"/search?q=HLT_Ele15_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_Jet35_Jet25_Deta2\">HLT_Ele15_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_Jet35_Jet25_Deta2</a><br/><a href=\"/search?q=HLT_Ele15_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_Jet35_Jet25_Deta3\">HLT_Ele15_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_Jet35_Jet25_Deta3</a><br/><a href=\"/search?q=HLT_Ele15_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_Jet35_Jet25_Deta3_Jet20\">HLT_Ele15_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_Jet35_Jet25_Deta3_Jet20</a><br/><a href=\"/search?q=HLT_Ele15_CaloIdVT_TrkIdT_Jet35_Jet25_Deta2\">HLT_Ele15_CaloIdVT_TrkIdT_Jet35_Jet25_Deta2</a><br/><a href=\"/search?q=HLT_Ele15_CaloIdVT_TrkIdT_Jet35_Jet25_Deta3_Jet20\">HLT_Ele15_CaloIdVT_TrkIdT_Jet35_Jet25_Deta3_Jet20</a><br/><a href=\"/search?q=HLT_Ele17_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_CentralJet30_CentralJet25_PFMHT15\">HLT_Ele17_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_CentralJet30_CentralJet25_PFMHT15</a><br/><a href=\"/search?q=HLT_Ele17_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_Jet35_Jet25_Deta3p5_Jet25\">HLT_Ele17_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_Jet35_Jet25_Deta3p5_Jet25</a><br/><a href=\"/search?q=HLT_Ele17_CaloIdVT_TrkIdT_CentralJet30_CentralJet25\">HLT_Ele17_CaloIdVT_TrkIdT_CentralJet30_CentralJet25</a><br/><a href=\"/search?q=HLT_Ele20_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_Jet35_Jet25_Deta3_Jet20\">HLT_Ele20_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_Jet35_Jet25_Deta3_Jet20</a><br/><a href=\"/search?q=HLT_Ele22_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_CentralJet30_CentralJet25\">HLT_Ele22_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_CentralJet30_CentralJet25</a><br/><a href=\"/search?q=HLT_Ele22_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_CentralJet30_CentralJet25_PFMHT20\">HLT_Ele22_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_CentralJet30_CentralJet25_PFMHT20</a><br/><a href=\"/search?q=HLT_Ele22_CaloIdVT_TrkIdT_CentralJet30_CentralJet25\">HLT_Ele22_CaloIdVT_TrkIdT_CentralJet30_CentralJet25</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_CentralJet30\">HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_CentralJet30</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_CentralJet30_BTagIP\">HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_CentralJet30_BTagIP</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_CentralJet30_CentralJet25_PFMHT20\">HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_CentralJet30_CentralJet25_PFMHT20</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_CentralPFJet30\">HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_CentralPFJet30</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_DiCentralJet30\">HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_DiCentralJet30</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_DiCentralJet30_PFMHT25\">HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_DiCentralJet30_PFMHT25</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_DiCentralPFJet30\">HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_DiCentralPFJet30</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_QuadCentralJet30\">HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_QuadCentralJet30</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_QuadCentralPFJet30\">HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_QuadCentralPFJet30</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_TriCentralJet30\">HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_TriCentralJet30</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_TriCentralPFJet30\">HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_TriCentralPFJet30</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_TrkIdT_CentralDiJet30\">HLT_Ele25_CaloIdVT_TrkIdT_CentralDiJet30</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_TrkIdT_CentralJet30\">HLT_Ele25_CaloIdVT_TrkIdT_CentralJet30</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_TrkIdT_CentralJet30_BTagIP\">HLT_Ele25_CaloIdVT_TrkIdT_CentralJet30_BTagIP</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_TrkIdT_CentralJet40_BTagIP\">HLT_Ele25_CaloIdVT_TrkIdT_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_TrkIdT_CentralPFJet30\">HLT_Ele25_CaloIdVT_TrkIdT_CentralPFJet30</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_TrkIdT_CentralTriJet30\">HLT_Ele25_CaloIdVT_TrkIdT_CentralTriJet30</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_TrkIdT_DiCentralJet30\">HLT_Ele25_CaloIdVT_TrkIdT_DiCentralJet30</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_TrkIdT_DiCentralPFJet30\">HLT_Ele25_CaloIdVT_TrkIdT_DiCentralPFJet30</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_TrkIdT_QuadCentralJet30\">HLT_Ele25_CaloIdVT_TrkIdT_QuadCentralJet30</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_TrkIdT_QuadCentralPFJet30\">HLT_Ele25_CaloIdVT_TrkIdT_QuadCentralPFJet30</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_TrkIdT_TriCentralJet30\">HLT_Ele25_CaloIdVT_TrkIdT_TriCentralJet30</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_TrkIdT_TriCentralPFJet30\">HLT_Ele25_CaloIdVT_TrkIdT_TriCentralPFJet30</a><br/><a href=\"/search?q=HLT_Ele27_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_CentralJet30_CentralJet25\">HLT_Ele27_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_CentralJet30_CentralJet25</a><br/><a href=\"/search?q=HLT_Ele27_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_CentralJet30_CentralJet25_PFMHT20\">HLT_Ele27_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_CentralJet30_CentralJet25_PFMHT20</a><br/><a href=\"/search?q=HLT_Ele27_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_Jet35_Jet25_Deta3_Jet20\">HLT_Ele27_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_Jet35_Jet25_Deta3_Jet20</a><br/><a href=\"/search?q=HLT_Ele27_CaloIdVT_TrkIdT_CentralJet30_CentralJet25\">HLT_Ele27_CaloIdVT_TrkIdT_CentralJet30_CentralJet25</a><br/><a href=\"/search?q=HLT_Ele27_CaloIdVT_TrkIdT_DiCentralPFJet25\">HLT_Ele27_CaloIdVT_TrkIdT_DiCentralPFJet25</a><br/><a href=\"/search?q=HLT_Ele27_CaloIdVT_TrkIdT_DiPFJet25_Deta3\">HLT_Ele27_CaloIdVT_TrkIdT_DiPFJet25_Deta3</a><br/><a href=\"/search?q=HLT_Ele27_CaloIdVT_TrkIdT_Jet35_Jet25_Deta3_Jet20\">HLT_Ele27_CaloIdVT_TrkIdT_Jet35_Jet25_Deta3_Jet20</a><br/><a href=\"/search?q=HLT_Ele27_WP80_DiCentralPFJet25\">HLT_Ele27_WP80_DiCentralPFJet25</a><br/><a href=\"/search?q=HLT_Ele27_WP80_DiCentralPFJet25_PFMHT15\">HLT_Ele27_WP80_DiCentralPFJet25_PFMHT15</a><br/><a href=\"/search?q=HLT_Ele27_WP80_DiPFJet25_Deta3\">HLT_Ele27_WP80_DiPFJet25_Deta3</a><br/><a href=\"/search?q=HLT_Ele30_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_DiCentralJet30_PFMHT25\">HLT_Ele30_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_DiCentralJet30_PFMHT25</a><br/><a href=\"/search?q=HLT_Ele30_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_Jet35_Jet25_Deta3p5_Jet25\">HLT_Ele30_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_Jet35_Jet25_Deta3p5_Jet25</a><br/><a href=\"/search?q=HLT_Ele32_WP80_DiCentralPFJet25_PFMHT25\">HLT_Ele32_WP80_DiCentralPFJet25_PFMHT25</a><br/><a href=\"/search?q=HLT_Ele32_WP80_DiPFJet25_Deta3p5\">HLT_Ele32_WP80_DiPFJet25_Deta3p5</a><br/><a href=\"/search?q=HLT_Ele8_CaloIdT_TrkIdT_DiJet30\">HLT_Ele8_CaloIdT_TrkIdT_DiJet30</a><br/><a href=\"/search?q=HLT_Ele8_CaloIdT_TrkIdT_QuadJet30\">HLT_Ele8_CaloIdT_TrkIdT_QuadJet30</a><br/><a href=\"/search?q=HLT_Ele8_CaloIdT_TrkIdT_TriJet30\">HLT_Ele8_CaloIdT_TrkIdT_TriJet30</a><br/><a href=\"/search?q=HLT_HT200_DoubleEle5_CaloIdVL_MassJPsi\">HLT_HT200_DoubleEle5_CaloIdVL_MassJPsi</a><br/><a href=\"/search?q=HLT_HT200_Ele5_CaloIdVL_TrkIdVL_CaloIsoVL_TrkIsoVL_PFMHT35\">HLT_HT200_Ele5_CaloIdVL_TrkIdVL_CaloIsoVL_TrkIsoVL_PFMHT35</a><br/><a href=\"/search?q=HLT_HT250_Ele5_CaloIdVL_TrkIdVL_CaloIsoVL_TrkIsoVL_PFMHT35\">HLT_HT250_Ele5_CaloIdVL_TrkIdVL_CaloIsoVL_TrkIsoVL_PFMHT35</a><br/><a href=\"/search?q=HLT_HT300_Ele5_CaloIdVL_CaloIsoVL_TrkIdVL_TrkIsoVL_PFMHT40\">HLT_HT300_Ele5_CaloIdVL_CaloIsoVL_TrkIdVL_TrkIsoVL_PFMHT40</a><br/><a href=\"/search?q=HLT_HT300_Ele5_CaloIdVL_TrkIdVL_CaloIsoVL_TrkIsoVL_PFMHT40\">HLT_HT300_Ele5_CaloIdVL_TrkIdVL_CaloIsoVL_TrkIsoVL_PFMHT40</a><br/><a href=\"/search?q=HLT_HT350_Ele30_CaloIdT_TrkIdT\">HLT_HT350_Ele30_CaloIdT_TrkIdT</a><br/><a href=\"/search?q=HLT_HT350_Ele5_CaloIdVL_CaloIsoVL_TrkIdVL_TrkIsoVL_PFMHT45\">HLT_HT350_Ele5_CaloIdVL_CaloIsoVL_TrkIdVL_TrkIsoVL_PFMHT45</a><br/><a href=\"/search?q=HLT_HT350_Ele5_CaloIdVL_TrkIdVL_CaloIsoVL_TrkIsoVL_PFMHT45\">HLT_HT350_Ele5_CaloIdVL_TrkIdVL_CaloIsoVL_TrkIsoVL_PFMHT45</a><br/><a href=\"/search?q=HLT_HT400_Ele5_CaloIdVL_CaloIsoVL_TrkIdVL_TrkIsoVL_PFMHT50\">HLT_HT400_Ele5_CaloIdVL_CaloIsoVL_TrkIdVL_TrkIsoVL_PFMHT50</a><br/><a href=\"/search?q=HLT_HT400_Ele60_CaloIdT_TrkIdT\">HLT_HT400_Ele60_CaloIdT_TrkIdT</a><br/><a href=\"/search?q=HLT_HT450_Ele60_CaloIdT_TrkIdT\">HLT_HT450_Ele60_CaloIdT_TrkIdT</a></p>"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "273",
+  "run_period": [
+    "Run2011B"
+  ],
+  "system_details": {
+    "global_tag": "FT_53_LV5_AN1",
+    "release": "CMSSW_5_3_32"
+  },
+  "title": "/ElectronHad/Run2011B-12Oct2013-v1/AOD",
+  "title_additional": "ElectronHad primary dataset in AOD format from RunB of 2011 (/ElectronHad/Run2011B-12Oct2013-v1/AOD)",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Collision"
+    ]
+  },
+  "usage": {
+    "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+    "links": [
+      {
+        "description": "How to install the CMS Virtual Machine",
+        "url": "/vm/cms/2011"
+      },
+      {
+        "description": "Getting started with CMS open data",
+        "url": "/getting-started/cms/2011"
+      }
+    ]
+  },
+  "validation": {
+    "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+    "links": [
+      {
+        "description": "CMS data quality monitoring: Systems and experiences",
+        "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+      },
+      {
+        "description": "The CMS Data Quality Monitoring software experience and future improvements",
+        "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+      },
+      {
+        "description": "The CMS data quality monitoring software: experience and future prospects",
+        "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "<p>HT primary dataset in AOD format from RunB of 2011. Run period from run number 175833 to 180252.</p><p>This dataset contains all runs from 2011 RunB. The list of validated runs, which must be applied to all analyses, can be found in</p>",
+    "links": [
+      {
+        "recid": "1001"
+      }
+    ]
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "CMS collaboration",
+    "recid": "451"
+  },
+  "collections": [
+    "CMS-Primary-Datasets"
+  ],
+  "collision_information": {
+    "energy": "7TeV",
+    "type": "pp"
+  },
+  "date_created": [
+    "2011"
+  ],
+  "date_published": "2020",
+  "date_reprocessed": "2011",
+  "distribution": {
+    "formats": [
+      "aod",
+      "root"
+    ],
+    "number_events": 44369193,
+    "number_files": 2918,
+    "size": 11127625633948
+  },
+  "doi": "10.7483/OPENDATA.CMS.8RRH.4MCC",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:285c14900f4033274702cb2202ebb396ddf16f89",
+      "description": "HT AOD dataset file index (1 of 5) for access to data via CMS virtual machine",
+      "size": 265,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/HT/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_HT_AOD_12Oct2013-v1_00000_file_index.json"
+    },
+    {
+      "checksum": "sha1:25a3c0a3044e2f5ee6e9bcb3a9c4e9d2858cc415",
+      "description": "HT AOD dataset file index (2 of 5) for access to data via CMS virtual machine",
+      "size": 7075,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/HT/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_HT_AOD_12Oct2013-v1_10000_file_index.json"
+    },
+    {
+      "checksum": "sha1:bc2e14e6fd49c5611c2f63254622d72c69d4fad2",
+      "description": "HT AOD dataset file index (3 of 5) for access to data via CMS virtual machine",
+      "size": 262740,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/HT/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_HT_AOD_12Oct2013-v1_20000_file_index.json"
+    },
+    {
+      "checksum": "sha1:5b4426b3a334c8401dc5dbd0502b1afcac03fff3",
+      "description": "HT AOD dataset file index (4 of 5) for access to data via CMS virtual machine",
+      "size": 263003,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/HT/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_HT_AOD_12Oct2013-v1_20001_file_index.json"
+    },
+    {
+      "checksum": "sha1:e69658585498300935c517865262a3748baeb51f",
+      "description": "HT AOD dataset file index (5 of 5) for access to data via CMS virtual machine",
+      "size": 234336,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/HT/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_HT_AOD_12Oct2013-v1_20002_file_index.json"
+    },
+    {
+      "checksum": "sha1:a608c12e5d1ecdedecbfb00e08879f99370dda9f",
+      "description": "HT AOD dataset file index (1 of 5) for access to data via CMS virtual machine",
+      "size": 120,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/HT/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_HT_AOD_12Oct2013-v1_00000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:64c60bd9f681e120dfc35ab3bf6e5a4cd8afd5ed",
+      "description": "HT AOD dataset file index (2 of 5) for access to data via CMS virtual machine",
+      "size": 3240,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/HT/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_HT_AOD_12Oct2013-v1_10000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:1af5ef722ade1d76073833eaabd2d35286320f35",
+      "description": "HT AOD dataset file index (3 of 5) for access to data via CMS virtual machine",
+      "size": 119880,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/HT/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_HT_AOD_12Oct2013-v1_20000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:8c29410f50f69cadc3531988ba65010a7147f60e",
+      "description": "HT AOD dataset file index (4 of 5) for access to data via CMS virtual machine",
+      "size": 120000,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/HT/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_HT_AOD_12Oct2013-v1_20001_file_index.txt"
+    },
+    {
+      "checksum": "sha1:01bded7020290aed3cf5a57998b781e4c172d2e9",
+      "description": "HT AOD dataset file index (5 of 5) for access to data via CMS virtual machine",
+      "size": 106920,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/HT/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_HT_AOD_12Oct2013-v1_20002_file_index.txt"
+    }
+  ],
+  "license": {
+    "attribution": "CC0"
+  },
+  "methodology": {
+    "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1701\">HLT configuration</a>.</p><p><strong>Data processing / RECO</strong><br/>This primary AOD dataset was processed from the RAW dataset by the following step (identical to 2011 RunA): <br/>Step: RECO<br/>Release: CMSSW_5_3_7_patch5<br/>Global tag: FT_R_53_V18::All\n        <br/><a href=\"/record/3613\">Configuration file for RECO step reco_2011A_HT</a>\n        </p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_DiJet100_PT100\">HLT_DiJet100_PT100</a><br/><a href=\"/search?q=HLT_DiJet130_PT130\">HLT_DiJet130_PT130</a><br/><a href=\"/search?q=HLT_DiJet160_PT160\">HLT_DiJet160_PT160</a><br/><a href=\"/search?q=HLT_DiJet70_PT70\">HLT_DiJet70_PT70</a><br/><a href=\"/search?q=HLT_FatJetMass300_DR1p1_Deta2p0_CentralJet30_BTagIP\">HLT_FatJetMass300_DR1p1_Deta2p0_CentralJet30_BTagIP</a><br/><a href=\"/search?q=HLT_FatJetMass350_DR1p1_Deta2p0_CentralJet30_BTagIP\">HLT_FatJetMass350_DR1p1_Deta2p0_CentralJet30_BTagIP</a><br/><a href=\"/search?q=HLT_FatJetMass750_DR1p1_Deta2p0\">HLT_FatJetMass750_DR1p1_Deta2p0</a><br/><a href=\"/search?q=HLT_FatJetMass850_DR1p1_Deta2p0\">HLT_FatJetMass850_DR1p1_Deta2p0</a><br/><a href=\"/search?q=HLT_HT150\">HLT_HT150</a><br/><a href=\"/search?q=HLT_HT150_AlphaT0p60\">HLT_HT150_AlphaT0p60</a><br/><a href=\"/search?q=HLT_HT150_AlphaT0p70\">HLT_HT150_AlphaT0p70</a><br/><a href=\"/search?q=HLT_HT160\">HLT_HT160</a><br/><a href=\"/search?q=HLT_HT200\">HLT_HT200</a><br/><a href=\"/search?q=HLT_HT2000\">HLT_HT2000</a><br/><a href=\"/search?q=HLT_HT200_AlphaT0p53\">HLT_HT200_AlphaT0p53</a><br/><a href=\"/search?q=HLT_HT200_AlphaT0p55\">HLT_HT200_AlphaT0p55</a><br/><a href=\"/search?q=HLT_HT200_AlphaT0p60\">HLT_HT200_AlphaT0p60</a><br/><a href=\"/search?q=HLT_HT200_AlphaT0p65\">HLT_HT200_AlphaT0p65</a><br/><a href=\"/search?q=HLT_HT240\">HLT_HT240</a><br/><a href=\"/search?q=HLT_HT250\">HLT_HT250</a><br/><a href=\"/search?q=HLT_HT250_AlphaT0p53\">HLT_HT250_AlphaT0p53</a><br/><a href=\"/search?q=HLT_HT250_AlphaT0p54\">HLT_HT250_AlphaT0p54</a><br/><a href=\"/search?q=HLT_HT250_AlphaT0p55\">HLT_HT250_AlphaT0p55</a><br/><a href=\"/search?q=HLT_HT250_AlphaT0p58\">HLT_HT250_AlphaT0p58</a><br/><a href=\"/search?q=HLT_HT250_AlphaT0p60\">HLT_HT250_AlphaT0p60</a><br/><a href=\"/search?q=HLT_HT250_AlphaT0p62\">HLT_HT250_AlphaT0p62</a><br/><a href=\"/search?q=HLT_HT250_AlphaT0p65\">HLT_HT250_AlphaT0p65</a><br/><a href=\"/search?q=HLT_HT250_DoubleDisplacedJet60\">HLT_HT250_DoubleDisplacedJet60</a><br/><a href=\"/search?q=HLT_HT250_DoubleDisplacedJet60_PromptTrack\">HLT_HT250_DoubleDisplacedJet60_PromptTrack</a><br/><a href=\"/search?q=HLT_HT250_MHT100\">HLT_HT250_MHT100</a><br/><a href=\"/search?q=HLT_HT250_MHT60\">HLT_HT250_MHT60</a><br/><a href=\"/search?q=HLT_HT250_MHT70\">HLT_HT250_MHT70</a><br/><a href=\"/search?q=HLT_HT250_MHT80\">HLT_HT250_MHT80</a><br/><a href=\"/search?q=HLT_HT250_MHT90\">HLT_HT250_MHT90</a><br/><a href=\"/search?q=HLT_HT260\">HLT_HT260</a><br/><a href=\"/search?q=HLT_HT260_MHT60\">HLT_HT260_MHT60</a><br/><a href=\"/search?q=HLT_HT300\">HLT_HT300</a><br/><a href=\"/search?q=HLT_HT300_AlphaT0p52\">HLT_HT300_AlphaT0p52</a><br/><a href=\"/search?q=HLT_HT300_AlphaT0p53\">HLT_HT300_AlphaT0p53</a><br/><a href=\"/search?q=HLT_HT300_AlphaT0p54\">HLT_HT300_AlphaT0p54</a><br/><a href=\"/search?q=HLT_HT300_AlphaT0p55\">HLT_HT300_AlphaT0p55</a><br/><a href=\"/search?q=HLT_HT300_AlphaT0p60\">HLT_HT300_AlphaT0p60</a><br/><a href=\"/search?q=HLT_HT300_CentralJet30_BTagIP\">HLT_HT300_CentralJet30_BTagIP</a><br/><a href=\"/search?q=HLT_HT300_CentralJet30_BTagIP_PFMHT55\">HLT_HT300_CentralJet30_BTagIP_PFMHT55</a><br/><a href=\"/search?q=HLT_HT300_CentralJet30_BTagIP_PFMHT65\">HLT_HT300_CentralJet30_BTagIP_PFMHT65</a><br/><a href=\"/search?q=HLT_HT300_CentralJet30_BTagIP_PFMHT75\">HLT_HT300_CentralJet30_BTagIP_PFMHT75</a><br/><a href=\"/search?q=HLT_HT300_MHT75\">HLT_HT300_MHT75</a><br/><a href=\"/search?q=HLT_HT300_MHT80\">HLT_HT300_MHT80</a><br/><a href=\"/search?q=HLT_HT300_MHT90\">HLT_HT300_MHT90</a><br/><a href=\"/search?q=HLT_HT300_PFMHT55\">HLT_HT300_PFMHT55</a><br/><a href=\"/search?q=HLT_HT300_PFMHT65\">HLT_HT300_PFMHT65</a><br/><a href=\"/search?q=HLT_HT350\">HLT_HT350</a><br/><a href=\"/search?q=HLT_HT350_AlphaT0p51\">HLT_HT350_AlphaT0p51</a><br/><a href=\"/search?q=HLT_HT350_AlphaT0p52\">HLT_HT350_AlphaT0p52</a><br/><a href=\"/search?q=HLT_HT350_AlphaT0p53\">HLT_HT350_AlphaT0p53</a><br/><a href=\"/search?q=HLT_HT350_L1FastJet\">HLT_HT350_L1FastJet</a><br/><a href=\"/search?q=HLT_HT350_L1FastJet_MHT100\">HLT_HT350_L1FastJet_MHT100</a><br/><a href=\"/search?q=HLT_HT350_L1FastJet_MHT110\">HLT_HT350_L1FastJet_MHT110</a><br/><a href=\"/search?q=HLT_HT350_MHT100\">HLT_HT350_MHT100</a><br/><a href=\"/search?q=HLT_HT350_MHT110\">HLT_HT350_MHT110</a><br/><a href=\"/search?q=HLT_HT350_MHT70\">HLT_HT350_MHT70</a><br/><a href=\"/search?q=HLT_HT350_MHT80\">HLT_HT350_MHT80</a><br/><a href=\"/search?q=HLT_HT350_MHT90\">HLT_HT350_MHT90</a><br/><a href=\"/search?q=HLT_HT360\">HLT_HT360</a><br/><a href=\"/search?q=HLT_HT400\">HLT_HT400</a><br/><a href=\"/search?q=HLT_HT400_AlphaT0p51\">HLT_HT400_AlphaT0p51</a><br/><a href=\"/search?q=HLT_HT400_AlphaT0p52\">HLT_HT400_AlphaT0p52</a><br/><a href=\"/search?q=HLT_HT400_L1FastJet\">HLT_HT400_L1FastJet</a><br/><a href=\"/search?q=HLT_HT400_L1FastJet_MHT100\">HLT_HT400_L1FastJet_MHT100</a><br/><a href=\"/search?q=HLT_HT400_L1FastJet_MHT90\">HLT_HT400_L1FastJet_MHT90</a><br/><a href=\"/search?q=HLT_HT400_MHT100\">HLT_HT400_MHT100</a><br/><a href=\"/search?q=HLT_HT400_MHT80\">HLT_HT400_MHT80</a><br/><a href=\"/search?q=HLT_HT400_MHT90\">HLT_HT400_MHT90</a><br/><a href=\"/search?q=HLT_HT440\">HLT_HT440</a><br/><a href=\"/search?q=HLT_HT450\">HLT_HT450</a><br/><a href=\"/search?q=HLT_HT450_AlphaT0p51\">HLT_HT450_AlphaT0p51</a><br/><a href=\"/search?q=HLT_HT450_AlphaT0p52\">HLT_HT450_AlphaT0p52</a><br/><a href=\"/search?q=HLT_HT500\">HLT_HT500</a><br/><a href=\"/search?q=HLT_HT500_JetPt60_DPhi2p94\">HLT_HT500_JetPt60_DPhi2p94</a><br/><a href=\"/search?q=HLT_HT520\">HLT_HT520</a><br/><a href=\"/search?q=HLT_HT550\">HLT_HT550</a><br/><a href=\"/search?q=HLT_HT550_JetPt60_DPhi2p94\">HLT_HT550_JetPt60_DPhi2p94</a><br/><a href=\"/search?q=HLT_HT600\">HLT_HT600</a><br/><a href=\"/search?q=HLT_HT600_JetPt60_DPhi2p94\">HLT_HT600_JetPt60_DPhi2p94</a><br/><a href=\"/search?q=HLT_HT650\">HLT_HT650</a><br/><a href=\"/search?q=HLT_HT700\">HLT_HT700</a><br/><a href=\"/search?q=HLT_HT750\">HLT_HT750</a><br/><a href=\"/search?q=HLT_HT750_L1FastJet\">HLT_HT750_L1FastJet</a><br/><a href=\"/search?q=HLT_MR100\">HLT_MR100</a><br/><a href=\"/search?q=HLT_Meff440\">HLT_Meff440</a><br/><a href=\"/search?q=HLT_Meff520\">HLT_Meff520</a><br/><a href=\"/search?q=HLT_Meff640\">HLT_Meff640</a><br/><a href=\"/search?q=HLT_PFHT350_PFMHT100\">HLT_PFHT350_PFMHT100</a><br/><a href=\"/search?q=HLT_PFHT350_PFMHT90\">HLT_PFHT350_PFMHT90</a><br/><a href=\"/search?q=HLT_PFHT400_PFMHT80\">HLT_PFHT400_PFMHT80</a><br/><a href=\"/search?q=HLT_PFHT400_PFMHT90\">HLT_PFHT400_PFMHT90</a><br/><a href=\"/search?q=HLT_PFHT650\">HLT_PFHT650</a><br/><a href=\"/search?q=HLT_R014_MR150\">HLT_R014_MR150</a><br/><a href=\"/search?q=HLT_R014_MR150_CentralJet40_BTagIP\">HLT_R014_MR150_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_R014_MR450_CentralJet40_BTagIP\">HLT_R014_MR450_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_R017_MR450_CentralJet40_BTagIP\">HLT_R017_MR450_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_R017_MR500_CentralJet40_BTagIP\">HLT_R017_MR500_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_R020_MR150\">HLT_R020_MR150</a><br/><a href=\"/search?q=HLT_R020_MR350_CentralJet40_BTagIP\">HLT_R020_MR350_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_R020_MR500\">HLT_R020_MR500</a><br/><a href=\"/search?q=HLT_R020_MR550\">HLT_R020_MR550</a><br/><a href=\"/search?q=HLT_R023_MR350_CentralJet40_BTagIP\">HLT_R023_MR350_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_R023_MR400_CentralJet40_BTagIP\">HLT_R023_MR400_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_R023_MR550\">HLT_R023_MR550</a><br/><a href=\"/search?q=HLT_R025_MR150\">HLT_R025_MR150</a><br/><a href=\"/search?q=HLT_R025_MR250_CentralJet40_BTagIP\">HLT_R025_MR250_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_R025_MR400\">HLT_R025_MR400</a><br/><a href=\"/search?q=HLT_R025_MR450\">HLT_R025_MR450</a><br/><a href=\"/search?q=HLT_R029_MR250_CentralJet40_BTagIP\">HLT_R029_MR250_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_R029_MR300_CentralJet40_BTagIP\">HLT_R029_MR300_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_R029_MR450\">HLT_R029_MR450</a><br/><a href=\"/search?q=HLT_R032\">HLT_R032</a><br/><a href=\"/search?q=HLT_R032_MR100\">HLT_R032_MR100</a><br/><a href=\"/search?q=HLT_R033_MR200_CentralJet40_BTagIP\">HLT_R033_MR200_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_R033_MR300\">HLT_R033_MR300</a><br/><a href=\"/search?q=HLT_R033_MR350\">HLT_R033_MR350</a><br/><a href=\"/search?q=HLT_R035_MR100\">HLT_R035_MR100</a><br/><a href=\"/search?q=HLT_R036_MR200_CentralJet40_BTagIP\">HLT_R036_MR200_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_R036_MR350\">HLT_R036_MR350</a><br/><a href=\"/search?q=HLT_R038_MR200\">HLT_R038_MR200</a><br/><a href=\"/search?q=HLT_R038_MR250\">HLT_R038_MR250</a><br/><a href=\"/search?q=HLT_R038_MR300\">HLT_R038_MR300</a><br/><a href=\"/search?q=HLT_R042_MR250\">HLT_R042_MR250</a><br/><a href=\"/search?q=HLT_RMR65\">HLT_RMR65</a></p>"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "274",
+  "run_period": [
+    "Run2011B"
+  ],
+  "system_details": {
+    "global_tag": "FT_53_LV5_AN1",
+    "release": "CMSSW_5_3_32"
+  },
+  "title": "/HT/Run2011B-12Oct2013-v1/AOD",
+  "title_additional": "HT primary dataset in AOD format from RunB of 2011 (/HT/Run2011B-12Oct2013-v1/AOD)",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Collision"
+    ]
+  },
+  "usage": {
+    "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+    "links": [
+      {
+        "description": "How to install the CMS Virtual Machine",
+        "url": "/vm/cms/2011"
+      },
+      {
+        "description": "Getting started with CMS open data",
+        "url": "/getting-started/cms/2011"
+      }
+    ]
+  },
+  "validation": {
+    "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+    "links": [
+      {
+        "description": "CMS data quality monitoring: Systems and experiences",
+        "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+      },
+      {
+        "description": "The CMS Data Quality Monitoring software experience and future improvements",
+        "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+      },
+      {
+        "description": "The CMS data quality monitoring software: experience and future prospects",
+        "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "<p>Jet primary dataset in AOD format from RunB of 2011. Run period from run number 175833 to 180252.</p><p>This dataset contains all runs from 2011 RunB. The list of validated runs, which must be applied to all analyses, can be found in</p>",
+    "links": [
+      {
+        "recid": "1001"
+      }
+    ]
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "CMS collaboration",
+    "recid": "451"
+  },
+  "collections": [
+    "CMS-Primary-Datasets"
+  ],
+  "collision_information": {
+    "energy": "7TeV",
+    "type": "pp"
+  },
+  "date_created": [
+    "2011"
+  ],
+  "date_published": "2020",
+  "date_reprocessed": "2011",
+  "distribution": {
+    "formats": [
+      "aod",
+      "root"
+    ],
+    "number_events": 13325487,
+    "number_files": 820,
+    "size": 3072859754676
+  },
+  "doi": "10.7483/OPENDATA.CMS.5JYA.HKSG",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:56e0adca9cc29b19e446fae868ff96e276d38933",
+      "description": "Jet AOD dataset file index (1 of 2) for access to data via CMS virtual machine",
+      "size": 266,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/Jet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_Jet_AOD_12Oct2013-v1_00000_file_index.json"
+    },
+    {
+      "checksum": "sha1:1c6aa5536a908e775fdcd7b34bf47270d943d22c",
+      "description": "Jet AOD dataset file index (2 of 2) for access to data via CMS virtual machine",
+      "size": 216219,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/Jet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_Jet_AOD_12Oct2013-v1_20000_file_index.json"
+    },
+    {
+      "checksum": "sha1:23e208790676a0b0014c1fcdeb8084027549d863",
+      "description": "Jet AOD dataset file index (1 of 2) for access to data via CMS virtual machine",
+      "size": 121,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/Jet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_Jet_AOD_12Oct2013-v1_00000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:ce0a80523760879b7829135314717632296230e5",
+      "description": "Jet AOD dataset file index (2 of 2) for access to data via CMS virtual machine",
+      "size": 99099,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/Jet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_Jet_AOD_12Oct2013-v1_20000_file_index.txt"
+    }
+  ],
+  "license": {
+    "attribution": "CC0"
+  },
+  "methodology": {
+    "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1701\">HLT configuration</a>.</p><p><strong>Data processing / RECO</strong><br/>This primary AOD dataset was processed from the RAW dataset by the following step (identical to 2011 RunA): <br/>Step: RECO<br/>Release: CMSSW_5_3_7_patch5<br/>Global tag: FT_R_53_V18::All\n        <br/><a href=\"/record/3608\">Configuration file for RECO step reco_2011A_Jet</a>\n        </p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_DiJetAve100U\">HLT_DiJetAve100U</a><br/><a href=\"/search?q=HLT_DiJetAve110\">HLT_DiJetAve110</a><br/><a href=\"/search?q=HLT_DiJetAve140U\">HLT_DiJetAve140U</a><br/><a href=\"/search?q=HLT_DiJetAve150\">HLT_DiJetAve150</a><br/><a href=\"/search?q=HLT_DiJetAve15U\">HLT_DiJetAve15U</a><br/><a href=\"/search?q=HLT_DiJetAve180U\">HLT_DiJetAve180U</a><br/><a href=\"/search?q=HLT_DiJetAve190\">HLT_DiJetAve190</a><br/><a href=\"/search?q=HLT_DiJetAve240\">HLT_DiJetAve240</a><br/><a href=\"/search?q=HLT_DiJetAve30\">HLT_DiJetAve30</a><br/><a href=\"/search?q=HLT_DiJetAve300\">HLT_DiJetAve300</a><br/><a href=\"/search?q=HLT_DiJetAve300U\">HLT_DiJetAve300U</a><br/><a href=\"/search?q=HLT_DiJetAve30U\">HLT_DiJetAve30U</a><br/><a href=\"/search?q=HLT_DiJetAve370\">HLT_DiJetAve370</a><br/><a href=\"/search?q=HLT_DiJetAve50U\">HLT_DiJetAve50U</a><br/><a href=\"/search?q=HLT_DiJetAve60\">HLT_DiJetAve60</a><br/><a href=\"/search?q=HLT_DiJetAve70U\">HLT_DiJetAve70U</a><br/><a href=\"/search?q=HLT_DiJetAve80\">HLT_DiJetAve80</a><br/><a href=\"/search?q=HLT_Jet110\">HLT_Jet110</a><br/><a href=\"/search?q=HLT_Jet150\">HLT_Jet150</a><br/><a href=\"/search?q=HLT_Jet190\">HLT_Jet190</a><br/><a href=\"/search?q=HLT_Jet240\">HLT_Jet240</a><br/><a href=\"/search?q=HLT_Jet240_CentralJet30_BTagIP\">HLT_Jet240_CentralJet30_BTagIP</a><br/><a href=\"/search?q=HLT_Jet240_L1FastJet\">HLT_Jet240_L1FastJet</a><br/><a href=\"/search?q=HLT_Jet270_CentralJet30_BTagIP\">HLT_Jet270_CentralJet30_BTagIP</a><br/><a href=\"/search?q=HLT_Jet30\">HLT_Jet30</a><br/><a href=\"/search?q=HLT_Jet300\">HLT_Jet300</a><br/><a href=\"/search?q=HLT_Jet300_L1FastJet\">HLT_Jet300_L1FastJet</a><br/><a href=\"/search?q=HLT_Jet30_L1FastJet\">HLT_Jet30_L1FastJet</a><br/><a href=\"/search?q=HLT_Jet370\">HLT_Jet370</a><br/><a href=\"/search?q=HLT_Jet370_L1FastJet\">HLT_Jet370_L1FastJet</a><br/><a href=\"/search?q=HLT_Jet370_NoJetID\">HLT_Jet370_NoJetID</a><br/><a href=\"/search?q=HLT_Jet60\">HLT_Jet60</a><br/><a href=\"/search?q=HLT_Jet60_L1FastJet\">HLT_Jet60_L1FastJet</a><br/><a href=\"/search?q=HLT_Jet80\">HLT_Jet80</a><br/><a href=\"/search?q=HLT_Jet800\">HLT_Jet800</a></p>"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "275",
+  "run_period": [
+    "Run2011B"
+  ],
+  "system_details": {
+    "global_tag": "FT_53_LV5_AN1",
+    "release": "CMSSW_5_3_32"
+  },
+  "title": "/Jet/Run2011B-12Oct2013-v1/AOD",
+  "title_additional": "Jet primary dataset in AOD format from RunB of 2011 (/Jet/Run2011B-12Oct2013-v1/AOD)",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Collision"
+    ]
+  },
+  "usage": {
+    "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+    "links": [
+      {
+        "description": "How to install the CMS Virtual Machine",
+        "url": "/vm/cms/2011"
+      },
+      {
+        "description": "Getting started with CMS open data",
+        "url": "/getting-started/cms/2011"
+      }
+    ]
+  },
+  "validation": {
+    "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+    "links": [
+      {
+        "description": "CMS data quality monitoring: Systems and experiences",
+        "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+      },
+      {
+        "description": "The CMS Data Quality Monitoring software experience and future improvements",
+        "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+      },
+      {
+        "description": "The CMS data quality monitoring software: experience and future prospects",
+        "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "<p>MET primary dataset in AOD format from RunB of 2011. Run period from run number 175833 to 180252.</p><p>This dataset contains all runs from 2011 RunB. The list of validated runs, which must be applied to all analyses, can be found in</p>",
+    "links": [
+      {
+        "recid": "1001"
+      }
+    ]
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "CMS collaboration",
+    "recid": "451"
+  },
+  "collections": [
+    "CMS-Primary-Datasets"
+  ],
+  "collision_information": {
+    "energy": "7TeV",
+    "type": "pp"
+  },
+  "date_created": [
+    "2011"
+  ],
+  "date_published": "2020",
+  "date_reprocessed": "2011",
+  "distribution": {
+    "formats": [
+      "aod",
+      "root"
+    ],
+    "number_events": 22378425,
+    "number_files": 1308,
+    "size": 4915857495318
+  },
+  "doi": "10.7483/OPENDATA.CMS.JS85.NNDY",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:e86f1eadd184cd4b32dad6b10ac658493d5cc76c",
+      "description": "MET AOD dataset file index (1 of 3) for access to data via CMS virtual machine",
+      "size": 1851,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MET/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MET_AOD_12Oct2013-v1_010000_file_index.json"
+    },
+    {
+      "checksum": "sha1:b8054fcfa2be5f16b0d9a824f51f6ceb1df78b21",
+      "description": "MET AOD dataset file index (2 of 3) for access to data via CMS virtual machine",
+      "size": 263739,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MET/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MET_AOD_12Oct2013-v1_20000_file_index.json"
+    },
+    {
+      "checksum": "sha1:476ba67c31be5cf634d2ad7512038bf42f31c3cd",
+      "description": "MET AOD dataset file index (3 of 3) for access to data via CMS virtual machine",
+      "size": 79731,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MET/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MET_AOD_12Oct2013-v1_20001_file_index.json"
+    },
+    {
+      "checksum": "sha1:0cb6c93da04a153faa969125aa006004490480e1",
+      "description": "MET AOD dataset file index (1 of 3) for access to data via CMS virtual machine",
+      "size": 854,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MET/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MET_AOD_12Oct2013-v1_010000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:2a98baf96249f2e4775ea759614d86d6873d5bb0",
+      "description": "MET AOD dataset file index (2 of 3) for access to data via CMS virtual machine",
+      "size": 120879,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MET/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MET_AOD_12Oct2013-v1_20000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:836b027c4554891de6cb0916f01b30bb0e7ff1fd",
+      "description": "MET AOD dataset file index (3 of 3) for access to data via CMS virtual machine",
+      "size": 36542,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MET/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MET_AOD_12Oct2013-v1_20001_file_index.txt"
+    }
+  ],
+  "license": {
+    "attribution": "CC0"
+  },
+  "methodology": {
+    "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1701\">HLT configuration</a>.</p><p><strong>Data processing / RECO</strong><br/>This primary AOD dataset was processed from the RAW dataset by the following step (identical to 2011 RunA): <br/>Step: RECO<br/>Release: CMSSW_5_3_7_patch5<br/>Global tag: FT_R_53_V18::All\n        <br/><a href=\"/record/3602\">Configuration file for RECO step reco_2011A_MET</a>\n        </p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_CentralJet80_MET100\">HLT_CentralJet80_MET100</a><br/><a href=\"/search?q=HLT_CentralJet80_MET110\">HLT_CentralJet80_MET110</a><br/><a href=\"/search?q=HLT_CentralJet80_MET160\">HLT_CentralJet80_MET160</a><br/><a href=\"/search?q=HLT_CentralJet80_MET65\">HLT_CentralJet80_MET65</a><br/><a href=\"/search?q=HLT_CentralJet80_MET80\">HLT_CentralJet80_MET80</a><br/><a href=\"/search?q=HLT_CentralJet80_MET80HF\">HLT_CentralJet80_MET80HF</a><br/><a href=\"/search?q=HLT_CentralJet80_MET95\">HLT_CentralJet80_MET95</a><br/><a href=\"/search?q=HLT_DiCentralJet20_BTagIP_MET65\">HLT_DiCentralJet20_BTagIP_MET65</a><br/><a href=\"/search?q=HLT_DiCentralJet20_MET100_HBHENoiseFiltered\">HLT_DiCentralJet20_MET100_HBHENoiseFiltered</a><br/><a href=\"/search?q=HLT_DiCentralJet20_MET80\">HLT_DiCentralJet20_MET80</a><br/><a href=\"/search?q=HLT_DiCentralPFJet30_PFMHT80\">HLT_DiCentralPFJet30_PFMHT80</a><br/><a href=\"/search?q=HLT_DiCentralPFJet50_PFMHT80\">HLT_DiCentralPFJet50_PFMHT80</a><br/><a href=\"/search?q=HLT_DiJet60_MET45\">HLT_DiJet60_MET45</a><br/><a href=\"/search?q=HLT_IsoMu15_L1ETM20\">HLT_IsoMu15_L1ETM20</a><br/><a href=\"/search?q=HLT_L2Mu60_1Hit_MET40\">HLT_L2Mu60_1Hit_MET40</a><br/><a href=\"/search?q=HLT_L2Mu60_1Hit_MET60\">HLT_L2Mu60_1Hit_MET60</a><br/><a href=\"/search?q=HLT_MET100\">HLT_MET100</a><br/><a href=\"/search?q=HLT_MET100_HBHENoiseFiltered\">HLT_MET100_HBHENoiseFiltered</a><br/><a href=\"/search?q=HLT_MET120\">HLT_MET120</a><br/><a href=\"/search?q=HLT_MET120_HBHENoiseFiltered\">HLT_MET120_HBHENoiseFiltered</a><br/><a href=\"/search?q=HLT_MET200\">HLT_MET200</a><br/><a href=\"/search?q=HLT_MET200_HBHENoiseFiltered\">HLT_MET200_HBHENoiseFiltered</a><br/><a href=\"/search?q=HLT_MET400\">HLT_MET400</a><br/><a href=\"/search?q=HLT_MET65\">HLT_MET65</a><br/><a href=\"/search?q=HLT_MET65_HBHENoiseFiltered\">HLT_MET65_HBHENoiseFiltered</a><br/><a href=\"/search?q=HLT_Mu15_L1ETM20\">HLT_Mu15_L1ETM20</a><br/><a href=\"/search?q=HLT_PFMHT150\">HLT_PFMHT150</a><br/><a href=\"/search?q=HLT_R014_MR200_CentralJet40_BTagIP\">HLT_R014_MR200_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_R014_MR400_CentralJet40_BTagIP\">HLT_R014_MR400_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_R014_MR450_CentralJet40_BTagIP\">HLT_R014_MR450_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_R020_MR300_CentralJet40_BTagIP\">HLT_R020_MR300_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_R020_MR350_CentralJet40_BTagIP\">HLT_R020_MR350_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_R030_MR200_CentralJet40_BTagIP\">HLT_R030_MR200_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_R030_MR250_CentralJet40_BTagIP\">HLT_R030_MR250_CentralJet40_BTagIP</a></p>"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "276",
+  "run_period": [
+    "Run2011B"
+  ],
+  "system_details": {
+    "global_tag": "FT_53_LV5_AN1",
+    "release": "CMSSW_5_3_32"
+  },
+  "title": "/MET/Run2011B-12Oct2013-v1/AOD",
+  "title_additional": "MET primary dataset in AOD format from RunB of 2011 (/MET/Run2011B-12Oct2013-v1/AOD)",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Collision"
+    ]
+  },
+  "usage": {
+    "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+    "links": [
+      {
+        "description": "How to install the CMS Virtual Machine",
+        "url": "/vm/cms/2011"
+      },
+      {
+        "description": "Getting started with CMS open data",
+        "url": "/getting-started/cms/2011"
+      }
+    ]
+  },
+  "validation": {
+    "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+    "links": [
+      {
+        "description": "CMS data quality monitoring: Systems and experiences",
+        "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+      },
+      {
+        "description": "The CMS Data Quality Monitoring software experience and future improvements",
+        "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+      },
+      {
+        "description": "The CMS data quality monitoring software: experience and future prospects",
+        "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "<p>MinimumBias primary dataset in AOD format from RunB of 2011. Run period from run number 175833 to 180252.</p><p>This dataset contains all runs from 2011 RunB. The list of validated runs, which must be applied to all analyses, can be found in</p>",
+    "links": [
+      {
+        "recid": "1001"
+      }
+    ]
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "CMS collaboration",
+    "recid": "451"
+  },
+  "collections": [
+    "CMS-Primary-Datasets"
+  ],
+  "collision_information": {
+    "energy": "7TeV",
+    "type": "pp"
+  },
+  "date_created": [
+    "2011"
+  ],
+  "date_published": "2020",
+  "date_reprocessed": "2011",
+  "distribution": {
+    "formats": [
+      "aod",
+      "root"
+    ],
+    "number_events": 33921212,
+    "number_files": 1464,
+    "size": 5424148640110
+  },
+  "doi": "10.7483/OPENDATA.CMS.4W3B.GO96",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:39594dbc043b929bf240532a71a6f42ad24145c8",
+      "description": "MinimumBias AOD dataset file index (1 of 3) for access to data via CMS virtual machine",
+      "size": 199379,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MinimumBias/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MinimumBias_AOD_12Oct2013-v1_00000_file_index.json"
+    },
+    {
+      "checksum": "sha1:a768fc41fe36e3db10366f90581388f6e93483f0",
+      "description": "MinimumBias AOD dataset file index (2 of 3) for access to data via CMS virtual machine",
+      "size": 15490,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MinimumBias/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MinimumBias_AOD_12Oct2013-v1_010000_file_index.json"
+    },
+    {
+      "checksum": "sha1:4b9b9258960b18869d96f32c67ad22c130920c4f",
+      "description": "MinimumBias AOD dataset file index (3 of 3) for access to data via CMS virtual machine",
+      "size": 183331,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MinimumBias/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MinimumBias_AOD_12Oct2013-v1_20000_file_index.json"
+    },
+    {
+      "checksum": "sha1:b1532c910663b0e2bade210ac2807ea10737149d",
+      "description": "MinimumBias AOD dataset file index (1 of 3) for access to data via CMS virtual machine",
+      "size": 94557,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MinimumBias/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MinimumBias_AOD_12Oct2013-v1_00000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:65f9772400135302846c53c4e0177aaa74b3bee6",
+      "description": "MinimumBias AOD dataset file index (2 of 3) for access to data via CMS virtual machine",
+      "size": 7410,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MinimumBias/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MinimumBias_AOD_12Oct2013-v1_010000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:1c9701f370c511d409b89f320d7ed371b38c0f69",
+      "description": "MinimumBias AOD dataset file index (3 of 3) for access to data via CMS virtual machine",
+      "size": 86946,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MinimumBias/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MinimumBias_AOD_12Oct2013-v1_20000_file_index.txt"
+    }
+  ],
+  "license": {
+    "attribution": "CC0"
+  },
+  "methodology": {
+    "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1701\">HLT configuration</a>.</p><p><strong>Data processing / RECO</strong><br/>This primary AOD dataset was processed from the RAW dataset by the following step (identical to 2011 RunA): <br/>Step: RECO<br/>Release: CMSSW_5_3_7_patch5<br/>Global tag: FT_R_53_V18::All\n        <br/><a href=\"/record/3610\">Configuration file for RECO step reco_2011A_MinimumBias</a>\n        </p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_JetE30_NoBPTX\">HLT_JetE30_NoBPTX</a><br/><a href=\"/search?q=HLT_JetE30_NoBPTX3BX_NoHalo\">HLT_JetE30_NoBPTX3BX_NoHalo</a><br/><a href=\"/search?q=HLT_JetE30_NoBPTX_NoHalo\">HLT_JetE30_NoBPTX_NoHalo</a><br/><a href=\"/search?q=HLT_JetE50_NoBPTX3BX_NoHalo\">HLT_JetE50_NoBPTX3BX_NoHalo</a><br/><a href=\"/search?q=HLT_L1Tech_BSC_minBias_threshold1\">HLT_L1Tech_BSC_minBias_threshold1</a><br/><a href=\"/search?q=HLT_Physics\">HLT_Physics</a><br/><a href=\"/search?q=HLT_PixelTracks_Multiplicity100\">HLT_PixelTracks_Multiplicity100</a><br/><a href=\"/search?q=HLT_PixelTracks_Multiplicity110\">HLT_PixelTracks_Multiplicity110</a><br/><a href=\"/search?q=HLT_PixelTracks_Multiplicity125\">HLT_PixelTracks_Multiplicity125</a><br/><a href=\"/search?q=HLT_PixelTracks_Multiplicity80\">HLT_PixelTracks_Multiplicity80</a><br/><a href=\"/search?q=HLT_Random\">HLT_Random</a><br/><a href=\"/search?q=HLT_ZeroBias\">HLT_ZeroBias</a></p>"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "277",
+  "run_period": [
+    "Run2011B"
+  ],
+  "system_details": {
+    "global_tag": "FT_53_LV5_AN1",
+    "release": "CMSSW_5_3_32"
+  },
+  "title": "/MinimumBias/Run2011B-12Oct2013-v1/AOD",
+  "title_additional": "MinimumBias primary dataset in AOD format from RunB of 2011 (/MinimumBias/Run2011B-12Oct2013-v1/AOD)",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Collision"
+    ]
+  },
+  "usage": {
+    "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+    "links": [
+      {
+        "description": "How to install the CMS Virtual Machine",
+        "url": "/vm/cms/2011"
+      },
+      {
+        "description": "Getting started with CMS open data",
+        "url": "/getting-started/cms/2011"
+      }
+    ]
+  },
+  "validation": {
+    "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+    "links": [
+      {
+        "description": "CMS data quality monitoring: Systems and experiences",
+        "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+      },
+      {
+        "description": "The CMS Data Quality Monitoring software experience and future improvements",
+        "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+      },
+      {
+        "description": "The CMS data quality monitoring software: experience and future prospects",
+        "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "<p>MuEG primary dataset in AOD format from RunB of 2011. Run period from run number 175833 to 180252.</p><p>This dataset contains all runs from 2011 RunB. The list of validated runs, which must be applied to all analyses, can be found in</p>",
+    "links": [
+      {
+        "recid": "1001"
+      }
+    ]
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "CMS collaboration",
+    "recid": "451"
+  },
+  "collections": [
+    "CMS-Primary-Datasets"
+  ],
+  "collision_information": {
+    "energy": "7TeV",
+    "type": "pp"
+  },
+  "date_created": [
+    "2011"
+  ],
+  "date_published": "2020",
+  "date_reprocessed": "2011",
+  "distribution": {
+    "formats": [
+      "aod",
+      "root"
+    ],
+    "number_events": 21899662,
+    "number_files": 1254,
+    "size": 4749016907033
+  },
+  "doi": "10.7483/OPENDATA.CMS.8GBF.BY3P",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:31d4e834bbbdc732922e4796c676a65b4818619b",
+      "description": "MuEG AOD dataset file index (1 of 3) for access to data via CMS virtual machine",
+      "size": 264738,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MuEG/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MuEG_AOD_12Oct2013-v1_00000_file_index.json"
+    },
+    {
+      "checksum": "sha1:b9c28e365431590dac058082be37385a06e477ce",
+      "description": "MuEG AOD dataset file index (2 of 3) for access to data via CMS virtual machine",
+      "size": 67048,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MuEG/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MuEG_AOD_12Oct2013-v1_00001_file_index.json"
+    },
+    {
+      "checksum": "sha1:f6771476d415850a37e92e01a75baea486b1ff78",
+      "description": "MuEG AOD dataset file index (3 of 3) for access to data via CMS virtual machine",
+      "size": 533,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MuEG/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MuEG_AOD_12Oct2013-v1_10000_file_index.json"
+    },
+    {
+      "checksum": "sha1:7af36cdfc18f2be676a7ce087f8f1dd6ecd07ecb",
+      "description": "MuEG AOD dataset file index (1 of 3) for access to data via CMS virtual machine",
+      "size": 121878,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MuEG/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MuEG_AOD_12Oct2013-v1_00000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:c97f463d6f2f87de7473c0d9d57d74d7906ead23",
+      "description": "MuEG AOD dataset file index (2 of 3) for access to data via CMS virtual machine",
+      "size": 30866,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MuEG/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MuEG_AOD_12Oct2013-v1_00001_file_index.txt"
+    },
+    {
+      "checksum": "sha1:9650ee3aa25a45e832211649d4a89c1d9e7fb39a",
+      "description": "MuEG AOD dataset file index (3 of 3) for access to data via CMS virtual machine",
+      "size": 244,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MuEG/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MuEG_AOD_12Oct2013-v1_10000_file_index.txt"
+    }
+  ],
+  "license": {
+    "attribution": "CC0"
+  },
+  "methodology": {
+    "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1701\">HLT configuration</a>.</p><p><strong>Data processing / RECO</strong><br/>This primary AOD dataset was processed from the RAW dataset by the following step (identical to 2011 RunA): <br/>Step: RECO<br/>Release: CMSSW_5_3_7_patch5<br/>Global tag: FT_R_53_V18::All\n        <br/><a href=\"/record/3620\">Configuration file for RECO step reco_2011A_MuEG</a>\n        </p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_DoubleMu5_Ele8\">HLT_DoubleMu5_Ele8</a><br/><a href=\"/search?q=HLT_DoubleMu5_Ele8_CaloIdL_TrkIdVL\">HLT_DoubleMu5_Ele8_CaloIdL_TrkIdVL</a><br/><a href=\"/search?q=HLT_DoubleMu5_Ele8_CaloIdT_TrkIdT\">HLT_DoubleMu5_Ele8_CaloIdT_TrkIdT</a><br/><a href=\"/search?q=HLT_DoubleMu5_Ele8_CaloIdT_TrkIdVL\">HLT_DoubleMu5_Ele8_CaloIdT_TrkIdVL</a><br/><a href=\"/search?q=HLT_Mu10_Ele10_CaloIdL\">HLT_Mu10_Ele10_CaloIdL</a><br/><a href=\"/search?q=HLT_Mu15_DoublePhoton15_CaloIdL\">HLT_Mu15_DoublePhoton15_CaloIdL</a><br/><a href=\"/search?q=HLT_Mu15_Photon20_CaloIdL\">HLT_Mu15_Photon20_CaloIdL</a><br/><a href=\"/search?q=HLT_Mu17_Ele8_CaloIdL\">HLT_Mu17_Ele8_CaloIdL</a><br/><a href=\"/search?q=HLT_Mu17_Ele8_CaloIdT_CaloIsoVL\">HLT_Mu17_Ele8_CaloIdT_CaloIsoVL</a><br/><a href=\"/search?q=HLT_Mu3_Ele8_CaloIdT_CaloIsoVL\">HLT_Mu3_Ele8_CaloIdT_CaloIsoVL</a><br/><a href=\"/search?q=HLT_Mu5_DoubleEle8\">HLT_Mu5_DoubleEle8</a><br/><a href=\"/search?q=HLT_Mu5_DoubleEle8_CaloIdL_TrkIdVL\">HLT_Mu5_DoubleEle8_CaloIdL_TrkIdVL</a><br/><a href=\"/search?q=HLT_Mu5_DoubleEle8_CaloIdT_TrkIdVL\">HLT_Mu5_DoubleEle8_CaloIdT_TrkIdVL</a><br/><a href=\"/search?q=HLT_Mu5_Ele8_CaloIdL_TrkIdVL_Ele8\">HLT_Mu5_Ele8_CaloIdL_TrkIdVL_Ele8</a><br/><a href=\"/search?q=HLT_Mu5_Ele8_CaloIdT_CaloIsoVL\">HLT_Mu5_Ele8_CaloIdT_CaloIsoVL</a><br/><a href=\"/search?q=HLT_Mu5_Ele8_CaloIdT_TrkIdVL_Ele8_CaloIdL_TrkIdVL\">HLT_Mu5_Ele8_CaloIdT_TrkIdVL_Ele8_CaloIdL_TrkIdVL</a><br/><a href=\"/search?q=HLT_Mu8_Ele17_CaloIdL\">HLT_Mu8_Ele17_CaloIdL</a><br/><a href=\"/search?q=HLT_Mu8_Ele17_CaloIdT_CaloIsoVL\">HLT_Mu8_Ele17_CaloIdT_CaloIsoVL</a><br/><a href=\"/search?q=HLT_Mu8_Photon20_CaloIdVT_IsoT\">HLT_Mu8_Photon20_CaloIdVT_IsoT</a></p>"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "278",
+  "run_period": [
+    "Run2011B"
+  ],
+  "system_details": {
+    "global_tag": "FT_53_LV5_AN1",
+    "release": "CMSSW_5_3_32"
+  },
+  "title": "/MuEG/Run2011B-12Oct2013-v1/AOD",
+  "title_additional": "MuEG primary dataset in AOD format from RunB of 2011 (/MuEG/Run2011B-12Oct2013-v1/AOD)",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Collision"
+    ]
+  },
+  "usage": {
+    "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+    "links": [
+      {
+        "description": "How to install the CMS Virtual Machine",
+        "url": "/vm/cms/2011"
+      },
+      {
+        "description": "Getting started with CMS open data",
+        "url": "/getting-started/cms/2011"
+      }
+    ]
+  },
+  "validation": {
+    "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+    "links": [
+      {
+        "description": "CMS data quality monitoring: Systems and experiences",
+        "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+      },
+      {
+        "description": "The CMS Data Quality Monitoring software experience and future improvements",
+        "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+      },
+      {
+        "description": "The CMS data quality monitoring software: experience and future prospects",
+        "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "<p>MuHad primary dataset in AOD format from RunB of 2011. Run period from run number 175833 to 180252.</p><p>This dataset contains all runs from 2011 RunB. The list of validated runs, which must be applied to all analyses, can be found in</p>",
+    "links": [
+      {
+        "recid": "1001"
+      }
+    ]
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "CMS collaboration",
+    "recid": "451"
+  },
+  "collections": [
+    "CMS-Primary-Datasets"
+  ],
+  "collision_information": {
+    "energy": "7TeV",
+    "type": "pp"
+  },
+  "date_created": [
+    "2011"
+  ],
+  "date_published": "2020",
+  "date_reprocessed": "2011",
+  "distribution": {
+    "formats": [
+      "aod",
+      "root"
+    ],
+    "number_events": 33453965,
+    "number_files": 2093,
+    "size": 7849306632280
+  },
+  "doi": "10.7483/OPENDATA.CMS.S20R.RMTZ",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:bfbf5cd47b564bfe445c063c902fb7ab88f01cd6",
+      "description": "MuHad AOD dataset file index (1 of 3) for access to data via CMS virtual machine",
+      "size": 190991,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MuHad/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MuHad_AOD_12Oct2013-v1_00000_file_index.json"
+    },
+    {
+      "checksum": "sha1:4a751fb4918d96ba05b1f518adbf1b3fdc251449",
+      "description": "MuHad AOD dataset file index (2 of 3) for access to data via CMS virtual machine",
+      "size": 265737,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MuHad/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MuHad_AOD_12Oct2013-v1_20000_file_index.json"
+    },
+    {
+      "checksum": "sha1:23a8b9c828c063c99a742508ab4c54246234a408",
+      "description": "MuHad AOD dataset file index (3 of 3) for access to data via CMS virtual machine",
+      "size": 100019,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MuHad/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MuHad_AOD_12Oct2013-v1_20001_file_index.json"
+    },
+    {
+      "checksum": "sha1:c9acebdd4faf0d98200d635aa188723b46b54ace",
+      "description": "MuHad AOD dataset file index (1 of 3) for access to data via CMS virtual machine",
+      "size": 88314,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MuHad/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MuHad_AOD_12Oct2013-v1_00000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:5966893120c532639d7f51fa0961c22b6e452773",
+      "description": "MuHad AOD dataset file index (2 of 3) for access to data via CMS virtual machine",
+      "size": 122877,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MuHad/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MuHad_AOD_12Oct2013-v1_20000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:9d1193dc1091a7e126b0003d870fc99e52f1cb02",
+      "description": "MuHad AOD dataset file index (3 of 3) for access to data via CMS virtual machine",
+      "size": 46248,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MuHad/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MuHad_AOD_12Oct2013-v1_20001_file_index.txt"
+    }
+  ],
+  "license": {
+    "attribution": "CC0"
+  },
+  "methodology": {
+    "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1701\">HLT configuration</a>.</p><p><strong>Data processing / RECO</strong><br/>This primary AOD dataset was processed from the RAW dataset by the following step (identical to 2011 RunA): <br/>Step: RECO<br/>Release: CMSSW_5_3_7_patch5<br/>Global tag: FT_R_53_V18::All\n        <br/><a href=\"/record/3605\">Configuration file for RECO step reco_2011A_MuHad</a>\n        </p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_DoubleMu3_HT150\">HLT_DoubleMu3_HT150</a><br/><a href=\"/search?q=HLT_DoubleMu3_HT160\">HLT_DoubleMu3_HT160</a><br/><a href=\"/search?q=HLT_DoubleMu3_HT200\">HLT_DoubleMu3_HT200</a><br/><a href=\"/search?q=HLT_DoubleMu3_Mass4_HT150\">HLT_DoubleMu3_Mass4_HT150</a><br/><a href=\"/search?q=HLT_DoubleMu5_HT150\">HLT_DoubleMu5_HT150</a><br/><a href=\"/search?q=HLT_DoubleMu5_Mass4_HT150\">HLT_DoubleMu5_Mass4_HT150</a><br/><a href=\"/search?q=HLT_DoubleMu5_Mass8_HT150\">HLT_DoubleMu5_Mass8_HT150</a><br/><a href=\"/search?q=HLT_DoubleMu8_Mass8_HT150\">HLT_DoubleMu8_Mass8_HT150</a><br/><a href=\"/search?q=HLT_DoubleMu8_Mass8_HT200\">HLT_DoubleMu8_Mass8_HT200</a><br/><a href=\"/search?q=HLT_DoubleTkIso10Mu5_Mass8_HT150\">HLT_DoubleTkIso10Mu5_Mass8_HT150</a><br/><a href=\"/search?q=HLT_DoubleTkIso10Mu5_Mass8_HT200\">HLT_DoubleTkIso10Mu5_Mass8_HT200</a><br/><a href=\"/search?q=HLT_HT200_Mu5_PFMHT35\">HLT_HT200_Mu5_PFMHT35</a><br/><a href=\"/search?q=HLT_HT250_Mu15_PFMHT20\">HLT_HT250_Mu15_PFMHT20</a><br/><a href=\"/search?q=HLT_HT250_Mu15_PFMHT40\">HLT_HT250_Mu15_PFMHT40</a><br/><a href=\"/search?q=HLT_HT250_Mu5_PFMHT35\">HLT_HT250_Mu5_PFMHT35</a><br/><a href=\"/search?q=HLT_HT300_Mu15_PFMHT40\">HLT_HT300_Mu15_PFMHT40</a><br/><a href=\"/search?q=HLT_HT300_Mu15_PFMHT50\">HLT_HT300_Mu15_PFMHT50</a><br/><a href=\"/search?q=HLT_HT300_Mu5_PFMHT40\">HLT_HT300_Mu5_PFMHT40</a><br/><a href=\"/search?q=HLT_HT350_Mu5_PFMHT45\">HLT_HT350_Mu5_PFMHT45</a><br/><a href=\"/search?q=HLT_HT400_Mu5_PFMHT50\">HLT_HT400_Mu5_PFMHT50</a><br/><a href=\"/search?q=HLT_IsoMu17_CentralJet30\">HLT_IsoMu17_CentralJet30</a><br/><a href=\"/search?q=HLT_IsoMu17_CentralJet30_BTagIP\">HLT_IsoMu17_CentralJet30_BTagIP</a><br/><a href=\"/search?q=HLT_IsoMu17_CentralJet40_BTagIP\">HLT_IsoMu17_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_IsoMu17_DiCentralJet30\">HLT_IsoMu17_DiCentralJet30</a><br/><a href=\"/search?q=HLT_IsoMu17_QuadCentralJet30\">HLT_IsoMu17_QuadCentralJet30</a><br/><a href=\"/search?q=HLT_IsoMu17_TriCentralJet30\">HLT_IsoMu17_TriCentralJet30</a><br/><a href=\"/search?q=HLT_IsoMu17_eta2p1_CentralJet30\">HLT_IsoMu17_eta2p1_CentralJet30</a><br/><a href=\"/search?q=HLT_IsoMu17_eta2p1_CentralJet30_BTagIP\">HLT_IsoMu17_eta2p1_CentralJet30_BTagIP</a><br/><a href=\"/search?q=HLT_IsoMu17_eta2p1_CentralPFJet30\">HLT_IsoMu17_eta2p1_CentralPFJet30</a><br/><a href=\"/search?q=HLT_IsoMu17_eta2p1_DiCentralJet30\">HLT_IsoMu17_eta2p1_DiCentralJet30</a><br/><a href=\"/search?q=HLT_IsoMu17_eta2p1_DiCentralPFJet25\">HLT_IsoMu17_eta2p1_DiCentralPFJet25</a><br/><a href=\"/search?q=HLT_IsoMu17_eta2p1_DiCentralPFJet25_PFMHT15\">HLT_IsoMu17_eta2p1_DiCentralPFJet25_PFMHT15</a><br/><a href=\"/search?q=HLT_IsoMu17_eta2p1_DiCentralPFJet25_PFMHT25\">HLT_IsoMu17_eta2p1_DiCentralPFJet25_PFMHT25</a><br/><a href=\"/search?q=HLT_IsoMu17_eta2p1_DiCentralPFJet30\">HLT_IsoMu17_eta2p1_DiCentralPFJet30</a><br/><a href=\"/search?q=HLT_IsoMu17_eta2p1_DiPFJet25_Deta3\">HLT_IsoMu17_eta2p1_DiPFJet25_Deta3</a><br/><a href=\"/search?q=HLT_IsoMu17_eta2p1_DiPFJet25_Deta3_PFJet25\">HLT_IsoMu17_eta2p1_DiPFJet25_Deta3_PFJet25</a><br/><a href=\"/search?q=HLT_IsoMu17_eta2p1_QuadCentralJet30\">HLT_IsoMu17_eta2p1_QuadCentralJet30</a><br/><a href=\"/search?q=HLT_IsoMu17_eta2p1_QuadCentralPFJet30\">HLT_IsoMu17_eta2p1_QuadCentralPFJet30</a><br/><a href=\"/search?q=HLT_IsoMu17_eta2p1_TriCentralJet30\">HLT_IsoMu17_eta2p1_TriCentralJet30</a><br/><a href=\"/search?q=HLT_IsoMu17_eta2p1_TriCentralPFJet30\">HLT_IsoMu17_eta2p1_TriCentralPFJet30</a><br/><a href=\"/search?q=HLT_IsoMu20_DiCentralJet34\">HLT_IsoMu20_DiCentralJet34</a><br/><a href=\"/search?q=HLT_Mu10_R005_MR200\">HLT_Mu10_R005_MR200</a><br/><a href=\"/search?q=HLT_Mu10_R014_MR200\">HLT_Mu10_R014_MR200</a><br/><a href=\"/search?q=HLT_Mu10_R025_MR200\">HLT_Mu10_R025_MR200</a><br/><a href=\"/search?q=HLT_Mu10_R029_MR200\">HLT_Mu10_R029_MR200</a><br/><a href=\"/search?q=HLT_Mu10_R033_MR200\">HLT_Mu10_R033_MR200</a><br/><a href=\"/search?q=HLT_Mu12_CentralJet30_BTagIP\">HLT_Mu12_CentralJet30_BTagIP</a><br/><a href=\"/search?q=HLT_Mu12_DiCentralJet20_BTagIP3D1stTrack\">HLT_Mu12_DiCentralJet20_BTagIP3D1stTrack</a><br/><a href=\"/search?q=HLT_Mu12_DiCentralJet20_DiBTagIP3D1stTrack\">HLT_Mu12_DiCentralJet20_DiBTagIP3D1stTrack</a><br/><a href=\"/search?q=HLT_Mu12_DiCentralJet30_BTagIP3D\">HLT_Mu12_DiCentralJet30_BTagIP3D</a><br/><a href=\"/search?q=HLT_Mu12_eta2p1_DiCentralJet20_BTagIP3D1stTrack\">HLT_Mu12_eta2p1_DiCentralJet20_BTagIP3D1stTrack</a><br/><a href=\"/search?q=HLT_Mu12_eta2p1_DiCentralJet20_DiBTagIP3D1stTrack\">HLT_Mu12_eta2p1_DiCentralJet20_DiBTagIP3D1stTrack</a><br/><a href=\"/search?q=HLT_Mu12_eta2p1_DiCentralJet30_BTagIP3D\">HLT_Mu12_eta2p1_DiCentralJet30_BTagIP3D</a><br/><a href=\"/search?q=HLT_Mu15_HT200\">HLT_Mu15_HT200</a><br/><a href=\"/search?q=HLT_Mu17_CentralJet30\">HLT_Mu17_CentralJet30</a><br/><a href=\"/search?q=HLT_Mu17_CentralJet30_BTagIP\">HLT_Mu17_CentralJet30_BTagIP</a><br/><a href=\"/search?q=HLT_Mu17_CentralJet40_BTagIP\">HLT_Mu17_CentralJet40_BTagIP</a><br/><a href=\"/search?q=HLT_Mu17_DiCentralJet30\">HLT_Mu17_DiCentralJet30</a><br/><a href=\"/search?q=HLT_Mu17_QuadCentralJet30\">HLT_Mu17_QuadCentralJet30</a><br/><a href=\"/search?q=HLT_Mu17_TriCentralJet30\">HLT_Mu17_TriCentralJet30</a><br/><a href=\"/search?q=HLT_Mu17_eta2p1_CentralJet30\">HLT_Mu17_eta2p1_CentralJet30</a><br/><a href=\"/search?q=HLT_Mu17_eta2p1_CentralJet30_BTagIP\">HLT_Mu17_eta2p1_CentralJet30_BTagIP</a><br/><a href=\"/search?q=HLT_Mu17_eta2p1_CentralPFJet30\">HLT_Mu17_eta2p1_CentralPFJet30</a><br/><a href=\"/search?q=HLT_Mu17_eta2p1_DiCentralJet30\">HLT_Mu17_eta2p1_DiCentralJet30</a><br/><a href=\"/search?q=HLT_Mu17_eta2p1_DiCentralPFJet25_PFMHT15\">HLT_Mu17_eta2p1_DiCentralPFJet25_PFMHT15</a><br/><a href=\"/search?q=HLT_Mu17_eta2p1_DiCentralPFJet30\">HLT_Mu17_eta2p1_DiCentralPFJet30</a><br/><a href=\"/search?q=HLT_Mu17_eta2p1_DiPFJet25_Deta3\">HLT_Mu17_eta2p1_DiPFJet25_Deta3</a><br/><a href=\"/search?q=HLT_Mu17_eta2p1_QuadCentralJet30\">HLT_Mu17_eta2p1_QuadCentralJet30</a><br/><a href=\"/search?q=HLT_Mu17_eta2p1_QuadCentralPFJet30\">HLT_Mu17_eta2p1_QuadCentralPFJet30</a><br/><a href=\"/search?q=HLT_Mu17_eta2p1_TriCentralJet30\">HLT_Mu17_eta2p1_TriCentralJet30</a><br/><a href=\"/search?q=HLT_Mu17_eta2p1_TriCentralPFJet30\">HLT_Mu17_eta2p1_TriCentralPFJet30</a><br/><a href=\"/search?q=HLT_Mu20_HT200\">HLT_Mu20_HT200</a><br/><a href=\"/search?q=HLT_Mu30_HT200\">HLT_Mu30_HT200</a><br/><a href=\"/search?q=HLT_Mu3_DiJet30\">HLT_Mu3_DiJet30</a><br/><a href=\"/search?q=HLT_Mu3_Ele8_CaloIdL_TrkIdVL_HT150\">HLT_Mu3_Ele8_CaloIdL_TrkIdVL_HT150</a><br/><a href=\"/search?q=HLT_Mu3_Ele8_CaloIdL_TrkIdVL_HT160\">HLT_Mu3_Ele8_CaloIdL_TrkIdVL_HT160</a><br/><a href=\"/search?q=HLT_Mu3_Ele8_CaloIdT_TrkIdVL_HT150\">HLT_Mu3_Ele8_CaloIdT_TrkIdVL_HT150</a><br/><a href=\"/search?q=HLT_Mu3_Ele8_CaloIdT_TrkIdVL_HT160\">HLT_Mu3_Ele8_CaloIdT_TrkIdVL_HT160</a><br/><a href=\"/search?q=HLT_Mu3_QuadJet30\">HLT_Mu3_QuadJet30</a><br/><a href=\"/search?q=HLT_Mu3_TriJet30\">HLT_Mu3_TriJet30</a><br/><a href=\"/search?q=HLT_Mu40_HT200\">HLT_Mu40_HT200</a><br/><a href=\"/search?q=HLT_Mu40_HT300\">HLT_Mu40_HT300</a><br/><a href=\"/search?q=HLT_Mu5_DiJet30\">HLT_Mu5_DiJet30</a><br/><a href=\"/search?q=HLT_Mu5_Ele8_CaloIdT_TrkIdVL_HT150\">HLT_Mu5_Ele8_CaloIdT_TrkIdVL_HT150</a><br/><a href=\"/search?q=HLT_Mu5_Ele8_CaloIdT_TrkIdVL_Mass4_HT150\">HLT_Mu5_Ele8_CaloIdT_TrkIdVL_Mass4_HT150</a><br/><a href=\"/search?q=HLT_Mu5_Ele8_CaloIdT_TrkIdVL_Mass8_HT150\">HLT_Mu5_Ele8_CaloIdT_TrkIdVL_Mass8_HT150</a><br/><a href=\"/search?q=HLT_Mu5_HT200\">HLT_Mu5_HT200</a><br/><a href=\"/search?q=HLT_Mu5_QuadJet30\">HLT_Mu5_QuadJet30</a><br/><a href=\"/search?q=HLT_Mu5_TriJet30\">HLT_Mu5_TriJet30</a><br/><a href=\"/search?q=HLT_Mu60_HT200\">HLT_Mu60_HT200</a><br/><a href=\"/search?q=HLT_Mu60_HT300\">HLT_Mu60_HT300</a><br/><a href=\"/search?q=HLT_Mu8_Ele8_CaloIdT_TrkIdVL_Mass8_HT150\">HLT_Mu8_Ele8_CaloIdT_TrkIdVL_Mass8_HT150</a><br/><a href=\"/search?q=HLT_Mu8_Ele8_CaloIdT_TrkIdVL_Mass8_HT200\">HLT_Mu8_Ele8_CaloIdT_TrkIdVL_Mass8_HT200</a><br/><a href=\"/search?q=HLT_Mu8_HT200\">HLT_Mu8_HT200</a><br/><a href=\"/search?q=HLT_Mu8_R005_MR200\">HLT_Mu8_R005_MR200</a><br/><a href=\"/search?q=HLT_Mu8_R020_MR200\">HLT_Mu8_R020_MR200</a><br/><a href=\"/search?q=HLT_Mu8_R025_MR200\">HLT_Mu8_R025_MR200</a><br/><a href=\"/search?q=HLT_Mu8_R029_MR200\">HLT_Mu8_R029_MR200</a><br/><a href=\"/search?q=HLT_TkIso10Mu5_Ele8_CaloIdT_CaloIsoVVL_TrkIdVL_Mass8_HT150\">HLT_TkIso10Mu5_Ele8_CaloIdT_CaloIsoVVL_TrkIdVL_Mass8_HT150</a><br/><a href=\"/search?q=HLT_TkIso10Mu5_Ele8_CaloIdT_CaloIsoVVL_TrkIdVL_Mass8_HT200\">HLT_TkIso10Mu5_Ele8_CaloIdT_CaloIsoVVL_TrkIdVL_Mass8_HT200</a></p>"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "279",
+  "run_period": [
+    "Run2011B"
+  ],
+  "system_details": {
+    "global_tag": "FT_53_LV5_AN1",
+    "release": "CMSSW_5_3_32"
+  },
+  "title": "/MuHad/Run2011B-12Oct2013-v1/AOD",
+  "title_additional": "MuHad primary dataset in AOD format from RunB of 2011 (/MuHad/Run2011B-12Oct2013-v1/AOD)",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Collision"
+    ]
+  },
+  "usage": {
+    "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+    "links": [
+      {
+        "description": "How to install the CMS Virtual Machine",
+        "url": "/vm/cms/2011"
+      },
+      {
+        "description": "Getting started with CMS open data",
+        "url": "/getting-started/cms/2011"
+      }
+    ]
+  },
+  "validation": {
+    "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+    "links": [
+      {
+        "description": "CMS data quality monitoring: Systems and experiences",
+        "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+      },
+      {
+        "description": "The CMS Data Quality Monitoring software experience and future improvements",
+        "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+      },
+      {
+        "description": "The CMS data quality monitoring software: experience and future prospects",
+        "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "<p>MuOnia primary dataset in AOD format from RunB of 2011. Run period from run number 175833 to 180252.</p><p>This dataset contains all runs from 2011 RunB. The list of validated runs, which must be applied to all analyses, can be found in</p>",
+    "links": [
+      {
+        "recid": "1001"
+      }
+    ]
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "CMS collaboration",
+    "recid": "451"
+  },
+  "collections": [
+    "CMS-Primary-Datasets"
+  ],
+  "collision_information": {
+    "energy": "7TeV",
+    "type": "pp"
+  },
+  "date_created": [
+    "2011"
+  ],
+  "date_published": "2020",
+  "date_reprocessed": "2011",
+  "distribution": {
+    "formats": [
+      "aod",
+      "root"
+    ],
+    "number_events": 27750920,
+    "number_files": 1554,
+    "size": 5497242559357
+  },
+  "doi": "10.7483/OPENDATA.CMS.7OZE.BB2A",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:a71baf76449a1c61f77bc15b15190bbbea792007",
+      "description": "MuOnia AOD dataset file index (1 of 3) for access to data via CMS virtual machine",
+      "size": 266202,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MuOnia/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MuOnia_AOD_12Oct2013-v1_00000_file_index.json"
+    },
+    {
+      "checksum": "sha1:e16c40565090aa89ae49662440aabace4fd9ef96",
+      "description": "MuOnia AOD dataset file index (2 of 3) for access to data via CMS virtual machine",
+      "size": 9881,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MuOnia/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MuOnia_AOD_12Oct2013-v1_00001_file_index.json"
+    },
+    {
+      "checksum": "sha1:2d857b9fcc88c0552d596ca3f4707101aa2c8e18",
+      "description": "MuOnia AOD dataset file index (3 of 3) for access to data via CMS virtual machine",
+      "size": 138715,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MuOnia/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MuOnia_AOD_12Oct2013-v1_20000_file_index.json"
+    },
+    {
+      "checksum": "sha1:0ec2d7eeb4c0684c49f9898015919098649bfcd5",
+      "description": "MuOnia AOD dataset file index (1 of 3) for access to data via CMS virtual machine",
+      "size": 123628,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MuOnia/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MuOnia_AOD_12Oct2013-v1_00000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:46d0b25125e6045b12b19136b3fc53e9c94c14b9",
+      "description": "MuOnia AOD dataset file index (2 of 3) for access to data via CMS virtual machine",
+      "size": 4588,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MuOnia/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MuOnia_AOD_12Oct2013-v1_00001_file_index.txt"
+    },
+    {
+      "checksum": "sha1:e75f4a8ece7be55c74c461468e6df261b0514091",
+      "description": "MuOnia AOD dataset file index (3 of 3) for access to data via CMS virtual machine",
+      "size": 64480,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MuOnia/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MuOnia_AOD_12Oct2013-v1_20000_file_index.txt"
+    }
+  ],
+  "license": {
+    "attribution": "CC0"
+  },
+  "methodology": {
+    "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1701\">HLT configuration</a>.</p><p><strong>Data processing / RECO</strong><br/>This primary AOD dataset was processed from the RAW dataset by the following step (identical to 2011 RunA): <br/>Step: RECO<br/>Release: CMSSW_5_3_7_patch5<br/>Global tag: FT_R_53_V18::All\n        <br/><a href=\"/record/3614\">Configuration file for RECO step reco_2011A_MuOnia</a>\n        </p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_Dimuon0_Barrel_Upsilon\">HLT_Dimuon0_Barrel_Upsilon</a><br/><a href=\"/search?q=HLT_Dimuon0_Jpsi\">HLT_Dimuon0_Jpsi</a><br/><a href=\"/search?q=HLT_Dimuon0_Jpsi_Muon\">HLT_Dimuon0_Jpsi_Muon</a><br/><a href=\"/search?q=HLT_Dimuon0_Jpsi_NoVertexing\">HLT_Dimuon0_Jpsi_NoVertexing</a><br/><a href=\"/search?q=HLT_Dimuon0_Omega_Phi\">HLT_Dimuon0_Omega_Phi</a><br/><a href=\"/search?q=HLT_Dimuon0_Upsilon\">HLT_Dimuon0_Upsilon</a><br/><a href=\"/search?q=HLT_Dimuon0_Upsilon_Muon\">HLT_Dimuon0_Upsilon_Muon</a><br/><a href=\"/search?q=HLT_Dimuon10_Jpsi_Barrel\">HLT_Dimuon10_Jpsi_Barrel</a><br/><a href=\"/search?q=HLT_Dimuon11_PsiPrime\">HLT_Dimuon11_PsiPrime</a><br/><a href=\"/search?q=HLT_Dimuon13_Jpsi_Barrel\">HLT_Dimuon13_Jpsi_Barrel</a><br/><a href=\"/search?q=HLT_Dimuon4_Bs_Barrel\">HLT_Dimuon4_Bs_Barrel</a><br/><a href=\"/search?q=HLT_Dimuon5_Upsilon_Barrel\">HLT_Dimuon5_Upsilon_Barrel</a><br/><a href=\"/search?q=HLT_Dimuon6_Bs\">HLT_Dimuon6_Bs</a><br/><a href=\"/search?q=HLT_Dimuon6_LowMass\">HLT_Dimuon6_LowMass</a><br/><a href=\"/search?q=HLT_Dimuon6p5_Barrel_Jpsi\">HLT_Dimuon6p5_Barrel_Jpsi</a><br/><a href=\"/search?q=HLT_Dimuon6p5_Barrel_PsiPrime\">HLT_Dimuon6p5_Barrel_PsiPrime</a><br/><a href=\"/search?q=HLT_Dimuon6p5_Jpsi\">HLT_Dimuon6p5_Jpsi</a><br/><a href=\"/search?q=HLT_Dimuon6p5_Jpsi_Displaced\">HLT_Dimuon6p5_Jpsi_Displaced</a><br/><a href=\"/search?q=HLT_Dimuon6p5_LowMass\">HLT_Dimuon6p5_LowMass</a><br/><a href=\"/search?q=HLT_Dimuon6p5_LowMass_Displaced\">HLT_Dimuon6p5_LowMass_Displaced</a><br/><a href=\"/search?q=HLT_Dimuon7_Jpsi_Displaced\">HLT_Dimuon7_Jpsi_Displaced</a><br/><a href=\"/search?q=HLT_Dimuon7_Jpsi_X_Barrel\">HLT_Dimuon7_Jpsi_X_Barrel</a><br/><a href=\"/search?q=HLT_Dimuon7_LowMass_Displaced\">HLT_Dimuon7_LowMass_Displaced</a><br/><a href=\"/search?q=HLT_Dimuon7_PsiPrime\">HLT_Dimuon7_PsiPrime</a><br/><a href=\"/search?q=HLT_Dimuon7_Upsilon_Barrel\">HLT_Dimuon7_Upsilon_Barrel</a><br/><a href=\"/search?q=HLT_Dimuon9_PsiPrime\">HLT_Dimuon9_PsiPrime</a><br/><a href=\"/search?q=HLT_Dimuon9_Upsilon_Barrel\">HLT_Dimuon9_Upsilon_Barrel</a><br/><a href=\"/search?q=HLT_DoubleMu2_Bs\">HLT_DoubleMu2_Bs</a><br/><a href=\"/search?q=HLT_DoubleMu3_Bs\">HLT_DoubleMu3_Bs</a><br/><a href=\"/search?q=HLT_DoubleMu3_Jpsi\">HLT_DoubleMu3_Jpsi</a><br/><a href=\"/search?q=HLT_DoubleMu3_LowMass\">HLT_DoubleMu3_LowMass</a><br/><a href=\"/search?q=HLT_DoubleMu3_Quarkonium\">HLT_DoubleMu3_Quarkonium</a><br/><a href=\"/search?q=HLT_DoubleMu3_Upsilon\">HLT_DoubleMu3_Upsilon</a><br/><a href=\"/search?q=HLT_DoubleMu3p5_Jpsi_Displaced\">HLT_DoubleMu3p5_Jpsi_Displaced</a><br/><a href=\"/search?q=HLT_DoubleMu4_Dimuon4_Bs_Barrel\">HLT_DoubleMu4_Dimuon4_Bs_Barrel</a><br/><a href=\"/search?q=HLT_DoubleMu4_Dimuon6_Bs\">HLT_DoubleMu4_Dimuon6_Bs</a><br/><a href=\"/search?q=HLT_DoubleMu4_Jpsi_Displaced\">HLT_DoubleMu4_Jpsi_Displaced</a><br/><a href=\"/search?q=HLT_DoubleMu4_LowMass_Displaced\">HLT_DoubleMu4_LowMass_Displaced</a><br/><a href=\"/search?q=HLT_DoubleMu4p5_LowMass_Displaced\">HLT_DoubleMu4p5_LowMass_Displaced</a><br/><a href=\"/search?q=HLT_DoubleMu5_Jpsi_Displaced\">HLT_DoubleMu5_Jpsi_Displaced</a><br/><a href=\"/search?q=HLT_DoubleMu5_LowMass_Displaced\">HLT_DoubleMu5_LowMass_Displaced</a><br/><a href=\"/search?q=HLT_Mu3_Track3_Jpsi\">HLT_Mu3_Track3_Jpsi</a><br/><a href=\"/search?q=HLT_Mu5_L2Mu2\">HLT_Mu5_L2Mu2</a><br/><a href=\"/search?q=HLT_Mu5_L2Mu2_Jpsi\">HLT_Mu5_L2Mu2_Jpsi</a><br/><a href=\"/search?q=HLT_Mu5_Track2_Jpsi\">HLT_Mu5_Track2_Jpsi</a><br/><a href=\"/search?q=HLT_Mu7_Track5_Jpsi\">HLT_Mu7_Track5_Jpsi</a><br/><a href=\"/search?q=HLT_Mu7_Track7_Jpsi\">HLT_Mu7_Track7_Jpsi</a><br/><a href=\"/search?q=HLT_TripleMu0_TauTo3Mu\">HLT_TripleMu0_TauTo3Mu</a></p>"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "280",
+  "run_period": [
+    "Run2011B"
+  ],
+  "system_details": {
+    "global_tag": "FT_53_LV5_AN1",
+    "release": "CMSSW_5_3_32"
+  },
+  "title": "/MuOnia/Run2011B-12Oct2013-v1/AOD",
+  "title_additional": "MuOnia primary dataset in AOD format from RunB of 2011 (/MuOnia/Run2011B-12Oct2013-v1/AOD)",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Collision"
+    ]
+  },
+  "usage": {
+    "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+    "links": [
+      {
+        "description": "How to install the CMS Virtual Machine",
+        "url": "/vm/cms/2011"
+      },
+      {
+        "description": "Getting started with CMS open data",
+        "url": "/getting-started/cms/2011"
+      }
+    ]
+  },
+  "validation": {
+    "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+    "links": [
+      {
+        "description": "CMS data quality monitoring: Systems and experiences",
+        "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+      },
+      {
+        "description": "The CMS Data Quality Monitoring software experience and future improvements",
+        "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+      },
+      {
+        "description": "The CMS data quality monitoring software: experience and future prospects",
+        "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "<p>MultiJet primary dataset in AOD format from RunB of 2011. Run period from run number 175833 to 180252.</p><p>This dataset contains all runs from 2011 RunB. The list of validated runs, which must be applied to all analyses, can be found in</p>",
+    "links": [
+      {
+        "recid": "1001"
+      }
+    ]
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "CMS collaboration",
+    "recid": "451"
+  },
+  "collections": [
+    "CMS-Primary-Datasets"
+  ],
+  "collision_information": {
+    "energy": "7TeV",
+    "type": "pp"
+  },
+  "date_created": [
+    "2011"
+  ],
+  "date_published": "2020",
+  "date_reprocessed": "2011",
+  "distribution": {
+    "formats": [
+      "aod",
+      "root"
+    ],
+    "number_events": 40042081,
+    "number_files": 2728,
+    "size": 9893109170014
+  },
+  "doi": "10.7483/OPENDATA.CMS.DHUA.BHL2",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:ad924b2f856511a0e5516471e5cb3e5e434a0fe2",
+      "description": "MultiJet AOD dataset file index (1 of 17) for access to data via CMS virtual machine",
+      "size": 2693,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_110000_file_index.json"
+    },
+    {
+      "checksum": "sha1:5b7a4e190db3176b7a0e2b0cdc50b6876d560af2",
+      "description": "MultiJet AOD dataset file index (2 of 17) for access to data via CMS virtual machine",
+      "size": 269807,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20000_file_index.json"
+    },
+    {
+      "checksum": "sha1:14d9032a2f57dbe5083ec8dfb351e2fae3afabd8",
+      "description": "MultiJet AOD dataset file index (3 of 17) for access to data via CMS virtual machine",
+      "size": 269270,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20001_file_index.json"
+    },
+    {
+      "checksum": "sha1:28c7d89bcbe0c659640f488b63ebabe2c8300559",
+      "description": "MultiJet AOD dataset file index (4 of 17) for access to data via CMS virtual machine",
+      "size": 142573,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20002_file_index.json"
+    },
+    {
+      "checksum": "sha1:36fd618de0e2fea21dd28c0b29b0217fd66eb6cc",
+      "description": "MultiJet AOD dataset file index (5 of 17) for access to data via CMS virtual machine",
+      "size": 810,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20003_file_index.json"
+    },
+    {
+      "checksum": "sha1:11520f581ed1edfce91bf48bef6041a2b2b16473",
+      "description": "MultiJet AOD dataset file index (6 of 17) for access to data via CMS virtual machine",
+      "size": 541,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20004_file_index.json"
+    },
+    {
+      "checksum": "sha1:e846d62b4b1c403276df032830eb6c424099650e",
+      "description": "MultiJet AOD dataset file index (7 of 17) for access to data via CMS virtual machine",
+      "size": 272,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20005_file_index.json"
+    },
+    {
+      "checksum": "sha1:3fe5a300cc78ac20b966c1e5f5afd0bc2e307560",
+      "description": "MultiJet AOD dataset file index (8 of 17) for access to data via CMS virtual machine",
+      "size": 272,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20006_file_index.json"
+    },
+    {
+      "checksum": "sha1:b66167d9f6087bf1a2fc3eb0e938c400c6c5a2d9",
+      "description": "MultiJet AOD dataset file index (9 of 17) for access to data via CMS virtual machine",
+      "size": 272,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20007_file_index.json"
+    },
+    {
+      "checksum": "sha1:e0f026354b5468030ee4ef0303f92e2844105314",
+      "description": "MultiJet AOD dataset file index (10 of 17) for access to data via CMS virtual machine",
+      "size": 541,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20008_file_index.json"
+    },
+    {
+      "checksum": "sha1:ae6ef944f93b258cdf2dffd0d6eb73f17aa81ff6",
+      "description": "MultiJet AOD dataset file index (11 of 17) for access to data via CMS virtual machine",
+      "size": 541,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20009_file_index.json"
+    },
+    {
+      "checksum": "sha1:5ebde08e84ffc51d30ad86e43c2d95752fee82d8",
+      "description": "MultiJet AOD dataset file index (12 of 17) for access to data via CMS virtual machine",
+      "size": 272,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20010_file_index.json"
+    },
+    {
+      "checksum": "sha1:5197ba253edce85999adde15366100450a42f0f7",
+      "description": "MultiJet AOD dataset file index (13 of 17) for access to data via CMS virtual machine",
+      "size": 272,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20011_file_index.json"
+    },
+    {
+      "checksum": "sha1:a5ac9c3aa1ea76389b3f65f5a5431661be9eef43",
+      "description": "MultiJet AOD dataset file index (14 of 17) for access to data via CMS virtual machine",
+      "size": 810,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20014_file_index.json"
+    },
+    {
+      "checksum": "sha1:d0ecb9b038481481ac0efe117d4b1be4d3f197b0",
+      "description": "MultiJet AOD dataset file index (15 of 17) for access to data via CMS virtual machine",
+      "size": 810,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20015_file_index.json"
+    },
+    {
+      "checksum": "sha1:2bec83bb5ac24830a9c0b2faf4d2b6d349a9c04b",
+      "description": "MultiJet AOD dataset file index (16 of 17) for access to data via CMS virtual machine",
+      "size": 1079,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20016_file_index.json"
+    },
+    {
+      "checksum": "sha1:e2dc2ad008ca9bda708f0f70f7125e6becfa782e",
+      "description": "MultiJet AOD dataset file index (17 of 17) for access to data via CMS virtual machine",
+      "size": 43035,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_210000_file_index.json"
+    },
+    {
+      "checksum": "sha1:1d38676dd95a75b28c41836eac61489a8de289ca",
+      "description": "MultiJet AOD dataset file index (1 of 17) for access to data via CMS virtual machine",
+      "size": 1270,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_110000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:96085f1748ad6ae04cd0938013e9acbde49ad237",
+      "description": "MultiJet AOD dataset file index (2 of 17) for access to data via CMS virtual machine",
+      "size": 126378,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:5df3e90a3ca4de495ef099f84f01c6b45892611d",
+      "description": "MultiJet AOD dataset file index (3 of 17) for access to data via CMS virtual machine",
+      "size": 126126,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20001_file_index.txt"
+    },
+    {
+      "checksum": "sha1:2b5f856d780d0a0eb816c40c93dbb517d9c6e134",
+      "description": "MultiJet AOD dataset file index (4 of 17) for access to data via CMS virtual machine",
+      "size": 66780,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20002_file_index.txt"
+    },
+    {
+      "checksum": "sha1:03d9cc3d6defbf8bbf4616cd0a9e5f9c3c90a2b0",
+      "description": "MultiJet AOD dataset file index (5 of 17) for access to data via CMS virtual machine",
+      "size": 378,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20003_file_index.txt"
+    },
+    {
+      "checksum": "sha1:fb9ae6da983039ab9c4199e26589e38d277f6e4d",
+      "description": "MultiJet AOD dataset file index (6 of 17) for access to data via CMS virtual machine",
+      "size": 252,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20004_file_index.txt"
+    },
+    {
+      "checksum": "sha1:730c47fcbbd2a052fc53f41f3f57bb5655ba842e",
+      "description": "MultiJet AOD dataset file index (7 of 17) for access to data via CMS virtual machine",
+      "size": 126,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20005_file_index.txt"
+    },
+    {
+      "checksum": "sha1:26cd5e89d70accb891b5f6025e8c566ce8baf03b",
+      "description": "MultiJet AOD dataset file index (8 of 17) for access to data via CMS virtual machine",
+      "size": 126,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20006_file_index.txt"
+    },
+    {
+      "checksum": "sha1:1fb25f6f7d8d661a75d1a87433d76b1359a6c5d4",
+      "description": "MultiJet AOD dataset file index (9 of 17) for access to data via CMS virtual machine",
+      "size": 126,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20007_file_index.txt"
+    },
+    {
+      "checksum": "sha1:7cfbe1d3490dd77665667ebea7564fd20bc0be63",
+      "description": "MultiJet AOD dataset file index (10 of 17) for access to data via CMS virtual machine",
+      "size": 252,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20008_file_index.txt"
+    },
+    {
+      "checksum": "sha1:e6f071a15407f141ff7b637efdfa33a473573bdd",
+      "description": "MultiJet AOD dataset file index (11 of 17) for access to data via CMS virtual machine",
+      "size": 252,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20009_file_index.txt"
+    },
+    {
+      "checksum": "sha1:772af723babc03956e17f6f938e73b32a73049d0",
+      "description": "MultiJet AOD dataset file index (12 of 17) for access to data via CMS virtual machine",
+      "size": 126,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20010_file_index.txt"
+    },
+    {
+      "checksum": "sha1:e5c76ee5059c591735f25da4daff945a09ff8e04",
+      "description": "MultiJet AOD dataset file index (13 of 17) for access to data via CMS virtual machine",
+      "size": 126,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20011_file_index.txt"
+    },
+    {
+      "checksum": "sha1:ede574705cd9496a94a22605d0a0b187da71da8b",
+      "description": "MultiJet AOD dataset file index (14 of 17) for access to data via CMS virtual machine",
+      "size": 378,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20014_file_index.txt"
+    },
+    {
+      "checksum": "sha1:ddd276fb4c622dfdac1444a2d7b853f5fd4721cb",
+      "description": "MultiJet AOD dataset file index (15 of 17) for access to data via CMS virtual machine",
+      "size": 378,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20015_file_index.txt"
+    },
+    {
+      "checksum": "sha1:176925f04fd84ef58217220e86451687e370efb7",
+      "description": "MultiJet AOD dataset file index (16 of 17) for access to data via CMS virtual machine",
+      "size": 504,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_20016_file_index.txt"
+    },
+    {
+      "checksum": "sha1:2d12d1c30feb189f9e6079fdd93552c01cef07cd",
+      "description": "MultiJet AOD dataset file index (17 of 17) for access to data via CMS virtual machine",
+      "size": 20320,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/MultiJet/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_MultiJet_AOD_12Oct2013-v1_210000_file_index.txt"
+    }
+  ],
+  "license": {
+    "attribution": "CC0"
+  },
+  "methodology": {
+    "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1701\">HLT configuration</a>.</p><p><strong>Data processing / RECO</strong><br/>This primary AOD dataset was processed from the RAW dataset by the following step (identical to 2011 RunA): <br/>Step: RECO<br/>Release: CMSSW_5_3_7_patch5<br/>Global tag: FT_R_53_V18::All\n        <br/><a href=\"/record/3616\">Configuration file for RECO step reco_2011A_MultiJet</a>\n        </p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_60Jet10\">HLT_60Jet10</a><br/><a href=\"/search?q=HLT_70Jet10\">HLT_70Jet10</a><br/><a href=\"/search?q=HLT_70Jet13\">HLT_70Jet13</a><br/><a href=\"/search?q=HLT_CentralJet46_BTagIP3D_CentralJet38_BTagIP3D\">HLT_CentralJet46_BTagIP3D_CentralJet38_BTagIP3D</a><br/><a href=\"/search?q=HLT_CentralJet46_CentralJet38_CentralJet20_DiBTagIP3D\">HLT_CentralJet46_CentralJet38_CentralJet20_DiBTagIP3D</a><br/><a href=\"/search?q=HLT_CentralJet46_CentralJet38_DiBTagIP3D\">HLT_CentralJet46_CentralJet38_DiBTagIP3D</a><br/><a href=\"/search?q=HLT_CentralJet60_CentralJet53_DiBTagIP3D\">HLT_CentralJet60_CentralJet53_DiBTagIP3D</a><br/><a href=\"/search?q=HLT_DiCentralJet36_BTagIP3DLoose\">HLT_DiCentralJet36_BTagIP3DLoose</a><br/><a href=\"/search?q=HLT_DoubleJet30_ForwardBackward\">HLT_DoubleJet30_ForwardBackward</a><br/><a href=\"/search?q=HLT_DoubleJet60_ForwardBackward\">HLT_DoubleJet60_ForwardBackward</a><br/><a href=\"/search?q=HLT_DoubleJet70_ForwardBackward\">HLT_DoubleJet70_ForwardBackward</a><br/><a href=\"/search?q=HLT_DoubleJet80_ForwardBackward\">HLT_DoubleJet80_ForwardBackward</a><br/><a href=\"/search?q=HLT_EightJet120\">HLT_EightJet120</a><br/><a href=\"/search?q=HLT_EightJet35\">HLT_EightJet35</a><br/><a href=\"/search?q=HLT_EightJet35_L1FastJet\">HLT_EightJet35_L1FastJet</a><br/><a href=\"/search?q=HLT_EightJet40\">HLT_EightJet40</a><br/><a href=\"/search?q=HLT_EightJet40_L1FastJet\">HLT_EightJet40_L1FastJet</a><br/><a href=\"/search?q=HLT_ExclDiJet60_HFAND\">HLT_ExclDiJet60_HFAND</a><br/><a href=\"/search?q=HLT_ExclDiJet60_HFOR\">HLT_ExclDiJet60_HFOR</a><br/><a href=\"/search?q=HLT_L1DoubleJet36Central\">HLT_L1DoubleJet36Central</a><br/><a href=\"/search?q=HLT_L1ETM30\">HLT_L1ETM30</a><br/><a href=\"/search?q=HLT_L1MultiJet\">HLT_L1MultiJet</a><br/><a href=\"/search?q=HLT_QuadJet40\">HLT_QuadJet40</a><br/><a href=\"/search?q=HLT_QuadJet40_IsoPFTau40\">HLT_QuadJet40_IsoPFTau40</a><br/><a href=\"/search?q=HLT_QuadJet45_DiJet40\">HLT_QuadJet45_DiJet40</a><br/><a href=\"/search?q=HLT_QuadJet45_IsoPFTau45\">HLT_QuadJet45_IsoPFTau45</a><br/><a href=\"/search?q=HLT_QuadJet50_BTagIP\">HLT_QuadJet50_BTagIP</a><br/><a href=\"/search?q=HLT_QuadJet50_DiJet40\">HLT_QuadJet50_DiJet40</a><br/><a href=\"/search?q=HLT_QuadJet50_DiJet40_L1FastJet\">HLT_QuadJet50_DiJet40_L1FastJet</a><br/><a href=\"/search?q=HLT_QuadJet50_IsoPFTau50\">HLT_QuadJet50_IsoPFTau50</a><br/><a href=\"/search?q=HLT_QuadJet50_Jet40\">HLT_QuadJet50_Jet40</a><br/><a href=\"/search?q=HLT_QuadJet50_Jet40_Jet30\">HLT_QuadJet50_Jet40_Jet30</a><br/><a href=\"/search?q=HLT_QuadJet60\">HLT_QuadJet60</a><br/><a href=\"/search?q=HLT_QuadJet70\">HLT_QuadJet70</a><br/><a href=\"/search?q=HLT_QuadJet80\">HLT_QuadJet80</a><br/><a href=\"/search?q=HLT_QuadJet80_L1FastJet\">HLT_QuadJet80_L1FastJet</a><br/><a href=\"/search?q=HLT_QuadJet90\">HLT_QuadJet90</a><br/><a href=\"/search?q=HLT_SixJet45\">HLT_SixJet45</a><br/><a href=\"/search?q=HLT_SixJet45_L1FastJet\">HLT_SixJet45_L1FastJet</a></p>"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "281",
+  "run_period": [
+    "Run2011B"
+  ],
+  "system_details": {
+    "global_tag": "FT_53_LV5_AN1",
+    "release": "CMSSW_5_3_32"
+  },
+  "title": "/MultiJet/Run2011B-12Oct2013-v1/AOD",
+  "title_additional": "MultiJet primary dataset in AOD format from RunB of 2011 (/MultiJet/Run2011B-12Oct2013-v1/AOD)",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Collision"
+    ]
+  },
+  "usage": {
+    "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+    "links": [
+      {
+        "description": "How to install the CMS Virtual Machine",
+        "url": "/vm/cms/2011"
+      },
+      {
+        "description": "Getting started with CMS open data",
+        "url": "/getting-started/cms/2011"
+      }
+    ]
+  },
+  "validation": {
+    "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+    "links": [
+      {
+        "description": "CMS data quality monitoring: Systems and experiences",
+        "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+      },
+      {
+        "description": "The CMS Data Quality Monitoring software experience and future improvements",
+        "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+      },
+      {
+        "description": "The CMS data quality monitoring software: experience and future prospects",
+        "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "<p>Photon primary dataset in AOD format from RunB of 2011. Run period from run number 175833 to 180252.</p><p>This dataset contains all runs from 2011 RunB. The list of validated runs, which must be applied to all analyses, can be found in</p>",
+    "links": [
+      {
+        "recid": "1001"
+      }
+    ]
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "CMS collaboration",
+    "recid": "451"
+  },
+  "collections": [
+    "CMS-Primary-Datasets"
+  ],
+  "collision_information": {
+    "energy": "7TeV",
+    "type": "pp"
+  },
+  "date_created": [
+    "2011"
+  ],
+  "date_published": "2020",
+  "date_reprocessed": "2011",
+  "distribution": {
+    "formats": [
+      "aod",
+      "root"
+    ],
+    "number_events": 29725348,
+    "number_files": 1674,
+    "size": 6071727632722
+  },
+  "doi": "10.7483/OPENDATA.CMS.AU2D.W0V9",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:5800af77c12d31bb76ef138d0b68cd6901facd9a",
+      "description": "Photon AOD dataset file index (1 of 4) for access to data via CMS virtual machine",
+      "size": 269,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/Photon/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_Photon_AOD_12Oct2013-v1_00000_file_index.json"
+    },
+    {
+      "checksum": "sha1:5d91605740704cfba546e4766c67c8733d8de0c5",
+      "description": "Photon AOD dataset file index (2 of 4) for access to data via CMS virtual machine",
+      "size": 18615,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/Photon/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_Photon_AOD_12Oct2013-v1_10000_file_index.json"
+    },
+    {
+      "checksum": "sha1:70410acbcc711592115a14866e7485739622d188",
+      "description": "Photon AOD dataset file index (3 of 4) for access to data via CMS virtual machine",
+      "size": 266736,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/Photon/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_Photon_AOD_12Oct2013-v1_20000_file_index.json"
+    },
+    {
+      "checksum": "sha1:c0cd6f501556d2497ecfc0fb6b2e3c93eeac76c7",
+      "description": "Photon AOD dataset file index (4 of 4) for access to data via CMS virtual machine",
+      "size": 161271,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/Photon/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_Photon_AOD_12Oct2013-v1_20001_file_index.json"
+    },
+    {
+      "checksum": "sha1:9eb8c0e323dce012665a6b25a101b032a60cd976",
+      "description": "Photon AOD dataset file index (1 of 4) for access to data via CMS virtual machine",
+      "size": 124,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/Photon/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_Photon_AOD_12Oct2013-v1_00000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:0b2d99349e65c0d4db657b17fcea4bc399f1469e",
+      "description": "Photon AOD dataset file index (2 of 4) for access to data via CMS virtual machine",
+      "size": 8680,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/Photon/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_Photon_AOD_12Oct2013-v1_10000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:d8a62b1102a6651396723c08d026fd57112b6cd7",
+      "description": "Photon AOD dataset file index (3 of 4) for access to data via CMS virtual machine",
+      "size": 123876,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/Photon/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_Photon_AOD_12Oct2013-v1_20000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:7c0a79eb68d8a55e82b7f7141d4507be288236a6",
+      "description": "Photon AOD dataset file index (4 of 4) for access to data via CMS virtual machine",
+      "size": 74896,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/Photon/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_Photon_AOD_12Oct2013-v1_20001_file_index.txt"
+    }
+  ],
+  "license": {
+    "attribution": "CC0"
+  },
+  "methodology": {
+    "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1701\">HLT configuration</a>.</p><p><strong>Data processing / RECO</strong><br/>This primary AOD dataset was processed from the RAW dataset by the following step (identical to 2011 RunA): <br/>Step: RECO<br/>Release: CMSSW_5_3_7_patch5<br/>Global tag: FT_R_53_V18::All\n        <br/><a href=\"/record/3611\">Configuration file for RECO step reco_2011A_Photon</a>\n        </p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_DoubleEle33\">HLT_DoubleEle33</a><br/><a href=\"/search?q=HLT_DoubleEle33_CaloIdL\">HLT_DoubleEle33_CaloIdL</a><br/><a href=\"/search?q=HLT_DoubleEle33_CaloIdL_CaloIsoT\">HLT_DoubleEle33_CaloIdL_CaloIsoT</a><br/><a href=\"/search?q=HLT_DoubleEle33_CaloIdT\">HLT_DoubleEle33_CaloIdT</a><br/><a href=\"/search?q=HLT_DoubleEle45_CaloIdL\">HLT_DoubleEle45_CaloIdL</a><br/><a href=\"/search?q=HLT_DoublePhoton33\">HLT_DoublePhoton33</a><br/><a href=\"/search?q=HLT_DoublePhoton33_HEVT\">HLT_DoublePhoton33_HEVT</a><br/><a href=\"/search?q=HLT_DoublePhoton38_HEVT\">HLT_DoublePhoton38_HEVT</a><br/><a href=\"/search?q=HLT_DoublePhoton40_CaloIdL_MR150\">HLT_DoublePhoton40_CaloIdL_MR150</a><br/><a href=\"/search?q=HLT_DoublePhoton40_CaloIdL_R014_MR150\">HLT_DoublePhoton40_CaloIdL_R014_MR150</a><br/><a href=\"/search?q=HLT_DoublePhoton40_MR150\">HLT_DoublePhoton40_MR150</a><br/><a href=\"/search?q=HLT_DoublePhoton40_R014_MR150\">HLT_DoublePhoton40_R014_MR150</a><br/><a href=\"/search?q=HLT_DoublePhoton43_HEVT\">HLT_DoublePhoton43_HEVT</a><br/><a href=\"/search?q=HLT_DoublePhoton48_HEVT\">HLT_DoublePhoton48_HEVT</a><br/><a href=\"/search?q=HLT_DoublePhoton50\">HLT_DoublePhoton50</a><br/><a href=\"/search?q=HLT_DoublePhoton5_IsoVL_CEP\">HLT_DoublePhoton5_IsoVL_CEP</a><br/><a href=\"/search?q=HLT_DoublePhoton60\">HLT_DoublePhoton60</a><br/><a href=\"/search?q=HLT_DoublePhoton70\">HLT_DoublePhoton70</a><br/><a href=\"/search?q=HLT_DoublePhoton80\">HLT_DoublePhoton80</a><br/><a href=\"/search?q=HLT_Photon125\">HLT_Photon125</a><br/><a href=\"/search?q=HLT_Photon125_NoSpikeFilter\">HLT_Photon125_NoSpikeFilter</a><br/><a href=\"/search?q=HLT_Photon135\">HLT_Photon135</a><br/><a href=\"/search?q=HLT_Photon200_NoHE\">HLT_Photon200_NoHE</a><br/><a href=\"/search?q=HLT_Photon20_CaloIdVL_IsoL\">HLT_Photon20_CaloIdVL_IsoL</a><br/><a href=\"/search?q=HLT_Photon20_R9Id_Photon18_R9Id\">HLT_Photon20_R9Id_Photon18_R9Id</a><br/><a href=\"/search?q=HLT_Photon225_NoHE\">HLT_Photon225_NoHE</a><br/><a href=\"/search?q=HLT_Photon26_CaloIdL_IsoVL_Photon18\">HLT_Photon26_CaloIdL_IsoVL_Photon18</a><br/><a href=\"/search?q=HLT_Photon26_CaloIdL_IsoVL_Photon18_CaloIdL_IsoVL\">HLT_Photon26_CaloIdL_IsoVL_Photon18_CaloIdL_IsoVL</a><br/><a href=\"/search?q=HLT_Photon26_CaloIdL_IsoVL_Photon18_R9Id\">HLT_Photon26_CaloIdL_IsoVL_Photon18_R9Id</a><br/><a href=\"/search?q=HLT_Photon26_CaloIdXL_IsoXL_Photon18\">HLT_Photon26_CaloIdXL_IsoXL_Photon18</a><br/><a href=\"/search?q=HLT_Photon26_CaloIdXL_IsoXL_Photon18_CaloIdXL_IsoXL\">HLT_Photon26_CaloIdXL_IsoXL_Photon18_CaloIdXL_IsoXL</a><br/><a href=\"/search?q=HLT_Photon26_CaloIdXL_IsoXL_Photon18_CaloIdXL_IsoXL_Mass60\">HLT_Photon26_CaloIdXL_IsoXL_Photon18_CaloIdXL_IsoXL_Mass60</a><br/><a href=\"/search?q=HLT_Photon26_CaloIdXL_IsoXL_Photon18_R9Id\">HLT_Photon26_CaloIdXL_IsoXL_Photon18_R9Id</a><br/><a href=\"/search?q=HLT_Photon26_CaloIdXL_IsoXL_Photon18_R9IdT_Mass60\">HLT_Photon26_CaloIdXL_IsoXL_Photon18_R9IdT_Mass60</a><br/><a href=\"/search?q=HLT_Photon26_IsoVL_Photon18\">HLT_Photon26_IsoVL_Photon18</a><br/><a href=\"/search?q=HLT_Photon26_IsoVL_Photon18_IsoVL\">HLT_Photon26_IsoVL_Photon18_IsoVL</a><br/><a href=\"/search?q=HLT_Photon26_Photon18\">HLT_Photon26_Photon18</a><br/><a href=\"/search?q=HLT_Photon26_R9IdT_Photon18_CaloIdXL_IsoXL_Mass60\">HLT_Photon26_R9IdT_Photon18_CaloIdXL_IsoXL_Mass60</a><br/><a href=\"/search?q=HLT_Photon26_R9IdT_Photon18_R9IdT_Mass60\">HLT_Photon26_R9IdT_Photon18_R9IdT_Mass60</a><br/><a href=\"/search?q=HLT_Photon26_R9Id_Photon18_CaloIdL_IsoVL\">HLT_Photon26_R9Id_Photon18_CaloIdL_IsoVL</a><br/><a href=\"/search?q=HLT_Photon26_R9Id_Photon18_CaloIdXL_IsoXL\">HLT_Photon26_R9Id_Photon18_CaloIdXL_IsoXL</a><br/><a href=\"/search?q=HLT_Photon26_R9Id_Photon18_R9Id\">HLT_Photon26_R9Id_Photon18_R9Id</a><br/><a href=\"/search?q=HLT_Photon30_CaloIdVL\">HLT_Photon30_CaloIdVL</a><br/><a href=\"/search?q=HLT_Photon30_CaloIdVL_IsoL\">HLT_Photon30_CaloIdVL_IsoL</a><br/><a href=\"/search?q=HLT_Photon32_CaloIdL_Photon26_CaloIdL\">HLT_Photon32_CaloIdL_Photon26_CaloIdL</a><br/><a href=\"/search?q=HLT_Photon36_CaloIdL_IsoVL_Photon22\">HLT_Photon36_CaloIdL_IsoVL_Photon22</a><br/><a href=\"/search?q=HLT_Photon36_CaloIdL_IsoVL_Photon22_CaloIdL\">HLT_Photon36_CaloIdL_IsoVL_Photon22_CaloIdL</a><br/><a href=\"/search?q=HLT_Photon36_CaloIdL_IsoVL_Photon22_CaloIdL_IsoVL\">HLT_Photon36_CaloIdL_IsoVL_Photon22_CaloIdL_IsoVL</a><br/><a href=\"/search?q=HLT_Photon36_CaloIdL_IsoVL_Photon22_R9Id\">HLT_Photon36_CaloIdL_IsoVL_Photon22_R9Id</a><br/><a href=\"/search?q=HLT_Photon36_CaloIdL_Photon22_CaloIdL\">HLT_Photon36_CaloIdL_Photon22_CaloIdL</a><br/><a href=\"/search?q=HLT_Photon36_CaloIdVL_Photon22_CaloIdVL\">HLT_Photon36_CaloIdVL_Photon22_CaloIdVL</a><br/><a href=\"/search?q=HLT_Photon36_CaloId_IsoVL_Photon22_R9Id\">HLT_Photon36_CaloId_IsoVL_Photon22_R9Id</a><br/><a href=\"/search?q=HLT_Photon36_IsoVL_Photon22\">HLT_Photon36_IsoVL_Photon22</a><br/><a href=\"/search?q=HLT_Photon36_Photon22\">HLT_Photon36_Photon22</a><br/><a href=\"/search?q=HLT_Photon36_R9Id_Photon22_CaloIdL_IsoVL\">HLT_Photon36_R9Id_Photon22_CaloIdL_IsoVL</a><br/><a href=\"/search?q=HLT_Photon36_R9Id_Photon22_R9Id\">HLT_Photon36_R9Id_Photon22_R9Id</a><br/><a href=\"/search?q=HLT_Photon400\">HLT_Photon400</a><br/><a href=\"/search?q=HLT_Photon40_CaloIdL_Photon28_CaloIdL\">HLT_Photon40_CaloIdL_Photon28_CaloIdL</a><br/><a href=\"/search?q=HLT_Photon44_CaloIdL_Photon34_CaloIdL\">HLT_Photon44_CaloIdL_Photon34_CaloIdL</a><br/><a href=\"/search?q=HLT_Photon48_CaloIdL_Photon38_CaloIdL\">HLT_Photon48_CaloIdL_Photon38_CaloIdL</a><br/><a href=\"/search?q=HLT_Photon50_CaloIdVL\">HLT_Photon50_CaloIdVL</a><br/><a href=\"/search?q=HLT_Photon50_CaloIdVL_IsoL\">HLT_Photon50_CaloIdVL_IsoL</a><br/><a href=\"/search?q=HLT_Photon75_CaloIdVL\">HLT_Photon75_CaloIdVL</a><br/><a href=\"/search?q=HLT_Photon75_CaloIdVL_IsoL\">HLT_Photon75_CaloIdVL_IsoL</a><br/><a href=\"/search?q=HLT_Photon90_CaloIdVL\">HLT_Photon90_CaloIdVL</a><br/><a href=\"/search?q=HLT_Photon90_CaloIdVL_IsoL\">HLT_Photon90_CaloIdVL_IsoL</a></p>"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "282",
+  "run_period": [
+    "Run2011B"
+  ],
+  "system_details": {
+    "global_tag": "FT_53_LV5_AN1",
+    "release": "CMSSW_5_3_32"
+  },
+  "title": "/Photon/Run2011B-12Oct2013-v1/AOD",
+  "title_additional": "Photon primary dataset in AOD format from RunB of 2011 (/Photon/Run2011B-12Oct2013-v1/AOD)",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Collision"
+    ]
+  },
+  "usage": {
+    "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+    "links": [
+      {
+        "description": "How to install the CMS Virtual Machine",
+        "url": "/vm/cms/2011"
+      },
+      {
+        "description": "Getting started with CMS open data",
+        "url": "/getting-started/cms/2011"
+      }
+    ]
+  },
+  "validation": {
+    "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+    "links": [
+      {
+        "description": "CMS data quality monitoring: Systems and experiences",
+        "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+      },
+      {
+        "description": "The CMS Data Quality Monitoring software experience and future improvements",
+        "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+      },
+      {
+        "description": "The CMS data quality monitoring software: experience and future prospects",
+        "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "<p>PhotonHad primary dataset in AOD format from RunB of 2011. Run period from run number 175833 to 180252.</p><p>This dataset contains all runs from 2011 RunB. The list of validated runs, which must be applied to all analyses, can be found in</p>",
+    "links": [
+      {
+        "recid": "1001"
+      }
+    ]
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "CMS collaboration",
+    "recid": "451"
+  },
+  "collections": [
+    "CMS-Primary-Datasets"
+  ],
+  "collision_information": {
+    "energy": "7TeV",
+    "type": "pp"
+  },
+  "date_created": [
+    "2011"
+  ],
+  "date_published": "2020",
+  "date_reprocessed": "2011",
+  "distribution": {
+    "formats": [
+      "aod",
+      "root"
+    ],
+    "number_events": 10192398,
+    "number_files": 771,
+    "size": 2331563079326
+  },
+  "doi": "10.7483/OPENDATA.CMS.IOOO.XUYZ",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:a15206af375a821f62c2f62cd2c586a3c296c0d7",
+      "description": "PhotonHad AOD dataset file index (1 of 2) for access to data via CMS virtual machine",
+      "size": 70203,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/PhotonHad/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_PhotonHad_AOD_12Oct2013-v1_00000_file_index.json"
+    },
+    {
+      "checksum": "sha1:9c86a0c39b49e3cf84974588a6b53b39a8250876",
+      "description": "PhotonHad AOD dataset file index (2 of 2) for access to data via CMS virtual machine",
+      "size": 137789,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/PhotonHad/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_PhotonHad_AOD_12Oct2013-v1_20000_file_index.json"
+    },
+    {
+      "checksum": "sha1:820463b09a246df2506be8abbc46d65f7d394dc4",
+      "description": "PhotonHad AOD dataset file index (1 of 2) for access to data via CMS virtual machine",
+      "size": 33020,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/PhotonHad/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_PhotonHad_AOD_12Oct2013-v1_00000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:28f554429e6915c6b19c93cbfcb3529c14cfe0ca",
+      "description": "PhotonHad AOD dataset file index (2 of 2) for access to data via CMS virtual machine",
+      "size": 64897,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/PhotonHad/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_PhotonHad_AOD_12Oct2013-v1_20000_file_index.txt"
+    }
+  ],
+  "license": {
+    "attribution": "CC0"
+  },
+  "methodology": {
+    "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1701\">HLT configuration</a>.</p><p><strong>Data processing / RECO</strong><br/>This primary AOD dataset was processed from the RAW dataset by the following step (identical to 2011 RunA): <br/>Step: RECO<br/>Release: CMSSW_5_3_7_patch5<br/>Global tag: FT_R_53_V18::All\n        <br/><a href=\"/record/3612\">Configuration file for RECO step reco_2011A_PhotonHad</a>\n        </p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_Photon30_CaloIdVT_CentralJet20_BTagIP\">HLT_Photon30_CaloIdVT_CentralJet20_BTagIP</a><br/><a href=\"/search?q=HLT_Photon40_CaloIdL_R005_MR150\">HLT_Photon40_CaloIdL_R005_MR150</a><br/><a href=\"/search?q=HLT_Photon40_CaloIdL_R014_MR150\">HLT_Photon40_CaloIdL_R014_MR150</a><br/><a href=\"/search?q=HLT_Photon40_CaloIdL_R014_MR500\">HLT_Photon40_CaloIdL_R014_MR500</a><br/><a href=\"/search?q=HLT_Photon40_CaloIdL_R017_MR500\">HLT_Photon40_CaloIdL_R017_MR500</a><br/><a href=\"/search?q=HLT_Photon40_CaloIdL_R020_MR350\">HLT_Photon40_CaloIdL_R020_MR350</a><br/><a href=\"/search?q=HLT_Photon40_CaloIdL_R023_MR350\">HLT_Photon40_CaloIdL_R023_MR350</a><br/><a href=\"/search?q=HLT_Photon40_CaloIdL_R025_MR250\">HLT_Photon40_CaloIdL_R025_MR250</a><br/><a href=\"/search?q=HLT_Photon40_CaloIdL_R029_MR250\">HLT_Photon40_CaloIdL_R029_MR250</a><br/><a href=\"/search?q=HLT_Photon40_CaloIdL_R038_MR200\">HLT_Photon40_CaloIdL_R038_MR200</a><br/><a href=\"/search?q=HLT_Photon40_CaloIdL_R042_MR200\">HLT_Photon40_CaloIdL_R042_MR200</a><br/><a href=\"/search?q=HLT_Photon40_R005_MR150\">HLT_Photon40_R005_MR150</a><br/><a href=\"/search?q=HLT_Photon40_R014_MR450\">HLT_Photon40_R014_MR450</a><br/><a href=\"/search?q=HLT_Photon40_R020_MR300\">HLT_Photon40_R020_MR300</a><br/><a href=\"/search?q=HLT_Photon40_R025_MR200\">HLT_Photon40_R025_MR200</a><br/><a href=\"/search?q=HLT_Photon40_R038_MR150\">HLT_Photon40_R038_MR150</a><br/><a href=\"/search?q=HLT_Photon55_CaloIdL_R017_MR500\">HLT_Photon55_CaloIdL_R017_MR500</a><br/><a href=\"/search?q=HLT_Photon55_CaloIdL_R023_MR350\">HLT_Photon55_CaloIdL_R023_MR350</a><br/><a href=\"/search?q=HLT_Photon55_CaloIdL_R029_MR250\">HLT_Photon55_CaloIdL_R029_MR250</a><br/><a href=\"/search?q=HLT_Photon55_CaloIdL_R042_MR200\">HLT_Photon55_CaloIdL_R042_MR200</a><br/><a href=\"/search?q=HLT_Photon60_CaloIdL_HT200\">HLT_Photon60_CaloIdL_HT200</a><br/><a href=\"/search?q=HLT_Photon60_CaloIdL_HT300\">HLT_Photon60_CaloIdL_HT300</a><br/><a href=\"/search?q=HLT_Photon60_CaloIdL_MHT70\">HLT_Photon60_CaloIdL_MHT70</a><br/><a href=\"/search?q=HLT_Photon70_CaloIdL_HT200\">HLT_Photon70_CaloIdL_HT200</a><br/><a href=\"/search?q=HLT_Photon70_CaloIdL_HT300\">HLT_Photon70_CaloIdL_HT300</a><br/><a href=\"/search?q=HLT_Photon70_CaloIdL_HT350\">HLT_Photon70_CaloIdL_HT350</a><br/><a href=\"/search?q=HLT_Photon70_CaloIdL_HT400\">HLT_Photon70_CaloIdL_HT400</a><br/><a href=\"/search?q=HLT_Photon70_CaloIdL_HT500\">HLT_Photon70_CaloIdL_HT500</a><br/><a href=\"/search?q=HLT_Photon70_CaloIdL_MHT110\">HLT_Photon70_CaloIdL_MHT110</a><br/><a href=\"/search?q=HLT_Photon70_CaloIdL_MHT30\">HLT_Photon70_CaloIdL_MHT30</a><br/><a href=\"/search?q=HLT_Photon70_CaloIdL_MHT50\">HLT_Photon70_CaloIdL_MHT50</a><br/><a href=\"/search?q=HLT_Photon70_CaloIdL_MHT70\">HLT_Photon70_CaloIdL_MHT70</a><br/><a href=\"/search?q=HLT_Photon70_CaloIdL_MHT90\">HLT_Photon70_CaloIdL_MHT90</a><br/><a href=\"/search?q=HLT_Photon70_CaloIdXL_HT400\">HLT_Photon70_CaloIdXL_HT400</a><br/><a href=\"/search?q=HLT_Photon70_CaloIdXL_HT500\">HLT_Photon70_CaloIdXL_HT500</a><br/><a href=\"/search?q=HLT_Photon70_CaloIdXL_MHT100\">HLT_Photon70_CaloIdXL_MHT100</a><br/><a href=\"/search?q=HLT_Photon70_CaloIdXL_MHT90\">HLT_Photon70_CaloIdXL_MHT90</a><br/><a href=\"/search?q=HLT_Photon90EBOnly_CaloIdVL_IsoL_TriPFJet25\">HLT_Photon90EBOnly_CaloIdVL_IsoL_TriPFJet25</a><br/><a href=\"/search?q=HLT_Photon90EBOnly_CaloIdVL_IsoL_TriPFJet30\">HLT_Photon90EBOnly_CaloIdVL_IsoL_TriPFJet30</a></p>"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "283",
+  "run_period": [
+    "Run2011B"
+  ],
+  "system_details": {
+    "global_tag": "FT_53_LV5_AN1",
+    "release": "CMSSW_5_3_32"
+  },
+  "title": "/PhotonHad/Run2011B-12Oct2013-v1/AOD",
+  "title_additional": "PhotonHad primary dataset in AOD format from RunB of 2011 (/PhotonHad/Run2011B-12Oct2013-v1/AOD)",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Collision"
+    ]
+  },
+  "usage": {
+    "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+    "links": [
+      {
+        "description": "How to install the CMS Virtual Machine",
+        "url": "/vm/cms/2011"
+      },
+      {
+        "description": "Getting started with CMS open data",
+        "url": "/getting-started/cms/2011"
+      }
+    ]
+  },
+  "validation": {
+    "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+    "links": [
+      {
+        "description": "CMS data quality monitoring: Systems and experiences",
+        "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+      },
+      {
+        "description": "The CMS Data Quality Monitoring software experience and future improvements",
+        "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+      },
+      {
+        "description": "The CMS data quality monitoring software: experience and future prospects",
+        "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "<p>SingleElectron primary dataset in AOD format from RunB of 2011. Run period from run number 175833 to 180252.</p><p>This dataset contains all runs from 2011 RunB. The list of validated runs, which must be applied to all analyses, can be found in</p>",
+    "links": [
+      {
+        "recid": "1001"
+      }
+    ]
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "CMS collaboration",
+    "recid": "451"
+  },
+  "collections": [
+    "CMS-Primary-Datasets"
+  ],
+  "collision_information": {
+    "energy": "7TeV",
+    "type": "pp"
+  },
+  "date_created": [
+    "2011"
+  ],
+  "date_published": "2020",
+  "date_reprocessed": "2011",
+  "distribution": {
+    "formats": [
+      "aod",
+      "root"
+    ],
+    "number_events": 17068856,
+    "number_files": 999,
+    "size": 3445447303876
+  },
+  "doi": "10.7483/OPENDATA.CMS.DH27.DZH2",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:2c518865d9da4439be869ae56c15cb72392d35d2",
+      "description": "SingleElectron AOD dataset file index (1 of 3) for access to data via CMS virtual machine",
+      "size": 251078,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/SingleElectron/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_SingleElectron_AOD_12Oct2013-v1_00000_file_index.json"
+    },
+    {
+      "checksum": "sha1:52ae407ace696f21ac45a9419ebd3eca2f708352",
+      "description": "SingleElectron AOD dataset file index (2 of 3) for access to data via CMS virtual machine",
+      "size": 278,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/SingleElectron/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_SingleElectron_AOD_12Oct2013-v1_10000_file_index.json"
+    },
+    {
+      "checksum": "sha1:8539821db47512c3e2ceb25240d57cd9bc963775",
+      "description": "SingleElectron AOD dataset file index (3 of 3) for access to data via CMS virtual machine",
+      "size": 23212,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/SingleElectron/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_SingleElectron_AOD_12Oct2013-v1_20000_file_index.json"
+    },
+    {
+      "checksum": "sha1:6b7825353c1777bed03331719d8cff86fee1ffdf",
+      "description": "SingleElectron AOD dataset file index (1 of 3) for access to data via CMS virtual machine",
+      "size": 120516,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/SingleElectron/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_SingleElectron_AOD_12Oct2013-v1_00000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:7e70a752db3dc05f26d742b07f20f88e3f6f8288",
+      "description": "SingleElectron AOD dataset file index (2 of 3) for access to data via CMS virtual machine",
+      "size": 132,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/SingleElectron/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_SingleElectron_AOD_12Oct2013-v1_10000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:e8ca2c1a5fa58fecd371bde907600a38ec57b82b",
+      "description": "SingleElectron AOD dataset file index (3 of 3) for access to data via CMS virtual machine",
+      "size": 11220,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/SingleElectron/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_SingleElectron_AOD_12Oct2013-v1_20000_file_index.txt"
+    }
+  ],
+  "license": {
+    "attribution": "CC0"
+  },
+  "methodology": {
+    "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1701\">HLT configuration</a>.</p><p><strong>Data processing / RECO</strong><br/>This primary AOD dataset was processed from the RAW dataset by the following step (identical to 2011 RunA): <br/>Step: RECO<br/>Release: CMSSW_5_3_7_patch5<br/>Global tag: FT_R_53_V18::All\n        <br/><a href=\"/record/3604\">Configuration file for RECO step reco_2011A_SingleElectron</a>\n        </p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_Ele100_CaloIdVL_CaloIsoVL_TrkIdVL_TrkIsoVL\">HLT_Ele100_CaloIdVL_CaloIsoVL_TrkIdVL_TrkIsoVL</a><br/><a href=\"/search?q=HLT_Ele100_CaloIdVT_TrkIdT\">HLT_Ele100_CaloIdVT_TrkIdT</a><br/><a href=\"/search?q=HLT_Ele17_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL_Ele8_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL\">HLT_Ele17_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL_Ele8_CaloIdT_TrkIdVL_CaloIsoVL_TrkIsoVL</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL\">HLT_Ele25_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL</a><br/><a href=\"/search?q=HLT_Ele25_WP80_PFMT40\">HLT_Ele25_WP80_PFMT40</a><br/><a href=\"/search?q=HLT_Ele27_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL\">HLT_Ele27_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL</a><br/><a href=\"/search?q=HLT_Ele27_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT\">HLT_Ele27_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT</a><br/><a href=\"/search?q=HLT_Ele27_WP70_PFMT40_PFMHT20\">HLT_Ele27_WP70_PFMT40_PFMHT20</a><br/><a href=\"/search?q=HLT_Ele27_WP80\">HLT_Ele27_WP80</a><br/><a href=\"/search?q=HLT_Ele27_WP80_PFMT50\">HLT_Ele27_WP80_PFMT50</a><br/><a href=\"/search?q=HLT_Ele32_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL\">HLT_Ele32_CaloIdL_CaloIsoVL_TrkIdVL_TrkIsoVL</a><br/><a href=\"/search?q=HLT_Ele32_CaloIdVL_CaloIsoVL_TrkIdVL_TrkIsoVL\">HLT_Ele32_CaloIdVL_CaloIsoVL_TrkIdVL_TrkIsoVL</a><br/><a href=\"/search?q=HLT_Ele32_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT\">HLT_Ele32_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT</a><br/><a href=\"/search?q=HLT_Ele32_WP70\">HLT_Ele32_WP70</a><br/><a href=\"/search?q=HLT_Ele32_WP70_PFMT50\">HLT_Ele32_WP70_PFMT50</a><br/><a href=\"/search?q=HLT_Ele42_CaloIdVL_CaloIsoVL_TrkIdVL_TrkIsoVL\">HLT_Ele42_CaloIdVL_CaloIsoVL_TrkIdVL_TrkIsoVL</a><br/><a href=\"/search?q=HLT_Ele42_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT\">HLT_Ele42_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT</a><br/><a href=\"/search?q=HLT_Ele45_CaloIdVT_TrkIdT\">HLT_Ele45_CaloIdVT_TrkIdT</a><br/><a href=\"/search?q=HLT_Ele52_CaloIdVT_TrkIdT\">HLT_Ele52_CaloIdVT_TrkIdT</a><br/><a href=\"/search?q=HLT_Ele65_CaloIdVT_TrkIdT\">HLT_Ele65_CaloIdVT_TrkIdT</a><br/><a href=\"/search?q=HLT_Ele80_CaloIdVT_TrkIdT\">HLT_Ele80_CaloIdVT_TrkIdT</a><br/><a href=\"/search?q=HLT_Ele90_NoSpikeFilter\">HLT_Ele90_NoSpikeFilter</a></p>"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "284",
+  "run_period": [
+    "Run2011B"
+  ],
+  "system_details": {
+    "global_tag": "FT_53_LV5_AN1",
+    "release": "CMSSW_5_3_32"
+  },
+  "title": "/SingleElectron/Run2011B-12Oct2013-v1/AOD",
+  "title_additional": "SingleElectron primary dataset in AOD format from RunB of 2011 (/SingleElectron/Run2011B-12Oct2013-v1/AOD)",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Collision"
+    ]
+  },
+  "usage": {
+    "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+    "links": [
+      {
+        "description": "How to install the CMS Virtual Machine",
+        "url": "/vm/cms/2011"
+      },
+      {
+        "description": "Getting started with CMS open data",
+        "url": "/getting-started/cms/2011"
+      }
+    ]
+  },
+  "validation": {
+    "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+    "links": [
+      {
+        "description": "CMS data quality monitoring: Systems and experiences",
+        "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+      },
+      {
+        "description": "The CMS Data Quality Monitoring software experience and future improvements",
+        "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+      },
+      {
+        "description": "The CMS data quality monitoring software: experience and future prospects",
+        "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "<p>SingleMu primary dataset in AOD format from RunB of 2011. Run period from run number 175833 to 180252.</p><p>This dataset contains all runs from 2011 RunB. The list of validated runs, which must be applied to all analyses, can be found in</p>",
+    "links": [
+      {
+        "recid": "1001"
+      }
+    ]
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "CMS collaboration",
+    "recid": "451"
+  },
+  "collections": [
+    "CMS-Primary-Datasets"
+  ],
+  "collision_information": {
+    "energy": "7TeV",
+    "type": "pp"
+  },
+  "date_created": [
+    "2011"
+  ],
+  "date_published": "2020",
+  "date_reprocessed": "2011",
+  "distribution": {
+    "formats": [
+      "aod",
+      "root"
+    ],
+    "number_events": 50321554,
+    "number_files": 3710,
+    "size": 10222057165312
+  },
+  "doi": "10.7483/OPENDATA.CMS.XBTD.NKD3",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:3d2f5249b7cd50868475d8fe695cc3e08e66c241",
+      "description": "SingleMu AOD dataset file index (1 of 5) for access to data via CMS virtual machine",
+      "size": 807,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/SingleMu/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_SingleMu_AOD_12Oct2013-v1_00000_file_index.json"
+    },
+    {
+      "checksum": "sha1:38a9b56ac187311179252cf51cf4da032eeeb77b",
+      "description": "SingleMu AOD dataset file index (2 of 5) for access to data via CMS virtual machine",
+      "size": 536375,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/SingleMu/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_SingleMu_AOD_12Oct2013-v1_10000_file_index.json"
+    },
+    {
+      "checksum": "sha1:515f13f0e0f4aa253a05c8a968dedca8b5ce12ad",
+      "description": "SingleMu AOD dataset file index (3 of 5) for access to data via CMS virtual machine",
+      "size": 321482,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/SingleMu/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_SingleMu_AOD_12Oct2013-v1_10001_file_index.json"
+    },
+    {
+      "checksum": "sha1:20424a1356a22ff2f669409f335488716724cfe5",
+      "description": "SingleMu AOD dataset file index (4 of 5) for access to data via CMS virtual machine",
+      "size": 132082,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/SingleMu/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_SingleMu_AOD_12Oct2013-v1_10002_file_index.json"
+    },
+    {
+      "checksum": "sha1:425a7debffb5e170e89ac70ef7faadda4bbcd505",
+      "description": "SingleMu AOD dataset file index (5 of 5) for access to data via CMS virtual machine",
+      "size": 5921,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/SingleMu/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_SingleMu_AOD_12Oct2013-v1_20000_file_index.json"
+    },
+    {
+      "checksum": "sha1:a6147a1bf932f623c1679d0b9cecd1fd7fc1b52d",
+      "description": "SingleMu AOD dataset file index (1 of 5) for access to data via CMS virtual machine",
+      "size": 378,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/SingleMu/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_SingleMu_AOD_12Oct2013-v1_00000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:bf4dc03890965479da72a1426396b02e0516449f",
+      "description": "SingleMu AOD dataset file index (2 of 5) for access to data via CMS virtual machine",
+      "size": 251748,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/SingleMu/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_SingleMu_AOD_12Oct2013-v1_10000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:d1ab943724eeb700a425c4da659505c4bc9c29cf",
+      "description": "SingleMu AOD dataset file index (3 of 5) for access to data via CMS virtual machine",
+      "size": 150696,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/SingleMu/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_SingleMu_AOD_12Oct2013-v1_10001_file_index.txt"
+    },
+    {
+      "checksum": "sha1:72c06322ef8acea13d9e7435426fe751f8840d1f",
+      "description": "SingleMu AOD dataset file index (4 of 5) for access to data via CMS virtual machine",
+      "size": 61866,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/SingleMu/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_SingleMu_AOD_12Oct2013-v1_10002_file_index.txt"
+    },
+    {
+      "checksum": "sha1:9a016984bdf2788bebf9d9e6a24103050a070e27",
+      "description": "SingleMu AOD dataset file index (5 of 5) for access to data via CMS virtual machine",
+      "size": 2772,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/SingleMu/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_SingleMu_AOD_12Oct2013-v1_20000_file_index.txt"
+    }
+  ],
+  "license": {
+    "attribution": "CC0"
+  },
+  "methodology": {
+    "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1701\">HLT configuration</a>.</p><p><strong>Data processing / RECO</strong><br/>This primary AOD dataset was processed from the RAW dataset by the following step (identical to 2011 RunA): <br/>Step: RECO<br/>Release: CMSSW_5_3_7_patch5<br/>Global tag: FT_R_53_V18::All\n        <br/><a href=\"/record/3606\">Configuration file for RECO step reco_2011A_SingleMu</a>\n        </p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_IsoMu12\">HLT_IsoMu12</a><br/><a href=\"/search?q=HLT_IsoMu15\">HLT_IsoMu15</a><br/><a href=\"/search?q=HLT_IsoMu15_eta2p1\">HLT_IsoMu15_eta2p1</a><br/><a href=\"/search?q=HLT_IsoMu17\">HLT_IsoMu17</a><br/><a href=\"/search?q=HLT_IsoMu17_eta2p1\">HLT_IsoMu17_eta2p1</a><br/><a href=\"/search?q=HLT_IsoMu20\">HLT_IsoMu20</a><br/><a href=\"/search?q=HLT_IsoMu20_eta2p1\">HLT_IsoMu20_eta2p1</a><br/><a href=\"/search?q=HLT_IsoMu24\">HLT_IsoMu24</a><br/><a href=\"/search?q=HLT_IsoMu24_eta2p1\">HLT_IsoMu24_eta2p1</a><br/><a href=\"/search?q=HLT_IsoMu30\">HLT_IsoMu30</a><br/><a href=\"/search?q=HLT_IsoMu30_eta2p1\">HLT_IsoMu30_eta2p1</a><br/><a href=\"/search?q=HLT_IsoMu34_eta2p1\">HLT_IsoMu34_eta2p1</a><br/><a href=\"/search?q=HLT_IsoMu40_eta2p1\">HLT_IsoMu40_eta2p1</a><br/><a href=\"/search?q=HLT_L1SingleMu10\">HLT_L1SingleMu10</a><br/><a href=\"/search?q=HLT_L1SingleMu20\">HLT_L1SingleMu20</a><br/><a href=\"/search?q=HLT_L2Mu10\">HLT_L2Mu10</a><br/><a href=\"/search?q=HLT_L2Mu20\">HLT_L2Mu20</a><br/><a href=\"/search?q=HLT_Mu100\">HLT_Mu100</a><br/><a href=\"/search?q=HLT_Mu100_eta2p1\">HLT_Mu100_eta2p1</a><br/><a href=\"/search?q=HLT_Mu12\">HLT_Mu12</a><br/><a href=\"/search?q=HLT_Mu15\">HLT_Mu15</a><br/><a href=\"/search?q=HLT_Mu20\">HLT_Mu20</a><br/><a href=\"/search?q=HLT_Mu200_eta2p1\">HLT_Mu200_eta2p1</a><br/><a href=\"/search?q=HLT_Mu24\">HLT_Mu24</a><br/><a href=\"/search?q=HLT_Mu24_eta2p1\">HLT_Mu24_eta2p1</a><br/><a href=\"/search?q=HLT_Mu3\">HLT_Mu3</a><br/><a href=\"/search?q=HLT_Mu30\">HLT_Mu30</a><br/><a href=\"/search?q=HLT_Mu30_eta2p1\">HLT_Mu30_eta2p1</a><br/><a href=\"/search?q=HLT_Mu40\">HLT_Mu40</a><br/><a href=\"/search?q=HLT_Mu40_eta2p1\">HLT_Mu40_eta2p1</a><br/><a href=\"/search?q=HLT_Mu5\">HLT_Mu5</a><br/><a href=\"/search?q=HLT_Mu50_eta2p1\">HLT_Mu50_eta2p1</a><br/><a href=\"/search?q=HLT_Mu60\">HLT_Mu60</a><br/><a href=\"/search?q=HLT_Mu60_eta2p1\">HLT_Mu60_eta2p1</a><br/><a href=\"/search?q=HLT_Mu8\">HLT_Mu8</a></p>"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "285",
+  "run_period": [
+    "Run2011B"
+  ],
+  "system_details": {
+    "global_tag": "FT_53_LV5_AN1",
+    "release": "CMSSW_5_3_32"
+  },
+  "title": "/SingleMu/Run2011B-12Oct2013-v1/AOD",
+  "title_additional": "SingleMu primary dataset in AOD format from RunB of 2011 (/SingleMu/Run2011B-12Oct2013-v1/AOD)",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Collision"
+    ]
+  },
+  "usage": {
+    "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+    "links": [
+      {
+        "description": "How to install the CMS Virtual Machine",
+        "url": "/vm/cms/2011"
+      },
+      {
+        "description": "Getting started with CMS open data",
+        "url": "/getting-started/cms/2011"
+      }
+    ]
+  },
+  "validation": {
+    "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+    "links": [
+      {
+        "description": "CMS data quality monitoring: Systems and experiences",
+        "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+      },
+      {
+        "description": "The CMS Data Quality Monitoring software experience and future improvements",
+        "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+      },
+      {
+        "description": "The CMS data quality monitoring software: experience and future prospects",
+        "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "<p>Tau primary dataset in AOD format from RunB of 2011. Run period from run number 175833 to 180252.</p><p>This dataset contains all runs from 2011 RunB. The list of validated runs, which must be applied to all analyses, can be found in</p>",
+    "links": [
+      {
+        "recid": "1001"
+      }
+    ]
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "CMS collaboration",
+    "recid": "451"
+  },
+  "collections": [
+    "CMS-Primary-Datasets"
+  ],
+  "collision_information": {
+    "energy": "7TeV",
+    "type": "pp"
+  },
+  "date_created": [
+    "2011"
+  ],
+  "date_published": "2020",
+  "date_reprocessed": "2011",
+  "distribution": {
+    "formats": [
+      "aod",
+      "root"
+    ],
+    "number_events": 11503040,
+    "number_files": 626,
+    "size": 2396845716048
+  },
+  "doi": "10.7483/OPENDATA.CMS.CJYU.OMF5",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:efd5123220237e3044b8c309aaa58366cd0188e9",
+      "description": "Tau AOD dataset file index (1 of 1) for access to data via CMS virtual machine",
+      "size": 165267,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/Tau/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_Tau_AOD_12Oct2013-v1_10000_file_index.json"
+    },
+    {
+      "checksum": "sha1:549118a00d3723889a2476aca579b6858ad02270",
+      "description": "Tau AOD dataset file index (1 of 1) for access to data via CMS virtual machine",
+      "size": 75746,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/Tau/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_Tau_AOD_12Oct2013-v1_10000_file_index.txt"
+    }
+  ],
+  "license": {
+    "attribution": "CC0"
+  },
+  "methodology": {
+    "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1701\">HLT configuration</a>.</p><p><strong>Data processing / RECO</strong><br/>This primary AOD dataset was processed from the RAW dataset by the following step (identical to 2011 RunA): <br/>Step: RECO<br/>Release: CMSSW_5_3_7_patch5<br/>Global tag: FT_R_53_V18::All\n        <br/><a href=\"/record/3615\">Configuration file for RECO step reco_2011A_Tau</a>\n        </p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_DoubleIsoPFTau20_Trk5\">HLT_DoubleIsoPFTau20_Trk5</a><br/><a href=\"/search?q=HLT_DoubleIsoPFTau25_Trk5_eta2p1\">HLT_DoubleIsoPFTau25_Trk5_eta2p1</a><br/><a href=\"/search?q=HLT_DoubleIsoPFTau35_Trk5_eta2p1\">HLT_DoubleIsoPFTau35_Trk5_eta2p1</a><br/><a href=\"/search?q=HLT_DoubleIsoPFTau40_Trk5_eta2p1\">HLT_DoubleIsoPFTau40_Trk5_eta2p1</a><br/><a href=\"/search?q=HLT_DoubleIsoPFTau45_Trk5_eta2p1\">HLT_DoubleIsoPFTau45_Trk5_eta2p1</a><br/><a href=\"/search?q=HLT_DoubleIsoPFTau55_Trk5_eta2p1\">HLT_DoubleIsoPFTau55_Trk5_eta2p1</a><br/><a href=\"/search?q=HLT_IsoPFTau35_Trk20\">HLT_IsoPFTau35_Trk20</a><br/><a href=\"/search?q=HLT_IsoPFTau35_Trk20_MET45\">HLT_IsoPFTau35_Trk20_MET45</a><br/><a href=\"/search?q=HLT_IsoPFTau35_Trk20_MET60\">HLT_IsoPFTau35_Trk20_MET60</a><br/><a href=\"/search?q=HLT_IsoPFTau35_Trk20_MET70\">HLT_IsoPFTau35_Trk20_MET70</a><br/><a href=\"/search?q=HLT_IsoPFTau40_IsoPFTau30_Trk5_eta2p1\">HLT_IsoPFTau40_IsoPFTau30_Trk5_eta2p1</a><br/><a href=\"/search?q=HLT_IsoPFTau45_Trk20_MET60\">HLT_IsoPFTau45_Trk20_MET60</a><br/><a href=\"/search?q=HLT_MediumIsoPFTau35_Trk20\">HLT_MediumIsoPFTau35_Trk20</a><br/><a href=\"/search?q=HLT_MediumIsoPFTau35_Trk20_MET60\">HLT_MediumIsoPFTau35_Trk20_MET60</a><br/><a href=\"/search?q=HLT_MediumIsoPFTau35_Trk20_MET70\">HLT_MediumIsoPFTau35_Trk20_MET70</a></p>"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "286",
+  "run_period": [
+    "Run2011B"
+  ],
+  "system_details": {
+    "global_tag": "FT_53_LV5_AN1",
+    "release": "CMSSW_5_3_32"
+  },
+  "title": "/Tau/Run2011B-12Oct2013-v1/AOD",
+  "title_additional": "Tau primary dataset in AOD format from RunB of 2011 (/Tau/Run2011B-12Oct2013-v1/AOD)",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Collision"
+    ]
+  },
+  "usage": {
+    "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+    "links": [
+      {
+        "description": "How to install the CMS Virtual Machine",
+        "url": "/vm/cms/2011"
+      },
+      {
+        "description": "Getting started with CMS open data",
+        "url": "/getting-started/cms/2011"
+      }
+    ]
+  },
+  "validation": {
+    "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+    "links": [
+      {
+        "description": "CMS data quality monitoring: Systems and experiences",
+        "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+      },
+      {
+        "description": "The CMS Data Quality Monitoring software experience and future improvements",
+        "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+      },
+      {
+        "description": "The CMS data quality monitoring software: experience and future prospects",
+        "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+      }
+    ]
+  }
+}
+,
+{
+  "abstract": {
+    "description": "<p>TauPlusX primary dataset in AOD format from RunB of 2011. Run period from run number 175833 to 180252.</p><p>This dataset contains all runs from 2011 RunB. The list of validated runs, which must be applied to all analyses, can be found in</p>",
+    "links": [
+      {
+        "recid": "1001"
+      }
+    ]
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "CMS collaboration",
+    "recid": "451"
+  },
+  "collections": [
+    "CMS-Primary-Datasets"
+  ],
+  "collision_information": {
+    "energy": "7TeV",
+    "type": "pp"
+  },
+  "date_created": [
+    "2011"
+  ],
+  "date_published": "2020",
+  "date_reprocessed": "2011",
+  "distribution": {
+    "formats": [
+      "aod",
+      "root"
+    ],
+    "number_events": 19212432,
+    "number_files": 1093,
+    "size": 3994540406994
+  },
+  "doi": "10.7483/OPENDATA.CMS.0KTI.PBPI",
+  "experiment": "CMS",
+  "files": [
+    {
+      "checksum": "sha1:c667553eed710252b79859c1e0d376275b9edabb",
+      "description": "TauPlusX AOD dataset file index (1 of 2) for access to data via CMS virtual machine",
+      "size": 268465,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/TauPlusX/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_TauPlusX_AOD_12Oct2013-v1_10000_file_index.json"
+    },
+    {
+      "checksum": "sha1:57a56e4f3819055d2864267a39c8403711c68df1",
+      "description": "TauPlusX AOD dataset file index (2 of 2) for access to data via CMS virtual machine",
+      "size": 25558,
+      "type": "index.json",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/TauPlusX/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_TauPlusX_AOD_12Oct2013-v1_10001_file_index.json"
+    },
+    {
+      "checksum": "sha1:d5616a4c9957c9205cbff83c6f11825b0cec3b1e",
+      "description": "TauPlusX AOD dataset file index (1 of 2) for access to data via CMS virtual machine",
+      "size": 125748,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/TauPlusX/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_TauPlusX_AOD_12Oct2013-v1_10000_file_index.txt"
+    },
+    {
+      "checksum": "sha1:bf38241ad8ca0437450d3b1f0027b8d56c4ee1a1",
+      "description": "TauPlusX AOD dataset file index (2 of 2) for access to data via CMS virtual machine",
+      "size": 11970,
+      "type": "index.txt",
+      "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2011B/TauPlusX/AOD/12Oct2013-v1/file-indexes/CMS_Run2011B_TauPlusX_AOD_12Oct2013-v1_10001_file_index.txt"
+    }
+  ],
+  "license": {
+    "attribution": "CC0"
+  },
+  "methodology": {
+    "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1701\">HLT configuration</a>.</p><p><strong>Data processing / RECO</strong><br/>This primary AOD dataset was processed from the RAW dataset by the following step (identical to 2011 RunA): <br/>Step: RECO<br/>Release: CMSSW_5_3_7_patch5<br/>Global tag: FT_R_53_V18::All\n        <br/><a href=\"/record/3601\">Configuration file for RECO step reco_2011A_TauPlusX</a>\n        </p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_Ele15_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT\">HLT_Ele15_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT</a><br/><a href=\"/search?q=HLT_Ele15_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_LooseIsoPFTau15\">HLT_Ele15_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_LooseIsoPFTau15</a><br/><a href=\"/search?q=HLT_Ele15_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_LooseIsoPFTau20\">HLT_Ele15_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_LooseIsoPFTau20</a><br/><a href=\"/search?q=HLT_Ele15_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_TightIsoPFTau20\">HLT_Ele15_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_TightIsoPFTau20</a><br/><a href=\"/search?q=HLT_Ele15_CaloIdVT_TrkIdT_LooseIsoPFTau15\">HLT_Ele15_CaloIdVT_TrkIdT_LooseIsoPFTau15</a><br/><a href=\"/search?q=HLT_Ele15_CaloIdVT_TrkIdT_LooseIsoPFTau20\">HLT_Ele15_CaloIdVT_TrkIdT_LooseIsoPFTau20</a><br/><a href=\"/search?q=HLT_Ele15_CaloIdVT_TrkIdT_TightIsoPFTau20\">HLT_Ele15_CaloIdVT_TrkIdT_TightIsoPFTau20</a><br/><a href=\"/search?q=HLT_Ele18_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_LooseIsoPFTau20\">HLT_Ele18_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_LooseIsoPFTau20</a><br/><a href=\"/search?q=HLT_Ele18_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_MediumIsoPFTau20\">HLT_Ele18_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_MediumIsoPFTau20</a><br/><a href=\"/search?q=HLT_Ele18_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_TightIsoPFTau20\">HLT_Ele18_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_TightIsoPFTau20</a><br/><a href=\"/search?q=HLT_Ele18_CaloIdVT_TrkIdT_MediumIsoPFTau20\">HLT_Ele18_CaloIdVT_TrkIdT_MediumIsoPFTau20</a><br/><a href=\"/search?q=HLT_Ele20_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_MediumIsoPFTau20\">HLT_Ele20_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_MediumIsoPFTau20</a><br/><a href=\"/search?q=HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_MediumIsoPFTau25\">HLT_Ele25_CaloIdVT_CaloIsoT_TrkIdT_TrkIsoT_MediumIsoPFTau25</a><br/><a href=\"/search?q=HLT_HT200_DoubleLooseIsoPFTau10_Trk3_PFMHT35\">HLT_HT200_DoubleLooseIsoPFTau10_Trk3_PFMHT35</a><br/><a href=\"/search?q=HLT_HT250_DoubleIsoPFTau10_Trk3_PFMHT35\">HLT_HT250_DoubleIsoPFTau10_Trk3_PFMHT35</a><br/><a href=\"/search?q=HLT_HT250_DoubleLooseIsoPFTau10_Trk3_PFMHT35\">HLT_HT250_DoubleLooseIsoPFTau10_Trk3_PFMHT35</a><br/><a href=\"/search?q=HLT_HT300_DoubleIsoPFTau10_Trk3_PFMHT40\">HLT_HT300_DoubleIsoPFTau10_Trk3_PFMHT40</a><br/><a href=\"/search?q=HLT_HT350_DoubleIsoPFTau10_Trk3_PFMHT45\">HLT_HT350_DoubleIsoPFTau10_Trk3_PFMHT45</a><br/><a href=\"/search?q=HLT_HT400_DoubleIsoPFTau10_Trk3_PFMHT50\">HLT_HT400_DoubleIsoPFTau10_Trk3_PFMHT50</a><br/><a href=\"/search?q=HLT_IsoMu12_LooseIsoPFTau10\">HLT_IsoMu12_LooseIsoPFTau10</a><br/><a href=\"/search?q=HLT_IsoMu15_LooseIsoPFTau15\">HLT_IsoMu15_LooseIsoPFTau15</a><br/><a href=\"/search?q=HLT_IsoMu15_LooseIsoPFTau20\">HLT_IsoMu15_LooseIsoPFTau20</a><br/><a href=\"/search?q=HLT_IsoMu15_TightIsoPFTau20\">HLT_IsoMu15_TightIsoPFTau20</a><br/><a href=\"/search?q=HLT_IsoMu15_eta2p1_LooseIsoPFTau20\">HLT_IsoMu15_eta2p1_LooseIsoPFTau20</a><br/><a href=\"/search?q=HLT_IsoMu15_eta2p1_MediumIsoPFTau20\">HLT_IsoMu15_eta2p1_MediumIsoPFTau20</a><br/><a href=\"/search?q=HLT_IsoMu15_eta2p1_TightIsoPFTau20\">HLT_IsoMu15_eta2p1_TightIsoPFTau20</a><br/><a href=\"/search?q=HLT_Mu15_LooseIsoPFTau15\">HLT_Mu15_LooseIsoPFTau15</a><br/><a href=\"/search?q=HLT_Mu15_LooseIsoPFTau20\">HLT_Mu15_LooseIsoPFTau20</a><br/><a href=\"/search?q=HLT_QuadJet50_IsoPFTau50\">HLT_QuadJet50_IsoPFTau50</a></p>"
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "287",
+  "run_period": [
+    "Run2011B"
+  ],
+  "system_details": {
+    "global_tag": "FT_53_LV5_AN1",
+    "release": "CMSSW_5_3_32"
+  },
+  "title": "/TauPlusX/Run2011B-12Oct2013-v1/AOD",
+  "title_additional": "TauPlusX primary dataset in AOD format from RunB of 2011 (/TauPlusX/Run2011B-12Oct2013-v1/AOD)",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Collision"
+    ]
+  },
+  "usage": {
+    "description": "You can access these data through the CMS Virtual Machine. See the instructions for setting up the Virtual Machine and getting started in",
+    "links": [
+      {
+        "description": "How to install the CMS Virtual Machine",
+        "url": "/vm/cms/2011"
+      },
+      {
+        "description": "Getting started with CMS open data",
+        "url": "/getting-started/cms/2011"
+      }
+    ]
+  },
+  "validation": {
+    "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+    "links": [
+      {
+        "description": "CMS data quality monitoring: Systems and experiences",
+        "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+      },
+      {
+        "description": "The CMS Data Quality Monitoring software experience and future improvements",
+        "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+      },
+      {
+        "description": "The CMS data quality monitoring software: experience and future prospects",
+        "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+      }
+    ]
+  }
+}
+]
