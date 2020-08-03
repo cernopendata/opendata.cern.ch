@@ -1,0 +1,78 @@
+[
+  {
+    "abstract": {
+      "description": " <p>This record contains code that needs to be used to properly read out CASTOR Open Data of Commissioning10, Run2010A, and Run2010B datasets. It includes two EDAnalyzer plugins that are created to correctly read the reconstructed CASTOR data objects and make validation plots.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Van Haevermaet, Hans"
+      }
+    ],
+    "collections": [
+      "CMS-Validation-Utilities"
+    ],
+    "date_created": [
+      "2010"
+    ],
+    "date_published": "2020",
+    "distribution": {
+      "formats": [
+        "gz"
+      ]
+    },
+    "doi": "FIXME",
+    "experiment": "CMS",
+    "license": {
+      "attribution": "GNU General Public License (GPL) version 3"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "465",
+    "run_period": [
+      "Commissioning2010",
+      "Run2010A",
+      "Run2010B"
+    ],
+    "source_code_repository": {
+      "url": "https://github.com/cms-opendata-validation/CastorDataValidation"
+    },
+    "system_details": {
+      "description": "Use this code with the CMS Open Data VM environment or in the CMS Open Data docker container",
+      "recid": "250",
+      "release": "CMSSW_4_2_8_lowpupatch1"
+    },
+    "title": "Validation code for CASTOR open data from 2010",
+    "type": {
+      "primary": "Software",
+      "secondary": [
+        "Validation",
+        "Workflow"
+      ]
+    },
+    "usage": {
+      "description": " <p>Run this software in the CMS Open Data container or in the the CERN Virtual Machine for 2010 CMS data installed. For the container, follow the instructions for 2010 data in <a href=\"docs/cms-guide-docker\">Running CMS analysis code using Docker</a>. For the virtual machine, follow the instructions in step 1 at <a href=\"/VM/CMS/2010\">How to install a CERN Virtual Machine</a>.</p> "
+    },
+    "use_with": {
+      "description": "Use this with MinimumBias primary datasets from Commissioning period 2010, Run2010A or Run2010B, and the corresponding simulated data (see instructions in the code repository for more details).",
+      "links": [
+        {
+          "recid": "14001"
+        },
+        {
+          "recid": "78"
+        },
+        {
+          "recid": "8"
+        }
+      ]
+    },
+    "validation": {
+      "description": "Only the list of validated runs are accepted (those specific for CASTOR data in Run2010A and Run2010B are in the code repository):",
+      "links": [
+        {
+          "recid": "14201"
+        }
+      ]
+    }
+  }
+]
