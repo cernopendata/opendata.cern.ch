@@ -25,8 +25,8 @@
       "formats": [
         "ova"
       ],
-      "number_files": 4,
-      "size": 78376960
+      "number_files": 5,
+      "size": 98877439
     },
     "experiment": "CMS",
     "files": [
@@ -49,6 +49,11 @@
         "checksum": "adler32:7b838c74",
         "size": 20848640,
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/environment/1.5.2/CMS-OpenData-1.5.2.ova"
+      },
+      {
+        "checksum": "adler32:974b2476",
+        "size": 20500480,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/environment/1.5.3/CMS-OpenData-1.5.3.ova"
       }
     ],
     "methodology": {
@@ -69,7 +74,6 @@
         {
           "recid": "257"
         }
-        
       ]
     },
     "publisher": "CERN Open Data Portal",
@@ -304,8 +308,9 @@
     },
     "usage": {
       "description": " <p> First, you need to run a normal Micro-CernVM, using your own context so you can login. Copy the attached files to the running VM and then   login.</p>\n <p>Inside the VM, you first need a copy of the latest Micro-CernVM release as a template for the Open Data image. Download it, inside the running VM, from: <a href=\"http://cernvm.cern.ch/releases/production/cernvm4-micro-2020.04-1.hdd\">http://cernvm.cern.ch/releases/production/cernvm4-micro-2020.04-1.hdd</a>  placing it in the same directory as the other files. </p>\n <p> Run the script:<code>./cernvm-script </code>which will produce some output on the terminal, and then finish. </p>\n      <p>The result should be a file with the title coming from the -n field in the script. In this case, the file we're interested in is: <code>CMS-OpenData-1.5.2.ova </code>which can be copied from the running VM to elsewhere. </p> "
-    },
-    {
+    }
+  },
+  {
     "abstract": {
       "description": " <p>The scripts provided create the CMS virtual machine image based on <a href=\"https://cernvm.cern.ch\">CernVM</a>, with Scientific Linux CERN 6 (slc6).</p> "
     },
@@ -327,23 +332,23 @@
         "txt"
       ],
       "number_files": 3,
-      "size": FIXME
+      "size": 4585
     },
     "experiment": "CMS",
     "files": [
       {
-        "checksum": "FIXME",
-        "size": FIXME,
+        "checksum": "adler32:a0a83785",
+        "size": 181,
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/environment/1.5.3/cernvm-script"
       },
       {
-        "checksum": "FIXME",
-        "size": FIXME,
+        "checksum": "adler32:084361f5",
+        "size": 4252,
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/environment/1.5.3/cms-user-data.txt"
       },
       {
-        "checksum": "FIXME",
-        "size": FIXME,
+        "checksum": "adler32:786f33c7",
+        "size": 152,
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/environment/1.5.3/opendata-desktop-settings"
       }
     ],
