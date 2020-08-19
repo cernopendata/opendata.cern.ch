@@ -69,6 +69,10 @@ This page lists possible solutions to frequently encountered issues with CMS Ope
 * If your example accesses the condition database, set the logical links in your working directory and change the global tag definition in your configuration file as described in [the guide to the CMS condition database](/docs/cms-guide-for-condition-database).
 * Change the input files to those of 2012.
 
+**The example job prints output every event, how do I reduce frequency?**
+
+* In the configuration file, add a line `process.MessageLogger.cerr.FwkReport.reportEvery = 1000` (or a frequency of your choice) after `process.load("FWCore.MessageService.MessageLogger_cfi")`.
+
 
 ### File access runtime
 
