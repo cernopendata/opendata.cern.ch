@@ -1,7 +1,6 @@
 ## Introduction
 
 As an alternative to using a virtual machine, you can run CMS analysis code in a [Docker](https://www.docker.com/) container. If you have not already installed Docker instructions for installation are [provided by Docker](https://docs.docker.com/install/).
-
 ## Fetch and create a CMSSW image and start a container
 
 ### Instructions for 2011/2012 data
@@ -42,7 +41,7 @@ Once Docker is installed, you can fetch a CMSSW image and create and start a con
 docker run --name opendata-2010 -it cmsopendata/cmssw_4_2_8 /bin/bash
 ```
 
-Here we fetch the `CMSSW_4_2_8` docker image from [dockerhub](https://cloud.docker.com/u/cmsopendata/repository/list) and name the container `opendata-2010`.
+Here we fetch the `CMSSW_4_2_8` docker image from [dockerhub](https://hub.docker.com/u/cmsopendata) and name the container `opendata-2010`. For low-luminosity data taken with the Castor calorimeter, the docker image CMSSW_4_2_8_lowpupatch1 should be used.
 
 As described [in this GitHub repository](https://github.com/clelange/cmssw-docker/), this will install a stand-alone CMSSW image that is a few GBs. Therefore this may take a few minutes. However, the image will only have to be downloaded once. The following will appear in your terminal once you type the `docker run` command:
 
@@ -108,6 +107,24 @@ Likewise, in order to copy a file into a running container:
 docker cp <my file> opendata:/home/cmsusr/CMSSW_5_3_32/src/
 ```
 
+### X11 forwarding with docker on linux
+
+If you want to use ROOT or some other program from within the container that needs X11-forwarding for the graphics to pop up, on linux, you can start the container with
+
+```sh
+docker run -it --net=host --env="DISPLAY" --volume="$HOME/.Xauthority:/root/.Xauthority:rw" cmsopendata/cmssw_5_3_32 /bin/bash
+```
+
+Once in the container, you can type
+
+```sh
+cmsenv
+root
+```
+
+If it has worked, you’ll see the ROOT splash screen.
+
+
 ### Exiting and restarting a container
 
 When you want to exit the container simply type `exit`.
@@ -115,3 +132,26 @@ When you want to exit the container simply type `exit`.
 If you want to restart the container (e.g. the one named `opendata`) and return to your work then use the command `docker start -i opendata`.
 
 If the container was created and started using the `--rm` option (e.g. `docker run --rm`) then the container will be removed when you exit. You can create a new container from the image using `docker run`.
+
+### Running CMS open data containers on WSL2
+
+The CMS open data containers, or any CentOS6-based containers, may fail if docker is run on WSL2. This problem is fixed by adding a new file `.wslconfig` with the following contents 
+
+```sh
+[wsl2]
+kernelCommandLine = vsyscall=emulate
+```
+
+in \Users\[username] (without extension), then shutting down with `wsl --shutdown` in the Windows command prompt and restarting again.
+
+Test that the settings are properly passed by doing, in the WSL2 linux installation:
+
+```sh
+docker run -ti ubuntu cat /proc/cmdline                                                               
+```
+
+The ouput should contain `vsyscall=emulate`, e.g.:
+
+```sh
+initrd=\initrd.img panic=-1 pty.legacy_count=0 nr_cpus=4 vsyscall=emulate  
+```
