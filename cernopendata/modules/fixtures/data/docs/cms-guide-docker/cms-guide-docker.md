@@ -1,6 +1,7 @@
 ## Introduction
 
 As an alternative to using a virtual machine, you can run CMS analysis code in a [Docker](https://www.docker.com/) container. If you have not already installed Docker instructions for installation are [provided by Docker](https://docs.docker.com/install/).
+
 ## Fetch and create a CMSSW image and start a container
 
 ### Instructions for 2011/2012 data
@@ -133,9 +134,10 @@ If you want to restart the container (e.g. the one named `opendata`) and return 
 
 If the container was created and started using the `--rm` option (e.g. `docker run --rm`) then the container will be removed when you exit. You can create a new container from the image using `docker run`.
 
+
 ### Running CMS open data containers on WSL2
 
-The CMS open data containers, or any CentOS6-based containers, may fail if docker is run on WSL2. This problem is fixed by adding a new file `.wslconfig` with the following contents 
+The CMS open data containers, or any CentOS6-based containers, may fail if docker is run on WSL2. This problem is fixed by adding a new file `.wslconfig` with the following contents
 
 ```sh
 [wsl2]
@@ -147,11 +149,27 @@ in \Users\[username] (without extension), then shutting down with `wsl --shutdow
 Test that the settings are properly passed by doing, in the WSL2 linux installation:
 
 ```sh
-docker run -ti ubuntu cat /proc/cmdline                                                               
+docker run -ti ubuntu cat /proc/cmdline
 ```
 
 The ouput should contain `vsyscall=emulate`, e.g.:
 
 ```sh
-initrd=\initrd.img panic=-1 pty.legacy_count=0 nr_cpus=4 vsyscall=emulate  
+initrd=\initrd.img panic=-1 pty.legacy_count=0 nr_cpus=4 vsyscall=emulate
+```
+
+### Accessing cvmfs from a container
+
+In order to access the snapshots of CMS database conditions when running CMSSW jobs, one would usually need access to the universal namespace `/cvmfs` (CernVM-File System).  In Linux and macOS it is possible to "see" the cvmfs space by installing the cvmfs client following [the offcial instructions](https://cvmfs.readthedocs.io).  In essence, there are two basic ways to achieve this:
+
+The preferred option (working for 2010 and 2011 containers) is to [install](https://cvmfs.readthedocs.io/en/stable/cpt-quickstart.html) the cvmfs client locally, on the host machine, and [mount](https://cvmfs.readthedocs.io/en/stable/cpt-configure.html#bind-mount-from-the-host) it on the container:
+
+```sh
+docker run --name opendata -it -v "/cvmfs:/cvmfs:shared" cmsopendata/cmssw_5_3_32 /bin/bash
+```
+
+The other option is to [install](https://cvmfs.readthedocs.io/en/stable/cpt-quickstart.html) the cvmfs client directly in the container after it is created (only working for the 2011 container).  For this, the container needs to get started in [privileged](https://cvmfs.readthedocs.io/en/stable/cpt-configure.html#mount-inside-a-container) mode like
+
+```sh
+docker run --privileged --name opendata -it cmsopendata/cmssw_5_3_32 /bin/bash
 ```
