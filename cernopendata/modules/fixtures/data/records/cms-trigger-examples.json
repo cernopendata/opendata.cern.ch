@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": " <p>This is an example of the C++ code (and its configuration in Python) needed to extract the trigger information from CMS Open/Legacy data. These instructions are valid to work with 2010 data. Snippets of this software can be used for physics analysis.</p> <p>The examples, within the code, have plenty of in-line comments to make it more understandable and to point potential users to the original information sources. It has been put together compiling the most important pieces of already-available <a href=\"https://github.com/cms-sw/cmssw\">CMSSW software</a>.</p> "
+      "description": " <p>This is an example of the C++ code (and its configuration in Python) needed to extract the trigger information from CMS Open/Legacy data. These instructions are valid to work with 2010 data. Snippets of this software can be used for physics analysis.</p> <p>The examples, within the code, have plenty of in-line comments to make it more understandable and to point potential users to the original information sources. It has been put together compiling the most important pieces of already-available <a href=\"https://github.com/cms-sw/cmssw\">CMSSW software</a>.</p>\n<p>If downloading the files at the bottom, please always use the latest version as the older ones are deprecated.</p> "
     },
     "accelerator": "CERN-LHC",
     "authors": [
@@ -20,12 +20,17 @@
       "formats": [
         "gz"
       ],
-      "number_files": 1,
-      "size": 8759
+      "number_files": 2,
+      "size": 40072
     },
     "doi": "10.7483/OPENDATA.CMS.TE10.IIC8",
     "experiment": "CMS",
     "files": [
+      {
+        "checksum": "FIXME",
+        "size": 31313,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/trigger_examples/trigger_examples-10.1.0.tar.gz"
+      },
       {
         "checksum": "adler32:77c62edf",
         "size": 8759,
@@ -38,13 +43,14 @@
     "publisher": "CERN Open Data Portal",
     "recid": "5003",
     "run_period": [
+      "Run2010A",
       "Run2010B"
     ],
     "source_code_repository": {
-      "url": "https://github.com/cms-opendata-analyses/trigger_examples/tree/2010/TriggerInfo/TriggerInfoAnalyzer"
+      "url": "https://github.com/cms-opendata-analyses/TriggerInfoTool/tree/2010"
     },
     "system_details": {
-      "description": "Use this code with the CMS Open Data VM environment",
+      "description": "Use this code with the CMS Open Data VM environment or the corresponding Docker container",
       "recid": "250",
       "release": "CMSSW_4_2_8"
     },
@@ -52,11 +58,12 @@
     "type": {
       "primary": "Software",
       "secondary": [
-        "Analysis"
+        "Analysis",
+        "Workflow"
       ]
     },
     "usage": {
-      "description": " <p>If you do not have the CERN Virtual Machine for 2010 CMS data installed, follow the instructions in step 1 at <a href=\"/VM/CMS/2010\">How to install a CERN Virtual Machine</a>.</p>\n\t\t\t<p>To run the analysis, follow the instructions at <a href=\"https://github.com/cms-opendata-analyses/trigger_examples/tree/2010/TriggerInfo/TriggerInfoAnalyzer\">https://github.com/cms-opendata-analyses/trigger_examples/tree/2010/TriggerInfo/TriggerInfoAnalyzer</a>.</p> "
+      "description": " <p>If you do not have the CERN Virtual Machine for 2010 CMS data installed, follow the instructions in step 1 at <a href=\"/VM/CMS/2010\">How to install a CERN Virtual Machine</a>. Or, alternatively, install the corresponding <a href=\"/docs/cms-guide-docker\">Docker container</a>.</p>\n\t\t\t<p>To run the analysis, follow the instructions at <a href=\"https://github.com/cms-opendata-analyses/TriggerInfoTool/tree/2010\">https://github.com/cms-opendata-analyses/TriggerInfoTool/tree/2010</a>.</p>\n<p>If downloading the files at the bottom, please always use the latest version as the older ones are deprecated.</p>"
     },
     "use_with": {
       "description": "Use this with any CMS 2010 primary dataset and/or Monte Carlo datasets."
@@ -64,7 +71,7 @@
   },
   {
     "abstract": {
-      "description": " <p>This is an example of the C++ code (and its configuration in Python) needed to extract the trigger information from CMS Open/Legacy data. These instructions are valid to work with 2011 data. Snippets of this software can be used for physics analysis.</p> <p>The examples, within the code, have plenty of in-line comments to make it more understandable and to point potential users to the original information sources. It has been put together compiling the most important pieces of already-available <a href=\"https://github.com/cms-sw/cmssw\">CMSSW software</a>.</p> "
+      "description": " <p>This is an example of the C++ code (and its configuration in Python) needed to extract the trigger information from CMS Open/Legacy data. These instructions are valid to work with 2011 and 2012 data. Snippets of this software can be used for physics analysis.</p> <p>The examples, within the code, have plenty of in-line comments to make it more understandable and to point potential users to the original information sources. It has been put together compiling the most important pieces of already-available <a href=\"https://github.com/cms-sw/cmssw\">CMSSW software</a>.</p> \n<p>If downloading the files at the bottom, please always use the latest version as the older ones are deprecated.</p>"
     },
     "accelerator": "CERN-LHC",
     "authors": [
@@ -83,12 +90,17 @@
       "formats": [
         "gz"
       ],
-      "number_files": 1,
-      "size": 9102
+      "number_files": 2,
+      "size": 40576
     },
     "doi": "10.7483/OPENDATA.CMS.TE11.L03E",
     "experiment": "CMS",
     "files": [
+      {
+        "checksum": "FIXME",
+        "size": 31817,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/trigger_examples/trigger_examples-11.1.0.tar.gz"
+      },
       {
         "checksum": "adler32:c731af2f",
         "size": 9102,
@@ -101,13 +113,16 @@
     "publisher": "CERN Open Data Portal",
     "recid": "5004",
     "run_period": [
-      "Run2011A"
+      "Run2011A",
+      "Run2011B",
+      "Run2012B",
+      "Run2012C"
     ],
     "source_code_repository": {
-      "url": "https://github.com/cms-opendata-analyses/trigger_examples/tree/2011/TriggerInfo/TriggerInfoAnalyzer"
+      "url": "https://github.com/cms-opendata-analyses/TriggerInfoTool/tree/2011"
     },
     "system_details": {
-      "description": "Use this code with the CMS Open Data VM environment",
+      "description": "Use this code with the CMS Open Data VM environment or the corresponding Docker container",
       "recid": "252",
       "release": "CMSSW_5_3_32"
     },
@@ -115,14 +130,15 @@
     "type": {
       "primary": "Software",
       "secondary": [
-        "Analysis"
+        "Analysis",
+        "Workflow"
       ]
     },
     "usage": {
-      "description": " <p>If you do not have the CERN Virtual Machine for 2011 CMS data installed, follow the instructions in step 1 at <a href=\"/VM/CMS/2011\">How to install a CERN Virtual Machine</a>.</p>\n\t\t\t<p>To run the analysis, follow the instructions at <a href=\"https://github.com/cms-opendata-analyses/trigger_examples/tree/2011/TriggerInfo/TriggerInfoAnalyzer\">https://github.com/cms-opendata-analyses/trigger_examples/tree/2011/TriggerInfo/TriggerInfoAnalyzer</a>.</p> "
+      "description": " <p>If you do not have the CERN Virtual Machine for 2011/2012 CMS data installed, follow the instructions in step 1 at <a href=\"/VM/CMS/2011\">How to install a CERN Virtual Machine</a>. Or, alternatively, install the corresponding <a href=\"/docs/cms-guide-docker\">Docker container</a>.</p>\n\t\t\t<p>To run the analysis, follow the instructions at <a href=\"https://github.com/cms-opendata-analyses/TriggerInfoTool/tree/2011\">https://github.com/cms-opendata-analyses/TriggerInfoTool/tree/2011</a>.</p> \n<p>If downloading the files at the bottom, please always use the latest version as the older ones are deprecated.</p>"
     },
     "use_with": {
-      "description": "Use this with any CMS 2011 primary dataset and/or Monte Carlo datasets."
+      "description": "Use this with any CMS 2011 or 2012 primary dataset and/or Monte Carlo datasets."
     }
   }
 ]
