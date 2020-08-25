@@ -1,0 +1,156 @@
+[
+  {
+    "abstract": {
+      "description": " <p>CMS measures the luminosity using different luminometers (luminosity detectors) and algorithms. When available, the values taken with the Pixel Luminosity Telescope (<strong>pxl</strong>) should be used.  If no pxl value is available for a particular lumi section, then the <strong>hfoc</strong> (Hadron Forward Zero Counting) value should be retrieved for that lumi section.</p>\n<p>The integrated luminosity for validated runs and luminosity sections of all 2011 p-p data taking is available in the tables <a href=\"/record/1053/files/2011lumi_pxl.txt\">2011lumi_pxl.txt</a> and <a href=\"/record/1053/files/2011lumi_hfoc.txt\">2011lumi_hfoc.txt</a>, for the respective luminometer. They include values for 2011 RunA and RunB.</p>\n<p>In your estimate for the integrated luminosity, check for which runs the trigger you have selected is active and sum the values for those runs. The uncertainty in the luminosity measurement of 2011 data should be considered as 2.2% (reference <a href=\"https://cds.cern.ch/record/1434360/files/SMP-12-008-pas.pdf\">CMS PAS SMP-12-008</a>).</p>\n<p>If you are using prescaled triggers, you can find the trigger prescale factors as shown in <a href=\"/record/5004\">the trigger examples</a>. The change of prescales (run, lumi section, index of prescales) is logged in the <a href=\"/record/1051/files/prescale2011.txt\">prescale2011.txt</a> file from a <a href=\"/record/1051\">previous version</a> of this record.</p><p> For luminosity calculation, a detailed list of luminosity by lumi section is provided in <a href=\"/record/1053/files/2011lumibyls_pxl.csv\">2011lumibyls_pxl.csv</a> and <a href=\"/record/1053/files/2011lumibyls_hfoc.csv\">2011lumibyls_hfoc.csv</a> for the <a href=\"/record/1001\">list of validated runs</a> and lumi sections.</p>\n<p>Note that if there are <em>orphan</em> lumi sections &ndash; listed at the bottom of the lumi files as <em>in json but not in results</em>&ndash; for which there are neither pxl values nor hfoc values, they can be safely ignored.  These lumi sections have no events as they correspond to the very end of runs for which the <em>stable beam</em> flag was not disabled yet during acquisition.</p>\n<p>Additional information on how to extract luminosity values using the <strong>brilcalc tool</strong> can be found in the <a href=\"/docs/cms-guide-luminosity-calculation\"> luminosity calculation guide</a>.</p> "
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS Collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Luminosity-Information"
+    ],
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2020",
+    "distribution": {
+      "formats": [
+        "txt",
+        "csv"
+      ]
+    },
+    "doi": "FIXME2011",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "FIXME",
+        "size": 99999,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2011/2011lumi_pxl.txt"
+      },
+      {
+        "checksum": "FIXME",
+        "size": 99999,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2011/2011lumi_hfoc.txt"
+      },
+      {
+        "checksum": "FIXME",
+        "size": 99999,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2011/2011lumibyls_pxl.csv"
+      },
+      {
+        "checksum": "FIXME",
+        "size": 99999,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2011/2011lumibyls_hfoc.csv"
+      }
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "1053",
+    "relations": [
+      {
+        "description": "An earlier, but less precise version of this luminosity description is available:",
+        "recid": "1051",
+        "type": "isRelatedTo"
+      }
+    ],
+    "run_period": [
+      "Run2011A",
+      "Run2011B"
+    ],
+    "title": "CMS detailed luminosity information, for 2011 CMS open data",
+    "type": {
+      "primary": "Supplementaries",
+      "secondary": [
+        "Luminosity"
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": " <p>CMS measures the luminosity using different luminometers (luminosity detectors) and algorithms. When available, the values taken with the Pixel Luminosity Telescope (<strong>pxl</strong>) should be used.  If no pxl value is available for a particular lumi section, then the <strong>hfoc</strong> (Hadron Forward Zero Counting) value should be retrieved for that lumi section.</p>\n<p> The integrated luminosity for validated runs and luminosity sections of the 2012 public data (RunB and RunC) is available in the tables <a href=\"/record/1054/files/2012RunBlumi_pxl.txt\">2012RunBlumi_pxl.txt</a>, <a href=\"/record/1054/files/2012RunBlumi_hfoc.txt\">2012RunBlumi_hfoc.txt</a>, <a href=\"/record/1054/files/2012RunClumi_pxl.txt\">2012RunClumi_pxl.txt</a> and <a href=\"/record/1054/files/2012RunClumi_hfoc.txt\">2012RunClumi_hfoc.txt</a>, for the respective luminometer. (The integrated luminosity for validated runs and luminosity sections of all 2012 p-p data taking is available in <a href=\"/record/1054/files/2012lumi_pxl.txt\">2012lumi_pxl.txt</a> and <a href=\"/record/1054/files/2012lumi_hfoc.txt\">2012lumi_hfoc.txt</a>.)</p>\n<p>In your estimate for the integrated luminosity, check for which runs the trigger you have selected is active and sum the values for those runs. The uncertainty in the luminosity measurement of 2012 data should be considered as 2.6% (reference <a href=\"https://cds.cern.ch/record/1598864\">CMS PAS LUM-13-001</a>).</p>\n<p>If you are using prescaled triggers, you can find the trigger prescale factors as shown in <a href=\"/record/5004\">the trigger examples</a>. The change of prescales (run, lumi section, index of prescales) is logged in the <a href=\"/record/1052/files/prescale2012.txt\">prescale2012.txt</a> file from a <a href=\"/record/1052\">previous version</a> of this record.</p>\n<p> For luminosity calculation, a detailed list of luminosity by lumi section is provided in <a href=\"/record/1054/files/2012lumibyls_pxl.csv\">2012lumibyls_pxl.csv</a> and <a href=\"/record/1054/files/2012lumibyls_hfoc.csv\">2012lumibyls_hfoc.csv</a> for the <a href=\"/record/1002\">list of validated runs</a> and lumi sections.</p>\n<p>Note that if there are <em>orphan</em> lumi sections &ndash;listed at the bottom of the lumi files as <em>in json but not in results</em>&ndash; for which there are neither pxl values nor hfoc values, they can be safely ignored.  These lumi sections have no events as they correspond to the very end of runs for which the <em>stable beam</em> flag was not disabled yet during acquisition.</p>\n<p>Additional information on how to extract luminosity values using the <strong>brilcalc tool</strong> can be found in the <a href=\"/docs/cms-guide-luminosity-calculation\"> luminosity calculation guide</a>.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS Collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Luminosity-Information"
+    ],
+    "date_created": [
+      "2012"
+    ],
+    "date_published": "2020",
+    "distribution": {
+      "formats": [
+        "txt",
+        "csv"
+      ]
+    },
+    "doi": "FIXME2012",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "FIXME",
+        "size": 99999,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2012/2012lumi_pxl.txt"
+      },
+      {
+        "checksum": "FIXME",
+        "size": 99999,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2012/2012lumi_hfoc.txt"
+      },
+      {
+        "checksum": "FIXME",
+        "size": 99999,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2012/2012RunBlumi_pxl.txt"
+      },
+      {
+        "checksum": "FIXME",
+        "size": 99999,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2012/2012RunBlumi_hfoc.txt"
+      },
+      {
+        "checksum": "FIXME",
+        "size": 99999,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2012/2012RunClumi_pxl.txt"
+      },
+      {
+        "checksum": "FIXME",
+        "size": 99999,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2012/2012RunClumi_hfoc.txt"
+      },
+      {
+        "checksum": "FIXME",
+        "size": 99999,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2012/2012lumibyls_pxl.csv"
+      },
+      {
+        "checksum": "FIXME",
+        "size": 99999,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2012/2012lumibyls_hfoc.csv"
+      }
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "1054",
+    "relations": [
+      {
+        "description": "An earlier, but less precise version of this luminosity description is available:",
+        "recid": "1052",
+        "type": "isRelatedTo"
+      }
+    ],
+    "run_period": [
+      "Run2012B",
+      "Run2012C"
+    ],
+    "title": "CMS detailed luminosity information, for 2012 CMS open data",
+    "type": {
+      "primary": "Supplementaries",
+      "secondary": [
+        "Luminosity"
+      ]
+    }
+  }
+]

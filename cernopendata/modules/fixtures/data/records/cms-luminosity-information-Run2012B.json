@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": " <p>The integrated luminosity for validated runs and luminosity sections of the 2012 public data (RunB and RunC) is available in the tables <a href=\"/record/1052/files/2012RunBlumi.txt\">2012RunBlumi.txt</a> and <a href=\"/record/1052/files/2012RunClumi.txt\">2012RunClumi.txt</a>. (The integrated luminosity for validated runs and luminosity sections of all 2012 p-p data taking is available in <a href=\"/record/1052/files/2012lumi.txt\">2012lumi.txt</a>.)</p>\n<p>In your estimate for the integrated luminosity, check for which runs the trigger you have selected is active and sum the values for those runs. The uncertainty in the luminosity measurement of 2012 data should be considered as 2.6% (reference <a href=\"https://cds.cern.ch/record/1598864\">CMS PAS LUM-13-001</a>).</p>\n<p>If you are using prescaled triggers, you can find the trigger prescale factors as shown in <a href=\"/record/5004\">the trigger example</a>. The change of prescales (run, lumi section, index of prescales) is recorded in\n<a href=\"/record/1052/files/prescale2012.txt\">prescale2012.txt</a>. </p>\n<p> For luminosity calculation, a detailed list of luminosity by lumi section is provided in <a href=\"/record/1052/files/2012lumibyls.csv\">2012lumibyls.csv</a> for the <a href=\"/record/1002\">list of validated runs</a> and lumi sections.</p> "
+      "description": " <p>CMS measures the luminosity with different luminometers (luminosity detectors) and algorithms. The luminosity values presented here correspond to an early version of those obtained with the Hadron Forward calorimeter's Zero Counting algorithm (hfoc). However, as of 2020, an upgraded and more <a href=\"/record/1054\">detailed version</a> of the luminosity information is available (and recommended).</p>\n<p> The integrated luminosity for validated runs and luminosity sections of the 2012 public data (RunB and RunC) is available in the tables <a href=\"/record/1052/files/2012RunBlumi.txt\">2012RunBlumi.txt</a> and <a href=\"/record/1052/files/2012RunClumi.txt\">2012RunClumi.txt</a>. (The integrated luminosity for validated runs and luminosity sections of all 2012 p-p data taking is available in <a href=\"/record/1052/files/2012lumi.txt\">2012lumi.txt</a>.)</p>\n<p>In your estimate for the integrated luminosity, check for which runs the trigger you have selected is active and sum the values for those runs. The uncertainty in the luminosity measurement of 2012 data should be considered as 2.6% (reference <a href=\"https://cds.cern.ch/record/1598864\">CMS PAS LUM-13-001</a>).</p>\n<p>If you are using prescaled triggers, you can find the trigger prescale factors as shown in <a href=\"/record/5004\">the trigger example</a>. The change of prescales (run, lumi section, index of prescales) is recorded in\n<a href=\"/record/1052/files/prescale2012.txt\">prescale2012.txt</a>. </p>\n<p> For luminosity calculation, a detailed list of luminosity by lumi section is provided in <a href=\"/record/1052/files/2012lumibyls.csv\">2012lumibyls.csv</a> for the <a href=\"/record/1002\">list of validated runs</a> and lumi sections.</p> \n<p>Note that if there are <em>orphan</em> lumi sections listed at the bottom of the lumi files as <em>in json but not in results</em>, they can be safely ignored.  These lumi sections have no events as they correspond to the very end of runs for which the <em>stable beam</em> flag was not disabled yet during acquisition.</p>\n<p>Additional information on how to extract luminosity values using the <strong>brilcalc tool</strong> can be found in the <a href=\"/docs/cms-guide-luminosity-calculation\"> luminosity calculation guide</a>.</p>"
     },
     "accelerator": "CERN-LHC",
     "collaboration": {
@@ -52,6 +52,13 @@
     ],
     "publisher": "CERN Open Data Portal",
     "recid": "1052",
+    "relations": [
+      {
+        "description": "An upgraded (recommended) version of this luminosity description is available:",
+        "recid": "1054",
+        "type": "isRelatedTo"
+      }
+    ],
     "run_period": [
       "Run2012B",
       "Run2012C"
