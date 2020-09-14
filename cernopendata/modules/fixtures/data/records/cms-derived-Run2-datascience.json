@@ -458,8 +458,38 @@
       },
       {
         "description": "Boolean that is 1 if the simulated sample corresponds to QCD multijet production",
-        "type": "Float_t",
+        "type": "Int_t",
         "variable": "sample_isQCD"
+      },
+      {
+        "description": "Boolean that is 1 if a Higgs boson is matched and at least two b quarks are found within the AK8 jet",
+        "type": "Int_t",
+        "variable": "label_H_bb"
+      },
+      {
+        "description": "Boolean that is 1 if no resonances are matched and at least two b quarks are found within the AK8 jet",
+        "type": "Int_t",
+        "variable": "label_QCD_bb"
+      },
+      {
+        "description": "Boolean that is 1 if no resonances are matched and only one b quark is found within the AK8 jet",
+        "type": "Int_t",
+        "variable": "label_QCD_b"
+      },
+      {
+        "description": "Boolean that is 1 if no resonances are matched and at least two c quarks are found within the AK8 jet",
+        "type": "Int_t",
+        "variable": "label_QCD_cc"
+      },
+      {
+        "description": "Boolean that is 1 if no resonances are matched and only one c quark is found within the AK8 jet",
+        "type": "Int_t",
+        "variable": "label_QCD_c"
+      },
+      {
+        "description": "Boolean that is 1 if no resonances are matched and no b or c quarks are found within the AK8 jet",
+        "type": "Int_t",
+        "variable": "label_QCD_others"
       },
       {
         "description": "Double-b tagging discriminant based on a boosted decision tree calculated for the AK8 jet (see <a href=\"http://cms-results.web.cern.ch/cms-results/public-results/publications/BTV-16-002/\">CMS-BTV-16-002</a>)",
