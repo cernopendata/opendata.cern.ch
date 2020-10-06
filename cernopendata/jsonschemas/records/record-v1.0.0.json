@@ -76,7 +76,11 @@
       "items": {
         "properties": {
           "affiliation": {
-            "description": "The affiliation of the author",
+            "description": "The affiliation of the author. Multiple affiliations are separated by a semicolon (;)",
+            "type": "string"
+          },
+          "rorid": {
+            "description": "The ROR ID for the author's affiliation. Multiple ROR IDs are separated by a semicolon (;)",
             "type": "string"
           },
           "ccid": {
@@ -84,7 +88,7 @@
             "type": "string"
           },
           "inspireid": {
-            "description": "The author's inspire ID",
+            "description": "The author's INSPIRE ID",
             "type": "string"
           },
           "orcid": {
