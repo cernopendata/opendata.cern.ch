@@ -5,7 +5,15 @@
 
     <p>
         {% if record.title_additional %} <span>{{ record.title }}, </span> {% endif %}
-        {% for author in record.authors %} <small>{{ author.name }};</small> {% endfor %}
+        {% for author in record.authors %}
+            {% if author.orcid %}
+                <a href="https://orcid.org/{{ author.orcid }}"><img src="{{ url_for('static', filename='img/orcid.png') }}" height="14" alt=""></a>
+            {% endif %}
+            {{ author.name }}
+            {% if author.affiliation %}
+                 <i>({{ author.affiliation }})</i>
+            {% endif %} ;
+        {% endfor %}
         {% if record.collaboration %} <small>{{ record.collaboration.name }}</small> {% endif %}
     </p>
 
