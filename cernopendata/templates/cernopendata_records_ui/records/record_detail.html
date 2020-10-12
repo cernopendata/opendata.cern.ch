@@ -29,7 +29,7 @@
                  ;
             {% endif %}
         {% endfor %}
-        {% if record.collaboration %} <small>{{ record.collaboration.name }}</small> {% endif %}
+        {% if record.collaboration %} {{ record.collaboration.name }} {% endif %}
     </p>
 
     {% if record.doi %}
