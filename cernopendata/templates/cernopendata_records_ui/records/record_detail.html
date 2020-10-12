@@ -10,9 +10,24 @@
                 <a href="https://orcid.org/{{ author.orcid }}"><img src="{{ url_for('static', filename='img/orcid.png') }}" height="14" alt=""></a>
             {% endif %}
             {{ author.name }}
-            {% if author.affiliation %}
-                 <i>({{ author.affiliation }})</i>
-            {% endif %} ;
+            {% if author.affiliation or author.rorids %}
+                 {% set affiliations = author.get('affiliation', "").split(';') %}
+                 {% set rorids = author.get('rorid', "").split(';') %}
+                 <i>(
+                     {% for affiliation in affiliations %}
+                         {% if rorids[loop.index0] %}
+                             <a href="https://ror.org/{{ rorids[loop.index0] }}"><img src="{{ url_for('static', filename='img/rorid.png') }}" height="14" alt=""></a>
+                         {% endif %}
+                         {{ affiliation }}
+                         {% if not loop.last %}
+                             ;
+                         {% endif %}
+                     {% endfor %}
+                 )</i>
+            {% endif %}
+            {% if not loop.last %}
+                 ;
+            {% endif %}
         {% endfor %}
         {% if record.collaboration %} <small>{{ record.collaboration.name }}</small> {% endif %}
     </p>
