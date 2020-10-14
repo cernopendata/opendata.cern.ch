@@ -16,9 +16,9 @@
                  <i>(
                      {% for affiliation in affiliations %}
                          {% if rorids[loop.index0] %}
-                             <a href="https://ror.org/{{ rorids[loop.index0] }}"><img src="{{ url_for('static', filename='img/rorid.png') }}" height="14" alt=""></a>
+                             <a href="https://ror.org/{{ rorids[loop.index0] | trim }}"><img src="{{ url_for('static', filename='img/rorid.png') }}" height="14" alt=""></a>
                          {% endif %}
-                         {{ affiliation }}
+                         {{ affiliation | trim }}
                          {% if not loop.last %}
                              ;
                          {% endif %}
