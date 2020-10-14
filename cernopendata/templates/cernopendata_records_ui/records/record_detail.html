@@ -26,10 +26,15 @@
                  )</i>
             {% endif %}
             {% if not loop.last %}
-                 ;
+                ;
             {% endif %}
         {% endfor %}
-        {% if record.collaboration %} {{ record.collaboration.name }} {% endif %}
+        {% if record.collaboration %}
+            {% if record.authors %}
+                ;
+            {% endif %}
+            {{ record.collaboration.name }}
+        {% endif %}
     </p>
 
     {% if record.doi %}
