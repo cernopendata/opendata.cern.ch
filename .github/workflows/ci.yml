@@ -1,0 +1,142 @@
+# This file is part of CERN Open Data Portal.
+# Copyright (C) 2020 CERN.
+#
+# CERN Open Data Portal is free software; you can redistribute it
+# and/or modify it under the terms of the GNU General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# CERN Open Data Portal is distributed in the hope that it will be
+# useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with CERN Open Data Portal; if not, write to the
+# Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,
+# MA 02111-1307, USA.
+#
+# In applying this license, CERN does not
+# waive the privileges and immunities granted to it by virtue of its status
+# as an Intergovernmental Organization or submit itself to any jurisdiction.
+
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  lint-shellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Runs shell script static analysis
+        run: |
+          sudo apt-get install shellcheck
+          ./run-tests.sh --check-shellscript
+
+  lint-pycodestyle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 2.7
+
+      - name: Check compliance with Python coding style conventions
+        run: |
+          pip install --upgrade pip
+          pip install pycodestyle
+          ./run-tests.sh --check-pycodestyle
+
+  lint-pydocstyle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 2.7
+
+      - name: Check compliance with Python docstring conventions
+        run: |
+          pip install --upgrade pip
+          pip install pydocstyle
+          ./run-tests.sh --check-pydocstyle
+
+  lint-check-manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 2.7
+
+      - name: Check Python manifest completeness
+        run: |
+          pip install --upgrade pip
+          pip install check-manifest
+          ./run-tests.sh --check-manifest
+
+  check-fixtures:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+
+      - name: Install Node dependencies
+        run: npm install -g jsonlint
+
+      - name: Check fixtures
+        run: ./run-tests.sh --check-fixtures
+
+  check-isort:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 2.7
+
+      - name: Check isort
+        run: |
+          pip install --upgrade pip
+          pip install isort
+          ./run-tests.sh --check-isort
+
+  python-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 2.7
+
+      - name: Run pytest
+        run: docker-compose run --rm web ./run-tests.sh --check-pytest
+
+      - name: Codecov Coverage
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: coverage.xml

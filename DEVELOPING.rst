@@ -292,7 +292,7 @@ your personal repository:
 
 and use GitHub's "Pull request" button to make the pull request.
 
-Watch Travis-CI build status report to see whether your pull request
+Watch GitHub Actions build status report to see whether your pull request
 is OK or whether there are some troubles.
 
 Updating pull requests

@@ -2,8 +2,8 @@
  CERN Open Data portal
 =======================
 
-.. image:: https://travis-ci.org/cernopendata/opendata.cern.ch.png
-   :target: https://travis-ci.org/cernopendata/opendata.cern.ch
+.. image:: https://github.com/cernopendata/opendata.cern.ch/workflows/CI/badge.svg
+   :target: https://github.com/cernopendata/opendata.cern.ch/actions
 
 .. image:: https://img.shields.io/badge/licence-GPL_2-green.svg?style=flat
    :target: https://raw.githubusercontent.com/cernopendata/opendata.cern.ch/master/LICENSE
