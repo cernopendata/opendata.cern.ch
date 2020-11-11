@@ -13,6 +13,7 @@ The list of contributors in alphabetical order:
 - `Anxhela Dani <https://github.com/anxheladani>`_
 - `Artemis Lavasa <https://github.com/artemislav>`_
 - `Arturo Sanchez <https://github.com/artfisica>`_
+- `Audrius Mecionis <https://orcid.org/0000-0002-3759-1663>`_
 - `Clemens Lange <https://github.com/clelange>`_
 - `Diego Rodriguez <https://orcid.org/0000-0003-0649-2002>`_
 - `Edgar Carrera <https://github.com/caredg>`_

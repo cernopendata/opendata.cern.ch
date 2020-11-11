@@ -50,12 +50,12 @@ RUN yum update -y && \
         python-devel \
         python-pip
 
-# Install latest stable xrootd 4.12.3 version and its dependencies
+# Install latest stable xrootd 4.12.5 version and its dependencies
 RUN yum install -y \
-        xrootd-4.12.3 \
-        xrootd-client-4.12.3 \
-        xrootd-client-devel-4.12.3 \
-        xrootd-python-4.12.3
+        xrootd4-4.12.5 \
+        xrootd4-client-4.12.5 \
+        xrootd4-client-devel-4.12.5 \
+        xrootd4-python-4.12.5
 
 # Clean after ourselves
 RUN yum clean -y all
@@ -67,8 +67,8 @@ ENV APP_INSTANCE_PATH=/usr/local/var/cernopendata/var/cernopendata-instance
 RUN pip install --upgrade pip==9 setuptools==42.0.2 wheel==0.33.6 && \
     npm install -g node-sass@3.8.0 clean-css@3.4.24 requirejs uglify-js jsonlint
 
-# Install xrootdpyfs from GitHub, since xrootd-4.12.3-compatible version was not released on PyPI yet
-RUN pip install xrootd==4.12.3 \
+# Install xrootdpyfs from GitHub, since xrootd-4.12.5-compatible version was not released on PyPI yet
+RUN pip install xrootd==4.12.5 \
       'git+https://github.com/inveniosoftware/xrootdpyfs.git@1151a7a4c219dad11eb0020af4c19f94928469e3#egg=xrootdpyfs'
 
 # Install requirements
