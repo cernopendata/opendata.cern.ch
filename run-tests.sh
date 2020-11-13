@@ -98,6 +98,10 @@ check_manifest () {
     check-manifest
 }
 
+check_docker_build () {
+    docker-compose build
+}
+
 check_pytest () {
     python setup.py test
 }
@@ -109,6 +113,7 @@ check_all () {
     check_pydocstyle
     check_isort
     check_manifest
+    check_docker_build
     check_pytest
 }
 
@@ -126,6 +131,7 @@ do
         --check-pydocstyle) check_pydocstyle;;
         --check-isort) check_isort;;
         --check-manifest) check_manifest;;
+        --check-docker-build) check_docker_build;;
         --check-pytest) check_pytest;;
         *)
     esac

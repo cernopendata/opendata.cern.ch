@@ -121,7 +121,7 @@ jobs:
           pip install isort
           ./run-tests.sh --check-isort
 
-  python-tests:
+  docker-build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -131,6 +131,12 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 2.7
+
+      - name: Lint Dockerfile
+        run: docker run -i --rm hadolint/hadolint < Dockerfile
+
+      - name: Build docker
+        run: ./run-tests.sh --check-docker-build
 
       - name: Run pytest
         run: docker-compose run --rm web ./run-tests.sh --check-pytest

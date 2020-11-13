@@ -26,8 +26,8 @@
 FROM centos:7
 
 # Install CERN Open Data Portal web node pre-requisites
-RUN yum update -y && \
-    yum install -y \
+# hadolint ignore=DL3033
+RUN yum install -y \
         ca-certificates \
         cmake \
         curl \
@@ -48,14 +48,17 @@ RUN yum update -y && \
         openssl-devel \
         jq \
         python-devel \
-        python-pip
+        python-pip \
+        yum clean all
 
 # Install latest stable xrootd 4.12.5 version and its dependencies
+# hadolint ignore=DL3033
 RUN yum install -y \
         xrootd4-4.12.5 \
         xrootd4-client-4.12.5 \
         xrootd4-client-devel-4.12.5 \
-        xrootd4-python-4.12.5
+        xrootd4-python-4.12.5 \
+        yum clean all
 
 # Clean after ourselves
 RUN yum clean -y all
@@ -64,6 +67,7 @@ RUN yum clean -y all
 ENV APP_INSTANCE_PATH=/usr/local/var/cernopendata/var/cernopendata-instance
 
 # Upgrade pip and install some python/node packages
+# hadolint ignore=DL3016
 RUN pip install --upgrade pip==9 setuptools==42.0.2 wheel==0.33.6 && \
     npm install -g node-sass@3.8.0 clean-css@3.4.24 requirejs uglify-js jsonlint
 
@@ -72,14 +76,14 @@ RUN pip install xrootd==4.12.5 \
       'git+https://github.com/inveniosoftware/xrootdpyfs.git@1151a7a4c219dad11eb0020af4c19f94928469e3#egg=xrootdpyfs'
 
 # Install requirements
-ADD requirements-production-local-forks.txt /tmp
-ADD requirements-production.txt /tmp
+COPY requirements-production-local-forks.txt /tmp
+COPY requirements-production.txt /tmp
 RUN pip install -r /tmp/requirements-production-local-forks.txt
 RUN pip install -r /tmp/requirements-production.txt
 
 # Add CERN Open Data Portal sources to `code` and work there
 WORKDIR /code
-ADD . /code
+COPY . /code
 
 # Create instance
 RUN /code/scripts/create-instance.sh && \
@@ -109,4 +113,4 @@ RUN adduser --uid 1000 invenio --gid 0 && \
 USER 1000
 
 # Start the CERN Open Data Portal application
-CMD uwsgi --module ${UWSGI_WSGI_MODULE} --socket 0.0.0.0:${UWSGI_PORT} --master --processes ${UWSGI_PROCESSES} --threads ${UWSGI_THREADS} --stats /tmp/stats.socket
+CMD ["uwsgi --module ${UWSGI_WSGI_MODULE} --socket 0.0.0.0:${UWSGI_PORT} --master --processes ${UWSGI_PROCESSES} --threads ${UWSGI_THREADS} --stats /tmp/stats.socket"]
