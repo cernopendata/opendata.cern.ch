@@ -40,28 +40,20 @@ RUN yum install -y \
         epel-release && \
     yum groupinstall -y "Development Tools" && \
     yum install -y \
+        jq \
         libffi-devel \
         libuuid-devel \
         libxml2-devel \
         libxslt-devel \
         npm \
         openssl-devel \
-        jq \
         python-devel \
         python-pip \
-        yum clean all
-
-# Install latest stable xrootd 4.12.5 version and its dependencies
-# hadolint ignore=DL3033
-RUN yum install -y \
         xrootd4-4.12.5 \
         xrootd4-client-4.12.5 \
         xrootd4-client-devel-4.12.5 \
-        xrootd4-python-4.12.5 \
-        yum clean all
-
-# Clean after ourselves
-RUN yum clean -y all
+        xrootd4-python-4.12.5 && \
+    yum clean all
 
 # Configuration for CERN Open Data Portal instance
 ENV APP_INSTANCE_PATH=/usr/local/var/cernopendata/var/cernopendata-instance
@@ -113,4 +105,5 @@ RUN adduser --uid 1000 invenio --gid 0 && \
 USER 1000
 
 # Start the CERN Open Data Portal application
-CMD ["uwsgi --module ${UWSGI_WSGI_MODULE} --socket 0.0.0.0:${UWSGI_PORT} --master --processes ${UWSGI_PROCESSES} --threads ${UWSGI_THREADS} --stats /tmp/stats.socket"]
+# hadolint ignore=DL3025
+CMD uwsgi --module ${UWSGI_WSGI_MODULE} --socket 0.0.0.0:${UWSGI_PORT} --master --processes ${UWSGI_PROCESSES} --threads ${UWSGI_THREADS} --stats /tmp/stats.socket
