@@ -1,0 +1,737 @@
+[
+  {
+    "abstract": {
+      "description": "<p>AllPhysics2760 primary dataset from the 2.76 TeV proton-proton run of 2011, reference data for heavy-ion data analysis</p> <p> The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14208"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14209"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "450"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "2.76TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2020",
+    "date_reprocessed": "2011",
+    "distribution": {
+      "formats": [
+        "root",
+        "reco"
+      ],
+      "number_events": 56168211,
+      "number_files": 1491,
+      "size": 6570934150548
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1700\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_Jet20\">HLT_Jet20</a><br/><a href=\"/search?q=HLT_Jet40\">HLT_Jet40</a><br/><a href=\"/search?q=HLT_L1BscMinBiasORBptxPlusANDMinus\">HLT_L1BscMinBiasORBptxPlusANDMinus</a><br/><a href=\"/search?q=HLT_L1DoubleForJet32_EtaOpp\">HLT_L1DoubleForJet32_EtaOpp</a><br/><a href=\"/search?q=HLT_L1DoubleForJet8_EtaOpp\">HLT_L1DoubleForJet8_EtaOpp</a><br/><a href=\"/search?q=HLT_Mu0\">HLT_Mu0</a><br/><a href=\"/search?q=HLT_Photon10_CaloIdVL\">HLT_Photon10_CaloIdVL</a><br/><a href=\"/search?q=HLT_Photon15_CaloIdVL\">HLT_Photon15_CaloIdVL</a><br/><a href=\"/search?q=HLT_PixelTracks_Multiplicity50_Loose\">HLT_PixelTracks_Multiplicity50_Loose</a><br/><a href=\"/search?q=HLT_PixelTracks_Multiplicity60_Loose\">HLT_PixelTracks_Multiplicity60_Loose</a><br/><a href=\"/search?q=HLT_PixelTracks_Multiplicity70_Loose\">HLT_PixelTracks_Multiplicity70_Loose</a><br/><a href=\"/search?q=HLT_ZeroBiasPixel_SingleTrack\">HLT_ZeroBiasPixel_SingleTrack</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "14016",
+    "relations": [
+      {
+        "title": "/AllPhysics2760/Run2011A-v1/RAW",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "Run2011A"
+    ],
+    "system_details": {
+      "global_tag": "GR_R_44_V15::All",
+      "release": "CMSSW_4_4_7"
+    },
+    "title": "/AllPhysics2760/Run2011A-16Jul2011-v1/RECO",
+    "title_additional": "AllPhysics2760 primary dataset in RECO format from the 2.76 TeV proton-proton run of 2011 (/AllPhysics2760/Run2011A-16Jul2011-v1/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started with CMS heavy-ion data data in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2010"
+        },
+        {
+          "description": "Usage example for CMS 2011 heavy-ion data",
+          "recid": "467"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>AllPhysics2760 (JetHI) primary dataset from the 2.76 TeV proton-proton run of 2011, reference data for heavy-ion data analysis</p> <p> The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14208"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14209"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "450"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "2.76TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2020",
+    "date_reprocessed": "2011",
+    "distribution": {
+      "formats": [
+        "root",
+        "reco"
+      ],
+      "number_events": 2375982,
+      "number_files": 67,
+      "size": 275113247233
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1700\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>This dataset is derived from /AllPhysics2760/Run2011A-v1/RAW. All trigger paths for that dataset are listed under <a href=\"/record/14016\">/AllPhysics2760/Run2011A-16Jul2011-v1/RECO</a>."
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "14017",
+    "relations": [
+      {
+        "title": "/AllPhysics2760/Run2011A-v1/RAW",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "Run2011A"
+    ],
+    "system_details": {
+      "global_tag": "GR_R_44_V15::All",
+      "release": "CMSSW_4_4_7"
+    },
+    "title": "/AllPhysics2760/Nov2011_HI-SD_JetHI-276TeV_ppRereco/RECO",
+    "title_additional": "AllPhysics2760 (JetHI) primary dataset in RECO format from the 2.76 TeV proton-proton run of 2011 (/AllPhysics2760/Nov2011_HI-SD_JetHI-276TeV_ppRereco/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started with CMS heavy-ion data data in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2010"
+        },
+        {
+          "description": "Usage example for CMS 2011 heavy-ion data",
+          "recid": "467"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>AllPhysics2760 (MuHI) primary dataset from the 2.76 TeV proton-proton run of 2011, reference data for heavy-ion data analysis</p> <p> The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14208"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14209"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "450"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "2.76TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2020",
+    "date_reprocessed": "2011",
+    "distribution": {
+      "formats": [
+        "root",
+        "reco"
+      ],
+      "number_events": 6615466,
+      "number_files": 170,
+      "size": 682687665680
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1700\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>This dataset is derived from /AllPhysics2760/Run2011A-v1/RAW. All trigger paths for that dataset are listed under <a href=\"/record/14016\">/AllPhysics2760/Run2011A-16Jul2011-v1/RECO</a>."
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "14018",
+    "relations": [
+      {
+        "title": "/AllPhysics2760/Run2011A-v1/RAW",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "Run2011A"
+    ],
+    "system_details": {
+      "global_tag": "GR_R_44_V15::All",
+      "release": "CMSSW_4_4_7"
+    },
+    "title": "/AllPhysics2760/Nov2011_HI-SD_MuHI-276TeV_ppRereco/RECO",
+    "title_additional": "AllPhysics2760 (MuHI) primary dataset in RECO format from the 2.76 TeV proton-proton run of 2011 (/AllPhysics2760/Nov2011_HI-SD_MuHI-276TeV_ppRereco/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started with CMS heavy-ion data data in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2010"
+        },
+        {
+          "description": "Usage example for CMS 2011 heavy-ion data",
+          "recid": "467"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>AllPhysics2760 (PhotonHI) primary dataset from the 2.76 TeV proton-proton run of 2011, reference data for heavy-ion data analysis</p> <p> The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14208"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14209"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "450"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "2.76TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2020",
+    "date_reprocessed": "2011",
+    "distribution": {
+      "formats": [
+        "root",
+        "reco"
+      ],
+      "number_events": 3579356,
+      "number_files": 77,
+      "size": 315011898981
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1700\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>This dataset is derived from /AllPhysics2760/Run2011A-v1/RAW. All trigger paths for that dataset are listed under <a href=\"/record/14016\">/AllPhysics2760/Run2011A-16Jul2011-v1/RECO</a>."
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "14019",
+    "relations": [
+      {
+        "title": "/AllPhysics2760/Run2011A-v1/RAW",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "Run2011A"
+    ],
+    "system_details": {
+      "global_tag": "GR_R_44_V15::All",
+      "release": "CMSSW_4_4_7"
+    },
+    "title": "/AllPhysics2760/Nov2011_HI-SD_PhotonHI-276TeV_ppRereco/RECO",
+    "title_additional": "AllPhysics2760 (PhotonHI) primary dataset in RECO format from the 2.76 TeV proton-proton run of 2011 (/AllPhysics2760/Nov2011_HI-SD_PhotonHI-276TeV_ppRereco/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started with CMS heavy-ion data data in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2010"
+        },
+        {
+          "description": "Usage example for CMS 2011 heavy-ion data",
+          "recid": "467"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>MinBias0Tesla0 primary dataset from the 7 TeV proton-proton run of 2011, reference data for heavy-ion data analysis</p> <p> The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14206"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14207"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "450"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "7TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2020",
+    "date_reprocessed": "2011",
+    "distribution": {
+      "formats": [
+        "root",
+        "reco"
+      ],
+      "number_events": 4736103,
+      "number_files": 146,
+      "size": 938807720938
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1700\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_L1SingleJet128_part0\">HLT_L1SingleJet128_part0</a><br/><a href=\"/search?q=HLT_L1SingleJet36_part0\">HLT_L1SingleJet36_part0</a><br/><a href=\"/search?q=HLT_L1SingleJet52_part0\">HLT_L1SingleJet52_part0</a><br/><a href=\"/search?q=HLT_L1SingleJet68_part0\">HLT_L1SingleJet68_part0</a><br/><a href=\"/search?q=HLT_L1SingleJet92_part0\">HLT_L1SingleJet92_part0</a><br/><a href=\"/search?q=HLT_ZeroBias_part0\">HLT_ZeroBias_part0</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "14020",
+    "relations": [
+      {
+        "title": "/MinBias0Tesla0/Run2011A-v1/RAW",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "Run2011A"
+    ],
+    "system_details": {
+      "global_tag": "GR_R_44_V15::All",
+      "release": "CMSSW_4_4_7"
+    },
+    "title": "/MinBias0Tesla0/Run2011A-PromptReco-v5/RECO",
+    "title_additional": "MinBias0Tesla0 primary dataset in RECO format from the 7 TeV proton-proton run of 2011 (/MinBias0Tesla0/Run2011A-PromptReco-v5/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started with CMS heavy-ion data data in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2010"
+        },
+        {
+          "description": "Usage example for CMS 2011 heavy-ion data",
+          "recid": "467"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>MinBias0Tesla1 primary dataset from the 7 TeV proton-proton run of 2011, reference data for heavy-ion data analysis</p> <p> The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14206"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14207"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "450"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "7TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2020",
+    "date_reprocessed": "2011",
+    "distribution": {
+      "formats": [
+        "root",
+        "reco"
+      ],
+      "number_events": 4720995,
+      "number_files": 143,
+      "size": 930327865484
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1700\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_L1SingleJet128_part1\">HLT_L1SingleJet128_part1</a><br/><a href=\"/search?q=HLT_L1SingleJet36_part1\">HLT_L1SingleJet36_part1</a><br/><a href=\"/search?q=HLT_L1SingleJet52_part1\">HLT_L1SingleJet52_part1</a><br/><a href=\"/search?q=HLT_L1SingleJet68_part1\">HLT_L1SingleJet68_part1</a><br/><a href=\"/search?q=HLT_L1SingleJet92_part1\">HLT_L1SingleJet92_part1</a><br/><a href=\"/search?q=HLT_ZeroBias_part1\">HLT_ZeroBias_part1</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "14021",
+    "relations": [
+      {
+        "title": "/MinBias0Tesla1/Run2011A-v1/RAW",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "Run2011A"
+    ],
+    "system_details": {
+      "global_tag": "GR_R_44_V15::All",
+      "release": "CMSSW_4_4_7"
+    },
+    "title": "/MinBias0Tesla1/Run2011A-PromptReco-v5/RECO",
+    "title_additional": "MinBias0Tesla1 primary dataset in RECO format from the 7 TeV proton-proton run of 2011 (/MinBias0Tesla1/Run2011A-PromptReco-v5/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started with CMS heavy-ion data data in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2010"
+        },
+        {
+          "description": "Usage example for CMS 2011 heavy-ion data",
+          "recid": "467"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>MinBias0Tesla2 primary dataset from the 7 TeV proton-proton run of 2011, reference data for heavy-ion data analysis</p> <p> The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14206"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14207"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "450"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "7TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2020",
+    "date_reprocessed": "2011",
+    "distribution": {
+      "formats": [
+        "root",
+        "reco"
+      ],
+      "number_events": 4735866,
+      "number_files": 143,
+      "size": 938692947699
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1700\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible HLT trigger paths in this dataset are:<br/><a href=\"/search?q=HLT_L1SingleJet128_part2\">HLT_L1SingleJet128_part2</a><br/><a href=\"/search?q=HLT_L1SingleJet36_part2\">HLT_L1SingleJet36_part2</a><br/><a href=\"/search?q=HLT_L1SingleJet52_part2\">HLT_L1SingleJet52_part2</a><br/><a href=\"/search?q=HLT_L1SingleJet68_part2\">HLT_L1SingleJet68_part2</a><br/><a href=\"/search?q=HLT_L1SingleJet92_part2\">HLT_L1SingleJet92_part2</a><br/><a href=\"/search?q=HLT_ZeroBias_part2\">HLT_ZeroBias_part2</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "14022",
+    "relations": [
+      {
+        "title": "/MinBias0Tesla2/Run2011A-v1/RAW",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "Run2011A"
+    ],
+    "system_details": {
+      "global_tag": "GR_R_44_V15::All",
+      "release": "CMSSW_4_4_7"
+    },
+    "title": "/MinBias0Tesla2/Run2011A-PromptReco-v5/RECO",
+    "title_additional": "MinBias0Tesla2 primary dataset in RECO format from the 7 TeV proton-proton run of 2011 (/MinBias0Tesla2/Run2011A-PromptReco-v5/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started with CMS heavy-ion data data in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2010"
+        },
+        {
+          "description": "Usage example for CMS 2011 heavy-ion data",
+          "recid": "467"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
+  }
+]
