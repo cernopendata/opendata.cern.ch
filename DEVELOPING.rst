@@ -227,10 +227,10 @@ Understanding repository branches
 We use three official base branches:
 
 master
-  Where the bleeding-edge developments happen.
+  What is installed on the `development server <http://opendata-dev.cern.ch>`_.
 
 qa
-  What is installed on the `pre-production server <http://opendataqa.cern.ch>`_.
+  What is installed on the `pre-production server <http://opendata-qa.cern.ch>`_.
 
 production
   What is installed on the `production server <http://opendata.cern.ch>`_.

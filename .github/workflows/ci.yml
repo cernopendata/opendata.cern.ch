@@ -133,7 +133,7 @@ jobs:
           python-version: 2.7
 
       - name: Lint Dockerfile
-        run: docker run -i --rm hadolint/hadolint < Dockerfile
+        run: docker run -i --rm hadolint/hadolint:v1.18.2 < Dockerfile
 
       - name: Build docker
         run: ./run-tests.sh --check-docker-build
