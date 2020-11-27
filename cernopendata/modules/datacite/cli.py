@@ -34,11 +34,11 @@ from invenio_db import db
 from invenio_pidstore.errors import PIDDoesNotExistError
 from invenio_pidstore.models import PersistentIdentifier
 from invenio_records.api import Record
-from utils import generate_doi
 
 from .client import DataCiteMDSClientWrapper
 from .providers import DataCiteProviderWrapper
 from .serializers import DataCiteSerializer
+from .utils import generate_doi
 
 
 @click.group()

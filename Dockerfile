@@ -22,9 +22,10 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
-# Use CentOS7
-FROM centos:7
+FROM inveniosoftware/centos7-python:3.6
 
+# Pinning to 4.12.2 because of https://github.com/xrootd/xrootd/issues/1284
+ENV XROOTD_VERSION=4.12.2
 # Install CERN Open Data Portal web node pre-requisites
 # hadolint ignore=DL3033
 RUN yum install -y \
@@ -39,33 +40,30 @@ RUN yum install -y \
     yum install -y \
         epel-release && \
     yum groupinstall -y "Development Tools" && \
-    yum install -y \
-        jq \
-        libffi-devel \
-        libuuid-devel \
-        libxml2-devel \
-        libxslt-devel \
-        npm \
+    yum --setopt=obsoletes=0 install -y \
+        cmake gcc-c++ zlib-devel openssl-devel libuuid-devel python3-devel jq \
         openssl-devel \
-        python-devel \
-        python-pip \
-        xrootd4-4.12.5 \
-        xrootd4-client-4.12.5 \
-        xrootd4-client-devel-4.12.5 \
-        xrootd4-python-4.12.5 && \
-    yum clean all
+        https://storage-ci.web.cern.ch/storage-ci/xrootd/release/cc-7-x86_64/v${XROOTD_VERSION}/xrootd-libs-${XROOTD_VERSION}-1.el7.x86_64.rpm \
+        https://storage-ci.web.cern.ch/storage-ci/xrootd/release/cc-7-x86_64/v${XROOTD_VERSION}/xrootd-client-libs-${XROOTD_VERSION}-1.el7.x86_64.rpm \
+        https://storage-ci.web.cern.ch/storage-ci/xrootd/release/cc-7-x86_64/v${XROOTD_VERSION}/xrootd-devel-${XROOTD_VERSION}-1.el7.x86_64.rpm \
+        https://storage-ci.web.cern.ch/storage-ci/xrootd/release/cc-7-x86_64/v${XROOTD_VERSION}/xrootd-client-${XROOTD_VERSION}-1.el7.x86_64.rpm \
+        https://storage-ci.web.cern.ch/storage-ci/xrootd/release/cc-7-x86_64/v${XROOTD_VERSION}/xrootd-client-devel-${XROOTD_VERSION}-1.el7.x86_64.rpm \
+        https://storage-ci.web.cern.ch/storage-ci/xrootd/release/cc-7-x86_64/v${XROOTD_VERSION}/python3-xrootd-${XROOTD_VERSION}-1.el7.x86_64.rpm && \
+    yum clean -y all
+# Downgrade Invenio base image to Node 6.x
+# hadolint ignore=DL3033
+RUN yum remove -y nodejs npm && \
+        curl -sL https://rpm.nodesource.com/setup_6.x -o /tmp/install-node6.sh && \
+        bash /tmp/install-node6.sh && \
+        rm /tmp/install-node6.sh && \
+        yum install -y nodejs && \
+        npm install -g npm@3.10.10 && \
+    yum clean -y all
 
-# Configuration for CERN Open Data Portal instance
-ENV APP_INSTANCE_PATH=/usr/local/var/cernopendata/var/cernopendata-instance
+RUN pip uninstall pipenv -y && pip install --upgrade pip==20.2.4 setuptools==51.0.0 wheel==0.36.2 && \
+    npm install -g node-sass@3.8.0 clean-css@3.4.24 requirejs@2.3.6 uglify-js@3.12.1 jsonlint@1.6.3 d3@3.3.13
 
-# Upgrade pip and install some python/node packages
-# hadolint ignore=DL3016
-RUN pip install --upgrade pip==9 setuptools==42.0.2 wheel==0.33.6 && \
-    npm install -g node-sass@3.8.0 clean-css@3.4.24 requirejs uglify-js jsonlint
-
-# Install xrootdpyfs from GitHub, since xrootd-4.12.5-compatible version was not released on PyPI yet
-RUN pip install xrootd==4.12.5 \
-      'git+https://github.com/inveniosoftware/xrootdpyfs.git@1151a7a4c219dad11eb0020af4c19f94928469e3#egg=xrootdpyfs'
+RUN pip install xrootd==${XROOTD_VERSION} xrootdpyfs==0.2.1
 
 # Install requirements
 COPY requirements-production-local-forks.txt /tmp
@@ -77,10 +75,12 @@ RUN pip install -r /tmp/requirements-production.txt
 WORKDIR /code
 COPY . /code
 
+RUN pip install -e ".[all]"
+
 # Create instance
 RUN /code/scripts/create-instance.sh && \
-    chgrp -R 0 ${APP_INSTANCE_PATH} && \
-    chmod -R g=u ${APP_INSTANCE_PATH}
+    chgrp -R 0 "${INVENIO_INSTANCE_PATH}" && \
+    chmod -R g=u "${INVENIO_INSTANCE_PATH}"
 
 # Condigure uWSGI
 ARG UWSGI_WSGI_MODULE=cernopendata.wsgi:application
@@ -99,11 +99,7 @@ ENV DEBUG=${DEBUG:-""}
 # Install Python packages needed for development
 RUN if [ "$DEBUG" ]; then pip install -r requirements-dev.txt; fi;
 
-# Change user from root to invenio for better security
-RUN adduser --uid 1000 invenio --gid 0 && \
-    chown -R invenio:root /code
-USER 1000
 
 # Start the CERN Open Data Portal application
 # hadolint ignore=DL3025
-CMD uwsgi --module ${UWSGI_WSGI_MODULE} --socket 0.0.0.0:${UWSGI_PORT} --master --processes ${UWSGI_PROCESSES} --threads ${UWSGI_THREADS} --stats /tmp/stats.socket
+CMD [ "bash", "-c", "uwsgi --module ${UWSGI_WSGI_MODULE} --socket 0.0.0.0:${UWSGI_PORT} --master --processes ${UWSGI_PROCESSES} --threads ${UWSGI_THREADS} --stats /tmp/stats.socket" ]

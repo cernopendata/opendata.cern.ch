@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2017, 2018 CERN.
+# Copyright (C) 2017, 2018, 2020 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -56,6 +56,12 @@ SENTRY_DSN = os.environ.get(
 LOGGING_SENTRY_CELERY = os.environ.get(
         "LOGGING_SENTRY_CELERY", False
     )
+
+# Security
+# ========
+#: Flask-Talisman secure headers
+APP_ENABLE_SECURE_HEADERS = False
+
 
 # Assets
 # ======

@@ -32,7 +32,7 @@ from flask import Flask
 from cernopendata.factory import create_api
 
 
-@pytest.yield_fixture(scope='session')
+@pytest.fixture(scope='session')
 def instance_path():
     """Default instance path."""
     path = tempfile.mkdtemp()
@@ -64,7 +64,7 @@ def default_config():
     )
 
 
-@pytest.yield_fixture(scope='session')
+@pytest.fixture(scope='session')
 def app(env_config, default_config, instance_path):
     """Flask application fixture."""
     app = create_api(**default_config)

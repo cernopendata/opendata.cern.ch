@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2015, 2016, 2017 CERN.
+# Copyright (C) 2015, 2016, 2017, 2020 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -37,18 +37,18 @@ services:
       - redis
     environment:
       - DEBUG=False
-      - APP_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://cernopendata:dbpass123@postgresql:5432/cernopendata
-      - APP_CACHE_REDIS_HOST=redis
-      - APP_CACHE_REDIS_URL=redis://redis:6379/0
-      - APP_ACCOUNTS_SESSION_REDIS_URL=redis://redis:6379/1
-      - APP_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 3
-      - APP_CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 4
-      - APP_CELERY_RESULT_BACKEND=redis://redis:6379/2
-      - APP_PIDSTORE_DATACITE_TESTMODE=False
-      - APP_PIDSTORE_DATACITE_DOI_PREFIX=10.5072
-      - APP_PIDSTORE_DATACITE_USERNAME=CERN.OPENDATA
-      - APP_PIDSTORE_DATACITE_PASSWORD=CHANGE_ME
-      - APP_PIDSTORE_LANDING_BASE_URL=http://opendata.cern.ch/record/
+      - INVENIO_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://cernopendata:dbpass123@postgresql:5432/cernopendata
+      - INVENIO_CACHE_REDIS_HOST=redis
+      - INVENIO_CACHE_REDIS_URL=redis://redis:6379/0
+      - INVENIO_ACCOUNTS_SESSION_REDIS_URL=redis://redis:6379/1
+      - INVENIO_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 3
+      - INVENIO_CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 4
+      - INVENIO_CELERY_RESULT_BACKEND=redis://redis:6379/2
+      - INVENIO_PIDSTORE_DATACITE_TESTMODE=False
+      - INVENIO_PIDSTORE_DATACITE_DOI_PREFIX=10.5072
+      - INVENIO_PIDSTORE_DATACITE_USERNAME=CERN.OPENDATA
+      - INVENIO_PIDSTORE_DATACITE_PASSWORD=CHANGE_ME
+      - INVENIO_PIDSTORE_LANDING_BASE_URL=http://opendata.cern.ch/record/
       - ELASTICSEARCH_HOST=elasticsearch-proxy
       - ELASTICSEARCH_PORT=443
       - ELASTICSEARCH_USER=esuser
@@ -58,7 +58,7 @@ services:
 #      - SENTRY_DSN=https://<INPUT_CORRECT_DSN_FOR_YOUR_SENTRY_INSTANCE>@<INPUT_YOUR_SENTRY_URL>
 #      - LOGGING_SENTRY_CELERY=True
     volumes:
-      - web_data:/usr/local/var/cernopendata/var/cernopendata-instance/static
+      - web_data:/opt/invenio/var/instance/static
     links:
       - postgresql
       - redis
@@ -76,16 +76,16 @@ services:
       - redis
       - web # Added to make sure that cernopendata/web -image is build before starting this one.
     restart: "always"
-    command: "celery worker -A cernopendata.celery --loglevel=INFO"
+    command: bash -c "celery -A cernopendata.celery worker --loglevel=INFO"
     environment:
       - DEBUG=False
-      - APP_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://cernopendata:dbpass123@postgresql:5432/cernopendata
-      - APP_CACHE_REDIS_HOST=redis
-      - APP_CACHE_REDIS_URL=redis://redis:6379/0
-      - APP_ACCOUNTS_SESSION_REDIS_URL=redis://redis:6379/1
-      - APP_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 3
-      - APP_CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 4
-      - APP_CELERY_RESULT_BACKEND=redis://redis:6379/2
+      - INVENIO_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://cernopendata:dbpass123@postgresql:5432/cernopendata
+      - INVENIO_CACHE_REDIS_HOST=redis
+      - INVENIO_CACHE_REDIS_URL=redis://redis:6379/0
+      - INVENIO_ACCOUNTS_SESSION_REDIS_URL=redis://redis:6379/1
+      - INVENIO_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 3
+      - INVENIO_CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 4
+      - INVENIO_CELERY_RESULT_BACKEND=redis://redis:6379/2
       - ELASTICSEARCH_HOST=elasticsearch-proxy
       - ELASTICSEARCH_PORT=443
       - ELASTICSEARCH_USER=esuser
@@ -95,7 +95,7 @@ services:
 #      - SENTRY_DSN=https://<INPUT_CORRECT_DSN_FOR_YOUR_SENTRY_INSTANCE>@<INPUT_YOUR_SENTRY_URL>
 #      - LOGGING_SENTRY_CELERY=True
     volumes:
-      - web_data:/usr/local/var/cernopendata/var/cernopendata-instance/static
+      - web_data:/opt/invenio/var/instance/static
     links:
       - postgresql
       - redis
@@ -114,18 +114,18 @@ services:
       - redis
     environment:
       - DEBUG=False
-      - APP_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://cernopendata:dbpass123@postgresql:5432/cernopendata
-      - APP_CACHE_REDIS_HOST=redis
-      - APP_CACHE_REDIS_URL=redis://redis:6379/0
-      - APP_ACCOUNTS_SESSION_REDIS_URL=redis://redis:6379/1
-      - APP_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 3
-      - APP_CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 4
-      - APP_CELERY_RESULT_BACKEND=redis://redis:6379/2
-      - APP_PIDSTORE_DATACITE_TESTMODE=False
-      - APP_PIDSTORE_DATACITE_DOI_PREFIX=10.5072
-      - APP_PIDSTORE_DATACITE_USERNAME=CERN.OPENDATA
-      - APP_PIDSTORE_DATACITE_PASSWORD=CHANGE_ME
-      - APP_PIDSTORE_LANDING_BASE_URL=http://opendata.cern.ch/record/
+      - INVENIO_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://cernopendata:dbpass123@postgresql:5432/cernopendata
+      - INVENIO_CACHE_REDIS_HOST=redis
+      - INVENIO_CACHE_REDIS_URL=redis://redis:6379/0
+      - INVENIO_ACCOUNTS_SESSION_REDIS_URL=redis://redis:6379/1
+      - INVENIO_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 3
+      - INVENIO_CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 4
+      - INVENIO_CELERY_RESULT_BACKEND=redis://redis:6379/2
+      - INVENIO_PIDSTORE_DATACITE_TESTMODE=False
+      - INVENIO_PIDSTORE_DATACITE_DOI_PREFIX=10.5072
+      - INVENIO_PIDSTORE_DATACITE_USERNAME=CERN.OPENDATA
+      - INVENIO_PIDSTORE_DATACITE_PASSWORD=CHANGE_ME
+      - INVENIO_PIDSTORE_LANDING_BASE_URL=http://opendata.cern.ch/record/
       - ELASTICSEARCH_HOST=elasticsearch-proxy
       - ELASTICSEARCH_PORT=443
       - ELASTICSEARCH_USER=esuser
@@ -135,7 +135,7 @@ services:
 #      - SENTRY_DSN=https://<INPUT_CORRECT_DSN_FOR_YOUR_SENTRY_INSTANCE>@<INPUT_YOUR_SENTRY_URL>
 #      - LOGGING_SENTRY_CELERY=True
     volumes:
-      - web_data:/usr/local/var/cernopendata/var/cernopendata-instance/static
+      - web_data:/opt/invenio/var/instance/static
     links:
       - postgresql
       - redis
@@ -202,7 +202,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - web_data:/usr/local/var/cernopendata/var/cernopendata-instance/static
+      - web_data:/opt/invenio/var/instance/static
     links:
       - web
       - web-files

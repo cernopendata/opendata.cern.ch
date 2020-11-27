@@ -47,7 +47,6 @@ tests_require = [
     'pycodestyle>=2.4.0',
     'pytest-cache>=1.0',
     'pytest-cov>=1.8.0',
-    'pytest-pep8>=1.0.6',
     'pytest>=2.8.0',
 ]
 
@@ -67,41 +66,43 @@ setup_requires = [
 ]
 
 install_requires = [
-    'Flask-BabelEx>=0.9.3',
-    'Flask-Breadcrumbs>=0.4.0',
-    'Flask-CeleryExt>=0.2.2',
-    'Flask-Markdown>=0.3.0',
-    'Flask-Menu>=0.5.0',
-    'Flask-Mistune>=0.1.1',
-    'Flask>=0.12.4',
-    'python-slugify>=1.2.4',
-    'datacite>=0.3.0',
-    'invenio-assets>=1.0.0b6',
-    'invenio-base>=1.0.0a9',
-    'invenio-celery>=1.0.0b1',
-    'invenio-config>=1.0.0b1',
-    'invenio-db[versioning,postgresql]>=1.0.0b3',
-    'invenio-i18n>=1.0.0b1',
-    'invenio-indexer>=1.0.0a1',
-    'invenio-jsonschemas==1.0.0a5',
-    'invenio-logging==1.0.0b3',
-    'invenio-pidstore>=1.0.0b1',
-    'invenio-previewer>=1.0.0a11',
-    'invenio-records-files==1.0.0a10',
-    'invenio-records-rest==1.0.0b1',
-    'invenio-records-ui==1.0.0b1',
-    'invenio-records==1.0.0b2',
-    'invenio-search-ui>=1.0.0a2',
-    'invenio-search>=1.0.0a9',
+    # General Invenio dependencies
+    'invenio-app==1.3.0',
+    'invenio-base==1.2.3',
+    'invenio-config==1.0.3',
+    # Custom Invenio `base` bundle
+    'invenio-assets==1.0.0b6',
+    'invenio-logging[sentry]==1.3.0',
+    'invenio-rest==1.2.1',
     'invenio-theme==1.0.0b2',
-    'invenio-xrootd>=1.0.0a4',
+    # Custom Invenio `metadata` bundle
+    'invenio-indexer==1.2.0',
+    'invenio-jsonschemas==1.1.0',
+    'invenio-pidstore==1.2.1',
+    'invenio-records-rest[datacite]==1.7.2',
+    'invenio-records-ui==1.0.0b1',
+    'invenio-records==1.4.0a3',
+    'invenio-search-ui==1.0.0a2',
+    # Custom Invenio `files` bundle
+    'invenio-previewer==1.0.0a11',
+    'invenio-records-files==1.2.1',
+    # Custom Invenio `postgresql` bundle
+    'invenio-db[versioning,postgresql]==1.0.5',
+    # Custom Invenio `elasticsearch5` bundle
+    'invenio-search[elasticsearch5]==1.4.0',
+    # Specific Invenio dependencies
+    'invenio-xrootd>=1.0.0a6',
+    'xrootdpyfs>=0.2.1',
+    # Specific dependencies
+    'Flask-Markdown>=0.3.0',
+    'Flask-Mistune>=0.1.1',
     'mistune>=0.7.4',
     'pymdown-extensions>=5.0.0',
     'python-markdown-math>=0.3',
-    'raven>=6.3.0',  # required by invenio-logging
+    'python-slugify>=1.2.4',
+    # Webserver
     'uWSGI>=2.0.15',
     'uwsgitop>=0.10',
-    'xrootdpyfs>=0.1.4',
 ]
 
 packages = find_packages()
