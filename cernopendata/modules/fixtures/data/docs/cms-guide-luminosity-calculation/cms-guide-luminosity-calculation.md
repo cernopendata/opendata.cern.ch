@@ -3,7 +3,7 @@
 This document provides instruction for how to calculate the luminosity information
 for CMS in the open data environment. This is done using `brilcalc`, which is a command line tool from the CMS Beam Radiation Instrumentation and Luminosity (BRIL) group.
 
-Before you continue, consider that some of the information that you wish to calculate is already available for [2010](http://opendata-dev.web.cern.ch/record/1050), [2011](http://opendata-dev.web.cern.ch/record/1053), and [2012](http://opendata-dev.web.cern.ch/record/1054) data. The information available includes:
+Before you continue, consider that some of the information that you wish to calculate is already available for [2010](/record/1050), [2011](/record/1053), and [2012](/record/1054) data. The information available includes:
 
 * the integrated luminosity for validated runs and luminosity sections
 * the trigger prescales by run and luminosity section
@@ -181,7 +181,7 @@ See test above
 
 ### Integrated luminosity for validated runs and luminosity sections
 
-First obtain the file with the list of validated runs and luminosity sections. Here we use the [list for 2011 data](http://opendata-dev.web.cern.ch/record/1001).
+First obtain the file with the list of validated runs and luminosity sections. Here we use the [list for 2011 data](/record/1001).
 
 `wget http://opendata.cern.ch/record/1001/files/Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt`
 
@@ -216,7 +216,7 @@ In this example the pixel detectors are used. This is the preferred option. For 
 
 ### Integrated luminosity for validated runs and luminosity sections over a range of runs
 
-First obtain the file with the list of validated runs and luminosity sections. Here we use the [list for 2011 data](http://opendata-dev.web.cern.ch/record/1001).
+First obtain the file with the list of validated runs and luminosity sections. Here we use the [list for 2011 data](/record/1001).
 
 `wget http://opendata.cern.ch/record/1001/files/Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt`
 
@@ -226,7 +226,7 @@ RunA of 2011 proton-proton data comprises runs 160431 to 173692 (inclusive) so t
 
 ### Integrated luminosity for validated runs and luminosity sections, separated by luminosity sections
 
-If you want to fetch the integrated luminosity by luminosity section and output the results to a `csv` file (which is recommended), first obtain the file with the list of validated runs and luminosity sections. Here we use the [list for 2011 data](http://opendata-dev.web.cern.ch/record/1001).
+If you want to fetch the integrated luminosity by luminosity section and output the results to a `csv` file (which is recommended), first obtain the file with the list of validated runs and luminosity sections. Here we use the [list for 2011 data](/record/1001).
 
 `wget http://opendata.cern.ch/record/1001/files/Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt`
 
