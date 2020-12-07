@@ -40,6 +40,7 @@ The following are provided through this portal:
     * It may have double-counting (i.e. a physics object may appear as a single object of its own type, but it may also be part of a jet).
     * Additional knowledge is needed to define a "good" physics object.
     * Definition of same objects is different in each analysis.
+* Some datasets, such as those containing heavy-ion data, are provided in a format called RECO, which contains more information than the AOD format. This is done when the original analyses by the CMS collaboration were performed using this particular format.
 * Some simulated datasets are provided in the MiniAODSIM format, which is the format used in physics analysis starting from Run2 (2015):
     * MiniAOD/MiniAODSIM is approximately one tenth of the size of AOD/AODSIM.
     * The reduction is obtained defining light-weight physics-object candidate representations, increasing transverse momentum thresholds for storing physics-object candidates, and reduced numerical precision when it is not required at the analysis level.
