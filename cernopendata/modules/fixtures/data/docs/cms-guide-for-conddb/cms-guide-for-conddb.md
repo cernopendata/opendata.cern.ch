@@ -2,13 +2,17 @@ This page explains the use of global tags and the condition database with the CM
 
 A Global Tag is a coherent collection of records of additional data needed by the reconstruction and analysis software. The Global Tag is defined for each data-taking period, separately for collision and simulated data.
 
-These records are stored in the condition database. Condition data include non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for the simulation/reconstruction/analysis software. For CMS Open Data, the condition data are provided as sqlite files in the `/cvmfs/cms-opendata-conddb.cern.ch/` directory, which is accessible through the CMS Open Data VM.
+These records are stored in the condition database. Condition data include non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for the simulation/reconstruction/analysis software. For CMS Open Data, the condition data are provided as sqlite files in the `/cvmfs/cms-opendata-conddb.cern.ch/` directory, which is accessible through the CMS Open Data VM. Note that when using CMS Open Data docker images, connecting to this area with the command `process.GlobalTag.connect = cms.string(...` in the job configuration file is not required.
 
 Most [physics objects](/docs/cms-physics-objects-2011) in the CMS Open Data are already calibrated and ready-to-use, and no additional corrections are needed other than selection and identification criteria, which will be applied in the analysis code. Therefore, simple analyses do not need to access the condition database. Examples of such analyses are [the di-muon spectrum example](/record/5001) or [the Higgs analysis example](/record/5500).
 
 However, access to the condition database is necessary, for example, for jet energy corrections and trigger configuration information. Examples of such analyses are for [the PAT object production](/record/233) or [the top quark pair production](/record/5000).
 
 Note that when you need to access the condition database, the first time you run the job on the CMS Open Data VM, it will download the condition data from the `/cvmfs` area. It will take time (an example run of a 10 Mbps line took 45 mins), but it will only happen once as the files will be cached on your VM. The job will not produce any output during this time, but you can check the ongoing processes with the command 'top' and you can monitor the progress of reading the condition data to the local cache with the command 'df'.
+
+The Global Tags for condition data are different for different types of data taking. Below, the instructions are given for [proton-proton](#proton-proton) and [heavy-ion](#heavy-ion) data.
+
+## <a name="proton-proton">Proton-proton data</a>
 
 ---
 
@@ -203,3 +207,43 @@ process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.c
 process.GlobalTag.globaltag = '102X_upgrade2018_design_v9'
 process.GlobalTag.snapshotTime = cms.string("9999-12-31 23:59:59.000")
 ```
+
+## <a name="heavy-ion">Heavy-ion data</a>
+
+---
+
+**For 2010 heavy-ion data**, the global tag available in the  `/cvmfs` area is GR_R_39X_V6B. When using the "CMS-OpenData-1.1.2" VM or a higher version, it is recommended reading the condition data from there. First, set the symbolic links:
+
+```shell
+ln -sf /cvmfs/cms-opendata-conddb.cern.ch/GR_R_39X_V6B GR_R_39X_V6B
+ln -sf /cvmfs/cms-opendata-conddb.cern.ch/GR_R_39X_V6B.db GR_R_39X_V6B.db
+```
+
+Then, define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
+
+```shell
+#globaltag
+process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/GR_R_39X_V6B.db')
+process.GlobalTag.globaltag = 'GR_R_39X_V6B::All'
+```
+
+Note that **this only works in the "CMS-OpenData-1.1.2" or a higher version** of the 2010 CMS Open Data VM.
+
+---
+
+**For 2011 heavy-ion data**, the global tag available in the  `/cvmfs` area is GR_R_44_V15. When using the "CMS-OpenData-1.1.2" VM or a higher version, it is recommended reading the condition data from there. First, set the symbolic links:
+
+```shell
+ln -sf /cvmfs/cms-opendata-conddb.cern.ch/GR_R_44_V15 GR_R_44_V15
+ln -sf /cvmfs/cms-opendata-conddb.cern.ch/GR_R_44_V15.db GR_R_44_V15.db
+```
+
+Then, define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
+
+```shell
+#globaltag
+process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/GR_R_44_V15.db')
+process.GlobalTag.globaltag = 'GR_R_44_V15::All'
+```
+
+Note that **this only works in the "CMS-OpenData-1.1.2" or a higher version** of the 2010 CMS Open Data VM, which is the VM version to be used with the 2011 heavy-ion data despite of "2010" in the VM record name.
