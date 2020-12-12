@@ -12,9 +12,9 @@ Once Docker is installed, you can fetch a CMSSW image, and create and start a co
 docker run --name opendata -it cmsopendata/cmssw_5_3_32 /bin/bash
 ```
 
-Here we fetch the `CMSSW_5_3_32` docker image from [dockerhub](https://hub.docker.com/u/cmsopendata) and name the container `opendata`.
+Here we fetch the `CMSSW_5_3_32` docker image from [dockerhub](https://hub.docker.com/u/cmsopendata) and name the container `opendata`. For heavy-ion data from 2011, the docker image to use is [the CMSSW_4_4_7 image](https://gitlab.cern.ch/cms-cloud/cmssw-docker/container_registry/eyJuYW1lIjoiY21zLWNsb3VkL2Ntc3N3LWRvY2tlci9jbXNzd180XzRfNy1zbGM1X2FtZDY0X2djYzQzNCIsInRhZ3NfcGF0aCI6Ii9jbXMtY2xvdWQvY21zc3ctZG9ja2VyL3JlZ2lzdHJ5L3JlcG9zaXRvcnkvODIzNy90YWdzP2Zvcm1hdD1qc29uIiwiaWQiOjgyMzd9) from the CMS GitLab image registry.
 
-As described [in this GitHub repository](https://github.com/clelange/cmssw-docker/), this will install a stand-alone CMSSW image (a few gigabytes). Therefore this may take a few minutes. However, the image will only have to be downloaded once. The following will appear in your terminal once you type the `docker run` command:
+This will install a stand-alone CMSSW image (a few gigabytes). Therefore this may take a few minutes. However, the image will only have to be downloaded once. The following will appear in your terminal once you type the `docker run` command:
 
 ```console
 Unable to find image 'cmsopendata/cmssw_5_3_32' locally
@@ -42,7 +42,7 @@ Once Docker is installed, you can fetch a CMSSW image and create and start a con
 docker run --name opendata-2010 -it cmsopendata/cmssw_4_2_8 /bin/bash
 ```
 
-Here we fetch the `CMSSW_4_2_8` docker image from [dockerhub](https://hub.docker.com/u/cmsopendata) and name the container `opendata-2010`. For low-luminosity data taken with the Castor calorimeter, the docker image CMSSW_4_2_8_lowpupatch1 should be used.
+Here we fetch the `CMSSW_4_2_8` docker image from [dockerhub](https://hub.docker.com/u/cmsopendata) and name the container `opendata-2010`. For low-luminosity data taken with the Castor calorimeter, the docker image CMSSW_4_2_8_lowpupatch1 should be used. For heavy-ion data from 2010, the docker image to use is [the CMSSW_3_9_2_patch5 image](https://gitlab.cern.ch/cms-cloud/cmssw-docker/container_registry/eyJuYW1lIjoiY21zLWNsb3VkL2Ntc3N3LWRvY2tlci9jbXNzd18zXzlfMl9wYXRjaDUtc2xjNV9hbWQ2NF9nY2M0MzQiLCJ0YWdzX3BhdGgiOiIvY21zLWNsb3VkL2Ntc3N3LWRvY2tlci9yZWdpc3RyeS9yZXBvc2l0b3J5LzgyMjUvdGFncz9mb3JtYXQ9anNvbiIsImlkIjo4MjI1fQ==) from the CMS GitLab image registry.
 
 As described [in this GitHub repository](https://github.com/clelange/cmssw-docker/), this will install a stand-alone CMSSW image that is a few GBs. Therefore this may take a few minutes. However, the image will only have to be downloaded once. The following will appear in your terminal once you type the `docker run` command:
 
