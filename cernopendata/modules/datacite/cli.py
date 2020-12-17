@@ -99,7 +99,7 @@ def test_serialisation(recid):
     experiment = record.get('experiment', None)
     doi = record['doi']
     # serialize record to schema40
-    doc = DataCiteSerializer().dump(record).data
+    doc = DataCiteSerializer().dump(record)
     schema40.validate(doc)
     doc = schema40.tostring(doc)
     click.echo(doc)
@@ -125,7 +125,7 @@ def register(recid):
                                                   experiment=experiment)
 
     # serialize record to schema40
-    doc = DataCiteSerializer().dump(record).data
+    doc = DataCiteSerializer().dump(record)
     schema40.validate(doc)
     doc = schema40.tostring(doc)
     landing_page = os.path.join(
@@ -158,7 +158,7 @@ def update(recid):
                              .format(doi))
 
     # serialize record to schema40
-    doc = DataCiteSerializer().dump(record).data
+    doc = DataCiteSerializer().dump(record)
     schema40.validate(doc)
     doc = schema40.tostring(doc)
     landing_page = os.path.join(

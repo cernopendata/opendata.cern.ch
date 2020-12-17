@@ -125,7 +125,7 @@ class DocumentationSchemaorgSchema(RecordSchemaorgSchema):
     """Keys that should be removed in case they don't have a value."""
 
     @post_dump
-    def remove_empty_keys(self, data):
+    def remove_empty_keys(self, data, **kwargs):
         """Remove 'null' valued keys from serialized Document Record.
 
         Since Document Record (usually?) doesn't contain necessary information

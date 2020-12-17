@@ -54,5 +54,4 @@ class CODSchemaorgSerializer(JSONSerializer):
         type = obj['type']['primary']
 
         schema_cls = self.SCHEMAS[type]
-
-        return schema_cls(context=context).dump(obj).data
+        return schema_cls(context=context).dump(obj)
