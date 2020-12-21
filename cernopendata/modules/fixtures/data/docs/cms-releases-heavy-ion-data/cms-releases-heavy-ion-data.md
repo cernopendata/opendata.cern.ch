@@ -4,11 +4,12 @@
 </center>
 
 The CMS experiment at CERN has released into the public domain its first
-batches of open data from heavy-ion collisions at the Large Hadron Collider.
-The two batches contain two datasets from 2010 and four from 2011, recorded
-during the LHC’s first data-taking period (“Run 1”), along with eight sets of
-reference data from proton–proton collisions recorded at the same collision
-energy. The total disk volume of the release is 214&nbsp;TB.
+batches of [open data from heavy-ion
+collisions](/search?page=1&size=20&q=&keywords=heavy-ion%20physics) at the
+Large Hadron Collider. The two batches contain two datasets from 2010 and four
+from 2011, recorded during the LHC’s first data-taking period (“Run 1”), along
+with eight sets of reference data from proton–proton collisions recorded at the
+same collision energy. The total disk volume of the release is 214&nbsp;TB.
 
 Famous for the proton–proton collisions that resulted in the discovery of the
 Higgs boson, the LHC also collides nuclei from heavy elements (heavy ions) for
