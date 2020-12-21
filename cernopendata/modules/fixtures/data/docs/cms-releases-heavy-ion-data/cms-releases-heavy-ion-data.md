@@ -23,16 +23,15 @@ these early-universe conditions and study the interaction of other particles
 with the quark–gluon plasma.
 
 In 2010 and 2011, the heavy-ion collisions were between nuclei of lead. Using
-these data, CMS could observe phenomena several signatures of the quark–gluon
+these data, CMS could observe several signatures of the quark–gluon
 plasma, including the imbalance between the momenta of each jet of particles
 produced in a pair, the suppression (“quenching”) of particle jets in
 jet–photon pairs and the “melting” of certain composite particles.
 
-
 CMS has already released 100% of the proton–proton data the collaboration
 recorded in 2010 and 2011. Therefore, with the release of the lead–lead data,
 all of the data CMS recorded in the first two years of LHC operation is in the
-public domain, in accordance with the collaboration open-data policy.
+public domain, in accordance with the collaboration’s open-data policy.
 
 Analysing data from the LHC requires specialised software and analysis
 environments. CMS is providing these in the form of Virtual Machine images as
@@ -42,20 +41,20 @@ kinds of analysis one can perform with the data, CMS has also provided usage
 examples. Those interested in specific advice can ask for it on the [official
 CERN Open Data forum](https://opendata-forum.cern.ch).
 
-"Preparing this release presented unique challenges to CMS,” notes Kati
+“Preparing this release presented unique challenges to CMS,” notes Kati
 Lassila-Perini, who has led the CMS Data Preservation and Open Access team
 since 2012. “The heavy-ion community on CMS is quite small and a lot of the
 knowledge from a decade ago has been difficult to track down. Nevertheless,
 thanks to the help of our colleagues, we’re thrilled that we can share these
-interesting and valuable datasets with the world."
+interesting and valuable datasets with the world.”
 
 Since this is the first release of heavy-ion data from CMS, the collaboration
 is looking forward to receiving input and feedback from the wider community of
 high-energy physicists.
 
-"We’ve seen with the data we released earlier how useful the feedback from the
+“We’ve seen with the data we released earlier how useful the feedback from the
 open-data users can be, and we will do our best to address eventual
-shortcomings reported to us," adds Lassila-Perini.
+shortcomings reported to us,” adds Lassila-Perini.
 
 As before, all of the CMS open data are released into the public domain under
 [the Creative Commons CC0
