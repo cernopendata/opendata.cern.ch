@@ -25,7 +25,9 @@
 FROM nginx:perl
 
 RUN rm /etc/nginx/conf.d/default.conf
-ADD cernopendata.conf /etc/nginx/conf.d/
+COPY localhost.conf /etc/nginx/conf.d/
+COPY localhost.crt /etc/ssl/localhost.crt
+COPY localhost.key /etc/ssl/localhost.key
 
 # Need to include perl-module because of uri lowercasing implementation
 CMD ["nginx", "-g", "daemon off; load_module /etc/nginx/modules/ngx_http_perl_module.so;"]

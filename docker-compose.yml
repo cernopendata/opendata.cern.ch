@@ -182,7 +182,7 @@ services:
       - elasticsearch
     build: ./elasticsearch-proxy
     ports:
-      - "443:443"
+      - "443"
     links:
       - elasticsearch
 
@@ -201,6 +201,7 @@ services:
     image: cernopendata/nginx
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - web_data:/opt/invenio/var/instance/static
     links:
