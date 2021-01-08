@@ -30,25 +30,25 @@ from flask_assets import Bundle
 from invenio_assets import NpmBundle
 
 js = NpmBundle(
-    'node_modules/angular/angular.js',
+    # 'node_modules/angular/angular.js',
     'node_modules/jquery/jquery.js',
     'node_modules/popper.js/dist/umd/popper.js',
     'node_modules/bootstrap/dist/js/bootstrap.js',
-    'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
+    # 'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
     output='gen/cernopendata.theme.%(version)s.js',
     npm={
-        'angular': '~1.4.9',
+        # 'angular': '~1.4.9',
         'jquery': '~1.9.1',
         'popper.js': '~1.11.0',
         'bootstrap': '~4.0.0-beta',
-        'angular-ui-bootstrap': '~2.2.0',
+        # 'angular-ui-bootstrap': '~2.2.0',
     },
 )
 
 css = NpmBundle(
     Bundle(
         'node_modules/bootstrap/dist/css/bootstrap.min.css',
-        'node_modules/angular-loading-bar/build/loading-bar.css',
+        # 'node_modules/angular-loading-bar/build/loading-bar.css',
         filters='cleancssurl',
     ),
     Bundle(
@@ -58,7 +58,7 @@ css = NpmBundle(
     depends=('scss/*.scss',),
     output='gen/cernopendata.%(version)s.css',
     npm={
-        'angular-loading-bar': '~0.9.0',
+        # 'angular-loading-bar': '~0.9.0',
         'bootstrap-sass': '~3.3.5',
         'open-iconic': '~1.1.1',
         'typeahead.js-bootstrap-css': '~1.2.1',
@@ -74,16 +74,16 @@ front_js = NpmBundle(
 )
 
 search_js = NpmBundle(
-    'node_modules/angular-sanitize/angular-sanitize.js',
-    'node_modules/angular-loading-bar/build/loading-bar.js',
+    # 'node_modules/angular-sanitize/angular-sanitize.js',
+    # 'node_modules/angular-loading-bar/build/loading-bar.js',
     'node_modules/invenio-search-js/dist/invenio-search-js.js',
     'js/components/resultsBrief.js',
     'js/controllers/facetCtrl.js',
     output='gen/codp_search.%(version)s.js',
     npm={
-        'angular': '~1.4.10',
-        'angular-loading-bar': '~0.9.0',
-        'angular-sanitize': '~1.4.14',
+        # 'angular': '~1.4.10',
+        # 'angular-loading-bar': '~0.9.0',
+        # 'angular-sanitize': '~1.4.14',
         'invenio-search-js': '^1.3.1',
     },
 )
@@ -229,13 +229,13 @@ codemirror_js = NpmBundle(
     'node_modules/codemirror/mode/scheme/scheme.js',
     'node_modules/codemirror/mode/javascript/javascript.js',
     'node_modules/codemirror/mode/xml/xml.js',
-    'node_modules/angular-ui-codemirror/src/ui-codemirror.js',
-    'node_modules/angular-clipboard/angular-clipboard.js',
+    # 'node_modules/angular-ui-codemirror/src/ui-codemirror.js',
+    # 'node_modules/angular-clipboard/angular-clipboard.js',
     output='gen/cernopendata.codemirror.%(version)s.js',
     npm={
-        "angular-ui-codemirror": "0.3.0",
+        # "angular-ui-codemirror": "0.3.0",
         "codemirror": "*",
-        "angular-clipboard": "1.6.2",
+        # "angular-clipboard": "1.6.2",
     },
 )
 
