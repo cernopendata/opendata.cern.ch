@@ -3,9 +3,9 @@
 <br/>
 </center>
 
-The CMS experiment at CERN has released into the public domain its first
-batches of [open data from heavy-ion
-collisions](/search?page=1&size=20&q=&keywords=heavy-ion%20physics) at the
+The CMS experiment at CERN has released into the public domain [its first
+batches of open data from heavy-ion
+collisions](/search?q=&keywords=heavy-ion%20physics&year=2010&year=2011&experiment=CMS) at the
 Large Hadron Collider. The two batches contain two datasets from 2010 and four
 from 2011, recorded during the LHC’s first data-taking period (“Run 1”), along
 with eight sets of reference data from proton–proton collisions recorded at the
