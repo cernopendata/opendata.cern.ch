@@ -50,18 +50,9 @@ RUN yum install -y \
         https://storage-ci.web.cern.ch/storage-ci/xrootd/release/cc-7-x86_64/v${XROOTD_VERSION}/xrootd-client-devel-${XROOTD_VERSION}-1.el7.x86_64.rpm \
         https://storage-ci.web.cern.ch/storage-ci/xrootd/release/cc-7-x86_64/v${XROOTD_VERSION}/python3-xrootd-${XROOTD_VERSION}-1.el7.x86_64.rpm && \
     yum clean -y all
-# Downgrade Invenio base image to Node 6.x
-# hadolint ignore=DL3033
-RUN yum remove -y nodejs npm && \
-        curl -sL https://rpm.nodesource.com/setup_6.x -o /tmp/install-node6.sh && \
-        bash /tmp/install-node6.sh && \
-        rm /tmp/install-node6.sh && \
-        yum install -y nodejs && \
-        npm install -g npm@3.10.10 && \
-    yum clean -y all
 
 RUN pip uninstall pipenv -y && pip install --upgrade pip==20.2.4 setuptools==51.0.0 wheel==0.36.2 && \
-    npm install -g node-sass@3.8.0 clean-css@3.4.24 requirejs@2.3.6 uglify-js@3.12.1 jsonlint@1.6.3 d3@3.3.13
+    npm install -g --unsafe-perm node-sass@4.14.1 clean-css@3.4.24 requirejs@2.3.6 uglify-js@3.12.1 jsonlint@1.6.3 d3@6.3.1
 
 RUN pip install xrootd==${XROOTD_VERSION} xrootdpyfs==0.2.1
 
