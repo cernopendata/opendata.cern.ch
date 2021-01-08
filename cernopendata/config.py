@@ -63,6 +63,9 @@ LOGGING_SENTRY_CELERY = os.environ.get(
 APP_ENABLE_SECURE_HEADERS = False
 
 
+#: CORS
+REST_ENABLE_CORS = True
+
 # Assets
 # ======
 #: Switch of assets debug.
@@ -246,6 +249,12 @@ RECORDS_REST_ENDPOINTS['docid'] = {
         'application/json': ('invenio_records_rest.serializers'
                              ':json_v1_search'),
     },
+}
+
+RECORDS_FILES_REST_ENDPOINTS = {
+    'RECORDS_REST_ENDPOINTS': {
+        'recid': 'files'
+    }
 }
 
 RECORDS_REST_SORT_OPTIONS = {
