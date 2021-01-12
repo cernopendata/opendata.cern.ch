@@ -63,15 +63,19 @@ RUN pip install -r /tmp/requirements-production-local-forks.txt
 RUN pip install -r /tmp/requirements-production.txt
 
 # Add CERN Open Data Portal sources to `code` and work there
-WORKDIR /code
-COPY . /code
+ENV CODE_DIR=/code
+WORKDIR ${CODE_DIR}
+COPY . ${CODE_DIR}
 
 RUN pip install -e ".[all]"
 
 # Create instance
-RUN /code/scripts/create-instance.sh && \
+RUN ${CODE_DIR}/scripts/create-instance.sh && \
     chgrp -R 0 "${INVENIO_INSTANCE_PATH}" && \
-    chmod -R g=u "${INVENIO_INSTANCE_PATH}"
+    chmod -R g=u "${INVENIO_INSTANCE_PATH}" && \
+    chown -R "${INVENIO_USER_ID}":root ${CODE_DIR}
+
+USER ${INVENIO_USER_ID}
 
 # Condigure uWSGI
 ARG UWSGI_WSGI_MODULE=cernopendata.wsgi:application
