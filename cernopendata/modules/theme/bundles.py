@@ -39,7 +39,7 @@ js = NpmBundle(
     npm={
         # 'angular': '~1.4.9',
         'jquery': '~1.9.1',
-        'popper.js': '~1.11.0',
+        'popper.js': '~1.12.3',
         'bootstrap': '~4.0.0-beta',
         # 'angular-ui-bootstrap': '~2.2.0',
     },
@@ -152,7 +152,7 @@ opera_js = NpmBundle(
     'node_modules/demobbed-viewer/js/MgrDrawECC-funcAdd.js',
     output='gen/cernopendata.opera.%(version)s.js',
     npm={
-        "demobbed-viewer-dev-js":
+        "demobbed-viewer":
             "git+https://git@github.com/cernopendata/demobbed-viewer.git"
     },
 )
