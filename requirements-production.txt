@@ -29,8 +29,8 @@ datacite==1.0.1           # via invenio-records-rest
 decorator==4.4.2          # via ipython, traitlets
 defusedxml==0.6.0         # via nbconvert
 dnspython==2.0.0          # via email-validator
-elasticsearch-dsl==5.4.0  # via invenio-search
-elasticsearch==5.5.3      # via elasticsearch-dsl, invenio-search
+elasticsearch>=7.0.0,<8.0.0  # via invenio-search
+elasticsearch-dsl>=7.0.0,<8.0.0  # via elasticsearch-dsl, invenio-search
 email-validator==1.1.2    # via invenio-accounts
 entrypoints==0.3          # via nbconvert
 flask-alembic==2.0.1      # via invenio-db
@@ -83,7 +83,7 @@ invenio-records-ui==1.2.0  # via cernopendata (setup.py), invenio-previewer
 invenio-records==1.4.0a3  # via cernopendata (setup.py), invenio-indexer, invenio-records-files, invenio-records-rest, invenio-records-ui
 invenio-rest[cors]==1.2.1  # via cernopendata (setup.py), invenio-accounts, invenio-files-rest, invenio-records-rest
 invenio-search-ui==2.0.0  # via cernopendata (setup.py)
-invenio-search[elasticsearch5]==1.4.0  # via cernopendata (setup.py)
+invenio-search[elasticsearch7]==1.4.1  # via cernopendata (setup.py)
 invenio-theme==1.3.6      # via cernopendata (setup.py)
 invenio-xrootd==1.0.0a6   # via cernopendata (setup.py)
 ipython-genutils==0.2.0   # via nbformat, traitlets

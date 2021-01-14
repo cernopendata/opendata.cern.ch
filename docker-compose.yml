@@ -164,14 +164,21 @@ services:
 
   elasticsearch:
     restart: "always"
-    image: elasticsearch:5
+    image: elasticsearch:7.9.3
     command: ["elasticsearch", "-E", "logger.org.elasticsearch.deprecation=error"]
+    restart: "unless-stopped"
     environment:
       - bootstrap.memory_lock=true
       # set to reasonable values on production
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - discovery.type=single-node
     volumes:
       - elasticsearch_data:/usr/share/elasticsearch/data/elasticsearch
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    mem_limit: 1g
     ports:
       - "9200"
       - "9300"

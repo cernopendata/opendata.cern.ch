@@ -88,8 +88,8 @@ install_requires = [
     'invenio-records-files==1.2.1',
     # Custom Invenio `postgresql` bundle
     'invenio-db[versioning,postgresql]==1.0.5',
-    # Custom Invenio `elasticsearch5` bundle
-    'invenio-search[elasticsearch5]==1.4.0',
+    # Custom Invenio `elasticsearch7` bundle
+    'invenio-search[elasticsearch7]==1.4.1',
     # Specific Invenio dependencies
     'invenio-xrootd>=1.0.0a6',
     'xrootdpyfs>=0.2.1',
