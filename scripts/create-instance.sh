@@ -26,8 +26,7 @@ set -o errexit
 set -o nounset
 
 mkdir -p "${INVENIO_INSTANCE_PATH}"
-cernopendata npm
 cd "${INVENIO_INSTANCE_PATH}"/static
-CI=true npm install
+
 cernopendata collect -v
-cernopendata assets build
+cernopendata webpack buildall

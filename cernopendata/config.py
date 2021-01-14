@@ -88,11 +88,8 @@ APP_DEFAULT_SECURE_HEADERS = {
 
 # Assets
 # ======
-#: Switch of assets debug.
-# ASSETS_DEBUG = DEBUG
-#: Switch of automatic building.
-# ASSETS_AUTO_BUILD = True
-
+#: Default application theme.
+APP_THEME = ['bootstrap3']
 
 # Static file
 COLLECT_STORAGE = 'flask_collect.storage.link' \

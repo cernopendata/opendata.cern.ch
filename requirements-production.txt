@@ -8,7 +8,7 @@ alembic==1.4.3            # via flask-alembic
 amqp==5.0.2               # via kombu
 arrow==0.17.0             # via invenio-records, invenio-records-rest
 attrs==20.3.0             # via invenio-records-rest, jsonschema
-babel==2.9.0              # via flask-babelex, invenio-assets
+babel==2.9.0              # via flask-babelex
 backcall==0.2.0           # via ipython
 base32-lib==1.0.2         # via invenio-pidstore
 billiard==3.6.3.0         # via celery
@@ -34,8 +34,7 @@ elasticsearch==5.5.3      # via elasticsearch-dsl, invenio-search
 email-validator==1.1.2    # via invenio-accounts
 entrypoints==0.3          # via nbconvert
 flask-alembic==2.0.1      # via invenio-db
-flask-assets==2.0         # via invenio-assets
-flask-babelex==0.9.4      # via flask-security, invenio-i18n, invenio-previewer, invenio-records-ui, invenio-search-ui, invenio-theme
+flask-babelex==0.9.4      # via flask-security, invenio-i18n, invenio-previewer, invenio-records-ui, invenio-search-ui
 flask-breadcrumbs==0.5.1  # via invenio-accounts, invenio-theme
 flask-caching==1.9.0      # via invenio-cache
 flask-celeryext==0.3.4    # via invenio-app, invenio-celery, invenio-indexer, invenio-logging
@@ -53,8 +52,9 @@ flask-security==3.0.0     # via invenio-accounts
 flask-shell-ipython==0.4.1  # via invenio-app
 flask-sqlalchemy==2.4.4   # via flask-alembic, invenio-db
 flask-talisman==0.5.0     # via invenio-app
+flask-webpackext==1.0.2   # via invenio-assets
 flask-wtf==0.14.3         # via flask-security, invenio-accounts, invenio-files-rest
-flask==1.1.2              # via flask-alembic, flask-assets, flask-babelex, flask-breadcrumbs, flask-caching, flask-celeryext, flask-collect, flask-cors, flask-kvsession-invenio, flask-limiter, flask-login, flask-mail, flask-menu, flask-mistune, flask-principal, flask-security, flask-shell-ipython, flask-sqlalchemy, flask-wtf, invenio-assets, invenio-base, invenio-config, invenio-indexer, invenio-previewer, invenio-records-files, invenio-records-ui, invenio-theme, raven
+flask==1.1.2              # via flask-alembic, flask-babelex, flask-breadcrumbs, flask-caching, flask-celeryext, flask-collect, flask-cors, flask-kvsession-invenio, flask-limiter, flask-login, flask-mail, flask-menu, flask-mistune, flask-principal, flask-security, flask-shell-ipython, flask-sqlalchemy, flask-webpackext, flask-wtf, invenio-base, invenio-config, invenio-indexer, invenio-previewer, invenio-records-files, invenio-records-ui, raven
 fs==0.5.4                 # via invenio-files-rest, xrootdpyfs
 ftfy==4.4.3               # via invenio-records-rest
 future==0.18.2            # via invenio-accounts
@@ -63,8 +63,8 @@ idna==2.10                # via email-validator, requests
 importlib-metadata==3.3.0  # via jsonschema, kombu, markdown, pluggy
 invenio-accounts==1.4.2   # via invenio-files-rest
 invenio-app==1.3.0        # via cernopendata (setup.py)
-invenio-assets==1.0.0b6   # via cernopendata (setup.py), invenio-previewer, invenio-theme
-invenio-base==1.2.3       # via cernopendata (setup.py), invenio-accounts, invenio-app, invenio-cache, invenio-celery, invenio-db, invenio-files-rest, invenio-i18n, invenio-jsonschemas, invenio-logging, invenio-pidstore, invenio-records, invenio-records-rest, invenio-rest, invenio-search
+invenio-assets==1.2.5     # via cernopendata (setup.py), invenio-previewer, invenio-theme
+invenio-base==1.2.3       # via cernopendata (setup.py), invenio-accounts, invenio-app, invenio-assets, invenio-cache, invenio-celery, invenio-db, invenio-files-rest, invenio-i18n, invenio-jsonschemas, invenio-logging, invenio-pidstore, invenio-records, invenio-records-rest, invenio-rest, invenio-search, invenio-theme
 invenio-cache==1.1.0      # via invenio-app
 invenio-celery==1.2.2     # via invenio-accounts, invenio-files-rest, invenio-records
 invenio-config==1.0.3     # via cernopendata (setup.py), invenio-app
@@ -83,7 +83,7 @@ invenio-records==1.4.0a3  # via cernopendata (setup.py), invenio-indexer, inveni
 invenio-rest[cors]==1.2.1  # via cernopendata (setup.py), invenio-accounts, invenio-files-rest, invenio-records-rest
 invenio-search-ui==1.0.0a2  # via cernopendata (setup.py)
 invenio-search[elasticsearch5]==1.4.0  # via cernopendata (setup.py)
-invenio-theme==1.0.0b2    # via cernopendata (setup.py)
+invenio-theme==1.3.6      # via cernopendata (setup.py)
 invenio-xrootd==1.0.0a6   # via cernopendata (setup.py)
 ipython-genutils==0.2.0   # via nbformat, traitlets
 ipython==7.16.1           # via flask-shell-ipython, invenio-previewer
@@ -111,7 +111,7 @@ mistune==0.8.4            # via cernopendata (setup.py), flask-mistune, invenio-
 msgpack==1.0.1            # via invenio-celery
 nbconvert[execute]==5.6.1  # via invenio-previewer
 nbformat==5.0.8           # via invenio-previewer, nbconvert
-node-semver==0.1.1        # via invenio-assets
+node-semver==0.1.1        # via invenio-assets, pywebpack
 packaging==20.8           # via bleach
 pandocfilters==1.4.3      # via nbconvert
 parso==0.7.1              # via jedi
@@ -126,6 +126,7 @@ pycparser==2.20           # via cffi
 pygments==2.7.3           # via ipython, nbconvert
 pyjwt==1.7.1              # via invenio-accounts
 pymdown-extensions==8.0.1  # via cernopendata (setup.py)
+pynpm==0.1.2              # via flask-webpackext, pywebpack
 pyparsing==2.4.7          # via packaging
 pyrsistent==0.17.3        # via jsonschema
 python-dateutil==2.8.1    # via alembic, arrow, elasticsearch-dsl, invenio-records-rest, jupyter-client
@@ -133,6 +134,7 @@ python-editor==1.0.4      # via alembic
 python-markdown-math==0.8  # via cernopendata (setup.py)
 python-slugify==4.0.1     # via cernopendata (setup.py)
 pytz==2020.4              # via babel, celery, invenio-indexer
+pywebpack==1.1.0          # via flask-webpackext
 pyzmq==20.0.0             # via jupyter-client
 raven[flask]==6.10.0      # via invenio-logging
 redis==3.5.3              # via invenio-accounts, invenio-celery
@@ -140,7 +142,7 @@ requests==2.25.0          # via datacite
 simplejson==3.17.2        # via invenio-files-rest
 simplekv==0.14.1          # via flask-kvsession-invenio, invenio-accounts
 six==1.15.0               # via base32-lib, bleach, click-repl, cryptography, elasticsearch-dsl, flask-breadcrumbs, flask-cors, flask-kvsession-invenio, flask-limiter, flask-menu, flask-talisman, fs, html5lib, invenio-app, invenio-base, jsonresolver, jsonschema, limits, python-dateutil, sqlalchemy-utils, traitlets
-speaklater==1.3           # via flask-babelex, invenio-assets
+speaklater==1.3           # via flask-babelex
 sqlalchemy-continuum==1.3.11  # via invenio-db
 sqlalchemy-utils==0.35.0  # via invenio-db, invenio-files-rest, sqlalchemy-continuum
 sqlalchemy==1.3.20        # via alembic, flask-alembic, flask-sqlalchemy, invenio-db, sqlalchemy-continuum, sqlalchemy-utils
@@ -157,7 +159,6 @@ uwsgitop==0.11            # via cernopendata (setup.py)
 vine==5.0.0               # via amqp, celery
 wcwidth==0.2.5            # via ftfy, prompt-toolkit
 webargs==5.5.3            # via invenio-rest
-webassets==2.0            # via flask-assets, invenio-assets
 webencodings==0.5.1       # via bleach, html5lib
 werkzeug==1.0.1           # via flask, flask-kvsession-invenio, jsonresolver
 wtforms==2.3.3            # via flask-wtf, invenio-files-rest
