@@ -54,28 +54,40 @@ RUN yum install -y \
 RUN pip uninstall pipenv -y && pip install --upgrade pip==20.2.4 setuptools==51.0.0 wheel==0.36.2 && \
     npm install -g --unsafe-perm node-sass@4.14.1 clean-css@3.4.24 requirejs@2.3.6 uglify-js@3.12.1 jsonlint@1.6.3 d3@6.3.1
 
-RUN pip install xrootd==${XROOTD_VERSION} xrootdpyfs==0.2.1
+# Change group to root to support OpenShift runtime
+RUN chgrp -R 0 "${INVENIO_INSTANCE_PATH}" && \
+    chmod -R g=u "${INVENIO_INSTANCE_PATH}"
+
+# Create `code` dir and set Invenio user as owner
+ENV CODE_DIR=/code
+RUN mkdir ${CODE_DIR} && chown invenio:root ${CODE_DIR}
+
+# Run application as Invenio user
+USER ${INVENIO_USER_ID}
+# Set default Invenio user Python base for site-packages
+ENV PYTHONUSERBASE=${INVENIO_INSTANCE_PATH}/python
+# Add Invenio user Python base to global PATH
+ENV PATH=$PATH:${INVENIO_INSTANCE_PATH}/python/bin
+RUN pip install --user xrootd==${XROOTD_VERSION} xrootdpyfs==0.2.1
 
 # Install requirements
 COPY requirements-production-local-forks.txt /tmp
 COPY requirements-production.txt /tmp
-RUN pip install -r /tmp/requirements-production-local-forks.txt
-RUN pip install -r /tmp/requirements-production.txt
+RUN pip install --user -r /tmp/requirements-production-local-forks.txt
+RUN pip install --user -r /tmp/requirements-production.txt
 
 # Add CERN Open Data Portal sources to `code` and work there
-ENV CODE_DIR=/code
 WORKDIR ${CODE_DIR}
-COPY . ${CODE_DIR}
+COPY --chown=${INVENIO_USER_ID}:root . ${CODE_DIR}
+# Debug off by default
+ARG DEBUG=""
+ENV DEBUG=${DEBUG:-""}
 
-RUN pip install -e ".[all]"
+# hadolint ignore=DL3013
+RUN if [ "$DEBUG" ]; then pip install --user -e ".[all]"; else pip install --user ".[all]"; fi;
 
 # Create instance
-RUN ${CODE_DIR}/scripts/create-instance.sh && \
-    chgrp -R 0 "${INVENIO_INSTANCE_PATH}" && \
-    chmod -R g=u "${INVENIO_INSTANCE_PATH}" && \
-    chown -R "${INVENIO_USER_ID}":root ${CODE_DIR}
-
-USER ${INVENIO_USER_ID}
+RUN scripts/create-instance.sh
 
 # Condigure uWSGI
 ARG UWSGI_WSGI_MODULE=cernopendata.wsgi:application
@@ -87,13 +99,8 @@ ENV UWSGI_PROCESSES ${UWSGI_PROCESSES:-2}
 ARG UWSGI_THREADS=2
 ENV UWSGI_THREADS ${UWSGI_THREADS:-2}
 
-# Debug off by default
-ARG DEBUG=""
-ENV DEBUG=${DEBUG:-""}
-
 # Install Python packages needed for development
-RUN if [ "$DEBUG" ]; then pip install -r requirements-dev.txt; fi;
-
+RUN if [ "$DEBUG" ]; then pip install --user -r requirements-dev.txt; fi;
 
 # Start the CERN Open Data Portal application
 # hadolint ignore=DL3025
