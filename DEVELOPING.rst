@@ -131,6 +131,23 @@ cache content, you can run:
 
    $ docker exec opendatacernch_nginx_1 find /var/cache/nginx -type f -delete
 
+Working with UI packages
+------------------------
+
+When working on UI packages that have JavaScript and CSS files, you can have
+"live editing" by running the following command on a new terminal:
+
+.. code-block:: console
+
+   $ docker exec -i -t opendatacernch_web_1 cernopendata webpack run start
+
+Keep in mind that you need to recreate the ``package.json`` when adding or
+removing dependencies:
+
+.. code-block:: console
+
+   $ docker exec -i -t opendatacernch_web_1 cernopendata webpack clean create
+
 Switching between PROD and DEV contexts
 ---------------------------------------
 
