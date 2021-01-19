@@ -29,42 +29,6 @@ from __future__ import absolute_import, print_function
 from flask_assets import Bundle
 from invenio_assets import NpmBundle
 
-js = NpmBundle(
-    # 'node_modules/angular/angular.js',
-    'node_modules/jquery/jquery.js',
-    'node_modules/popper.js/dist/umd/popper.js',
-    'node_modules/bootstrap/dist/js/bootstrap.js',
-    # 'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
-    output='gen/cernopendata.theme.%(version)s.js',
-    npm={
-        # 'angular': '~1.4.9',
-        'jquery': '~1.9.1',
-        'popper.js': '~1.12.3',
-        'bootstrap': '~4.0.0-beta',
-        # 'angular-ui-bootstrap': '~2.2.0',
-    },
-)
-
-css = NpmBundle(
-    Bundle(
-        'node_modules/bootstrap/dist/css/bootstrap.min.css',
-        # 'node_modules/angular-loading-bar/build/loading-bar.css',
-        filters='cleancssurl',
-    ),
-    Bundle(
-        'scss/styles.scss',
-        filters='node-scss, cleancssurl',
-    ),
-    depends=('scss/*.scss',),
-    output='gen/cernopendata.%(version)s.css',
-    npm={
-        # 'angular-loading-bar': '~0.9.0',
-        'bootstrap-sass': '~3.3.5',
-        'open-iconic': '~1.1.1',
-        'typeahead.js-bootstrap-css': '~1.2.1',
-    }
-)
-
 front_js = NpmBundle(
     'node_modules/fullpage.js/dist/jquery.fullpage.js',
     output='gen/cernopendata.front.%(version)s.js',

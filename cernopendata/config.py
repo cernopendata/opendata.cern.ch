@@ -89,7 +89,7 @@ APP_DEFAULT_SECURE_HEADERS = {
 # Assets
 # ======
 #: Default application theme.
-APP_THEME = ['bootstrap3']
+APP_THEME = ['semantic-ui']
 
 # Static file
 COLLECT_STORAGE = 'flask_collect.storage.link' \

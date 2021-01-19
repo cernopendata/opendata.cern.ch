@@ -29,4 +29,4 @@ mkdir -p "${INVENIO_INSTANCE_PATH}"
 cd "${INVENIO_INSTANCE_PATH}"/static
 
 cernopendata collect -v
-cernopendata webpack buildall
+cernopendata webpack clean buildall

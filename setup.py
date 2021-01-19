@@ -127,13 +127,11 @@ setup(
             'cernopendata.cli:cli',
         ],
         'invenio_assets.webpack': [
-            'cernopendata_theme = cernopendata.modules.theme.webpack:js',
+            'cernopendata_theme = cernopendata.modules.theme.webpack:theme',
         ],
         # 'invenio_assets.bundles': [
-            # 'cernopendata_js = cernopendata.modules.theme.bundles:js',
             # 'cernopendata_front_js = cernopendata.modules.theme.bundles'
             # ':front_js',
-            # 'cernopendata_theme_css = cernopendata.modules.theme.bundles:css',
             # 'cernopendata_visualise_css = '
             # 'cernopendata.modules.theme.bundles:visualise_css',
             # 'cernopendata_visualise_js = '

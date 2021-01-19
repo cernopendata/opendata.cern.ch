@@ -27,21 +27,22 @@
 from invenio_assets.webpack import WebpackThemeBundle
 
 
-js = WebpackThemeBundle(
+theme = WebpackThemeBundle(
     __name__,
     'assets',
-    default='bootstrap3',
+    default='semantic-ui',
     themes={
-        'bootstrap3': dict(
+        'semantic-ui': dict(
             entry={
-                'cernopendata_js': './js/app.js',
+                'cernopendata_css': './scss/styles.scss',
+                'cernopendata_js': './js/app.js'
             },
             dependencies={
-                'angular': '~1.4.9',
-                'jquery': '~1.9.1',
+                'open-iconic': '~1.1.1',
                 'popper.js': '~1.11.0',
-                'bootstrap': '~4.0.0-beta',
-                'angular-ui-bootstrap': '~2.2.0',
+            },
+            aliases={
+                '../../theme.config$': 'less/cernopendata/theme.config',
             },
         ),
     }

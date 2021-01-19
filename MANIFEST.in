@@ -12,6 +12,7 @@ include babel.ini
 include nginx/Dockerfile
 include pytest.ini
 include sentry/Dockerfile
+recursive-include cernopendata *.config
 recursive-include cernopendata *.css
 recursive-include cernopendata *.csv
 recursive-include cernopendata *.gif
@@ -22,12 +23,14 @@ recursive-include cernopendata *.jpg
 recursive-include cernopendata *.js
 recursive-include cernopendata *.json
 recursive-include cernopendata *.less
+recursive-include cernopendata *.md
+recursive-include cernopendata *.overrides
 recursive-include cernopendata *.png
 recursive-include cernopendata *.scss
 recursive-include cernopendata *.svg
 recursive-include cernopendata *.tpl
 recursive-include cernopendata *.txt
-recursive-include cernopendata *.md
+recursive-include cernopendata *.variables
 recursive-include cernopendata *.xml
 recursive-include nginx *.conf
 recursive-include nginx *.crt

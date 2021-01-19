@@ -1,7 +1,8 @@
 {% extends 'invenio_theme/page.html' %}
 
 {% block css %}
-    {# {%- assets "cernopendata_theme_css" %}<link href="{{ ASSET_URL }}" rel="stylesheet"> {%- endassets %} #}
+    {{ super() }}
+    {{ webpack['cernopendata_css.css'] }}
     {# {%- assets "cernopendata_glossary_css" %} <link href="{{ ASSET_URL }}" rel="stylesheet"> {%- endassets %} #}
     {# {%- assets "codemirror_css" %} <link href="{{ ASSET_URL }}" rel="stylesheet"> {%- endassets %} #}
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -37,10 +38,11 @@
 {%- endblock body_inner %}
 
 {%- block javascript %}
+  {{ super() }}
+  {{ webpack['cernopendata_js.js'] }}
   {# {% assets "cernopendata_glossary_js" %}<script src="{{ ASSET_URL }}"></script>{% endassets %} #}
   {# {% assets "cernopendata_search_js" %}<script src="{{ ASSET_URL }}"></script>{% endassets %} #}
   {# {% assets "codemirror_js" %}<script src="{{ ASSET_URL }}"></script>{% endassets %} #}
-  {{ webpack['cernopendata_js.js'] }}
 
   {%- block javascript_glossary %}
 
