@@ -84,7 +84,7 @@ install_requires = [
     'invenio-records==1.4.0a3',
     'invenio-search-ui==1.0.0a2',
     # Custom Invenio `files` bundle
-    'invenio-previewer==1.0.0a11',
+    'invenio-previewer==1.3.2',
     'invenio-records-files==1.2.1',
     # Custom Invenio `postgresql` bundle
     'invenio-db[versioning,postgresql]==1.0.5',
