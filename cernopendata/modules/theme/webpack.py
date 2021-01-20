@@ -47,3 +47,18 @@ theme = WebpackThemeBundle(
         ),
     }
 )
+
+
+glossary = WebpackThemeBundle(
+    __name__,
+    'assets',
+    default='semantic-ui',
+    themes={
+        'semantic-ui': dict(
+            entry={
+                'glossary_js': './js/glossary/jquery.zglossary.js',
+                'glossary_css': './js/glossary/jquery.zglossary.css',
+            },
+        )
+    }
+)

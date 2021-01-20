@@ -1,6 +1,8 @@
-(function($){
+import jquery from "jquery/dist/jquery";
 
-	$.fn.glossary = function(url, options, exp) {
+(function (jquery) {
+
+	jquery.fn.glossary = function(url, options, exp) {
 
 		// Set plugin defaults
 		var defaults = {
@@ -10,14 +12,14 @@
 			linktarget: '_blank',
 			showonce: false
 		};
-		var options = $.extend(defaults, options);
+		var options = jquery.extend(defaults, options);
 		var id = 1;
 
 		// Functions
 		return this.each(function(i, e) {
 
 			// Ensure any exclude tags are uppercase for comparisons
-			$.each(options.excludetags, function(i,e) { options.excludetags[i] = e.toUpperCase(); });
+			jquery.each(options.excludetags, function(i,e) { options.excludetags[i] = e.toUpperCase(); });
 
 			// Function to find and add term
 			var _addTerm = function(e, term, type, def) {
@@ -37,8 +39,8 @@
 					// Check if the term is found
 					if (pos >= 0) {
 						// Check for excluded tagsnew
-						if (( jQuery.inArray($(e).parent().get(0).tagName,options.excludetags) > -1) ||
-							( $(e).parent().hasClass('no-glossary') )
+						if (( jquery.inArray(jquery(e).parent().get(0).tagName,options.excludetags) > -1) ||
+							( jquery(e).parent().hasClass('no-glossary') )
 						){} else {
 
 							// Create link element
@@ -52,9 +54,9 @@
 								spannode.href = '#';
 								// spannode.title = 'Click for \''+ term +'\' definition';
 								spannode.className = 'glossaryTerm';
-								$(spannode).hover(
+								jquery(spannode).hover(
 									function(e) {
-										$.glossaryTip('<'+ options.tiptag +'>'+ term + '</'+ options.tiptag +'><p>'+ def +'</p>', {mouse_event: e})
+										jquery.glossaryTip('<'+ options.tiptag +'>'+ term + '</'+ options.tiptag +'><p>'+ def +'</p>', {mouse_event: e})
 										return false;
 									},
 									function(e) {
@@ -116,7 +118,7 @@
 			};
 
 			// Get glossary list items
-			$.ajax({
+			jquery.ajax({
 				type: 'GET',
 				url: url,
 				dataType: 'json',
@@ -126,7 +128,7 @@
 
 						var count = data.length;
 						for (var i=0; i<count; i++) {
-							move_on = false;
+							var move_on = false;
 
 							// Find term in text
 							var item = data[i];
@@ -164,17 +166,17 @@
 	// Glossary tip popup
 	var glossaryTip = function() {}
 
-	$.extend(glossaryTip.prototype, {
+	jquery.extend(glossaryTip.prototype, {
 
 		setup: function(){
 
-			if ($('#glossaryTip').length) {
-				$('#glossaryTip').remove();
+			if (jquery('#glossaryTip').length) {
+				jquery('#glossaryTip').remove();
 			}
-			glossaryTip.holder = $('<div id="glossaryTip" style="max-width:260px;"><div id="glossaryClose"></div></div>');
-			glossaryTip.content = $('<div id="glossaryContent"></div>');
+			glossaryTip.holder = jquery('<div id="glossaryTip" style="max-width:260px;"><div id="glossaryClose"></div></div>');
+			glossaryTip.content = jquery('<div id="glossaryContent"></div>');
 
-			$('body').append(glossaryTip.holder.append(glossaryTip.content));
+			jquery('body').append(glossaryTip.holder.append(glossaryTip.content));
 		},
 
 		show: function(content, event){
@@ -201,14 +203,14 @@
 
 	});
 
-	$.glossaryTip = function(content, event) {
-		var tip = $.glossaryTip.instance;
+	jquery.glossaryTip = function(content, event) {
+		var tip = jquery.glossaryTip.instance;
 
-		if (!tip) { tip = $.glossaryTip.instance = new glossaryTip(); }
+		if (!tip) { tip = jquery.glossaryTip.instance = new glossaryTip(); }
 
 		tip.setup();
 		tip.show(content, event);
 
 		return tip;
 	}
-})(jQuery);
+})(jquery);

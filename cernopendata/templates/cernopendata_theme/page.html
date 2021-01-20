@@ -3,7 +3,7 @@
 {% block css %}
     {{ super() }}
     {{ webpack['cernopendata_css.css'] }}
-    {# {%- assets "cernopendata_glossary_css" %} <link href="{{ ASSET_URL }}" rel="stylesheet"> {%- endassets %} #}
+    {{ webpack['glossary_css.css'] }}
     {# {%- assets "codemirror_css" %} <link href="{{ ASSET_URL }}" rel="stylesheet"> {%- endassets %} #}
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -40,7 +40,7 @@
 {%- block javascript %}
   {{ super() }}
   {{ webpack['cernopendata_js.js'] }}
-  {# {% assets "cernopendata_glossary_js" %}<script src="{{ ASSET_URL }}"></script>{% endassets %} #}
+  {{ webpack['glossary_js.js'] }}
   {# {% assets "cernopendata_search_js" %}<script src="{{ ASSET_URL }}"></script>{% endassets %} #}
   {# {% assets "codemirror_js" %}<script src="{{ ASSET_URL }}"></script>{% endassets %} #}
 
@@ -49,9 +49,6 @@
     <script>
         $(document).ready(function () {
           $('body').glossary('/glossary/json');
-
-          var reference = document.querySelector('.my-button');
-          $('[data-toggle="popover"]').popover('show')
         });
     </script>
   {% endblock %}
