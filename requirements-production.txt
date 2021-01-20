@@ -34,7 +34,7 @@ elasticsearch==5.5.3      # via elasticsearch-dsl, invenio-search
 email-validator==1.1.2    # via invenio-accounts
 entrypoints==0.3          # via nbconvert
 flask-alembic==2.0.1      # via invenio-db
-flask-babelex==0.9.4      # via flask-security, invenio-i18n, invenio-previewer, invenio-records-ui, invenio-search-ui
+flask-babelex==0.9.4      # via flask-security, invenio-i18n, invenio-previewer, invenio-search-ui
 flask-breadcrumbs==0.5.1  # via invenio-accounts, invenio-theme
 flask-caching==1.9.0      # via invenio-cache
 flask-celeryext==0.3.4    # via invenio-app, invenio-celery, invenio-indexer, invenio-logging
@@ -54,7 +54,7 @@ flask-sqlalchemy==2.4.4   # via flask-alembic, invenio-db
 flask-talisman==0.5.0     # via invenio-app
 flask-webpackext==1.0.2   # via invenio-assets
 flask-wtf==0.14.3         # via flask-security, invenio-accounts, invenio-files-rest
-flask==1.1.2              # via flask-alembic, flask-babelex, flask-breadcrumbs, flask-caching, flask-celeryext, flask-collect, flask-cors, flask-kvsession-invenio, flask-limiter, flask-login, flask-mail, flask-menu, flask-mistune, flask-principal, flask-security, flask-shell-ipython, flask-sqlalchemy, flask-webpackext, flask-wtf, invenio-base, invenio-config, invenio-indexer, invenio-previewer, invenio-records-files, invenio-records-ui, raven
+flask==1.1.2              # via flask-alembic, flask-babelex, flask-breadcrumbs, flask-caching, flask-celeryext, flask-collect, flask-cors, flask-kvsession-invenio, flask-limiter, flask-login, flask-mail, flask-menu, flask-mistune, flask-principal, flask-security, flask-shell-ipython, flask-sqlalchemy, flask-webpackext, flask-wtf, invenio-base, invenio-config, invenio-indexer, invenio-previewer, invenio-records-files, raven
 fs==0.5.4                 # via invenio-files-rest, xrootdpyfs
 ftfy==4.4.3               # via invenio-records-rest
 future==0.18.2            # via invenio-accounts
@@ -64,13 +64,13 @@ importlib-metadata==3.3.0  # via jsonschema, kombu, markdown, pluggy
 invenio-accounts==1.4.2   # via invenio-files-rest
 invenio-app==1.3.0        # via cernopendata (setup.py)
 invenio-assets==1.2.5     # via cernopendata (setup.py), invenio-previewer, invenio-theme
-invenio-base==1.2.3       # via cernopendata (setup.py), invenio-accounts, invenio-app, invenio-assets, invenio-cache, invenio-celery, invenio-db, invenio-files-rest, invenio-i18n, invenio-jsonschemas, invenio-logging, invenio-pidstore, invenio-records, invenio-records-rest, invenio-rest, invenio-search, invenio-theme
+invenio-base==1.2.3       # via cernopendata (setup.py), invenio-accounts, invenio-app, invenio-assets, invenio-cache, invenio-celery, invenio-db, invenio-files-rest, invenio-i18n, invenio-jsonschemas, invenio-logging, invenio-pidstore, invenio-records, invenio-records-rest, invenio-records-ui, invenio-rest, invenio-search, invenio-theme
 invenio-cache==1.1.0      # via invenio-app
 invenio-celery==1.2.2     # via invenio-accounts, invenio-files-rest, invenio-records
 invenio-config==1.0.3     # via cernopendata (setup.py), invenio-app
 invenio-db[postgresql,versioning]==1.0.5  # via cernopendata (setup.py)
 invenio-files-rest==1.2.0  # via invenio-records-files, invenio-xrootd
-invenio-i18n==1.3.0       # via invenio-accounts, invenio-pidstore, invenio-records, invenio-records-rest, invenio-theme
+invenio-i18n==1.3.0       # via invenio-accounts, invenio-pidstore, invenio-records, invenio-records-rest, invenio-records-ui, invenio-theme
 invenio-indexer==1.2.0    # via cernopendata (setup.py), invenio-records-rest
 invenio-jsonschemas==1.1.0  # via cernopendata (setup.py)
 invenio-logging[sentry]==1.3.0  # via cernopendata (setup.py)
@@ -78,7 +78,7 @@ invenio-pidstore==1.2.1   # via cernopendata (setup.py), invenio-indexer, inveni
 invenio-previewer==1.0.0a11  # via cernopendata (setup.py)
 invenio-records-files==1.2.1  # via cernopendata (setup.py)
 invenio-records-rest[datacite]==1.7.2  # via cernopendata (setup.py), invenio-records-files
-invenio-records-ui==1.0.0b1  # via cernopendata (setup.py), invenio-previewer
+invenio-records-ui==1.2.0  # via cernopendata (setup.py), invenio-previewer
 invenio-records==1.4.0a3  # via cernopendata (setup.py), invenio-indexer, invenio-records-files, invenio-records-rest, invenio-records-ui
 invenio-rest[cors]==1.2.1  # via cernopendata (setup.py), invenio-accounts, invenio-files-rest, invenio-records-rest
 invenio-search-ui==1.0.0a2  # via cernopendata (setup.py)

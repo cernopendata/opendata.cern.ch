@@ -80,7 +80,7 @@ install_requires = [
     'invenio-jsonschemas==1.1.0',
     'invenio-pidstore==1.2.1',
     'invenio-records-rest[datacite]==1.7.2',
-    'invenio-records-ui==1.0.0b1',
+    'invenio-records-ui==1.2.0',
     'invenio-records==1.4.0a3',
     'invenio-search-ui==1.0.0a2',
     # Custom Invenio `files` bundle
