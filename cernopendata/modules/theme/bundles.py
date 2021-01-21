@@ -37,21 +37,6 @@ front_js = NpmBundle(
     },
 )
 
-search_js = NpmBundle(
-    # 'node_modules/angular-sanitize/angular-sanitize.js',
-    # 'node_modules/angular-loading-bar/build/loading-bar.js',
-    'node_modules/invenio-search-js/dist/invenio-search-js.js',
-    'js/components/resultsBrief.js',
-    'js/controllers/facetCtrl.js',
-    output='gen/codp_search.%(version)s.js',
-    npm={
-        # 'angular': '~1.4.10',
-        # 'angular-loading-bar': '~0.9.0',
-        # 'angular-sanitize': '~1.4.14',
-        'invenio-search-js': '^1.3.1',
-    },
-)
-
 visualise_js = NpmBundle(
     'node_modules/d3/d3.min.js',
     'node_modules/flot/jquery.flot.js',

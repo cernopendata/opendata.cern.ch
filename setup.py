@@ -82,7 +82,7 @@ install_requires = [
     'invenio-records-rest[datacite]==1.7.2',
     'invenio-records-ui==1.2.0',
     'invenio-records==1.4.0a3',
-    'invenio-search-ui==1.0.0a2',
+    'invenio-search-ui==2.0.0',
     # Custom Invenio `files` bundle
     'invenio-previewer==1.3.2',
     'invenio-records-files==1.2.1',
