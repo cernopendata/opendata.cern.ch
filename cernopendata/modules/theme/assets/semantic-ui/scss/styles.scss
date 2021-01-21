@@ -53,16 +53,58 @@ body {
     color: #fff !important;
 }
 
-.card-style {
-    border: none;
-    margin-top: 10px;
-    border-top: 2px solid lighten($dark-blue, 30%);
-    border-radius: unset;
+.detail-page {
+
+    .ui.segment {
+        font-weight: $font-light;
+        border: none;
+        margin-top: 10px;
+        border-top: 2px solid lighten($dark-blue, 30%);
+        border-radius: unset;
+        box-shadow: unset;
+        margin-bottom: 1em;
+
+        h1 {
+            font-size: 1.8em;
+            margin-top: 0.5em;
+            margin-bottom: .5rem;
+        }
+
+        h2 {
+            font-size: 1.6em;
+            margin-top: 1em;
+        }
+
+        h3 {
+            margin-top: 1em;
+            font-size: 1.6em;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid rgba(0,0,0,.1);
+        }
+
+        strong {
+            font-weight: $font-heavy;
+        }
+
+        .cite-paragraph {
+            font-weight: $font-light;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .news-content {
+            margin-top: 2em;
+        }
+
+        .definition-paragraph {
+            padding-top: 1em;
+        }
+    }
 }
 
-.card-related-pages {
-    padding-bottom: 0;
-}
 
 .col-position {
     margin-top: 10px;
@@ -499,51 +541,6 @@ a {
     background-color: $light-blue;
     border-color: $light-blue;
     color: white;
-}
-
-// DETAIL PAGE
-
-.detail-page {
-
-    font-weight: $font-light;
-
-    h1 {
-        font-size: 1.8em;
-        margin-top: 1em;
-    }
-
-    h2 {
-        font-size: 1.6em;
-        margin-top: 1em;
-    }
-
-    h3 {
-        margin-top: 1em;
-        font-size: 1.6em;
-    }
-
-    strong {
-        font-weight: $font-heavy;
-    }
-
-    .cite-paragraph {
-        font-weight: $font-light;
-        line-height: 1.2;
-        margin-bottom: 30px;
-    }
-
-    .news-content {
-        margin-top: 2em;
-    }
-
-    .definition-paragraph {
-        padding-top: 1em;
-    }
-
-    .card {
-        margin-bottom: 1em;
-        padding-bottom: 2em;
-    }
 }
 
 .modal-backdrop {
