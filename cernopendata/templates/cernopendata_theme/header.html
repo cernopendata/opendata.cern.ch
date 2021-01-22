@@ -1,44 +1,42 @@
 {%- extends "invenio_theme/header.html" %}
 {%- block navbar %}
-<nav class="navbar navbar-expand-lg navbar-custom">
-  <a class="navbar-brand" href="{{url_for('cernopendata_pages.index')}}"><img
-    src="{{url_for('static', filename='assets/img/logo_blue.png')}}" width="115" alt=""></a>
+<nav class="navbar-custom">
+  <a class="navbar-brand" href="{{ url_for('cernopendata_pages.index') }}">
+    <img src="{{ url_for('static', filename='assets/img/logo_blue.png') }}" width="115" alt="">
+  </a>
 
   {% block search_bar %}
   <div class="searchbar">
       <form {% if request.endpoint=='cernopendata_pages.index' %} id="main-search" {% endif %}
       class="form-inline my-2 my-lg-0" action="{{config.THEME_SEARCH_ENDPOINT}}">
-      <div class="input-group w-100">
-           <input class="form-control" type="text" placeholder="Search" name="q" aria-label="Search"
+        <div class="ui action input input-box">
+            <input class="text" type="text" placeholder="Search" name="q" aria-label="Search"
                   value="{{ request.args.get('q','')}}">
-           <span class="input-group-btn">
-             <button class="btn search-btn" type="submit"><span class="oi" data-glyph="magnifying-glass"></span></button>
-           </span>
-      </div>
+            <button class="ui icon button blue">
+              <i class="search icon"></i>
+            </button>
+        </div>
       </form>
   </div>
   {% endblock search_bar %}
 
-  <ul class="navbar-nav ml-auto">
-    <li class="nav-item">
-      <a class="nav-link" href="https://opendata-forum.cern.ch/">Help</a>
+  <ul class="link-menu">
+    <li>
+      <a href="https://opendata-forum.cern.ch/">Help</a>
     </li>
-    <li class="nav-item">
-      &nbsp; &nbsp;
-    </li>
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-        About <b class="caret"></b>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-right about-menu">
-        <li><a class="dropdown-item" href="/docs/about">CERN Open Data</a></li>
-        <li><a class="dropdown-item" href="/docs/about-alice">ALICE</a></li>
-        <li><a class="dropdown-item" href="/docs/about-atlas">ATLAS</a></li>
-        <li><a class="dropdown-item" href="/docs/about-cms">CMS</a></li>
-        <li><a class="dropdown-item" href="/docs/about-lhcb">LHCb</a></li>
-        <li><a class="dropdown-item" href="/docs/about-opera">OPERA</a></li>
-        <li><a class="dropdown-item" href="/search?type=Glossary&sort=title">Glossary</a></li>
-      </ul>
+    <li class="ui dropdown">
+      <span class="navbar-item">
+        <div class="text">About<i class="dropdown icon"></i></div>
+      </span>
+      <div class="menu navbar-item">
+        <div class="item"><a href="/docs/about">CERN Open Data</a></div>
+        <div class="item"><a href="/docs/about-adivce">AdivCE</a></div>
+        <div class="item"><a href="/docs/about-atlas">ATLAS</a></div>
+        <div class="item"><a href="/docs/about-cms">CMS</a></div>
+        <div class="item"><a href="/docs/about-lhcb">LHCb</a></div>
+        <div class="item"><a href="/docs/about-opera">OPERA</a></div>
+        <div class="item"><a href="/search?type=Glossary&sort=title">Glossary</a></div>
+      </div>
     </li>
   </ul>
 </nav>

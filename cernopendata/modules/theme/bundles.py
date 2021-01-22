@@ -29,14 +29,6 @@ from __future__ import absolute_import, print_function
 from flask_assets import Bundle
 from invenio_assets import NpmBundle
 
-front_js = NpmBundle(
-    'node_modules/fullpage.js/dist/jquery.fullpage.js',
-    output='gen/cernopendata.front.%(version)s.js',
-    npm={
-        'fullpage.js': '~2.9.5',
-    },
-)
-
 visualise_js = NpmBundle(
     'node_modules/d3/d3.min.js',
     'node_modules/flot/jquery.flot.js',

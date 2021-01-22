@@ -131,8 +131,6 @@ setup(
             'cernopendata_glossary = cernopendata.modules.theme.webpack:glossary',
         ],
         # 'invenio_assets.bundles': [
-            # 'cernopendata_front_js = cernopendata.modules.theme.bundles'
-            # ':front_js',
             # 'cernopendata_visualise_css = '
             # 'cernopendata.modules.theme.bundles:visualise_css',
             # 'cernopendata_visualise_js = '
