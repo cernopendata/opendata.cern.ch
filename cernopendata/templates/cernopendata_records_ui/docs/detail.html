@@ -12,10 +12,10 @@
                     <small>{{ record.author}} </small>
                     </p>
                     <p class="badges-box">
-                    {% if record.type %} <a class="badge badge-type" href="/search?type={{ record.type.primary }}">{{ record.type.primary }}</a>
+                    {% if record.type %} <a class="ui label badge-type" href="/search?type={{ record.type.primary }}">{{ record.type.primary }}</a>
                     {% if record.type.secondary %}
                     {% for type in record.type.secondary %}
-                    <a class="badge badge-subtype" href="/search?type={{ record.type.primary }}&subtype={{ type }}">{{ type }}</a>
+                    <a class="ui label badge-subtype" href="/search?type={{ record.type.primary }}&subtype={{ type }}">{{ type }}</a>
                     {% endfor %}
                     {% endif %}
                     {% endif %}
@@ -45,7 +45,7 @@
         <div class="three wide column">
             <div class="ui segment">
                 <div>
-                    <h4> Related </h4>
+                    <h4>Related</h4>
                     <p>
                     <div class="ui list">
                         {% for related in record.related %}
