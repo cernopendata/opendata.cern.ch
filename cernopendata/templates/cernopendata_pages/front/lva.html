@@ -1,102 +1,115 @@
-<div class="homepage-section section lva justify-content-center" id="lva" data-anchor="lva">
+<div class="homepage-section section lva" id="lva" data-anchor="lva">
     <div class="container lva-container">
-        <div class="lva-item-container justify-content-center align-items-center col">
-            <div class="lva-item h-100">
-                <header class="container-fluid">
-                    <h3 class="row justify-content-center">Learn</h3>
-    <!--                 <div class="row image justify-content-center">
-                        <img src="{{url_for('static', filename='assets/img/learn.svg')}}" alt="">
-                    </div> -->
-                    <div class="row justify-content-center">
-                        <div class="text">Discover the world of open data from particle physics</div>
+        <div class="lva-item-container">
+            <div class="lva-item">
+                <header>
+                    <h3 class="row">Learn</h3>
+                    <div class="row">
+                        <div class="text">
+                            Discover the world of open data from particle physics
+                        </div>
                     </div>
                 </header>
 
                 <div class="body">
                     <ul>
-                        <li class="justify-content-center row">
-                            <a href="{{url_for('invenio_records_ui.docid', pid_value='welcome')}}">Welcome to our updated portal</a>
+                        <li class="row">
+                            <a href="{{url_for('invenio_records_ui.docid', pid_value='welcome')}}">Welcome to our
+                                updated portal</a>
                         </li>
-                        <li class="justify-content-center row">
-                            <a href="{{url_for('invenio_records_ui.docid', pid_value='cms-guide-for-education')}}">CMS Guide to education use of CMS Open Data</a>
+                        <li class="row">
+                            <a href="{{url_for('invenio_records_ui.docid', pid_value='cms-guide-for-education')}}">CMS
+                                Guide to education use of CMS Open Data</a>
                         </li>
-                        <li class="justify-content-center row">
-                            <a href="{{url_for('invenio_records_ui.docid', pid_value='cms-summer-student-report-2017')}}">Improving educational content with high school teachers: A field report from our summer students</a>
+                        <li class="row">
+                            <a
+                                href="{{url_for('invenio_records_ui.docid', pid_value='cms-summer-student-report-2017')}}">Improving
+                                educational content with high school teachers: A
+                                field report from our summer students</a>
                         </li>
-                        <li class="justify-content-center">
+                        <li class="row">
                             <a href="{{url_for('cernopendata_pages.glossary')}}">Glossary</a>
                         </li>
                     </ul>
                 </div>
 
-                <div class="more justify-content-center"><a href="/search?type=Documentation">more</a></div>
+                <div class="more">
+                    <a href="/search?type=Documentation">more</a>
+                </div>
             </div>
         </div>
-        <div id="visualize" class="lva-item-container justify-content-center align-items-center col">
-            <div class="lva-item h-100">
-                <header class="container-fluid">
-                    <h3 class="row justify-content-center">Visualise</h3>
-                    <!-- <div class="image row justify-content-center">
-                        <img  src="{{url_for('static', filename='assets/img/visualize.svg')}}" alt="">
-                    </div> -->
-                    <div class="row justify-content-center">
-                        <div class="text">Explore detector events and run basic histogramming</div>
+        <div id="visualize" class="lva-item-container">
+            <div class="lva-item">
+                <header>
+                    <h3 class="row">Visualise</h3>
+                    <div class="row">
+                        <div class="text">
+                            Explore detector events and run basic histogramming
+                        </div>
                     </div>
                 </header>
 
                 <div class="body">
                     <ul>
-                        <li class="justify-content-center">
-                            <a href="{{url_for('cernopendata_pages.visualise_events', experiment='cms')}}">CMS Event Display</a>
+                        <li>
+                            <a href="{{url_for('cernopendata_pages.visualise_events', experiment='cms')}}">CMS Event
+                                Display</a>
                         </li>
-                        <li class="justify-content-center">
-                            <a href="{{url_for('cernopendata_pages.visualise_events', experiment='opera')}}">OPERA Event Display</a>
+                        <li>
+                            <a href="{{url_for('cernopendata_pages.visualise_events', experiment='opera')}}">OPERA Event
+                                Display</a>
                         </li>
-                        <li class="justify-content-center">
+                        <li>
                             <a href="{{url_for('cernopendata_pages.visualise_histograms')}}">CMS Histograms</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="lva-item-container justify-content-center align-items-center col">
-            <div class="lva-item h-100">
-                <header class="container-fluid">
-                    <h3 class="row justify-content-center">Analyse</h3>
-                    <!-- <div class="image row justify-content-center">
-                        <img src="{{url_for('static', filename='assets/img/model.svg')}}" alt="">
-                    </div> -->
-                    <div class="row justify-content-center">
-                        <div class="text">Run your own physics analyses, start virtual machines</div>
+        <div class="lva-item-container">
+            <div class="lva-item">
+                <header>
+                    <h3 class="row">Analyse</h3>
+                    <div class="row">
+                        <div class="text">
+                            Run your own physics analyses, start virtual machines
+                        </div>
                     </div>
                 </header>
 
                 <div class="body">
                     <ul>
-                        <li class="justify-content-center row">
-                            <a href="{{url_for('invenio_records_ui.docid', pid_value='cms-guide-for-research')}}">CMS Guide to research use of CMS Open Data</a>
+                        <li class="row">
+                            <a href="{{url_for('invenio_records_ui.docid', pid_value='cms-guide-for-research')}}">CMS
+                                Guide to research use of CMS Open Data</a>
                         </li>
-                        <li class="justify-content-center">
-                            <a href="{{url_for('invenio_records_ui.docid', pid_value='atlas-higgs-machine-learning-challenge')}}">ATLAS Higgs Machine Learning Challenge</a>
+                        <li class="row">
+                            <a
+                                href="{{url_for('invenio_records_ui.docid', pid_value='atlas-higgs-machine-learning-challenge')}}">ATLAS
+                                Higgs Machine Learning Challenge</a>
                         </li>
-                        <li class="justify-content-center row">
-                            <a href="{{url_for('invenio_records_ui.docid', pid_value='lhcb-getting-started')}}">Getting Started with LHCb Open Data</a>
+                        <li class="row">
+                            <a href="{{url_for('invenio_records_ui.docid', pid_value='lhcb-getting-started')}}">Getting
+                                Started with LHCb Open Data</a>
                         </li>
-                        <li class="justify-content-center row">
-                            <a href="{{url_for('invenio_records_ui.docid', pid_value='alice-getting-started')}}">Getting Started with ALICE Open Data</a>
+                        <li class="row">
+                            <a href="{{url_for('invenio_records_ui.docid', pid_value='alice-getting-started')}}">Getting
+                                Started with ALICE Open Data</a>
                         </li>
                     </ul>
                 </div>
-                <div class="more justify-content-center"><a href="/research">more</a></div>
+                <div class="more">
+                    <a href="/research">more</a>
+                </div>
             </div>
         </div>
     </div>
-    <div class="cod-scroll row justify-content-center align-self-end">
-        <div class="icon justify-content-center align-items-center">
+    <div class="cod-scroll">
+        <div class="icon">
             <a href="#news">
-                <img src="{{url_for('static', filename='assets/img/mouse-scrolling.png')}}" alt="">
+                <img src="{{url_for('static', filename='assets/img/mouse-scrolling.png')}}" alt="" />
                 <span>News</span>
-                <img src="{{url_for('static', filename='assets/img/mouse-scrolling.png')}}" alt="">
+                <img src="{{url_for('static', filename='assets/img/mouse-scrolling.png')}}" alt="" />
             </a>
         </div>
     </div>
