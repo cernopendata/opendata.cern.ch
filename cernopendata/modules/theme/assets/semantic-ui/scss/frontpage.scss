@@ -22,8 +22,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', end
 
 .cod-banner {
   margin-bottom: 30px;
+
   h2 {
     padding: 8px 15px;
+    font-weight: normal;
+    font-size: 2.25rem;
   }
   span {
     // padding-left: 45px;
@@ -43,6 +46,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', end
 
   .icon {
     display: flex;
+    justify-content: center;
 
     span {
       font-size: 20px;
@@ -63,22 +67,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', end
     }
   }
 }
-#cod-home-image {
-  // height: 70%;
-  // width: 50%;
-  // position: absolute;
-  // top: 0;
-  // right: 0;
-  // z-index: 50;
-
-  // img {
-  //   right: -250px;
-  //   height: 100%;
-  //   width: auto;
-  //   position: absolute;
-  //   display: block;
-  // }
-
+.cod-home-image {
   position: relative;
   z-index: -1;
   display: flex;
@@ -94,23 +83,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', end
     z-index: -1;
   }
 
-
-
-  // background: url('/static/assets/img/header-image.svg');
-  // background-repeat: no-repeat;
-  // background-position: right;
-  // margin-right: -20%;
-  // margin-top: 70px;
-  // height: 65%;
-  // width: 65%;
-  // position: absolute;
-  // top: 0;
-  // right: 0;
 }
 
 .cod-search {
   padding: 20px 0;
-  margin-bottom: 65px;
+  margin-bottom: 75px;
 
   .search-form {
     height: 60px;
@@ -121,9 +98,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', end
   }
 
   .search-examples {
+    display: flex;
     flex: 1;
     margin: 0 15px;
     font-size: 14px;
+    justify-content: center;
 
     .example-title {
       font-weight: 600;
@@ -154,6 +133,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', end
 }
 
 .cod-collections {
+  display: flex;
+  justify-content: space-around;
   height: 300px;
   max-height: 300px;
   padding: 0 55px;
@@ -236,6 +217,7 @@ $break-md: 768px;
   z-index: 999999;
   height: calc(100vh-66px);
   overflow: hidden;
+  align-items: center;
   .container-main {
     z-index: 100;
   }
@@ -428,9 +410,6 @@ $break-md: 768px;
   background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 );
 
-  .main-inner {
-
-  }
 
   .news-item {
     display: flex;

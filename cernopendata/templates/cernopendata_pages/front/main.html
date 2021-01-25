@@ -1,62 +1,86 @@
-<div class="homepage-section main section align-items-center" data-anchor="main">
+<div
+  class="homepage-section main section align-items-center"
+  data-anchor="main"
+>
+  <div class="ui container container-main">
+    <div class="cod-banner row">
+      <h2>
+        <span>
+          Explore more than <span><strong>two petabytes</strong></span> <br />
+          <span class="scnd-line"
+            >of open data from particle physics!</span
+          ></span
+        >
+      </h2>
+    </div>
 
-
-        <div class="main-inner container container-main">
-            <div class="cod-banner row">
-                <h2>
-                    <span>Explore more than <span><strong>two petabytes</strong></span> <br>
-                    <span class="scnd-line">of open data from particle physics!</span></span>
-                </h2>
-            </div>
-
-            <div class="cod-search row">
-                <form class="search-form container" action="{{config.THEME_SEARCH_ENDPOINT}}" role="search">
-                    <input autofocus type="text" class="form-control search" name="q" placeholder="{{_('Start typing...')}}">
-                    <div class="">
-                        <button type="submit" class="">Search</button>
-                        <div id="cod-home-image">
-                            <img src="{{url_for('static', filename='assets/img/header-image.svg')}}" alt="">
-                        </div>
-                    </div>
-                </form>
-                <div class="search-examples row justify-content-center">
-                    <span class="example-title">search examples:</span>
-                    <a href="/search?subtype=Collision&type=Dataset">collision datasets</a>,
-                    <a href="/search?keywords=education">keywords:education</a>,
-                    <a href="/search?collision_energy=7TeV">energy:7TeV</a>
-                </div>
-            </div>
-
-            <div class="cod-collections row justify-content-around">
-                <div class="collections-col justify-content-center">
-                    <header><span>Explore</span></header>
-                    <ul>
-                        <li><a href="/search?type=Dataset">datasets</a></li>
-                        <li><a href="/search?type=Software">software</a></li>
-                        <li><a href="/search?type=Environment">environments</a></li>
-                        <li><a href="/search?type=Documentation">documentation</a></li>
-                    </ul>
-                </div>
-                <div class="collections-col justify-content-center">
-                    <header><span>Focus on</span></header>
-                    <ul>
-                        <li><a href="/search?experiment=ATLAS">ATLAS</a></li>
-                        <li><a href="/search?experiment=ALICE">ALICE</a></li>
-                        <li><a href="/search?experiment=CMS">CMS</a></li>
-                        <li><a href="/search?experiment=LHCb">LHCb</a></li>
-                        <li><a href="/search?experiment=OPERA">OPERA</a></li>
-                        <li><a href="/search?keywords=datascience">Data Science</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="cod-scroll row justify-content-center align-self-end">
-                <div class="icon justify-content-center align-items-center">
-                    <a href="#lva">
-                        <img src="{{url_for('static', filename='assets/img/mouse-scrolling.png')}}" alt="">
-                        <span>Get started</span>
-                        <img src="{{url_for('static', filename='assets/img/mouse-scrolling.png')}}" alt="">
-                    </a>
-                </div>
-            </div>
+    <div class="cod-search row">
+      <form
+        class="search-form container"
+        action="{{config.THEME_SEARCH_ENDPOINT}}"
+        role="search"
+      >
+        <input
+          autofocus
+          type="text"
+          class="form-control search"
+          name="q"
+          placeholder="{{_('Start typing...')}}"
+        />
+        <div>
+          <button type="submit">Search</button>
+          <div class="cod-home-image">
+            <img
+              src="{{url_for('static', filename='assets/img/header-image.svg')}}"
+              alt=""
+            />
+          </div>
         </div>
+      </form>
+      <div class="search-examples row">
+        <span class="example-title">search examples:</span>
+        <a href="/search?subtype=Collision&type=Dataset">collision datasets</a>,
+        <a href="/search?keywords=education">keywords:education</a>,
+        <a href="/search?collision_energy=7TeV">energy:7TeV</a>
+      </div>
+    </div>
+
+    <div class="cod-collections row">
+      <div class="collections-col">
+        <header><span>Explore</span></header>
+        <ul>
+          <li><a href="/search?type=Dataset">datasets</a></li>
+          <li><a href="/search?type=Software">software</a></li>
+          <li><a href="/search?type=Environment">environments</a></li>
+          <li><a href="/search?type=Documentation">documentation</a></li>
+        </ul>
+      </div>
+      <div class="collections-col">
+        <header><span>Focus on</span></header>
+        <ul>
+          <li><a href="/search?experiment=ATLAS">ATLAS</a></li>
+          <li><a href="/search?experiment=ALICE">ALICE</a></li>
+          <li><a href="/search?experiment=CMS">CMS</a></li>
+          <li><a href="/search?experiment=LHCb">LHCb</a></li>
+          <li><a href="/search?experiment=OPERA">OPERA</a></li>
+          <li><a href="/search?keywords=datascience">Data Science</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="cod-scroll row">
+      <div class="icon">
+        <a href="#lva">
+          <img
+            src="{{url_for('static', filename='assets/img/mouse-scrolling.png')}}"
+            alt=""
+          />
+          <span>Get started</span>
+          <img
+            src="{{url_for('static', filename='assets/img/mouse-scrolling.png')}}"
+            alt=""
+          />
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
