@@ -2,16 +2,39 @@
 
 {%- block css %}
 {{super()}}
-{% assets "opera_css" %}
-  <link href="{{ ASSET_URL }}" rel="stylesheet">
-{% endassets %}
+<link rel="stylesheet" href="{{ url_for('static', filename='node_modules/demobbed-viewer/css/font-awesome.min.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='node_modules/demobbed-viewer/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='node_modules/demobbed-viewer/css/demobbed.css') }}">
 {% endblock %}
 
 
 {% block page_body %}
-{% assets "opera_js" %}
-  <script src="{{ ASSET_URL }}"></script>
-{% endassets %}
+
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/lib/d3.min.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/lib/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/lib/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/lib/three.min.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/lib/three3DExtras.min.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/lib/TrackballControls.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/DetCfg-def.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/Utils-def.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/Hits-defs.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/Vertex-def.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/TrackECC-def.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/Event-def.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/loadUserSpecifiedEvent.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/changeEventSample.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/DetElems-defs.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/MgrGeomED-def.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/MgrDrawED-def.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/MgrDrawECC-def.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/Demobbed-def.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/init.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/Demobbed-fills.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/MgrGeomED-fills.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/MgrGeomED-funcAdd.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/MgrDrawED-funcAdd.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/MgrDrawECC-funcAdd.js') }}"></script>
 
 <div id="body-demobbed-viewer" data-event-id="{{ eventid if eventid }}">
 
@@ -69,7 +92,7 @@
 <!-- ----------------------------------------- -->
 
 <div id="div-ScrLoadEvent">
-  <script id="script-LoadEvent" src="/static/node_modules/demobbed-viewer/js/loadFirstEvent.js"></script>
+  <script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/loadFirstEvent.js') }}"></script>
 </div>
 
 </div>
@@ -122,69 +145,69 @@
 
           <p>
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/event-prev.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/event-prev.png')}}" class="img-responsive"/>
             </button>
             /
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/event-next.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/event-next.png')}}" class="img-responsive"/>
             </button>
              - go to the previous/next event (if any) in the selected sub-sample. Also the event Id can be specified directly in the nearest edit box.
           </p>
 
           <p>
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/event-reload.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/event-reload.png')}}" class="img-responsive"/>
             </button>
              - reload the currently displayed event.
           </p>
 
           <p>
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/zoom-in.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/zoom-in.png')}}" class="img-responsive"/>
             </button>
             /
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/zoom-out.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/zoom-out.png')}}" class="img-responsive"/>
             </button>
              - zoom in/out. Please note that the default (whole detector) views of the ED display can't be zoomed out.
           </p>
 
           <p>
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/zoom-brick.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/zoom-brick.png')}}" class="img-responsive"/>
             </button>
              - move the XZ and YZ camera views to the vertex brick. ECC brick that contains the primary neutrino interaction vertex will be shown (an appropriate zooming will be adjusted automatically). The vertex position as well as projections of muon and some long hadron tracks found in the emulsion will be displayed as well.
           </p>
 
           <p>
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/zoom-event.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/zoom-event.png')}}" class="img-responsive"/>
             </button>
              - move the XZ and YZ camera views and adjust zooming in order to display the whole neutrino event region.
           </p>
 
           <p>
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/zoom-det.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/zoom-det.png')}}" class="img-responsive"/>
             </button>
              - show the whole detector region (default option).
           </p>
 
           <p>
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/view-up.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-up.png')}}" class="img-responsive"/>
             </button>
             ,
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/view-down.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-down.png')}}" class="img-responsive"/>
             </button>
             ,
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/view-left.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-left.png')}}" class="img-responsive"/>
             </button>
             , and
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/view-right.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-right.png')}}" class="img-responsive"/>
             </button>
              - move the ED display camera views, correspondingly, up, down, left, and right.
           </p>
@@ -196,11 +219,11 @@
           <!--
           <p>
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/open-ECC.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/open-ECC.png')}}" class="img-responsive"/>
             </button>
             /
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/close-ECC.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/close-ECC.png')}}" class="img-responsive"/>
             </button>
              - open/close the ECC event display.
           </p>
@@ -208,40 +231,40 @@
 
           <p>
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/view-xz.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-xz.png')}}" class="img-responsive"/>
             </button>
             ,
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/view-yz.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-yz.png')}}" class="img-responsive"/>
             </button>
             , or
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/view-xy.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-xy.png')}}" class="img-responsive"/>
             </button>
              - show the default XZ, YZ, or XY view of the event in the ECC display.
           </p>
 
           <p>
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/stretch-y.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/stretch-y.png')}}" class="img-responsive"/>
             </button>
             /
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/compress-y.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/compress-y.png')}}" class="img-responsive"/>
             </button>
              - stretch/compress the ECC view in the vertical (Y) direction.
           </p>
 
           <p>
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/anim-accel.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/anim-accel.png')}}" class="img-responsive"/>
             </button>
              - start/accelerate animated rotation of the ECC event around the Y (vertical) axis. This button can be clicked several (but not so many!) times.
           </p>
 
           <p>
             <button type="button" class="btn btn-sm" onclick="" title="">
-              <img src="/static/node_modules/demobbed-viewer/graphics/anim-decel.png" class="img-responsive"/>
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/anim-decel.png')}}" class="img-responsive"/>
             </button>
              - decelerate animated rotation of the ECC event. In order to stop the rotation this button has to be clicked the same number of times as the "accelerating" button has been clicked before.
           </p>
@@ -302,10 +325,10 @@
   <div class="sidebar" id="div-sidebar">
     <div id="div-logo-img">
       <a target="_blank" href="http://operaweb.lngs.infn.it/">
-        <img src="/static/node_modules/demobbed-viewer/graphics/opera.png" alt="OPERA" title="OPERA experiment">
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/opera.png')}}" alt="OPERA" title="OPERA experiment">
       </a>
     </div>
-    <div id="div-nu-beam-img"> <img src="/static/node_modules/demobbed-viewer/graphics/nu-beam.png"> </div>
+    <div id="div-nu-beam-img"> <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/nu-beam.png')}}"> </div>
     <div id="div-controls-ED">
       <table>
         <tr>
@@ -313,11 +336,11 @@
             <div class="btn-group" role="group">
               <button type="button" id="btn-ed-move-view-xz-up" class="btn btn-sm"
                 onclick="demobbed.mgrDrawED().moveView(0, 1);" title="Move ED XZ view up">
-                <img src="/static/node_modules/demobbed-viewer/graphics/view-up.png" class="img-responsive" />
+                <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-up.png')}}" class="img-responsive" />
               </button>
               <button type="button" id="btn-ed-move-view-xz-down" class="btn btn-sm"
                 onclick="demobbed.mgrDrawED().moveView(0, -1);" title="Move ED XZ view down">
-                <img src="/static/node_modules/demobbed-viewer/graphics/view-down.png" class="img-responsive" />
+                <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-down.png')}}" class="img-responsive" />
               </button>
             </div>
           </td>
@@ -327,11 +350,11 @@
             <div class="btn-group" role="group">
               <button type="button" id="btn-ed-move-views-left" class="btn btn-sm"
                 onclick="demobbed.mgrDrawED().moveView(2, -1);" title="Move ED views left">
-                <img src="/static/node_modules/demobbed-viewer/graphics/view-left.png" class="img-responsive" />
+                <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-left.png')}}" class="img-responsive" />
               </button>
               <button type="button" id="btn-ed-move-views-right" class="btn btn-sm"
                 onclick="demobbed.mgrDrawED().moveView(2,  1);" title="Move ED views right">
-                <img src="/static/node_modules/demobbed-viewer/graphics/view-right.png" class="img-responsive" />
+                <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-right.png')}}" class="img-responsive" />
               </button>
             </div>
           </td>
@@ -341,11 +364,11 @@
             <div class="btn-group" role="group">
               <button type="button" id="btn-ed-move-view-yz-up" class="btn btn-sm"
                 onclick="demobbed.mgrDrawED().moveView(1, 1);" title="Move ED YZ view up">
-                <img src="/static/node_modules/demobbed-viewer/graphics/view-up.png" class="img-responsive" />
+                <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-up.png')}}" class="img-responsive" />
               </button>
               <button type="button" id="btn-ed-move-view-yz-down" class="btn btn-sm"
                 onclick="demobbed.mgrDrawED().moveView(1, -1);" title="Move ED YZ view down">
-                <img src="/static/node_modules/demobbed-viewer/graphics/view-down.png" class="img-responsive" />
+                <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-down.png')}}" class="img-responsive" />
               </button>
             </div>
           </td>
@@ -375,17 +398,17 @@
     <div class="btn-group" role="group">
       <button type="button" id="btn-ed-prev-event" class="btn btn-sm"
               onclick="demobbed.loadPrevOrNextEvent(-1);" title="Previous event">
-        <img src="/static/node_modules/demobbed-viewer/graphics/event-prev.png"
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/event-prev.png')}}"
             class="img-responsive"/>
       </button>
       <button type="button" id="btn-ed-reload-event" class="btn btn-sm"
               onclick="demobbed.loadPrevOrNextEvent(0);" title="Reload the event">
-        <img src="/static/node_modules/demobbed-viewer/graphics/event-reload.png"
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/event-reload.png')}}"
             class="img-responsive"/>
       </button>
       <button type="button" id="btn-ed-next-event" class="btn btn-sm"
               onclick="demobbed.loadPrevOrNextEvent(1);" title="Next event">
-        <img src="/static/node_modules/demobbed-viewer/graphics/event-next.png"
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/event-next.png')}}"
             class="img-responsive"/>
       </button>
     </div>
@@ -393,12 +416,12 @@
     <div class="btn-group" role="group">
       <button type="button" id="btn-ed-zoom-in" class="btn btn-sm"
               onclick="demobbed.mgrDrawED().zoomIn();" title="Zoom in">
-        <img src="/static/node_modules/demobbed-viewer/graphics/zoom-in.png"
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/zoom-in.png')}}"
             class="img-responsive"/>
       </button>
       <button type="button" id="btn-ed-zoom-out" class="btn btn-sm"
               onclick="demobbed.mgrDrawED().zoomOut();" title="Zoom out">
-        <img src="/static/node_modules/demobbed-viewer/graphics/zoom-out.png"
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/zoom-out.png')}}"
             class="img-responsive"/>
       </button>
     </div>
@@ -406,17 +429,17 @@
     <div class="btn-group" role="group">
       <button type="button" id="btn-ed-zoom-brick" class="btn btn-sm"
               onclick="demobbed.mgrDrawED().zoomToBrick();" title="Show the vertex brick">
-        <img src="/static/node_modules/demobbed-viewer/graphics/zoom-brick.png"
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/zoom-brick.png')}}"
             class="img-responsive"/>
       </button>
       <button type="button" id="btn-ed-zoom-event" class="btn btn-sm"
               onclick="demobbed.mgrDrawED().zoomToEvent();" title="Show the event region">
-        <img src="/static/node_modules/demobbed-viewer/graphics/zoom-event.png"
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/zoom-event.png')}}"
             class="img-responsive"/>
       </button>
       <button type="button" id="btn-ed-zoom-det" class="btn btn-sm active"
               onclick="demobbed.mgrDrawED().zoomToDetector();" title="Show the whole detector">
-        <img src="/static/node_modules/demobbed-viewer/graphics/zoom-det.png"
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/zoom-det.png')}}"
             class="img-responsive"/>
       </button>
     </div>
@@ -425,7 +448,7 @@
     <div class="btn-group" role="group">
       <button type="button" class="btn btn-sm"
               onclick="demobbed.mgrDrawECC().drawECC(1);" title="Open the ECC display">
-        <img src="/static/node_modules/demobbed-viewer/graphics/open-ECC.png"
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/open-ECC.png')}}"
             class="img-responsive"/>
       </button>
     </div>
@@ -434,11 +457,11 @@
     <div class="btn-group" role="group">
       <button type="button" id="btn-help" class="btn btn-sm" data-toggle="modal"
               data-target="#div-help" title="Help">
-        <img src="/static/node_modules/demobbed-viewer/graphics/help.png" class="img-responsive"/>
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/help.png')}}" class="img-responsive"/>
       </button>
       <button type="button" id="btn-about" class="btn btn-sm" data-toggle="modal"
               data-target="#div-about" title="About">
-        <img src="/static/node_modules/demobbed-viewer/graphics/about.png"
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/about.png')}}"
             class="img-responsive"/>
       </button>
     </div>
@@ -463,53 +486,53 @@
     <div class="btn-group" role="group">
       <button type="button" id="btn-ecc-prev-event" class="btn btn-sm" onclick="demobbed.loadPrevOrNextEvent(-1);"
               title="Previous event">
-        <img src="/static/node_modules/demobbed-viewer/graphics/event-prev.png"
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/event-prev.png')}}"
             class="img-responsive"/>
       </button>
       <button type="button" id="btn-ecc-reload-event" class="btn btn-sm" onclick="demobbed.loadPrevOrNextEvent(0);"
               title="Reload the event">
-        <img src="/static/node_modules/demobbed-viewer/graphics/event-reload.png"
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/event-reload.png')}}"
             class="img-responsive"/>
       </button>
       <button type="button" id="btn-ecc-next-event" class="btn btn-sm" onclick="demobbed.loadPrevOrNextEvent(1);"
               title="Next event">
-        <img src="/static/node_modules/demobbed-viewer/graphics/event-next.png"
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/event-next.png')}}"
             class="img-responsive"/>
       </button>
     </div>
 
     <div class="btn-group" role="group">
       <button type="button" id="btn-ecc-def-view-xz" class="btn btn-sm" onclick="demobbed.mgrDrawECC().setDefaultView(0);" title="Set default XZ view">
-        <img src="/static/node_modules/demobbed-viewer/graphics/view-xz.png" class="img-responsive"/>
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-xz.png')}}" class="img-responsive"/>
       </button>
       <button type="button" id="btn-ecc-def-view-yz" class="btn btn-sm active" onclick="demobbed.mgrDrawECC().setDefaultView(1);" title="Set default YZ view">
-        <img src="/static/node_modules/demobbed-viewer/graphics/view-yz.png" class="img-responsive"/>
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-yz.png')}}" class="img-responsive"/>
       </button>
       <button type="button" id="btn-ecc-def-view-xy" class="btn btn-sm" onclick="demobbed.mgrDrawECC().setDefaultView(2);" title="Set default XY view">
-        <img src="/static/node_modules/demobbed-viewer/graphics/view-xy.png" class="img-responsive"/>
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-xy.png')}}" class="img-responsive"/>
       </button>
     </div>
 
     <div class="btn-group" role="group">
       <button type="button" id="btn-ecc-zoom-in" class="btn btn-sm"
               onclick="demobbed.mgrDrawECC().zoomInOut(1);" title="Zoom in">
-        <img src="/static/node_modules/demobbed-viewer/graphics/zoom-in.png" class="img-responsive"/>
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/zoom-in.png')}}" class="img-responsive"/>
       </button>
       <button type="button" id="btn-ecc-zoom-out" class="btn btn-sm"
               onclick="demobbed.mgrDrawECC().zoomInOut(-1);" title="Zoom out">
-        <img src="/static/node_modules/demobbed-viewer/graphics/zoom-out.png" class="img-responsive"/>
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/zoom-out.png')}}" class="img-responsive"/>
       </button>
     </div>
 
     <div class="btn-group" role="group">
       <button type="button" id="btn-ecc-stretch-y" class="btn btn-sm"
               onclick="demobbed.mgrDrawECC().stretchY(1);" title="Stretch the view along the Y axis">
-        <img src="/static/node_modules/demobbed-viewer/graphics/stretch-y.png"
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/stretch-y.png')}}"
             class="img-responsive"/>
       </button>
       <button type="button" id="btn-ecc-compress-y" class="btn btn-sm"
               onclick="demobbed.mgrDrawECC().stretchY(-1);" title="Compress the view along the Y axis">
-        <img src="/static/node_modules/demobbed-viewer/graphics/compress-y.png"
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/compress-y.png')}}"
             class="img-responsive"/>
       </button>
     </div>
@@ -518,13 +541,13 @@
       <button type="button" id="btn-ecc-decel-anim" class="btn btn-sm"
               onclick="demobbed.mgrDrawECC().decelerateRotation();"
               title="Decelerate/stop rotation around the Y axis">
-        <img src="/static/node_modules/demobbed-viewer/graphics/anim-decel.png"
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/anim-decel.png')}}"
             class="img-responsive"/>
       </button>
       <button type="button" id="btn-ecc-accel-anim" class="btn btn-sm"
               onclick="demobbed.mgrDrawECC().accelerateRotation();"
               title="Start/accelerate rotation around the Y axis">
-        <img src="/static/node_modules/demobbed-viewer/graphics/anim-accel.png"
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/anim-accel.png')}}"
             class="img-responsive"/>
       </button>
     </div>
@@ -533,7 +556,7 @@
     <div class="btn-group" role="group">
       <button type="button" class="btn btn-sm" onclick="demobbed.mgrDrawECC().drawECC(0);"
               title="Close the ECC display">
-        <img src="/static/node_modules/demobbed-viewer/graphics/close-ECC.png"
+        <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/close-ECC.png')}}"
             class="img-responsive"/>
       </button>
     </div>

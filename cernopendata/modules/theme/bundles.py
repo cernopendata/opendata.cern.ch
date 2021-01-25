@@ -58,46 +58,18 @@ visualise_css = NpmBundle(
     }
 )
 
-opera_js = NpmBundle(
-    'node_modules/demobbed-viewer/js/lib/d3.min.js',
-    'node_modules/demobbed-viewer/js/lib/jquery.min.js',
-    'node_modules/demobbed-viewer/js/lib/bootstrap.min.js',
-    'node_modules/demobbed-viewer/js/lib/three.min.js',
-    'node_modules/demobbed-viewer/js/lib/three3DExtras.min.js',
-    'node_modules/demobbed-viewer/js/lib/TrackballControls.js',
-    'node_modules/demobbed-viewer/js/DetCfg-def.js',
-    'node_modules/demobbed-viewer/js/Utils-def.js',
-    'node_modules/demobbed-viewer/js/Hits-defs.js',
-    'node_modules/demobbed-viewer/js/Vertex-def.js',
-    'node_modules/demobbed-viewer/js/TrackECC-def.js',
-    'node_modules/demobbed-viewer/js/Event-def.js',
-    'node_modules/demobbed-viewer/js/loadUserSpecifiedEvent.js',
-    'node_modules/demobbed-viewer/js/changeEventSample.js',
-    'node_modules/demobbed-viewer/js/DetElems-defs.js',
-    'node_modules/demobbed-viewer/js/MgrGeomED-def.js',
-    'node_modules/demobbed-viewer/js/MgrDrawED-def.js',
-    'node_modules/demobbed-viewer/js/MgrDrawECC-def.js',
-    'node_modules/demobbed-viewer/js/Demobbed-def.js',
-    'node_modules/demobbed-viewer/js/init.js',
-    'node_modules/demobbed-viewer/js/Demobbed-fills.js',
-    'node_modules/demobbed-viewer/js/MgrGeomED-fills.js',
-    'node_modules/demobbed-viewer/js/MgrGeomED-funcAdd.js',
-    'node_modules/demobbed-viewer/js/MgrDrawED-funcAdd.js',
-    'node_modules/demobbed-viewer/js/MgrDrawECC-funcAdd.js',
-    output='gen/cernopendata.opera.%(version)s.js',
-    npm={
-        "demobbed-viewer":
-            "git+https://git@github.com/cernopendata/demobbed-viewer.git"
-    },
+glossary_js = NpmBundle(
+    'js/glossary/jquery.zglossary.js',
+    output='gen/glossary.%(version)s.js',
+    npm={},
 )
 
-opera_css = NpmBundle(
-    'node_modules/demobbed-viewer/css/demobbed.css',
+glossary_css = NpmBundle(
+    'js/glossary/jquery.zglossary.css',
     filters='node-scss, cleancss',
-    output='gen/cernopendata.opera.%(version)s.css',
+    output='gen/cernopendata.glossary.%(version)s.css',
     npm={
-        "demobbed-viewer-dev-css":
-            "git+https://git@github.com/cernopendata/demobbed-viewer.git"
+        "bootstrap-sass": "~3.3.5",
     }
 )
 
