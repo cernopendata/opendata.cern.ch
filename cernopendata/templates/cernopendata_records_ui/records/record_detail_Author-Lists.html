@@ -2,14 +2,13 @@
 
 
 {%- block page_body %}
-<div class="container-fluid background">
-  <div class="container" ng-app="recordApp">
-    <div class="row">
-      <div class="col-md-10">
-        <div class="card card-style">
+<div class="ui two centered column stackable grid container detail-page">
+  <div class="row">
+      <div class="thirteen wide column">
+        <div class="ui segment">
           <div class="card-body">
             {% block heading %}
-            <h3 class="d-inline">
+            <h3>
               {% if record.title_additional %}
               {{record.title_additional}}
               {% else %}
@@ -24,11 +23,11 @@
             {% endif %}
 
             {% if record.collaboration %}
-            <span class="badge badge-success">{{record.collaboration.name}}</span>
+            <span class="ui green label">{{record.collaboration.name}}</span>
             {% endif %}
             <p></p>
             {% if record.doi %}
-            <h6 class="card-title">
+            <h6>
               <label>Cite as:</label>
               {% if record.authors %}
               {% for author in record.authors %}
@@ -55,55 +54,51 @@
                 </span>
             </h6>
             {% endif %}
-            <div class="row">
-              <div class="col-md-12">
-                {% if record.collections %}
-                <label>Collection:</label>
-                {% for collection in record.collections %}
-                <span><a
-                  href="/search?q={{collection}}">{{collection}}</a></span>
-                {% endfor %}
+            <div>
+              {% if record.collections %}
+              <label>Collection:</label>
+              {% for collection in record.collections %}
+              <span><a
+                href="/search?q={{collection}}">{{collection}}</a></span>
+              {% endfor %}
+              {% endif %}
+              {% if record.collision_information %}
+              <label>Collision Energy:</label>
+              <span><a
+                href="/search?q={{record.collision_information.energy}}">{{record.collision_information.energy}}</a></span>
+              {% endif %}
+              {% if record.experiment %}
+              <label>Experiment:</label>
+              <span><a href="/search?q={{record.experiment}}">{{record.experiment}}</a></span>
+              {% endif %}
+              {% if record.accelerator %}
+              <label>Accelerator:</label>
+              <span><a href="/search?q={{record.accelerator}}">{{record.accelerator}}</a></span>
+              {% endif %}
+              {% if record.relations %}
+              {% for relation in record.relations %}
+              {% if relation.type == 'isChildOf' %}
+              <label>Parent Dataset:</label>
+              <span>
+                {% if relation.recid %}
+                <a href="/record/{{relation.recid}}">{{relation.title}}</a>
+                {% else %}
+                  {{relation.title}}
                 {% endif %}
-                {% if record.collision_information %}
-                <label>Collision Energy:</label>
-                <span><a
-                  href="/search?q={{record.collision_information.energy}}">{{record.collision_information.energy}}</a></span>
-                {% endif %}
-                {% if record.experiment %}
-                <label>Experiment:</label>
-                <span><a href="/search?q={{record.experiment}}">{{record.experiment}}</a></span>
-                {% endif %}
-                {% if record.accelerator %}
-                <label>Accelerator:</label>
-                <span><a href="/search?q={{record.accelerator}}">{{record.accelerator}}</a></span>
-                {% endif %}
-                {% if record.relations %}
-                {% for relation in record.relations %}
-                {% if relation.type == 'isChildOf' %}
-                <label>Parent Dataset:</label>
-                <span>
-                  {% if relation.recid %}
-                  <a href="/record/{{relation.recid}}">{{relation.title}}</a>
-                  {% else %}
-                    {{relation.title}}
-                  {% endif %}
-                </span>
-                {% endif %}
-                {% endfor %}
-                {% endif %}
-              </div>
+              </span>
+              {% endif %}
+              {% endfor %}
+              {% endif %}
             </div>
             {% endblock heading %}
           </div>
-          <div class="card card-style">
+          <div class="ui segment">
             <div class="card-body">
               {% block metadata_block %}
               {% if record.title %}
-              <div class="row">
-                <div class="col-md-12">
-                  <h3 class="detail_view_h3">Description</h3>
-                  <p>{{record.title | safe}}</p>
-                </div>
+              <div>
+                <h3 class="detail_view_h3">Description</h3>
+                <p>{{record.title | safe}}</p>
               </div>
               {% endif %}
               {% if record.authors %}
@@ -112,7 +107,7 @@
               {% endblock metadata_block %}
 
               {% block files_block %}
-              <div ng-controller="paginationCtrl as $ctrl" ng-init="$ctrl.getFiles()">
+              <div>
                 {{ files_box() }}
               </div>
               {% endblock files_block %}
@@ -122,9 +117,20 @@
         </div>
       </div>
       {% block export %}
-      {{super()}}
+      <div class="three wide column">
+          <div class="ui segment">
+              <div class="card-body">
+                  <h4> Export </h4>
+                  <div class="ui list">
+                      <li class="item"><a
+                      href="{{ url_for('invenio_records_ui.recid_export', pid_value=pid.pid_value, format='json') }}">JSON</a>
+                      </li>
+                  </div>
+              </div>
+          </div>
+      </div>
       {% endblock export %}
     </div>
   </div>
 </div>
-{%- endblock %}
+{%- endblock page_body %}
