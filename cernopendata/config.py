@@ -34,6 +34,8 @@ from invenio_records_rest.facets import range_filter, terms_filter
 from invenio_records_rest.utils import allow_all
 
 from cernopendata.modules.pages.config import *
+from cernopendata.modules.search_ui.helpers import \
+    CODSearchAppInvenioRestConfigHelper
 from cernopendata.modules.theme.config import *
 
 # Debug
@@ -355,43 +357,42 @@ RECORDS_REST_FACETS = {
             signature=dict(terms=dict(
                 field='signature.keyword',
                 order=dict(_term='asc'))),
-            # TODO: Breaks the search (KeyError: 'query'), adapt or remove?
-            # event_number={
-            #     'range': {
-            #         'field': 'distribution.number_events',
-            #         'ranges': [
-            #             {
-            #                 'key': '0--999',
-            #                 'from': 0,
-            #                 'to': 999
-            #             },
-            #             {
-            #                 'key': '1000--9999',
-            #                 'from': 1000,
-            #                 'to': 9999
-            #             },
-            #             {
-            #                 'key': '10000--99999',
-            #                 'from': 10000,
-            #                 'to': 99999
-            #             },
-            #             {
-            #                 'key': '100000--999999',
-            #                 'from': 100000,
-            #                 'to': 999999
-            #             },
-            #             {
-            #                 'key': '1000000--9999999',
-            #                 'from': 1000000,
-            #                 'to': 9999999
-            #             },
-            #             {
-            #                 'key': '10000000--',
-            #                 'from': 10000000
-            #             }
-            #         ]
-            #     }
-            # }
+            event_number={
+                'range': {
+                    'field': 'distribution.number_events',
+                    'ranges': [
+                        {
+                            'key': '0--999',
+                            'from': 0,
+                            'to': 999
+                        },
+                        {
+                            'key': '1000--9999',
+                            'from': 1000,
+                            'to': 9999
+                        },
+                        {
+                            'key': '10000--99999',
+                            'from': 10000,
+                            'to': 99999
+                        },
+                        {
+                            'key': '100000--999999',
+                            'from': 100000,
+                            'to': 999999
+                        },
+                        {
+                            'key': '1000000--9999999',
+                            'from': 1000000,
+                            'to': 9999999
+                        },
+                        {
+                            'key': '10000000--',
+                            'from': 10000000
+                        }
+                    ]
+                }
+            }
         ),
         'post_filters': dict(
             experiment=terms_filter('experiment.keyword'),
@@ -443,6 +444,10 @@ SEARCH_DOC_TYPE_DEFAULT = None
 SEARCH_ELASTIC_KEYWORD_MAPPING = {}
 
 SEARCH_UI_SEARCH_INDEX = '_all'
+#: Override the React-SearchKit config generator to support range aggs.
+SEARCH_UI_SEARCH_CONFIG_GEN = {
+    'invenio_records_rest': CODSearchAppInvenioRestConfigHelper,
+}
 
 # OAI-PMH
 # =======
