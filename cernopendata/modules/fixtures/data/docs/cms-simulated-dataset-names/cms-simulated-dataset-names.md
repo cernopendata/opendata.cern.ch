@@ -40,7 +40,7 @@ To unify this part CMS uses the following conventions:
 
 The following conventions are applied for the most common particles:
 
-<table class="table table-condensed">
+<table class="ui very basic collapsing table">
 
 <thead>
 
@@ -237,7 +237,7 @@ Units are added to integers in `COMENERGY`, i.e. `7TeV`, `10TeV`, `900GeV`, `236
 
 The generators used are:
 
-<table class="table table-condensed">
+<table class="ui very basic collapsing table">
 
 <thead>
 

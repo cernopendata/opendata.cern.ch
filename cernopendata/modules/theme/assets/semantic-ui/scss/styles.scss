@@ -66,6 +66,21 @@ body {
             font-weight: $font-heavy;
         }
 
+        pre {
+            overflow: auto;
+            code {
+                color: inherit;
+            }
+        }
+
+        code {
+            background-color: transparent;
+        }
+
+        a[name] {
+            color: inherit;
+        }
+
         .cite-paragraph {
             font-weight: $font-light;
             line-height: 1.2;

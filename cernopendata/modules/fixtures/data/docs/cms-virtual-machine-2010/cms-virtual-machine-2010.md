@@ -4,8 +4,7 @@ The CMS-specific VM includes the [ROOT framework](http://root.cern.ch/) and [CMS
 2.  [How to Test & Validate?](#testvalidate2010)
 3.  [Issues & Limitations](#issues2010)
 
-## <a name="install2010"></a>Step 1: How to install a CERN Virtual Machine
-
+## <a name="install2010">Step 1: How to install a CERN Virtual Machine</a>
 ### Installing VirtualBox
 
 VirtualBox is a free, open source and multiplatform application to run virtual machines: you can [download](https://www.VirtualBox.org/wiki/Downloads) the package for your platform from the Downloads page.
@@ -22,7 +21,7 @@ Next download the CMS-specific CernVM image as OVA file from: [CMS VM Image for 
 
 By double clicking the downloaded file, VirtualBox imports the image with ready-to-run settings. In VirtualBox version 6, you need to unselect "import disks as VDI" on the initial import screen. Then, you launch the CMS-specific CernVM, which boots into the graphical user interface and sets up the CMS environment. Be patient, it will take a while.
 
-## <a name="testvalidate2010"></a>Step 2: How to Test & Validate?
+## <a name="testvalidate2010">Step 2: How to Test & Validate?</a>
 
 The validation procedure tests that the CMS environment is installed and operational on your virtual machine, and that you have access to the ROOT files. You may skip this step if you want, and head straight to [Getting Started with CMS data](/docs/cms-getting-started-2010). However, these steps give you a quick introduction to the CMS environment.
 
@@ -107,7 +106,7 @@ Severity # Occurrences Total Occurrences
 System 3 3
 ```
 
-## <a name="issues2010"></a>Known Issues & Limitations
+## <a name="issues2010">Known Issues & Limitations</a>
 
 ### Validation report
 
