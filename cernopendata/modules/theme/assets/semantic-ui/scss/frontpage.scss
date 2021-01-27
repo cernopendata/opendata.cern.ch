@@ -95,6 +95,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', end
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
+
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 0 0.2em lighten($light-blue, 30%);
+    }
   }
 
   .search-examples {
@@ -118,6 +123,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', end
     flex: 1 0 8em;
     border-radius: 2px;
     border: 1px solid $light_blue;
+    padding: 1em;
   }
 
   button {
@@ -317,6 +323,8 @@ $break-md: 768px;
     header {
       padding: 10px 10px;
       font-size: 20px;
+      margin: 0;
+
       > .row {
         display: flex;
         justify-content: center;

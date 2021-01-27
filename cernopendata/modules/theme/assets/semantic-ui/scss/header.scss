@@ -30,6 +30,7 @@ $header-dark-blue: #283747;
     align-items: center;
     justify-content: flex-start;
     background-color: $header-dark-blue;
+    height: 65px;
 
     .searchbar {
       min-width: 250px;
@@ -49,19 +50,31 @@ $header-dark-blue: #283747;
       margin-left: auto;
       list-style: none;
 
-      .navbar-item {
+      .ui.dropdown .navbar-item {
+        padding: 0;
+        span {
+          user-select: none;
+        }
+      }
+
+      .menu.dropdown-items {
         z-index: 101;
+
+        .item {
+          padding: 0 !important;
+
+          a {
+            padding: 0.75em 1.5em;
+            display: block;
+            color: $light-blue;
+          }
+        }
       }
 
       & > li, li > a {
-        padding-right: .5rem;
-        padding-left: .5rem;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
         color: white;
-      }
-
-      .dropdown .item a{
-        display: block;
-        color: $light-blue;
       }
     }
   }

@@ -19,7 +19,7 @@
                     </div>
                     <div class="tags-box">
                         <a href="/search?type={{article.type.primary}}"
-                            class="ui label custom-badge-success">
+                            class="ui label blue">
                             {{article.type.primary }}
                         </a>
                         {% if article.type.secondary %}
@@ -32,7 +32,7 @@
                         {% endfor %}
                         {% if article.experiment %}
                         <a href="/search?experiment={{article.experiment}}"
-                            class="ui label custom-badge-warning">
+                            class="ui label orange">
                             {{ article.experiment }}
                         </a>
                         {% endif %}
