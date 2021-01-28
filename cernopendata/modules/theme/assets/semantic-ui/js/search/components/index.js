@@ -27,3 +27,4 @@
 export { default as DefaultListItem } from "./DefaultListItem";
 export { default as TermListItem } from "./TermListItem";
 export { default as DocsListItem } from "./DocsListItem";
+export { default as CODLayoutSwitcher } from "./LayoutSwitcher";

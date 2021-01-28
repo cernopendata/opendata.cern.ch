@@ -25,16 +25,26 @@
  */
 
 import React from "react";
-import { Card } from "semantic-ui-react";
+import { List } from "semantic-ui-react";
 
-export const CODResultsGridItem = ({ result, index }) => {
+const CODResultsGridItem = ({ result }) => {
   return (
-    <Card fluid key={index} href={`/record/${result.id}`}>
-      <Card.Content>
-        <Card.Header>{result.metadata.title}</Card.Header>
-      </Card.Content>
-    </Card>
+    <List.Item href={`/record/${result.id}`}>
+      <List.Content>{result.metadata.title}</List.Content>
+    </List.Item>
   );
 };
 
-export default CODResultsGridItem;
+const CODResultsGridContainer = ({ results }) => {
+  const _results = results.map((result, index) => (
+    <CODResultsGridItem result={result} key={index} />
+  ));
+
+  return (
+    <List divided size="large" relaxed>
+      {_results}
+    </List>
+  );
+};
+
+export default CODResultsGridContainer;

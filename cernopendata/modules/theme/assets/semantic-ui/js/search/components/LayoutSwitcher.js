@@ -24,10 +24,31 @@
  * as an Intergovernmental Organization or submit itself to any jurisdiction.
  */
 
-import { createSearchAppInit } from "@js/invenio_search_ui";
-import { CODLayoutSwitcher } from "./components";
+import React from "react";
+import { Icon, Menu } from "semantic-ui-react";
 
-const initSearchApp = createSearchAppInit({
-  "LayoutSwitcher.element": CODLayoutSwitcher,
-  "ResultsGrid.container": null,
-});
+const CODLayoutSwitcher = ({ currentLayout, onLayoutChange }) => {
+  const clickHandler = (event, { name }) => {
+    onLayoutChange(name);
+  };
+  return (
+    <Menu compact icon>
+      <Menu.Item
+        name="list"
+        active={currentLayout === "list"}
+        onClick={clickHandler}
+      >
+        <Icon name="th list" />
+      </Menu.Item>
+      <Menu.Item
+        name="grid"
+        active={currentLayout === "grid"}
+        onClick={clickHandler}
+      >
+        <Icon name="align justify" />
+      </Menu.Item>
+    </Menu>
+  );
+};
+
+export default CODLayoutSwitcher;
