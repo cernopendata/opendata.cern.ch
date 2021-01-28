@@ -29,7 +29,7 @@ import { Card } from "semantic-ui-react";
 
 export const CODResultsGridItem = ({ result, index }) => {
   return (
-    <Card fluid key={index} href={`/records/${result.id}`}>
+    <Card fluid key={index} href={`/record/${result.id}`}>
       <Card.Content>
         <Card.Header>{result.metadata.title}</Card.Header>
       </Card.Content>

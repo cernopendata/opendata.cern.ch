@@ -71,6 +71,9 @@ search_ui = WebpackThemeBundle(
         "semantic-ui": dict(
             entry={
                 "cernopendata_search_app": "./js/search/app.js",
+            },
+            aliases={
+                '@js/cernopendata_search_ui': 'js/search',
             }
         ),
     },

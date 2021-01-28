@@ -25,7 +25,11 @@
  */
 
 import React from "react";
-import { DefaultListItem, DocsListItem, TermListItem } from "./components";
+import {
+  DefaultListItem,
+  DocsListItem,
+  TermListItem,
+} from "@js/cernopendata_search_ui/components";
 
 const CODResultsListItem = ({ result, index }) => {
   const componentMap = {
