@@ -443,6 +443,8 @@ SEARCH_DOC_TYPE_DEFAULT = None
 #: Do not map any keywords.
 SEARCH_ELASTIC_KEYWORD_MAPPING = {}
 
+#: Configure the search page template.
+SEARCH_UI_SEARCH_TEMPLATE = 'cernopendata_search_ui/search.html'
 SEARCH_UI_SEARCH_INDEX = '_all'
 #: Override the React-SearchKit config generator to support range aggs.
 SEARCH_UI_SEARCH_CONFIG_GEN = {

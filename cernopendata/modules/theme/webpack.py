@@ -62,3 +62,16 @@ glossary = WebpackThemeBundle(
         )
     }
 )
+
+search_ui = WebpackThemeBundle(
+    __name__,
+    "assets",
+    default="semantic-ui",
+    themes={
+        "semantic-ui": dict(
+            entry={
+                "cernopendata_search_app": "./js/search/app.js",
+            }
+        ),
+    },
+)
