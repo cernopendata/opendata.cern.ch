@@ -19,6 +19,8 @@
 
 """CERN Open Data Invenio-Search-UI helpers."""
 
+from __future__ import absolute_import, print_function
+
 from flask import current_app
 from invenio_search_ui.views import SearchAppInvenioRestConfigHelper
 
@@ -46,15 +48,18 @@ class CODSearchAppInvenioRestConfigHelper(SearchAppInvenioRestConfigHelper):
         )
         agg_list = []
         for agg_name, agg_definition in aggs.items():
-            # filter out sub-aggs key to grab the aggregation type
-            agg_type = [k for k in agg_definition.keys() if k != "aggs"][0]
-            agg_list.append(
-                {
-                    "title": agg_name.capitalize().replace("_", " "),
-                    "agg": {
-                        "aggName": agg_name,
-                        "field": agg_definition.get(agg_type, {}).get("field")
-                    },
-                }
-            )
+            item = dict(title=None, agg=None)
+            for k, v in agg_definition.items():
+                # sub-aggs
+                if k == "aggs":
+                    name = list(v.keys())[0]
+                    definition = list(v.values())[0]
+                    field = list(definition.values())[0].get("field")
+                    item["agg"]["childAgg"] = {"aggName": name, "field": field}
+                else:
+                    item.update({
+                        "title": agg_name.capitalize().replace("_", " "),
+                        "agg": {"aggName": agg_name, "field": v.get("field")},
+                    })
+            agg_list.append(item)
         return agg_list
