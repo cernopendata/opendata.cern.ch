@@ -1,33 +1,34 @@
 {%- extends config.BASE_TEMPLATE %}
 
 {% block page_body %}
-<div class="container">
+<div class="ui centered container visualise-events">
+
   <h1>Visualise detector events</h1>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card card-default">
-        <a href="{{url_for('.visualise_events', experiment='cms')}}">
-          <div class="panel-body text-center">
-            <img src="{{url_for('static', filename='img/cms.gif')}}">
-            <hr>
-            <h2><p>Visualise CMS detector events</p></h2>
-          </div>
-        </a>
+
+  <div class="row center aligned">
+    <a href="{{url_for('.visualise_events', experiment='cms')}}">
+      <div class="ui top attached segment ">
+
+        <img src="{{url_for('static', filename='img/cms.gif')}}" class="center">
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card card-default">
-        <a href="{{url_for('.visualise_events', experiment='opera')}}">
-          <div class="panel-body text-center">
-            <img src="{{url_for('static', filename='img/opera.gif')}}">
-            <hr>
-            <h2><p>Visualise OPERA detector events</p></h2>
-          </div>
-        </a>
+
+      <div class="ui bottom attached segment">
+        <h2> Visualise CMS detector events</h2>
       </div>
-    </div>
+    </a>
   </div>
+
+  <div class="row center aligned">
+    <a href="{{url_for('.visualise_events', experiment='opera')}}">
+      <div class="ui top attached segment ">
+        <img src="{{url_for('static', filename='img/opera.gif')}}">
+      </div>
+
+      <div class="ui bottom attached segment">
+        <h2>Visualise OPERA detector events</h2>
+      </div>
+    </a>
+  </div>
+
 </div>
 {% endblock  page_body %}

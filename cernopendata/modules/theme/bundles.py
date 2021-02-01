@@ -28,62 +28,6 @@ from flask_assets import Bundle
 from invenio_assets import NpmBundle
 
 
-ispy_js = NpmBundle(
-    # "node_modules/ispy-webgl/js/lib/jquery-1.11.1.min.js",
-    "node_modules/ispy-webgl/js/lib/jquery.scrollintoview.min.js",
-    "node_modules/ispy-webgl/js/lib/stupidtable.min.js",
-    # 'node_modules/bootstrap/dist/js/bootstrap.js',
-    # "node_modules/ispy-webgl/js/lib/bootstrap.min.js",
-    "node_modules/ispy-webgl/js/lib/stats.min.js",
-    "node_modules/ispy-webgl/js/lib/three.min.js",
-    "node_modules/ispy-webgl/js/lib/tween.min.js",
-    "node_modules/ispy-webgl/js/lib/CombinedCamera.js",
-    "node_modules/ispy-webgl/js/lib/TrackballControls.js",
-    "node_modules/ispy-webgl/js/lib/Projector.js",
-    "node_modules/ispy-webgl/js/lib/CanvasRenderer.js",
-    "node_modules/ispy-webgl/js/lib/SVGRenderer.js",
-    "node_modules/ispy-webgl/js/lib/MTLLoader.js",
-    "node_modules/ispy-webgl/js/lib/OBJLoader.js",
-    "node_modules/ispy-webgl/js/lib/OBJExporter.js",
-    "node_modules/ispy-webgl/js/lib/STLExporter.js",
-    "node_modules/ispy-webgl/js/lib/GLTFExporter.js",
-    "node_modules/ispy-webgl/js/lib/jszip.min.js",
-    "node_modules/ispy-webgl/js/lib/DeviceOrientationControls.js",
-    "node_modules/ispy-webgl/js/lib/StereoEffect.js",
-    "node_modules/ispy-webgl/js/lib/StereoCamera.js",
-    "node_modules/ispy-webgl/js/config.js",
-    "node_modules/ispy-webgl/js/setup.js",
-    "node_modules/ispy-webgl/js/animate.js",
-    "node_modules/ispy-webgl/js/files-load.js",
-    "node_modules/ispy-webgl/js/objects-draw.js",
-    "node_modules/ispy-webgl/js/objects-add.js",
-    "node_modules/ispy-webgl/js/objects-config.js",
-    # <!-- These geometries are loaded regardless of the renderer used -->
-    "node_modules/ispy-webgl/geometry/dt.js",
-    "node_modules/ispy-webgl/geometry/csc.js",
-    "node_modules/ispy-webgl/geometry/rpc.js",
-    # <!-- Don't load this anymore as we don't use the models for WebGL
-    # "node_modules/ispy-webgl/geometry/ecal.js",
-    "node_modules/ispy-webgl/js/controls.js",
-    "node_modules/ispy-webgl/js/tree-view.js",
-    "node_modules/ispy-webgl/js/display.js",
-    "node_modules/ispy-webgl/js/ispy.js",
-    output='gen/cernopendata.ispy.%(version)s.js',
-    npm={
-        "ispy-webgl": "0.9.8-COD3.11"
-    },
-)
-
-ispy_css = NpmBundle(
-    "node_modules/ispy-webgl/css/font-awesome.min.css",
-    "node_modules/ispy-webgl/css/ispy.css",
-    filters='node-scss, cleancss',
-    output='gen/cernopendata.ispy.%(version)s.css',
-    npm={
-        "ispy-webgl": "0.9.8-COD3.11"
-    }
-)
-
 
 codemirror_js = NpmBundle(
     'node_modules/codemirror/lib/codemirror.js',
