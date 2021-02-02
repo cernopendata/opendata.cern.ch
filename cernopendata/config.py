@@ -215,8 +215,6 @@ RECORDS_UI_ENDPOINTS = dict(
 RECORDS_REST_ENDPOINTS['recid']['search_index'] = '_all'
 
 RECORDS_REST_ENDPOINTS['recid'].update({
-    'search_factory_imp': 'cernopendata.modules.records.search.query'
-                          ':cernopendata_search_factory',
     'pid_minter': 'cernopendata_recid_minter',
     'pid_fetcher': 'cernopendata_recid_fetcher',
     'record_class': _Record,
