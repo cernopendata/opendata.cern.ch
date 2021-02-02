@@ -24,8 +24,6 @@
 
 """CERN Open Data theme."""
 
-from __future__ import absolute_import, print_function
-
 import operator
 
 from flask import Blueprint

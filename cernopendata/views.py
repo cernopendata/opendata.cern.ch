@@ -24,8 +24,6 @@
 
 """CERN Open Data views."""
 
-from __future__ import absolute_import, print_function
-
 from flask import Blueprint, redirect, request, url_for
 from invenio_search_ui.views import search as invenio_search_view
 

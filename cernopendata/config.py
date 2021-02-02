@@ -24,8 +24,6 @@
 
 """CERN Open Data configuration."""
 
-from __future__ import absolute_import, print_function
-
 import os
 
 from invenio_records_files.api import _Record

@@ -24,8 +24,6 @@
 
 """Frontpage records."""
 
-from __future__ import absolute_import, print_function
-
 from elasticsearch_dsl.query import Q
 from invenio_search.api import RecordsSearch
 

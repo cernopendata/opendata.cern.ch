@@ -24,8 +24,6 @@
 
 """Record serialization."""
 
-from __future__ import absolute_import, print_function
-
 from .basic_json import BasicJSONSerializer, RecordSchemaV1
 from .schemaorg import CODSchemaorgSerializer
 

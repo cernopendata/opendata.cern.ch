@@ -24,8 +24,6 @@
 
 """Initialization of CernopendataMarkdown."""
 
-from __future__ import absolute_import, print_function
-
 from flaskext.markdown import Markdown
 
 

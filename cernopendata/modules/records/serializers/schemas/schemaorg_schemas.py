@@ -23,8 +23,6 @@
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 """CERN Opendata schema.org marshmallow schema."""
 
-from __future__ import absolute_import, print_function
-
 from marshmallow import Schema, fields
 
 from marshmallow.decorators import post_dump

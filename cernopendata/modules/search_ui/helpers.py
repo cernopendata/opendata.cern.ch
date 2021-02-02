@@ -19,8 +19,6 @@
 
 """CERN Open Data Invenio-Search-UI helpers."""
 
-from __future__ import absolute_import, print_function
-
 from flask import current_app
 from invenio_search_ui.views import SearchAppInvenioRestConfigHelper
 

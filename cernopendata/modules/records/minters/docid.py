@@ -1,7 +1,5 @@
 """PID minters."""
 
-from __future__ import absolute_import, print_function
-
 from slugify import slugify
 
 from ..providers.docid import DocUUIDProvider

@@ -19,8 +19,6 @@
 
 """Sitemap package for CERN Open Data Portal."""
 
-from __future__ import absolute_import, print_function
-
 from .ext import CERNOpenDataSitemap
 
 __all__ = ('CERNOpenDataSitemap', )

@@ -19,8 +19,6 @@
 
 """Configuration for CERN Open Data Portal sitemap package."""
 
-from __future__ import absolute_import, print_function
-
 CERNOPENDATA_SITEMAP_URL_SCHEME = 'http'
 
 CERNOPENDATA_SITEMAP_DOC_TYPES = ['recid', 'docid']

@@ -1,7 +1,5 @@
 """Initialization of XRootD."""
 
-from __future__ import absolute_import, print_function
-
 from pkg_resources import DistributionNotFound, get_distribution
 from invenio_files_rest.storage.pyfs import pyfs_storage_factory
 from invenio_xrootd import EOSFileStorage

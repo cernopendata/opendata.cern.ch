@@ -24,8 +24,6 @@
 
 """CODMistune. Wrapper for Flask-Mistune extension."""
 
-from __future__ import absolute_import, print_function
-
 from .ext import CernopendataMistune
 
 __all__ = ('CernopendataMistune', )

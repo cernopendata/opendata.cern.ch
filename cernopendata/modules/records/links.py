@@ -1,7 +1,5 @@
 """Record links factory."""
 
-from __future__ import absolute_import, print_function
-
 from invenio_records_rest.links import default_links_factory
 from invenio_records_files.links import default_bucket_link_factory
 

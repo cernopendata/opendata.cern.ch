@@ -24,8 +24,6 @@
 
 """JS/CSS bundles for theme."""
 
-from __future__ import absolute_import, print_function
-
 from flask_assets import Bundle
 from invenio_assets import NpmBundle
 

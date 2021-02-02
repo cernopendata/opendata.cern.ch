@@ -2,8 +2,6 @@
 
 """Command line interface for CERN Open Data Portal."""
 
-from __future__ import absolute_import, print_function
-
 from invenio_base.app import create_cli
 
 from .factory import create_app

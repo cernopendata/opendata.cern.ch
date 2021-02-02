@@ -45,7 +45,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: 2.7
+          python-version: 3.6
 
       - name: Check compliance with Python coding style conventions
         run: |
@@ -62,7 +62,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: 2.7
+          python-version: 3.6
 
       - name: Check compliance with Python docstring conventions
         run: |
@@ -79,7 +79,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: 2.7
+          python-version: 3.6
 
       - name: Check Python manifest completeness
         run: |
@@ -113,7 +113,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: 2.7
+          python-version: 3.6
 
       - name: Check isort
         run: |
@@ -130,7 +130,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: 2.7
+          python-version: 3.6
 
       - name: Lint Dockerfile
         run: docker run -i --rm hadolint/hadolint:v1.18.2 < Dockerfile

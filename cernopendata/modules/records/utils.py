@@ -19,8 +19,6 @@
 
 """Implementention of various utility functions."""
 
-from __future__ import absolute_import, print_function
-
 import six
 import json
 

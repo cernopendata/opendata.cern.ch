@@ -24,8 +24,6 @@
 
 """Default configuration for CERN Open Data theme."""
 
-from __future__ import absolute_import, print_function
-
 
 def _(x):
     """Identity function for string extraction."""

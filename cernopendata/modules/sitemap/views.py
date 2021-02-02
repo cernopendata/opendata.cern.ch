@@ -19,8 +19,6 @@
 
 """Sitemap views for CERN Open Data Portal."""
 
-from __future__ import absolute_import, print_function
-
 from flask import Blueprint, current_app, make_response
 
 static_folder = 'static'
