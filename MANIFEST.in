@@ -9,6 +9,8 @@ include .inveniorc
 include Dockerfile
 include LICENSE
 include babel.ini
+include elasticsearch-proxy/Dockerfile
+include elasticsearch-proxy/nginx.conf
 include nginx/Dockerfile
 include pytest.ini
 include sentry/Dockerfile
@@ -34,10 +36,7 @@ recursive-include cernopendata *.tpl
 recursive-include cernopendata *.txt
 recursive-include cernopendata *.variables
 recursive-include cernopendata *.xml
-recursive-include elasticsearch-proxy *
 recursive-include nginx *.conf
-recursive-include nginx *.crt
-recursive-include nginx *.key
 recursive-include scripts *.cfg
 recursive-include scripts *.py
 recursive-include scripts *.sh

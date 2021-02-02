@@ -95,7 +95,7 @@ check_isort () {
 }
 
 check_manifest () {
-    check-manifest
+    check-manifest --ignore "*.crt,*.key,.htpasswd"
 }
 
 check_docker_build () {
