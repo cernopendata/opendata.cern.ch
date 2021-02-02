@@ -1,4 +1,9 @@
-$(function () {
+import d3 from "d3";
+import jQuery from "jquery/dist/jquery";
+import "flot/jquery.flot";
+import "flot/jquery.flot.selection";
+
+jQuery(function ($) {
   var input_data;
 
   var input_files = [
@@ -106,6 +111,7 @@ $(function () {
     d3.csv(input.file,
       function (d) { // leading and trailing spaces in csv aren't ignored so we strip them out (if there) in the accessor
         var newd = {};
+        var key = null;
         for (key in d) {
           if (!is_excluded(key.trim())) {
             newd[key.trim()] = +d[key];
@@ -129,12 +135,19 @@ $(function () {
   // Q: do we want to do this on every file load?
 
   setTimeout(function () {
-    $('#parameter-button-row li button')[0].click();
+    $('#parameter-button-row div button')[0].click();
   }, 1000);
 
-
   $.each(input_files, function (f) {
-    $('#fileul').append("<li role='presentation'><a id='" + input_files[f].id + "'>" + input_files[f].name + "</a></li>");
+    $('#filelist').append(
+      "<div class='item' data-value='" +
+        input_files[f].id +
+        "' id='" +
+        input_files[f].id +
+        "'>" +
+        input_files[f].name +
+        "</div>"
+    );
   });
 
   // Some fields aren't numbers, or it doesn't make sense to plot them, or they are redundant.
@@ -163,7 +176,9 @@ $(function () {
   function populateValues(data, type) {
     for (var key in data) {
       var parameter_info = get_parameter_info(key, event_types[type]);
-      $('#parameter-button-row').append("<li class='list-inline-item'><button type='button' aria-pressed='true' data-toggle='button' title='" + parameter_info + "' class='btn btn-secondary btn-large parameter'>" + key + "</button></li>");
+      $("#parameter-button-row").append(
+        `<div class='item'><button title='${parameter_info}' class='ui toggle button parameter'>${key}</button></div>`
+      );
     }
   }
 
@@ -191,7 +206,7 @@ $(function () {
     return Math.log(v);
   }
 
-  $(document).on('click', '#fileul li a', function () {
+  $(document).on('click', '#filelist div', function () {
     var id = $(this).attr("id");
     var input_file = $.grep(input_files, function (i) {
       return i.id == id;
@@ -202,41 +217,55 @@ $(function () {
   });
 
   $(document).on('click', '.parameter', function () {
+    $(this).toggleClass("active");
     var parameter = $(this).html();
     var title = $(this).attr('title');
 
     var parId = '#' + parameter;
 
     if ($(this).hasClass('active')) {
-      $('#flot-plots').append("<div id='" + parameter + "' class='col-md-6'></div>");
-      $(parId).css({"border": "1px dotted"});
+      $('#flot-plots').append(
+        "<div id='" + parameter + "' class='eight wide column'></div>"
+      );
+      $(parId).css({ border: "1px dotted" });
 
-      $(parId).append("<div class='plot-control btn-toolbar'></div>");
+      $(parId).append(
+        "<div class='ui form'><div class='inline fields plot-control'></div></div>"
+      );
       $(parId).append("<div class='plot-container'></div>");
       $(parId).append("<div class='xlabel'></div>");
 
       $(parId + ' div.plot-control').css({});
-      $(parId + ' div.plot-container').css({"height": "300px"});
+      $(parId + ' div.plot-container').css({ height: "300px" });
 
       // This screams "template!"
-      var logbtns = "<div class='btn-group btn-group-sm'>";
-      logbtns += "<button type='button' class='btn btn-secondary logx " + parameter + "' data-toggle='button'>Log X</button>";
-      logbtns += "<button type='button' class='btn btn-secondary logy " + parameter + "' data-toggle='button'>Log Y</button>";
+      var logbtns = "<div class='ui buttons'>";
+      logbtns +=
+        "<button class='ui toggle button logx " +
+        parameter +
+        "'> Log X</button > ";
+      logbtns +=
+        "<button class='ui toggle button logy " +
+        parameter +
+        "'>Log Y</button>";
       logbtns += "</div>";
 
       $(parId + ' div.plot-control').append(logbtns);
 
-      var bininput = "<div class='input-group input-group-sm binwidth' style='width: 150px'>";
-      bininput += "<input type='text' name='binwidth' placeholder='Set bin width' class='form-control'>";
-      bininput += "<span class='input-group-btn'>";
-      bininput += "<button class='btn btn-secondary binw " + parameter + "' type='button'>Set</button>";
-      bininput += "</span>";
+      var bininput = "<div class='ui action input'>";
+      bininput +=
+        "<input type='number' min='1' name='binwidth' placeholder='Set bin width' style='width: 70%;'>";
+      bininput +=
+        "<button class='ui button binw " + parameter + "'>Set</button>";
       bininput += "</div>";
 
-      $(parId + ' div.plot-control').append(bininput);
+      $(parId + " div.plot-control").append(bininput);
 
-      var selectbtn = "<div class='btn-group btn-group-sm'>";
-      selectbtn += "<button type='button' class='btn btn-secondary undoselect " + parameter + "'>Undo selection(s)</button>";
+      var selectbtn = "<div class='ui buttons'>";
+      selectbtn +=
+        "<button class='ui button undoselect " +
+        parameter +
+        "'>Undo selection(s)</button>";
       selectbtn += "</div>";
 
       $(parId + ' div.plot-control').append(selectbtn);
@@ -272,26 +301,40 @@ $(function () {
         } else {
           $.extend(true, options, {xaxis: {transform: null, inverseTransform: null}});
         }
+        $(this).toggleClass("active");
         $.plot($(parId + ' .plot-container'), data, options);
       });
 
-      $('button.logy.' + parameter).on('click', function () {
-        if (!$(this).hasClass('active')) {
-          $.extend(true, options, {yaxis: {transform: makeLog, inverseTransform: makeExp}});
+      $("button.logy." + parameter).on("click", function () {
+        if (!$(this).hasClass("active")) {
+          $.extend(true, options, {
+            yaxis: { transform: makeLog, inverseTransform: makeExp },
+          });
         } else {
-          $.extend(true, options, {yaxis: {transform: null, inverseTransform: null}});
+          $.extend(true, options, {
+            yaxis: { transform: null, inverseTransform: null },
+          });
         }
-        $.plot($(parId + ' .plot-container'), data, options);
+        $(this).toggleClass("active");
+        $.plot($(parId + " .plot-container"), data, options);
       });
 
-      $('button.binw.' + parameter).on('click', function () {
-        var value = $('input[name=binwidth]').val();
-        histogram = buildHistogram(input_data.map(function (d) {
-          return d[parameter];
-        }), value);
-        data = [{data: histogram, label: parameter}];
-        $.plot($(parId + ' .plot-container'), data, options);
-      });
+      $('button.binw.' + parameter).on(
+        'click',
+        function () {
+          var value = $('input[name=binwidth]').val();
+          if (value > 0) {
+            histogram = buildHistogram(
+              input_data.map(function (d) {
+                return d[parameter];
+              }),
+              value
+            );
+            data = [{data: histogram, label: parameter}];
+            $.plot($(parId + ' .plot-container'), data, options);
+          }
+        }
+      );
 
       $('button.undoselect.' + parameter).on('click', function () {
         $.extend(true, options, {xaxis: {min: xmin, max: xmax}});

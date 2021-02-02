@@ -78,3 +78,21 @@ search_ui = WebpackThemeBundle(
         ),
     },
 )
+
+visualise = WebpackThemeBundle(
+    __name__,
+    'assets',
+    default='semantic-ui',
+    themes={
+        'semantic-ui': dict(
+            entry={
+                'visualise_js': './js/visualise/visualise_histograms.js',
+                'visualise_css': './scss/visualise.scss',
+            },
+            dependencies={
+                'd3': '^3.3.13',
+                'flot': '~0.8.0-alpha',
+            }
+        )
+    }
+)

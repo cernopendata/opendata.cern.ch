@@ -29,41 +29,6 @@ from __future__ import absolute_import, print_function
 from flask_assets import Bundle
 from invenio_assets import NpmBundle
 
-visualise_js = NpmBundle(
-    'node_modules/d3/d3.min.js',
-    'node_modules/flot/jquery.flot.js',
-    'node_modules/flot/jquery.flot.selection.js',
-    'js/visualise/visualise_histograms.js',
-    output='gen/cernopendata.%(version)s.js',
-    npm={
-        'd3': '^3.3.13',
-        'flot': '~0.8.0-alpha',
-    },
-)
-
-visualise_css = NpmBundle(
-    'scss/visualise.scss',
-    filters='node-scss, cleancss',
-    output='gen/cernopendata.vis.%(version)s.css',
-    npm={
-        "bootstrap-sass": "~3.3.5",
-    }
-)
-
-glossary_js = NpmBundle(
-    'js/glossary/jquery.zglossary.js',
-    output='gen/glossary.%(version)s.js',
-    npm={},
-)
-
-glossary_css = NpmBundle(
-    'js/glossary/jquery.zglossary.css',
-    filters='node-scss, cleancss',
-    output='gen/cernopendata.glossary.%(version)s.css',
-    npm={
-        "bootstrap-sass": "~3.3.5",
-    }
-)
 
 ispy_js = NpmBundle(
     # "node_modules/ispy-webgl/js/lib/jquery-1.11.1.min.js",

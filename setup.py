@@ -130,16 +130,9 @@ setup(
             'cernopendata_theme = cernopendata.modules.theme.webpack:theme',
             'cernopendata_glossary = cernopendata.modules.theme.webpack:glossary',
             'cernopendata_search = cernopendata.modules.theme.webpack:search_ui',
+            'cernopendata_visualise = cernopendata.modules.theme.webpack:visualise',
         ],
         # 'invenio_assets.bundles': [
-            # 'cernopendata_visualise_css = '
-            # 'cernopendata.modules.theme.bundles:visualise_css',
-            # 'cernopendata_visualise_js = '
-            # 'cernopendata.modules.theme.bundles:visualise_js',
-            # 'opera_js = cernopendata.modules.theme.bundles'
-            # ':opera_js',
-            # 'opera_css = cernopendata.modules.theme.bundles'
-            # ':opera_css',
             # 'ispy_js = cernopendata.modules.theme.bundles'
             # ':ispy_js',
             # 'ispy_css = cernopendata.modules.theme.bundles'
