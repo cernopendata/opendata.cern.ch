@@ -28,7 +28,6 @@ from flask_assets import Bundle
 from invenio_assets import NpmBundle
 
 
-
 codemirror_js = NpmBundle(
     'node_modules/codemirror/lib/codemirror.js',
     'node_modules/codemirror/mode/scheme/scheme.js',

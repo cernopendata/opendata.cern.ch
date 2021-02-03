@@ -48,7 +48,7 @@ and the `syntax rules <https://daringfireball.net/projects/markdown/syntax>`_,
 mainly concerning lists:
 
 * You must always use 4 spaces (or a tab) for indentation and the same
-  character (-, *, +, numbers) for items list.
+  character (-, \*, +, numbers) for items list.
 * To add a Table Of Contents to a document place the identifier ``[TOC]``
   where you want it to be.
 
@@ -147,6 +147,37 @@ removing dependencies:
 .. code-block:: console
 
    $ docker exec -i -t opendatacernch_web_1 cernopendata webpack clean create
+
+Working with iSpy visualizer
+----------------------------
+
+CSS dependencies which are needed for iSpy CMS visualizer are sandboxed in order
+to make it compatible with ``Semantic UI``. This was achieved by:
+
+* Wrapping all the ``Bootstrap`` html with a ``<div class="bootstrap-ispy">``
+* Prefixing all the css classes of ``Bootstrap`` framework and custom ispy css file with ``bootstrap-ispy`` class.
+* As a result ``Bootstrap`` css can be used inside a div with ``bootstrap-ispy`` class without any conflicts with ``Semantic UI``.
+
+Procedure to prefix css files with ``bootstrap-ispy`` class:
+
+* Download unminified version (CMS visualizer currently uses Bootstrap v3.3.1) of the ``Bootstrap`` framework from the official website (usually it's bootstrap.css file)
+* Install LESS preprocessor locally: ``npm install -g less``
+* Create a file ``prefix-bootstrap.less`` which contains the following:
+
+.. code-block:: console
+
+   .bootstrap-ispy {
+      @import (less) 'bootstrap.css';
+   }
+
+* Preprocess css file with LESS to generate a new prefixed file (it will create ``bootstrap-prefixed.css`` file):
+
+.. code-block:: console
+
+   lessc prefix-bootstrap.less bootstrap-prefixed.css
+
+* Place this file in ``/static/assets/`` to serve it
+* Same exact procedure needs to be done for custom `ispy.css file <https://github.com/cms-outreach/ispy-webgl/blob/master/css/ispy.css>`_
 
 Switching between PROD and DEV contexts
 ---------------------------------------

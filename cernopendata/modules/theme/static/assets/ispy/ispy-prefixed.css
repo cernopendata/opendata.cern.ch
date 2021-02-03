@@ -1,0 +1,279 @@
+.bootstrap-ispy {
+  overflow: hidden;
+}
+
+.bootstrap-ispy .modal-backdrop {
+  position: fixed;
+  height: 100vh !important;
+}
+.bootstrap-ispy body.black {
+  background-color: black;
+}
+.bootstrap-ispy body.white {
+  background-color: white;
+}
+.bootstrap-ispy canvas.hover {
+  border: 5px dashed #ccc;
+}
+.bootstrap-ispy #stats {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.bootstrap-ispy #fps-slider {
+  width: 200px;
+}
+.bootstrap-ispy #axes {
+  border: none;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1001;
+  background-color: transparent;
+}
+.bootstrap-ispy .info {
+  visibility: collapse;
+}
+.bootstrap-ispy #event-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1002;
+  padding-top: 10px;
+  padding-left: 10px;
+  display: block;
+}
+.bootstrap-ispy #event-info.black {
+  color: white;
+}
+.bootstrap-ispy #event-info.white {
+  color: black;
+}
+.bootstrap-ispy #event-text {
+  padding-left: 10px;
+}
+.bootstrap-ispy #event-text.stereo-mode {
+  width: 50%;
+  font-size: 6pt;
+  opacity: 0.5;
+}
+.bootstrap-ispy #cms-logo > img {
+  max-width: 60px;
+  max-height: 60px;
+}
+.bootstrap-ispy .bordered {
+  border: thin solid gray;
+}
+.bootstrap-ispy #titlebar {
+  height: 25px;
+}
+.bootstrap-ispy #titlebar.black {
+  color: white;
+  background-color: black;
+}
+.bootstrap-ispy #titlebar.white {
+  color: black;
+  background-color: white;
+}
+.bootstrap-ispy #toolbar {
+  float: left;
+}
+.bootstrap-ispy #toolbar.black {
+  color: white;
+  background-color: black;
+}
+.bootstrap-ispy #toolbar.white {
+  color: black;
+  background-color: white;
+}
+.bootstrap-ispy #toolbar img {
+  width: 20px;
+  height: 20px;
+}
+.bootstrap-ispy #toolbar .button-toolbar {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.bootstrap-ispy .btn {
+  background-color: #dfdfdf;
+}
+.bootstrap-ispy .btn.active {
+  background-color: #bbb;
+}
+.bootstrap-ispy #treeview {
+  height: 500px;
+  overflow: scroll;
+}
+.bootstrap-ispy #treeview.black .table-hover tr:hover {
+  background-color: #777;
+}
+.bootstrap-ispy #treeview.white .table-hover tr:hover {
+  background-color: #dfdfdf;
+}
+.bootstrap-ispy #treeview.black {
+  color: white;
+  background-color: black;
+}
+.bootstrap-ispy #treeview.white {
+  color: black;
+  background-color: white;
+}
+.bootstrap-ispy #treeview .group {
+  border-top: 1px solid black;
+  background-color: #202020;
+  color: white;
+}
+.bootstrap-ispy #treeview .group.black {
+  border-top: 1px solid black;
+  background-color: #202020;
+  color: white;
+}
+.bootstrap-ispy #treeview .group.white {
+  border-top: 1px solid white;
+  background-color: #cccccc;
+  color: black;
+}
+.bootstrap-ispy #treeview .collection {
+  border-top: 0px;
+  color: white;
+}
+.bootstrap-ispy #treeview td.collection.black {
+  color: white;
+}
+.bootstrap-ispy #treeview td.collection.white {
+  color: black;
+}
+.bootstrap-ispy #treeview .info {
+  color: red;
+}
+.bootstrap-ispy #treeview .expand {
+  color: grey;
+  padding-right: 5px;
+}
+.bootstrap-ispy #display {
+  height: 500px;
+  overflow: hidden;
+  padding: 0;
+}
+.bootstrap-ispy #display.black {
+  color: white;
+  background-color: black;
+}
+.bootstrap-ispy #display.white {
+  color: black;
+  background-color: white;
+}
+.bootstrap-ispy #tableview {
+  height: 140px;
+  overflow: scroll;
+}
+.bootstrap-ispy #tableview.black {
+  color: white;
+  background-color: black;
+}
+.bootstrap-ispy #tableview.white {
+  color: black;
+  background-color: white;
+}
+.bootstrap-ispy #tableview.black .table-hover tr:hover {
+  background-color: #777;
+}
+.bootstrap-ispy #tableview.white .table-hover tr:hover {
+  background-color: #dfdfdf;
+}
+.bootstrap-ispy #table-data-eventObject.black.table-hover > tbody > tr:hover {
+  background-color: #777;
+}
+.bootstrap-ispy #table-data-eventObject.white.table-hover > tbody > tr:hover {
+  background-color: #dfdfdf;
+}
+.bootstrap-ispy .modal-dialog button.close {
+  color: red;
+  text-shadow: none;
+  opacity: 1;
+}
+.bootstrap-ispy .modal-content.black {
+  color: white;
+  background-color: black;
+}
+.bootstrap-ispy .modal-content.white {
+  color: black;
+  background-color: white;
+}
+.bootstrap-ispy .modal-content div {
+  border: 0;
+}
+.bootstrap-ispy #loading .modal-content {
+  width: 50%;
+  text-align: center;
+}
+.bootstrap-ispy #browser-events td.black,
+.bootstrap-ispy #browser-dirs td.black {
+  background-color: #303030;
+}
+.bootstrap-ispy #browser-events td.white,
+.bootstrap-ispy #browser-dirs td.white {
+  background-color: white;
+}
+.bootstrap-ispy #files .modal-body {
+  max-height: 300px;
+  overflow-y: scroll;
+}
+.bootstrap-ispy #geometry-files .modal-body {
+  max-height: 300px;
+  overflow-y: scroll;
+}
+.bootstrap-ispy #selected-event,
+.bootstrap-ispy #selected-obj {
+  border: 1px solid #ccc;
+  width: 100%;
+  text-align: left;
+  padding-left: 20px;
+}
+.bootstrap-ispy #event-buttons {
+  padding-top: 10px;
+}
+.bootstrap-ispy #browser-table.white,
+.bootstrap-ispy #obj-table.white {
+  background-color: white;
+  color: black;
+}
+.bootstrap-ispy #browser-table.black,
+.bootstrap-ispy #obj-table.black {
+  background-color: black;
+  color: white;
+}
+.bootstrap-ispy #browser-table th.black,
+.bootstrap-ispy #obj-table th.black {
+  background-color: #202020;
+  color: white;
+}
+.bootstrap-ispy #browser-table th.white,
+.bootstrap-ispy #obj-table th.white {
+  background-color: #cccccc;
+  color: black;
+}
+.bootstrap-ispy #browser-table.black td,
+.bootstrap-ispy #obj-table.black td {
+  background-color: #303030;
+}
+.bootstrap-ispy #browser-table.white td,
+.bootstrap-ispy #obj-table.white td {
+  background-color: white;
+}
+.bootstrap-ispy #browser-table.black td > a,
+.bootstrap-ispy #obj-table.black td > a {
+  color: white;
+}
+.bootstrap-ispy #browser-table.white td > a,
+.bootstrap-ispy #obj-table.white td > a {
+  color: black;
+}
+.bootstrap-ispy #browser-files td,
+.bootstrap-ispy #obj-files td {
+  border: 0;
+}
+.bootstrap-ispy #browser-events td,
+.bootstrap-ispy #browser-dirs td {
+  border: 0;
+}
