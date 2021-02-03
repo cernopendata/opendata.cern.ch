@@ -1,12 +1,36 @@
 {
-  "mappings": {
-    "properties": {
-      "doi": {
-        "type": "keyword"
-      },
-      "title": {
-        "type": "text"
+    "mappings": {
+      "properties": {
+        "title": {
+            "type": "text",
+            "analyzer": "title_analyzer",
+            "fields": {
+            "exact": {
+                "type": "keyword"
+            }
+            }
+        }
       }
+    },
+    "settings": {
+        "analysis": {
+          "analyzer": {
+            "title_analyzer": {
+              "tokenizer": "keyword",
+              "filter": [
+                "title_filter"
+              ]
+            }
+          },
+          "filter": {
+            "title_filter": {
+              "type": "pattern_capture",
+              "preserve_original": true,
+              "patterns": [
+                "(/[a-zA-Z-_0-9]+)"
+              ]
+            }
+          }
+        }
     }
-  }
 }
