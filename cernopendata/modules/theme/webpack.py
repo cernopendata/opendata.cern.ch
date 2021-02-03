@@ -97,3 +97,20 @@ visualise = WebpackThemeBundle(
         )
     }
 )
+
+records_file_box = WebpackThemeBundle(
+    __name__,
+    "assets",
+    default="semantic-ui",
+    themes={
+        "semantic-ui": dict(
+            entry={
+                "cernopendata_records_file_box": "./js/records/app.js",
+            },
+            dependencies={
+                "react": "^17.0.1",
+                "react-dom": "^17.0.1",
+            }
+        ),
+    },
+)

@@ -1,6 +1,6 @@
 {%- extends "invenio_records_ui/detail.html" %}
 
-{% from 'cernopendata_records_ui/records/macros/files_box.html' import files_box, authors_table  with context %}
+{% from 'cernopendata_records_ui/records/macros/files_box.html' import files_box, files_box_react_app, authors_table  with context %}
 
 {% from 'cernopendata_records_ui/records/macros/links.html' import link_list  with context %}
 
@@ -76,7 +76,7 @@
 
                 {% block files_block %}
                 <div>
-                    {{ files_box()}}
+                    {{ files_box_react_app()}}
                 </div>
                 {% endblock files_block %}
                 {% block disclaimer %}
@@ -114,6 +114,7 @@
 
 {% block javascript %}
 {{ super() }}
+{{ webpack['cernopendata_records_file_box.js'] }}
 
 <!-- <script>
 $('#download_caution').on('show.bs.modal', function (event) {

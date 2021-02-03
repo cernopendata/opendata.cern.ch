@@ -131,6 +131,8 @@ setup(
             'cernopendata_glossary = cernopendata.modules.theme.webpack:glossary',
             'cernopendata_search = cernopendata.modules.theme.webpack:search_ui',
             'cernopendata_visualise = cernopendata.modules.theme.webpack:visualise',
+            'cernopendata_records_file_box = '
+            'cernopendata.modules.theme.webpack:records_file_box',
         ],
         'invenio_base.apps': [
             'cernopendata_xrootd = cernopendata.modules.xrootd:CODPXRootD',
