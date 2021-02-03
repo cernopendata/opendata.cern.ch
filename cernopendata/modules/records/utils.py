@@ -32,9 +32,6 @@ from invenio_records_files.utils import record_file_factory
 
 from invenio_records.api import Record
 
-from invenio_previewer.views import blueprint as previewer_blueprint
-from invenio_previewer.proxies import current_previewer
-
 from invenio_xrootd import EOSFileStorage
 
 from werkzeug.utils import import_string
@@ -181,13 +178,6 @@ def record_file_page(pid, record, page=1, **kwargs):
     paged_files = get_paged_files(rf, page, items_per_page)
 
     return jsonify({"total": rf_len, "files": paged_files})
-
-
-@previewer_blueprint.app_template_test('previewable_file')
-def is_previewable_file(file):
-    """Test if a file can be previewed checking its extension."""
-    extension = file.get('key', ".").split(".")[-1:][0]
-    return extension in current_previewer.previewable_extensions
 
 
 def record_metadata_view(pid, record, template=None):
