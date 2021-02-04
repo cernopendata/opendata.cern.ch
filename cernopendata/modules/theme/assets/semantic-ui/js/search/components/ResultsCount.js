@@ -24,8 +24,6 @@
  * as an Intergovernmental Organization or submit itself to any jurisdiction.
  */
 
-export { default as DefaultListItem } from "./DefaultListItem";
-export { default as TermListItem } from "./TermListItem";
-export { default as DocsListItem } from "./DocsListItem";
-export { default as CODLayoutSwitcher } from "./LayoutSwitcher";
-export { default as ResultsCount } from "./ResultsCount";
+const ResultsCount = ({ totalResults }) => totalResults.toLocaleString("en-US");
+
+export default ResultsCount;

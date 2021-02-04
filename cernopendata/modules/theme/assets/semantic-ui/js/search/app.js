@@ -25,9 +25,10 @@
  */
 
 import { createSearchAppInit } from "@js/invenio_search_ui";
-import { CODLayoutSwitcher } from "./components";
+import { CODLayoutSwitcher, ResultsCount } from "./components";
 
 const initSearchApp = createSearchAppInit({
   "LayoutSwitcher.element": CODLayoutSwitcher,
   "ResultsGrid.container": null,
+  "Count.element": ResultsCount,
 });

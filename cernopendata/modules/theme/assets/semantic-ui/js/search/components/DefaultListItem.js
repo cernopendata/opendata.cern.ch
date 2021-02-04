@@ -33,7 +33,7 @@ import { stripHtml } from "../utils";
 const CODefaultListItem = ({ result: { metadata, id }, index }) => {
   const link = `/record/${id}`;
   return (
-    <Item key={index}>
+    <Item key={index} className="results-item">
       <Item.Content>
         <Item.Header href={link}>{metadata.title}</Item.Header>
         <Item.Description href={link}>

@@ -24,6 +24,11 @@
 
 {%- extends "invenio_search_ui/search.html" %}
 
+{%- block css %}
+    {{ super() }}
+    {{ webpack['cernopendata_search_css.css'] }}
+{%- endblock %}
+
 {%- block javascript %}
     {{ super() }}
     {{ webpack['cernopendata_search_app.js'] }}
