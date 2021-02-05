@@ -336,6 +336,12 @@
 
     {% if record.usage %}
     <div>
+        {% if record.collections and "OPERA-Detector-Events" in record.collections %}
+        <h2>Visualise OPERA event</h2>
+        {% set eventid = record.title.split()[-1] %}
+        {% include "cernopendata_opera/opera_standalone.html" %}
+        {% endif %}
+
         {% if record.type.primary == 'Software' %}
         <h2>How can you use this?</h2>
         {% elif record.type.primary == 'Environment' %}
@@ -386,6 +392,11 @@
     ispy.loadUrl("/record/{{record.control_number }}/files/{{file_name}}");
     </script>
 {% endif %}
+
+{% if record.collections and "OPERA-Detector-Events" in record.collections %}
+    {% include "cernopendata_opera/opera_js.html" %}
+{% endif %}
+
 {% set jsonld_serialization = record | serialize_record(pid, 'schemaorg_jsonld', throws=False)%}
 {%- if jsonld_serialization %}
 <script type='application/ld+json'>

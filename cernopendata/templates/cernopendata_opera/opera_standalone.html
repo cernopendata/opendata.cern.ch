@@ -1,0 +1,315 @@
+<div class="bootstrap-opera">
+
+{% import "cernopendata_opera/opera_macros.html" as macros %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='node_modules/demobbed-viewer/css/font-awesome.min.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/opera/bootstrap-prefixed.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/opera/opera-prefixed.css') }}">
+
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/lib/d3.min.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/lib/three.min.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/lib/three3DExtras.min.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/lib/TrackballControls.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/DetCfg-def.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/Utils-def.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/Hits-defs.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/Vertex-def.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/TrackECC-def.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/Event-def.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/loadUserSpecifiedEvent.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/changeEventSample.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/DetElems-defs.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/MgrGeomED-def.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/MgrDrawED-def.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/MgrDrawECC-def.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/Demobbed-def.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/init.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/Demobbed-fills.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/MgrGeomED-fills.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/MgrGeomED-funcAdd.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/MgrDrawED-funcAdd.js') }}"></script>
+<script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/MgrDrawECC-funcAdd.js') }}"></script>
+
+<div id="body-demobbed-viewer" data-event-id="{{ eventid if eventid }}">
+
+  <div class="viewer" id="div-viewer">
+
+    {{ macros.sidebar() }}
+
+    <div class="container-fluid" id="div-display">
+
+      <div class="row" id="div-row-display-ED">
+        <div class="col-md-12" id="div-col-display-ED">
+
+          <div class="titlebar" id="div-titlebar-ED">OPERA electronic detectors (ED) display</div>
+
+          {{ macros.toolbar_ed() }}
+
+          <div class="row ed-display">
+            <div id="div-canvas-ED-XZ">
+              <span id="span-canvas-ED-XZ-title" class="canvas-title"></span>
+            </div>
+            <div id="div-canvas-ED-YZ">
+              <span id="span-canvas-ED-YZ-title" class="canvas-title"></span>
+            </div>
+          </div>
+
+        </div> <!-- "div-col-display-ED" -->
+      </div> <!-- div-row-display-ED" -->
+
+      <div class="row" id="div-row-display-ECC">
+        <div class="col-md-12" id="div-col-display-ECC">
+
+          <div class="titlebar" id="div-titlebar-ECC">OPERA lead-emulsion detectors (ECC) display</div>
+
+          {{ macros.toolbar_ecc() }}
+
+          <div class="row ecc-display">
+            <div id="div-canvas-ECC" style="position: relative;">
+              <span id="span-canvas-ECC-title" class="canvas-title"></span>
+              <canvas id="canvas-axes-ECC" style="position:absolute; left: 0;"></canvas>
+              <canvas id="canvas-ECC" class="canvas-bordered-white"></canvas>
+            </div> <!-- "div-canvas-ECC" -->
+            <div>
+              <canvas id="canvas-legend-ECC" class="canvas-bordered-white" width="230" height="230"
+                      style="position: relative; left:auto; bottom: 0;"></canvas>
+            </div>
+          </div>
+
+        </div> <!-- "div-col-display-ECC" -->
+      </div> <!-- "div-row-display-ECC" -->
+
+    </div> <!-- "div-display" -->
+
+</div> <!-- "div-viewer" -->
+
+<!-- ----------------------------------------- -->
+
+<div id="div-ScrLoadEvent">
+  <script src="{{ url_for('static', filename='node_modules/demobbed-viewer/js/loadFirstEvent.js') }}"></script>
+</div>
+
+</div>
+
+  <!-- ----------------------------------------- -->
+
+  <div id="div-help" role="dialog" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title"><strong>Demobbed-viewer help</strong></h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body" id="div-help-body">
+          <p>
+            Demobbed-viewer is a JavaScript application developed for the <a target="_blank" href="http://opendata.cern.ch/">CERN Open Data Portal</a>. The application is supposed to visualise neutrino interaction events registered in the <a target="_blank" href="http://operaweb.lngs.infn.it/">OPERA experiment</a>.
+          </p>
+
+          <p>
+            At present OPERA open data sample includes four sub-samples (a sub-sample to display can be specified in the left part of the toolbar):
+          </p>
+
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp; - the "nuTau" sub-sample (Electronic detector <a target="_blank" href="http://opendata.cern.ch/record/10000">data</a> + Emulsion <a target="_blank" href="http://opendata.cern.ch/record/10001">data</a>) includes 10 tau neutrino candidate events <a target="_blank" href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.120.211801">observed</a> by OPERA in the <a target="_blank" href="http://proj-cngs.web.cern.ch/proj-cngs/">CNGS</a> neutrino beam.
+          </p>
+
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp; - the "nuMu" sub-sample (Electronic detector <a target="_blank" href="http://opendata.cern.ch/record/3900">data</a> + Emulsion <a target="_blank" href="http://opendata.cern.ch/record/3901">data</a>) includes 817 events used in the <a target="_blank" href="https://link.springer.com/article/10.1140%2Fepjc%2Fs10052-017-5509-y">study</a> of charged hadron multiplicities in charged-current neutrino-lead interactions in the OPERA detector.
+          </p>
+
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp; - the "nuE" sub-sample (Electronic detector <a target="_blank" href="http://opendata.cern.ch/record/13155">data</a> + Emulsion <a target="_blank" href="http://opendata.cern.ch/record/13156">data</a>) includes 19 electron neutrino candidate events <a target="_blank" href="https://link.springer.com/article/10.1007%2FJHEP06%282018%29151">registered</a> in the OPERA detector.
+          </p>
+
+          <p>
+            &nbsp;&nbsp;&nbsp;&nbsp; - the "charm" sub-sample (Electronic detector <a target="_blank" href="http://opendata.cern.ch/record/13100">data</a> + Emulsion <a target="_blank" href="http://opendata.cern.ch/record/13101">data</a>) includes 50 charm decay candidate events <a target="_blank" href="https://link.springer.com/article/10.1140%2Fepjc%2Fs10052-014-2986-0">registered</a> in the OPERA detector.
+          </p>
+
+          <p>
+            Opera hybrid experimental setup (described in detail <a target="_blank" href="http://iopscience.iop.org/article/10.1088/1748-0221/4/04/P04018/meta/">here</a>) included Electronic detectors (ED) for real-time detection of neutrino interactions and nuclear emulsions for precision analysis of neutrino event topologies. The ED provided positions of hits in two perpendicular planes: XZ (top view) and YZ (side view). By default, only ED information is displayed in the Demobbed-viewer. After analysis of the ED data the unit of OPERA target (lead-emulsion or ECC brick) that most probably contained the neutrino interaction vertex was extracted from the detector and its emulsion data were analysed as well. 3D view of reconstructed emulsion data can be opened in the ECC display (see description below).
+          </p>
+
+          <p>
+            <b><u>Brief description of available button actions:</u></b>
+          </p>
+
+          <p>
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/event-prev.png')}}" class="img-responsive"/>
+            </button>
+            /
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/event-next.png')}}" class="img-responsive"/>
+            </button>
+             - go to the previous/next event (if any) in the selected sub-sample. Also the event Id can be specified directly in the nearest edit box.
+          </p>
+
+          <p>
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/event-reload.png')}}" class="img-responsive"/>
+            </button>
+             - reload the currently displayed event.
+          </p>
+
+          <p>
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/zoom-in.png')}}" class="img-responsive"/>
+            </button>
+            /
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/zoom-out.png')}}" class="img-responsive"/>
+            </button>
+             - zoom in/out. Please note that the default (whole detector) views of the ED display can't be zoomed out.
+          </p>
+
+          <p>
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/zoom-brick.png')}}" class="img-responsive"/>
+            </button>
+             - move the XZ and YZ camera views to the vertex brick. ECC brick that contains the primary neutrino interaction vertex will be shown (an appropriate zooming will be adjusted automatically). The vertex position as well as projections of muon and some long hadron tracks found in the emulsion will be displayed as well.
+          </p>
+
+          <p>
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/zoom-event.png')}}" class="img-responsive"/>
+            </button>
+             - move the XZ and YZ camera views and adjust zooming in order to display the whole neutrino event region.
+          </p>
+
+          <p>
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/zoom-det.png')}}" class="img-responsive"/>
+            </button>
+             - show the whole detector region (default option).
+          </p>
+
+          <p>
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-up.png')}}" class="img-responsive"/>
+            </button>
+            ,
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-down.png')}}" class="img-responsive"/>
+            </button>
+            ,
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-left.png')}}" class="img-responsive"/>
+            </button>
+            , and
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-right.png')}}" class="img-responsive"/>
+            </button>
+             - move the ED display camera views, correspondingly, up, down, left, and right.
+          </p>
+
+          <p>
+            The ECC display view can be rotated or moved with help of the left or right mouse buttons, correspondingly.
+          </p>
+
+          <!--
+          <p>
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/open-ECC.png')}}" class="img-responsive"/>
+            </button>
+            /
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/close-ECC.png')}}" class="img-responsive"/>
+            </button>
+             - open/close the ECC event display.
+          </p>
+          -->
+
+          <p>
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-xz.png')}}" class="img-responsive"/>
+            </button>
+            ,
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-yz.png')}}" class="img-responsive"/>
+            </button>
+            , or
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/view-xy.png')}}" class="img-responsive"/>
+            </button>
+             - show the default XZ, YZ, or XY view of the event in the ECC display.
+          </p>
+
+          <p>
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/stretch-y.png')}}" class="img-responsive"/>
+            </button>
+            /
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/compress-y.png')}}" class="img-responsive"/>
+            </button>
+             - stretch/compress the ECC view in the vertical (Y) direction.
+          </p>
+
+          <p>
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/anim-accel.png')}}" class="img-responsive"/>
+            </button>
+             - start/accelerate animated rotation of the ECC event around the Y (vertical) axis. This button can be clicked several (but not so many!) times.
+          </p>
+
+          <p>
+            <button type="button" class="btn btn-sm" onclick="" title="">
+              <img src="{{ url_for('static', filename='node_modules/demobbed-viewer/graphics/anim-decel.png')}}" class="img-responsive"/>
+            </button>
+             - decelerate animated rotation of the ECC event. In order to stop the rotation this button has to be clicked the same number of times as the "accelerating" button has been clicked before.
+          </p>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div> <!-- "div-help" -->
+
+  <!-- ----------------------------------------- -->
+
+  <div id="div-about" role="dialog" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title"><strong>About</strong></h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <p>
+            <h4>Demobbed-viewer <span id="span-version">v3.0</span></h4>
+          </p>
+          <p>
+            A browser-based event display for visualisation of open data of the <a target="_blank" href="http://operaweb.lngs.infn.it/">OPERA experiment</a>.
+          </p>
+          <p>
+            This application uses <a target="_blank" href="https://d3js.org/">d3.js</a> and <a target="_blank" href="http://threejs.org/">three.js</a> libraries.
+            The code is available on the GitHub <a target="_blank" href="https://github.com/cernopendata/demobbed-viewer">repository</a>.
+          </p>
+          <p>
+            <a href="mailto:opendata-support@cern.ch">Questions/comments/problems</a>
+          </p>
+          <p>
+            Contributors: S. Dmitrievsky (<a target="_blank" href="http://www.jinr.ru/main-en/">JINR</a>, Dubna, Russia), G. Tsanaktsidis (<a target="_blank" href="https://home.cern/">CERN</a>, Geneva, Switzerland), M. Vidal (<a target="_blank" href="https://home.cern/">CERN</a>, Geneva, Switzerland).
+          </p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div> <!-- "div-about" -->
+</div>
