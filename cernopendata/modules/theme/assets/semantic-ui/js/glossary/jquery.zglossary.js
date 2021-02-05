@@ -27,13 +27,13 @@ import jquery from "jquery/dist/jquery";
 				var skip = 0;
 
 				// Check the element is a text node
-				if (e.nodeType == 3) {
+				if (e.nodeType == 3 && e.textContent.trim().length) {
 
 					// Case insensistive matching option
 					if (options.ignorecase) {
-						var pos = e.data.toLowerCase().search(new RegExp('\\b'+patfmt.toLowerCase()+'\\b'));
+						var pos = e.data.toLowerCase().search(new RegExp('(?<!\\\\)\\b'+patfmt.toLowerCase()+'\\b'));
 					} else {
-						var pos = e.data.search(new RegExp('\\b'+patfmt+'\\b'));
+						var pos = e.data.search(new RegExp('(?<!\\\\)\\b'+patfmt+'\\b'));
 					}
 
 					// Check if the term is found
