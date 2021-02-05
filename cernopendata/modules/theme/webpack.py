@@ -110,6 +110,7 @@ records_file_box = WebpackThemeBundle(
             dependencies={
                 "react": "^17.0.1",
                 "react-dom": "^17.0.1",
+                "prop-types": "^15.7.2"
             }
         ),
     },

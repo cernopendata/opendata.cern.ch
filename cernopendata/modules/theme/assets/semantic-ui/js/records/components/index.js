@@ -24,10 +24,4 @@
  * as an Intergovernmental Organization or submit itself to any jurisdiction.
  */
 
-import React from "react";
-import ReactDOM from "react-dom";
-
-import FilesBoxApp from "./FilesBoxApp";
-
-const domContainer = document.querySelector("#files-box-react-app");
-ReactDOM.render(React.createElement(FilesBoxApp), domContainer);
+export { default as FileTable } from "./FileTable";
