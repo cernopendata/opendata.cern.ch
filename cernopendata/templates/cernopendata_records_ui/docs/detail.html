@@ -11,11 +11,12 @@
                     {% if record.get('created') %} <small>{{ record.get('created') }} by </small> {% endif %}
                     <small>{{ record.author}} </small>
                     </p>
-                    <p class="badges-box">
-                    {% if record.type %} <a class="ui label badge-type" href="/search?type={{ record.type.primary }}">{{ record.type.primary }}</a>
+                    <p>
+
+                    {% if record.type %} <a class="ui tiny label blue" href="/search?f=type:{{ record.type.primary }}">{{ record.type.primary }}</a>
                     {% if record.type.secondary %}
                     {% for type in record.type.secondary %}
-                    <a class="ui label badge-subtype" href="/search?type={{ record.type.primary }}&subtype={{ type }}">{{ type }}</a>
+                    <a class="ui tiny label teal" href="/search?f=type:{{ record.type.primary }}%2Bsubtype:{{ type }}">{{ type }}</a>
                     {% endfor %}
                     {% endif %}
                     {% endif %}
@@ -60,4 +61,3 @@
     </div>
 </div>
 {%- endblock %}
-

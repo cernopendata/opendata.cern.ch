@@ -52,34 +52,35 @@
     {% for a in record.a %}
     {% endfor %}
 
-    <p class="badges-box">
-        {% if record.type %} <a class="ui label badge-type" href="/search?type={{ record.type.primary }}">{{ record.type.primary }}</a>
+    <p>
+        {% if record.type %} <a class="ui tiny label blue" href="/search?f=type:{{ record.type.primary }}">{{ record.type.primary }}</a>
             {% if record.type.secondary %}
             {% for type in record.type.secondary %}
-                <a class="ui label badge-subtype" href="/search?type={{ record.type.primary }}&subtype={{ type }}">{{ type }}</a>
+
+                <a class="ui tiny label teal" href="/search?f=type:{{ record.type.primary }}%2Bsubtype:{{ type }}">{{ type }}</a>
             {% endfor %}
             {% endif %}
         {% endif %}
         {% if record.categories %}
-            {% if record.categories.primary %} <a class="ui label badge-category"  href="/search?category={{ record.categories.primary }}"> {{ record.categories.primary }}</a>
+            {% if record.categories.primary %} <a class="ui tiny label dark-cyan"  href="/search?f=category:{{ record.categories.primary }}"> {{ record.categories.primary }}</a>
                 {% if record.categories.secondary %}
                   {% for subcategory in record.categories.secondary %}
-                    <a class="ui label badge-subcategory" href="/search?category={{ record.categories.primary }}&subcategory={{ subcategory }}"> {{ subcategory }}</a>
+                    <a class="ui tiny label dark-green" href="/search?f=category:{{ record.categories.primary }}%2Bsubcategory:{{ subcategory }}"> {{ subcategory }}</a>
                   {% endfor %}
                 {% endif %}
             {% endif %}
         {% endif %}
         {% if record.keywords %}
            {% for keyword in record.keywords %}
-              <a class="ui label badge-keyword" href="/search?keywords={{ keyword }}"> {{ keyword | capitalize }}</a>
+              <a class="ui tiny label dark-blue" href="/search?f=keywords:{{ keyword }}"> {{ keyword | capitalize }}</a>
            {% endfor %}
         {% endif %}
-        {% if record.experiment %} <a class="ui label badge-experiment" href="/search?experiment={{ record.experiment }}">{{ record.experiment }}</a> {% endif %}
-        {% if record.collision_information %} <a class="ui label badge-tag" href="/search?q={{ record.collision_information.energy }}"> {{ record.collision_information.energy }}</a> {% endif %}
-        {% if record.accelerator %} <a class="ui label badge-tag"  href="/search?q={{ record.accelerator }}"> {{ record.accelerator }}</a> {% endif %}
+        {% if record.experiment %} <a class="ui tiny label navy" href="/search?f=experiment:{{ record.experiment }}">{{ record.experiment }}</a> {% endif %}
+        {% if record.collision_information %} <a class="ui tiny label grey" href="/search?q={{ record.collision_information.energy }}"> {{ record.collision_information.energy }}</a> {% endif %}
+        {% if record.accelerator %} <a class="ui tiny label grey"  href="/search?q={{ record.accelerator }}"> {{ record.accelerator }}</a> {% endif %}
         {% if record.relations %}
         {% for relation in record.relations %}
-            {% if relation.type == 'isChildOf' and relation.recid %} <a  class="ui label badge-tag" href="/record/{{ relation.recid or relation.title }}"> Parent Dataset: {{relation.title}}</a> {% endif %}
+            {% if relation.type == 'isChildOf' and relation.recid %} <a  class="ui tiny label grey" href="/record/{{ relation.recid or relation.title }}"> Parent Dataset: {{relation.title}}</a> {% endif %}
         {% endfor %}
         {% endif %}
     </p>

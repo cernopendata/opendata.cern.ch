@@ -26,8 +26,9 @@
 
 import truncate from "lodash/truncate";
 import React from "react";
-import { Item, Label } from "semantic-ui-react";
+import { Item } from "semantic-ui-react";
 
+import ListItemLabels from "./ListItemLabels";
 import { stripHtml } from "../utils";
 
 const CODDocsListItem = ({ result: { metadata, id }, index }) => {
@@ -43,41 +44,8 @@ const CODDocsListItem = ({ result: { metadata, id }, index }) => {
               : truncate(stripHtml(metadata.body.content), { length: 200 })}
           </p>
         </Item.Description>
-        <Item.Extra className="badges-box">
-          <Label
-            className="badge badge-type"
-            href={`/search?f=type:${metadata.type.primary}`}
-          >
-            {metadata.type.primary}
-          </Label>
-          {metadata.type.secondary &&
-            metadata.type.secondary.map((subtype) => (
-              <Label
-                key={subtype}
-                className="badge badge-subtype"
-                href={`/search?f=subtype:${subtype}`}
-              >
-                {subtype}
-              </Label>
-            ))}
-          {metadata.experiment && (
-            <Label
-              className="badge badge-experiment"
-              href={`/search?f=experiment:${metadata.experiment}`}
-            >
-              {metadata.experiment}
-            </Label>
-          )}
-          {metadata.tags &&
-            metadata.tags.map((tag) => (
-              <Label
-                key={tag}
-                className="badge badge-tag"
-                href={`/search?f=tags:${tag}`}
-              >
-                {tag}
-              </Label>
-            ))}
+        <Item.Extra>
+          <ListItemLabels metadata={metadata} />
         </Item.Extra>
       </Item.Content>
     </Item>

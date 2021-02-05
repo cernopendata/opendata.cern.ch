@@ -26,7 +26,9 @@
 
 import truncate from "lodash/truncate";
 import React from "react";
-import { Item, Label } from "semantic-ui-react";
+import { Item } from "semantic-ui-react";
+
+import ListItemLabels from "./ListItemLabels";
 
 const CODTermListItem = ({ result: { metadata }, index }) => {
   const link = `/glossary/${metadata.control_number}`;
@@ -37,21 +39,8 @@ const CODTermListItem = ({ result: { metadata }, index }) => {
         <Item.Description href={link}>
           <p>{truncate(metadata.definition, { length: 200 })}</p>
         </Item.Description>
-        <Item.Extra className="badges-box">
-          <Label
-            className="badge badge-type"
-            href={`/search?f=type:${metadata.type.primary}`}
-          >
-            {metadata.type.primary}
-          </Label>
-          {metadata.type.secondary && (
-            <Label
-              className="badge badge-subtype"
-              href={`/search?f=subtype:${metadata.type.secondary[0]}`}
-            >
-              {metadata.type.secondary[0]}
-            </Label>
-          )}
+        <Item.Extra>
+          <ListItemLabels metadata={metadata} />
         </Item.Extra>
       </Item.Content>
     </Item>

@@ -29,19 +29,12 @@ body {
     background-color: #f6f7f6;
 }
 
-
-// TOCHECK Carefoul overriding default
-#news-card .badge {
-    font-size: small !important;
-    color: #fff !important;
-}
-
 .detail-page {
     .ui.segment {
         font-weight: $font-light;
         border: none;
         margin-top: 10px;
-        border-top: 2px solid lighten($dark-blue, 30%);
+        border-top: 2px solid lighten($navy, 20%);
         border-radius: unset;
         box-shadow: unset;
         margin-bottom: 1em;
@@ -409,100 +402,53 @@ a {
     height: $loading-width;
 }
 
-// Search page
-
-.badges-box {
-    font-size: .9em;
-
-    .ui.label {
-        &.badge {
-            padding: .4em .7em;
-            font-size: .7em;
-            font-weight: $font-heavy;
-            position:relative;
-        }
-
-        &.badge:hover {
-            text-decoration: none;
-            color: white;
-        }
-    }
-}
+// Labels
 
 .ui.label {
-    &.badge-type {
-        background-color: $light-blue;
+
+    &.dark-cyan {
+        background-color: $dark-cyan;
         color: white;
 
         &:hover {
-            background-color: darken($light-blue, $darken-on-hover);
-            color: white;
-        }
-
-    }
-    &.badge-subtype {
-        background-color: $medium-blue;
-        color: white;
-
-        &:hover {
-            background-color: darken($medium-blue, $darken-on-hover);
-            color: white;
-        }
-    }
-
-    &.badge-category {
-        background-color: #0f6d7c;
-        color: white;
-
-        &:hover {
-            background-color: darken(#0f6d7c, $darken-on-hover);
+            background-color: darken($dark-cyan, $darken-on-hover);
             color: white;
         }
 
     }
 
-    &.badge-subcategory {
-        background-color: #0a454e;
+    &.dark-green {
+        background-color: $dark-green;
         color: white;
 
         &:hover {
-            background-color: darken(#0a454e, $darken-on-hover);
+            background-color: darken($dark-green, $darken-on-hover);
             color: white;
         }
     }
 
-    &.badge-keyword {
-        background-color: #08244e;
+    &.dark-blue {
+        background-color: $dark-blue;
         color: white;
 
         &:hover {
-            background-color: darken(#08244e, $darken-on-hover);
+            background-color: darken($dark-blue, $darken-on-hover);
             color: white;
         }
     }
 
-    &.badge-tag {
-        background-color: #7c818f;
+    &.navy {
+        background-color: $navy;
         color: white;
 
         &:hover {
-            background-color: darken(#7c818f, $darken-on-hover);
-            color: white;
-        }
-    }
-
-    &.badge-experiment {
-        background-color: #406184;
-        color: white;
-
-        &:hover {
-            background-color: darken(#406184, $darken-on-hover);
+            background-color: darken($navy, $darken-on-hover);
             color: white;
         }
     }
 }
 
-// End Search page
+// End Labels
 
 .clickable {
     cursor: pointer;

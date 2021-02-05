@@ -26,8 +26,9 @@
 
 import truncate from "lodash/truncate";
 import React from "react";
-import { Item, Label } from "semantic-ui-react";
+import { Item } from "semantic-ui-react";
 
+import ListItemLabels from "./ListItemLabels";
 import { stripHtml } from "../utils";
 
 const CODefaultListItem = ({ result: { metadata, id }, index }) => {
@@ -43,59 +44,8 @@ const CODefaultListItem = ({ result: { metadata, id }, index }) => {
             })}
           </p>
         </Item.Description>
-        <Item.Extra className="badges-box">
-          <Label
-            className="badge badge-type"
-            href={`/search?f=type:${metadata.type.primary}`}
-          >
-            {metadata.type.primary}
-          </Label>
-          {metadata.type.secondary &&
-            metadata.type.secondary.map((subtype) => (
-              <Label
-                key={subtype}
-                className="badge badge-subtype"
-                href={`/search?f=subtype:${subtype}`}
-              >
-                {subtype}
-              </Label>
-            ))}
-          {metadata.categories?.primary && (
-            <Label
-              className="badge badge-category"
-              href={`/search?f=category:${metadata.categories.primary}`}
-            >
-              {metadata.categories.primary}
-            </Label>
-          )}
-          {metadata.categories?.secondary &&
-            metadata.categories.secondary.map((subcategory) => (
-              <Label
-                key={subcategory}
-                className="badge badge-subcategory"
-                href={`/search?f=subcategory:${subcategory}`}
-              >
-                {subcategory}
-              </Label>
-            ))}
-          {metadata.tags &&
-            metadata.tags.map((tag) => (
-              <Label
-                key={tag}
-                className="badge badge-tag"
-                href={`/search?f=tags:${tag}`}
-              >
-                {tag}
-              </Label>
-            ))}
-          {metadata.experiment && (
-            <Label
-              className="badge badge-experiment"
-              href={`/search?f=experiment:${metadata.experiment}`}
-            >
-              {metadata.experiment}
-            </Label>
-          )}
+        <Item.Extra>
+          <ListItemLabels metadata={metadata} />
         </Item.Extra>
       </Item.Content>
     </Item>
