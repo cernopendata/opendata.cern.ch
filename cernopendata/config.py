@@ -510,3 +510,6 @@ SEARCH_ELASTIC_HOSTS = [
         **params
     )
 ]
+
+ANNOUNCEMENT_BANNER_MESSAGE = os.getenv('ANNOUNCEMENT_BANNER_MESSAGE', '')
+"""Message to display in all pages as a banner (HTML allowed)."""

@@ -16,9 +16,16 @@
   <!--Wrapper for page content to push down footer-->
   <div class="footer-wrap background">
     <!-- Begin page content -->
+    <div>
     {%- block page_header %}
     {% include 'cernopendata_theme/header.html' %}
     {%- endblock page_header %}
+      {% if config['ANNOUNCEMENT_BANNER_MESSAGE'] %}
+      <div class="ui bottom attached small warning message">
+        <p>{{ config['ANNOUNCEMENT_BANNER_MESSAGE'] | safe }}</p>
+      </div>
+      {% endif %}
+    </div>
 
       {%- block page_body %}
       {%- block page_body_top %}{%- endblock page_body_top %}
