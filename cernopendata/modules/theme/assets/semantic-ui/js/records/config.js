@@ -24,5 +24,6 @@
  * as an Intergovernmental Organization or submit itself to any jurisdiction.
  */
 
-export { default as FileTable } from "./FileTable";
-export { default as IndexFilesModal } from "./IndexFilesModal";
+const config = document.querySelector("#files-box-react-app").dataset;
+
+export default config;

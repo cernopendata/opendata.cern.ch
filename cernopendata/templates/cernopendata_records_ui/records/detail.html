@@ -112,6 +112,11 @@
 </div>
 {%- endblock %}
 
+{% block css %}
+{{ super() }}
+{{ webpack['cernopendata_records_file_box.css'] }}
+{%- endblock %}
+
 {% block javascript %}
 {{ super() }}
 {{ webpack['cernopendata_records_file_box.js'] }}

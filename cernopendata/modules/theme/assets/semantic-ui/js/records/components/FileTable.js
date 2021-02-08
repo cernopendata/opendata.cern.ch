@@ -23,13 +23,17 @@
  * waive the privileges and immunities granted to it by virtue of its status
  * as an Intergovernmental Organization or submit itself to any jurisdiction.
  */
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Button, Icon, Table } from "semantic-ui-react";
 
+import { IndexFilesModal } from "../components";
 import { toHumanReadableSize } from "../utils";
 
-const FileTable = ({ items, pidValue }) => {
+export default function FileTable({ items, pidValue }) {
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedFile, setSelectedFile] = useState();
+
   return (
     <Table singleLine>
       <Table.Header>
@@ -47,7 +51,14 @@ const FileTable = ({ items, pidValue }) => {
             <Table.Cell collapsing>{toHumanReadableSize(file.size)}</Table.Cell>
             <Table.Cell collapsing>
               {file.type === "index.txt" && (
-                <Button icon size="mini">
+                <Button
+                  icon
+                  size="mini"
+                  onClick={() => {
+                    setSelectedFile(file.key);
+                    setOpenModal(true);
+                  }}
+                >
                   <Icon name="list" /> List files
                 </Button>
               )}
@@ -64,11 +75,16 @@ const FileTable = ({ items, pidValue }) => {
           </Table.Row>
         ))}
       </Table.Body>
+      {!!selectedFile && (
+        <IndexFilesModal
+          open={openModal}
+          setOpen={setOpenModal}
+          file={selectedFile}
+        />
+      )}
     </Table>
   );
-};
-
-export default FileTable;
+}
 
 FileTable.propTypes = {
   items: PropTypes.object.isRequired,

@@ -28,6 +28,7 @@ import React, { useEffect, useState } from "react";
 import { Pagination } from "semantic-ui-react";
 
 import { FileTable } from "./components";
+import config from "./config";
 
 const RECORD_FILEPAGE_URL = (pid, page, type = null) =>
   `/record/${pid}/filepage/${page}?${type ? `type=${type}` : "group=1"}`;
@@ -37,8 +38,6 @@ const FilesBoxApp = () => {
   const [page, setPage] = useState(1);
   const [files, setFiles] = useState({});
   const [indexFiles, setIndexFiles] = useState({});
-
-  const config = document.querySelector("#files-box-react-app").dataset;
 
   useEffect(() => {
     const type = getType();
