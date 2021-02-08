@@ -259,10 +259,7 @@
                 {% endif %}
 
                 {% if conf_file.get("script") %}
-                    <!-- <a href="#" ng-controller="filePreviewModalCtrl as $fPrevModalCtrl"
-                        ng-click='$fPrevModalCtrl.openModal({{conf_file.script | tojson}})'>
-                        (preview)
-                    </a> -->
+                    <!-- FIXME implement new file previewer -->
                 {% endif %}
                 {% if conf_file.get("url") %}
                     <a href="{{conf_file.url}}">

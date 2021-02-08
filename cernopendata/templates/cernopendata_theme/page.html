@@ -4,7 +4,6 @@
     {{ super() }}
     {{ webpack['cernopendata_css.css'] }}
     {{ webpack['glossary_css.css'] }}
-    {# {%- assets "codemirror_css" %} <link href="{{ ASSET_URL }}" rel="stylesheet"> {%- endassets %} #}
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -42,7 +41,6 @@
   {{ webpack['cernopendata_js.js'] }}
   {{ webpack['glossary_js.js'] }}
   {# {% assets "cernopendata_search_js" %}<script src="{{ ASSET_URL }}"></script>{% endassets %} #}
-  {# {% assets "codemirror_js" %}<script src="{{ ASSET_URL }}"></script>{% endassets %} #}
 
   {%- block javascript_glossary %}
 

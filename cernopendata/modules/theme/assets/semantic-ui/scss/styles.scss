@@ -469,68 +469,6 @@ a {
     display: flex;
 }
 
-.file_preview-modal {
-    .modal-dialog {
-        width: 700px;
-        max-width: 700px;
-        height: 700px;
-        max-height: 80%;
-
-        .modal-content {
-            height: 700px;
-            max-height: 100%;
-
-            .modal-body {
-                padding: 0;
-            }
-        }
-    }
-
-    .modal-header {
-        padding: 7px;
-        background-color: #d6d6d6;
-
-        .files-preview-modal-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex: 1;
-
-            .title {
-                flex: 1;
-            }
-            .clipboard-actions {
-                align-items: center;
-                justify-content: flex-end;
-                flex: 1;
-                display: flex;
-            }
-            u {
-                font-size: 14px;
-                padding: 0 5px;
-            }
-
-            .btn {
-                padding: 5px;
-                font-size: 11px;
-            }
-        }
-    }
-    .CodeMirror {
-      position: absolute; top: 0;  bottom: 0; left: 0; right: 0;
-      height: 100%;
-    }
-    .CodeMirror-scroll {
-        height: 100%;
-        overflow-y: auto;
-        overflow-x: auto;
-    }
-    .CodeMirror-gutters {
-        height: 100%!important;
-    }
-}
-
-
 .files-table {
     display: flex;
     flex-direction: column;
