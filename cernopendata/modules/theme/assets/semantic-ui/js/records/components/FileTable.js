@@ -27,6 +27,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Button, Icon, Table } from "semantic-ui-react";
 
+import { toHumanReadableSize } from "../utils";
+
 const FileTable = ({ items, pidValue }) => {
   return (
     <Table singleLine>
@@ -42,8 +44,7 @@ const FileTable = ({ items, pidValue }) => {
         {items.files.map((file) => (
           <Table.Row key={file.version_id}>
             <Table.Cell>{file.key}</Table.Cell>
-            {/* TODO: Bytes filter */}
-            <Table.Cell collapsing>{file.size}</Table.Cell>
+            <Table.Cell collapsing>{toHumanReadableSize(file.size)}</Table.Cell>
             <Table.Cell collapsing>
               {file.type === "index.txt" && (
                 <Button icon size="mini">
