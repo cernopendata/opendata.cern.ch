@@ -78,7 +78,10 @@ RUN pip install --user -r /tmp/requirements-production.txt
 
 # Add CERN Open Data Portal sources to `code` and work there
 WORKDIR ${CODE_DIR}
-COPY --chown=${INVENIO_USER_ID}:root . ${CODE_DIR}
+COPY . ${CODE_DIR}
+USER root
+RUN chown -R "${INVENIO_USER_ID}":root "${CODE_DIR}"
+USER ${INVENIO_USER_ID}
 # Debug off by default
 ARG DEBUG=""
 ENV DEBUG=${DEBUG:-""}
