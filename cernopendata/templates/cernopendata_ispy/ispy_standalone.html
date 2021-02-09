@@ -1,7 +1,19 @@
-{% block page_body %}
 <div class="bootstrap-ispy">
   <div class="container">
     <div class="row">
+      {% if ispy_standalone %}
+      <div class="col-md-12">
+        <a class="pull-right" id="backtopreview"  href="#"><span
+        class="fa fa-long-arrow-left"></span>back
+        to previewer</a>
+        <a class="pull-right" id="needhelp" href="#" >Need HELP?</a>
+      </div>
+    </div>
+  </div>
+  <p></p>
+  <div class="container" id="event_previewer">
+    <div class="row">
+      {% endif %}
       <div class="col-lg-12 bordered black" id="titlebar">
         <div class="row">
           <div class="col-lg-3" id="application-name">iSpy WebGL</div>
@@ -183,7 +195,19 @@
       </div>
     </div>
   </div>
-
+  {% if ispy_standalone %}
+  <div id="loading" role="dialog" class="modal" style="margin-top:15%; margin-left:20%;">
+    <div class="modal-dialog">
+      <div class="modal-content bordered black">
+        <div class="modal-header"></div>
+        <div class="modal-body">
+          <h4><i class="fa fa-spinner fa-spin"></i> Loading...</h4>
+        </div>
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
   <div id="progress" role="dialog" class="modal">
     <div class="modal-dialog">
       <div class="modal-content bordered black">
@@ -386,7 +410,7 @@
     <div class="modal-dialog">
       <div class="modal-content bordered black">
         <div class="modal-header">
-    <h4 class="modal-title black">Open Model</h4>
+          <h4 class="modal-title black">Open Model</h4>
           <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i><span class="sr-only">Close</span></button>
         </div>
         <div class="modal-body">
@@ -673,5 +697,10 @@
       </div>
     </div>
   </div>
+
+  {% if ispy_standalone %}
+  <div class="tab-panel" id="event-display-howto">
+    {% include "cernopendata_ispy/ispy_help.html" %}
+  </div>
+  {% endif %}
 </div>
-{% endblock %}

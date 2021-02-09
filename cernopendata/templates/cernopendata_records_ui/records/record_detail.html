@@ -90,7 +90,7 @@
 
     {% if 'ig' in record.get('distribution', {}).get('formats', []) %}
     <h2 id="previewer">Preview</h2>
-        {%include "cernopendata_pages/visualise_events_cms_standalone.html"%}
+        {%include "cernopendata_ispy/ispy_standalone.html"%}
     {% endif %}
 
     {% if record.use_with %}
