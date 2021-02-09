@@ -37,28 +37,31 @@ import {
   Table,
 } from "semantic-ui-react";
 
+import { DownloadWarningModal } from "../components";
 import config from "../config";
 import { toHumanReadableSize } from "../utils";
 
 import "./IndexFilesModal.scss";
 
-const INDEX_FILES_URL = (pid, file) => {
-  if (file.endsWith("index.txt")) {
-    const fileKey = file.replace(".txt", ".json");
+const INDEX_FILES_URL = (pid, indexFile) => {
+  if (indexFile.endsWith("index.txt")) {
+    const fileKey = indexFile.replace(".txt", ".json");
     return `/record/${pid}/files/${fileKey}`;
   }
 };
 const ITEMS_PER_PAGE = 5;
 
-export default function IndexFilesModal({ open, setOpen, file }) {
+export default function IndexFilesModal({ open, setOpen, indexFile }) {
   const [error, setError] = useState();
   const [files, setFiles] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [openDownloadModal, setOpenDownloadModal] = useState(false);
+  const [selectedFile, setSelectedFile] = useState();
 
   useEffect(() => {
     setLoading(true);
-    fetch(INDEX_FILES_URL(config.pidValue, file))
+    fetch(INDEX_FILES_URL(config.pidValue, indexFile.key))
       .then((response) => {
         setLoading(false);
         if (response.ok) {
@@ -70,7 +73,7 @@ export default function IndexFilesModal({ open, setOpen, file }) {
       .then((data) => {
         setFiles(data);
       });
-  }, [file]);
+  }, [indexFile]);
 
   const getPageFiles = () => {
     const start = (page - 1) * ITEMS_PER_PAGE;
@@ -78,82 +81,112 @@ export default function IndexFilesModal({ open, setOpen, file }) {
     return files.slice(start, end);
   };
 
+  const getFileUri = (fileUri) =>
+    `/record/${config.pidValue}/files/assets/${
+      fileUri.split("/eos/opendata/")[1]
+    }`;
+
   return (
-    <Modal
-      onClose={() => {
-        setOpen(false);
-        setPage(1);
-        setFiles([]);
-        setError(null);
-      }}
-      onOpen={() => setOpen(true)}
-      open={open}
-      closeIcon
-    >
-      <Modal.Header>List of files</Modal.Header>
-      <Modal.Content>
-        {loading ? (
-          <div>
-            <Dimmer active inverted>
-              <Loader inline="centered" />
-            </Dimmer>
-          </div>
-        ) : (
-          <div>
-            {error ? (
-              <Message error>{error}</Message>
-            ) : (
-              <Table singleLine>
-                <Table.Header>
-                  <Table.Row>
-                    <Table.HeaderCell>Filename</Table.HeaderCell>
-                    <Table.HeaderCell>Size</Table.HeaderCell>
-                    <Table.HeaderCell></Table.HeaderCell>
-                  </Table.Row>
-                </Table.Header>
-                <Table.Body>
-                  {getPageFiles().map((file) => {
-                    const uri = `/record/${config.pidValue}/files/assets/${
-                      file.uri.split("/eos/opendata/")[1]
-                    }`;
-                    return (
-                      <Table.Row key={file.checksum}>
-                        <Table.Cell>{file.filename}</Table.Cell>
-                        <Table.Cell collapsing>
-                          {toHumanReadableSize(file.size)}
-                        </Table.Cell>
-                        <Table.Cell collapsing>
-                          <Button as="a" icon size="mini" primary href={uri}>
-                            <Icon name="download" />
-                          </Button>
-                        </Table.Cell>
-                      </Table.Row>
-                    );
-                  })}
-                </Table.Body>
-              </Table>
-            )}
-          </div>
-        )}
-        {files.length > ITEMS_PER_PAGE && (
-          <Pagination
-            className="index-files-pagination"
-            activePage={page}
-            onPageChange={(e, { activePage }) => setPage(activePage)}
-            totalPages={Math.ceil(files.length / ITEMS_PER_PAGE)}
-          />
-        )}
-      </Modal.Content>
-    </Modal>
+    <>
+      <Modal
+        onClose={() => {
+          setOpen(false);
+          setPage(1);
+          setFiles([]);
+          setError(null);
+        }}
+        onOpen={() => setOpen(true)}
+        open={open}
+        closeIcon
+      >
+        <Modal.Header>List of files</Modal.Header>
+        <Modal.Content>
+          {loading ? (
+            <div>
+              <Dimmer active inverted>
+                <Loader inline="centered" />
+              </Dimmer>
+            </div>
+          ) : (
+            <div>
+              {error ? (
+                <Message error>{error}</Message>
+              ) : (
+                <Table singleLine>
+                  <Table.Header>
+                    <Table.Row>
+                      <Table.HeaderCell>Filename</Table.HeaderCell>
+                      <Table.HeaderCell>Size</Table.HeaderCell>
+                      <Table.HeaderCell></Table.HeaderCell>
+                    </Table.Row>
+                  </Table.Header>
+                  <Table.Body>
+                    {getPageFiles().map((file) => {
+                      const downloadProp =
+                        file.size > config.downloadThreshold
+                          ? {
+                              onClick: () => {
+                                setSelectedFile(file);
+                                setOpenDownloadModal(true);
+                              },
+                            }
+                          : {
+                              href: getFileUri(file.uri),
+                            };
+                      return (
+                        <Table.Row key={file.checksum}>
+                          <Table.Cell>{file.filename}</Table.Cell>
+                          <Table.Cell collapsing>
+                            {toHumanReadableSize(file.size)}
+                          </Table.Cell>
+                          <Table.Cell collapsing>
+                            <Button
+                              as="a"
+                              icon
+                              size="mini"
+                              primary
+                              {...downloadProp}
+                            >
+                              <Icon name="download" />
+                            </Button>
+                          </Table.Cell>
+                        </Table.Row>
+                      );
+                    })}
+                  </Table.Body>
+                </Table>
+              )}
+            </div>
+          )}
+          {files.length > ITEMS_PER_PAGE && (
+            <Pagination
+              className="index-files-pagination"
+              activePage={page}
+              onPageChange={(e, { activePage }) => setPage(activePage)}
+              totalPages={Math.ceil(files.length / ITEMS_PER_PAGE)}
+            />
+          )}
+        </Modal.Content>
+      </Modal>
+      {openDownloadModal && (
+        <DownloadWarningModal
+          open={openDownloadModal}
+          setOpen={setOpenDownloadModal}
+          filename={selectedFile.filename}
+          size={selectedFile.size}
+          uri={getFileUri(selectedFile.uri)}
+        />
+      )}
+    </>
   );
 }
 
 IndexFilesModal.propTypes = {
   open: PropTypes.bool.isRequired,
   setOpen: PropTypes.func.isRequired,
-  file: PropTypes.string,
+  indexFile: PropTypes.object,
 };
 
 IndexFilesModal.defaultProps = {
-  file: "",
+  indexFile: {},
 };

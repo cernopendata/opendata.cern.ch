@@ -27,12 +27,18 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Button, Icon, Table } from "semantic-ui-react";
 
-import { IndexFilesModal } from "../components";
+import { IndexFilesModal, DownloadWarningModal } from "../components";
 import { toHumanReadableSize } from "../utils";
+import config from "../config";
 
-export default function FileTable({ items, pidValue }) {
+import "./FileTable.scss";
+
+export default function FileTable({ items }) {
   const [openModal, setOpenModal] = useState(false);
+  const [openDownloadModal, setOpenDownloadModal] = useState(false);
   const [selectedFile, setSelectedFile] = useState();
+
+  const getFileUri = (fileKey) => `/record/${config.pidValue}/files/${fileKey}`;
 
   return (
     <Table singleLine>
@@ -43,43 +49,58 @@ export default function FileTable({ items, pidValue }) {
           <Table.HeaderCell></Table.HeaderCell>
         </Table.Row>
       </Table.Header>
-
       <Table.Body>
-        {items.files.map((file) => (
-          <Table.Row key={file.version_id}>
-            <Table.Cell>{file.key}</Table.Cell>
-            <Table.Cell collapsing>{toHumanReadableSize(file.size)}</Table.Cell>
-            <Table.Cell collapsing>
-              {file.type === "index.txt" && (
-                <Button
-                  icon
-                  size="mini"
-                  onClick={() => {
-                    setSelectedFile(file.key);
-                    setOpenModal(true);
-                  }}
-                >
-                  <Icon name="list" /> List files
+        {items.files.map((file) => {
+          const downloadProp =
+            file.size > config.downloadThreshold
+              ? {
+                  onClick: () => {
+                    setSelectedFile(file);
+                    setOpenDownloadModal(true);
+                  },
+                }
+              : { href: getFileUri(file.key) };
+          return (
+            <Table.Row key={file.version_id}>
+              <Table.Cell className="filename-cell">{file.key}</Table.Cell>
+              <Table.Cell collapsing>
+                {toHumanReadableSize(file.size)}
+              </Table.Cell>
+              <Table.Cell collapsing>
+                {file.type === "index.txt" && (
+                  <Button
+                    icon
+                    size="mini"
+                    onClick={() => {
+                      setSelectedFile(file);
+                      setOpenModal(true);
+                    }}
+                  >
+                    <Icon name="list" /> List files
+                  </Button>
+                )}
+                <Button as="a" icon size="mini" primary {...downloadProp}>
+                  <Icon name="download" /> Download
                 </Button>
-              )}
-              <Button
-                as="a"
-                icon
-                size="mini"
-                primary
-                href={`/record/${pidValue}/files/${file.key}`}
-              >
-                <Icon name="download" /> Download
-              </Button>
-            </Table.Cell>
-          </Table.Row>
-        ))}
+              </Table.Cell>
+            </Table.Row>
+          );
+        })}
       </Table.Body>
-      {!!selectedFile && (
+      {openModal && (
         <IndexFilesModal
           open={openModal}
           setOpen={setOpenModal}
-          file={selectedFile}
+          indexFile={selectedFile}
+        />
+      )}
+      {openDownloadModal && (
+        <DownloadWarningModal
+          open={openDownloadModal}
+          setOpen={setOpenDownloadModal}
+          filename={selectedFile.key}
+          size={selectedFile.size}
+          uri={getFileUri(selectedFile.key)}
         />
       )}
     </Table>
@@ -88,5 +109,4 @@ export default function FileTable({ items, pidValue }) {
 
 FileTable.propTypes = {
   items: PropTypes.object.isRequired,
-  pidValue: PropTypes.string.isRequired,
 };

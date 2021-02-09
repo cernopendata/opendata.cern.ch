@@ -1,6 +1,8 @@
 {% macro files_box_react_app() %}
+{% set threshold = config.get('CERNOPENDATA_MAX_DOWNLOAD_SIZE') %}
   <div id="files-box-react-app"
        data-pid-value={{ pid.pid_value }}
+       data-download-threshold={{ threshold }}
   />
 {% endmacro %}
 

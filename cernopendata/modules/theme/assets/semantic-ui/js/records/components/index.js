@@ -26,3 +26,4 @@
 
 export { default as FileTable } from "./FileTable";
 export { default as IndexFilesModal } from "./IndexFilesModal";
+export { default as DownloadWarningModal } from "./DownloadWarningModal";
