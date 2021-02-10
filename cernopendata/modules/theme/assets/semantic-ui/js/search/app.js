@@ -31,4 +31,5 @@ const initSearchApp = createSearchAppInit({
   "LayoutSwitcher.element": CODLayoutSwitcher,
   "ResultsGrid.container": null,
   "Count.element": ResultsCount,
+  "SearchApp.searchbarContainer": () => null,
 });
