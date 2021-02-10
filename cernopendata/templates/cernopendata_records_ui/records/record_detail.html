@@ -257,9 +257,12 @@
                 {% if conf_file.get("process") %}
                     for {{ conf_file.process }}
                 {% endif %}
-
                 {% if conf_file.get("script") %}
-                    <!-- FIXME implement new file previewer -->
+                  <a href="#"
+                     class="config-file-preview-link"
+                     data-modal-content='{{ conf_file.script }}'>
+                    (preview)
+                  </a>
                 {% endif %}
                 {% if conf_file.get("url") %}
                     <a href="{{conf_file.url}}">
@@ -361,6 +364,12 @@
         <a href="{{ record.source_code_repository.url }}">{{ record.source_code_repository.url }}</a>
     </div>
     {% endif %}
+    <div class="ui modal config-file-preview-modal">
+      <i class="close icon"></i>
+      <div class="image content">
+        <pre class="config-content"></pre>
+      </div>
+    </div>
 {% endblock metadata_block %}
 
 {% block files_block %}
@@ -375,6 +384,14 @@
 
 {% block javascript %}
 {{ super() }}
+<script>
+    $(".config-file-preview-link").click(function(event) {
+        event.preventDefault();
+        const $this = $(this);
+        $(".config-file-preview-modal .config-content").html($this.data('modal-content'))
+        $('.config-file-preview-modal').modal('show');
+  });
+</script>
 
 {% set files_list = record.get('files', None) %}
 {% set include_cms_visualiser = 'ig' in record.get('distribution', {}).get('formats', []) %}
