@@ -24,7 +24,7 @@
 
 """CERN Open Data views."""
 
-from flask import Blueprint, redirect, request, url_for
+from flask import Blueprint, current_app, redirect, request, url_for
 from invenio_search_ui.views import search as invenio_search_view
 
 blueprint = Blueprint(
@@ -44,6 +44,15 @@ def redefine_search_endpoint(blueprint_setup):
 
 def search_wrapper():
     """Wrap default invenio search endpoint."""
+    # translate old search query params to new format
+    # e.g. type=Dataset => f=type:Dataset
+    facets = current_app.config['RECORDS_REST_FACETS']
+    facet_keys = facets['_all']['aggs'].keys()
+    args = request.args.to_dict(flat=False)
+    if set(facet_keys).intersection(set(args.keys())):
+        qs = translate_search_url(args, facets)
+        return redirect(url_for('invenio_search_ui.search', **qs))
+
     # translate p parameter to q (backwards compatibility)
     # only if q itself not passed
     if 'p' in request.args and 'q' not in request.args:
@@ -52,6 +61,38 @@ def search_wrapper():
         return redirect(url_for('invenio_search_ui.search', **values))
     else:
         return invenio_search_view()
+
+
+def translate_search_url(args, facets):
+    """Translate old search querystring args to new ones."""
+    subagg_agg_mapping = {}
+    aggs = facets["_all"]["aggs"]
+    for agg, agg_value in aggs.items():
+        if agg_value.get("aggs"):
+            for subagg in agg_value["aggs"].keys():
+                subagg_agg_mapping[subagg] = agg
+
+    qs_values = {"f": []}
+    parent_child_qs = []
+    for subagg, agg in subagg_agg_mapping.items():
+        if subagg in args:
+            agg_values = args.pop(agg)
+            subagg_values = args.pop(subagg)
+            for idx, val in enumerate(agg_values):
+                parent_child_qs.append(
+                    f"{agg}:{val}+{subagg}:{subagg_values[idx]}"
+                )
+
+    if parent_child_qs:
+        qs_values["f"].extend(parent_child_qs)
+
+    for arg, arg_v in args.items():
+        if arg in aggs.keys():
+            qs_values["f"].append(f"{arg}:{arg_v[0]}")
+        else:
+            qs_values[arg] = arg_v
+
+    return qs_values
 
 
 @blueprint.route('/ping', methods=['HEAD', 'GET'])
