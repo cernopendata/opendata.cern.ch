@@ -26,4 +26,15 @@
 
 const config = document.querySelector("#files-box-react-app").dataset;
 
+export const ITEMS_PER_PAGE = 5;
+
+export const RECORD_FILEPAGE_URL = (pid, page, type = null) =>
+  `/record/${pid}/filepage/${page}?${type ? `type=${type}` : "group=1"}`;
+
+export const INDEX_FILES_URL = (pid, indexFile) => {
+  if (indexFile.endsWith("index.txt")) {
+    const fileKey = indexFile.replace(".txt", ".json");
+    return `/record/${pid}/files/${fileKey}`;
+  }
+};
 export default config;

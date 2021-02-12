@@ -38,18 +38,10 @@ import {
 } from "semantic-ui-react";
 
 import { DownloadWarningModal } from "../components";
-import config from "../config";
+import config, { ITEMS_PER_PAGE, INDEX_FILES_URL } from "../config";
 import { toHumanReadableSize } from "../utils";
 
 import "./IndexFilesModal.scss";
-
-const INDEX_FILES_URL = (pid, indexFile) => {
-  if (indexFile.endsWith("index.txt")) {
-    const fileKey = indexFile.replace(".txt", ".json");
-    return `/record/${pid}/files/${fileKey}`;
-  }
-};
-const ITEMS_PER_PAGE = 5;
 
 export default function IndexFilesModal({ open, setOpen, indexFile }) {
   const [error, setError] = useState();

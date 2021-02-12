@@ -28,20 +28,17 @@ import React, { useEffect, useState } from "react";
 import { Pagination } from "semantic-ui-react";
 
 import { FileTable } from "./components";
-import config from "./config";
-
-const RECORD_FILEPAGE_URL = (pid, page, type = null) =>
-  `/record/${pid}/filepage/${page}?${type ? `type=${type}` : "group=1"}`;
-const ITEMS_PER_PAGE = 5;
+import config, { ITEMS_PER_PAGE, RECORD_FILEPAGE_URL } from "./config";
 
 const FilesBoxApp = () => {
   const [page, setPage] = useState(1);
   const [files, setFiles] = useState({});
   const [indexFiles, setIndexFiles] = useState({});
+  const { pidValue } = config;
 
   useEffect(() => {
     const type = getType();
-    fetch(RECORD_FILEPAGE_URL(config.pidValue, page, type))
+    fetch(RECORD_FILEPAGE_URL(pidValue, page, type))
       .then((response) => response.json())
       .then((data) => {
         if (type === "files") {
@@ -73,7 +70,7 @@ const FilesBoxApp = () => {
       {items.total > 0 && (
         <>
           <h3>{title}</h3>
-          <FileTable items={items} pidValue={config.pidValue} />
+          <FileTable items={items} pidValue={pidValue} />
         </>
       )}
       {items.total > ITEMS_PER_PAGE && (
