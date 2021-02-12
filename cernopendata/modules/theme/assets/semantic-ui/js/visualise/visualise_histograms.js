@@ -104,6 +104,10 @@ jQuery(function ($) {
     $('#backtohisto').show();
   });
 
+  function loadInitialHistogram() {
+    $('#parameter-button-row div button')[0].click();
+  }
+
   function loadFile(input) {
     //$('#filename').html(input.file.split('/').pop());
     // $('#filedropdown').button('loading');
@@ -125,18 +129,14 @@ jQuery(function ($) {
         // $('#filedropdown').button('reset');
         $('#filedropdown').html(input.name + ' ');
         $('#filedropdown').append('<span class="caret"></span>');
+        loadInitialHistogram();
       }
     );
   }
 
   // Load a file automatically...
-  loadFile(input_files[0]);
   //...and activate the first histogram
-  // Q: do we want to do this on every file load?
-
-  setTimeout(function () {
-    $('#parameter-button-row div button')[0].click();
-  }, 1000);
+  loadFile(input_files[0]);
 
   $.each(input_files, function (f) {
     $('#filelist').append(
@@ -254,7 +254,7 @@ jQuery(function ($) {
 
       var bininput = "<div class='ui action input'>";
       bininput +=
-        "<input type='number' min='1' name='binwidth' placeholder='Set bin width' style='width: 70%;'>";
+        "<input type='number' min='1' name='binwidth' placeholder='Set bin width'>";
       bininput +=
         "<button class='ui button binw " + parameter + "'>Set</button>";
       bininput += "</div>";

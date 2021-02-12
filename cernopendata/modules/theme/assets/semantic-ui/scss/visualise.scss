@@ -1,49 +1,71 @@
-#vis-histograms {
-  color: #606D75;
-}
+$histograms-dark-grey: #6c757d;
 
-#vis-histograms .previewer {
-  background-color: #f4f4f4;
-  border-radius: 4px;
-  margin-bottom: 35px;
-  color: #606D75;
-  margin-bottom: 20px;
-}
+.vis-histograms {
+  color: $histograms-dark-grey;
 
-#vis-histograms #flot-plots {
-  background-color: #fff;
-  margin-bottom: 15px;
-  min-height: 300px;
-  height: auto;
-  margin-right: 0;
-  margin-left: 0;
-}
+  .previewer {
+    border-radius: 4px;
+    color: $histograms-dark-grey;
+    margin-bottom: 20px;
+  }
 
-#vis-histograms #howto > div{
-  background-color: #f4f4f4;
-  border-radius: 4px;
-  pre {
-    overflow-y: hidden;
-    overflow-x: auto;
+  #flot-plots {
+    background-color: white;
+    margin-bottom: 15px;
+    min-height: 300px;
+    height: auto;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  #howto > div {
+    border-radius: 4px;
+    pre {
+      overflow-y: hidden;
+      overflow-x: auto;
+    }
+  }
+
+  .plot-control {
+    margin-left: 2em !important;
+  }
+
+  .ui.button {
+    padding: 0.8em;
+    margin: 0;
+    font-weight: 500;
+
+    &.toggle.active {
+      background-color: $histograms-dark-grey !important;
+    }
+
+    &.undoselect {
+      margin-left: 4em;
+    }
+  }
+
+  .ui.action.input {
+    margin-left: 1em;
+    max-width: 150px;
+  }
+
+  .ui.grid {
+    margin-top: 0rem;
+    .row {
+      padding-left: 1rem;
+    }
+  }
+
+  .ui.selection.dropdown {
+    background-color: $histograms-dark-grey;
+    .text {
+      color: white !important;
+    }
   }
 }
 
-#vis-histograms .ui.button.toggle.active {
-  background-color: #545b62 !important;
-}
-
-#vis-histograms .ui.grid {
-  margin-top: 0rem;
-  .row {
-    padding-left: 1rem;
-  }
-}
-
-#vis-histograms .ui.selection.dropdown {
-  background-color: #6c757d;
-  .text {
-    color: #ffffff;
-  }
+#parameter-button-row .item {
+  margin-left: 0.5em;
 }
 
 .xlabel {
