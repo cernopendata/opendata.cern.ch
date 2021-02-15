@@ -7,18 +7,18 @@ CERN Open Data Portal will take all reasonable measures to protect the privacy o
 If you have any questions about the CERN Open Data Portal privacy policy, please contact [opendata-support@cern.ch](mailto:opendata-support@cern.ch)
 
 ### CERN Privacy Notice PN00913
-#
+
 #### How is your data used
 
 Each service at CERN is responsible for compiling its own Privacy Notice regarding the data it processes.
 
 This Privacy Notice is part of [CERN’s Layered Privacy Notice](https://cern.service-now.com/service-portal?id=layered_privacy_notice) and details the processing that is unique to CERN Open Data Portal. It does not address processing by other services on which this service may rely and which have their own Privacy Notice.
-#
+
 #### Personal Data we process
 
 The personal data we have, and how it's used:
 
-<table class="table">
+<table class="ui table">
   <thead>
     <tr>
       <th>Personal Data</th>
@@ -45,12 +45,11 @@ The personal data we have, and how it's used:
 -    **Consent:** By having received and recorded consent from the individual.
 -    **Legitimate interest of CERN:** In the legitimate interests of CERN supporting the professional activities of the individual or their security and safety.
 
-#
 #### Personal Data we keep
 
 The personal data we store, for how long and why:
 
-<table class="table">
+<table class="ui table">
   <thead>
     <tr>
       <th>Personal Data</th>
@@ -67,12 +66,11 @@ The personal data we store, for how long and why:
   </tbody>
 </table>
 
-#
 #### Who at CERN has access
 
 In addition to yourself, personal data collected by CERN Open Data is accessible by the following services, teams or individuals at CERN:
 
-<table class="table">
+<table class="ui table">
   <thead>
     <tr>
       <th>Personal Data</th>
@@ -89,7 +87,6 @@ In addition to yourself, personal data collected by CERN Open Data is accessible
   </tbody>
 </table>
 
-#
 For more detailed information about personal data and privacy please refer to the [Data Privacy web site](https://privacy.web.cern.ch/).
 
 For questions regarding this Privacy Notice, please contact [opendata-support@cern.ch](mailto:opendata-support@cern.ch).
