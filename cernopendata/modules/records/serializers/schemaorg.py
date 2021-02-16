@@ -23,6 +23,7 @@
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 """CERN Opendata schema.org JSON-LD serializer."""
 
+import json
 
 from invenio_records_rest.serializers.json import JSONSerializer
 
@@ -30,7 +31,24 @@ from cernopendata.modules.records.serializers.schemas \
     import schemaorg_schemas as schemas
 
 
-class CODSchemaorgSerializer(JSONSerializer):
+class BasicJSONSerializer(JSONSerializer):
+    """Basic JSON serializer."""
+
+    def serialize(self, pid, record, links_factory=None, **kwargs):
+        """Serialize a single record and persistent identifier.
+
+        :param pid: Persistent identifier instance.
+        :param record: Record instance.
+        :param links_factory: Factory function for record links.
+        """
+        return json.dumps(
+            self.transform_record(pid, record, links_factory, **kwargs),
+            indent=2,
+            separators=(", ", ": "),
+        )
+
+
+class CODSchemaorgSerializer(BasicJSONSerializer):
     """CERN Open Data schema.org serializer.
 
     Serializes a Record based on it's type (Dataset, Software, etc.) to

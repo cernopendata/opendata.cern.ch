@@ -34,29 +34,29 @@ class RecordSchemaorgSchema(Schema):
     """schema.org JSON-LD schema for CERN Opendata Record."""
 
     # JSON-LD minimum requirements
-    context_ = fields.Field(default='https://schema.org/', dump_to='@context')
-    id_ = fields.Method('get_identifier', dump_to='@id')
+    context_ = fields.Field(default='https://schema.org/', data_key='@context')
+    id_ = fields.Method('get_identifier', data_key='@id')
 
     # Minimum functional
-    type_ = fields.Method('get_type', dump_to='@type')
-    name = fields.Str(attribute='title', dump_to='name')
-    description = fields.Method('get_description', dump_to='description')
-    identifier = fields.Method('get_identifier', dump_to='identifier')
-    url = fields.Method('get_url', dump_to='url')
-    creator = fields.Method('get_creator', dump_to='creator')
-    date_created = fields.Method('get_date_created', dump_to='dateCreated')
+    type_ = fields.Method('get_type', data_key='@type')
+    name = fields.Str(attribute='title', data_key='name')
+    description = fields.Method('get_description', data_key='description')
+    identifier = fields.Method('get_identifier', data_key='identifier')
+    url = fields.Method('get_url', data_key='url')
+    creator = fields.Method('get_creator', data_key='creator')
+    date_created = fields.Method('get_date_created', data_key='dateCreated')
     date_published = fields.Str(attribute='date_published',
-                                dump_to='datePublished')
-    publisher = fields.Method('get_publisher', dump_to='publisher')
+                                data_key='datePublished')
+    publisher = fields.Method('get_publisher', data_key='publisher')
 
     # Minimum operational
-    # license = fields.Str('license', dump_to='license')
-    # data_standard = fields.Str('dataStandard', dump_to='dataStandard')
-    # date_modified = fields.Str('dateModified', dump_to='dateModified')
-    # structure = fields.Str('structure', dump_to='structure')
-    # access_url = fields.Str('accessUrl', dump_to='accessUrl')
+    # license = fields.Str('license', data_key='license')
+    # data_standard = fields.Str('dataStandard', data_key='dataStandard')
+    # date_modified = fields.Str('dateModified', data_key='dateModified')
+    # structure = fields.Str('structure', data_key='structure')
+    # access_url = fields.Str('accessUrl', data_key='accessUrl')
     # access_interface = fields.str('accessInterface',
-    #                              dump_to='accessInterface')
+    #                              data_key='accessInterface')
 
     def get_creator(self, obj):
         """Get creator(s) based on authors or collaboration field."""
