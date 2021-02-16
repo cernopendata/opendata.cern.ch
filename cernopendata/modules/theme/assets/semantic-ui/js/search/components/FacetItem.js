@@ -24,13 +24,39 @@
  * as an Intergovernmental Organization or submit itself to any jurisdiction.
  */
 
-import { createSearchAppInit } from "@js/invenio_search_ui";
-import { CODLayoutSwitcher, ResultsCount, CODFacetItem } from "./components";
+import React from "react";
+import { List, Checkbox } from "semantic-ui-react";
 
-const initSearchApp = createSearchAppInit({
-  "LayoutSwitcher.element": CODLayoutSwitcher,
-  "ResultsGrid.container": null,
-  "Count.element": ResultsCount,
-  "SearchApp.searchbarContainer": () => null,
-  "BucketAggregationValues.element": CODFacetItem,
-});
+const CODFacetItem = (props) => {
+  const {
+    bucket,
+    isSelected,
+    onFilterClicked,
+    getChildAggCmps,
+    keyField,
+  } = props;
+  const label = bucket.label ? (
+    bucket.label
+  ) : (
+    <label>
+      {keyField}{" "}
+      <span className="facet-item-count">
+        ({bucket.doc_count.toLocaleString("en-US")})
+      </span>
+    </label>
+  );
+  const childAggCmps = getChildAggCmps(bucket);
+  return (
+    <List.Item key={bucket.key}>
+      <Checkbox
+        label={label}
+        value={bucket.key}
+        onClick={() => onFilterClicked(bucket.key)}
+        checked={isSelected}
+      />
+      {childAggCmps}
+    </List.Item>
+  );
+};
+
+export default CODFacetItem;

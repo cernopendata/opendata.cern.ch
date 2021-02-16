@@ -1,7 +1,28 @@
-.content {
-  .header {
-    font-size: 1.2em !important;
+@import "variables";
+
+.ui.items > .item > .content > .header:not(.ui) {
+  font-size: 1.2em;
+}
+
+.ui.card {
+  .content {
+    padding: 10px 15px;
+
+    .header:not(.ui) {
+      font-size: 0.9em;
+      margin: 0;
+    }
   }
+}
+
+.item {
+  .ui.list {
+    padding-left: 1.2em;
+  }
+}
+
+.facet-item-count {
+  color: $dark-grey;
 }
 
 .results-item {
@@ -14,15 +35,15 @@
   margin-top: 20px;
 }
 
-.four.wide.column {
-  margin-top: -70px !important;
+.row > .four.wide.column {
+  margin-top: -70px;
 }
 
 .center.aligned.eight.wide.column {
   margin-left: -130px;
 }
 
-.right.aligned.four.wide.column {
-  margin-top: 0px !important;
+.row > .right.aligned.four.wide.column {
+  margin-top: 0px;
   margin-left: 60px;
 }
