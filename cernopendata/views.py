@@ -27,6 +27,8 @@
 from flask import Blueprint, current_app, redirect, request, url_for
 from invenio_search_ui.views import search as invenio_search_view
 
+from cernopendata.config import FACET_HIERARCHY
+
 blueprint = Blueprint(
     'cernopendata',
     __name__,
@@ -72,17 +74,28 @@ def translate_search_url(args, facets):
             for subagg in agg_value["aggs"].keys():
                 subagg_agg_mapping[subagg] = agg
 
-    qs_values = {"f": []}
     parent_child_qs = []
     for subagg, agg in subagg_agg_mapping.items():
         if subagg in args:
             agg_values = args.pop(agg)
             subagg_values = args.pop(subagg)
-            for idx, val in enumerate(agg_values):
-                parent_child_qs.append(
-                    f"{agg}:{val}+{subagg}:{subagg_values[idx]}"
-                )
+            for agg_v in agg_values:
+                matching_subaggs = [
+                    subagg_v
+                    for subagg_v in FACET_HIERARCHY[agg]
+                    .get(agg_v, {})
+                    .get(subagg, {})
+                    .intersection(set(subagg_values))
+                ]
+                if matching_subaggs:
+                    for subagg_v in matching_subaggs:
+                        parent_child_qs.append(
+                            f"{agg}:{agg_v}+{subagg}:{subagg_v}"
+                        )
+                else:
+                    parent_child_qs.append(f"{agg}:{agg_v}")
 
+    qs_values = {"f": []}
     if parent_child_qs:
         qs_values["f"].extend(parent_child_qs)
 
@@ -91,7 +104,6 @@ def translate_search_url(args, facets):
             qs_values["f"].append(f"{arg}:{arg_v[0]}")
         else:
             qs_values[arg] = arg_v
-
     return qs_values
 
 

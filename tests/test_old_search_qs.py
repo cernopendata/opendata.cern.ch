@@ -31,28 +31,60 @@ from cernopendata.views import translate_search_url
 @pytest.mark.parametrize(
     "old_qs_args,new_qs_args",
     [
-        ({'type': ['foo']}, {'f': ['type:foo']}),
+        ({"type": ["Documentation"]}, {"f": ["type:Documentation"]}),
         (
-            {'type': ['foo'], 'category': ['bar']},
-            {'f': ['type:foo', 'category:bar']}
+            {"type": ["Environment"], "category": ["Exotica"]},
+            {"f": ["type:Environment", "category:Exotica"]},
         ),
         (
-            {'type': ['foo'], 'subtype': ['bar']},
-            {'f': ['type:foo+subtype:bar']}
+            {"type": ["Dataset"], "subtype": ["Derived"]},
+            {"f": ["type:Dataset+subtype:Derived"]},
         ),
         (
-            {'type': ['foo_a', 'foo_b'], 'subtype': ['bar_a', 'bar_b']},
-            {'f': ['type:foo_a+subtype:bar_a', 'type:foo_b+subtype:bar_b' ]}
+            {"type": ["Dataset", "Documentation"], "subtype": ["Simulated", "Guide"]},
+            {
+                "f": [
+                    "type:Dataset+subtype:Simulated",
+                    "type:Documentation+subtype:Guide",
+                ]
+            },
         ),
         (
-            {'type': ['foo'], 'subtype': ['bar'], 'experiment': ['CMS']},
-            {'f': ['type:foo+subtype:bar', 'experiment:CMS']}
+            {
+                "type": ["Dataset", "Documentation"],
+                "subtype": ["Help", "Simulated", "Guide"],
+            },
+            {
+                "f": [
+                    "type:Dataset+subtype:Simulated",
+                    "type:Documentation+subtype:Guide",
+                    "type:Documentation+subtype:Help",
+                ]
+            },
         ),
-        ({'q': ['foo']}, {'q': ['foo'], 'f': []}),
-        ({'q': ['foo'], 'type': ['bar']}, {'q': ['foo'], 'f': ['type:bar']}),
-
-    ]
+        (
+            {"type": ["Dataset", "Documentation"], "subtype": ["Help", "Guide"]},
+            {
+                "f": [
+                    "type:Dataset",
+                    "type:Documentation+subtype:Guide",
+                    "type:Documentation+subtype:Help",
+                ]
+            },
+        ),
+        (
+            {"type": ["Environment"], "subtype": ["VM"], "experiment": ["CMS"]},
+            {"f": ["type:Environment+subtype:VM", "experiment:CMS"]},
+        ),
+        ({"q": ["foo"]}, {"q": ["foo"], "f": []}),
+        ({"foo": ["bar", "baz"]}, {"foo": ["bar", "baz"], "f": []}),
+        ({"q": ["foo"], "type": ["Software"]}, {"q": ["foo"], "f": ["type:Software"]}),
+    ],
 )
 def test_old_search_qs(old_qs_args, new_qs_args):
     """Test translation from old search querystring args to new ones."""
-    assert translate_search_url(old_qs_args, RECORDS_REST_FACETS) == new_qs_args
+    translated_qs = translate_search_url(old_qs_args, RECORDS_REST_FACETS)
+    # compare facets no matter the order
+    assert set(translated_qs.pop('f')) == set(new_qs_args.pop('f'))
+    # compare rest of query params
+    assert translated_qs == new_qs_args
