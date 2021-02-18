@@ -5,9 +5,9 @@
             "type": "text",
             "analyzer": "title_analyzer",
             "fields": {
-            "exact": {
-                "type": "keyword"
-            }
+              "exact": {
+                  "type": "keyword"
+              }
             }
         }
       }
@@ -16,7 +16,7 @@
         "analysis": {
           "analyzer": {
             "title_analyzer": {
-              "tokenizer": "keyword",
+              "tokenizer": "pattern",
               "filter": [
                 "title_filter"
               ]
