@@ -279,7 +279,7 @@ RECORDS_REST_SORT_OPTIONS = {
             default_order='asc',
             order=2,
         ),
-        'title': dict(fields=['title.keyword'],
+        'title': dict(fields=['title.exact'],
                       title='Title A-Z',
                       default_order='asc',
                       order=1)
