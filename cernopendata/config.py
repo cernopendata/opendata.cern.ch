@@ -312,41 +312,41 @@ RECORDS_REST_FACETS = {
         'aggs': dict(
             experiment=dict(terms=dict(
                 field='experiment.keyword',
-                order=dict(_term='asc'))),
+                order=dict(_key='asc'))),
             type=dict(terms=dict(
                 field='type.primary.keyword',
-                order=dict(_term='asc')),
+                order=dict(_key='asc')),
                 aggs=dict(subtype=dict(terms=dict(
                           field="type.secondary.keyword",
-                          order=dict(_term='asc'))))),
+                          order=dict(_key='asc'))))),
             file_type=dict(terms=dict(
                 field='distribution.formats.keyword',
                 size=50,
-                order=dict(_term='asc'))),
+                order=dict(_key='asc'))),
             year=dict(terms=dict(
                 field='date_created.keyword',
-                order=dict(_term='asc'))),
+                order=dict(_key='asc'))),
             keywords=dict(terms=dict(
                 field='keywords.keyword',
-                order=dict(_term='asc'))),
+                order=dict(_key='asc'))),
             collision_type=dict(terms=dict(
                 field='collision_information.type.keyword',
-                order=dict(_term='asc'))),
+                order=dict(_key='asc'))),
             collision_energy=dict(terms=dict(
                 field='collision_information.energy.keyword',
-                order=dict(_term='asc'))),
+                order=dict(_key='asc'))),
             category=dict(terms=dict(
                 field='categories.primary.keyword',
-                order=dict(_term='asc')),
+                order=dict(_key='asc')),
                 aggs=dict(subcategory=dict(terms=dict(
                           field="categories.secondary.keyword",
-                          order=dict(_term='asc'))))),
+                          order=dict(_key='asc'))))),
             availability=dict(terms=dict(
                 field='distribution.availability.keyword',
-                order=dict(_term='asc'))),
+                order=dict(_key='asc'))),
             signature=dict(terms=dict(
                 field='signature.keyword',
-                order=dict(_term='asc'))),
+                order=dict(_key='asc'))),
             event_number={
                 'range': {
                     'field': 'distribution.number_events',
