@@ -76,6 +76,10 @@ from cernopendata.views import translate_search_url
             {"type": ["Environment"], "subtype": ["VM"], "experiment": ["CMS"]},
             {"f": ["type:Environment+subtype:VM", "experiment:CMS"]},
         ),
+        (
+            {"experiment": ["CMS", "ATLAS"]},
+            {"f": ["experiment:CMS", "experiment:ATLAS"]},
+        ),
         ({"q": ["foo"]}, {"q": ["foo"], "f": []}),
         ({"foo": ["bar", "baz"]}, {"foo": ["bar", "baz"], "f": []}),
         ({"q": ["foo"], "type": ["Software"]}, {"q": ["foo"], "f": ["type:Software"]}),
