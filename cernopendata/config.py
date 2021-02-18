@@ -91,6 +91,9 @@ APP_DEFAULT_SECURE_HEADERS = {
     'session_cookie_http_only': True
 }
 
+SESSION_COOKIE_SECURE = not DEBUG
+SESSION_COOKIE_SAMESITE = "Lax"
+
 # Assets
 # ======
 #: Default application theme.
