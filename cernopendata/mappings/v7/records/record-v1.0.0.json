@@ -9,9 +9,61 @@
             "analyzer": "title_analyzer",
             "fields": {
               "exact": {
-                  "type": "keyword"
+                "type": "keyword"
               }
             }
+        },
+        "authors": {
+          "properties": {
+            "affiliation": {
+              "type": "text",
+              "fields": {
+                "exact": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "rorid": {
+              "type": "text",
+              "fields": {
+                "exact": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "ccid": {
+              "type": "text",
+              "fields": {
+                "exact": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "inspireid": {
+              "type": "text",
+              "fields": {
+                "exact": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "orcid": {
+              "type": "text",
+              "fields": {
+                "exact": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "name": {
+              "type": "text",
+              "fields": {
+                "exact": {
+                  "type": "keyword"
+                }
+              }
+            }
+          }
         }
       }
     },
