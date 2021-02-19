@@ -33,10 +33,15 @@
 
 .result-options {
   margin-top: 20px;
+  min-height: 75px;
 }
 
-.row > .four.wide.column {
+.ui.grid.relaxed > .row:not(.result-options) > .four.wide.column {
   margin-top: -70px;
+}
+
+.footer {
+  margin-top: 1em;
 }
 
 .center.aligned.eight.wide.column {
