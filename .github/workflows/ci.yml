@@ -49,7 +49,8 @@ jobs:
 
       - name: Check compliance with Python coding style conventions
         run: |
-          pip install --upgrade pip
+          pip install --upgrade "pip<20.3"
+          pip install --upgrade "setuptools<=44.0.0"
           pip install pycodestyle
           ./run-tests.sh --check-pycodestyle
 
@@ -66,7 +67,8 @@ jobs:
 
       - name: Check compliance with Python docstring conventions
         run: |
-          pip install --upgrade pip
+          pip install --upgrade "pip<20.3"
+          pip install --upgrade "setuptools<=44.0.0"
           pip install pydocstyle
           ./run-tests.sh --check-pydocstyle
 
@@ -83,7 +85,8 @@ jobs:
 
       - name: Check Python manifest completeness
         run: |
-          pip install --upgrade pip
+          pip install --upgrade "pip<20.3"
+          pip install --upgrade "setuptools<=44.0.0"
           pip install check-manifest
           ./run-tests.sh --check-manifest
 
@@ -117,7 +120,8 @@ jobs:
 
       - name: Check isort
         run: |
-          pip install --upgrade pip
+          pip install --upgrade "pip<20.3"
+          pip install --upgrade "setuptools<=44.0.0"
           pip install isort
           ./run-tests.sh --check-isort
 
