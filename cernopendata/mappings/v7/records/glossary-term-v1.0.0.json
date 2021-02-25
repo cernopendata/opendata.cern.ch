@@ -4,8 +4,22 @@
       "id": {
         "type": "text"
       },
+      "anchor": {
+        "type": "text",
+        "copy_to": "title",
+        "fields": {
+          "exact": {
+            "type": "keyword"
+          }
+        }
+      },
       "title": {
-        "type": "text"
+        "type": "text",
+        "fields": {
+          "exact": {
+            "type": "keyword"
+          }
+        }
       }
     }
   }
