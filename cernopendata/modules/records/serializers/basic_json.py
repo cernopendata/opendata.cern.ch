@@ -33,7 +33,12 @@ from invenio_records_rest.serializers.json import JSONSerializer
 class BasicJSONSerializer(JSONSerializer):
     """Basic JSON serializer."""
 
-    pass
+    # We need to override `dump()` as invenio-records-rest attempts to
+    # return `.data` which it doesn't exists in Marshmallow v3.
+    # (https://github.com/inveniosoftware/invenio-records-rest/blob/c4a3717afcf9b08b6e42f3529addecc64bb2e47c/invenio_records_rest/serializers/marshmallow.py#L28)
+    def dump(self, obj, context=None):
+        """Serialize object with schema."""
+        return self.schema_class(context=context).dump(obj)
 
 
 def dump_files(obj):
@@ -74,7 +79,11 @@ class RecordSchemaV1(Schema):
 
     def dump_metadata(self, obj):
         """Dumps metadata - removes '_files'."""
-        del obj['metadata']["_files"]
+        if "_files" in obj['metadata']:
+            del obj['metadata']["_files"]
+
+        if "_bucket" in obj['metadata']:
+            del obj['metadata']["_bucket"]
 
         _files = dump_files(obj)
         obj['metadata']['files'] = _files[0]
