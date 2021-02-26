@@ -1,5 +1,27 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { Label } from "semantic-ui-react";
+
+const ExperimentLabel = ({ name, withKey }) => {
+  return (
+    <Label
+      className="tiny navy"
+      href={`/search?f=experiment:${name}`}
+      {...(withKey && { key: name })}
+    >
+      {name}
+    </Label>
+  );
+};
+
+ExperimentLabel.propTypes = {
+  name: PropTypes.string.isRequired,
+  withKey: PropTypes.bool,
+};
+
+ExperimentLabel.defaultProps = {
+  withKey: false,
+};
 
 const ListItemLabels = ({ metadata }) => {
   return (
@@ -44,14 +66,14 @@ const ListItemLabels = ({ metadata }) => {
             {tag}
           </Label>
         ))}
-      {metadata.experiment && (
-        <Label
-          className="tiny navy"
-          href={`/search?f=experiment:${metadata.experiment}`}
-        >
-          {metadata.experiment}
-        </Label>
-      )}
+      {metadata.experiment &&
+        (Array.isArray(metadata.experiment) ? (
+          metadata.experiment.map(({ name }) => (
+            <ExperimentLabel name={name} key={name} withKey />
+          ))
+        ) : (
+          <ExperimentLabel name={metadata.experiment} />
+        ))}
     </>
   );
 };
