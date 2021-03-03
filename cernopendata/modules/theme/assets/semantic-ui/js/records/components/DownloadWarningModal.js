@@ -63,7 +63,7 @@ export default function DownloadWarningModal({
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={() => setOpen(false)}>Cancel</Button>
-        <Button href={uri} positive>
+        <Button href={uri} onClick={() => setOpen(false)} positive>
           Download
         </Button>
       </Modal.Actions>
