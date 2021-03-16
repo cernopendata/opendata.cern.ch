@@ -279,10 +279,10 @@ RECORDS_REST_SORT_OPTIONS = {
             order=1,
         ),
         'mostrecent': dict(
-            fields=['-_created'],
+            fields=['recid'],
             title='Most recent',
-            default_order='asc',
-            order=2,
+            default_order='desc',
+            order=1,
         ),
         'title': dict(fields=['title.exact'],
                       title='Title A-Z',
