@@ -1,0 +1,114 @@
+[
+  {
+    "abstract": {
+      "description": "This dataset includes simulated Z->ee+2jets and ZZ->4e events using the MadGraph event generator, showered with Pythia. A detailed description can be found in the PUB Note linked below. The dataset is composed of CSV files, one per event, where each row in the CSV file represents the relevant information to one hardware channel. See the table below for the column definitions and attached example Python code for reading a single file."
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "ATLAS collaboration"
+    },
+    "collections": [
+      "ATLAS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Unique hardware ID based on a bit mask that can be used to select specific detector components. To select subdetector channels use these cuts: Pixel&lt;5e17&lt;SCT&lt;3e18&lt;LAr&lt;4.8e18&lt;Tile.",
+        "type": "unsigned 64-bit integer",
+        "variable": "hwid"
+      },
+      {
+        "description": "Unique incremental index for each point that orders the detector channels into a one-dimensional vector.",
+        "type": "unsigned 32-bit integer",
+        "variable": "idx"
+      },
+      {
+        "description": "Central position of the active detector material corresponding to the readout channel in the ATLAS right-handed coordinate system.",
+        "type": "32-bit float",
+        "variable": "[x, y, z] and [r, eta, phi]"
+      },
+      {
+        "description": "A value that represents the detector channel readout, which corresponding to ToT (Time over Threshold) in case of the Pixel detector, the number of consecutive strips recording a hit in case of the SCT, and the digitized energy deposition in GeV (from CaloCell object) in case of the HAD/EMcalorimeter.",
+        "type": "32-bit float",
+        "variable": "raw"
+      },
+      {
+        "description": "Truth label of the object, electrons are labelled as 11, positrons as -11, jets as 0, and background as -99.",
+        "type": "32-bit integer",
+        "variable": "pid"
+      },
+      {
+        "description": "Unique index of the truth object, e.g. if there are two electrons in the event, detector inputs will be assigned to the first (0) or second (1) electron.",
+        "type": "32-bit integer",
+        "variable": "n"
+      },
+      {
+        "description": "Truth object η, φ, and pT (in GeV), taken from reconstructed jets and leptons in the hard process as described above.",
+        "type": "32-bit float",
+        "variable": "truth_eta, truth_phi, truth_pt"
+      },
+      {
+        "description": "Good track flag, set to 1 if this detector input was associated with a reconstructed track and is a candidate of the truth object, otherwise is 0 if the reconstructed track was not associated with a truth object.",
+        "type": "32-bit float",
+        "variable": "trk_good"
+      },
+      {
+        "description": "If point was included in a reconstructed track this is a unique index of the track and set to 0 otherwise. Therefore, all detector channels associated with the same reconstructed track will have the same barcode index.",
+        "type": "32-bit float",
+        "variable": "trk_barcode"
+      },
+      {
+        "description": "Transverse momentum in MeV of the reconstructed track.",
+        "type": "32-bit float",
+        "variable": "trk_pt"
+      }
+    ],
+    "date_published": "2021",
+    "distribution": {
+      "formats": [
+        "csv",
+        "gz",
+        "py",
+        "tar",
+        "tgz"
+      ],
+      "number_events": 119545,
+      "number_files": 2,
+      "size": 9574310938
+    },
+    "doi": "10.7483/OPENDATA.ATLAS.53PM.J6PS",
+    "experiment": "ATLAS",
+    "files": [
+      {
+        "checksum": "adler32:140444ad",
+        "size": 1106,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/ATL-PHYS-PUB-2021-002/read_example.py"
+      },
+      {
+        "checksum": "adler32:012176e0",
+        "size": 9574309832,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/ATL-PHYS-PUB-2021-002/z2e2j_zz4e_csv_data.tgz"
+      }
+    ],
+    "keywords": [
+      "datascience"
+    ],
+    "links": [
+      {
+        "description": "ATLAS publication note ATL-PHYS-PUB-2021-002",
+        "url": "http://cds.cern.ch/record/2753414/files/ATL-PHYS-PUB-2021-002.pdf"
+      }
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "15009",
+    "title": "Simulated low-level channel readout for Z->ee+jets decays in the ATLAS detector",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": "The attached example Python code can be used to load the CSV files into a Pandas DataFrame object for processing in popular machine learning frameworks like Tensorflow or PyTorch."
+    }
+  }
+]

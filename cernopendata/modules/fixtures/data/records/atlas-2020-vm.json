@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": "<p> This Virtual Machine (VM) allows you to obtain a computer environment that emulates a data analysis environment as those used by particle physicists.\n      The VM contains ROOT as base software, Python and Jupyter notebook for data analysis.</p> "
+      "description": "<p>This Virtual Machine (VM) allows you to obtain a computer environment that emulates a data analysis environment as those used by particle physicists.\n The VM contains ROOT as base software, Python and Jupyter notebook and multiple dependencies for data analysis.</p> "
     },
     "accelerator": "CERN-LHC",
     "collaboration": {
@@ -46,13 +46,17 @@
       "description": "More documentation is available at: ",
       "links": [
         {
-          "description": "Virtual Machine Docs",
+          "description": "Virtual Machine Docs and Tutorial",
           "url": "http://opendata.atlas.cern/release/2020/documentation/vm/vm.html"
+        },
+        {
+          "description": "The ATLAS Open Data site",
+          "url": "http://opendata.atlas.cern/"
         }
       ]
     },
     "use_with": {
-      "description": "Use this with ATLAS 13 TeV Data and MC Data for 2020 open data release (also recommended for the 8 TeV samples from 2016)"
+      "description": "Use this with ATLAS 13 TeV Data and MC Data for 2020 open data release (also recommended for the 8 TeV samples and examples from 2016)"
     }
   }
 ]
