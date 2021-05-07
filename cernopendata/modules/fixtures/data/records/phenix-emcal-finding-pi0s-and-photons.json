@@ -1,0 +1,263 @@
+[
+  {
+    "abstract": {
+      "description": "This record contains datasets from the Electromagnetic Calorimeter (EMCal) of the PHENIX detector. It aims to present a few basic techniques of identifying π0-s and photons using that device. The data is provided in the form of ROOT files containing small samples (Ntuples) of reconstructed p+Au data taken with the PHENIX detector in 2015 at √sNN=200 GeV. The Gamma-Gamma Ntuples (ggntuple) and Single Cluster Ntuples (gnt) are provided. Both minimum bias and EMCal-triggered data are included. <em>These samples were created for educational and training purposes only and are not at all usable for deriving any real physics results.</em> An example code working with the data is attached as ROOT macros. A detailed guide is also provided."
+    },
+    "accelerator": "BNL-RHIC",
+    "authors": [
+      {
+        "name": "David, Gabor",
+        "orcid": "0000-0003-4958-1347"
+      },
+      {
+        "name": "Potekhin, Maxim",
+        "orcid": "0000-0003-1811-7971"
+      }
+    ],
+    "collaboration": {
+      "name": "PHENIX collaboration"
+    },
+    "collections": [
+      "PHENIX-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Event centrality",
+        "type": "float",
+        "variable": "cent"
+      },
+      {
+        "description": "z-vertex of the event",
+        "type": "float",
+        "variable": "vtxZ"
+      },
+      {
+        "description": "Transverse momentum of cluster pair (π0 candidate) for ggntuple; Transverse momentum of the cluster (γ-candidate) for gnt",
+        "type": "float",
+        "variable": "pt"
+      },
+      {
+        "description": "cos of the opening angle between the two clusters for ggntuple; Polar angle of the cluster (γ-candidate) for gnt",
+        "type": "float",
+        "variable": "costheta"
+      },
+      {
+        "description": "Azimuthal angle of the direction of the pair momentum (assumed π0) for ggntuple; Azimuthal angle of the cluster (γ-candidate) for gnt",
+        "type": "float",
+        "variable": "phi"
+      },
+      {
+        "description": "Invariant mass calculated from the two clusters (energy and position)",
+        "type": "float",
+        "variable": "mass"
+      },
+      {
+        "description": "Energy asymmetry (|E1−E2|/(E1+E2)) of the two clusters",
+        "type": "float",
+        "variable": "asym"
+      },
+      {
+        "description": "EMCal sector where the first cluster is",
+        "type": "float",
+        "variable": "sec1"
+      },
+      {
+        "description": "“Core” energy of the first cluster",
+        "type": "float",
+        "variable": "Ecore1"
+      },
+      {
+        "description": "Time-of-flight of the first cluster",
+        "type": "float",
+        "variable": "tof1"
+      },
+      {
+        "description": "Number of towers in the first cluster",
+        "type": "float",
+        "variable": "twrhit1"
+      },
+      {
+        "description": "Probability that the first cluster is a photon (based on χ2)",
+        "type": "float",
+        "variable": "prob1"
+      },
+      {
+        "description": "χ2 from expected photon shape for the first cluster",
+        "type": "float",
+        "variable": "chisq1"
+      },
+      {
+        "description": "Combined variable to describe “photonness” of first cluster",
+        "type": "float",
+        "variable": "stoch1"
+      },
+      {
+        "description": "EMCal sector where the second cluster is",
+        "type": "float",
+        "variable": "sec2"
+      },
+      {
+        "description": "“Core” energy of the second cluster",
+        "type": "float",
+        "variable": "Ecore2"
+      },
+      {
+        "description": "Time-of-flight of the second cluster",
+        "type": "float",
+        "variable": "tof2"
+      },
+      {
+        "description": "Number of towers in the second cluster",
+        "type": "float",
+        "variable": "twrhit2"
+      },
+      {
+        "description": "Probability that the second cluster is a photon (based on χ2)",
+        "type": "float",
+        "variable": "prob2"
+      },
+      {
+        "description": "χ2 from expected photon shape for the second cluster",
+        "type": "float",
+        "variable": "chisq2"
+      },
+      {
+        "description": "Combined variable to describe “photonness” of second cluster",
+        "type": "float",
+        "variable": "stoch2"
+      },
+      {
+        "description": "EMCal sector of the cluster (γ-candidate)",
+        "type": "float",
+        "variable": "sec"
+      },
+      {
+        "description": "“Core” energy of the cluster (γ-candidate)",
+        "type": "float",
+        "variable": "ecore"
+      },
+      {
+        "description": "Energy in the central tower of the cluster (γ-candidate)",
+        "type": "float",
+        "variable": "ecent"
+      },
+      {
+        "description": "Time-of-flight in the central tower of the cluster (γ-candidate)",
+        "type": "float",
+        "variable": "tof"
+      },
+      {
+        "description": "Probability that the cluster is a photon (based on χ2)",
+        "type": "float",
+        "variable": "prob"
+      },
+      {
+        "description": "Dispersion of the cluster (γ-candidate)",
+        "type": "float",
+        "variable": "disp"
+      },
+      {
+        "description": "χ2 from expected photon shape of the cluster (γ-candidate)",
+        "type": "float",
+        "variable": "chisq"
+      },
+      {
+        "description": "Number of towers in the cluster (γ-candidate)",
+        "type": "float",
+        "variable": "twrhit"
+      },
+      {
+        "description": "Combined variable to describe “photonness” of the cluster (γ-candidate)",
+        "type": "float",
+        "variable": "stoch"
+      },
+      {
+        "description": "x-position of impact point on the EMCal surface",
+        "type": "float",
+        "variable": "x"
+      },
+      {
+        "description": "y-position of impact point on the EMCal surface",
+        "type": "float",
+        "variable": "y"
+      },
+      {
+        "description": "z-position of impact point on the EMCal surface",
+        "type": "float",
+        "variable": "z"
+      }
+    ],
+    "date_published": "2021",
+    "distribution": {
+      "formats": [
+        "C",
+        "pdf",
+        "root"
+      ],
+      "number_events": 1255308,
+      "number_files": 9,
+      "size": 73681875
+    },
+    "doi": "10.7483/OPENDATA.PHENIX.70SC.C9E7",
+    "experiment": "PHENIX",
+    "files": [
+      {
+        "checksum": "adler32:6208378e",
+        "size": 9753195,
+        "uri": "root://eospublic.cern.ch//eos/opendata/phenix/emcal-finding-pi0s-and-photons/ERTntup_ggntuple.root"
+      },
+      {
+        "checksum": "adler32:a675aed0",
+        "size": 4286641,
+        "uri": "root://eospublic.cern.ch//eos/opendata/phenix/emcal-finding-pi0s-and-photons/ERTntup_gnt.root"
+      },
+      {
+        "checksum": "adler32:0fe91daf",
+        "size": 44108400,
+        "uri": "root://eospublic.cern.ch//eos/opendata/phenix/emcal-finding-pi0s-and-photons/MBntup_ggntuple.root"
+      },
+      {
+        "checksum": "adler32:07e75653",
+        "size": 15122023,
+        "uri": "root://eospublic.cern.ch//eos/opendata/phenix/emcal-finding-pi0s-and-photons/MBntup_gnt.root"
+      },
+      {
+        "checksum": "adler32:0a7f6d71",
+        "size": 3951,
+        "uri": "root://eospublic.cern.ch//eos/opendata/phenix/emcal-finding-pi0s-and-photons/gamma_gamma_r5.C"
+      },
+      {
+        "checksum": "adler32:8d154064",
+        "size": 4634,
+        "uri": "root://eospublic.cern.ch//eos/opendata/phenix/emcal-finding-pi0s-and-photons/gamma_gamma_r6.C"
+      },
+      {
+        "checksum": "adler32:cff89ed5",
+        "size": 398617,
+        "uri": "root://eospublic.cern.ch//eos/opendata/phenix/emcal-finding-pi0s-and-photons/pi0ntup_v2.pdf"
+      },
+      {
+        "checksum": "adler32:335e754f",
+        "size": 2184,
+        "uri": "root://eospublic.cern.ch//eos/opendata/phenix/emcal-finding-pi0s-and-photons/single_cluster_r5.C"
+      },
+      {
+        "checksum": "adler32:5af68a3f",
+        "size": 2229,
+        "uri": "root://eospublic.cern.ch//eos/opendata/phenix/emcal-finding-pi0s-and-photons/single_cluster_r6.C"
+      }
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "15011",
+    "title": "Examples of basic analysis techniques for neutral meson and photon data from the PHENIX detector",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": "See the attached PDF guide and the example ROOT macros illustrating how to work with the data."
+    }
+  }
+]
