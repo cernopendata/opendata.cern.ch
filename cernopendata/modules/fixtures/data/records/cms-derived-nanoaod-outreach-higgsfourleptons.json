@@ -1,0 +1,1914 @@
+[
+  {
+    "abstract": {
+      "description": "<p>Dataset in reduced NanoAOD format for education and outreach derived from the primary dataset in AOD format linked below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Wunsch, Stefan",
+        "orcid": "0000-0002-4485-2972"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Run number",
+        "type": "int",
+        "variable": "run"
+      },
+      {
+        "description": "Luminosity block number",
+        "type": "unsigned int",
+        "variable": "luminosityBlock"
+      },
+      {
+        "description": "Event number",
+        "type": "unsigned long",
+        "variable": "event"
+      },
+      {
+        "description": "Number of primary vertices",
+        "type": "int",
+        "variable": "PV_npvs"
+      },
+      {
+        "description": "Position of the primary vertex in x direction",
+        "type": "float",
+        "variable": "PV_x"
+      },
+      {
+        "description": "Position of the primary vertex in y direction",
+        "type": "float",
+        "variable": "PV_y"
+      },
+      {
+        "description": "Position of the primary vertex in z direction",
+        "type": "float",
+        "variable": "PV_z"
+      },
+      {
+        "description": "Number of muons in this event",
+        "type": "unsigned int",
+        "variable": "nMuon"
+      },
+      {
+        "description": "Transverse momentum of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_pt"
+      },
+      {
+        "description": "Pseudorapidity of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_eta"
+      },
+      {
+        "description": "Azimuth angle of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_phi"
+      },
+      {
+        "description": "Mass of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_mass"
+      },
+      {
+        "description": "Charge of the muons (either 1 or -1)",
+        "type": "int[nMuon]",
+        "variable": "Muon_charge"
+      },
+      {
+        "description": "Distance of the muons to the primary vertex in the transverse plane",
+        "type": "float[nMuon]",
+        "variable": "Muon_dxy"
+      },
+      {
+        "description": "Uncertainty on the distance of the muons to the primary vertex in the transverse plane",
+        "type": "float[nMuon]",
+        "variable": "Muon_dxyErr"
+      },
+      {
+        "description": "Distance of the muons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nMuon]",
+        "variable": "Muon_dz"
+      },
+      {
+        "description": "Uncertainty on the distance of the muons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nMuon]",
+        "variable": "Muon_dzErr"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso03_all"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.4$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso04_all"
+      },
+      {
+        "description": "Number of electrons in this event",
+        "type": "unsigned int",
+        "variable": "nElectron"
+      },
+      {
+        "description": "Transverse momentum of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_pt"
+      },
+      {
+        "description": "Pseudorapidity of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_eta"
+      },
+      {
+        "description": "Azimuth angle of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_phi"
+      },
+      {
+        "description": "Mass of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_mass"
+      },
+      {
+        "description": "Charge of the electrons (either 1 or -1)",
+        "type": "int[nElectron]",
+        "variable": "Electron_charge"
+      },
+      {
+        "description": "Distance of the electrons to the primary vertex in the transverse plane",
+        "type": "float[nElectron]",
+        "variable": "Electron_dxy"
+      },
+      {
+        "description": "Uncertainty on the distance of the electrons to the primary vertex in the transverse plane",
+        "type": "float[nElectron]",
+        "variable": "Electron_dxyErr"
+      },
+      {
+        "description": "Distance of the electrons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nElectron]",
+        "variable": "Electron_dz"
+      },
+      {
+        "description": "Uncertainty on the distance of the electrons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nElectron]",
+        "variable": "Electron_dzErr"
+      },
+      {
+        "description": "Electron isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nElectron]",
+        "variable": "Electron_pfRelIso03_all"
+      },
+      {
+        "description": "Missing transverse energy",
+        "type": "float",
+        "variable": "MET_pt"
+      },
+      {
+        "description": "Azimuth angle of the missing transverse energy",
+        "type": "float",
+        "variable": "MET_phi"
+      }
+    ],
+    "date_published": "2021",
+    "distribution": {
+      "formats": [
+        "root",
+        "nanoaod"
+      ],
+      "number_events": 299973,
+      "number_files": 1,
+      "size": 42400229
+    },
+    "doi": "10.7483/OPENDATA.CMS.8FLU.UIQJ",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:1dafc1d7",
+        "size": 42400229,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/ForHiggsTo4Leptons/SMHiggsToZZTo4L.root"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "The datasets were produced with the software available in the record linked below.",
+      "links": [
+        {
+          "recid": "12340"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12361",
+    "relations": [
+      {
+        "description": "This dataset was derived from:",
+        "recid": "9356",
+        "type": "isChildOf"
+      }
+    ],
+    "title": "SMHiggsToZZTo4L dataset in reduced NanoAOD format for education and outreach",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "use_with": {
+      "description": "This dataset can be used with the following analysis:",
+      "links": [
+        {
+          "recid": "12360"
+        }
+      ]
+    },
+    "validation": {
+      "description": "<p>These data were derived from the primary datasets linked below using only the validated runs. No further validation was done for the output.</p>",
+      "links": [
+        {
+          "recid": "9356"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Dataset in reduced NanoAOD format for education and outreach derived from the primary dataset in AOD format linked below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Wunsch, Stefan",
+        "orcid": "0000-0002-4485-2972"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Run number",
+        "type": "int",
+        "variable": "run"
+      },
+      {
+        "description": "Luminosity block number",
+        "type": "unsigned int",
+        "variable": "luminosityBlock"
+      },
+      {
+        "description": "Event number",
+        "type": "unsigned long",
+        "variable": "event"
+      },
+      {
+        "description": "Number of primary vertices",
+        "type": "int",
+        "variable": "PV_npvs"
+      },
+      {
+        "description": "Position of the primary vertex in x direction",
+        "type": "float",
+        "variable": "PV_x"
+      },
+      {
+        "description": "Position of the primary vertex in y direction",
+        "type": "float",
+        "variable": "PV_y"
+      },
+      {
+        "description": "Position of the primary vertex in z direction",
+        "type": "float",
+        "variable": "PV_z"
+      },
+      {
+        "description": "Number of muons in this event",
+        "type": "unsigned int",
+        "variable": "nMuon"
+      },
+      {
+        "description": "Transverse momentum of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_pt"
+      },
+      {
+        "description": "Pseudorapidity of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_eta"
+      },
+      {
+        "description": "Azimuth angle of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_phi"
+      },
+      {
+        "description": "Mass of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_mass"
+      },
+      {
+        "description": "Charge of the muons (either 1 or -1)",
+        "type": "int[nMuon]",
+        "variable": "Muon_charge"
+      },
+      {
+        "description": "Distance of the muons to the primary vertex in the transverse plane",
+        "type": "float[nMuon]",
+        "variable": "Muon_dxy"
+      },
+      {
+        "description": "Uncertainty on the distance of the muons to the primary vertex in the transverse plane",
+        "type": "float[nMuon]",
+        "variable": "Muon_dxyErr"
+      },
+      {
+        "description": "Distance of the muons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nMuon]",
+        "variable": "Muon_dz"
+      },
+      {
+        "description": "Uncertainty on the distance of the muons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nMuon]",
+        "variable": "Muon_dzErr"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso03_all"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.4$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso04_all"
+      },
+      {
+        "description": "Number of electrons in this event",
+        "type": "unsigned int",
+        "variable": "nElectron"
+      },
+      {
+        "description": "Transverse momentum of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_pt"
+      },
+      {
+        "description": "Pseudorapidity of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_eta"
+      },
+      {
+        "description": "Azimuth angle of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_phi"
+      },
+      {
+        "description": "Mass of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_mass"
+      },
+      {
+        "description": "Charge of the electrons (either 1 or -1)",
+        "type": "int[nElectron]",
+        "variable": "Electron_charge"
+      },
+      {
+        "description": "Distance of the electrons to the primary vertex in the transverse plane",
+        "type": "float[nElectron]",
+        "variable": "Electron_dxy"
+      },
+      {
+        "description": "Uncertainty on the distance of the electrons to the primary vertex in the transverse plane",
+        "type": "float[nElectron]",
+        "variable": "Electron_dxyErr"
+      },
+      {
+        "description": "Distance of the electrons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nElectron]",
+        "variable": "Electron_dz"
+      },
+      {
+        "description": "Uncertainty on the distance of the electrons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nElectron]",
+        "variable": "Electron_dzErr"
+      },
+      {
+        "description": "Electron isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nElectron]",
+        "variable": "Electron_pfRelIso03_all"
+      },
+      {
+        "description": "Missing transverse energy",
+        "type": "float",
+        "variable": "MET_pt"
+      },
+      {
+        "description": "Azimuth angle of the missing transverse energy",
+        "type": "float",
+        "variable": "MET_phi"
+      }
+    ],
+    "date_published": "2021",
+    "distribution": {
+      "formats": [
+        "root",
+        "nanoaod"
+      ],
+      "number_events": 1499064,
+      "number_files": 1,
+      "size": 184624480
+    },
+    "doi": "10.7483/OPENDATA.CMS.FBFX.VI9P",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:cb91f8d0",
+        "size": 184624480,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/ForHiggsTo4Leptons/ZZTo4mu.root"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "The datasets were produced with the software available in the record linked below.",
+      "links": [
+        {
+          "recid": "12340"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12362",
+    "relations": [
+      {
+        "description": "This dataset was derived from:",
+        "recid": "10071",
+        "type": "isChildOf"
+      }
+    ],
+    "title": "ZZTo4mu dataset in reduced NanoAOD format for education and outreach",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "use_with": {
+      "description": "This dataset can be used with the following analysis:",
+      "links": [
+        {
+          "recid": "12360"
+        }
+      ]
+    },
+    "validation": {
+      "description": "<p>These data were derived from the primary datasets linked below using only the validated runs. No further validation was done for the output.</p>",
+      "links": [
+        {
+          "recid": "10071"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Dataset in reduced NanoAOD format for education and outreach derived from the primary dataset in AOD format linked below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Wunsch, Stefan",
+        "orcid": "0000-0002-4485-2972"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Run number",
+        "type": "int",
+        "variable": "run"
+      },
+      {
+        "description": "Luminosity block number",
+        "type": "unsigned int",
+        "variable": "luminosityBlock"
+      },
+      {
+        "description": "Event number",
+        "type": "unsigned long",
+        "variable": "event"
+      },
+      {
+        "description": "Number of primary vertices",
+        "type": "int",
+        "variable": "PV_npvs"
+      },
+      {
+        "description": "Position of the primary vertex in x direction",
+        "type": "float",
+        "variable": "PV_x"
+      },
+      {
+        "description": "Position of the primary vertex in y direction",
+        "type": "float",
+        "variable": "PV_y"
+      },
+      {
+        "description": "Position of the primary vertex in z direction",
+        "type": "float",
+        "variable": "PV_z"
+      },
+      {
+        "description": "Number of muons in this event",
+        "type": "unsigned int",
+        "variable": "nMuon"
+      },
+      {
+        "description": "Transverse momentum of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_pt"
+      },
+      {
+        "description": "Pseudorapidity of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_eta"
+      },
+      {
+        "description": "Azimuth angle of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_phi"
+      },
+      {
+        "description": "Mass of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_mass"
+      },
+      {
+        "description": "Charge of the muons (either 1 or -1)",
+        "type": "int[nMuon]",
+        "variable": "Muon_charge"
+      },
+      {
+        "description": "Distance of the muons to the primary vertex in the transverse plane",
+        "type": "float[nMuon]",
+        "variable": "Muon_dxy"
+      },
+      {
+        "description": "Uncertainty on the distance of the muons to the primary vertex in the transverse plane",
+        "type": "float[nMuon]",
+        "variable": "Muon_dxyErr"
+      },
+      {
+        "description": "Distance of the muons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nMuon]",
+        "variable": "Muon_dz"
+      },
+      {
+        "description": "Uncertainty on the distance of the muons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nMuon]",
+        "variable": "Muon_dzErr"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso03_all"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.4$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso04_all"
+      },
+      {
+        "description": "Number of electrons in this event",
+        "type": "unsigned int",
+        "variable": "nElectron"
+      },
+      {
+        "description": "Transverse momentum of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_pt"
+      },
+      {
+        "description": "Pseudorapidity of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_eta"
+      },
+      {
+        "description": "Azimuth angle of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_phi"
+      },
+      {
+        "description": "Mass of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_mass"
+      },
+      {
+        "description": "Charge of the electrons (either 1 or -1)",
+        "type": "int[nElectron]",
+        "variable": "Electron_charge"
+      },
+      {
+        "description": "Distance of the electrons to the primary vertex in the transverse plane",
+        "type": "float[nElectron]",
+        "variable": "Electron_dxy"
+      },
+      {
+        "description": "Uncertainty on the distance of the electrons to the primary vertex in the transverse plane",
+        "type": "float[nElectron]",
+        "variable": "Electron_dxyErr"
+      },
+      {
+        "description": "Distance of the electrons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nElectron]",
+        "variable": "Electron_dz"
+      },
+      {
+        "description": "Uncertainty on the distance of the electrons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nElectron]",
+        "variable": "Electron_dzErr"
+      },
+      {
+        "description": "Electron isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nElectron]",
+        "variable": "Electron_pfRelIso03_all"
+      },
+      {
+        "description": "Missing transverse energy",
+        "type": "float",
+        "variable": "MET_pt"
+      },
+      {
+        "description": "Azimuth angle of the missing transverse energy",
+        "type": "float",
+        "variable": "MET_phi"
+      }
+    ],
+    "date_published": "2021",
+    "distribution": {
+      "formats": [
+        "root",
+        "nanoaod"
+      ],
+      "number_events": 1499093,
+      "number_files": 1,
+      "size": 161660567
+    },
+    "doi": "10.7483/OPENDATA.CMS.BZ3O.K8Q5",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:f6fe4aff",
+        "size": 161660567,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/ForHiggsTo4Leptons/ZZTo4e.root"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "The datasets were produced with the software available in the record linked below.",
+      "links": [
+        {
+          "recid": "12340"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12363",
+    "relations": [
+      {
+        "description": "This dataset was derived from:",
+        "recid": "10065",
+        "type": "isChildOf"
+      }
+    ],
+    "title": "ZZTo4e dataset in reduced NanoAOD format for education and outreach",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "use_with": {
+      "description": "This dataset can be used with the following analysis:",
+      "links": [
+        {
+          "recid": "12360"
+        }
+      ]
+    },
+    "validation": {
+      "description": "<p>These data were derived from the primary datasets linked below using only the validated runs. No further validation was done for the output.</p>",
+      "links": [
+        {
+          "recid": "10065"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Dataset in reduced NanoAOD format for education and outreach derived from the primary dataset in AOD format linked below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Wunsch, Stefan",
+        "orcid": "0000-0002-4485-2972"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Run number",
+        "type": "int",
+        "variable": "run"
+      },
+      {
+        "description": "Luminosity block number",
+        "type": "unsigned int",
+        "variable": "luminosityBlock"
+      },
+      {
+        "description": "Event number",
+        "type": "unsigned long",
+        "variable": "event"
+      },
+      {
+        "description": "Number of primary vertices",
+        "type": "int",
+        "variable": "PV_npvs"
+      },
+      {
+        "description": "Position of the primary vertex in x direction",
+        "type": "float",
+        "variable": "PV_x"
+      },
+      {
+        "description": "Position of the primary vertex in y direction",
+        "type": "float",
+        "variable": "PV_y"
+      },
+      {
+        "description": "Position of the primary vertex in z direction",
+        "type": "float",
+        "variable": "PV_z"
+      },
+      {
+        "description": "Number of muons in this event",
+        "type": "unsigned int",
+        "variable": "nMuon"
+      },
+      {
+        "description": "Transverse momentum of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_pt"
+      },
+      {
+        "description": "Pseudorapidity of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_eta"
+      },
+      {
+        "description": "Azimuth angle of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_phi"
+      },
+      {
+        "description": "Mass of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_mass"
+      },
+      {
+        "description": "Charge of the muons (either 1 or -1)",
+        "type": "int[nMuon]",
+        "variable": "Muon_charge"
+      },
+      {
+        "description": "Distance of the muons to the primary vertex in the transverse plane",
+        "type": "float[nMuon]",
+        "variable": "Muon_dxy"
+      },
+      {
+        "description": "Uncertainty on the distance of the muons to the primary vertex in the transverse plane",
+        "type": "float[nMuon]",
+        "variable": "Muon_dxyErr"
+      },
+      {
+        "description": "Distance of the muons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nMuon]",
+        "variable": "Muon_dz"
+      },
+      {
+        "description": "Uncertainty on the distance of the muons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nMuon]",
+        "variable": "Muon_dzErr"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso03_all"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.4$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso04_all"
+      },
+      {
+        "description": "Number of electrons in this event",
+        "type": "unsigned int",
+        "variable": "nElectron"
+      },
+      {
+        "description": "Transverse momentum of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_pt"
+      },
+      {
+        "description": "Pseudorapidity of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_eta"
+      },
+      {
+        "description": "Azimuth angle of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_phi"
+      },
+      {
+        "description": "Mass of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_mass"
+      },
+      {
+        "description": "Charge of the electrons (either 1 or -1)",
+        "type": "int[nElectron]",
+        "variable": "Electron_charge"
+      },
+      {
+        "description": "Distance of the electrons to the primary vertex in the transverse plane",
+        "type": "float[nElectron]",
+        "variable": "Electron_dxy"
+      },
+      {
+        "description": "Uncertainty on the distance of the electrons to the primary vertex in the transverse plane",
+        "type": "float[nElectron]",
+        "variable": "Electron_dxyErr"
+      },
+      {
+        "description": "Distance of the electrons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nElectron]",
+        "variable": "Electron_dz"
+      },
+      {
+        "description": "Uncertainty on the distance of the electrons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nElectron]",
+        "variable": "Electron_dzErr"
+      },
+      {
+        "description": "Electron isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nElectron]",
+        "variable": "Electron_pfRelIso03_all"
+      },
+      {
+        "description": "Missing transverse energy",
+        "type": "float",
+        "variable": "MET_pt"
+      },
+      {
+        "description": "Azimuth angle of the missing transverse energy",
+        "type": "float",
+        "variable": "MET_phi"
+      }
+    ],
+    "date_published": "2021",
+    "distribution": {
+      "formats": [
+        "root",
+        "nanoaod"
+      ],
+      "number_events": 1497445,
+      "number_files": 1,
+      "size": 173163793
+    },
+    "doi": "10.7483/OPENDATA.CMS.XRWZ.IX16",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:d03acd53",
+        "size": 173163793,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/ForHiggsTo4Leptons/ZZTo2e2mu.root"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "The datasets were produced with the software available in the record linked below.",
+      "links": [
+        {
+          "recid": "12340"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12364",
+    "relations": [
+      {
+        "description": "This dataset was derived from:",
+        "recid": "10054",
+        "type": "isChildOf"
+      }
+    ],
+    "title": "ZZTo2e2mu dataset in reduced NanoAOD format for education and outreach",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "use_with": {
+      "description": "This dataset can be used with the following analysis:",
+      "links": [
+        {
+          "recid": "12360"
+        }
+      ]
+    },
+    "validation": {
+      "description": "<p>These data were derived from the primary datasets linked below using only the validated runs. No further validation was done for the output.</p>",
+      "links": [
+        {
+          "recid": "10054"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Dataset in reduced NanoAOD format for education and outreach derived from the primary dataset in AOD format linked below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Wunsch, Stefan",
+        "orcid": "0000-0002-4485-2972"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Run number",
+        "type": "int",
+        "variable": "run"
+      },
+      {
+        "description": "Luminosity block number",
+        "type": "unsigned int",
+        "variable": "luminosityBlock"
+      },
+      {
+        "description": "Event number",
+        "type": "unsigned long",
+        "variable": "event"
+      },
+      {
+        "description": "Number of primary vertices",
+        "type": "int",
+        "variable": "PV_npvs"
+      },
+      {
+        "description": "Position of the primary vertex in x direction",
+        "type": "float",
+        "variable": "PV_x"
+      },
+      {
+        "description": "Position of the primary vertex in y direction",
+        "type": "float",
+        "variable": "PV_y"
+      },
+      {
+        "description": "Position of the primary vertex in z direction",
+        "type": "float",
+        "variable": "PV_z"
+      },
+      {
+        "description": "Number of muons in this event",
+        "type": "unsigned int",
+        "variable": "nMuon"
+      },
+      {
+        "description": "Transverse momentum of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_pt"
+      },
+      {
+        "description": "Pseudorapidity of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_eta"
+      },
+      {
+        "description": "Azimuth angle of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_phi"
+      },
+      {
+        "description": "Mass of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_mass"
+      },
+      {
+        "description": "Charge of the muons (either 1 or -1)",
+        "type": "int[nMuon]",
+        "variable": "Muon_charge"
+      },
+      {
+        "description": "Distance of the muons to the primary vertex in the transverse plane",
+        "type": "float[nMuon]",
+        "variable": "Muon_dxy"
+      },
+      {
+        "description": "Uncertainty on the distance of the muons to the primary vertex in the transverse plane",
+        "type": "float[nMuon]",
+        "variable": "Muon_dxyErr"
+      },
+      {
+        "description": "Distance of the muons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nMuon]",
+        "variable": "Muon_dz"
+      },
+      {
+        "description": "Uncertainty on the distance of the muons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nMuon]",
+        "variable": "Muon_dzErr"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso03_all"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.4$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso04_all"
+      },
+      {
+        "description": "Number of electrons in this event",
+        "type": "unsigned int",
+        "variable": "nElectron"
+      },
+      {
+        "description": "Transverse momentum of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_pt"
+      },
+      {
+        "description": "Pseudorapidity of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_eta"
+      },
+      {
+        "description": "Azimuth angle of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_phi"
+      },
+      {
+        "description": "Mass of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_mass"
+      },
+      {
+        "description": "Charge of the electrons (either 1 or -1)",
+        "type": "int[nElectron]",
+        "variable": "Electron_charge"
+      },
+      {
+        "description": "Distance of the electrons to the primary vertex in the transverse plane",
+        "type": "float[nElectron]",
+        "variable": "Electron_dxy"
+      },
+      {
+        "description": "Uncertainty on the distance of the electrons to the primary vertex in the transverse plane",
+        "type": "float[nElectron]",
+        "variable": "Electron_dxyErr"
+      },
+      {
+        "description": "Distance of the electrons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nElectron]",
+        "variable": "Electron_dz"
+      },
+      {
+        "description": "Uncertainty on the distance of the electrons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nElectron]",
+        "variable": "Electron_dzErr"
+      },
+      {
+        "description": "Electron isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nElectron]",
+        "variable": "Electron_pfRelIso03_all"
+      },
+      {
+        "description": "Missing transverse energy",
+        "type": "float",
+        "variable": "MET_pt"
+      },
+      {
+        "description": "Azimuth angle of the missing transverse energy",
+        "type": "float",
+        "variable": "MET_phi"
+      }
+    ],
+    "date_published": "2021",
+    "distribution": {
+      "formats": [
+        "root",
+        "nanoaod"
+      ],
+      "number_events": 26084708,
+      "number_files": 1,
+      "size": 3179316378
+    },
+    "doi": "10.7483/OPENDATA.CMS.04XV.ESBR",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:daa50fff",
+        "size": 3179316378,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/ForHiggsTo4Leptons/Run2012B_DoubleMuParked.root"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "The datasets were produced with the software available in the record linked below.",
+      "links": [
+        {
+          "recid": "12340"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12365",
+    "relations": [
+      {
+        "description": "This dataset was derived from:",
+        "recid": "6004",
+        "type": "isChildOf"
+      }
+    ],
+    "title": "Run2012B_DoubleMuParked dataset in reduced NanoAOD format for education and outreach",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "use_with": {
+      "description": "This dataset can be used with the following analysis:",
+      "links": [
+        {
+          "recid": "12360"
+        }
+      ]
+    },
+    "validation": {
+      "description": "<p>These data were derived from the primary datasets linked below using only the validated runs. No further validation was done for the output.</p>",
+      "links": [
+        {
+          "recid": "6004"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Dataset in reduced NanoAOD format for education and outreach derived from the primary dataset in AOD format linked below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Wunsch, Stefan",
+        "orcid": "0000-0002-4485-2972"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Run number",
+        "type": "int",
+        "variable": "run"
+      },
+      {
+        "description": "Luminosity block number",
+        "type": "unsigned int",
+        "variable": "luminosityBlock"
+      },
+      {
+        "description": "Event number",
+        "type": "unsigned long",
+        "variable": "event"
+      },
+      {
+        "description": "Number of primary vertices",
+        "type": "int",
+        "variable": "PV_npvs"
+      },
+      {
+        "description": "Position of the primary vertex in x direction",
+        "type": "float",
+        "variable": "PV_x"
+      },
+      {
+        "description": "Position of the primary vertex in y direction",
+        "type": "float",
+        "variable": "PV_y"
+      },
+      {
+        "description": "Position of the primary vertex in z direction",
+        "type": "float",
+        "variable": "PV_z"
+      },
+      {
+        "description": "Number of muons in this event",
+        "type": "unsigned int",
+        "variable": "nMuon"
+      },
+      {
+        "description": "Transverse momentum of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_pt"
+      },
+      {
+        "description": "Pseudorapidity of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_eta"
+      },
+      {
+        "description": "Azimuth angle of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_phi"
+      },
+      {
+        "description": "Mass of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_mass"
+      },
+      {
+        "description": "Charge of the muons (either 1 or -1)",
+        "type": "int[nMuon]",
+        "variable": "Muon_charge"
+      },
+      {
+        "description": "Distance of the muons to the primary vertex in the transverse plane",
+        "type": "float[nMuon]",
+        "variable": "Muon_dxy"
+      },
+      {
+        "description": "Uncertainty on the distance of the muons to the primary vertex in the transverse plane",
+        "type": "float[nMuon]",
+        "variable": "Muon_dxyErr"
+      },
+      {
+        "description": "Distance of the muons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nMuon]",
+        "variable": "Muon_dz"
+      },
+      {
+        "description": "Uncertainty on the distance of the muons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nMuon]",
+        "variable": "Muon_dzErr"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso03_all"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.4$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso04_all"
+      },
+      {
+        "description": "Number of electrons in this event",
+        "type": "unsigned int",
+        "variable": "nElectron"
+      },
+      {
+        "description": "Transverse momentum of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_pt"
+      },
+      {
+        "description": "Pseudorapidity of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_eta"
+      },
+      {
+        "description": "Azimuth angle of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_phi"
+      },
+      {
+        "description": "Mass of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_mass"
+      },
+      {
+        "description": "Charge of the electrons (either 1 or -1)",
+        "type": "int[nElectron]",
+        "variable": "Electron_charge"
+      },
+      {
+        "description": "Distance of the electrons to the primary vertex in the transverse plane",
+        "type": "float[nElectron]",
+        "variable": "Electron_dxy"
+      },
+      {
+        "description": "Uncertainty on the distance of the electrons to the primary vertex in the transverse plane",
+        "type": "float[nElectron]",
+        "variable": "Electron_dxyErr"
+      },
+      {
+        "description": "Distance of the electrons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nElectron]",
+        "variable": "Electron_dz"
+      },
+      {
+        "description": "Uncertainty on the distance of the electrons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nElectron]",
+        "variable": "Electron_dzErr"
+      },
+      {
+        "description": "Electron isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nElectron]",
+        "variable": "Electron_pfRelIso03_all"
+      },
+      {
+        "description": "Missing transverse energy",
+        "type": "float",
+        "variable": "MET_pt"
+      },
+      {
+        "description": "Azimuth angle of the missing transverse energy",
+        "type": "float",
+        "variable": "MET_phi"
+      }
+    ],
+    "date_published": "2021",
+    "distribution": {
+      "formats": [
+        "root",
+        "nanoaod"
+      ],
+      "number_events": 35455705,
+      "number_files": 1,
+      "size": 4463307037
+    },
+    "doi": "10.7483/OPENDATA.CMS.86ZS.7G78",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:2e91a64a",
+        "size": 4463307037,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/ForHiggsTo4Leptons/Run2012C_DoubleMuParked.root"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "The datasets were produced with the software available in the record linked below.",
+      "links": [
+        {
+          "recid": "12340"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12366",
+    "relations": [
+      {
+        "description": "This dataset was derived from:",
+        "recid": "6030",
+        "type": "isChildOf"
+      }
+    ],
+    "title": "Run2012C_DoubleMuParked dataset in reduced NanoAOD format for education and outreach",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "use_with": {
+      "description": "This dataset can be used with the following analysis:",
+      "links": [
+        {
+          "recid": "12360"
+        }
+      ]
+    },
+    "validation": {
+      "description": "<p>These data were derived from the primary datasets linked below using only the validated runs. No further validation was done for the output.</p>",
+      "links": [
+        {
+          "recid": "6030"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Dataset in reduced NanoAOD format for education and outreach derived from the primary dataset in AOD format linked below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Wunsch, Stefan",
+        "orcid": "0000-0002-4485-2972"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Run number",
+        "type": "int",
+        "variable": "run"
+      },
+      {
+        "description": "Luminosity block number",
+        "type": "unsigned int",
+        "variable": "luminosityBlock"
+      },
+      {
+        "description": "Event number",
+        "type": "unsigned long",
+        "variable": "event"
+      },
+      {
+        "description": "Number of primary vertices",
+        "type": "int",
+        "variable": "PV_npvs"
+      },
+      {
+        "description": "Position of the primary vertex in x direction",
+        "type": "float",
+        "variable": "PV_x"
+      },
+      {
+        "description": "Position of the primary vertex in y direction",
+        "type": "float",
+        "variable": "PV_y"
+      },
+      {
+        "description": "Position of the primary vertex in z direction",
+        "type": "float",
+        "variable": "PV_z"
+      },
+      {
+        "description": "Number of muons in this event",
+        "type": "unsigned int",
+        "variable": "nMuon"
+      },
+      {
+        "description": "Transverse momentum of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_pt"
+      },
+      {
+        "description": "Pseudorapidity of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_eta"
+      },
+      {
+        "description": "Azimuth angle of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_phi"
+      },
+      {
+        "description": "Mass of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_mass"
+      },
+      {
+        "description": "Charge of the muons (either 1 or -1)",
+        "type": "int[nMuon]",
+        "variable": "Muon_charge"
+      },
+      {
+        "description": "Distance of the muons to the primary vertex in the transverse plane",
+        "type": "float[nMuon]",
+        "variable": "Muon_dxy"
+      },
+      {
+        "description": "Uncertainty on the distance of the muons to the primary vertex in the transverse plane",
+        "type": "float[nMuon]",
+        "variable": "Muon_dxyErr"
+      },
+      {
+        "description": "Distance of the muons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nMuon]",
+        "variable": "Muon_dz"
+      },
+      {
+        "description": "Uncertainty on the distance of the muons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nMuon]",
+        "variable": "Muon_dzErr"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso03_all"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.4$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso04_all"
+      },
+      {
+        "description": "Number of electrons in this event",
+        "type": "unsigned int",
+        "variable": "nElectron"
+      },
+      {
+        "description": "Transverse momentum of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_pt"
+      },
+      {
+        "description": "Pseudorapidity of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_eta"
+      },
+      {
+        "description": "Azimuth angle of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_phi"
+      },
+      {
+        "description": "Mass of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_mass"
+      },
+      {
+        "description": "Charge of the electrons (either 1 or -1)",
+        "type": "int[nElectron]",
+        "variable": "Electron_charge"
+      },
+      {
+        "description": "Distance of the electrons to the primary vertex in the transverse plane",
+        "type": "float[nElectron]",
+        "variable": "Electron_dxy"
+      },
+      {
+        "description": "Uncertainty on the distance of the electrons to the primary vertex in the transverse plane",
+        "type": "float[nElectron]",
+        "variable": "Electron_dxyErr"
+      },
+      {
+        "description": "Distance of the electrons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nElectron]",
+        "variable": "Electron_dz"
+      },
+      {
+        "description": "Uncertainty on the distance of the electrons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nElectron]",
+        "variable": "Electron_dzErr"
+      },
+      {
+        "description": "Electron isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nElectron]",
+        "variable": "Electron_pfRelIso03_all"
+      },
+      {
+        "description": "Missing transverse energy",
+        "type": "float",
+        "variable": "MET_pt"
+      },
+      {
+        "description": "Azimuth angle of the missing transverse energy",
+        "type": "float",
+        "variable": "MET_phi"
+      }
+    ],
+    "date_published": "2021",
+    "distribution": {
+      "formats": [
+        "root",
+        "nanoaod"
+      ],
+      "number_events": 21474287,
+      "number_files": 1,
+      "size": 1817796893
+    },
+    "doi": "10.7483/OPENDATA.CMS.YRUF.MEMI",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:ab2abff8",
+        "size": 1817796893,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/ForHiggsTo4Leptons/Run2012B_DoubleElectron.root"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "The datasets were produced with the software available in the record linked below.",
+      "links": [
+        {
+          "recid": "12340"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12367",
+    "relations": [
+      {
+        "description": "This dataset was derived from:",
+        "recid": "6003",
+        "type": "isChildOf"
+      }
+    ],
+    "title": "Run2012B_DoubleElectron dataset in reduced NanoAOD format for education and outreach",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "use_with": {
+      "description": "This dataset can be used with the following analysis:",
+      "links": [
+        {
+          "recid": "12360"
+        }
+      ]
+    },
+    "validation": {
+      "description": "<p>These data were derived from the primary datasets linked below using only the validated runs. No further validation was done for the output.</p>",
+      "links": [
+        {
+          "recid": "6003"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Dataset in reduced NanoAOD format for education and outreach derived from the primary dataset in AOD format linked below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Wunsch, Stefan",
+        "orcid": "0000-0002-4485-2972"
+      }
+    ],
+    "collections": [
+      "CMS-Derived-Datasets"
+    ],
+    "dataset_semantics": [
+      {
+        "description": "Run number",
+        "type": "int",
+        "variable": "run"
+      },
+      {
+        "description": "Luminosity block number",
+        "type": "unsigned int",
+        "variable": "luminosityBlock"
+      },
+      {
+        "description": "Event number",
+        "type": "unsigned long",
+        "variable": "event"
+      },
+      {
+        "description": "Number of primary vertices",
+        "type": "int",
+        "variable": "PV_npvs"
+      },
+      {
+        "description": "Position of the primary vertex in x direction",
+        "type": "float",
+        "variable": "PV_x"
+      },
+      {
+        "description": "Position of the primary vertex in y direction",
+        "type": "float",
+        "variable": "PV_y"
+      },
+      {
+        "description": "Position of the primary vertex in z direction",
+        "type": "float",
+        "variable": "PV_z"
+      },
+      {
+        "description": "Number of muons in this event",
+        "type": "unsigned int",
+        "variable": "nMuon"
+      },
+      {
+        "description": "Transverse momentum of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_pt"
+      },
+      {
+        "description": "Pseudorapidity of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_eta"
+      },
+      {
+        "description": "Azimuth angle of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_phi"
+      },
+      {
+        "description": "Mass of the muons",
+        "type": "float[nMuon]",
+        "variable": "Muon_mass"
+      },
+      {
+        "description": "Charge of the muons (either 1 or -1)",
+        "type": "int[nMuon]",
+        "variable": "Muon_charge"
+      },
+      {
+        "description": "Distance of the muons to the primary vertex in the transverse plane",
+        "type": "float[nMuon]",
+        "variable": "Muon_dxy"
+      },
+      {
+        "description": "Uncertainty on the distance of the muons to the primary vertex in the transverse plane",
+        "type": "float[nMuon]",
+        "variable": "Muon_dxyErr"
+      },
+      {
+        "description": "Distance of the muons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nMuon]",
+        "variable": "Muon_dz"
+      },
+      {
+        "description": "Uncertainty on the distance of the muons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nMuon]",
+        "variable": "Muon_dzErr"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso03_all"
+      },
+      {
+        "description": "Muon isolation divided by the transverse momentum in the $R=0.4$ cone",
+        "type": "float[nMuon]",
+        "variable": "Muon_pfRelIso04_all"
+      },
+      {
+        "description": "Number of electrons in this event",
+        "type": "unsigned int",
+        "variable": "nElectron"
+      },
+      {
+        "description": "Transverse momentum of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_pt"
+      },
+      {
+        "description": "Pseudorapidity of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_eta"
+      },
+      {
+        "description": "Azimuth angle of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_phi"
+      },
+      {
+        "description": "Mass of the electrons",
+        "type": "float[nElectron]",
+        "variable": "Electron_mass"
+      },
+      {
+        "description": "Charge of the electrons (either 1 or -1)",
+        "type": "int[nElectron]",
+        "variable": "Electron_charge"
+      },
+      {
+        "description": "Distance of the electrons to the primary vertex in the transverse plane",
+        "type": "float[nElectron]",
+        "variable": "Electron_dxy"
+      },
+      {
+        "description": "Uncertainty on the distance of the electrons to the primary vertex in the transverse plane",
+        "type": "float[nElectron]",
+        "variable": "Electron_dxyErr"
+      },
+      {
+        "description": "Distance of the electrons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nElectron]",
+        "variable": "Electron_dz"
+      },
+      {
+        "description": "Uncertainty on the distance of the electrons to the primary vertex in parallel to the beam pipe",
+        "type": "float[nElectron]",
+        "variable": "Electron_dzErr"
+      },
+      {
+        "description": "Electron isolation divided by the transverse momentum in the $R=0.3$ cone",
+        "type": "float[nElectron]",
+        "variable": "Electron_pfRelIso03_all"
+      },
+      {
+        "description": "Missing transverse energy",
+        "type": "float",
+        "variable": "MET_pt"
+      },
+      {
+        "description": "Azimuth angle of the missing transverse energy",
+        "type": "float",
+        "variable": "MET_phi"
+      }
+    ],
+    "date_published": "2021",
+    "distribution": {
+      "formats": [
+        "root",
+        "nanoaod"
+      ],
+      "number_events": 32537541,
+      "number_files": 1,
+      "size": 2767819825
+    },
+    "doi": "10.7483/OPENDATA.CMS.60ZD.OJK3",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:31b461b8",
+        "size": 2767819825,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/ForHiggsTo4Leptons/Run2012C_DoubleElectron.root"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "The datasets were produced with the software available in the record linked below.",
+      "links": [
+        {
+          "recid": "12340"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12368",
+    "relations": [
+      {
+        "description": "This dataset was derived from:",
+        "recid": "6029",
+        "type": "isChildOf"
+      }
+    ],
+    "title": "Run2012C_DoubleElectron dataset in reduced NanoAOD format for education and outreach",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "use_with": {
+      "description": "This dataset can be used with the following analysis:",
+      "links": [
+        {
+          "recid": "12360"
+        }
+      ]
+    },
+    "validation": {
+      "description": "<p>These data were derived from the primary datasets linked below using only the validated runs. No further validation was done for the output.</p>",
+      "links": [
+        {
+          "recid": "6029"
+        }
+      ]
+    }
+  }
+]
