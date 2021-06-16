@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2015, 2016, 2017, 2018, 2020 CERN.
+# Copyright (C) 2015, 2016, 2017, 2018, 2020, 2021 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -49,10 +49,10 @@ RUN yum install -y \
         openssl-devel \
         python-devel \
         python-pip \
-        xrootd4-4.12.5 \
-        xrootd4-client-4.12.5 \
-        xrootd4-client-devel-4.12.5 \
-        xrootd4-python-4.12.5 && \
+        xrootd4-4.12.6 \
+        xrootd4-client-4.12.6 \
+        xrootd4-client-devel-4.12.6 \
+        xrootd4-python-4.12.6 && \
     yum clean all
 
 # Configuration for CERN Open Data Portal instance
@@ -63,8 +63,11 @@ ENV APP_INSTANCE_PATH=/usr/local/var/cernopendata/var/cernopendata-instance
 RUN pip install --upgrade pip==9 setuptools==42.0.2 wheel==0.33.6 && \
     npm install -g node-sass@3.8.0 clean-css@3.4.24 requirejs uglify-js jsonlint
 
-# Install xrootdpyfs from GitHub, since xrootd-4.12.5-compatible version was not released on PyPI yet
-RUN pip install xrootd==4.12.5 \
+# Install older version of pkgconfig, necessary for Python-2.7
+RUN pip install pkgconfig==1.5.2
+
+# Install xrootdpyfs from GitHub, since xrootd-4.12.6-compatible version was not released on PyPI yet
+RUN pip install xrootd==4.12.6 \
       'git+https://github.com/inveniosoftware/xrootdpyfs.git@1151a7a4c219dad11eb0020af4c19f94928469e3#egg=xrootdpyfs'
 
 # Install requirements
