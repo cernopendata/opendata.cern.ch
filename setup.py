@@ -105,6 +105,8 @@ install_requires = [
     'SQLAlchemy<1.4.0',
     # Pin Flask-SQLAlchemy version due to apply_driver_hacks:
     'Flask-SQLAlchemy<2.5.0',
+    # Pin XRootD consistently with Dockerfile
+    'xrootd==4.12.2',
     # Webserver
     'uWSGI>=2.0.15',
     'uwsgitop>=0.10',
