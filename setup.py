@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2017, 2018 CERN.
+# Copyright (C) 2017, 2018, 2021 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -103,8 +103,10 @@ install_requires = [
     # Pin SQLAlchemy version due to sqlalchemy-utils compatibility
     # <https://github.com/kvesteri/sqlalchemy-utils/issues/505>
     'SQLAlchemy<1.4.0',
-    # Pin Flask-SQLAlchemy version due to apply_driver_hacks:
+    # Pin Flask-SQLAlchemy version due to apply_driver_hacks
     'Flask-SQLAlchemy<2.5.0',
+    # Pin Celery due to worker runtime issues
+    'celery==5.0.4',
     # Pin XRootD consistently with Dockerfile
     'xrootd==4.12.2',
     # Webserver
