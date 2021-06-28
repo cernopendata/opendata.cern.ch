@@ -18,7 +18,7 @@ integration purposes. A usage example:
 
    $ docker-compose -f docker-compose-dev.yml build
    $ docker-compose -f docker-compose-dev.yml up
-   $ docker exec -i -t opendatacernch_web_1 /code/scripts/populate-instance.sh --skip-files
+   $ docker exec -i -t opendatacernch_web_1 scripts/populate-instance.sh --skip-files
    $ firefox http://0.0.0.0:5000/
    $ docker-compose -f docker-compose-dev.yml down
 
@@ -31,7 +31,7 @@ mounted in the container in this case. A usage example:
 
    $ docker-compose build
    $ docker-compose up
-   $ docker exec -i -t opendatacernch_web_1 /code/scripts/populate-instance.sh
+   $ docker exec -i -t opendatacernch_web_1 scripts/populate-instance.sh
    $ firefox http://0.0.0.0/
    $ docker-compose down -v
 
@@ -81,8 +81,8 @@ can re-upload all the docs by cleaning the instance first:
 
 .. code-block:: console
 
-   $ docker exec -i -t opendatacernch_web_1 /code/scripts/clean-instance.sh
-   $ docker exec -i -t opendatacernch_web_1 /code/scripts/populate-instance.sh --skip-records
+   $ docker exec -i -t opendatacernch_web_1 scripts/clean-instance.sh
+   $ docker exec -i -t opendatacernch_web_1 scripts/populate-instance.sh --skip-records
 
 Working with records
 --------------------
@@ -94,20 +94,20 @@ wish by doing:
 
 .. code-block:: console
 
-   $ docker exec -i -t opendatacernch_web_1 /code/scripts/populate-instance.sh --skip-records
-   $ docker exec -i -t opendatacernch_web_1 bash -c "cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-author-list-multiplicity.json --mode insert"
-   $ docker exec -i -t opendatacernch_web_1 bash -c "cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-author-list-tau.json --mode insert"
-   $ docker exec -i -t opendatacernch_web_1 bash -c "cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-detector-events-multiplicity.json --mode insert"
-   $ docker exec -i -t opendatacernch_web_1 bash -c "cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-detector-events-tau.json --mode insert"
-   $ docker exec -i -t opendatacernch_web_1 bash -c "cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-ecc-datasets.json --mode insert"
-   $ docker exec -i -t opendatacernch_web_1 bash -c "cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-ed-datasets.json --mode insert"
+   $ docker exec -i -t opendatacernch_web_1 scripts/populate-instance.sh --skip-records
+   $ docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-author-list-multiplicity.json --mode insert
+   $ docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-author-list-tau.json --mode insert
+   $ docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-detector-events-multiplicity.json --mode insert
+   $ docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-detector-events-tau.json --mode insert
+   $ docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-ecc-datasets.json --mode insert
+   $ docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-ed-datasets.json --mode insert
 
 If you alter one of the fixture files, you can upload your changes by using the
 ``replace`` mode:
 
 .. code-block:: console
 
-   $ docker exec -i -t opendatacernch_web_1 bash -c "cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-ed-datasets.json --mode replace"
+   $ docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-ed-datasets.json --mode replace
 
 Working with files
 ------------------
@@ -197,13 +197,13 @@ can do:
    docker-compose build
    docker-compose up -d
    sleep 20
-   docker exec -i -t opendatacernch_web_1 /code/scripts/populate-instance.sh --skip-records
-   docker exec -i -t opendatacernch_web_1 bash -c "cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-author-list-multiplicity.json --mode insert"
-   docker exec -i -t opendatacernch_web_1 bash -c "cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-author-list-tau.json --mode insert"
-   docker exec -i -t opendatacernch_web_1 bash -c "cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-detector-events-multiplicity.json --mode insert"
-   docker exec -i -t opendatacernch_web_1 bash -c "cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-detector-events-tau.json --mode insert"
-   docker exec -i -t opendatacernch_web_1 bash -c "cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-ecc-datasets.json --mode insert"
-   docker exec -i -t opendatacernch_web_1 bash -c "cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-ed-datasets.json --mode insert"
+   docker exec -i -t opendatacernch_web_1 scripts/populate-instance.sh --skip-records
+   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-author-list-multiplicity.json --mode insert
+   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-author-list-tau.json --mode insert
+   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-detector-events-multiplicity.json --mode insert
+   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-detector-events-tau.json --mode insert
+   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-ecc-datasets.json --mode insert
+   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-ed-datasets.json --mode insert
 
 For switching from any mode to the development mode working on OPERA records,
 you can do:
@@ -215,14 +215,14 @@ you can do:
    docker-compose -f docker-compose-dev.yml build
    docker-compose -f docker-compose-dev.yml up -d
    sleep 20
-   docker exec -i -t opendatacernch_web_1 /code/scripts/populate-instance.sh --skip-records
-   docker exec -i -t opendatacernch_web_1 bash -c "cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/cms-derived-csv-Run2011A.json --mode insert"
-   docker exec -i -t opendatacernch_web_1 bash -c "cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-author-list-multiplicity.json --mode insert"
-   docker exec -i -t opendatacernch_web_1 bash -c "cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-author-list-tau.json --mode insert"
-   docker exec -i -t opendatacernch_web_1 bash -c "cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-detector-events-multiplicity.json --mode insert"
-   docker exec -i -t opendatacernch_web_1 bash -c "cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-detector-events-tau.json --mode insert"
-   docker exec -i -t opendatacernch_web_1 bash -c "cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-ecc-datasets.json --mode insert"
-   docker exec -i -t opendatacernch_web_1 bash -c "cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-ed-datasets.json --mode insert"
+   docker exec -i -t opendatacernch_web_1 scripts/populate-instance.sh --skip-records
+   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/cms-derived-csv-Run2011A.json --mode insert
+   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-author-list-multiplicity.json --mode insert
+   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-author-list-tau.json --mode insert
+   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-detector-events-multiplicity.json --mode insert
+   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-detector-events-tau.json --mode insert
+   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-ecc-datasets.json --mode insert
+   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-ed-datasets.json --mode insert
 
 Appendix: Git workflow
 ======================
