@@ -100,6 +100,11 @@ install_requires = [
     'pymdown-extensions>=5.0.0',
     'python-markdown-math>=0.3',
     'python-slugify>=1.2.4',
+    # Pin SQLAlchemy version due to sqlalchemy-utils compatibility
+    # <https://github.com/kvesteri/sqlalchemy-utils/issues/505>
+    'SQLAlchemy<1.4.0',
+    # Pin Flask-SQLAlchemy version due to apply_driver_hacks:
+    'Flask-SQLAlchemy<2.5.0',
     # Webserver
     'uWSGI>=2.0.15',
     'uwsgitop>=0.10',
