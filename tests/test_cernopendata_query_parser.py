@@ -24,14 +24,15 @@
 
 """cernopendata-query-parser test."""
 
-from elasticsearch_dsl.query import Q
+from elasticsearch_dsl.query import Bool, Match, QueryString
 
 from cernopendata.modules.records.search.query import cernopendata_query_parser
 
 
 def test_cernopendata_query_parser():
-    assert cernopendata_query_parser('/Btau') == Q("query_string", query='"/Btau"')
-    assert cernopendata_query_parser('"/Btau"') == Q("query_string", query='"/Btau"')
-    assert cernopendata_query_parser('/btau AND CMS') == Q("query_string", query='"/btau" AND CMS')
-    assert cernopendata_query_parser('"/btau" AND CMS') == Q("query_string", query='"/btau" AND CMS')
-    assert cernopendata_query_parser('CMS AND /btau') == Q("query_string", query='CMS AND "/btau"')
+    assert cernopendata_query_parser('/Btau') == Bool(must=[QueryString(query='"/Btau"')], must_not=[Match(distribution__availability__keyword='ondemand')])
+    assert cernopendata_query_parser('"/Btau"') == Bool(must=[QueryString(query='"/Btau"')], must_not=[Match(distribution__availability__keyword='ondemand')])
+    assert cernopendata_query_parser('/btau AND CMS') == Bool(must=[QueryString(query='"/btau" AND CMS')], must_not=[Match(distribution__availability__keyword='ondemand')])
+    assert cernopendata_query_parser('"/btau" AND CMS') == Bool(must=[QueryString(query='"/btau" AND CMS')], must_not=[Match(distribution__availability__keyword='ondemand')])
+    assert cernopendata_query_parser('CMS AND /btau') == Bool(must=[QueryString(query='CMS AND "/btau"')], must_not=[Match(distribution__availability__keyword='ondemand')])
+    assert cernopendata_query_parser('CMS AND /btau', show_ondemand='true') == QueryString(query='CMS AND "/btau"')

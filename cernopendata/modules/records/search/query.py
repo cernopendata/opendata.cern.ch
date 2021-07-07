@@ -31,7 +31,7 @@ from invenio_records_rest.sorter import default_sorter_factory
 from invenio_records_rest.facets import default_facets_factory
 
 
-def cernopendata_query_parser(query_string=None):
+def cernopendata_query_parser(query_string=None, show_ondemand=None):
     """Default parser that uses the Q() from elasticsearch_dsl.
 
     :param query_string: Query string from user
@@ -47,6 +47,11 @@ def cernopendata_query_parser(query_string=None):
         _query = Q("query_string", query=query_string)
     else:
         _query = Q()
+
+    if show_ondemand != 'true':
+        _query = _query & \
+            ~Q('match', **{'distribution.availability.keyword': 'ondemand'})
+
     return _query
 
 
@@ -59,8 +64,11 @@ def cernopendata_search_factory(self, search):
     :return: Tuple with search instance and URL arguments
     """
     query_string = request.values.get("q")
+    show_ondemand = request.values.get("ondemand")
     try:
-        search = search.query(cernopendata_query_parser(query_string))
+        search = search.query(
+            cernopendata_query_parser(query_string, show_ondemand)
+        )
     except SyntaxError:
         current_app.logger.debug(
             "Failed parsing query: {0}".format(

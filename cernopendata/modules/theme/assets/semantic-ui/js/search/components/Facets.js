@@ -24,10 +24,22 @@
  * as an Intergovernmental Organization or submit itself to any jurisdiction.
  */
 
-export { default as DefaultListItem } from "./DefaultListItem";
-export { default as TermListItem } from "./TermListItem";
-export { default as DocsListItem } from "./DocsListItem";
-export { default as CODLayoutSwitcher } from "./LayoutSwitcher";
-export { default as ResultsCount } from "./ResultsCount";
-export { default as CODFacetItem } from "./FacetItem";
-export { default as CODFacets } from "./Facets";
+import React from "react";
+import { BucketAggregation, Toggle } from "react-searchkit";
+
+const CODFacets = ({ aggs }) => {
+  return (
+    <>
+      {aggs.map((agg) => (
+        <BucketAggregation key={agg.title} title={agg.title} agg={agg.agg} />
+      ))}
+      <Toggle
+        title="Availability"
+        label="include on-demand datasets"
+        filterValue={["ondemand", "true"]}
+      />
+    </>
+  );
+};
+
+export default CODFacets;
