@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2015, 2016, 2017, 2018, 2020 CERN.
+# Copyright (C) 2015, 2016, 2017, 2018, 2020, 2021 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -22,10 +22,12 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
+# Use Invenio's CentOS7 image with Python-3.6
 FROM inveniosoftware/centos7-python:3.6
 
-# Pinning to 4.12.2 because of https://github.com/xrootd/xrootd/issues/1284
+# Use XRootD 4.12.2
 ENV XROOTD_VERSION=4.12.2
+
 # Install CERN Open Data Portal web node pre-requisites
 # hadolint ignore=DL3033
 RUN yum install -y \
@@ -64,8 +66,10 @@ RUN mkdir ${CODE_DIR} && chown invenio:root ${CODE_DIR}
 
 # Run application as Invenio user
 USER ${INVENIO_USER_ID}
+
 # Set default Invenio user Python base for site-packages
 ENV PYTHONUSERBASE=${INVENIO_INSTANCE_PATH}/python
+
 # Add Invenio user Python base to global PATH
 ENV PATH=$PATH:${INVENIO_INSTANCE_PATH}/python/bin
 RUN pip install --user xrootd==${XROOTD_VERSION} xrootdpyfs==0.2.1
@@ -82,6 +86,7 @@ COPY . ${CODE_DIR}
 USER root
 RUN chown -R "${INVENIO_USER_ID}":root "${CODE_DIR}"
 USER ${INVENIO_USER_ID}
+
 # Debug off by default
 ARG DEBUG=""
 ENV DEBUG=${DEBUG:-""}
