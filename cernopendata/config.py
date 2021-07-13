@@ -315,24 +315,21 @@ RECORDS_REST_DEFAULT_SORT = dict(
 RECORDS_REST_FACETS = {
     '_all': {
         'aggs': dict(
-            experiment=dict(terms=dict(
-                field='experiment.keyword',
-                order=dict(_key='asc'))),
             type=dict(terms=dict(
                 field='type.primary.keyword',
                 order=dict(_key='asc')),
                 aggs=dict(subtype=dict(terms=dict(
                           field="type.secondary.keyword",
                           order=dict(_key='asc'))))),
-            file_type=dict(terms=dict(
-                field='distribution.formats.keyword',
-                size=50,
+            experiment=dict(terms=dict(
+                field='experiment.keyword',
                 order=dict(_key='asc'))),
             year=dict(terms=dict(
                 field='date_created.keyword',
                 order=dict(_key='asc'))),
-            keywords=dict(terms=dict(
-                field='keywords.keyword',
+            file_type=dict(terms=dict(
+                field='distribution.formats.keyword',
+                size=50,
                 order=dict(_key='asc'))),
             collision_type=dict(terms=dict(
                 field='collision_information.type.keyword',
@@ -346,9 +343,6 @@ RECORDS_REST_FACETS = {
                 aggs=dict(subcategory=dict(terms=dict(
                           field="categories.secondary.keyword",
                           order=dict(_key='asc'))))),
-            signature=dict(terms=dict(
-                field='signature.keyword',
-                order=dict(_key='asc'))),
             event_number={
                 'range': {
                     'field': 'distribution.number_events',
@@ -384,24 +378,30 @@ RECORDS_REST_FACETS = {
                         }
                     ]
                 }
-            }
+            },
+            signature=dict(terms=dict(
+                field='signature.keyword',
+                order=dict(_key='asc'))),
+            keywords=dict(terms=dict(
+                field='keywords.keyword',
+                order=dict(_key='asc'))),
         ),
         'post_filters': dict(
-            experiment=terms_filter('experiment.keyword'),
             type=terms_filter('type.primary.keyword'),
             subtype=terms_filter('type.secondary.keyword'),
+            experiment=terms_filter('experiment.keyword'),
             year=terms_filter('date_created.keyword'),
+            file_type=terms_filter('distribution.formats.keyword'),
             tags=terms_filter('tags.keyword'),
-            keywords=terms_filter('keywords.keyword'),
             collision_type=terms_filter('collision_information.type.keyword'),
             collision_energy=terms_filter('collision_information.energy'
                                           '.keyword'),
             category=terms_filter('categories.primary.keyword'),
             subcategory=terms_filter('categories.secondary.keyword'),
-            file_type=terms_filter('distribution.formats.keyword'),
+            event_number=range_filter('distribution.number_events'),
             collections=terms_filter('collections.keyword'),
             signature=terms_filter('signature.keyword'),
-            event_number=range_filter('distribution.number_events')
+            keywords=terms_filter('keywords.keyword'),
         )
     }
 }
