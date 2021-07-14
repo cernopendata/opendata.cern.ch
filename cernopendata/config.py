@@ -386,7 +386,7 @@ RECORDS_REST_FACETS = {
                 field='keywords.keyword',
                 order=dict(_key='asc'))),
         ),
-        'post_filters': dict(
+        'filters': dict(
             type=terms_filter('type.primary.keyword'),
             subtype=terms_filter('type.secondary.keyword'),
             experiment=terms_filter('experiment.keyword'),
