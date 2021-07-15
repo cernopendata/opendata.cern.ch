@@ -29,5 +29,6 @@ export { default as TermListItem } from "./TermListItem";
 export { default as DocsListItem } from "./DocsListItem";
 export { default as CODLayoutSwitcher } from "./LayoutSwitcher";
 export { default as ResultsCount } from "./ResultsCount";
+export { default as Results } from "./Results";
 export { default as CODFacetItem } from "./FacetItem";
 export { default as CODFacets } from "./Facets";
