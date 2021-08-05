@@ -24,15 +24,14 @@
  * as an Intergovernmental Organization or submit itself to any jurisdiction.
  */
 
+import React from "react";
+import { SearchBar } from "react-searchkit";
 
-a:hover {
-    text-decoration: underline;
-}
+export const CODSearchBarContainer = ({
+  }) => {
+    return (
+        <SearchBar />
+    );
+  };
 
-.navbar-item {
-    display: block;
-}
-
-.search-bar {
-    padding-top: 1em;
-}
+export default CODSearchBarContainer;

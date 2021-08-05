@@ -24,15 +24,37 @@
  * as an Intergovernmental Organization or submit itself to any jurisdiction.
  */
 
+import React from "react";
+import { Input } from "semantic-ui-react";
 
-a:hover {
-    text-decoration: underline;
-}
+export const CODSearchBarElement = ({
+    queryString,
+    onInputChange,
+    executeSearch,
+  }) => {
+    const onBtnSearchClick = () => {
+      executeSearch();
+    };
+    const onKeyPress = (event) => {
+      if (event.key === "Enter") {
+        executeSearch();
+      }
+    };
+    return (
+      <Input
+        className="search-bar"
+        action={{
+          content: 'Search',
+          onClick: onBtnSearchClick,
+        }}
+        fluid
+        onChange={(event, { value }) => {
+          onInputChange(value);
+        }}
+        value={queryString}
+        onKeyPress={onKeyPress}
+      />
+    );
+  };
 
-.navbar-item {
-    display: block;
-}
-
-.search-bar {
-    padding-top: 1em;
-}
+export default CODSearchBarElement;
