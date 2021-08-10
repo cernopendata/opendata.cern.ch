@@ -42,6 +42,8 @@ def cernopendata_query_parser(query_string=None, show_ondemand=None):
     for index, _query_term in enumerate(_query_string):
         if "/" in _query_term and '"' not in _query_term:
             _query_string[index] = '"' + _query_term + '"'
+        if "-" in _query_term and '"' not in _query_term:
+            _query_string[index] = '"' + _query_term + '"'
     query_string = " ".join(_query_string)
     if query_string:
         _query = Q("query_string", query=query_string)
