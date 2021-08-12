@@ -28,10 +28,11 @@ import os
 
 from invenio_records_files.api import _Record
 from invenio_records_rest.config import RECORDS_REST_ENDPOINTS
-from invenio_records_rest.facets import range_filter, terms_filter
+from invenio_records_rest.facets import terms_filter
 from invenio_records_rest.utils import allow_all
 
 from cernopendata.modules.pages.config import *
+from cernopendata.modules.records.search.query import cernopendata_range_filter
 from cernopendata.modules.search_ui.helpers import \
     CODSearchAppInvenioRestConfigHelper
 from cernopendata.modules.theme.config import *
@@ -398,7 +399,8 @@ RECORDS_REST_FACETS = {
                                           '.keyword'),
             category=terms_filter('categories.primary.keyword'),
             subcategory=terms_filter('categories.secondary.keyword'),
-            event_number=range_filter('distribution.number_events'),
+            event_number=cernopendata_range_filter(
+                            'distribution.number_events'),
             collections=terms_filter('collections.keyword'),
             signature=terms_filter('signature.keyword'),
             keywords=terms_filter('keywords.keyword'),

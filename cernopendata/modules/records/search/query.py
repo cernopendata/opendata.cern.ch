@@ -24,7 +24,7 @@
 
 """Cernopendata Query factory for REST API."""
 
-from elasticsearch_dsl.query import Q
+from elasticsearch_dsl.query import Q, Range, Bool
 from flask import current_app, request
 from invenio_records_rest.errors import InvalidQueryRESTError
 from invenio_records_rest.sorter import default_sorter_factory
@@ -86,3 +86,32 @@ def cernopendata_search_factory(self, search):
     url_kwargs.add("q", query_string)
 
     return search, url_kwargs
+
+
+def cernopendata_range_filter(field):
+    """Create a range filter.
+
+    :param field: Field name.
+    :returns: Function that returns the Range query.
+    """
+    def inner(values):
+        ineq_opers = [
+            {'strict': 'gt', 'nonstrict': 'gte'},
+            {'strict': 'lt', 'nonstrict': 'lte'}]
+        range_query = []
+        for _range in values:
+            range_ends = _range.split('--')
+            range_args = dict()
+            # Add the proper values to the dict
+            for (range_end, strict, opers) in zip(range_ends, ['>', '<'], ineq_opers):  # noqa
+                if range_end:
+                    # If first char is '>' for start or '<' for end
+                    if range_end[0] == strict:
+                        dict_key = opers['strict']
+                        range_end = range_end[1:]
+                    else:
+                        dict_key = opers['nonstrict']
+                    range_args[dict_key] = range_end
+            range_query.append(Range(**{field: range_args}))
+        return Bool(should=range_query)
+    return inner

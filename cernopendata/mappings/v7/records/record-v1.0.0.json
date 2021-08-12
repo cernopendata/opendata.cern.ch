@@ -16,6 +16,30 @@
               }
             }
         },
+        "distribution": {
+          "properties": {
+            "formats": {
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              },
+              "type": "text"
+            },
+            "availability": {
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              },
+              "type": "text"
+            },
+            "number_events": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
         "authors": {
           "properties": {
             "affiliation": {
