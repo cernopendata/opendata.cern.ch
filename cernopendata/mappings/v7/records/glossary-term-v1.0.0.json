@@ -1,6 +1,10 @@
 {
   "mappings": {
     "properties": {
+      "$schema": {
+        "copy_to": "facet_schema",
+        "type": "text"
+      },
       "recid": {
         "type": "integer",
         "null_value": 0
@@ -23,6 +27,64 @@
           "exact": {
             "type": "keyword"
           }
+        }
+      },
+      "category": {
+        "type": "text"
+      },
+      "collections": {
+        "properties": {
+          "facet_collections_primary": {
+            "index": true,
+            "type": "text"
+          },
+          "primary": {
+            "copy_to": "collections.facet_collections_primary",
+            "type": "text"
+          },
+          "secondary": {
+            "analyzer": "collections",
+            "type": "text"
+          }
+        }
+      },
+      "definition": {
+        "type": "text"
+      },
+      "facet_schema": {
+        "index": true,
+        "type": "text"
+      },
+      "term": {
+        "type": "text"
+      },
+      "type": {
+        "properties": {
+          "primary": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          },
+          "secondary": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          }
+        }
+      }
+    }
+  },
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "collections": {
+          "tokenizer": "keyword"
         }
       }
     }
