@@ -24,15 +24,23 @@
 
 """Record serialization."""
 
-from .basic_json import BasicJSONSerializer, RecordSchemaV1
+from .basic_json import BasicJSONSerializer, RecordSchemaV1, CODJSONSerializer
 from .schemaorg import CODSchemaorgSerializer
 
-from invenio_records_rest.serializers.response import record_responsify
-
+from invenio_records_rest.serializers.response import (
+    record_responsify,
+    search_responsify,
+)
+from invenio_records_rest.schemas import RecordSchemaJSONV1
 
 json = BasicJSONSerializer(RecordSchemaV1)
 
 schemaorg_jsonld = CODSchemaorgSerializer(replace_refs=True)
 
-schemaorg_jsonld_response = record_responsify(schemaorg_jsonld,
-                                              'application/ld+json')
+schemaorg_jsonld_response = record_responsify(
+                                schemaorg_jsonld,
+                                'application/ld+json')
+
+json_search = CODJSONSerializer(RecordSchemaJSONV1)
+
+json_v1_search = search_responsify(json_search, 'application/json')

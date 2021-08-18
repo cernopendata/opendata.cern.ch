@@ -30,6 +30,8 @@ from invenio_records_rest.errors import InvalidQueryRESTError
 from invenio_records_rest.sorter import default_sorter_factory
 from invenio_records_rest.facets import default_facets_factory
 
+from .facets import cernopendata_facets_factory
+
 
 def cernopendata_query_parser(query_string=None, show_ondemand=None):
     """Default parser that uses the Q() from elasticsearch_dsl.
@@ -79,7 +81,7 @@ def cernopendata_search_factory(self, search):
         raise InvalidQueryRESTError()
 
     search_index = search._index[0]
-    search, url_kwargs = default_facets_factory(search, search_index)
+    search, url_kwargs = cernopendata_facets_factory(search, search_index)
     search, sort_kwargs = default_sorter_factory(search, search_index)
     for key, value in sort_kwargs.items():
         url_kwargs.add(key, value)

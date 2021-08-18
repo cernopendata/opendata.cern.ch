@@ -22,9 +22,9 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
-"""Basic JSON serializer for records."""
+"""Cernopendata JSON serializer for records."""
 
-from flask import current_app
+from flask import current_app, json
 from marshmallow import Schema, fields
 
 from invenio_records_rest.serializers.json import JSONSerializer
@@ -41,6 +41,60 @@ class BasicJSONSerializer(JSONSerializer):
         return self.schema_class(context=context).dump(obj)
 
 
+class CODJSONSerializer(JSONSerializer):
+    """UI search serializer."""
+
+    # We need to override `serialize_search()` as we have a custom
+    # `filtered` field in aggregation in `cernopendata_facets_factory` and
+    # react-search-kit expect the buckets inside the aggregations directly
+    # not inside filtered object.
+    def serialize_search(
+        self,
+        pid_fetcher,
+        search_result,
+        links=None,
+        item_links_factory=None,
+        **kwargs
+    ):
+        """Serialize a search result.
+
+        :param pid_fetcher: Persistent identifier fetcher.
+        :param search_result: Elasticsearch search result.
+        :param links: Dictionary of links to add to response.
+        """
+        total = search_result['hits']['total']['value']
+
+        # Serialize aggregation and remove `filtered` object
+        aggregations = (search_result.get('aggregations', dict()),)
+        for k, agg in aggregations[0].items():
+            if 'filtered' in agg:
+                buckets = agg.get('filtered')
+                if buckets:
+                    agg.update(buckets)
+                    agg.pop('filtered')
+
+        aggregations = aggregations[0]
+        return json.dumps(
+            dict(
+                hits=dict(
+                    hits=[
+                        self.transform_search_hit(
+                            pid_fetcher(hit['_id'], hit['_source']),
+                            hit,
+                            links_factory=item_links_factory,
+                            **kwargs
+                        )
+                        for hit in search_result['hits']['hits']
+                    ],
+                    total=total,
+                ),
+                links=links or {},
+                aggregations=aggregations,
+            ),
+            **self._format_args()
+        )
+
+
 def dump_files(obj):
     """Basic JSON serializer."""
     _files = []
@@ -51,14 +105,15 @@ def dump_files(obj):
 
     for file in files:
         _file = {
-            "checksum": file.get('checksum', ''),
-            "size": file.get('size', ''),
-            "filename": file.get('key', ''),
-            "uri_http": "{}/record/{}/files/{}".format(
+            'checksum': file.get('checksum', ''),
+            'size': file.get('size', ''),
+            'filename': file.get('key', ''),
+            'uri_http': '{}/record/{}/files/{}'.format(
                 current_app.config.get('HOST_URI', 'http://opendata.cern.ch'),
                 recid,
-                file.get('key', '')),
-            "uri_root": file.get('uri', '')
+                file.get('key', ''),
+            ),
+            'uri_root': file.get('uri', ''),
         }
 
         if 'index' in file.get('type', ''):
@@ -78,12 +133,12 @@ class RecordSchemaV1(Schema):
     metadata = fields.Method('dump_metadata')
 
     def dump_metadata(self, obj):
-        """Dumps metadata - removes '_files'."""
-        if "_files" in obj['metadata']:
-            del obj['metadata']["_files"]
+        """Dumps metadata and removes `_files`."""
+        if '_files' in obj['metadata']:
+            del obj['metadata']['_files']
 
-        if "_bucket" in obj['metadata']:
-            del obj['metadata']["_bucket"]
+        if '_bucket' in obj['metadata']:
+            del obj['metadata']['_bucket']
 
         _files = dump_files(obj)
         obj['metadata']['files'] = _files[0]

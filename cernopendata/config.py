@@ -223,6 +223,10 @@ RECORDS_REST_ENDPOINTS['recid'].update({
         'application/ld+json': ('cernopendata.modules.records.serializers'
                                 ':schemaorg_jsonld_response'),
     },
+    'search_serializers': {
+        'application/json': ('cernopendata.modules.records.serializers'
+                             ':json_v1_search'),
+    },
 })
 
 RECORDS_REST_ENDPOINTS['termid'] = {
