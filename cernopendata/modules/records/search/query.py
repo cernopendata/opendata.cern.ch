@@ -24,6 +24,8 @@
 
 """Cernopendata Query factory for REST API."""
 
+import itertools
+import operator
 from elasticsearch_dsl.query import Q, Range, Bool
 from flask import current_app, request
 from invenio_records_rest.errors import InvalidQueryRESTError
@@ -116,4 +118,49 @@ def cernopendata_range_filter(field):
                     range_args[dict_key] = range_end
             range_query.append(Range(**{field: range_args}))
         return Bool(should=range_query)
+    return inner
+
+
+def cernopendata_nested_terms_filter(field, subfield, splitchar):
+    """Create a nested term filter used for nested aggregations.
+
+    :param field: Field name.
+    :param subfield: Subfield name of a Field.
+    :param splitchar: Character dividing the Field and Subfield.
+    :returns: Function that returns the Nested terms query.
+    """
+    def inner(values):
+        field_values = {}
+        term_queries = []
+        # Iterating through aggregation and nested aggregations
+        for filter in values:
+            # Get the aggregation type
+            field_name = filter.split(splitchar)[0]
+
+            # If aggregation type is not present in field_values,
+            # add them to dict with a empty list
+            if field_name not in field_values:
+                field_values[field_name] = []
+
+            # If `splitchar` is present in filter, append the
+            # subfield aggregations to the belonging aggregation type key
+            if splitchar in filter:
+                subfield_value = filter.split(splitchar)[-1]
+                field_values[field_name].append(subfield_value)
+
+        # Iterate through aggregation type and
+        # create term query with `AND` operation
+        for k in field_values.keys():
+            if field_values[k]:
+                term_queries.append(
+                    Q('term', **{field: k}) &
+                    Q('terms', **{subfield: field_values[k]})
+                )
+            else:
+                term_queries.append(Q('term', **{field: k}))
+
+        # Return the query after creating a chain of `OR` queries.
+        query = list(itertools.accumulate(term_queries, operator.or_))[-1]
+        return query
+
     return inner
