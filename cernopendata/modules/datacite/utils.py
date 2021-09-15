@@ -43,7 +43,7 @@ def generate_doi(prefix, experiment=None):
 def random_doi(prefix, experiment=None):
     """Generate random DOI."""
     def _generate_random_string(length):
-        chars = string.uppercase + string.digits
+        chars = string.ascii_uppercase + string.digits
         return ''.join((random.choice(chars)) for x in range(length))
 
     if experiment:
