@@ -34,6 +34,7 @@ The list of contributors in alphabetical order:
 - `Mantas Savaniakas <https://github.com/mantasavas>`_
 - `Matt Bellis <https://github.com/mattbellis>`_
 - `Mihaela Gheata <https://github.com/mgheata>`_
+- `Osama Sh. Almomani <https://github.com/OsamaMomani>`_
 - `Pamfilos Fokianos <https://github.com/pamfilos>`_
 - `Patricia Herterich <https://github.com/pherterich>`_
 - `Sebastian Feger <https://github.com/sefeg>`_
