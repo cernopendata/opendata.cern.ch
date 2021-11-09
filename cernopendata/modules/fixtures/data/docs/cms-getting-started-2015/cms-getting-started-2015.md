@@ -203,7 +203,7 @@ $ cmsRun PhysObjectExtractor/python/poet_cfg.py
 
 The configuration file sets it to run over 1000 events in a simulated dataset.
 
-If you are using the CMS open data container, open the graphical window in the container by typing
+If you are using the CMS open data container with the VNC application installed (see the [container guide page](/docs/cms-guide-docker)), open the graphical window in the container by typing
 
 ```shell
 $ start_vnc
