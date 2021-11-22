@@ -104,7 +104,7 @@ def update_record(pid, schema, data, files, skip_files):
     """Updates the given record."""
     record = Record.get_record(pid.object_uuid)
     with db.session.begin_nested():
-        if record.files and not skip_files:
+        if record.files and skip_files:
             bucket_id = record.files.bucket
             bucket = Bucket.get(bucket_id.id)
             for o in ObjectVersion.get_by_bucket(bucket).all():
@@ -114,6 +114,7 @@ def update_record(pid, schema, data, files, skip_files):
                 record=record.model,
                 bucket=bucket
             ).delete()
+            Bucket.delete(bucket.id)
             bucket_id.remove()
     db.session.commit()
     record.update(data)
