@@ -1,0 +1,132 @@
+[
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset MinBias_TuneZ2star_8TeV-pythia6 in AODSIM format for 2012 collision data.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p><p>These simulated datasets correspond to the collision data collected by the CMS experiment in 2012.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Standard Model Physics",
+      "secondary": [
+        "Minimum Bias"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration",
+      "recid": "453"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "8TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2012"
+    ],
+    "date_published": "2021",
+    "date_reprocessed": "2012",
+    "distribution": {
+      "formats": [
+        "aodsim",
+        "root"
+      ],
+      "number_events": 49843635,
+      "number_files": 3615,
+      "size": 14238961401225
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>These data were generated in several steps (see also <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production overview</a>):</p>",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "cms_confdb_id": "af4431aa75037618429e3164db9f3415",
+              "process": "SIM",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "pythia6"
+          ],
+          "global_tag": "START50_V13::All",
+          "output_dataset": "/MinBias_TuneZ2star_8TeV-pythia6/Summer12-START50_V13-v3/GEN-SIM",
+          "release": "CMSSW_5_0_0_patch2",
+          "type": "SIM"
+        },
+        {
+          "configuration_files": [
+            {
+              "cms_confdb_id": "a37d2c54dd488d5eae27881dee883b6c",
+              "process": "HLT",
+              "title": "Configuration file"
+            },
+            {
+              "cms_confdb_id": "a37d2c54dd488d5eae27881dee894359",
+              "process": "RECO",
+              "title": "Configuration file"
+            }
+          ],
+          "global_tag": "START53_V7A::All",
+          "output_dataset": "/MinBias_TuneZ2star_8TeV-pythia6/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+          "release": "CMSSW_5_3_2_patch4",
+          "type": "HLT RECO"
+        }
+      ]
+    },
+    "pileup": {
+      "description": "<p>To make these simulated data comparable with the collision data, <a href=\"/docs/cms-guide-pileup-simulation\">pile-up events</a> are added to the simulated event in this step.</p>",
+      "links": [
+        {
+          "recid": "37",
+          "title": "/MinBias_TuneZ2star_8TeV-pythia6/Summer12-START50_V13-v3/GEN-SIM"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "13080",
+    "run_period": [
+      "Run2012A",
+      "Run2012B",
+      "Run2012C",
+      "Run2012D"
+    ],
+    "system_details": {
+      "global_tag": "START53_V27::All",
+      "release": "CMSSW_5_3_32"
+    },
+    "title": "/MinBias_TuneZ2star_8TeV-pythia6/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM",
+    "title_additional": "Simulated dataset MinBias_TuneZ2star_8TeV-pythia6 in AODSIM format for 2012 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2012"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2012"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  }
+]
