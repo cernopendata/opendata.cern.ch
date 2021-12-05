@@ -1,0 +1,75 @@
+[
+  {
+    "abstract": {
+      "description": "<p>This dataset consists of 30 csv files containing the voxelised shower information obtained from single photon and single charged pion samples in the |η| range (0.2-0.25) simulated in the ATLAS detector. These samples were used to train the corresponding two GANs presented in the AtlFast3 paper <a href=\"https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SIMU-2018-04/\">SIMU-2018-04</a>. </p> <p>The information in each file is a table; the rows correspond to the events and the columns to the voxels. The voxelisation procedure is described in the AtlFast3 paper linked above and in the dedicated PUB note <a href=\"https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-SOFT-PUB-2020-006/\">ATL-SOFT-PUB-2020-006</a>. In summary, the detailed energy deposits produced by ATLAS were converted from x,y,z coordinates to local cylindrical coordinates defined around the particle 3-momentum at the entrance of the calorimeter. The energy deposits in each layer were then grouped in voxels and for each voxel the energy was stored in the csv file. For each particle, there are 15 files corresponding to the 15 energy points used to train the GAN. The name of the csv file defines both the particle and the energy of the sample used to create the file. </p> <p>The size of the voxels is described in the binning.xml file. Software tools to read the XML file and manipulate the spatial information of voxels are provided in the FastCaloGAN repository. </p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "ATLAS collaboration"
+    },
+    "collections": [
+      "ATLAS-Derived-Datasets"
+    ],
+    "date_published": "2021",
+    "distribution": {
+      "formats": [
+        "csv",
+        "tgz",
+        "xml"
+      ],
+      "number_events": 238230,
+      "number_files": 3,
+      "size": 237606215
+    },
+    "doi": "10.7483/OPENDATA.ATLAS.UXKX.TXBN",
+    "experiment": "ATLAS",
+    "files": [
+      {
+        "checksum": "adler32:09da3306",
+        "size": 2850,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/SIMU-2018-04/binning.xml"
+      },
+      {
+        "checksum": "adler32:2ba53d7c",
+        "size": 122700528,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/SIMU-2018-04/photon_samples.tgz"
+      },
+      {
+        "checksum": "adler32:97c2fd0d",
+        "size": 114902837,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/SIMU-2018-04/pion_samples.tgz"
+      }
+    ],
+    "keywords": [
+      "datascience"
+    ],
+    "links": [
+      {
+        "description": "ATLAS AtlFast3 paper SIMU-2018-04",
+        "url": "https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SIMU-2018-04/"
+      },
+      {
+        "description": "ATLAS publication note ATL-SOFT-PUB-2020-006",
+        "url": "https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-SOFT-PUB-2020-006/"
+      }
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "15012",
+    "title": "Datasets used to train the Generative Adversarial Networks used in ATLFast3",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": "Please see the FastCaloGAN software:",
+      "links": [
+        {
+          "description": "FastCaloGAN Training Project",
+          "url": "https://zenodo.org/record/5589623"
+        }
+      ]
+    }
+  }
+]
