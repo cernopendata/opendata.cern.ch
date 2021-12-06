@@ -4,9 +4,9 @@ A Global Tag is a coherent collection of records of additional data needed by th
 
 These records are stored in the condition database. Condition data include non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for the simulation/reconstruction/analysis software. For CMS Open Data, the condition data are provided as sqlite files in the `/cvmfs/cms-opendata-conddb.cern.ch/` directory, which is accessible through the CMS Open Data VM. Note that when using CMS Open Data docker images, connecting to this area with the command `process.GlobalTag.connect = cms.string(...` in the job configuration file is not required.
 
-Most [physics objects](/docs/cms-physics-objects-2011) in the CMS Open Data are already calibrated and ready-to-use, and no additional corrections are needed other than selection and identification criteria, which will be applied in the analysis code. Therefore, simple analyses do not need to access the condition database. Examples of such analyses are [the di-muon spectrum example](/record/5001) or [the Higgs analysis example](/record/5500).
+Most [AOD](/docs/cms-physics-objects-2011) and [MINIAOD](/docs/cms-physics-objects-2015) physics objects in the CMS Open Data are already calibrated and ready-to-use, and no additional corrections are needed other than selection and identification criteria, which will be applied in the analysis code. Therefore, simple analyses do not need to access the condition database. Examples of such analyses are [the di-muon spectrum example](/record/5001) or [the Higgs analysis example](/record/5500).
 
-However, access to the condition database is necessary, for example, for jet energy corrections and trigger configuration information. Examples of such analyses are for [the PAT object production](/record/233) or [the top quark pair production](/record/5000).
+However, access to the condition database is necessary, for example, for jet energy corrections and trigger configuration information. Examples of such analyses are the jet energy correction (JEC) reading in ["Physics Object Extractor Tool (POET)"](https://github.com/cms-legacydata-analyses/PhysObjectExtractorTool/tree/2012)(/record/233) or getting [the trigger information](/record/5004).
 
 Note that when you need to access the condition database, the first time you run the job on the CMS Open Data VM, it will download the condition data from the `/cvmfs` area. It will take time (an example run of a 10 Mbps line took 45 mins), but it will only happen once as the files will be cached on your VM. The job will not produce any output during this time, but you can check the ongoing processes with the command 'top' and you can monitor the progress of reading the condition data to the local cache with the command 'df'.
 
@@ -163,8 +163,31 @@ process.GlobalTag.globaltag = 'START53_V27::All'
 ```
 
 ---
+**For 2015 collision data**, the global tag is 76X_dataRun2_16Dec2015_v0. Define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
 
-**For 2016 Montecarlo data**, the global tag is 80X_mcRun2_asymptotic_2016_TrancheIV_v8. To access the condition database, first, set the symbolic links:
+```shell
+#globaltag for 2015 collision data
+process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/76X_dataRun2_16Dec2015_v0.db')
+process.GlobalTag.globaltag = '76X_dataRun2_16Dec2015_v0'
+```
+
+The `process.GlobalTag.connect` line is only needed when reading the condition data from the `/cvmfs` file system, not when using the CMS open data software containers.
+
+---
+
+**For 2015 Montecarlo data**, the global tag is 76X_mcRun2_asymptotic_RunIIFall15DR76_v1. Define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
+
+```shell
+#globaltag for 2015 MC
+process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/76X_mcRun2_asymptotic_RunIIFall15DR76_v1.db')
+process.GlobalTag.globaltag = '76X_mcRun2_asymptotic_RunIIFall15DR76_v1'
+```
+
+The `process.GlobalTag.connect` line is only needed when reading the condition data from the `/cvmfs` file system, not when using the CMS open data software containers.
+
+---
+
+**For 2016 Montecarlo data**, for the special data science samples, the global tag is 80X_mcRun2_asymptotic_2016_TrancheIV_v8. To access the condition database, first, set the symbolic links:
 
 ```shell
 ln -sf /cvmfs/cms-opendata-conddb.cern.ch/80X_mcRun2_asymptotic_2016_TrancheIV_v8.db 80X_mcRun2_asymptotic_2016_TrancheIV_v8.db
@@ -187,7 +210,7 @@ process.GlobalTag.snapshotTime = cms.string("9999-12-31 23:59:59.000")
 
 ---
 
-**For 2018 Montecarlo data**, the global tag is 102X_upgrade2018_design_v9. To access the condition database, first, set the symbolic links:
+**For 2018 Montecarlo data**, for the special data science samples, the global tag is 102X_upgrade2018_design_v9. To access the condition database, first, set the symbolic links:
 
 ```shell
 ln -sf /cvmfs/cms-opendata-conddb.cern.ch/102X_upgrade2018_design_v9.db 102X_upgrade2018_design_v9.db
