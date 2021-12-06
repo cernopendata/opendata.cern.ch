@@ -1,9 +1,9 @@
 The Compact Muon Solenoid (CMS) is one of the large particle detectors at CERN's Large Hadron Collider. The CMS Collaboration consists of more than 4000 scientists, engineers, technicians and students from around 200 institutes and universities from more than 40 countries. You can find more information about the CMS [detector](https://cms.cern/detector) on the official [CMS website](https://cms.cern).
 
-You can find usage instructions and suggestions of CMS Open Data in two detailed guides:
+You can find usage instructions and suggestions of CMS Open Data for different scopes in:
 
-* [Guide to education use of CMS Open Data](/docs/cms-guide-for-education)
-* [Guide to reaserch use of CMS Open Data](https://cms-opendata-guide.web.cern.ch/).
+* [Guide page to education use of CMS Open Data](/docs/cms-guide-for-education)
+* [Guide page to reaserch use of CMS Open Data](/docs/cms-guide-for-research) and a separate [CMS Open Data guide](https://cms-opendata-guide.web.cern.ch/) (under construction).
 
 This page gives a brief overview of CMS Open Data contents:
 
