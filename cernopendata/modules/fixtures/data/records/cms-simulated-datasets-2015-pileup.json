@@ -1,0 +1,110 @@
+[
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset MinBias_TuneCUETP8M1_13TeV-pythia8 in GEN-SIM format (see <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production overview</a>) for 2015 collision data. Events are sampled from this dataset and added to simulated data to make them comparable with the 2015 collision data, see <a href=\"/docs/cms-guide-pileup-simulation\">the guide to pile-up simulation</a>. </p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Standard Model Physics",
+      "secondary": [
+        "Minimum Bias"
+      ],
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2015"
+    ],
+    "date_published": "2021",
+    "date_reprocessed": "2015",
+    "distribution": {
+      "formats": [
+        "gen-sim",
+        "root"
+      ],
+      "number_events": 199682696,
+      "number_files": 11786,
+      "size": 39477329370961
+    },
+    "experiment": "CMS",
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>These data were processed with (see also <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production overview</a>):<p>\n                           ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\n\n# GEN Script begin\nrm -f request_fragment_check.py\nwget -q https://raw.githubusercontent.com/cms-sw/genproductions/master/bin/utils/request_fragment_check.py\nchmod +x request_fragment_check.py\n./request_fragment_check.py --bypass_status --prepid FSQ-RunIISummer15GS-00001\nGEN_ERR=$?\nif [ $GEN_ERR -ne 0 ]; then\n  echo \"GEN Checking Script returned exit code $GEN_ERR which means there are $GEN_ERR errors\"\n  echo \"Validation WILL NOT RUN\"\n  echo \"Please correct errors in the request and run validation again\"\n  exit $GEN_ERR\nfi\necho \"Running VALIDATION. GEN Request Checking Script returned no errors\"\n# GEN Script end\n\n# Dump actual test code to a FSQ-RunIISummer15GS-00001_test.sh file that can be run in Singularity\ncat <<'EndOfTestFile' > FSQ-RunIISummer15GS-00001_test.sh\n#!/bin/bash\n\nexport SCRAM_ARCH=slc6_amd64_gcc481\n\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_7_1_20/src ] ; then\n  echo release CMSSW_7_1_20 already exists\nelse\n  scram p CMSSW CMSSW_7_1_20\nfi\ncd CMSSW_7_1_20/src\neval `scram runtime -sh`\n\n# Download fragment from McM\ncurl -s -k https://cms-pdmv.cern.ch/mcm/public/restapi/requests/get_fragment/FSQ-RunIISummer15GS-00001 --retry 3 --create-dirs -o Configuration/GenProduction/python/FSQ-RunIISummer15GS-00001-fragment.py\n[ -s Configuration/GenProduction/python/FSQ-RunIISummer15GS-00001-fragment.py ] || exit $?;\n\n# Check if fragment contais gridpack path ant that it is in cvmfs\nif grep -q \"gridpacks\" Configuration/GenProduction/python/FSQ-RunIISummer15GS-00001-fragment.py; then\n  if ! grep -q \"/cvmfs/cms.cern.ch/phys_generator/gridpacks\" Configuration/GenProduction/python/FSQ-RunIISummer15GS-00001-fragment.py; then\n    echo \"Gridpack inside fragment is not in cvmfs.\"\n    exit -1\n  fi\nfi\nscram b\ncd ../..\n\n# Maximum validation duration: 28800s\n# Margin for validation duration: 30%\n# Validation duration with margin: 28800 * (1 - 0.30) = 20160s\n# Time per event for each sequence: 20.0000s\n# Threads for each sequence: 1\n# Time per event for single thread for each sequence: 1 * 20.0000s = 20.0000s\n# Which adds up to 20.0000s per event\n# Single core events that fit in validation duration: 20160s / 20.0000s = 1008\n# Produced events limit in McM is 10000\n# According to 1.0000 efficiency, validation should run 10000 / 1.0000 = 10000 events to reach the limit of 10000\n# Take the minimum of 1008 and 10000, but more than 0 -> 1008\n# It is estimated that this validation will produce: 1008 * 1.0000 = 1008 events\nEVENTS=1008\n\n\n# cmsDriver command\ncmsDriver.py Configuration/GenProduction/python/FSQ-RunIISummer15GS-00001-fragment.py --python_filename FSQ-RunIISummer15GS-00001_1_cfg.py --eventcontent RAWSIM --customise SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1,Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM --fileout file:FSQ-RunIISummer15GS-00001.root --conditions MCRUN2_71_V1::All --beamspot Realistic50ns13TeVCollision --step GEN,SIM --magField 38T_PostLS1 --no_exec --mc -n $EVENTS || exit $? ;\n\n# Run generated config\nREPORT_NAME=FSQ-RunIISummer15GS-00001_report.xml\n# Run the cmsRun\ncmsRun -e -j $REPORT_NAME FSQ-RunIISummer15GS-00001_1_cfg.py || exit $? ;\n\n# Parse values from FSQ-RunIISummer15GS-00001_report.xml report\nprocessedEvents==$(grep -Po \"(?<=<Metric Name=\\\"NumberEvents\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\nproducedEvents=$(grep -Po \"(?<=<TotalEvents>)(\\d*)(?=</TotalEvents>)\" $REPORT_NAME | tail -n 1)\nthreads=$(grep -Po \"(?<=<Metric Name=\\\"NumberOfThreads\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\npeakValueRss=$(grep -Po \"(?<=<Metric Name=\\\"PeakValueRss\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\npeakValueVsize=$(grep -Po \"(?<=<Metric Name=\\\"PeakValueVsize\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\ntotalSize=$(grep -Po \"(?<=<Metric Name=\\\"Timing-tstoragefile-write-totalMegabytes\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\ntotalSizeAlt=$(grep -Po \"(?<=<Metric Name=\\\"Timing-file-write-totalMegabytes\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\ntotalJobTime=$(grep -Po \"(?<=<Metric Name=\\\"TotalJobTime\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\ntotalJobCPU=$(grep -Po \"(?<=<Metric Name=\\\"TotalJobCPU\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\neventThroughput=$(grep -Po \"(?<=<Metric Name=\\\"EventThroughput\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\navgEventTime=$(grep -Po \"(?<=<Metric Name=\\\"AvgEventTime\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\nif [ -z \"$threads\" ]; then\n  echo \"Could not find NumberOfThreads in report, defaulting to 1\"\n  threads=1\nfi\nif [ -z \"$eventThroughput\" ]; then\n  eventThroughput=$(bc -l <<< \"scale=4; 1 / ($avgEventTime / $threads)\")\nfi\nif [ -z \"$totalSize\" ]; then\n  totalSize=$totalSizeAlt\nfi\nif [ -z \"$processedEvents\" ]; then\n  processedEvents=$EVENTS\nfi\necho \"Validation report of FSQ-RunIISummer15GS-00001 sequence 1/1\"\necho \"Processed events: $processedEvents\"\necho \"Produced events: $producedEvents\"\necho \"Threads: $threads\"\necho \"Peak value RSS: $peakValueRss MB\"\necho \"Peak value Vsize: $peakValueVsize MB\"\necho \"Total size: $totalSize MB\"\necho \"Total job time: $totalJobTime s\"\necho \"Total CPU time: $totalJobCPU s\"\necho \"Event throughput: $eventThroughput\"\necho \"CPU efficiency: \"$(bc -l <<< \"scale=2; ($totalJobCPU * 100) / ($threads * $totalJobTime)\")\" %\"\necho \"Size per event: \"$(bc -l <<< \"scale=4; ($totalSize * 1024 / $producedEvents)\")\" kB\"\necho \"Time per event: \"$(bc -l <<< \"scale=4; (1 / $eventThroughput)\")\" s\"\necho \"Filter efficiency percent: \"$(bc -l <<< \"scale=8; ($producedEvents * 100) / $processedEvents\")\" %\"\necho \"Filter efficiency fraction: \"$(bc -l <<< \"scale=10; ($producedEvents) / $processedEvents\")\n\n# End of FSQ-RunIISummer15GS-00001_test.sh file\nEndOfTestFile\n\n# Make file executable\nchmod +x FSQ-RunIISummer15GS-00001_test.sh\n\n# Run in SLC6 container\n# Mount afs, eos, cvmfs\n# Mount /etc/grid-security for xrootd\nexport SINGULARITY_CACHEDIR=\"/tmp/$(whoami)/singularity\"\nsingularity run -B /afs -B /eos -B /cvmfs -B /etc/grid-security --home $PWD:$PWD /cvmfs/unpacked.cern.ch/registry.hub.docker.com/cmssw/slc6:amd64 $(echo $(pwd)/FSQ-RunIISummer15GS-00001_test.sh)\n",
+              "title": "Production script"
+            },
+            {
+              "script": "import FWCore.ParameterSet.Config as cms\n\nfrom Configuration.Generator.Pythia8CommonSettings_cfi import *\nfrom Configuration.Generator.Pythia8CUEP8M1Settings_cfi import *\n\ngenerator = cms.EDFilter(\"Pythia8GeneratorFilter\",\n    maxEventsToPrint = cms.untracked.int32(1),\n    pythiaPylistVerbosity = cms.untracked.int32(1),\n    filterEfficiency = cms.untracked.double(1.0),\n    pythiaHepMCVerbosity = cms.untracked.bool(False),\n    comEnergy = cms.double(13000.),\n    PythiaParameters = cms.PSet(\n        pythia8CommonSettingsBlock,\n        pythia8CUEP8M1SettingsBlock,\n        processParameters = cms.vstring(\n            'SoftQCD:nonDiffractive = on',\n            'SoftQCD:singleDiffractive = on',\n            'SoftQCD:doubleDiffractive = on',\n        ),\n        parameterSets = cms.vstring('pythia8CommonSettings',\n                                    'pythia8CUEP8M1Settings',\n                                    'processParameters',\n                                    )\n    )\n)",
+              "title": "Generator parameters",
+              "url": "https://cms-pdmv.cern.ch/mcm/public/restapi/requests/get_fragment/FSQ-RunIISummer15GS-00001/0"
+            },
+            {
+              "cms_confdb_id": "eb761610a546849c590da9904d70c385",
+              "process": "SIM",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "pythia8"
+          ],
+          "global_tag": "MCRUN2_71_V1::All",
+          "release": "CMSSW_7_1_20",
+          "type": "GEN-SIM"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "22314",
+    "run_period": [
+      "Run2016C",
+      "Run2016D"
+    ],
+    "system_details": {
+      "global_tag": "76X_mcRun2_asymptotic_RunIIFall15DR76_v1",
+      "release": "CMSSW_7_6_7"
+    },
+    "title": "/MinBias_TuneCUETP8M1_13TeV-pythia8/RunIISummer15GS-MCRUN2_71_V1-v2/GEN-SIM",
+    "title_additional": "Simulated pile-up dataset MinBias_TuneCUETP8M1_13TeV-pythia8 in GEN-SIM format for 2018 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2015"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-2015"
+        }
+      ]
+    },
+    "validation": {
+      "description": "These data were generated in context of machine learning and they have been validated through general CMS validation procedures."
+    }
+  }
+]
