@@ -49,13 +49,13 @@ Change to the ```CMSSW_7_6_7/src/``` directory:
 cd CMSSW_7_6_7/src/
 ```
 
-Then, run the following command to create the CMS runtime variables:
+Then, run the following command to create the CMS environment:
 
 ```
 cmsenv
 ```
 
-To confirm that the environment is properly set up, run a helper script to inspect the contents of a CMS open data file:
+To test that the environment is properly set up, you can try a CMSSW command and see that it works. For example, you can run a helper script to inspect the contents of a CMS open data file:
 
 ```
 edmDumpEventContent root://eospublic.cern.ch//eos/opendata/cms/Run2015D/DoubleEG/MINIAOD/08Jun2016-v1/10000/00387F48-342F-E611-AB5D-0CC47A4D76AC.root
@@ -101,11 +101,11 @@ unsigned int                          "bunchSpacingProducer"      ""            
 
 > **Answer:** Uncheck the default option "Import hard drives as VDI" in the VirtualBox import menu. It may also happen that the folder in which VirtualBox writes the images ('/users/[username]/VirtualBox VMs') does not get created. In this case you can create it manually.
 
-**Question:**  When/after installing CERN VM, I get a message that my VM uses too much memory
+**Question:** When/after installing CERN VM, I get a message that my VM uses too much memory
 
 > **Answer:** Reduce the memory allocated to VirtualBox by clicking on System in the VirtualBox graphical user interface and adjust the base memory with the sliding bar.
 
-**Question:**  When I try to compile with 'scram b', I get a warning 'SCRAM warning: You are trying to compile/build for architecture slc6_amd64_gcc493 on SLC7 OS which might not work. If you know this SCRAM_ARCH/OS combination works then please first run 'scram build --ignore-arch'.'
+**Question:** When I try to compile with 'scram b', I get a warning 'SCRAM warning: You are trying to compile/build for architecture slc6_amd64_gcc493 on SLC7 OS which might not work. If you know this SCRAM_ARCH/OS combination works then please first run 'scram build --ignore-arch'.'
 
 > **Answer:** You are very likely in the wrong shell of the VM machine. When using the "CMS-OpenData-1.5.X" VM, all CMSSW-specific commands (compilation, run) must be given in the "CMS Shell", which can be opened from the desk top icon, not in the "Outer shell".
 

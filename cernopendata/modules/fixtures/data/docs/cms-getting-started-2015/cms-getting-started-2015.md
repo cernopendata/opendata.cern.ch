@@ -14,11 +14,13 @@ $ cmsrel CMSSW_7_6_7
 
 Note that if you get a warning message about the current OS not being slc6, you are using a wrong terminal ("Outer Shell") which is CERN CentOS 7 (cc7). Open a "CMS Shell" terminal as explained above and execute the cmsrel command there.
 
-Both in CMS open data container and in the VM, make sure that you are always in the **CMSSW_7_6_7/src/** directory (and in the "CMS Shell" terminal in VM), and that the CMS analysis environment is properly setup by entering the following commands in the terminal (you must do so every time you boot the VM before you can proceed):
+Both in CMS open data container and in the VM, make sure that you are always in the **CMSSW_7_6_7/src/** directory (and in the "CMS Shell" terminal in VM).
+
+In VM, the CMS analysis environment needs to be properly setup by entering the following commands in the terminal (you must do so every time you boot the VM before you can proceed):
 
 ```shell
 $ cd CMSSW_7_6_7/src/
-$ cmsenv
+$ cmsenv # do not execute this command if you are working in the container
 ```
 
 ## <a name="data">"OK! What is in the CMS data?"</a>
@@ -27,7 +29,7 @@ The primary data provided by CMS on the CERN Open Data Portal is in a format cal
 
 So, let's see what a MINIAOD file looks like.
 
-Make sure that you are in the **CMSSW_7_6_7/src/** folder, and you have executed the `cmsenv` command in your terminal to launch the CMS analysis environment.
+Make sure that you are in the **CMSSW_7_6_7/src/** folder, and, in VM, you have executed the `cmsenv` command in your terminal to launch the CMS analysis environment.
 
 You can select a file from a dataset (a listing is available for each dataset record) and print out it contents with:
 
@@ -57,34 +59,35 @@ $ mkedanlzr MiniAnalyzer
 $ cd MiniAnalyzer
 ```
 
-This will create several template files in the new MiniAnalyzer directory. To access the physics object properties, add `<use name="DataFormats/PatCandidates"/>` in `plugins/BuildFile.xml`. Compile the code with:
+This will create several template files in the new MiniAnalyzer directory. For more information, have a look in [the CMS open data guide](https://cms-opendata-guide.web.cern.ch/cmssw/cmsswanalyzers/).
+
+To access the physics object properties, add `<use name="DataFormats/PatCandidates"/>` in `plugins/BuildFile.xml`. Compile the code with:
 
 ```shell
 $ scram b
 ```
 
-To run over the example file, change the input file name in `python/ConfFile_cfg.py` to `root://eospublic.cern.ch//eos/opendata/cms/Run2015D/DoubleEG/MINIAOD/08Jun2016-v1/10000/00387F48-342F-E611-AB5D-0CC47A4D76AC.root`. Change the number of events from `-1` (runs over all events in the file) to `10` for testing. You can run this "empty" analyzer to see that the data are accessed properly:
+To run over the example file, change the input file name `file:myfile.root` in `python/ConfFile_cfg.py` to `root://eospublic.cern.ch//eos/opendata/cms/Run2015D/DoubleEG/MINIAOD/08Jun2016-v1/10000/00387F48-342F-E611-AB5D-0CC47A4D76AC.root`. Change the number of events from `-1` (runs over all events in the file) to `10` for testing. You can run this "empty" analyzer to see that the data are accessed properly:
 
 ```shell
 $ cmsRun python/ConfFile_cfg.py
-30-Oct-2021 13:45:00 CEST  Initiating request to open file root://eospublic.cern.ch//eos/opendata/cms/Run2015D/DoubleEG/MINIAOD/08Jun2016-v1/10000/00387F48-342F-E611-AB5D-0CC47A4D76AC.root
-211030 13:45:00 1057 secgsi_InitProxy: cannot access private key file: /home/cmsusr/.globus/userkey.pem
-%MSG-w XrdAdaptor:  file_open 30-Oct-2021 13:45:01 CEST pre-events
+09-Dec-2021 12:00:35 CET  Initiating request to open file root://eospublic.cern.ch//eos/opendata/cms/Run2015D/DoubleEG/MINIAOD/08Jun2016-v1/10000/00387F48-342F-E611-AB5D-0CC47A4D76AC.root
+211209 12:00:35 722 secgsi_InitProxy: cannot access private key file: /home/cmsusr/.globus/userkey.pem
+%MSG-w XrdAdaptor:  file_open 09-Dec-2021 12:00:37 CET pre-events
 Data is served from cern.ch instead of original site eospublic
 %MSG
-30-Oct-2021 13:45:03 CEST  Successfully opened file root://eospublic.cern.ch//eos/opendata/cms/Run2015D/DoubleEG/MINIAOD/08Jun2016-v1/10000/00387F48-342F-E611-AB5D-0CC47A4D76AC.root
-Begin processing the 1st record. Run 258434, Event 269235992, LumiSection 165 at 30-Oct-2021 13:46:12.372 CEST
-Begin processing the 2nd record. Run 258434, Event 269040066, LumiSection 165 at 30-Oct-2021 13:46:12.374 CEST
-Begin processing the 3rd record. Run 258434, Event 269567329, LumiSection 165 at 30-Oct-2021 13:46:12.375 CEST
-Begin processing the 4th record. Run 258434, Event 268674092, LumiSection 165 at 30-Oct-2021 13:46:12.376 CEST
-Begin processing the 5th record. Run 258434, Event 269416541, LumiSection 165 at 30-Oct-2021 13:46:12.377 CEST
-Begin processing the 6th record. Run 258434, Event 269251857, LumiSection 165 at 30-Oct-2021 13:46:12.378 CEST
-Begin processing the 7th record. Run 258434, Event 268739237, LumiSection 165 at 30-Oct-2021 13:46:12.379 CEST
-Begin processing the 8th record. Run 258434, Event 269456225, LumiSection 165 at 30-Oct-2021 13:46:12.380 CEST
-Begin processing the 9th record. Run 258434, Event 269845067, LumiSection 165 at 30-Oct-2021 13:46:12.380 CEST
-Begin processing the 10th record. Run 258434, Event 268437313, LumiSection 165 at 30-Oct-2021 13:46:12.380 CEST
-Begin processing the 11th record. Run 258434, Event 269791499, LumiSection 165 at 30-Oct-2021 13:46:12.381 CEST
-30-Oct-2021 13:46:12 CEST  Closed file root://eospublic.cern.ch//eos/opendata/cms/Run2015D/DoubleEG/MINIAOD/08Jun2016-v1/10000/00387F48-342F-E611-AB5D-0CC47A4D76AC.root
+09-Dec-2021 12:00:38 CET  Successfully opened file root://eospublic.cern.ch//eos/opendata/cms/Run2015D/DoubleEG/MINIAOD/08Jun2016-v1/10000/00387F48-342F-E611-AB5D-0CC47A4D76AC.root
+Begin processing the 1st record. Run 258434, Event 269235992, LumiSection 165 at 09-Dec-2021 12:01:10.140 CET
+Begin processing the 2nd record. Run 258434, Event 269040066, LumiSection 165 at 09-Dec-2021 12:01:10.141 CET
+Begin processing the 3rd record. Run 258434, Event 269567329, LumiSection 165 at 09-Dec-2021 12:01:10.142 CET
+Begin processing the 4th record. Run 258434, Event 268674092, LumiSection 165 at 09-Dec-2021 12:01:10.143 CET
+Begin processing the 5th record. Run 258434, Event 269416541, LumiSection 165 at 09-Dec-2021 12:01:10.143 CET
+Begin processing the 6th record. Run 258434, Event 269251857, LumiSection 165 at 09-Dec-2021 12:01:10.143 CET
+Begin processing the 7th record. Run 258434, Event 268739237, LumiSection 165 at 09-Dec-2021 12:01:10.144 CET
+Begin processing the 8th record. Run 258434, Event 269456225, LumiSection 165 at 09-Dec-2021 12:01:10.144 CET
+Begin processing the 9th record. Run 258434, Event 269845067, LumiSection 165 at 09-Dec-2021 12:01:10.144 CET
+Begin processing the 10th record. Run 258434, Event 268437313, LumiSection 165 at 09-Dec-2021 12:01:10.145 CET
+09-Dec-2021 12:01:10 CET  Closed file root://eospublic.cern.ch//eos/opendata/cms/Run2015D/DoubleEG/MINIAOD/08Jun2016-v1/10000/00387F48-342F-E611-AB5D-0CC47A4D76AC.root
 
 =============================================
 
@@ -113,25 +116,25 @@ To access the physics object information in the code, for example that of electr
 ```shell
 [...]
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
-#include "DataFormats/PatCandidates/interface/Electron.h"
+#include "DataFormats/PatCandidates/interface/Electron.h" // add this line
 //
 [...]
       // ----------member data ---------------------------
-      edm::EDGetTokenT<pat::ElectronCollection> electronToken_;
+      edm::EDGetTokenT<pat::ElectronCollection> electronToken_; // add this line
 };
 [...]
-MiniAnalyzer::MiniAnalyzer(const edm::ParameterSet& iConfig):
-    electronToken_(consumes<pat::ElectronCollection>(iConfig.getParameter<edm::InputTag>("electrons")))
+MiniAnalyzer::MiniAnalyzer(const edm::ParameterSet& iConfig): // add the colon to the end of this line
+    electronToken_(consumes<pat::ElectronCollection>(iConfig.getParameter<edm::InputTag>("electrons"))) // add this line
 {
 [...]
 using namespace edm;
-   edm::Handle<pat::ElectronCollection> electrons;
+   edm::Handle<pat::ElectronCollection> electrons; // add from this line
     iEvent.getByToken(electronToken_, electrons);
     for (const pat::Electron &el : *electrons) {
         if (el.pt() < 5) continue;
         printf("electron with pt %4.1f, eta %+5.3f, cluster eta %+5.3f, pass conversion veto %d\n",
                     el.pt(), el.eta(), el.superCluster()->eta(), el.passConversionVeto());
-    }
+    }                                              // to this line
 
 #ifdef THIS_IS_AN_EVENT_EXAMPLE
 [...]
@@ -154,25 +157,25 @@ $ cmsRun python/ConfFile_cfg.py
 and the output gives information on the electrons in these events:
 
 ```shell
-Begin processing the 1st record. Run 258434, Event 269235992, LumiSection 165 at 30-Oct-2021 16:48:23.041 CEST
+Begin processing the 1st record. Run 258434, Event 269235992, LumiSection 165 at 09-Dec-2021 12:11:17.653 CET
 electron with pt 94.4, eta -1.959, cluster eta -1.969, pass conversion veto 1
-Begin processing the 2nd record. Run 258434, Event 269040066, LumiSection 165 at 30-Oct-2021 16:48:23.126 CEST
+Begin processing the 2nd record. Run 258434, Event 269040066, LumiSection 165 at 09-Dec-2021 12:11:17.748 CET
 electron with pt 19.3, eta -0.215, cluster eta -0.236, pass conversion veto 1
 electron with pt 18.1, eta -2.271, cluster eta -2.296, pass conversion veto 1
-Begin processing the 3rd record. Run 258434, Event 269567329, LumiSection 165 at 30-Oct-2021 16:48:23.127 CEST
+Begin processing the 3rd record. Run 258434, Event 269567329, LumiSection 165 at 09-Dec-2021 12:11:17.749 CET
 electron with pt 47.2, eta +0.530, cluster eta +0.548, pass conversion veto 1
 electron with pt 42.6, eta +0.362, cluster eta +0.377, pass conversion veto 1
-Begin processing the 4th record. Run 258434, Event 268674092, LumiSection 165 at 30-Oct-2021 16:48:23.128 CEST
+Begin processing the 4th record. Run 258434, Event 268674092, LumiSection 165 at 09-Dec-2021 12:11:17.750 CET
 electron with pt 23.3, eta +2.008, cluster eta +2.045, pass conversion veto 0
-Begin processing the 5th record. Run 258434, Event 269416541, LumiSection 165 at 30-Oct-2021 16:48:23.128 CEST
+Begin processing the 5th record. Run 258434, Event 269416541, LumiSection 165 at 09-Dec-2021 12:11:17.751 CET
 electron with pt 17.7, eta +2.101, cluster eta +2.081, pass conversion veto 1
-Begin processing the 6th record. Run 258434, Event 269251857, LumiSection 165 at 30-Oct-2021 16:48:23.128 CEST
-Begin processing the 7th record. Run 258434, Event 268739237, LumiSection 165 at 30-Oct-2021 16:48:23.129 CEST
-Begin processing the 8th record. Run 258434, Event 269456225, LumiSection 165 at 30-Oct-2021 16:48:23.129 CEST
+Begin processing the 6th record. Run 258434, Event 269251857, LumiSection 165 at 09-Dec-2021 12:11:17.751 CET
+Begin processing the 7th record. Run 258434, Event 268739237, LumiSection 165 at 09-Dec-2021 12:11:17.751 CET
+Begin processing the 8th record. Run 258434, Event 269456225, LumiSection 165 at 09-Dec-2021 12:11:17.752 CET
 electron with pt 23.2, eta +0.491, cluster eta +0.483, pass conversion veto 1
-Begin processing the 9th record. Run 258434, Event 269845067, LumiSection 165 at 30-Oct-2021 16:48:23.129 CEST
+Begin processing the 9th record. Run 258434, Event 269845067, LumiSection 165 at 09-Dec-2021 12:11:17.752 CET
 electron with pt 23.0, eta -2.378, cluster eta -2.395, pass conversion veto 1
-Begin processing the 10th record. Run 258434, Event 268437313, LumiSection 165 at 30-Oct-2021 16:48:23.130 CEST
+Begin processing the 10th record. Run 258434, Event 268437313, LumiSection 165 at 09-Dec-2021 12:11:17.752 CET
 ```
 
 ## <a name="nice">"Nice! But how do I analyse these data?"</a>
@@ -209,7 +212,7 @@ If you are using the CMS open data container with the VNC application installed 
 $ start_vnc
 ```
 
-and then start the VNC server on your host machine.
+and then start the VNC viewer on your host machine.
 
 You can now open the POET output file in ROOT:
 
