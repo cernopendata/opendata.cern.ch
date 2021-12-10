@@ -6,14 +6,92 @@ You can run CMS analysis code in a [Docker](https://www.docker.com/) container p
 
 For the first access of each set of CMS open data, you will need a specific container image containing the software corresponding to that particular set of data. The following images are available:
 
-| CMS open data | CMSSW version | Container image (dockerhub) <br> Alternative image location (GitLab) |
-| ------------- |-------------| -----|
-| 2015 proton-proton | CMSSW_7_6_7 | cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493 <br> `gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_7_6_7-slc6_amd64_gcc493` |
-| 2011-2012 proton-proton | CMSSW_5_3_32 | cmsopendata/cmssw_5_3_32-slc6_amd64_gcc472 <br> `gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_32-slc6_amd64_gcc472` |
-| 2011 heavy-ion | CMSSW_4_4_7 | cmsopendata/cmssw_4_4_7-slc5_amd64_gcc434 <br> `gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_4_4_7-slc5_amd64_gcc434` |
-| 2010 proton-proton | CMSSW_4_2_8 | cmsopendata/cmssw_4_2_8-slc5_amd64_gcc434 <br> `gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_4_2_8-slc5_amd64_gcc434` |
-| 2010 proton-proton with CASTOR calorimeter | CMSSW_4_2_8_lowpupatch1 | cmsopendata/cmssw_4_2_8_lowpupatch1-slc5_amd64_gcc434 <br> `gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_4_2_8_lowpupatch1-slc5_amd64_gcc434` |
-| 2010 heavy-ion | CMSSW_3_9_2_patch5 | cmsopendata/cmssw_3_9_2_patch5-slc5_amd64_gcc434 <br> `gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_3_9_2_patch5-slc5_amd64_gcc434` |
+<table class="table table-condensed">
+
+<thead>
+
+<tr class="header">
+
+<th align="left">CMS open data<br> </th>
+
+<th align="left">CMSSW version<br> </th>
+
+<th align="left">Container image (<a href="https://hub.docker.com/u/cmsopendata">dockerhub</a>) <br> Alternative image location (<a href="https://gitlab.cern.ch/cms-cloud/cmssw-docker-opendata/container_registry">GitLab</a>)</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr class="odd">
+
+<td align="left">2015 proton-proton</td>
+
+<td align="left">CMSSW_7_6_7</td>
+
+<td align="left">cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493<br> gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_7_6_7-slc6_amd64_gcc493</td>
+
+</tr>
+
+<tr class="odd">
+
+<td align="left">2011-2012 proton-proton</td>
+
+<td align="left">CMSSW_5_3_32</td>
+
+<td align="left">cmsopendata/cmssw_5_3_32-slc6_amd64_gcc472<br>
+gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_32-slc6_amd64_gcc472</td>
+
+</tr>
+
+<tr class="odd">
+
+<td align="left">2011 heavy-ion</td>
+
+<td align="left">CMSSW_4_4_7</td>
+
+<td align="left">cmsopendata/cmssw_4_4_7-slc5_amd64_gcc434<br>
+gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_4_4_7-slc5_amd64_gcc434</td>
+
+</tr>
+
+<tr class="odd">
+
+<td align="left">2010 proton-proton</td>
+
+<td align="left">CMSSW_4_2_8</td>
+
+<td align="left">cmsopendata/cmssw_4_2_8-slc5_amd64_gcc434<br>
+gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_4_2_8-slc5_amd64_gcc434</td>
+
+</tr>
+
+<tr class="odd">
+
+<td align="left">2010 proton-proton with CASTOR calorimeter</td>
+
+<td align="left">CMSSW_4_2_8_lowpupatch1</td>
+
+<td align="left">cmsopendata/cmssw_4_2_8_lowpupatch1-slc5_amd64_gcc434<br>
+gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_4_2_8_lowpupatch1-slc5_amd64_gcc434</td>
+
+</tr>
+
+<tr class="odd">
+
+<td align="left">2010 heavy-ion</td>
+
+<td align="left">CMSSW_3_9_2_patch5</td>
+
+<td align="left">cmsopendata/cmssw_3_9_2_patch5-slc5_amd64_gcc434<br>
+gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_3_9_2_patch5-slc5_amd64_gcc434</td>
+
+</tr>
+
+</tbody>
+
+</table>
 
 ## Fetch a CMSSW image and start a container
 
@@ -107,11 +185,12 @@ start_vnc
 
 Define a password, it will be requested by the VNC viewer program on your local computer. Now start the VNC viewer program and give the password you've chosen.
 
-Each time you exit from the container, close the VNC application as indicated in the starting message
+Each time you exit from the container, close the VNC application with
 
 ```sh
-vncserver -kill :1
+stop_vnc
 ```
+You can find more details on the configuration and usage of VNC in the CMS open data containers in [the image repository](https://gitlab.cern.ch/cms-cloud/cmssw-docker-opendata/-/tree/master#use-vnc).
 
 #### X11 forwarding with docker on Linux
 
@@ -135,11 +214,11 @@ TBrowser t
 ```
 This will open the ROOT browser window. You can exit ROOT with `.q` in the `root[..]` prompt, or from the browser window menu.
 
-If you are new to ROOT, have a quick look to [the Getting started page](/docs/cms-getting-started-2015), or follow the links in [the CMS open data guide](https://cms-opendata-guide.web.cern.ch/tools/root/), and note that you can exit root with `.q`.
+If you are new to ROOT, have a quick look to [the Getting started page](/docs/cms-getting-started-2015), or follow the links in [the CMS open data guide](https://cms-opendata-guide.web.cern.ch/tools/root/).
 
 ### Copying files
 
-You can copy file out of a runnning container to your local computer. Create an example file in the container (for example) with
+You can copy file out of a runnning container to your local computer. Create an file in the container (for example) with
 
 ```sh
 echo $CMSSW_VERSION > $HOME/example.txt
@@ -157,6 +236,16 @@ Likewise, in order to copy a file into a running container:
 ```sh
 docker cp <my file> my_od:/home/cmsusr/
 ```
+### Container prompt
+
+If the container prompt causes trouble for line wrapping, increase the size of the terminal. If it does not help, you can change the prompt with
+
+```sh
+export PS1="(\w) "
+```
+
+To change it permanently, add this line to the file `/home/cmsusr/.bashrc`.
+
 
 ### Install and run CMS example code
 
@@ -171,7 +260,7 @@ The CMS open data containers, or any CentOS6-based containers, may fail if docke
 kernelCommandLine = vsyscall=emulate
 ```
 
-in \Users\[username] (without extension), then shutting down with `wsl --shutdown` in the Windows command prompt and restarting again.
+in the `\Users\<username>` folder (make sure that it is saved without extension), then shutting down with `wsl --shutdown` in the Windows command prompt and restarting again.
 
 Test that the settings are properly passed by doing, in the WSL2 linux installation:
 
