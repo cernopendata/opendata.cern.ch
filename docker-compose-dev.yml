@@ -167,13 +167,13 @@ services:
 
   elasticsearch:
     restart: "unless-stopped"
-    image: elasticsearch:5
+    image: elasticsearch:5.6.16
     # Uncomment if DEBUG logging needs to enabled for Elasticsearch
     # command: ["elasticsearch", "-Elogger.level=DEBUG"]
     environment:
       - bootstrap.memory_lock=true
       # set to reasonable values on production
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m -Dlog4j2.formatMsgNoLookups=true"
     ports:
       - "9200:9200"
       - "9300:9300"
