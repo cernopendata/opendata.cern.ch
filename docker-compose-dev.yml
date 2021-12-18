@@ -173,7 +173,7 @@ services:
 
   elasticsearch:
     restart: "unless-stopped"
-    image: elasticsearch:7.9.3
+    image: elasticsearch:7.16.1
     # Uncomment if DEBUG logging needs to enabled for Elasticsearch
     # command: ["elasticsearch", "-Elogger.level=DEBUG"]
     restart: "unless-stopped"

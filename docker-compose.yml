@@ -164,7 +164,7 @@ services:
 
   elasticsearch:
     restart: "always"
-    image: elasticsearch:7.9.3
+    image: elasticsearch:7.16.1
     command: ["elasticsearch", "-E", "logger.org.elasticsearch.deprecation=error"]
     restart: "unless-stopped"
     environment:
