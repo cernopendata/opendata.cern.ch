@@ -1,0 +1,84 @@
+[
+  {
+    "abstract": {
+      "description": "<p>This analysis extracts the mass spectrum of di-muons produced in proton-proton collisions at sqrt(s)=7TeV data from the CMS experiment data recorded in 2012 during Run B and C. It is implemented using the <a href=\"https://julialang.org/\">Julia</a> language and can run in a Jupyter notebook. Python and C++ versions of this analysis can be found <a href=\"https://opendata.cern.ch/record/12342\">here</a>.</p><p> The spectrum is computed from the data by calculating the invariant mass of muon pairs with opposite charge. In the resulting plot, you are able to rediscover particle resonances in a wide energy range from the <a href=\"https://en.wikipedia.org/wiki/Eta_meson\">$\\eta$ meson</a> at about 548 MeV up to the <a href=\"https://en.wikipedia.org/wiki/W_and_Z_bosons\">Z boson</a> at about 91 GeV.</p><p>The analysis code produces a plot with the di-muon spectrum. Note that the bump at 30 GeV is not a resonance but an effect of the data taking due to the used trigger. The technical description of the dataset can be found in the respective record linked below.</p><p>The result of this analysis can be compared with <a href=\"https://cds.cern.ch/record/1456510\">an official result of the CMS collaboration using data taken in 2010</a>, see the plot below:</p><p align=\"middle\"><img src=\"http://cds.cern.ch/record/1456510/files/pictures_samples_dimuonSpectrum_40pb-1_mod-combined.png\" width=50% align=\"middle\"></p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Gras, Philippe",
+        "orcid": "0000-0002-3932-5967"
+      }
+    ],
+    "collections": [
+      "CMS-Tools"
+    ],
+    "date_published": "2021",
+    "distribution": {
+      "formats": [
+        "zip"
+      ],
+      "number_files": 1,
+      "size": 227876
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:06ae0aa5",
+        "size": 227876,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/DimuonSpectrumNanoAODOutreachAnalysisJulia/DimuonSpectrumNanoAODOutreachAnalysisJulia-1.0.0.zip"
+      }
+    ],
+    "license": {
+      "attribution": "GNU General Public License (GPL) version 3"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "22350",
+    "relations": [
+      {
+        "description": "",
+        "recid": "12342",
+        "type": "isRelatedTo"
+      },
+      {
+        "description": "",
+        "recid": "6004",
+        "type": "isRelatedTo"
+      },
+      {
+        "description": "",
+        "recid": "6030",
+        "type": "isRelatedTo"
+      }
+    ],
+    "run_period": [
+      "Run2012A",
+      "Run2012B"
+    ],
+    "source_code_repository": {
+      "url": "https://github.com/cms-opendata-analyses/DimuonSpectrumNanoAODOutreachAnalysisJulia"
+    },
+    "system_details": {
+      "description": "To run this analysis you need Julia kernel installed. The analysis can run either in a Jupyter notebook or as a script.",
+      "release": "Running the analysis has been validated with the version 1.6.2 and 1.7.0"
+    },
+    "title": "Analysis of the di-muon spectrum using data from the CMS detector taken in 2012",
+    "type": {
+      "primary": "Software",
+      "secondary": [
+        "Analysis"
+      ]
+    },
+    "usage": {
+      "description": "<p>To run this analysis you need <a href=\"https://julialang.github.io/IJulia.jl/stable/\">Julia kernel</a> installed. Running the analysis has been validated with the version 1.6.2 and 1.7.0. The analysis required 2.1 GB free disk space to store input data in addition to the space for the software dependencies. The analysis can run either in a <a href=\"https://jupyter.org/\">Jupyter</a> notebook or as a script.</p><p><strong>Runnning the analysis in a notebook</strong></p><p>To start Jupyter we recommand to run the following command. It will propose to install the Jupyter software if the command is not found from your PATH:<p><code>julia start-notebook.jl</code></p></p><p>You should then select the notebook <code>DimuonSpectrumNanoAODJulia.ipynb</code> from the file list that should appears in your web browser.</p><p>If you launch Jupyter with the standard <code>jupyter-notebook</code> or <code>jupyterlab</code> command, please set before the environment variable JULIA_PROJECT to the path of the directory where you have downloaded the files and that contains the <code>Project.toml</code> file. This will ensure that the code is run with all the software dependencies at the same version as the we used to validate it.</p><p><strong>Runnning the analysis as a script or from REPL</strong></p><p>The analysis can also be run directly from Julia REPL without the Jupyter software using the code from <a href=\"https://github.com/cms-opendata-analyses/DimuonSpectrumNanoAODOutreachAnalysisJulia/blob/main/src/DimuonSpectrumNanoAODJulia.jl\">src/DimuonSpectrumNanoAODJulia.jl</a>.</p><p><code>cd src</code><br><code>julia -i --project=.. analysis.jl</code></p>"
+    },
+    "use_with": {
+      "description": "The analysis can be run with the following dataset:",
+      "links": [
+        {
+          "recid": "12341"
+        }
+      ]
+    }
+  }
+]
