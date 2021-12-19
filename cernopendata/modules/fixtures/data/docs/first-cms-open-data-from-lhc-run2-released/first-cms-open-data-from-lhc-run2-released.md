@@ -1,0 +1,24 @@
+As the experiments at the Large Hadron Collider (LHC) brace for the start of Run 3 of the accelerator’s programme in 2022, the CMS collaboration has released a new batch of research-quality open data recorded by the CMS detector in 2015, the first year of Run 2. The new datasets are now available on the [CERN Open Data portal](/search?page=1&size=20&q=&type=Dataset&experiment=CMS&year=2015&subtype=Collision).
+
+<center>
+<img src="/static/docs/first-cms-open-data-from-lhc-run2-released/Run2015D_0.png" width="70%" align="middle">
+<br><em>A collision event recorded by CMS in 2015 and available in the latest release of CMS Open Data. File for visualisation prepared by Tom McCauley</em>
+</center>
+
+This marks the seventh release of CMS open data since 2014. It is the first release of research-quality open data from the LHC recorded at 13 teraelectronvolts (TeV), the record-breaking collision energy at which the accelerator operated during Run 2.
+
+Data from hundreds of millions of proton–proton collisions – or 2.24 inverse femtobarns (fb–1) – are being made available today, making up nearly all of the analysis-certified data CMS collected in 2015. In addition, [over 7000 datasets with Monte Carlo simulations](/search?page=1&size=20&type=Dataset&subtype=Simulated&year=2015) are being provided. These simulated datasets are crucial for comparing observations with the predictions from the Standard Model of particle physics. The total storage volume of the release is close to 390 terabytes (TB).
+
+As before, CMS is making available detailed instructions for how to analyse the data and is providing virtual machines and software container images with all of the necessary software required to do so. The [instructions on the CERN Open Data portal](/docs/cms-getting-started-2015) have been updated taking into account the preference of users to work with container images rather than virtual machines.
+
+Experts of different physics analysis tools have benefitted from CMS open data and have implemented example analyses with these data using Jupyter Notebooks in a variety of frameworks. New examples using [ROOT](/record/12360) and [Julia](/record/22350) are provided in this release. Notebooks running simplified analysis examples on smaller datasets are also available for students as well as interested members of the public. Some of these can be run entirely in the browser, without requiring access to sophisticated computation environments.
+
+For particle-physics enthusiasts, a highlight of this release is that datasets are being provided in the miniAOD format for the first time in addition to those in the AOD format. AOD stands for Analysis Object Data and initially the primary datasets from CMS were stored in this format. As the name suggests, miniAOD reduces the file size significantly while still providing the information required to perform most physics analyses, making it faster to analyse the large datasets from particle collisions.
+
+All simulated data are now accompanied by full provenance information, including the exact parameters that were used in the generation of these datasets. Users of our open data have reported some information missing from previous releases, and CMS has therefore also included a so-called [“Minimum Bias” dataset of Monte Carlo simulations from 2012](/record/13080) in this latest release. This can be used to simulate the underlying “noise” from the particle collisions.
+
+The team behind the CMS open data is small but growing. Their work done for [CMS open data workshops](https://indico.cern.ch/event/1031398/) held over the last few years has greatly improved the [tools and instructions for the use of these data](https://cms-opendata-workshop.github.io/2021-07-19-cms-open-data-workshop/). The open data also provides a fruitful training ground for students who in turn can then apply their knowledge to make the data more accessible. “The contributions from students who we have been able to supervise in the team have been invaluable,” says Kati Lassila-Perini, who leads the CMS open data team. “The example code for miniAOD by Andro Petković, a summer student from Croatia, and substantial improvements for the procedures to prepare provenance metadata by Osama Almomani, a student from Jordan, are but a few.”
+
+“We are happy that we have been able to keep the regular release rhythm by not only adding new data but also improving release assets every time,” Lassila-Perini continues.
+
+The CMS collaboration would like to thank CERN IT for their help in making this latest release available on the CERN Open Data portal. We invite new and returning users of CMS open data to have a look at the new data records, discuss in the [CERN Open Data forum](https://opendata-forum.cern.ch/) and stay tuned for the next CMS open data workshop.
