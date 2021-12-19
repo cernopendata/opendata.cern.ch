@@ -1,0 +1,106 @@
+[
+  {
+    "abstract": {
+      "description": "<p>This analysis uses data and simulation of events at the CMS experiment from 2012 with the goal to study decays of a Higgs boson into four leptons, more precisely pairs of electrons or muons. The analysis follows loosely <a href=\"https://www.sciencedirect.com/science/article/pii/S0370269312008581\">the official CMS analysis published in 2012</a>.</p><p>This analysis studies the process $H\\rightarrow ZZ\\rightarrow 4\\ell$, the Higgs boson decaying via two Z bosons into pairs of leptons. We consider here only electrons and muons, which can be directly detected with the CMS detector. The exact same final state is present in events with two Z bosons from quark annihilation, which is the most prominent background process. It should be noted that this analysis takes only this background process into account and neglects the contribution of all other minor background processes. The four leptons can origin from three combinations of lepton pairs: two electron pairs, two muon pairs, or one electron and one muon pair. The analysis is designed to produce the plots in each of these channels but also combines them to a final result, see the example plots below. Further information about the processing steps can be found in the commented source code, <a href=\"https://www.sciencedirect.com/science/article/pii/S0370269312008581\">the official CMS publication</a> and <a href=\"/record/5500\">the similar Open Data analysis using the more complex AOD datasets</a>.</p><p>The plot below on the left-hand side shows one of the results of this Open Data analysis, whereas the plot on the right-hand side is taken from <a href=\"https://www.sciencedirect.com/science/article/pii/S0370269312008581\">the official CMS analysis published in 2012</a>. Both analyses have comparable statistics but the analyzed data is just partially the same. Further, this Open Data analysis neglects for simplicity the minor background processes.</p><p><img src=\"https://www.github.com/cms-opendata-analyses/HiggsToFourLeptonsNanoAODOutreachAnalysis/blob/master/plots/combined_Higgs_mass.png?raw=true\" width=50% align=\"middle\"><img src=\"http://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-12-028/CMS-HIG-12-028_Figure_004.png\" width=50% align=\"middle\"></p><p>The analysis code of this analysis is designed so that it is easy for you to investigate not just the mass of the Higgs boson but also other features of the data. As an example, the plots below show the reconstructed mass of the two Z bosons, which are the direct decay products of the Higgs boson before those decay again instantly in the analyzed final state particles consisting of electron and muon pairs.</p><p><img src=\"https://www.github.com/cms-opendata-analyses/HiggsToFourLeptonsNanoAODOutreachAnalysis/blob/master/plots/combined_Z1_mass.png?raw=true\" width=50% align=\"middle\"><img src=\"https://www.github.com/cms-opendata-analyses/HiggsToFourLeptonsNanoAODOutreachAnalysis/blob/master/plots/combined_Z2_mass.png?raw=true\" width=50% align=\"middle\"></p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "Wunsch, Stefan",
+        "orcid": "0000-0002-4485-2972"
+      }
+    ],
+    "collections": [
+      "CMS-Tools"
+    ],
+    "date_published": "2021",
+    "distribution": {
+      "formats": [
+        "cc",
+        "py",
+        "zip"
+      ],
+      "number_files": 4,
+      "size": 297280
+    },
+    "doi": "10.7483/OPENDATA.CMS.F7HD.P3K4",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:334eb647",
+        "size": 271856,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsToFourLeptonsNanoAODOutreachAnalysis/HiggsToFourLeptonsNanoAODOutreachAnalysis-1.1.zip"
+      },
+      {
+        "checksum": "adler32:8caed224",
+        "size": 3127,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsToFourLeptonsNanoAODOutreachAnalysis/histograms.py"
+      },
+      {
+        "checksum": "adler32:ab61709f",
+        "size": 6257,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsToFourLeptonsNanoAODOutreachAnalysis/plot.py"
+      },
+      {
+        "checksum": "adler32:fcf2abdf",
+        "size": 16040,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/software/HiggsToFourLeptonsNanoAODOutreachAnalysis/skim.cxx"
+      }
+    ],
+    "license": {
+      "attribution": "GNU General Public License (GPL) version 3"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12360",
+    "run_period": [
+      "Run2012A",
+      "Run2012B"
+    ],
+    "source_code_repository": {
+      "url": "https:/github.com/cms-opendata-analyses/HiggsToFourLeptonsNanoAODOutreachAnalysis"
+    },
+    "system_details": {
+      "release": "ROOT 6.22 or later"
+    },
+    "title": "Analysis of Higgs boson decays to four leptons using data and simulation of events at the CMS detector from 2012 using ROOT's RDataFrame",
+    "type": {
+      "primary": "Software",
+      "secondary": [
+        "Analysis",
+        "Workflow"
+      ]
+    },
+    "usage": {
+      "description": "<p><strong>Set up your system with the required software and code</strong></p><p>The analysis can be run with a plain ROOT installation, go to <a href=\"https://root.cern\">root.cern</a> for instructions how to install the software.</p><p>In case your system has a CVMFS installation, you can set up the needed software sourcing an <a href=\"http://lcginfo.cern.ch/\">LCG software release</a> with the following setup script:</p><p><code>source /cvmfs/sft.cern.ch/lcg/views/LCG_99/x86_64-centos7-gcc10-opt/setup.sh</code></p><p>Note that you may have to replace <code>x86_64-centos7-gcc10-opt</code> with a platform matching your system.</p><p>To download the files, you can either use directly the web browser or the following command.<p><code>git clone git://github.com/cms-opendata-analyses/HiggsToFourLeptonsNanoAODOutreachAnalysis -b 2012</code></p><p><strong>Step 1: Reduce and pre-process the inital datasets</strong></p><p>This step is implemented in the file <code>skim.cxx</code> and is written in C++ for performance reasons. To compile the program, run the following command. Note that you may need to change the compiler based on your system.<p><code>g++ -g -O3 -o skim skim.cxx $(root-config --cflags --libs)</code></p><p>The compilation produces a binary, which can be executed as follows.<p><code>./skim</code></p><p>The initial datasets are retrieved via network using the <a href=\"http://xrootd.org/\">XRootD</a> protocol and due to the large size of the dataset the runtime is mainly dependent on your network connection. To speed up multiple executions of the analysis, you can download the files and point to these local copies in the code. </p></p><p><strong>Step 2: Produce histograms</strong></p><p>The next step is implemented in Python in the file <code>histograms.py</code>. Run the following command to process the previously produced reduced datasets.<p><code>python histograms.py</code></p><p>The script produces the file <code>histograms.root</code>, which contains the histograms. You can have a look at the plain histograms with the ROOT browser opened with the command <code>rootbrowse histograms.root</code>.</p></p><p><strong>Step 3: Combine histograms to plots</strong></p><p>To combine the histograms produced in the previous step to meaningful plots, run the following command.<p><code>python plot.py</code></p><p>The Python script generates for each variable a <code>png</code> and <code>pdf</code> image file, which can be viewed with a program of your choice. The final plots of the analysis are also included in the source code repository.</p></p>"
+    },
+    "use_with": {
+      "description": "The analysis can be run with the following datasets:",
+      "links": [
+        {
+          "recid": "12361"
+        },
+        {
+          "recid": "12362"
+        },
+        {
+          "recid": "12363"
+        },
+        {
+          "recid": "12364"
+        },
+        {
+          "recid": "12365"
+        },
+        {
+          "recid": "12366"
+        },
+        {
+          "recid": "12367"
+        },
+        {
+          "recid": "12368"
+        }
+      ]
+    }
+  }
+]
