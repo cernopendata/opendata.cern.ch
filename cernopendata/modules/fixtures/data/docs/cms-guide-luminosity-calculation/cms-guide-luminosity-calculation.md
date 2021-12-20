@@ -9,10 +9,19 @@ Before you continue, consider that some of the information that you wish to calc
 * the trigger prescales by run and luminosity section
 * the luminosity by luminosity section for the list of validated runs and luminosity sections
 
-## Install the CMS environment
+## Prerequisites
 
-There are two options for installing the CMS environment, using a Virtual
-Machine (VM) or using a Docker container.
+There are three options for using `brilcalc`: using a docker container with the `brilcalc` software installed, or installing `brilcalc` either in the CMS open data Virtual Machine (VM) or in the CMS open data docker container.
+
+### Brilcalc container
+
+If you have docker installed, donwload and run the container with
+
+`
+$ docker run -it --name brilws gitlab-registry.cern.ch/cms-cloud/brilws-docker
+`
+
+The software is preinstalled in the container and you can directly [test `brilcalc`](#test-brilcalc).
 
 ### Virtual machine
 
@@ -204,6 +213,8 @@ The output will appear as follows:
 | 160873:1636 | 03/19/11 04:20:20 | 147  | 147  | 104914.534     | 103031.004    |
 ```
 
+Note that the lists of validated runs are usually given for the full data-taking period, whereas the open data is a part of it. See [the intructions below](#integrated-luminosity-for-validated-runs-and-luminosity-sections-over-a-range-of-runs) on how to get the values over a range of runs.
+
 ### Select luminometer
 
 CMS measures the luminosity with different luminometers (luminosity detectors) and algorithms. You can choose which to use with the `--type` option as below. Here we use the list of validated runs from [2012](http://opendata.cern.ch/record/1002).
@@ -223,6 +234,15 @@ First obtain the file with the list of validated runs and luminosity sections. H
 RunA of 2011 proton-proton data comprises runs 160431 to 173692 (inclusive) so to calculate the integrated luminosity for this era run the command:
 
 `brilcalc lumi -c web --begin 160431 --end 173692 -i Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt > RunA2011lumi.txt`
+
+For 2015 data, obtain the [corresponding list](/record/14210):
+
+`wget https://opendata-qa.cern.ch/record/14210/files/Cert_13TeV_16Dec2015ReReco_Collisions15_25ns_JSON_v2.txt`
+
+RunD of 2015 proton-proton data comprises runs 256630 to 260627 (inclusive) so to calculate the integrated luminosity for this era run the command:
+
+`brilcalc lumi -c web --begin 256630 --end 260627 -i Cert_13TeV_16Dec2015ReReco_Collisions15_25ns_JSON_v2.txt > RunD2015lumi.txt`
+
 
 ### Integrated luminosity for validated runs and luminosity sections, separated by luminosity sections
 
