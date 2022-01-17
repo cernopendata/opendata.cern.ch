@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2015, 2016, 2017, 2018, 2020, 2021 CERN.
+# Copyright (C) 2015, 2016, 2017, 2018, 2020, 2021, 2022 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -32,10 +32,7 @@ RUN yum install -y \
         cmake \
         curl \
         git \
-        rlwrap \
-        screen \
-        vim \
-        emacs-nox && \
+        rlwrap && \
     yum install -y \
         epel-release && \
     yum groupinstall -y "Development Tools" && \
