@@ -28,6 +28,7 @@ FROM centos:7
 # Install Node.js 6 from Nodesource early. Doing so after installing EPEL7
 # would make Nodesource to not recognise anymore the system as a supported
 # CentOS7 installation.
+# hadolint ignore=DL3033,DL4006
 RUN curl -sL https://rpm.nodesource.com/setup_6.x | bash - && \
     yum install -y \
         nodejs && \
@@ -64,21 +65,21 @@ ENV APP_INSTANCE_PATH=/usr/local/var/cernopendata/var/cernopendata-instance
 
 # Upgrade pip and install some python/node packages
 # hadolint ignore=DL3016
-RUN pip install --upgrade pip==9 setuptools==42.0.2 wheel==0.33.6 && \
+RUN pip install --no-cache-dir --upgrade pip==9 setuptools==42.0.2 wheel==0.33.6 && \
     npm install -g node-sass@3.8.0 clean-css@3.4.24 requirejs uglify-js jsonlint
 
 # Install older version of pkgconfig, necessary for Python-2.7
-RUN pip install pkgconfig==1.5.2
+RUN pip install --no-cache-dir pkgconfig==1.5.2
 
 # Install xrootdpyfs from GitHub, since xrootd-4.12.6-compatible version was not released on PyPI yet
-RUN pip install xrootd==4.12.6 \
+RUN pip install --no-cache-dir xrootd==4.12.6 \
       'git+https://github.com/inveniosoftware/xrootdpyfs.git@1151a7a4c219dad11eb0020af4c19f94928469e3#egg=xrootdpyfs'
 
 # Install requirements
 COPY requirements-production-local-forks.txt /tmp
 COPY requirements-production.txt /tmp
-RUN pip install -r /tmp/requirements-production-local-forks.txt
-RUN pip install -r /tmp/requirements-production.txt
+RUN pip --no-cache-dir install -r /tmp/requirements-production-local-forks.txt && \
+    pip --no-cache-dir install -r /tmp/requirements-production.txt
 
 # Add CERN Open Data Portal sources to `code` and work there
 WORKDIR /code
@@ -104,7 +105,7 @@ ARG DEBUG=""
 ENV DEBUG=${DEBUG:-""}
 
 # Install Python packages needed for development
-RUN if [ "$DEBUG" ]; then pip install -r requirements-dev.txt; fi;
+RUN if [ "$DEBUG" ]; then pip install --no-cache-dir -r requirements-dev.txt; fi;
 
 # Change user from root to invenio for better security
 RUN adduser --uid 1000 invenio --gid 0 && \
