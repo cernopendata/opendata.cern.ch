@@ -25,6 +25,14 @@
 # Use CentOS7
 FROM centos:7
 
+# Install Node.js 6 from Nodesource early. Doing so after installing EPEL7
+# would make Nodesource to not recognise anymore the system as a supported
+# CentOS7 installation.
+RUN curl -sL https://rpm.nodesource.com/setup_6.x | bash - && \
+    yum install -y \
+        nodejs && \
+    yum clean all
+
 # Install CERN Open Data Portal web node pre-requisites
 # hadolint ignore=DL3033
 RUN yum install -y \
@@ -42,7 +50,6 @@ RUN yum install -y \
         libuuid-devel \
         libxml2-devel \
         libxslt-devel \
-        npm \
         openssl-devel \
         python-devel \
         python-pip \
