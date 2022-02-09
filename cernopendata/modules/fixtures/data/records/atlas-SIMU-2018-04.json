@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": "<p>This dataset consists of 30 csv files containing the voxelised shower information obtained from single photon and single charged pion samples in the |η| range (0.2-0.25) simulated in the ATLAS detector. These samples were used to train the corresponding two GANs presented in the AtlFast3 paper <a href=\"https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SIMU-2018-04/\">SIMU-2018-04</a>. </p> <p>The information in each file is a table; the rows correspond to the events and the columns to the voxels. The voxelisation procedure is described in the AtlFast3 paper linked above and in the dedicated PUB note <a href=\"https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-SOFT-PUB-2020-006/\">ATL-SOFT-PUB-2020-006</a>. In summary, the detailed energy deposits produced by ATLAS were converted from x,y,z coordinates to local cylindrical coordinates defined around the particle 3-momentum at the entrance of the calorimeter. The energy deposits in each layer were then grouped in voxels and for each voxel the energy was stored in the csv file. For each particle, there are 15 files corresponding to the 15 energy points used to train the GAN. The name of the csv file defines both the particle and the energy of the sample used to create the file. </p> <p>The size of the voxels is described in the binning.xml file. Software tools to read the XML file and manipulate the spatial information of voxels are provided in the FastCaloGAN repository. </p>"
+      "description": "<p>Three datasets are available, each consisting of 15 csv files. Each file containing the voxelised shower information obtained from single particles produced at the front of the calorimeter in the |η| range (0.2-0.25) simulated in the ATLAS detector. Two datasets contain photons events with different statistics; the larger sample has about 10 times the number of events as the other. The other dataset contains pions. The pion dataset and the photon dataset with the lower statistics were used to train the corresponding two GANs presented in the AtlFast3 paper <a href=\"https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/SIMU-2018-04/\">SIMU-2018-04</a>. </p> <p>The information in each file is a table; the rows correspond to the events and the columns to the voxels. The voxelisation procedure is described in the AtlFast3 paper linked above and in the dedicated PUB note <a href=\"https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-SOFT-PUB-2020-006/\">ATL-SOFT-PUB-2020-006</a>. In summary, the detailed energy deposits produced by ATLAS were converted from x,y,z coordinates to local cylindrical coordinates defined around the particle 3-momentum at the entrance of the calorimeter. The energy deposits in each layer were then grouped in voxels and for each voxel the energy was stored in the csv file. For each particle, there are 15 files corresponding to the 15 energy points used to train the GAN. The name of the csv file defines both the particle and the energy of the sample used to create the file. </p> <p>The size of the voxels is described in the binning.xml file. Software tools to read the XML file and manipulate the spatial information of voxels are provided in the FastCaloGAN repository.</p><p><em>Updated on February 10th 2022. A new dataset photons_samples_highStat.tgz was added to this record and the binning.xml file was updated accordingly.</em></p>"
     },
     "accelerator": "CERN-LHC",
     "collaboration": {
@@ -17,22 +17,27 @@
         "tgz",
         "xml"
       ],
-      "number_events": 238230,
-      "number_files": 3,
-      "size": 237606215
+      "number_events": 1322802,
+      "number_files": 4,
+      "size": 1320107522
     },
     "doi": "10.7483/OPENDATA.ATLAS.UXKX.TXBN",
     "experiment": "ATLAS",
     "files": [
       {
-        "checksum": "adler32:09da3306",
-        "size": 2850,
+        "checksum": "adler32:c22164e6",
+        "size": 5665,
         "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/SIMU-2018-04/binning.xml"
       },
       {
         "checksum": "adler32:2ba53d7c",
         "size": 122700528,
         "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/SIMU-2018-04/photon_samples.tgz"
+      },
+      {
+        "checksum": "adler32:5947a7a4",
+        "size": 1082498492,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/SIMU-2018-04/photons_samples_highStat.tgz"
       },
       {
         "checksum": "adler32:97c2fd0d",
