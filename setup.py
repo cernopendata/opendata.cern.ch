@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2017, 2018, 2021 CERN.
+# Copyright (C) 2017, 2018, 2021, 2022 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -68,10 +68,10 @@ setup_requires = [
 install_requires = [
     # General Invenio dependencies
     'invenio-app==1.3.0',
-    'invenio-base==1.2.4',
+    'invenio-base==1.2.5',
     'invenio-config==1.0.3',
     # Custom Invenio `base` bundle
-    'invenio-assets==1.2.6',
+    'invenio-assets==1.2.7',
     'invenio-logging[sentry]==1.3.0',
     'invenio-rest==1.2.1',
     'invenio-theme==1.3.6',
@@ -82,7 +82,7 @@ install_requires = [
     'invenio-records-rest[datacite]==1.7.2',
     'invenio-records-ui==1.2.0',
     'invenio-records==1.4.0a3',
-    'invenio-search-ui==2.0.1',
+    'invenio-search-ui==2.0.4',
     # Custom Invenio `files` bundle
     'invenio-previewer==1.3.2',
     'invenio-records-files==1.2.1',
