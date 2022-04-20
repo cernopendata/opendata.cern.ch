@@ -3,7 +3,7 @@
 This document provides instruction for how to calculate the luminosity information
 for CMS in the open data environment. This is done using `brilcalc`, which is a command line tool from the CMS Beam Radiation Instrumentation and Luminosity (BRIL) group.
 
-Before you continue, consider that some of the information that you wish to calculate is already available for [2010](/record/1050), [2011](/record/1053), and [2012](/record/1054) data. The information available includes:
+Before you continue, consider that some of the information that you wish to calculate is already available for [2010](/record/1050), [2011](/record/1053), [2012](/record/1054), and [2015](/record/1055) data. The information available includes:
 
 * the integrated luminosity for validated runs and luminosity sections
 * the trigger prescales by run and luminosity section
@@ -17,9 +17,9 @@ There are three options for using `brilcalc`: using a docker container with the 
 
 If you have docker installed, donwload and run the container with
 
-`
-$ docker run -it --name brilws gitlab-registry.cern.ch/cms-cloud/brilws-docker
-`
+```sh
+docker run -it --name brilws gitlab-registry.cern.ch/cms-cloud/brilws-docker
+```
 
 The software is preinstalled in the container and you can directly [test `brilcalc`](#test-brilcalc).
 
@@ -29,21 +29,21 @@ Follow the instructions [here](http://opendata.cern.ch/docs/cms-virtual-machine-
 
 Click on the `CMS Shell` icon on the desktop to open the terminal. At the terminal prompt, run the command
 
-`
-$ cmsrel CMSSW_5_3_32
-`
+```sh
+cmsrel CMSSW_5_3_32
+```
 
 and then change directory
 
-`
-$ cd CMSSW_5_3_32/src
-`
+```sh
+cd CMSSW_5_3_32/src
+```
 
  and then finally intialize the CMS environment
 
- `
-$cmsenv
- `
+```sh
+cmsenv
+```
 
 Now we are ready to [install the `brilcalc` package.](#install-brilcalc)
 
@@ -52,11 +52,15 @@ Now we are ready to [install the `brilcalc` package.](#install-brilcalc)
 Following the instructions [here](http://opendata.cern.ch/docs/cms-guide-docker) we download and install an image
 and run a Docker container using the following command:
 
-`docker run --name opendata-2011 -it cmsopendata/cmssw_5_3_32 /bin/bash`
+```sh
+docker run --name my_od -P -p 5901:5901 -it cmsopendata/cmssw_5_3_32-slc6_amd64_gcc472 /bin/bash
+```
 
 When completed successfully we should be at the command prompt:
 
-`cmsusr@a17b2a79d067 ~/CMSSW_5_3_32/src $`
+```console
+cmsusr@a17b2a79d067 ~/CMSSW_5_3_32/src $
+```
 
 Now we are ready to [install the `brilcalc` package.](#install-brilcalc)
 
@@ -145,7 +149,9 @@ Now you are ready to [test `brilcalc`.](#test-brilcalc)
 
 As a test, let's see what the integrated luminosity was for run 160431 by running the command
 
- `brilcalc lumi -c web -r 160431`
+ ```sh
+ brilcalc lumi -c web -r 160431
+ ```
 
 which should output
 
@@ -168,7 +174,9 @@ which should output
 
 **Note:** There is a useful `help` option for `brilcalc` and its commands:
 
-`brilcalc --help`
+```sh
+brilcalc --help
+```
 
 ```console
 usage:
@@ -192,11 +200,15 @@ See test above
 
 First obtain the file with the list of validated runs and luminosity sections. Here we use the [list for 2011 data](/record/1001).
 
-`wget http://opendata.cern.ch/record/1001/files/Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt`
+```sh
+wget http://opendata.cern.ch/record/1001/files/Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt
+```
 
 It is recommended to steer the output to a file (e.g. called `2011lumi.txt`) using this command:
 
-`brilcalc lumi -c web -i Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt > 2011lumi.txt`
+```sh
+brilcalc lumi -c web -i Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt > 2011lumi.txt
+```
 
 The output will appear as follows:
 
@@ -213,15 +225,23 @@ The output will appear as follows:
 | 160873:1636 | 03/19/11 04:20:20 | 147  | 147  | 104914.534     | 103031.004    |
 ```
 
-Note that the lists of validated runs are usually given for the full data-taking period, whereas the open data is a part of it. See [the intructions below](#integrated-luminosity-for-validated-runs-and-luminosity-sections-over-a-range-of-runs) on how to get the values over a range of runs.
+The units are inverse microbarns as default and can be changed to inverse femtobarns with the option `-u /fb`. Note that the lists of validated runs are usually given for the full data-taking period, whereas the open data are a part of it. See [the intructions below](#integrated-luminosity-for-validated-runs-and-luminosity-sections-over-a-range-of-runs) on how to get the values over a range of runs.
 
 ### Select luminometer
 
 CMS measures the luminosity with different luminometers (luminosity detectors) and algorithms. You can choose which to use with the `--type` option as below. Here we use the list of validated runs from [2012](http://opendata.cern.ch/record/1002).
 
-`brilcalc lumi --type pxl -c web -i Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt > 2012lumi.txt`
+```sh
+brilcalc lumi --type pxl -c web -i Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt -u /fb > 2012lumi.txt
+```
 
 In this example the pixel detectors are used. This is the preferred option. For 2010 data a calculation using the hadronic forward calorimeters is used and is given by the option `--type hfoc`.
+
+For Run-2 data, the luminometer giving the best value for each luminosity section is recorded in a 'normtag' file, provided in the [2015 luminosity information record](/record/1055) ('normtag_PHYSICS_2015.json'). Use it with the corresponding list of validated runs from [2015](/record/14210) as in
+
+```sh
+brilcalc lumi -c web -i Cert_13TeV_16Dec2015ReReco_Collisions15_25ns_JSON_v2.txt -u /fb --normtag normtag_PHYSICS_2015.json > 2015lumi.txt
+```
 
 **Note**  You may notice at the end of the output luminosity sections that are listed in the json quality file but do not have any luminosity values corresponding to them. These correspond to sections that are left-overs at the end of a run, which where still tagged as STABLE RUN, but actually did not provide any luminosity. These are safe to ignore as they do not contain any events.
 
@@ -229,30 +249,48 @@ In this example the pixel detectors are used. This is the preferred option. For 
 
 First obtain the file with the list of validated runs and luminosity sections. Here we use the [list for 2011 data](/record/1001).
 
-`wget http://opendata.cern.ch/record/1001/files/Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt`
+```sh
+wget http://opendata.cern.ch/record/1001/files/Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt
+```
 
 RunA of 2011 proton-proton data comprises runs 160431 to 173692 (inclusive) so to calculate the integrated luminosity for this era run the command:
 
-`brilcalc lumi -c web --begin 160431 --end 173692 -i Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt > RunA2011lumi.txt`
+```sh
+brilcalc lumi -c web --begin 160431 --end 173692 -i Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt > RunA2011lumi.txt
+```
 
-For 2015 data, obtain the [corresponding list](/record/14210):
+For 2015 data, obtain the [corresponding list of validated runs](/record/14210):
 
-`wget https://opendata-qa.cern.ch/record/14210/files/Cert_13TeV_16Dec2015ReReco_Collisions15_25ns_JSON_v2.txt`
+```sh
+wget https://opendata.cern.ch/record/14210/files/Cert_13TeV_16Dec2015ReReco_Collisions15_25ns_JSON_v2.txt
+```
 
-RunD of 2015 proton-proton data comprises runs 256630 to 260627 (inclusive) so to calculate the integrated luminosity for this era run the command:
+and the normtage file
 
-`brilcalc lumi -c web --begin 256630 --end 260627 -i Cert_13TeV_16Dec2015ReReco_Collisions15_25ns_JSON_v2.txt > RunD2015lumi.txt`
+```sh
+wget https://opendata.cern.ch/record/1055/files/normtag_PHYSICS_2015.json
+```
+
+RunD of 2015 proton-proton data comprises runs 256630 to 260627 (inclusive) so to calculate the integrated luminosity for this era using the best luminometer estimates defined in `normtag_PHYSICS_2015.json` run the command:
+
+```sh
+brilcalc lumi -c web --begin 256630 --end 260627 -i Cert_13TeV_16Dec2015ReReco_Collisions15_25ns_JSON_v2.txt --normtag normtag_PHYSICS_2015.json > RunD2015lumi.txt
+```
 
 
 ### Integrated luminosity for validated runs and luminosity sections, separated by luminosity sections
 
 If you want to fetch the integrated luminosity by luminosity section and output the results to a `csv` file (which is recommended), first obtain the file with the list of validated runs and luminosity sections. Here we use the [list for 2011 data](/record/1001).
 
-`wget http://opendata.cern.ch/record/1001/files/Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt`
+```sh
+wget http://opendata.cern.ch/record/1001/files/Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt
+```
 
 Then run the command:
 
-`brilcalc lumi --byls --output-style csv -c web -i Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt > my2011lumibyls.csv`
+```sh
+brilcalc lumi --byls --output-style csv -c web -i Cert_160404-180252_7TeV_ReRecoNov08_Collisions11_JSON.txt > my2011lumibyls.csv
+```
 
 The contents of the `csv` file will appear as below:
 
@@ -274,13 +312,17 @@ The contents of the `csv` file will appear as below:
 Here as an example we calculate the total integrated luminosity for a particular for high-level triggers whose name matches the
 pattern `HLT_DoubleMu` and output the results to a `csv` file:
 
-`brilcalc lumi -c web -r 173692 --hltpath="HLT_DoubleMu*" --output-style csv > run173692_DoubleMu.csv`
+```sh
+brilcalc lumi -c web -r 173692 --hltpath="HLT_DoubleMu*" --output-style csv > run173692_DoubleMu.csv
+```
 
 **Note**: It is strongly recommended to make your HLT query as specific as possible and to output to `csv`.
 
 ### Calculate trigger prescales for a run and trigger path
 
-`brilcalc trg --prescale -c web -r 148002 --hltpath "HLT_Jet*"`
+```sh
+brilcalc trg --prescale -c web -r 148002 --hltpath "HLT_Jet*"
+```
 
 ```console
 +--------+-------+----------+-------------+---------------------------------+-------+--------------------+
@@ -298,7 +340,9 @@ pattern `HLT_DoubleMu` and output the results to a `csv` file:
 
 ### Change of prescales over a run
 
-`brilcalc trg --prescale -c web -r 173243`
+```sh
+brilcalc trg --prescale -c web -r 173243
+```
 
 ```console
 +--------+-------+----------+
