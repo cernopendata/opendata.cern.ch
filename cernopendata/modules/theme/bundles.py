@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2017 CERN.
+# Copyright (C) 2017, 2018, 2019, 2022 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -234,7 +234,7 @@ codemirror_js = NpmBundle(
     output='gen/cernopendata.codemirror.%(version)s.js',
     npm={
         "angular-ui-codemirror": "0.3.0",
-        "codemirror": "*",
+        "codemirror": "5.65.3",
         "angular-clipboard": "1.6.2",
     },
 )
