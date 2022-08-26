@@ -93,6 +93,19 @@
       },
       "type": "object"
     },
+    "stripping": {
+      "properties": {
+        "stream": {
+          "description": "Stripping stream information, used notably by LHCb",
+          "type": "string"
+        },
+        "version": {
+          "description": "Stripping version information, used notably by LHCb",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "tags": {
       "items": {
         "type": "string"

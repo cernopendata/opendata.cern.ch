@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2017, 2018 CERN.
+# Copyright (C) 2017, 2018, 2022 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -315,6 +315,12 @@ RECORDS_REST_FACETS = {
             signature=dict(terms=dict(
                 field='signature.keyword',
                 order=dict(_term='asc'))),
+            stripping_stream=dict(terms=dict(
+                field='stripping.stream.keyword',
+                order=dict(_term='asc'))),
+            stripping_version=dict(terms=dict(
+                field='stripping.version.keyword',
+                order=dict(_term='asc'))),
             event_number={
                 'range': {
                     'field': 'distribution.number_events',
@@ -368,6 +374,8 @@ RECORDS_REST_FACETS = {
             collections=terms_filter('collections.keyword'),
             availability=terms_filter('distribution.availability.keyword'),
             signature=terms_filter('signature.keyword'),
+            stripping_stream=terms_filter('stripping.stream.keyword'),
+            stripping_version=terms_filter('stripping.version.keyword'),
             event_number=range_filter('distribution.number_events')
         )
     }

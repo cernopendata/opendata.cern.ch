@@ -81,6 +81,26 @@
             }
           }
         },
+        "stripping": {
+          "properties": {
+            "stream": {
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              },
+              "type": "text"
+            },
+            "version": {
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              },
+              "type": "text"
+            }
+          }
+        },
         "tags": {
           "fields": {
             "keyword": {
