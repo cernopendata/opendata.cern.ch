@@ -315,6 +315,9 @@ RECORDS_REST_FACETS = {
             signature=dict(terms=dict(
                 field='signature.keyword',
                 order=dict(_term='asc'))),
+            magnet_polarity=dict(terms=dict(
+                field='magnet_polarity.keyword',
+                order=dict(_term='asc'))),
             stripping_stream=dict(terms=dict(
                 field='stripping.stream.keyword',
                 order=dict(_term='asc'))),
@@ -374,6 +377,7 @@ RECORDS_REST_FACETS = {
             collections=terms_filter('collections.keyword'),
             availability=terms_filter('distribution.availability.keyword'),
             signature=terms_filter('signature.keyword'),
+            magnet_polarity=terms_filter('magnet_polarity.keyword'),
             stripping_stream=terms_filter('stripping.stream.keyword'),
             stripping_version=terms_filter('stripping.version.keyword'),
             event_number=range_filter('distribution.number_events')
