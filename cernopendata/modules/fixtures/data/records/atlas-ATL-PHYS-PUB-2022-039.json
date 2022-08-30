@@ -1,0 +1,64 @@
+[
+  {
+    "abstract": {
+      "description": "<p>Boosted top tagging is an essential binary classification task for experiments at the Large Hadron Collider (LHC) to measure the properties of the top quark. The ATLAS Top Tagging Open Data Set is a publicly available data set for the development of Machine Learning (ML) based boosted top tagging algorithms. The data are split into two orthogonal sets, named train and test and stored in the HDF5 file format, containing 42 million and 2.5 million jets respectively. Both sets are composed of equal parts signal (jets initiated by a boosted top quark) and background (jets initiated by light quarks or gluons). For each jet, the data set contains:</p><p><ul><li> The four vectors of constituent particles <li> 15 high level summary quantities evaluated on the jet <li> The four vector of the whole jet <li> A training weight <li> A signal (1) vs background (0) label.</ul></p><p>There is one rule in using this data set: the contribution to a loss function from any jet should always be weighted by the training weight. Apart from this a model should separate the signal jets from background by whatever means necessary.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "ATLAS collaboration"
+    },
+    "collections": [
+      "ATLAS-Derived-Datasets"
+    ],
+    "date_published": "2022",
+    "distribution": {
+      "formats": [
+        "h5"
+      ],
+      "number_events": 0,
+      "number_files": 2,
+      "size": 138693229336
+    },
+    "doi": "10.7483/OPENDATA.ATLAS.FG5F.96GA",
+    "experiment": "ATLAS",
+    "files": [
+      {
+        "checksum": "adler32:01126419",
+        "size": 8157858156,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/ATL-PHYS-PUB-2022-039/test.h5"
+      },
+      {
+        "checksum": "adler32:07ff5788",
+        "size": 138693229336,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/ATL-PHYS-PUB-2022-039/train.h5"
+      }
+    ],
+    "keywords": [
+      "datascience"
+    ],
+    "links": [
+      {
+        "description": "ATLAS publication note ATL-PHYS-PUB-2022-039",
+        "url": "http://cds.cern.ch/record/2825328/files/ATL-PHYS-PUB-2022-039.pdf"
+      }
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "15013",
+    "title": "ATLAS Top Tagging Open Data Set",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": "The detailed explanation of this dataset, together with usage code examples, is available in the following source code repository:",
+      "links": [
+        {
+          "description": "ATLAS top tagging open data documentation and examples",
+          "url": "https://gitlab.cern.ch/atlas/ATLAS-top-tagging-open-data"
+        }
+      ]
+    }
+  }
+]
