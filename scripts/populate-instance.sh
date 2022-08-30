@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # This file is part of Invenio.
-# Copyright (C) 2015, 2016, 2017, 2018 CERN.
+# Copyright (C) 2015, 2016, 2017, 2018, 2022 CERN.
 #
 # Invenio is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -34,7 +34,11 @@ cernopendata files location local var/data --default
 
 cernopendata fixtures glossary
 
-cernopendata fixtures docs --mode insert
+if [[ "$@" = *"--skip-docs"* ]]; then
+    echo "[INFO] Skipping loading of records."
+else
+    cernopendata fixtures docs --mode insert
+fi
 
 if [[ "$@" = *"--skip-records"* ]]; then
     echo "[INFO] Skipping loading of records."
