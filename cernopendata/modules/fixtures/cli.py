@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2017, 2018 CERN.
+# Copyright (C) 2017, 2018, 2022 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -43,6 +43,8 @@ from cernopendata.modules.records.minters.docid import \
     cernopendata_docid_minter
 from cernopendata.modules.records.minters.recid import \
     cernopendata_recid_minter
+from cernopendata.modules.records.minters.termid import \
+    cernopendata_termid_minter
 
 
 def get_jsons_from_dir(dir):
@@ -142,6 +144,24 @@ def create_doc(data, schema):
 
 def update_doc(pid, data):
     """Updates the given doc record."""
+    from invenio_records import Record
+    record = Record.get_record(pid.object_uuid)
+    record.update(data)
+    return record
+
+
+def create_glossary_term(data, schema):
+    """Creates a new glossary term record."""
+    from invenio_records import Record
+    id = uuid.uuid4()
+    cernopendata_termid_minter(id, data)
+    data['$schema'] = schema
+    record = Record.create(data, id_=id)
+    return record
+
+
+def update_glossary_term(pid, data):
+    """Updates the given glossary term record."""
     from invenio_records import Record
     record = Record.get_record(pid.object_uuid)
     record.update(data)
@@ -259,21 +279,25 @@ def records(skip_files, files, profile, mode):
 
 @fixtures.command()
 @with_appcontext
-def glossary():
+@click.option('files', '--file', '-f', multiple=True,
+              type=click.Path(exists=True),
+              help='Path to the file(s) to be loaded. If not provided, all'
+                   'files will be loaded')
+@click.option('--mode', required=True, type=click.Choice(
+    ['insert', 'replace', 'insert-or-replace']))
+def glossary(files, mode):
     """Load glossary term records."""
-    from invenio_db import db
-    from invenio_records import Record
-    from invenio_indexer.api import RecordIndexer
-    from cernopendata.modules.records.minters.termid import \
-        cernopendata_termid_minter
-
     indexer = RecordIndexer()
     schema = current_app.extensions['invenio-jsonschemas'].path_to_url(
         'records/glossary-term-v1.0.0.json'
     )
     data = pkg_resources.resource_filename('cernopendata',
                                            'modules/fixtures/data')
-    glossary_terms_json = glob.glob(os.path.join(data, 'terms', '*.json'))
+
+    if files:
+        glossary_terms_json = files
+    else:
+        glossary_terms_json = glob.glob(os.path.join(data, 'terms', '*.json'))
 
     for filename in glossary_terms_json:
 
@@ -286,11 +310,52 @@ def glossary():
                         data.get("collections", None), basestring):
                     data["collections"] = []
                 data["collections"].append({"primary": "Terms"})
-                id = uuid.uuid4()
-                cernopendata_termid_minter(id, data)
-                data['$schema'] = schema
-                record = Record.create(data, id_=id)
+
+                record = None
+                action = None
+                if mode == "insert-or-replace":
+                    try:
+                        pid = PersistentIdentifier.get('termid',
+                                                       data['anchor'])
+                        if pid:
+                            record = update_glossary_term(pid, data)
+                            action = 'updated'
+                    except PIDDoesNotExistError:
+                        record = create_glossary_term(data, schema)
+                        action = 'inserted'
+                elif mode == "insert":
+                    try:
+                        pid = PersistentIdentifier.get('termid',
+                                                       data['anchor'])
+                        if pid:
+                            click.echo(
+                                'Glossary term termid {} exists already;'
+                                ' cannot insert it.  '.format(
+                                    data.get('anchor')), err=True)
+                            return
+                    except PIDDoesNotExistError:
+                        record = create_glossary_term(data, schema)
+                        action = 'inserted'
+                else:
+                    try:
+                        pid = PersistentIdentifier.get('termid',
+                                                       data['anchor'])
+                    except PIDDoesNotExistError:
+                        click.echo(
+                            'Glossary term {} does not exist; '
+                            'cannot replace it.'.format(
+                                data.get('anchor')), err=True)
+                        return
+                    record = update_glossary_term(pid, data)
+                    action = 'updated'
+
+                if record:
+                    record.commit()
+
                 db.session.commit()
+                click.echo(
+                    'Glossary term {0} {1}.'.format(
+                        data.get('anchor'), action))
                 indexer.index(record)
                 db.session.expunge_all()
 

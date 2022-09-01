@@ -32,10 +32,14 @@ sleep 20
 
 cernopendata files location local var/data --default
 
-cernopendata fixtures glossary
+if [[ "$@" = *"--skip-glossary"* ]]; then
+    echo "[INFO] Skipping loading of glossary terms."
+else
+    cernopendata fixtures glossary --mode insert
+fi
 
 if [[ "$@" = *"--skip-docs"* ]]; then
-    echo "[INFO] Skipping loading of records."
+    echo "[INFO] Skipping loading of docs."
 else
     cernopendata fixtures docs --mode insert
 fi
