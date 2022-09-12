@@ -1,4 +1,4 @@
-[[stripping21r0p2 lines]](./stripping21r0p2-ew)
+[[stripping21r0p2 lines]](./stripping21r0p2-index)
 
 # StrippingWMuLine
 

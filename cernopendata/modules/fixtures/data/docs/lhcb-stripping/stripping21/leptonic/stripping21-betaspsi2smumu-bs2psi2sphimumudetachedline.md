@@ -1,4 +1,4 @@
-[[stripping21 lines]](./stripping21-leptonic)
+[[stripping21 lines]](./stripping21-index)
 
 # StrippingBetaSPsi2SMuMu_Bs2Psi2SPhiMuMuDetachedLine
 

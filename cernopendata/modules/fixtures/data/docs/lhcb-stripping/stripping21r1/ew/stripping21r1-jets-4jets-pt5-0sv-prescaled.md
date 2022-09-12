@@ -1,4 +1,4 @@
-[[stripping21r1 lines]](./stripping21r1-ew)
+[[stripping21r1 lines]](./stripping21r1-index)
 
 # StrippingJets_4jets_Pt5_0sv_Prescaled
 

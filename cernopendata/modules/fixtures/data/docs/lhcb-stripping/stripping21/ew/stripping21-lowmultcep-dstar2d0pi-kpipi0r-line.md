@@ -1,4 +1,4 @@
-[[stripping21 lines]](./stripping21-ew)
+[[stripping21 lines]](./stripping21-index)
 
 # StrippingLowMultCEP_Dstar2D0Pi_KPiPi0R_line
 

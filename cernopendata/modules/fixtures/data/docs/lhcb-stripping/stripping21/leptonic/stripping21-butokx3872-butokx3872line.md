@@ -1,4 +1,4 @@
-[[stripping21 lines]](./stripping21-leptonic)
+[[stripping21 lines]](./stripping21-index)
 
 # StrippingBuToKX3872_BuToKX3872Line
 

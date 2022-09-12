@@ -1,4 +1,4 @@
-[[stripping21r1 lines]](./stripping21r1-leptonic)
+[[stripping21r1 lines]](./stripping21r1-index)
 
 # StrippingB2XGamma3pi_Line
 

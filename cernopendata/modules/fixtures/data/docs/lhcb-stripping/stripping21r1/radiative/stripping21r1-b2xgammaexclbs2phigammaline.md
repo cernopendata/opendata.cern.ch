@@ -1,4 +1,4 @@
-[[stripping21r1 lines]](./stripping21r1-radiative)
+[[stripping21r1 lines]](./stripping21r1-index)
 
 # StrippingB2XGammaExclBs2PhiGammaLine
 

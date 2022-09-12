@@ -1,4 +1,4 @@
-[[stripping21 lines]](./stripping21-leptonic)
+[[stripping21 lines]](./stripping21-index)
 
 # StrippingBu2LLK_mmLine
 

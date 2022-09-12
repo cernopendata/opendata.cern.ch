@@ -1,4 +1,4 @@
-[[stripping21r1 lines]](./stripping21r1-commonparticles)
+[[stripping21r1 lines]](./stripping21r1-index)
 
 # StdAllNoPIDsPions
 

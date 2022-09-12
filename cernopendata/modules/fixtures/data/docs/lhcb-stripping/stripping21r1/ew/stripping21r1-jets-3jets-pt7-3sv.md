@@ -1,4 +1,4 @@
-[[stripping21r1 lines]](./stripping21r1-ew)
+[[stripping21r1 lines]](./stripping21r1-index)
 
 # StrippingJets_3jets_Pt7_3sv
 

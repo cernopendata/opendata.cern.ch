@@ -1,4 +1,4 @@
-[[stripping21r1 lines]](./stripping21r1-leptonic)
+[[stripping21r1 lines]](./stripping21r1-index)
 
 # StrippingKshort2MuMuMuMu_LongLine
 

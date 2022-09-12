@@ -1,4 +1,4 @@
-[[stripping21r0p2 lines]](./stripping21r0p2-leptonic)
+[[stripping21r0p2 lines]](./stripping21r0p2-index)
 
 # StrippingLc23MuSigmacppLc2peepi0MLine
 

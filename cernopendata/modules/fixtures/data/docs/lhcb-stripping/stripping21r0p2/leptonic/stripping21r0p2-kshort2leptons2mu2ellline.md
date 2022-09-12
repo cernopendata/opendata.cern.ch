@@ -1,4 +1,4 @@
-[[stripping21r0p2 lines]](./stripping21r0p2-leptonic)
+[[stripping21r0p2 lines]](./stripping21r0p2-index)
 
 # StrippingKshort2Leptons2mu2eLLLine
 

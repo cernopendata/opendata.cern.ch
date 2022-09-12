@@ -1,4 +1,4 @@
-[[stripping21 lines]](./stripping21-commonparticles)
+[[stripping21 lines]](./stripping21-index)
 
 # StdLooseDstarWithD02KPiDCS
 

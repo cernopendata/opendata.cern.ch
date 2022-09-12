@@ -1,4 +1,4 @@
-[[stripping21 lines]](./stripping21-ew)
+[[stripping21 lines]](./stripping21-index)
 
 # StrippingZ02eeLine
 

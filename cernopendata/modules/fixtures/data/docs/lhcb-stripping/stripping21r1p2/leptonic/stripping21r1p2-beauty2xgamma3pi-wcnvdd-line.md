@@ -1,4 +1,4 @@
-[[stripping21r1p2 lines]](./stripping21r1p2-leptonic)
+[[stripping21r1p2 lines]](./stripping21r1p2-index)
 
 # StrippingBeauty2XGamma3pi_wCNVDD_Line
 

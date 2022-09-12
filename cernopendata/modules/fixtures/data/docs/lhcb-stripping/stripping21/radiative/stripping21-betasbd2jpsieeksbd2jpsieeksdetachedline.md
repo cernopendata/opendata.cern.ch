@@ -1,4 +1,4 @@
-[[stripping21 lines]](./stripping21-radiative)
+[[stripping21 lines]](./stripping21-index)
 
 # StrippingBetaSBd2JpsieeKSBd2JpsieeKSDetachedLine
 

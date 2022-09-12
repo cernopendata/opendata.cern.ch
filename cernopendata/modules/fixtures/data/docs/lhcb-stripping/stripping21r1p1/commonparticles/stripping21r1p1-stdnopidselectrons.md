@@ -1,4 +1,4 @@
-[[stripping21r1p1 lines]](./stripping21r1p1-commonparticles)
+[[stripping21r1p1 lines]](./stripping21r1p1-index)
 
 # StdNoPIDsElectrons
 

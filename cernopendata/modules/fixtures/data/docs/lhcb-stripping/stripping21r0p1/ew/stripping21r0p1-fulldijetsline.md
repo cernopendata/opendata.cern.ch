@@ -1,4 +1,4 @@
-[[stripping21r0p1 lines]](./stripping21r0p1-ew)
+[[stripping21r0p1 lines]](./stripping21r0p1-index)
 
 # StrippingFullDiJetsLine
 

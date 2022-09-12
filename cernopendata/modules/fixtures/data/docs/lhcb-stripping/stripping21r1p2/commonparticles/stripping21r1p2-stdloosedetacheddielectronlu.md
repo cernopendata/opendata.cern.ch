@@ -1,4 +1,4 @@
-[[stripping21r1p2 lines]](./stripping21r1p2-commonparticles)
+[[stripping21r1p2 lines]](./stripping21r1p2-index)
 
 # StdLooseDetachedDiElectronLU
 
