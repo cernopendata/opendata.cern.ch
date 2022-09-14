@@ -5,7 +5,8 @@
             <p class="title">
                     {{ record.metadata.anchor }}
             </p>
-            <p ng-if="record.metadata.definition" class="mt-1">{{ record.metadata.definition | limitTo : 200}}...</p>
+            <p ng-if="record.metadata.short_definition" class="mt-1">{{ record.metadata.short_definition }}</p>
+            <span ng-if="!record.metadata.short_definition"><p ng-if="record.metadata.definition" class="mt-1">{{ record.metadata.definition | limitTo : 200}}...</p></span>
             <div class="badges-box">
                 <a class="badge badge-type" ng-if="record.metadata.type.primary" href="/search?type={{record.metadata.type.primary}}">
                     {{ record.metadata.type.primary }}
