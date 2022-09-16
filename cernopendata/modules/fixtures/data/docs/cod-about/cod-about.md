@@ -19,7 +19,7 @@ All four LHC experiments have approved data preservation and access policies whi
 
 ### How to re-use and cite these datasets
 
-All datasets and other material available in this portal are minted with a persistent DOI identifiers that allow permanent linking to the records. The CERN Open Data portal endorses the [FORCE 11 Joint Declaration of Data Citation Principles](http://www.force11.org/datacitation). We thus ask you to cite the data provided on the portal when you reuse them. To make this easier for you, we provide you with a citation recommendation for every dataset as well as other suitable output formats (such as BibTeX). Citing datasets in the reference list of your paper will allow other platforms such as INSPIRE to track citations to these datasets and measure their impact.
+All datasets and other material available in this portal are minted with a persistent DOI identifiers that allow permanent linking to the records. The CERN Open Data portal endorses the [FORCE 11 Joint Declaration of Data Citation Principles](https://doi.org/10.25490/a97f-egyk). We thus ask you to cite the data provided on the portal when you reuse them. To make this easier for you, we provide you with a citation recommendation for every dataset as well as other suitable output formats (such as BibTeX). Citing datasets in the reference list of your paper will allow other platforms such as INSPIRE to track citations to these datasets and measure their impact.
 
 ## Technologies
 
