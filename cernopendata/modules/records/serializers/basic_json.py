@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2017 CERN.
+# Copyright (C) 2017, 2022 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -74,6 +74,15 @@ class CODJSONSerializer(JSONSerializer):
                     agg.pop('filtered')
 
         aggregations = aggregations[0]
+
+        # Remove empty buckets in event_numbers facet
+        if "event_number" in aggregations.keys():
+            new_event_list = []
+            for bucket in aggregations["event_number"]["buckets"]:
+                if bucket["doc_count"] != 0:
+                    new_event_list.append(bucket)
+            aggregations["event_number"]["buckets"] = new_event_list
+
         return json.dumps(
             dict(
                 hits=dict(

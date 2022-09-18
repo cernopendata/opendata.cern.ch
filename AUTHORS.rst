@@ -41,6 +41,7 @@ The list of contributors in alphabetical order:
 - `Sergey Dmitrievsky <https://github.com/dmitr25>`_
 - `Silvia Amerio <https://github.com/samerio>`_
 - `Stefan Wunsch <https://github.com/stwunsch>`_
+- `Suchith Krishna S Donni <https://github.com/sksDonni>`_
 - `Thomas McCauley <https://github.com/tpmccauley>`_
 - `Tibor Šimko <https://orcid.org/0000-0001-7202-5803>`_
 - `Tim Smith <https://github.com/TimSmithCH>`_
