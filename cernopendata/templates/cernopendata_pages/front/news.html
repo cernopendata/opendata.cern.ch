@@ -7,18 +7,18 @@
             {% for article in featured_articles %}
             {% set article = article._source %}
             <div class="news-item align-content-stretch col-sm-6 col-md-4">
-                <div class="news-card container-fluid">
+                <div class="news-card">
                     <div class="card-body">
-                        <p class="row date-author-small">
+                        <p class="date-author-small">
                             {{ article.created or '-' }} by
                             {{ article.author or 'Open Data Portal team'}}
                         </p>
-                        <div class="row">
+                        <div class="">
                             <h4>
                                 <a href="/docs/{{article.control_number}}">{{article.title}}</a>
                             </h4>
                         </div>
-                        <div class="tags-box row align-self-end">
+                        <div class="badges-box align-self-end">
                             <a href="/search?type={{article.type.primary}}" class="badge  badge-success custom-badge-success">
                                 {{article.type.primary }}
                             </a>
