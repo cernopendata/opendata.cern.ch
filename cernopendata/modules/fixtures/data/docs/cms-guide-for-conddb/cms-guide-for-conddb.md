@@ -78,7 +78,7 @@ process.GlobalTag.globaltag = 'FT_53_LV5_AN1::All'
 Note that two sets of condition data for 2011 data are provided:
 
 * FT_53_LV5_AN1 valid for the full range of 2011 data taking
-* FT_53_LV5_AN1_RUNA valid for the run range of 2011 RunA (public data)
+* FT_53_LV5_AN1_RUNA valid for the run range of 2011 RunA
 
 It is convenient to use FT_53_LV5_AN1_RUNA as instructed above, it makes the starting time of the first job somewhat faster.
 
@@ -136,8 +136,6 @@ Two other sets of condition data for 2012 data are provided:
 
 They were proviced because of the small cache area size in the earlier VM images. You should use FT53_V21A_AN6_FULL and the CMS Open Data VM version CMS-OpenData-1.5.1.ova (or CMS-Open-Data-1.3.0.ova), which has a large enough cache area.
 
-In addition, condition data for the Global Tag START53_V7N is provided. This was used to produce simulated data with dose-dependent detector characteristics, run-dependent pile-up and beam spot conditions for the Higgs boson discovery analysis. The simulated data produced with this Global Tag can be analysed with the other Global Tag above.
-
 ---
 
 **For 2012 Montecarlo data**, the global tag is START53_V27. To access the condition database, first, set the symbolic links:
@@ -160,6 +158,8 @@ Then, define the correct set of condition data by mentioning the Global Tag in t
 process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/START53_V27.db')
 process.GlobalTag.globaltag = 'START53_V27::All'
 ```
+
+In addition, condition data for the Global Tag START53_V7N is provided. This was used to produce simulated data with dose-dependent detector characteristics, run-dependent pile-up and beam spot conditions for the Higgs boson discovery analysis. The simulated data produced with this Global Tag can be analysed with the other Global Tag above.
 
 ---
 **For 2015 collision data**, the global tag is 76X_dataRun2_16Dec2015_v0. Define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
