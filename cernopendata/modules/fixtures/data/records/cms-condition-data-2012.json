@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": "<p>Condition database includes non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for simulation/reconstruction/analysis software.</p>\n   <p> These files are needed when running a CMSSW job on the open data environment (VM or container), and they are available in the /cvmfs/cms-opendata-conddb.cern.ch file system. They are automatically read from /cvmfs/cms-opendata-conddb.cern.ch/FT53_V21A_AN6_FULL runtime.</p>\n    <p>FT53_V21A_AN6_FULL is for the full event range for 2012 and can be used both for RunB and RunC 2012 collision data. Databases for limited event ranges are also available under /cvmfs/cms-opendata-conddb.cern.ch (FT53_V21A_AN6 is for the event range of RunB and FT53_V21A_AN6_RUNC for the event range of RunC).</p> \n <p>See further information in <a href=\"/docs/cms-guide-for-condition-database\">the guide to CMS condition database</a>.</p>\n       <p>For 2012 CMS simulated datasets see:</p>",
+      "description": "<p>Condition database includes non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for simulation/reconstruction/analysis software.</p>\n   <p> These files are needed when running a CMSSW job on the open data environment (VM or container), and they are available in the /cvmfs/cms-opendata-conddb.cern.ch file system. They are automatically read from /cvmfs/cms-opendata-conddb.cern.ch/FT53_V21A_AN6_FULL runtime.</p>\n    <p>FT53_V21A_AN6_FULL is for the full event range for 2012 and can be used for RunA, RunB, RunC and RunD 2012 collision data. Databases for limited event ranges are also available under /cvmfs/cms-opendata-conddb.cern.ch (FT53_V21A_AN6 is for the event range of RunB and FT53_V21A_AN6_RUNC for the event range of RunC).</p> \n <p>See further information in <a href=\"/docs/cms-guide-for-condition-database\">the guide to CMS condition database</a>.</p>\n       <p>For 2012 CMS simulated datasets see:</p>",
       "links": [
         {
           "recid": "1804"
@@ -24,8 +24,10 @@
     "publisher": "CERN Open Data Portal",
     "recid": "1803",
     "run_period": [
+      "Run2012A",
       "Run2012B",
-      "Run2012C"
+      "Run2012C",
+      "Run2012D"
     ],
     "title": "Condition data for 2012 CMS collision data",
     "type": {
@@ -60,8 +62,10 @@
     "publisher": "CERN Open Data Portal",
     "recid": "1804",
     "run_period": [
+      "Run2012A",
       "Run2012B",
-      "Run2012C"
+      "Run2012C",
+      "Run2012D"
     ],
     "title": "Condition data for 2012 CMS simulated datasets",
     "type": {

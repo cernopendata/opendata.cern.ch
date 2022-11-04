@@ -183,7 +183,7 @@ For opening graphics windows, you can install a VNC viewer on your local compute
 start_vnc
 ```
 
-Define a password, it will be requested by the VNC viewer program on your local computer. Now start the VNC viewer program and give the password you've chosen.
+Open the browser window in the http address given at the start message and connect with the default VNC password `cms.cern`.
 
 Each time you exit from the container, close the VNC application with
 
@@ -276,7 +276,7 @@ initrd=\initrd.img panic=-1 pty.legacy_count=0 nr_cpus=4 vsyscall=emulate
 
 ### Accessing cvmfs from a container
 
-The CMS open data container images contain the software needed for analysis, and the CMS condition database can be accessed from predefined locations. Therefore, when using these containers, access to the namespace `/cvmfs` (CernVM-File System) for software and condition data access is not mandatory.
+The CMS open data container images contain the software needed for analysis, and the CMS condition database can be accessed from predefined locations. They are stored in a local `/cvmfs` file system in the container. Therefore, when using these containers, access to the namespace `/cvmfs` (CernVM-File System) at CERN for software and condition data access is not mandatory.
 
 If desired, it is possible to "see" the cvmfs space by installing the cvmfs client following [the official instructions](https://cvmfs.readthedocs.io). In essence, there are two basic ways to achieve this:
 
