@@ -165,7 +165,7 @@
         <div class="col-md-12">
             <h2>System details</h2>
             {% if record.system_details.description %}
-            <span>{{record.system_details.description}}</span>
+            <span>{{record.system_details.description | safe}}</span>
             {% endif %}
             {% if record.system_details.global_tag %}
               {% if 'raw' in record.get('distribution', {}).get('formats', []) %}
