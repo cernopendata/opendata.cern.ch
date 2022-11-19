@@ -186,7 +186,7 @@ Start by getting the code and compiling it. Make sure that you are back in the t
 
 ```shell
 $ cd ~/CMSSW_7_6_7/src
-$ git clone https://github.com/cms-legacydata-analyses/PhysObjectExtractorTool.git
+$ git clone https://github.com/cms-opendata-analyses/PhysObjectExtractorTool.git
 ```
 
 If you are using the VM, change now back to the "CMS shell" terminal. Get the 2015 MiniAOD "branch" of the repository and compile the code with:
@@ -201,18 +201,19 @@ $ scram b
 Then produce a root file with selected objects by executing:
 
 ```shell
-$ cmsRun PhysObjectExtractor/python/poet_cfg.py
+$ cd PhysObjectExtractor
+$ cmsRun python/poet_cfg.py
 ```
 
 The configuration file sets it to run over 1000 events in a simulated dataset.
 
-If you are using the CMS open data container with the VNC application installed (see the [container guide page](/docs/cms-guide-docker)), open the graphical window in the container by typing
+If you are using the CMS open data container with the VNC application installed (see the [container guide page](/docs/cms-guide-docker)), open the graphical user interface in the container by typing
 
 ```shell
 $ start_vnc
 ```
 
-and then start the VNC viewer on your host machine.
+and then start the graphics window on your browser with the link provided and using the password `cms.cern`.
 
 You can now open the POET output file in ROOT:
 
