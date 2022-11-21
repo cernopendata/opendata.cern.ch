@@ -100,7 +100,7 @@ In the following instructions, make sure to replace the CMSSW version and the co
 Once you have installed Docker on your computer, you can fetch a CMSSW image, and create and start a container using the `docker run` command:
 
 ```sh
-docker run --name my_od -P -p 5901:5901 -it cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493 /bin/bash
+docker run --name my_od -P -p 5901:5901 -p 6080:6080 -it cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493 /bin/bash
 ```
 
 Here we fetch the `cmssw_7_6_7-slc6_amd64_gcc493` docker image from [dockerhub](https://hub.docker.com/u/cmsopendata) and name the container `my_od`.
@@ -108,7 +108,7 @@ Here we fetch the `cmssw_7_6_7-slc6_amd64_gcc493` docker image from [dockerhub](
 This will install a stand-alone CMSSW image (several gigabytes). Therefore this may take a while. However, the image will only have to be downloaded once. The following will appear in your terminal, with messages changing during the download:
 
 ```console
-$ docker run --name my_od -P -p 5901:5901 -it cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493 /bin/bash
+$ docker run --name my_od -P -p 5901:5901 -p 6080:6080 -it cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493 /bin/bash
 Unable to find image 'cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493:latest' locally
 latest: Pulling from cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493
 a34e8f61dde2: Already exists
