@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2017, 2018, 2020 CERN.
+# Copyright (C) 2017, 2018, 2020, 2022 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -348,6 +348,15 @@ RECORDS_REST_FACETS = {
                 aggs=dict(subcategory=dict(terms=dict(
                           field="categories.secondary.keyword",
                           order=dict(_key='asc'))))),
+            magnet_polarity=dict(terms=dict(
+                field='magnet_polarity.keyword',
+                order=dict(_term='asc'))),
+            stripping_stream=dict(terms=dict(
+                field='stripping.stream.keyword',
+                order=dict(_term='asc'))),
+            stripping_version=dict(terms=dict(
+                field='stripping.version.keyword',
+                order=dict(_term='asc'))),
             event_number={
                 'range': {
                     'field': 'distribution.number_events',
@@ -403,6 +412,9 @@ RECORDS_REST_FACETS = {
                                           '.keyword'),
             category=terms_filter('categories.primary.keyword'),
             subcategory=terms_filter('categories.secondary.keyword'),
+            magnet_polarity=terms_filter('magnet_polarity.keyword'),
+            stripping_stream=terms_filter('stripping.stream.keyword'),
+            stripping_version=terms_filter('stripping.version.keyword'),
             event_number=cernopendata_range_filter(
                             'distribution.number_events'),
             collections=terms_filter('collections.keyword'),

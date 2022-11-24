@@ -55,6 +55,13 @@
     "created": {
       "type": "string"
     },
+    "date_created": {
+      "items": {
+        "description": "The data-taking year for which the documentation was produced",
+        "type": "string"
+      },
+      "type": "array"
+    },
     "experiment": {
       "type": "string"
     },
@@ -88,6 +95,19 @@
           "type": "string"
         },
         "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "stripping": {
+      "properties": {
+        "stream": {
+          "description": "Stripping stream information, used notably by LHCb",
+          "type": "string"
+        },
+        "version": {
+          "description": "Stripping version information, used notably by LHCb",
           "type": "string"
         }
       },

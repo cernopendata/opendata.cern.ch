@@ -315,9 +315,9 @@ Here is example:
 
    $ git checkout master
    $ git checkout -b improve-event-display-icons
-   $ emacsclient some_file.py
+   $ $EDITOR some_file.py
    $ git commit -a -m 'some improvement'
-   $ emacsclient some_other_file.py
+   $ $EDITOR some_other_file.py
    $ git commit -a -m 'some other improvement'
 
 When everything is ready, you may want to rebase your topical branch
@@ -363,7 +363,7 @@ Secondly, make any required changes on your topical branch:
 .. code-block:: console
 
    $ git checkout improve-event-display-icons
-   $ emacsclient some_file.py
+   $ $EDITOR some_file.py
    $ git commit -a -m 'amends something'
 
 Thirdly, when done, interactively rebase your topical branch into

@@ -100,6 +100,9 @@ install_requires = [
     'pymdown-extensions>=5.0.0',
     'python-markdown-math>=0.3',
     'python-slugify>=1.2.4',
+    # Webserver
+    'uWSGI>=2.0.15',
+    'uwsgitop>=0.10',
     # Pin SQLAlchemy version due to sqlalchemy-utils compatibility
     # <https://github.com/kvesteri/sqlalchemy-utils/issues/505>
     'SQLAlchemy<1.4.0',
@@ -109,9 +112,13 @@ install_requires = [
     'celery==5.0.4',
     # Pin XRootD consistently with Dockerfile
     'xrootd==4.12.2',
-    # Webserver
-    'uWSGI>=2.0.15',
-    'uwsgitop>=0.10',
+    # Pin Flask/Jinja/importlib/gevent/greenlet/raven to make master work again
+    'Flask<1.2',
+    'Flask<2.12',
+    "importlib-metadata<5.0.0 ; python_version<'3.8'",
+    'gevent<1.6',
+    'greenlet<1.2',
+    'raven<6.11',
 ]
 
 packages = find_packages()

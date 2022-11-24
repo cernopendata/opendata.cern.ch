@@ -2,7 +2,7 @@ This page explains the use of global tags and the condition database with the CM
 
 A Global Tag is a coherent collection of records of additional data needed by the reconstruction and analysis software. The Global Tag is defined for each data-taking period, separately for collision and simulated data.
 
-These records are stored in the condition database. Condition data include non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for the simulation/reconstruction/analysis software. For CMS Open Data, the condition data are provided as sqlite files in the `/cvmfs/cms-opendata-conddb.cern.ch/` directory, which is accessible through the CMS Open Data VM. Note that when using CMS Open Data docker images, connecting to this area with the command `process.GlobalTag.connect = cms.string(...` in the job configuration file is not required.
+These records are stored in the condition database. Condition data include non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for the simulation/reconstruction/analysis software. For CMS Open Data, the condition data are provided as sqlite files in the `/cvmfs/cms-opendata-conddb.cern.ch/` directory, which is accessible through the CMS Open Data VM. Note that when using CMS Open Data docker images, connecting to this area with the command `process.GlobalTag.connect = cms.string(...` in the job configuration file is not required as the condition data can be read from predefined condition data servers.
 
 Most [AOD](/docs/cms-physics-objects-2011) and [MINIAOD](/docs/cms-physics-objects-2015) physics objects in the CMS Open Data are already calibrated and ready-to-use, and no additional corrections are needed other than selection and identification criteria, which will be applied in the analysis code. Therefore, simple analyses do not need to access the condition database. Examples of such analyses are [the di-muon spectrum example](/record/5001) or [the Higgs analysis example](/record/5500).
 
@@ -78,7 +78,7 @@ process.GlobalTag.globaltag = 'FT_53_LV5_AN1::All'
 Note that two sets of condition data for 2011 data are provided:
 
 * FT_53_LV5_AN1 valid for the full range of 2011 data taking
-* FT_53_LV5_AN1_RUNA valid for the run range of 2011 RunA (public data)
+* FT_53_LV5_AN1_RUNA valid for the run range of 2011 RunA
 
 It is convenient to use FT_53_LV5_AN1_RUNA as instructed above, it makes the starting time of the first job somewhat faster.
 
@@ -129,15 +129,12 @@ process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.c
 process.GlobalTag.globaltag = 'FT53_V21A_AN6::All'
 ```
 
-Note that three sets of condition data for 2011 data are provided:
+Two other sets of condition data for 2012 data are provided:
 
-* FT53_V21A_AN6_FULL valid for the full range of 2012 data taking
-* FT53_V21A_AN6 valid for the run range of 2012 RunB (public data)
-* FT53_V21A_AN6_RUNC valid for the run range of 2012 RunC (public data)
+* FT53_V21A_AN6 valid for the run range of 2012 RunB
+* FT53_V21A_AN6_RUNC valid for the run range of 2012 RunC
 
-It is convenient to use FT53_V21A_AN6_FULL as instructed above, as you will not need to load RunB and RunC condition data separately. You should use the CMS Open Data VM version CMS-OpenData-1.5.1.ova (or CMS-Open-Data-1.3.0.ova), which has a large enough cache area.
-
-In addition, condition data for the Global Tag START53_V7N is provided. This was used to produce simulated data with dose-dependent detector characteristics, run-dependent pile-up and beam spot conditions for the Higgs boson discovery analysis. The simulated data produced with this Global Tag can be analysed with the other Global Tag above.
+They were proviced because of the small cache area size in the earlier VM images. You should use FT53_V21A_AN6_FULL and the CMS Open Data VM version CMS-OpenData-1.5.1.ova (or CMS-Open-Data-1.3.0.ova), which has a large enough cache area.
 
 ---
 
@@ -162,6 +159,8 @@ process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.c
 process.GlobalTag.globaltag = 'START53_V27::All'
 ```
 
+In addition, condition data for the Global Tag START53_V7N is provided. This was used to produce simulated data with dose-dependent detector characteristics, run-dependent pile-up and beam spot conditions for the Higgs boson discovery analysis. The simulated data produced with this Global Tag can be analysed with the other Global Tag above.
+
 ---
 **For 2015 collision data**, the global tag is 76X_dataRun2_16Dec2015_v0. Define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
 
@@ -171,7 +170,7 @@ process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.c
 process.GlobalTag.globaltag = '76X_dataRun2_16Dec2015_v0'
 ```
 
-The `process.GlobalTag.connect` line is only needed when reading the condition data from the `/cvmfs` file system, not when using the CMS open data software containers.
+Note that when using the CMS open data software container, the `process.GlobalTag.connect` line makes the job read the condition data from the local `/cvmfs` area in the container. If it is left out, the condition data are read from predefined condition data servers and it may take longer.
 
 ---
 
@@ -183,7 +182,7 @@ process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.c
 process.GlobalTag.globaltag = '76X_mcRun2_asymptotic_RunIIFall15DR76_v1'
 ```
 
-The `process.GlobalTag.connect` line is only needed when reading the condition data from the `/cvmfs` file system, not when using the CMS open data software containers.
+Note that when using the CMS open data software container, the `process.GlobalTag.connect` line makes the job read the condition data from the local `/cvmfs` area in the container. If it is left out, the condition data are read from predefined condition data servers and it may take longer.
 
 ---
 

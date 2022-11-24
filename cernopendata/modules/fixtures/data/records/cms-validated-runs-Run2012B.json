@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": "<p>This file describes which luminosity sections in which runs are considered good and should be processed.</p> <p>The list covers all p-p data taking in 2012. The public data (RunB and RunC) are part of this list, between run numbers 193833 - 196531 for RunB and 198022 - 203742 for RunC.</p>"
+      "description": "<p>This file describes which luminosity sections in which runs are considered good and should be processed.</p> <p>The list covers all p-p data taking in 2012. RunA is between run numbers 190456 -193621, RunB between run numbers 193833 - 196531, RunC between run numbers 198022 - 203742, and RunD between run numbers 203777 - 208686.</p>"
     },
     "accelerator": "CERN-LHC",
     "collaboration": {
@@ -19,7 +19,9 @@
     "distribution": {
       "formats": [
         "txt"
-      ]
+      ],
+      "number_files": 1,
+      "size": 36630
     },
     "doi": "10.7483/OPENDATA.CMS.C00V.SE32",
     "experiment": "CMS",
@@ -33,8 +35,10 @@
     "publisher": "CERN Open Data Portal",
     "recid": "1002",
     "run_period": [
+      "Run2012A",
       "Run2012B",
-      "Run2012C"
+      "Run2012C",
+      "Run2012D"
     ],
     "title": "CMS list of validated runs Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt",
     "title_additional": "CMS list of validated runs for primary datasets of 2012 data taking",
@@ -46,6 +50,75 @@
     },
     "usage": {
       "description": "<p>Add the following lines in the configuration file for a cmsRun job: <br /> <pre>   import FWCore.ParameterSet.Config as cms</pre><pre>   import FWCore.PythonUtilities.LumiList as LumiList</pre><pre>   goodJSON = 'Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt'</pre><pre>   myLumis = LumiList.LumiList(filename = goodJSON).getCMSSWString().split(',') </pre></p><p> Add the file path if needed in the file name.</p><p> Add the following statements after the <code>process.source</code> input file definition: <br /><pre>   process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange()</pre><pre>   process.source.lumisToProcess.extend(myLumis)</pre></p><p>Note that the two last statements must be placed after the <code>process.source</code> statement defining the input files.</p>"
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>This file describes which luminosity sections in which runs are considered good and should be processed, for analyses requiring only valid muons..</p> <p>The list covers all p-p data taking in 2012. RunA is between run numbers 190456 -193621, RunB between run numbers 193833 - 196531, RunC between run numbers 198022 - 203742, and RunD between run numbers 203777 - 208686.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS Collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Validated-Runs",
+      "CMS-Validation-Utilities"
+    ],
+    "date_created": [
+      "2012"
+    ],
+    "date_published": "2022",
+    "distribution": {
+      "formats": [
+        "txt"
+      ],
+      "number_files": 1,
+      "size": 15018
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:a9b37666",
+        "size": 15018,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/validated-runs/2012/Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON_MuonPhys.txt"
+      }
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "1005",
+    "run_period": [
+      "Run2012A",
+      "Run2012B",
+      "Run2012C",
+      "Run2012D"
+    ],
+    "title": "CMS list of validated runs Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON_MuonPhys.txt",
+    "title_additional": "CMS list of validated runs for primary datasets of 2012 data taking, only valid muons",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "Validation"
+      ]
+    },
+    "usage": {
+      "description": "<p>Add the following lines in the configuration file for a cmsRun job: <br /> <pre>   import FWCore.ParameterSet.Config as cms</pre><pre>   import FWCore.PythonUtilities.LumiList as LumiList</pre><pre>   goodJSON = 'Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON_MuonPhys.txt'</pre><pre>   myLumis = LumiList.LumiList(filename = goodJSON).getCMSSWString().split(',') </pre></p><p> Add the file path if needed in the file name.</p><p> Add the following statements after the <code>process.source</code> input file definition: <br /><pre>   process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange()</pre><pre>   process.source.lumisToProcess.extend(myLumis)</pre></p><p>Note that the two last statements must be placed after the <code>process.source</code> statement defining the input files.</p>"
     },
     "validation": {
       "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",

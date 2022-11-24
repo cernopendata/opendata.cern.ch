@@ -174,10 +174,46 @@
           },
           "type": "text"
         },
+        "magnet_polarity": {
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
         "publisher": {
           "type": "text"
         },
         "signature": {
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          },
+          "type": "text"
+        },
+        "stripping": {
+          "properties": {
+            "stream": {
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              },
+              "type": "text"
+            },
+            "version": {
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              },
+              "type": "text"
+            }
+          }
+        },
+        "title": {
           "fields": {
             "keyword": {
               "type": "keyword"

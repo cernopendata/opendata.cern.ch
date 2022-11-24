@@ -285,6 +285,10 @@
       },
       "type": "array"
     },
+    "magnet_polarity": {
+      "description": "The magnet polarity information used by the LHCb experiment",
+      "type": "string"
+    },
     "methodology": {
       "properties": {
         "description": {
@@ -499,6 +503,19 @@
         },
         "url": {
           "description": "The URL of the source code repository",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "stripping": {
+      "properties": {
+        "stream": {
+          "description": "Stripping stream information, used notably by LHCb",
+          "type": "string"
+        },
+        "version": {
+          "description": "Stripping version information, used notably by LHCb",
           "type": "string"
         }
       },

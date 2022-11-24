@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": " <p>This virtual machine image provides CMS computing environment to be used with the 2011 and 2012 CMS open data. The virtual machine is based on the CernVM (cernvm.cern.ch) and uses Scientific Linux CERN. The image gets the CMS software (CMSSW) from /cvmfs/cms.cern.ch and the jobs running on the CMS open data VM read the condition data from /cvmfs/cms-opendata-conddb.cern.ch. Access to the data is through XRootD.</p> <p>CMS-OpenData-1.5.3.ova is recommended. It has a 40G virtual hard disk and a 20G cvmfs cache, which is large enough for condition data for full event range for 2012 data (see <a href=\"/docs/cms-guide-for-condition-database\">the CMS guide to the condition database</a> for further details). It has an embedded CERN Scientific Linux 6 (slc6) shell, where all CMS software specific commands should be executed. Additionally, it has a CERN CentOS 7 (cc7) shell, which can be used in the same session.</p> <p>The versions earlier than CMS-OpenData-1.5.3.ova are deprecated; please use the latest available version.</p>  <p>For known issues and limitations see</p>",
+      "description": " <p>This virtual machine image provides CMS computing environment to be used with the 2011, 2012 and 2015 CMS open data. The virtual machine is based on the CernVM (cernvm.cern.ch) and uses Scientific Linux CERN. The image gets the CMS software (CMSSW) from /cvmfs/cms.cern.ch and the jobs running on the CMS open data VM read the condition data from /cvmfs/cms-opendata-conddb.cern.ch. Access to the data is through XRootD.</p> <p>CMS-OpenData-1.5.3.ova is recommended. It has a 40G virtual hard disk and a 20G cvmfs cache, which is large enough for condition data for full event range for 2012 data (see <a href=\"/docs/cms-guide-for-condition-database\">the CMS guide to the condition database</a> for further details). It has an embedded CERN Scientific Linux 6 (slc6) shell, where all CMS software specific commands should be executed. Additionally, it has a CERN CentOS 7 (cc7) shell, which can be used in the same session.</p> <p>The versions earlier than CMS-OpenData-1.5.3.ova are deprecated; please use the latest available version.</p>  <p>For known issues and limitations see</p>",
       "links": [
         {
           "title": "CMS Virtual Machines - Known Issues and Limitations",
@@ -81,7 +81,7 @@
     "run_period": [
       "Run2011A"
     ],
-    "title": "CMS VM Image, for 2011 and 2012 CMS open data",
+    "title": "CMS VM Image, for 2011, 2012 and 2015 CMS open data",
     "type": {
       "primary": "Environment",
       "secondary": [
@@ -92,8 +92,12 @@
       "description": "Please follow the tutorial on how to use the CMS Virtual Machine",
       "links": [
         {
-          "description": "CMS Virtual Machines: How to install",
-          "url": "/VM/CMS/2011"
+          "description": "CMS Virtual Machines: How to install (for 2011 and 2012 data)",
+          "url": "/docs/cms-virtual-machine-2011"
+        },
+        {
+          "description": "CMS Virtual Machines: How to install (for 2015 data)",
+          "url": "/docs/cms-virtual-machine-2015"
         }
       ]
     },

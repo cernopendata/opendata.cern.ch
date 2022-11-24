@@ -36,6 +36,22 @@
           }
         }
       },
+      "date_created": {
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        },
+        "type": "text"
+      },
+      "experiment": {
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        },
+        "type": "text"
+      },
       "facet_schema": {
         "index": true,
         "type": "text"
@@ -86,7 +102,35 @@
           }
         }
       },
+      "stripping": {
+        "properties": {
+          "stream": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          },
+          "version": {
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            },
+            "type": "text"
+          }
+        }
+      },
       "tags": {
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        },
+        "type": "text"
+      },
+      "title": {
         "fields": {
           "keyword": {
             "type": "keyword"

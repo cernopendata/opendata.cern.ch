@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <h1> {{ record.anchor }} </h1>
                     <br>
-                    <p class="definition-paragraph">{{ record.definition }}</p>
+                    <p class="definition-paragraph">{{ record.definition | safe }}</p>
                     {% if record.links %}
                     <div>
                         <span>

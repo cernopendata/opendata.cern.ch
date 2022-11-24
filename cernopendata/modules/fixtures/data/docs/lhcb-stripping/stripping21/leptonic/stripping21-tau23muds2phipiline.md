@@ -1,0 +1,182 @@
+[[stripping21 lines]](./stripping21-index)
+
+# StrippingTau23MuDs2PhiPiLine
+
+## Properties:
+
+|                |                                    |
+|----------------|------------------------------------|
+| OutputLocation | Phys/Tau23MuDs2PhiPiLine/Particles |
+| Postscale      | 1.0000000                          |
+| HLT            | None                               |
+| Prescale       | 1.0000000                          |
+| L0DU           | None                               |
+| ODIN           | None                               |
+
+## Filter sequence:
+
+**CheckPV/checkPVmin1**
+
+|        |     |
+|--------|-----|
+| MinPVs | 1   |
+| MaxPVs | -1  |
+
+**LoKi::VoidFilter/SelFilterPhys_StdLooseMuons_Particles**
+
+|      |                                                                              |
+|------|------------------------------------------------------------------------------|
+| Code | CONTAINS('Phys/ [StdLooseMuons](./stripping21-stdloosemuons) /Particles')\>0 |
+
+**LoKi::VoidFilter/SelFilterPhys_StdLoosePions_Particles**
+
+|      |                                                                              |
+|------|------------------------------------------------------------------------------|
+| Code | CONTAINS('Phys/ [StdLoosePions](./stripping21-stdloosepions) /Particles')\>0 |
+
+**CombineParticles/Tau23MuDs2PhiPiLine**
+
+|                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Inputs           | [ 'Phys/ [StdLooseMuons](./stripping21-stdloosemuons) ' , 'Phys/ [StdLoosePions](./stripping21-stdloosepions) ' ]                                                                                                                                                                                                                                                                                                                                |
+| DaughtersCuts    | { '' : 'ALL' , 'mu+' : ' ( PT \> 300 \* MeV ) & ( TRGHOSTPROB \< 0.3 ) & ( TRCHI2DOF \< 3 ) & ( BPVIPCHI2 () \> 9 ) ' , 'mu-' : ' ( PT \> 300 \* MeV ) & ( TRGHOSTPROB \< 0.3 ) & ( TRCHI2DOF \< 3 ) & ( BPVIPCHI2 () \> 9 ) ' , 'pi+' : ' ( PT \> 300 \* MeV ) & ( TRGHOSTPROB \< 0.3 ) & ( TRCHI2DOF \< 3 ) & ( BPVIPCHI2 () \> 9 ) ' , 'pi-' : ' ( PT \> 300 \* MeV ) & ( TRGHOSTPROB \< 0.3 ) & ( TRCHI2DOF \< 3 ) & ( BPVIPCHI2 () \> 9 ) ' } |
+| CombinationCut   | (ADAMASS('D_s+')\<250\*MeV) & in_range ( 970 \* MeV , AM23 , 1070 \* MeV )                                                                                                                                                                                                                                                                                                                                                                         |
+| MotherCut        | ( VFASPF(VCHI2) \< 15 ) & ( (BPVLTIME () \* c_light) \>100 \* micrometer ) & ( BPVIPCHI2() \< 225 )                                                                                                                                                                                                                                                                                                                                                |
+| DecayDescriptor  | [ D_s+ -\> pi+ mu+ mu- ]cc                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| DecayDescriptors | [ ' [ D_s+ -\> pi+ mu+ mu- ]cc ' ]                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Output           | Phys/Tau23MuDs2PhiPiLine/Particles                                                                                                                                                                                                                                                                                                                                                                                                                 |
+
+**AddRelatedInfo/RelatedInfo1_Tau23MuDs2PhiPiLine**
+
+|                 |                                                 |
+|-----------------|-------------------------------------------------|
+| Inputs          | [ 'Phys/Tau23MuDs2PhiPiLine' ]                |
+| DecayDescriptor | None                                            |
+| Output          | Phys/RelatedInfo1_Tau23MuDs2PhiPiLine/Particles |
+
+****Tools:****
+
+**Tool1**
+
+|                          |                                                                                                           |
+|--------------------------|-----------------------------------------------------------------------------------------------------------|
+| StatTableHeader :        | \| Counter \| \# \| sum \| mean/eff^\* \| rms/err^\* \| min \| max \|                                     |
+| TracksLocation :         | None                                                                                                      |
+| ErrorsPrint :            | True                                                                                                      |
+| StatEntityList :         | [ ]                                                                                                     |
+| RootOnTES :              | None                                                                                                      |
+| RootInTES :              | None                                                                                                      |
+| AuditFinalize :          | False                                                                                                     |
+| TypePrint :              | True                                                                                                      |
+| UseEfficiencyRowFormat : | True                                                                                                      |
+| ContextService :         | AlgContextSvc                                                                                             |
+| AuditTools :             | False                                                                                                     |
+| MonitorService :         | MonitorSvc                                                                                                |
+| AuditInitialize :        | False                                                                                                     |
+| RegularRowFormat :       | \| %\|-48.48s\|%\|50t\|\|%\|10d\| \|%\|11.7g\| \|%\|#11.5g\| \|%\|#11.5g\| \|%\|#12.5g\| \|%\|#12.5g\| \| |
+| OutputLevel :            | 3                                                                                                         |
+| StatPrint :              | True                                                                                                      |
+| ConeAngle :              | 1.0000000                                                                                                 |
+| AuditStop :              | False                                                                                                     |
+| Context :                | None                                                                                                      |
+| PropertiesPrint :        | False                                                                                                     |
+| GlobalTimeOffset :       | 0.0000000                                                                                                 |
+| TrackType :              | 3                                                                                                         |
+| Variables :              | [ 'CONEANGLE' , 'CONEMULT' , 'CONEPT' , 'CONEPTASYM' ]                                                  |
+| AuditStart :             | False                                                                                                     |
+| EfficiencyRowFormat :    | \|\*%\|-48.48s\|%\|50t\|\|%\|10d\| \|%\|11.5g\| \|(%\|#9.6g\| +- %\|-#9.6g\|)%%\| ------- \| ------- \|   |
+| CounterList :            | [ '.\*' ]                                                                                               |
+
+**AddRelatedInfo/RelatedInfo2_Tau23MuDs2PhiPiLine**
+
+|                 |                                                 |
+|-----------------|-------------------------------------------------|
+| Inputs          | [ 'Phys/Tau23MuDs2PhiPiLine' ]                |
+| DecayDescriptor | None                                            |
+| Output          | Phys/RelatedInfo2_Tau23MuDs2PhiPiLine/Particles |
+
+****Tools:****
+
+**Tool2**
+
+|                          |                                                                                                           |
+|--------------------------|-----------------------------------------------------------------------------------------------------------|
+| StatTableHeader :        | \| Counter \| \# \| sum \| mean/eff^\* \| rms/err^\* \| min \| max \|                                     |
+| ErrorsPrint :            | True                                                                                                      |
+| StatEntityList :         | [ ]                                                                                                     |
+| RootOnTES :              | None                                                                                                      |
+| RootInTES :              | None                                                                                                      |
+| AuditFinalize :          | False                                                                                                     |
+| TypePrint :              | True                                                                                                      |
+| UseEfficiencyRowFormat : | True                                                                                                      |
+| ContextService :         | AlgContextSvc                                                                                             |
+| AuditTools :             | False                                                                                                     |
+| MonitorService :         | MonitorSvc                                                                                                |
+| AuditInitialize :        | False                                                                                                     |
+| RegularRowFormat :       | \| %\|-48.48s\|%\|50t\|\|%\|10d\| \|%\|11.7g\| \|%\|#11.5g\| \|%\|#11.5g\| \|%\|#12.5g\| \|%\|#12.5g\| \| |
+| InputParticles :         | [ '/Event/Phys/StdNoPIDsPions' ]                                                                        |
+| OutputLevel :            | 3                                                                                                         |
+| StatPrint :              | True                                                                                                      |
+| AuditStop :              | False                                                                                                     |
+| Context :                | None                                                                                                      |
+| PropertiesPrint :        | False                                                                                                     |
+| GlobalTimeOffset :       | 0.0000000                                                                                                 |
+| MaxChi2 :                | 9.0000000                                                                                                 |
+| Variables :              | [ ]                                                                                                     |
+| AuditStart :             | False                                                                                                     |
+| EfficiencyRowFormat :    | \|\*%\|-48.48s\|%\|50t\|\|%\|10d\| \|%\|11.5g\| \|(%\|#9.6g\| +- %\|-#9.6g\|)%%\| ------- \| ------- \|   |
+| CounterList :            | [ '.\*' ]                                                                                               |
+
+**AddRelatedInfo/RelatedInfo3_Tau23MuDs2PhiPiLine**
+
+|                 |                                                 |
+|-----------------|-------------------------------------------------|
+| Inputs          | [ 'Phys/Tau23MuDs2PhiPiLine' ]                |
+| DecayDescriptor | None                                            |
+| Output          | Phys/RelatedInfo3_Tau23MuDs2PhiPiLine/Particles |
+
+****Tools:****
+
+**Tool3**
+
+|                          |                                                                                                           |
+|--------------------------|-----------------------------------------------------------------------------------------------------------|
+| Transporter :            | ParticleTransporter:PUBLIC                                                                                |
+| StatTableHeader :        | \| Counter \| \# \| sum \| mean/eff^\* \| rms/err^\* \| min \| max \|                                     |
+| GammaCDecays :           | gamma -\> e+ e-                                                                                           |
+| TrackExtrapolator :      | TrackMasterExtrapolator:PUBLIC                                                                            |
+| ErrorsPrint :            | True                                                                                                      |
+| StatEntityList :         | [ ]                                                                                                     |
+| MaxPrints :              | 2                                                                                                         |
+| RootOnTES :              | None                                                                                                      |
+| DeltaPath :              | 0.0020000000                                                                                              |
+| PrintMyAlg :             | True                                                                                                      |
+| RootInTES :              | None                                                                                                      |
+| ParticlePath :           | /Event/Phys/StdAllNoPIDsPions/Particles                                                                   |
+| AuditFinalize :          | False                                                                                                     |
+| TypePrint :              | True                                                                                                      |
+| UseEfficiencyRowFormat : | True                                                                                                      |
+| ContextService :         | AlgContextSvc                                                                                             |
+| DeltaChi2 :              | 0.050000000                                                                                               |
+| AuditTools :             | False                                                                                                     |
+| MonitorService :         | MonitorSvc                                                                                                |
+| AuditInitialize :        | False                                                                                                     |
+| RegularRowFormat :       | \| %\|-48.48s\|%\|50t\|\|%\|10d\| \|%\|11.7g\| \|%\|#11.5g\| \|%\|#11.5g\| \|%\|#12.5g\| \|%\|#12.5g\| \| |
+| OutputLevel :            | 3                                                                                                         |
+| StatPrint :              | True                                                                                                      |
+| AuditStop :              | False                                                                                                     |
+| Context :                | None                                                                                                      |
+| PropertiesPrint :        | False                                                                                                     |
+| GlobalTimeOffset :       | 0.0000000                                                                                                 |
+| WeightsFile :            | BsMuMu_TrackIsolationBDT6varsA_v1r4.xml                                                                   |
+| MaxIterations :          | 10                                                                                                        |
+| TrackType :              | 3                                                                                                         |
+| Variables :              | 0                                                                                                         |
+| DiGammaDecays :          | [ ( pi0 -\> ) , ( eta -\> ) , ]                                                                         |
+| AuditStart :             | False                                                                                                     |
+| PVInputLocation :        | Rec/Vertex/Primary                                                                                        |
+| ToleranceInZ :           | 0.0020000000                                                                                              |
+| MVATransform :           | None                                                                                                      |
+| StateProvider :          | TrackStateProvider:PUBLIC                                                                                 |
+| EfficiencyRowFormat :    | \|\*%\|-48.48s\|%\|50t\|\|%\|10d\| \|%\|11.5g\| \|(%\|#9.6g\| +- %\|-#9.6g\|)%%\| ------- \| ------- \|   |
+| CounterList :            | [ '.\*' ]                                                                                               |
