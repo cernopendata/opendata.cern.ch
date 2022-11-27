@@ -44,6 +44,9 @@ DEBUG = os.environ.get(
 )
 TEMPLATES_AUTO_RELOAD = DEBUG
 
+# Mail debug
+MAIL_DEBUG = 0
+
 # Piwik tracking code: set None to disabled it
 THEME_PIWIK_ID = os.environ.get('PIWIK_ID', None)
 

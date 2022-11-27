@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2015, 2016, 2017, 2018, 2020, 2021, 2022 CERN.
+# Copyright (C) 2015, 2016, 2017, 2018, 2020, 2021 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -88,11 +88,11 @@ RUN chown -R "${INVENIO_USER_ID}":root "${CODE_DIR}"
 USER ${INVENIO_USER_ID}
 
 # Debug off by default
-ARG DEBUG=0
-ENV DEBUG=${DEBUG:-0}
+ARG DEBUG=""
+ENV DEBUG=${DEBUG:-""}
 
 # hadolint ignore=DL3013
-RUN if [ "$DEBUG" -gt 0 ]; then pip install --user -e ".[all]"; else pip install --user ".[all]"; fi;
+RUN if [ "$DEBUG" ]; then pip install --user -e ".[all]"; else pip install --user ".[all]"; fi;
 
 # Create instance
 RUN scripts/create-instance.sh
@@ -108,7 +108,7 @@ ARG UWSGI_THREADS=2
 ENV UWSGI_THREADS ${UWSGI_THREADS:-2}
 
 # Install Python packages needed for development
-RUN if [ "$DEBUG" -gt 0 ]; then pip install --user -r requirements-dev.txt; fi;
+RUN if [ "$DEBUG" ]; then pip install --user -r requirements-dev.txt; fi;
 
 # Start the CERN Open Data Portal application
 # hadolint ignore=DL3025
