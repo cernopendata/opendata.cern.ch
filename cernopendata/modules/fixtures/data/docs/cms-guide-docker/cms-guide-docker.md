@@ -1,8 +1,25 @@
-## Introduction
+1. [Introduction](#intro)
+2. [Available CMSSW container images](#images)
+3. [Fetch a CMSSW image and start a container](#fetch-start)
+4. [Useful commands](#commands)
+    1. [Exiting and restarting a container](#exit-start)
+    2. [Copying files](#cp)
+    3. [Execute a command in a running container](#exec)
+    4. [Removing a container](#rm)
+5. [Graphics](#graphics)
+    1. [VNC](#vnc)
+    2. [X11 forwarding on Linux](#x11)
+    3. [Test graphics](#test-graphics)
+6. [Container prompt](#prompt)
+7. [Install and run CMS example code](#get-started)
+8. [Running CMS open data containers on WSL2](#on-wsl2)
+9. [Accessing cvmfs from a container](#cvmfs)
+
+## <a name="intro">Introduction</a>
 
 You can run CMS analysis code in a [Docker](https://www.docker.com/) container provided together with the CMS open data. If you have not already installed Docker, instructions for installation are [provided by Docker](https://docs.docker.com/install/). For an introduction and for getting started, you can follow the links provided in [the CMS Open data guide](https://cms-opendata-guide.web.cern.ch/tools/docker/).
 
-## Available CMSSW container images
+## <a name="images">Available CMSSW container images</a>
 
 For the first access of each set of CMS open data, you will need a specific container image containing the software corresponding to that particular set of data. The following images are available:
 
@@ -93,7 +110,7 @@ gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_3_9_2_patch5-slc5_
 
 </table>
 
-## Fetch a CMSSW image and start a container
+## <a name="fetch-start">Fetch a CMSSW image and start a container</a>
 
 In the following instructions, make sure to replace the CMSSW version and the container image name according to the table above. These commands are for 2015 proton-proton data, with the CMSSW version 7_6_7 and the `cmssw_7_6_7-slc6_amd64_gcc493` container image.
 
@@ -139,19 +156,22 @@ Digest: sha256:f5ec05556302a31fd59ce031af06e9a6163990a6d4a64aacf76b7c775667c65e
 Status: Downloaded newer image for cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493:latest
 Setting up CMSSW_7_6_7
 CMSSW should now be available.
+This is a standalone image for CMSSW_7_6_7 slc6_amd64_gcc493.
 ```
 
 Once done, you should see the commmand prompt for the CMSSW instance within Docker:
 
 ```console
-cmsusr@839c90c48f82 ~/CMSSW_7_6_7/src $
+(/code/CMSSW_7_6_7/src)
 ```
 
-If you are using a linux distribution on WSL2, and do not get this prompt (the string after `cmsusr@` will be different), see the instructions below under "Running CMS open data containers on WSL2".
+If you are using a linux distribution on WSL2, and do not get this prompt, but get back to your local terminal prompt, see the instructions [below](#on-wsl2) under "Running CMS open data containers on WSL2".
 
-## Further instructions
+## <a name="commands">Useful commands</a>
 
-### Exiting and restarting a container
+In the following, some useful commands are given. For a complete list of commands, see the [docker command line documentation](https://docs.docker.com/engine/reference/commandline/cli/).
+
+### <a name="exit-start">Exiting and restarting a container</a>
 
 When you want to exit the container simply type `exit`.
 
@@ -161,62 +181,7 @@ If you want to restart the container (e.g. the one named `my_od`) and return to 
 docker start -i my_od
 ```
 
-### Removing a container
-
-You can remove the container `my_od` with
-
-```sh
-docker rm my_od
-```
-
-This does not remove the image, which took long to download. You can create a new container from that image with the same `docker run ...` command as above, but it will be much faster than the first time.
-
-If the container was created and started using the `--rm` option (e.g. `docker run --rm ...`) then the container will be removed when you exit.
-
-### Graphics
-
-#### VNC
-
-For opening graphics windows, you can install a VNC viewer on your local computer (Linux, MacOS or Windows). The container image has a VNC application installed. Start the VNC application in the container with
-
-```sh
-start_vnc
-```
-
-Open the browser window in the http address given at the start message and connect with the default VNC password `cms.cern`.
-
-Each time you exit from the container, close the VNC application with
-
-```sh
-stop_vnc
-```
-You can find more details on the configuration and usage of VNC in the CMS open data containers in [the image repository](https://gitlab.cern.ch/cms-cloud/cmssw-docker-opendata/-/tree/master#use-vnc).
-
-#### X11 forwarding with docker on Linux
-
-If you are running on a Linux computer, you can also use X11 forwarding. If you already started a container name `my_od` and now decide to use X11 forwarding instead of VNC, exit from the container shell with `exit`, remove the existing container with `docker rm my_od`. Then start a new container with
-
-```sh
-docker run -it --name my_od --net=host --env="DISPLAY" -v $HOME/.Xauthority:/home/cmsusr/.Xauthority:rw cmssw_7_6_7-slc6_amd64_gcc493 /bin/bash
-```
-#### Test graphics
-
-You can test if the graphics window opens by typing in the container shell
-
-```sh
-root
-```
-
-In the `root [0]` prompt, type
-
-```sh
-TBrowser t
-```
-This will open the ROOT browser window. You can exit ROOT with `.q` in the `root[..]` prompt, or from the browser window menu.
-
-If you are new to ROOT, have a quick look to [the Getting started page](/docs/cms-getting-started-2015), or follow the links in [the CMS open data guide](https://cms-opendata-guide.web.cern.ch/tools/root/).
-
-### Copying files
+### <a name="cp">Copying files</a>
 
 You can copy file out of a runnning container to your local computer. Create an file in the container (for example) with
 
@@ -236,7 +201,74 @@ Likewise, in order to copy a file into a running container:
 ```sh
 docker cp <my file> my_od:/home/cmsusr/
 ```
-### Container prompt
+
+### <a name="exec">Execute a command in a running container</a>
+
+You may need to submit a command from your local host into a running container. For example, to see the running processes in the `my_od` container, run:
+
+```sh
+docker exec my_od ps -ef
+```
+
+### <a name="rm">Removing a container</a>
+
+You can remove the container `my_od` with
+
+```sh
+docker rm my_od
+```
+
+This does not remove the image, which took long to download. You can create a new container from that image with the same `docker run ...` command as above, but it will be much faster than the first time.
+
+If the container was created and started using the `--rm` option (e.g. `docker run --rm ...`) then the container will be removed when you exit.
+
+## <a name="graphics">Graphics</a>
+
+### <a name="vnc">VNC</a>
+
+For opening graphics windows, the container image has a VNC application installed. Start the VNC application in the container with
+
+```sh
+start_vnc
+```
+
+You can either install a VNC viewer (e.g. TigerVNC) on your local computer (Linux, MacOS or Windows) and start the viewer there, or open the graphics window in your browser with the http address given in the message.
+
+Connect with the default VNC password `cms.cern`.
+
+Each time you exit from the container, close the VNC application with
+
+```sh
+stop_vnc
+```
+
+You can find more details on the configuration and usage of VNC in the CMS open data containers in [the image repository](https://gitlab.cern.ch/cms-cloud/cmssw-docker-opendata/-/tree/master#use-vnc).
+
+### <a name="x11">X11 forwarding on Linux</a>
+
+If you are running on a Linux computer, you can also use X11 forwarding. If you already started a container name `my_od` and now decide to use X11 forwarding instead of VNC, exit from the container shell with `exit`, remove the existing container with `docker rm my_od`. Then start a new container with
+
+```sh
+docker run -it --name my_od --net=host --env="DISPLAY" -v $HOME/.Xauthority:/home/cmsusr/.Xauthority:rw cmssw_7_6_7-slc6_amd64_gcc493 /bin/bash
+```
+### <a name="test-graphics">Test graphics</a>
+
+You can test if the graphics window opens by typing in the container shell
+
+```sh
+root
+```
+
+In the `root [0]` prompt, type
+
+```sh
+TBrowser t
+```
+This will open the ROOT browser window. You can exit ROOT with `.q` in the `root[..]` prompt, or from the browser window menu.
+
+If you are new to ROOT, have a quick look to [the Getting started page](/docs/cms-getting-started-2015), or follow the links in [the CMS open data guide](https://cms-opendata-guide.web.cern.ch/tools/root/).
+
+## <a name="prompt">Container prompt</a>
 
 If the container prompt causes trouble for line wrapping, increase the size of the terminal. If it does not help, you can change the prompt with
 
@@ -244,14 +276,14 @@ If the container prompt causes trouble for line wrapping, increase the size of t
 export PS1="(\w) "
 ```
 
-To change it permanently, add this line to the file `/home/cmsusr/.bashrc`.
+To change it permanently, add this line to the file `/home/cmsusr/.bashrc` in the container.
 
 
-### Install and run CMS example code
+## <a name="get-started">Install and run CMS example code</a>
 
-You can now follow [the getting started instructions](/docs/cms-getting-started-2015) for the first steps with the CMS open data.
+If you have read the instructions above, you can now follow [the getting started instructions](/docs/cms-getting-started-2015) for the first steps with the CMS open data.
 
-### Running CMS open data containers on WSL2
+## <a name="on-wsl2">Running CMS open data containers on WSL2</a>
 
 The CMS open data containers, or any CentOS6-based containers, may fail if docker is run on WSL2. This problem is fixed by adding a new file `.wslconfig` with the following contents
 
@@ -274,11 +306,11 @@ The ouput should contain `vsyscall=emulate`, e.g.:
 initrd=\initrd.img panic=-1 pty.legacy_count=0 nr_cpus=4 vsyscall=emulate
 ```
 
-### Accessing cvmfs from a container
+## <a name="cvmfs">Accessing cvmfs from a container</a>
 
 The CMS open data container images contain the software needed for analysis, and the CMS condition database can be accessed from predefined locations. They are stored in a local `/cvmfs` file system in the container. Therefore, when using these containers, access to the namespace `/cvmfs` (CernVM-File System) at CERN for software and condition data access is not mandatory.
 
-If desired, it is possible to "see" the cvmfs space by installing the cvmfs client following [the official instructions](https://cvmfs.readthedocs.io). In essence, there are two basic ways to achieve this:
+If desired, it is possible to "see" the full cvmfs space by installing the cvmfs client following [the official instructions](https://cvmfs.readthedocs.io). In essence, there are two basic ways to achieve this:
 
 The preferred option is to [install](https://cvmfs.readthedocs.io/en/stable/cpt-quickstart.html) the cvmfs client locally, on the host machine, and [mount](https://cvmfs.readthedocs.io/en/stable/cpt-configure.html#bind-mount-from-the-host) it on the container:
 

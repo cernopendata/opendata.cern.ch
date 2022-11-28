@@ -1,6 +1,6 @@
-- [<a name="env">"I have installed the CMS open data environment: now what?"</a>](#i-have-installed-the-cms-open-data-environment-now-what)
-- [<a name="data">"OK! What is in the CMS data?"</a>](#ok-what-is-in-the-cms-data)
-- [<a name="nice">"Nice! But how do I analyse these data?"</a>](#nice-but-how-do-i-analyse-these-data)
+1. ["I have installed the CMS open data environment: now what?"](#vm)
+2. ["OK! What is in the CMS data?"](#data)
+3. ["Nice! But how do I analyse these data?"](#nice)
 
 ## <a name="env">"I have installed the CMS open data environment: now what?"</a>
 
