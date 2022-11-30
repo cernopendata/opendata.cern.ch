@@ -281,13 +281,13 @@ $ cmsRun python/poet_cfg.py
 
 The configuration file sets it to run over 1000 events in a simulated dataset.
 
-If you are using the CMS open data container with the VNC application installed (see the [container guide page](/docs/cms-guide-docker#vnc)), start the VNC application in the container by typing
+If you are using the CMS open data container with the VNC application installed (see the [container guide page](/docs/cms-guide-docker#vnc)), for opening the graphical user interface, start the VNC application in the container by typing
 
 ```shell
 $ start_vnc
 ```
 
-and then start a VNC viewer on your local computer using the password `cms.cern`.
+and then start a VNC viewer on your local computer using the password `cms.cern`. The http option for a GUI in the browser is not guaranteed to work in the container with this CMSSW version.
 
 You can now open the POET output file in ROOT:
 

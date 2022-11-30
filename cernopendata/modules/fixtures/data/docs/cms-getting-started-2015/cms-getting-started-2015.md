@@ -241,7 +241,7 @@ Let us take a peek, for example, at the electrons, which are found in `myelectro
 
 You can exit the ROOT browser through the GUI by clicking on `Browser` on the menu and then clicking on `Quit Root` or by entering `.q` in the terminal.
 
-**NOTE**: To analyse the full event content, the analysis job may need access to the "condition data", such as event selection information. You can see how connections to the condition database are established in [the guide to the CMS condition database](/docs/cms-guide-for-condition-database) and in [the CMS Open data guide](https://cms-opendata-guide.web.cern.ch/). For simpler analyses, where we use only physics objects needing no further data, you do not need to connect to the condition database. This is the case for the example for analysing the primary datasets below.
+**NOTE**: To analyse the full event content, the analysis job may need access to the "condition data", such as event selection information. You can see how connections to the condition database are established in [the guide to the CMS condition database](/docs/cms-guide-for-condition-database) and in [the CMS Open data guide](https://cms-opendata-guide.web.cern.ch/). For simpler analyses, in which only physics objects needing no further data are used, you do not need to connect to the condition database.
 
 Note also that in your analysis of collision data, you would need to filter only the validated events by downloading [the validated data definition file](/record/14210) and adding these lines the job configuration:
 
