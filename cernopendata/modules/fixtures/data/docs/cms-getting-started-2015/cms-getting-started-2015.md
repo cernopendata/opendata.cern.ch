@@ -180,7 +180,7 @@ Begin processing the 10th record. Run 258434, Event 268437313, LumiSection 165 a
 
 ## <a name="nice">"Nice! But how do I analyse these data?"</a>
 
-We start off with a quick introduction to **[ROOT](http://root.cern.ch)**. ROOT is the framework used by several particle-physics experiments to work with the collected data. For a quick start on how to write the most common objects and their properties in a root file, use "Physics Object Extractor Tool (POET)" available in [this repository](https://github.com/cms-legacydata-analyses/PhysObjectExtractorTool/tree/2015MiniAOD). You can use ROOT to inspect reconstructed particles and the distributions of their properties.
+We start off with a quick introduction to **[ROOT](http://root.cern.ch)**. ROOT is the framework used by several particle-physics experiments to work with the collected data. For a quick start on how to write the most common objects and their properties in a root file, use "Physics Object Extractor Tool (POET)" available in [this repository](https://github.com/cms-opendata-analyses/PhysObjectExtractorTool/tree/2015MiniAOD). You can use ROOT to inspect reconstructed particles and the distributions of their properties.
 
 Start by getting the code and compiling it. Make sure that you are back in the the **CMSSW_7_6_7/src/** folder. If you are using the VM, do the next two commands in the "Outer shell" terminal. In the container, keep using the normal container shell.
 
@@ -241,7 +241,7 @@ Let us take a peek, for example, at the electrons, which are found in `myelectro
 
 You can exit the ROOT browser through the GUI by clicking on `Browser` on the menu and then clicking on `Quit Root` or by entering `.q` in the terminal.
 
-**NOTE**: To analyse the full event content, the analysis job may need access to the "condition data", such as event selection information. You can see how connections to the condition database are established in [the guide to the CMS condition database](/docs/cms-guide-for-condition-database) and in [the CMS Open data guide](https://cms-opendata-guide.web.cern.ch/). For simpler analyses, where we use only physics objects needing no further data, you do not need to connect to the condition database. This is the case for the example for analysing the primary datasets below.
+**NOTE**: To analyse the full event content, the analysis job may need access to the "condition data", such as event selection information. You can see how connections to the condition database are established in [the guide to the CMS condition database](/docs/cms-guide-for-condition-database) and in [the CMS Open data guide](https://cms-opendata-guide.web.cern.ch/). For simpler analyses, in which only physics objects needing no further data are used, you do not need to connect to the condition database.
 
 Note also that in your analysis of collision data, you would need to filter only the validated events by downloading [the validated data definition file](/record/14210) and adding these lines the job configuration:
 

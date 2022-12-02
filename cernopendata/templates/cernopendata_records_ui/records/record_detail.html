@@ -325,7 +325,11 @@
         {% if record.type.primary == 'Software' %}
         <h2>Validation</h2>
         {% elif record.type.primary == 'Environment' %}
-        <h2>How to validate?</h2>
+            {% if 'Validation' in record.type.secondary %}
+            <h2>How was the validation done?</h2>
+            {% else %}
+            <h2>How to validate?</h2>
+            {% endif %}
         {% else %}
         <h2>How were these data validated?</h2>
         {% endif %}
