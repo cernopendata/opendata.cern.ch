@@ -20,7 +20,37 @@
       "2011"
     ],
     "date_published": "2016",
+    "distribution": {
+      "formats": [
+        "db",
+        "zip"
+      ],
+      "number_files": 4,
+      "size": 18580996494
+    },
     "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:3e22607e",
+        "size": 82944,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/conddb/FT_53_LV5_AN1.db"
+      },
+      {
+        "checksum": "adler32:9071c7e8",
+        "size": 11581331571,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/conddb/FT_53_LV5_AN1.zip"
+      },
+      {
+        "checksum": "adler32:3e22607e",
+        "size": 82944,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/conddb/FT_53_LV5_AN1_RUNA.db"
+      },
+      {
+        "checksum": "adler32:c8c6f140",
+        "size": 6999499035,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/conddb/FT_53_LV5_AN1_RUNA.zip"
+      }
+    ],
     "publisher": "CERN Open Data Portal",
     "recid": "1801",
     "run_period": [
@@ -32,11 +62,14 @@
       "secondary": [
         "Condition"
       ]
+    },
+    "usage": {
+      "description": "If you are using the <a href=\"/record/252\">CMS Virtual Machine</a> image or the <a href=\"/docs/cms-guide-docker\">CMS container</a> image environments, then the condition data files will be served automatically from <code>/cvmfs/cms-opendata-conddb.cern.ch/</code> or from a file server at runtime, and therefore you do not need to download these files. If you need to have them locally, you can download them from here."
     }
   },
   {
     "abstract": {
-      "description": "<p>Condition database includes non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for simulation/reconstruction/analysis software.</p>\n    <p> These files are needed when running a CMSSW job on the open data environment (VM or container), and they are available in the /cvmfs/cms-opendata-conddb.cern.ch file system. They are automatically read from /cvmfs/cms-opendata-conddb.cern.ch/START53_LV6A1 runtime.</p>\n  < <p>START53_LV6A1 is to be used with the simulated data.</p>\n    <p>See further information in <a href=\"/docs/cms-guide-for-condition-database\">the guide to CMS condition database</a>.</p>\n        <p>For 2011 CMS collision data see:</p>",
+      "description": "<p>Condition database includes non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for simulation/reconstruction/analysis software.</p>\n    <p> These files are needed when running a CMSSW job on the open data environment (VM or container), and they are available in the /cvmfs/cms-opendata-conddb.cern.ch file system. They are automatically read from /cvmfs/cms-opendata-conddb.cern.ch/START53_LV6A1 runtime.</p>\n  <p>START53_LV6A1 is to be used with the simulated data.</p>\n    <p>See further information in <a href=\"/docs/cms-guide-for-condition-database\">the guide to CMS condition database</a>.</p>\n        <p>For 2011 CMS collision data see:</p>",
       "links": [
         {
           "recid": "1801"
@@ -55,7 +88,27 @@
       "2011"
     ],
     "date_published": "2016",
+    "distribution": {
+      "formats": [
+        "db",
+        "zip"
+      ],
+      "number_files": 2,
+      "size": 166149228
+    },
     "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:57fd5840",
+        "size": 84992,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/conddb/START53_LV6A1.db"
+      },
+      {
+        "checksum": "adler32:31d28f25",
+        "size": 166064236,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/conddb/START53_LV6A1.zip"
+      }
+    ],
     "publisher": "CERN Open Data Portal",
     "recid": "1802",
     "run_period": [
@@ -67,6 +120,9 @@
       "secondary": [
         "Condition"
       ]
+    },
+    "usage": {
+      "description": "If you are using the <a href=\"/record/252\">CMS Virtual Machine</a> image or the <a href=\"/docs/cms-guide-docker\">CMS container</a> image environments, then the condition data files will be served automatically from <code>/cvmfs/cms-opendata-conddb.cern.ch/</code> or from a file server at runtime, and therefore you do not need to download these files. If you need to have them locally, you can download them from here."
     }
   }
 ]

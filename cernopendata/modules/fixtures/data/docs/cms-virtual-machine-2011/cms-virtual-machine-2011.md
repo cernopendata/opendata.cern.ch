@@ -12,16 +12,16 @@ VirtualBox is a free, open source and multiplatform application to run virtual m
 
 You will need administrative ("root") privileges on every platform to perform the installation of VirtualBox.
 
-Note: the latest tested version of VirtualBox working with this CMS-specific CernVM image is 6.1.10. If you have troubles with the latest version of VirtualBox, pick that one: the full history of VirtualBox versions is available [on a different page][installVB2].
+Note: the latest tested version of VirtualBox working with this CMS-specific CernVM image is 7.0.4. If you have troubles with the latest version of VirtualBox, pick that one: the full history of VirtualBox versions is available [on a different page][installVB2].
 
 
 ### Downloading and Creating a Virtual Machine
 
 **Important**: Before you download the CernVM, note that the imported settings may not always work on your host machine. Please see [Issues and Limitations](#issue) or [the CMS guide to troubleshooting](/docs/cms-guide-troubleshooting) if you encounter any problems with booting the VM.
 
-Next download the CMS-specific CernVM image as OVA file from: [CMS VM Image for 2011 CMS Open Data][cmsvmimage2011]. It is recommended using the version "CMS-OpenData-1.5.3". This VM Image can be used for data from 2011 and 2012 (for data from 2010 follow the instruction in [CMS 2010 Virtual Machines: How to install](/docs/cms-virtual-machine-2010)).
+Next download the CMS-specific CernVM image as OVA file from [CMS VM Image, for 2011, 2012 and 2015 CMS open data](/record/252). It is recommended using the version "CMS-OpenData-1.5.3". This VM Image can be used for data from 2011, 2012 and 2015 (for data from 2015 follow the instructions in [CMS 2015 Virtual Machines: How to install](/docs/cms-virtual-machine-2015) and for data from 2010 those in [CMS 2010 Virtual Machines: How to install](/docs/cms-virtual-machine-2010)).
 
-By double clicking the downloaded file, VirtualBox imports the image with ready-to-run settings. In VirtualBox version 6, you need to unselect "import disks as VDI" on the initial import screen. Then, you launch the CMS-specific CernVM, which boots into the graphical user interface and sets up the CMS environment. Be patient, it will take a while.
+By double clicking the downloaded file, VirtualBox imports the image with ready-to-run settings. In VirtualBox version 6 or later, you need to unselect "import disks as VDI" on the initial import screen. Then, you launch the CMS-specific CernVM, which boots into the graphical user interface and sets up the CMS environment. You will be prompted to change the settings of the network adaptor 2: change them as instructed to "NAT". Then, be patient, the boot will take a while.
 
 
 ## <a name="test">Step 2: How to Test & Validate?</a>
@@ -30,7 +30,7 @@ The validation procedure tests that the CMS environment is installed and operati
 
 ### Set up the CMS environment and run a demo analyzer
 
-In the "CMS-OpenData-1.5.3" VM, open a terminal from the "CMS Shell" icon from the desktop (note that the X terminal emulator from an icon bottom-left of the VM screen opens a shell with an operating system incompatible with the CMS software release to be used).
+In the "CMS-OpenData-1.5.3" VM, open a terminal from the "CMS Shell" icon from the desktop (note that the X terminal emulator from an icon bottom-left of the VM screen opens a shell with an operating system incompatible with the CMS software release to be used but can be used e.g. for the git commands or ROOT).
 
 Execute the following command; this command builds the local release area (the directory structure) for CMSSW, and only needs to be run once (note that it may take a while):
 
@@ -79,73 +79,54 @@ or take action and remove the indicated section from ```BuildFile.xml```.
 Change the file name in the configuration file ```demoanalyzer_cfg.py``` in the DemoAnalyzer directory: i.e. replace ```file:myfile.root``` with ```root://eospublic.cern.ch//eos/opendata/cms/Run2011A/ElectronHad/AOD/12Oct2013-v1/20001/001F9231-F141-E311-8F76-003048F00942.root```
 Change the max number of events to 10 (i.e change -1 to 10 in ```process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1)```).
 
-Move two directories back using:
+Then run:
 
 ```
-cd ../..
-```
-
-And then run:
-
-```
-cmsRun Demo/DemoAnalyzer/demoanalyzer_cfg.py
+cmsRun demoanalyzer_cfg.py
 ```
 
 You can consider your VM "validated" — i.e it gets access to and compiles the CMS software, and reads the CMS Open Data files — if you get an output like:
 
 
 ```
-16-Mar-2016 15:45:13 CET Initiating request to open file root://eospublic.cern.ch//eos/opendata/cms/Run2011A/ElectronHad/AOD/12Oct2013-v1/20001/001F9231-F141-E311-8F76-003048F00942.root
+%MSG-w LocalFileSystem::initFSList():  (NoModuleName) 03-Dec-2022 20:41:19 CET  pre-events
+Cannot read '/etc/mtab': Invalid argument (error 22)
+%MSG
+221203 20:41:20 6323 Xrd: CheckErrorStatus: Server [eospublic.cern.ch] declared: (error code: 3005)
+03-Dec-2022 20:41:20 CET  Initiating request to open file root://eospublic.cern.ch//eos/opendata/cms/Run2011A/ElectronHad/AOD/12Oct2013-v1/20001/001F9231-F141-E311-8F76-003048F00942.root
+03-Dec-2022 20:41:40 CET  Successfully opened file root://eospublic.cern.ch//eos/opendata/cms/Run2011A/ElectronHad/AOD/12Oct2013-v1/20001/001F9231-F141-E311-8F76-003048F00942.root
+Begin processing the 1st record. Run 166782, Event 340184599, LumiSection 309 at 03-Dec-2022 20:41:59.209 CET
+Begin processing the 2nd record. Run 166782, Event 340185007, LumiSection 309 at 03-Dec-2022 20:41:59.209 CET
+Begin processing the 3rd record. Run 166782, Event 340187903, LumiSection 309 at 03-Dec-2022 20:41:59.210 CET
+Begin processing the 4th record. Run 166782, Event 340227487, LumiSection 309 at 03-Dec-2022 20:41:59.210 CET
+Begin processing the 5th record. Run 166782, Event 340210607, LumiSection 309 at 03-Dec-2022 20:41:59.211 CET
+Begin processing the 6th record. Run 166782, Event 340256207, LumiSection 309 at 03-Dec-2022 20:41:59.211 CET
+Begin processing the 7th record. Run 166782, Event 340165759, LumiSection 309 at 03-Dec-2022 20:41:59.212 CET
+Begin processing the 8th record. Run 166782, Event 340396487, LumiSection 309 at 03-Dec-2022 20:41:59.212 CET
+Begin processing the 9th record. Run 166782, Event 340390767, LumiSection 309 at 03-Dec-2022 20:41:59.213 CET
+Begin processing the 10th record. Run 166782, Event 340435263, LumiSection 309 at 03-Dec-2022 20:41:59.213 CET
+03-Dec-2022 20:41:59 CET  Closed file root://eospublic.cern.ch//eos/opendata/cms/Run2011A/ElectronHad/AOD/12Oct2013-v1/20001/001F9231-F141-E311-8F76-003048F00942.root
 
-16-Mar-2016 15:45:17 CET Successfully opened file root://eospublic.cern.ch//eos/opendata/cms/Run2011A/ElectronHad/AOD/12Oct2013-v1/20001/001F9231-F141-E311-8F76-003048F00942.root
-
-Begin processing the 1st record. Run 166782, Event 340184599, LumiSection 309 at 16-Mar-2016 15:45:40.234 CET
-
-Begin processing the 2nd record. Run 166782, Event 340185007, LumiSection 309 at 16-Mar-2016 15:45:40.235 CET
-
-Begin processing the 3rd record. Run 166782, Event 340187903, LumiSection 309 at 16-Mar-2016 15:45:40.236 CET
-
-Begin processing the 4th record. Run 166782, Event 340227487, LumiSection 309 at 16-Mar-2016 15:45:40.237 CET
-
-Begin processing the 5th record. Run 166782, Event 340210607, LumiSection 309 at 16-Mar-2016 15:45:40.237 CET
-
-Begin processing the 6th record. Run 166782, Event 340256207, LumiSection 309 at 16-Mar-2016 15:45:40.238 CET
-
-Begin processing the 7th record. Run 166782, Event 340165759, LumiSection 309 at 16-Mar-2016 15:45:40.239 CET
-
-Begin processing the 8th record. Run 166782, Event 340396487, LumiSection 309 at 16-Mar-2016 15:45:40.239 CET
-
-Begin processing the 9th record. Run 166782, Event 340390767, LumiSection 309 at 16-Mar-2016 15:45:40.241 CET
-
-Begin processing the 10th record. Run 166782, Event 340435263, LumiSection 309 at 16-Mar-2016 15:45:40.241 CET
-
-16-Mar-2016 15:45:40 CET Closed file root://eospublic.cern.ch//eos/opendata/cms/Run2011A/ElectronHad/AOD/12Oct2013-v1/20001/001F9231-F141-E311-8F76-003048F00942.root
+=============================================
 
 MessageLogger Summary
 
-type category sev module subroutine count total
+ type     category        sev    module        subroutine        count    total
+ ---- -------------------- -- ---------------- ----------------  -----    -----
+    1 fileAction           -s file_close                             1        1
+    2 fileAction           -s file_open                              2        2
 
-1 fileAction -s file_close 1 1
+ type    category    Examples: run/evt        run/evt          run/evt
+ ---- -------------------- ---------------- ---------------- ----------------
+    1 fileAction           PostEndRun
+    2 fileAction           pre-events       pre-events
 
-2 fileAction -s file_open 2 2
-
-type category Examples: run/evt run/evt run/evt
-
-1 fileAction PostEndRun
-
-2 fileAction pre-events pre-events
-
-Severity # Occurrences Total Occurrences
-
-System 3 3
-
+Severity    # Occurrences   Total Occurrences
+--------    -------------   -----------------
+System                  3                   3
 ```
 
 ## <a name="issue">Known Issues & Limitations</a>
-
-### Validation report
-
-Please check the validation report for the VM image for our 2010 data, which may contain information useful to you.
 
 ### Known Issues FAQ
 

@@ -12,25 +12,25 @@ VirtualBox is a free, open source and multiplatform application to run virtual m
 
 You will need administrative ("root") privileges on every platform to perform the installation of VirtualBox.
 
-Note: the latest tested version of VirtualBox working with this CMS-specific CernVM image is 6.1.28. If you have troubles with other versions of VirtualBox, pick that one: the full history of VirtualBox versions is available [on a different page][installVB2].
+Note: the latest tested version of VirtualBox working with this CMS-specific CernVM image is 7.0.4. If you have troubles with other versions of VirtualBox, pick that one: the full history of VirtualBox versions is available [on a different page][installVB2].
 
 
 ### Downloading and Creating a Virtual Machine
 
 **Important**: Before you download the CernVM, note that the imported settings may not always work on your host machine. Please see [Issues and Limitations](#issue) or [the CMS guide to troubleshooting](/docs/cms-guide-troubleshooting) if you encounter any problems with booting the VM.
 
-Next download the CMS-specific CernVM image as OVA file from: [CMS VM Image for 2011 CMS Open Data][cmsvmimage2011]. It is recommended using the version "CMS-OpenData-1.5.3". This VM Image is the same that is used for data from 2011 and 2012, but the CMSS software version to be used is different.
+Next download the CMS-specific CernVM image as OVA file from: [CMS VM Image for 2011 CMS Open Data][cmsvmimage2011]. It is recommended using the version "CMS-OpenData-1.5.3". This VM Image is the same that is used for data from 2011 and 2012, but the CMS software version to be used is different.
 
-By double clicking the downloaded file, VirtualBox imports the image with ready-to-run settings. In VirtualBox version 6, you need to unselect "import disks as VDI" on the initial import screen. Then, you launch the CMS-specific CernVM, which boots into the graphical user interface and sets up the CMS environment. You will be prompted need to change the settings of the network adaptor 2: change them as instructed to "NAT". Then, be patient, the boot will take a while.
+By double clicking the downloaded file, VirtualBox imports the image with ready-to-run settings. In VirtualBox version 6 or later, you need to unselect "import disks as VDI" on the initial import screen. Then, you launch the CMS-specific CernVM, which boots into the graphical user interface and sets up the CMS environment. You will be prompted to change the settings of the network adaptor 2: change them as instructed to "NAT". Then, be patient, the boot will take a while.
 
 
 ## <a name="test">Step 2: How to Test & Validate?</a>
 
 The validation procedure tests that the CMS environment is installed and operational on your virtual machine, and that you have access to the CMS Open Data files. You may skip this step if you want, and head straight to [Getting Started with CMS data][getstartedcms]. However, these steps give you a quick introduction to the CMS environment.
 
-### Set up the CMS environment and inpect file contents
+### Set up the CMS environment and inspect file contents
 
-In the "CMS-OpenData-1.5.3" VM, open a terminal from the "CMS Shell" icon from the desktop as shown in the figure (note that the X terminal emulator from an icon bottom-left of the VM screen opens a shell with an operating system incompatible with the CMS software release to be used).
+In the "CMS-OpenData-1.5.3" VM, open a terminal from the "CMS Shell" icon from the desktop as shown in the figure (note that the X terminal emulator from an icon bottom-left of the VM screen opens a shell with an operating system incompatible with the CMS software release to be used but can be used e.g. for the git commands or ROOT).
 
 <img src="/static/docs/cms-virtual-machine-2015/cms_vm_2015_2.png" width="70%">
 

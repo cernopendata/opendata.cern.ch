@@ -20,7 +20,27 @@
       "2010"
     ],
     "date_published": "2016",
+    "distribution": {
+      "formats": [
+        "db",
+        "zip"
+      ],
+      "number_files": 2,
+      "size": 5449971100
+    },
     "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:29491555",
+        "size": 64512,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/conddb/FT_R_42_V10A.db"
+      },
+      {
+        "checksum": "adler32:36505aa8",
+        "size": 5449906588,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/conddb/FT_R_42_V10A.zip"
+      }
+    ],
     "publisher": "CERN Open Data Portal",
     "recid": "1800",
     "run_period": [
@@ -33,6 +53,9 @@
       "secondary": [
         "Condition"
       ]
+    },
+    "usage": {
+      "description": "If you are using the <a href=\"/record/250\">CMS Virtual Machine</a> image or the <a href=\"/docs/cms-guide-docker\">CMS container</a> image environments, then the condition data files will be served automatically from <code>/cvmfs/cms-opendata-conddb.cern.ch/</code> or from a file server at runtime, and therefore you do not need to download these files. If you need to have them locally, you can download them from here."
     }
   },
   {
@@ -56,7 +79,27 @@
       "2010"
     ],
     "date_published": "2019",
+    "distribution": {
+      "formats": [
+        "db",
+        "zip"
+      ],
+      "number_files": 2,
+      "size": 124192071
+    },
     "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:012d6e36",
+        "size": 72704,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/conddb/START42_V17B.db"
+      },
+      {
+        "checksum": "adler32:76fb25f0",
+        "size": 124119367,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/conddb/START42_V17B.zip"
+      }
+    ],
     "publisher": "CERN Open Data Portal",
     "recid": "1808",
     "run_period": [
@@ -69,6 +112,9 @@
       "secondary": [
         "Condition"
       ]
+    },
+    "usage": {
+      "description": "If you are using the <a href=\"/record/250\">CMS Virtual Machine</a> image or the <a href=\"/docs/cms-guide-docker\">CMS container</a> image environments, then the condition data files will be served automatically from <code>/cvmfs/cms-opendata-conddb.cern.ch/</code> or from a file server at runtime, and therefore you do not need to download these files. If you need to have them locally, you can download them from here."
     }
   }
 ]
