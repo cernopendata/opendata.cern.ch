@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2017 CERN.
+# Copyright (C) 2017, 2022 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -22,7 +22,7 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
-FROM nginx
+FROM nginx:1.22
 
 RUN rm /etc/nginx/conf.d/default.conf
 ADD nginx.conf /etc/nginx/conf.d/
