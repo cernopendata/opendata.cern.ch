@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2017, 2018 CERN.
+# Copyright (C) 2017, 2018, 2023 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -101,7 +101,7 @@ install_requires = [
     'raven>=6.3.0',  # required by invenio-logging
     'uWSGI>=2.0.15',
     'uwsgitop>=0.10',
-    'xrootdpyfs>=0.1.4',
+    'xrootdpyfs>=0.2.2',
 ]
 
 packages = find_packages()

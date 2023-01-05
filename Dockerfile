@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2015, 2016, 2017, 2018, 2020, 2021, 2022 CERN.
+# Copyright (C) 2015, 2016, 2017, 2018, 2020, 2021, 2022, 2023 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -38,14 +38,16 @@ RUN curl -sL https://rpm.nodesource.com/setup_6.x | bash - && \
 # hadolint ignore=DL3033
 RUN yum install -y \
         ca-certificates \
-        cmake \
         curl \
         git \
         rlwrap && \
     yum install -y \
+        centos-release-scl \
         epel-release && \
     yum groupinstall -y "Development Tools" && \
     yum install -y \
+        cmake3 \
+        devtoolset-7-gcc-c++ \
         jq \
         libffi-devel \
         libuuid-devel \
@@ -54,10 +56,10 @@ RUN yum install -y \
         openssl-devel \
         python-devel \
         python-pip \
-        xrootd4-4.12.6 \
-        xrootd4-client-4.12.6 \
-        xrootd4-client-devel-4.12.6 \
-        xrootd4-python-4.12.6 && \
+        python2-xrootd-5.5.1 \
+        xrootd-5.5.1\
+        xrootd-client-5.5.1 \
+        xrootd-client-devel-5.5.1 && \
     yum clean all
 
 # Configuration for CERN Open Data Portal instance
@@ -65,15 +67,14 @@ ENV APP_INSTANCE_PATH=/usr/local/var/cernopendata/var/cernopendata-instance
 
 # Upgrade pip and install some python/node packages
 # hadolint ignore=DL3016
-RUN pip install --no-cache-dir --upgrade pip==9 setuptools==42.0.2 wheel==0.33.6 && \
+RUN pip install --no-cache-dir --upgrade pip==20.3.4 setuptools==44.1.1 wheel==0.37.1 && \
     npm install -g node-sass@3.8.0 clean-css@3.4.24 requirejs uglify-js jsonlint
 
 # Install older version of pkgconfig, necessary for Python-2.7
 RUN pip install --no-cache-dir pkgconfig==1.5.2
 
-# Install xrootdpyfs from GitHub, since xrootd-4.12.6-compatible version was not released on PyPI yet
-RUN pip install --no-cache-dir xrootd==4.12.6 \
-      'git+https://github.com/inveniosoftware/xrootdpyfs.git@1151a7a4c219dad11eb0020af4c19f94928469e3#egg=xrootdpyfs'
+# Install xrootd 4.12.7 and xrootdpyfs 0.2.2
+RUN pip install --no-cache-dir xrootd==4.12.7 xrootdpyfs==0.2.2
 
 # Install requirements
 COPY requirements-production-local-forks.txt /tmp
