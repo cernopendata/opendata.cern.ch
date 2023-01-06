@@ -91,15 +91,23 @@ RUN /code/scripts/create-instance.sh && \
     chgrp -R 0 ${APP_INSTANCE_PATH} && \
     chmod -R g=u ${APP_INSTANCE_PATH}
 
-# Condigure uWSGI
-ARG UWSGI_WSGI_MODULE=cernopendata.wsgi:application
-ENV UWSGI_WSGI_MODULE ${UWSGI_WSGI_MODULE:-cernopendata.wsgi:application}
+# Configure uWSGI
+ARG UWSGI_BUFFER_SIZE=8192
+ENV UWSGI_BUFFER_SIZE ${UWSGI_BUFFER_SIZE:-8192}
+ARG UWSGI_IDLE=60
+ENV UWSGI_IDLE ${UWSGI_IDLE:-60}
+ARG UWSGI_MAX_REQUESTS=1000
+ENV UWSGI_MAX_REQUESTS ${UWSGI_MAX_REQUESTS:-1000}
+ARG UWSGI_MAX_WORKER_LIFETIME=1800
+ENV UWSGI_MAX_WORKER_LIFETIME ${UWSGI_MAX_WORKER_LIFETIME:-1800}
 ARG UWSGI_PORT=5000
 ENV UWSGI_PORT ${UWSGI_PORT:-5000}
-ARG UWSGI_PROCESSES=2
-ENV UWSGI_PROCESSES ${UWSGI_PROCESSES:-2}
-ARG UWSGI_THREADS=2
-ENV UWSGI_THREADS ${UWSGI_THREADS:-2}
+ARG UWSGI_PROCESSES=4
+ENV UWSGI_PROCESSES ${UWSGI_PROCESSES:-4}
+ARG UWSGI_THREADS=1
+ENV UWSGI_THREADS ${UWSGI_THREADS:-1}
+ARG UWSGI_WSGI_MODULE=cernopendata.wsgi:application
+ENV UWSGI_WSGI_MODULE ${UWSGI_WSGI_MODULE:-cernopendata.wsgi:application}
 
 # Debug off by default
 ARG DEBUG=""
@@ -115,4 +123,23 @@ USER 1000
 
 # Start the CERN Open Data Portal application
 # hadolint ignore=DL3025
-CMD uwsgi --module ${UWSGI_WSGI_MODULE} --socket 0.0.0.0:${UWSGI_PORT} --master --processes ${UWSGI_PROCESSES} --threads ${UWSGI_THREADS} --stats /tmp/stats.socket
+CMD uwsgi \
+        --buffer-size ${UWSGI_BUFFER_SIZE} \
+        --cheap \
+        --die-on-term \
+        --enable-threads \
+        --idle ${UWSGI_IDLE} \
+        --master \
+        --max-requests ${UWSGI_MAX_REQUESTS} \
+        --max-worker-lifetime ${UWSGI_MAX_WORKER_LIFETIME} \
+        --memory-report \
+        --module ${UWSGI_WSGI_MODULE} \
+        --need-app \
+        --processes ${UWSGI_PROCESSES} \
+        --py-call-osafterfork \
+        --single-interpreter \
+        --socket 0.0.0.0:${UWSGI_PORT} \
+        --stats /tmp/stats.socket \
+        --threads ${UWSGI_THREADS} \
+        --vacuum \
+        --wsgi-disable-file-wrapper

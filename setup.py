@@ -99,8 +99,8 @@ install_requires = [
     'pymdown-extensions>=5.0.0',
     'python-markdown-math>=0.3',
     'raven>=6.3.0',  # required by invenio-logging
-    'uWSGI>=2.0.15',
-    'uwsgitop>=0.10',
+    'uWSGI>=2.0.18',
+    'uwsgitop>=0.11',
     'xrootdpyfs>=0.2.2',
 ]
 
