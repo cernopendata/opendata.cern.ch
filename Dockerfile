@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2015, 2016, 2017, 2018, 2020, 2021 CERN.
+# Copyright (C) 2015, 2016, 2017, 2018, 2020, 2021, 2023 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -25,14 +25,14 @@
 # Use Invenio's CentOS7 image with Python-3.6
 FROM inveniosoftware/centos7-python:3.6
 
-# Use XRootD 4.12.2
-ENV XROOTD_VERSION=4.12.2
+# Use XRootD 4.12.7
+ENV XROOTD_VERSION=4.12.7
 
 # Install CERN Open Data Portal web node pre-requisites
 # hadolint ignore=DL3033
 RUN yum install -y \
         ca-certificates \
-        cmake \
+        cmake3 \
         curl \
         git \
         rlwrap \
@@ -43,8 +43,9 @@ RUN yum install -y \
         epel-release && \
     yum groupinstall -y "Development Tools" && \
     yum --setopt=obsoletes=0 install -y \
-        cmake gcc-c++ zlib-devel openssl-devel libuuid-devel python3-devel jq \
+        cmake3 gcc-c++ zlib-devel openssl-devel libuuid-devel python3-devel jq \
         openssl-devel \
+        devtoolset-7-gcc-c++ \
         https://storage-ci.web.cern.ch/storage-ci/xrootd/release/cc-7-x86_64/v${XROOTD_VERSION}/xrootd-libs-${XROOTD_VERSION}-1.el7.x86_64.rpm \
         https://storage-ci.web.cern.ch/storage-ci/xrootd/release/cc-7-x86_64/v${XROOTD_VERSION}/xrootd-client-libs-${XROOTD_VERSION}-1.el7.x86_64.rpm \
         https://storage-ci.web.cern.ch/storage-ci/xrootd/release/cc-7-x86_64/v${XROOTD_VERSION}/xrootd-devel-${XROOTD_VERSION}-1.el7.x86_64.rpm \
@@ -72,7 +73,7 @@ ENV PYTHONUSERBASE=${INVENIO_INSTANCE_PATH}/python
 
 # Add Invenio user Python base to global PATH
 ENV PATH=$PATH:${INVENIO_INSTANCE_PATH}/python/bin
-RUN pip install --user xrootd==${XROOTD_VERSION} xrootdpyfs==0.2.1
+RUN pip install --user xrootd==${XROOTD_VERSION} xrootdpyfs==0.2.2
 
 # Install requirements
 COPY requirements-production-local-forks.txt /tmp
@@ -97,19 +98,46 @@ RUN if [ "$DEBUG" ]; then pip install --user -e ".[all]"; else pip install --use
 # Create instance
 RUN scripts/create-instance.sh
 
-# Condigure uWSGI
-ARG UWSGI_WSGI_MODULE=cernopendata.wsgi:application
-ENV UWSGI_WSGI_MODULE ${UWSGI_WSGI_MODULE:-cernopendata.wsgi:application}
+# Configure uWSGI
+ARG UWSGI_BUFFER_SIZE=8192
+ENV UWSGI_BUFFER_SIZE ${UWSGI_BUFFER_SIZE:-8192}
+ARG UWSGI_IDLE=60
+ENV UWSGI_IDLE ${UWSGI_IDLE:-60}
+ARG UWSGI_MAX_REQUESTS=1000
+ENV UWSGI_MAX_REQUESTS ${UWSGI_MAX_REQUESTS:-1000}
+ARG UWSGI_MAX_WORKER_LIFETIME=1800
+ENV UWSGI_MAX_WORKER_LIFETIME ${UWSGI_MAX_WORKER_LIFETIME:-1800}
 ARG UWSGI_PORT=5000
 ENV UWSGI_PORT ${UWSGI_PORT:-5000}
-ARG UWSGI_PROCESSES=2
-ENV UWSGI_PROCESSES ${UWSGI_PROCESSES:-2}
-ARG UWSGI_THREADS=2
-ENV UWSGI_THREADS ${UWSGI_THREADS:-2}
+ARG UWSGI_PROCESSES=4
+ENV UWSGI_PROCESSES ${UWSGI_PROCESSES:-4}
+ARG UWSGI_THREADS=1
+ENV UWSGI_THREADS ${UWSGI_THREADS:-1}
+ARG UWSGI_WSGI_MODULE=cernopendata.wsgi:application
+ENV UWSGI_WSGI_MODULE ${UWSGI_WSGI_MODULE:-cernopendata.wsgi:application}
 
 # Install Python packages needed for development
 RUN if [ "$DEBUG" ]; then pip install --user -r requirements-dev.txt; fi;
 
 # Start the CERN Open Data Portal application
 # hadolint ignore=DL3025
-CMD [ "bash", "-c", "uwsgi --module ${UWSGI_WSGI_MODULE} --socket 0.0.0.0:${UWSGI_PORT} --master --processes ${UWSGI_PROCESSES} --threads ${UWSGI_THREADS} --stats /tmp/stats.socket" ]
+CMD uwsgi \
+        --buffer-size ${UWSGI_BUFFER_SIZE} \
+        --cheap \
+        --die-on-term \
+        --enable-threads \
+        --idle ${UWSGI_IDLE} \
+        --master \
+        --max-requests ${UWSGI_MAX_REQUESTS} \
+        --max-worker-lifetime ${UWSGI_MAX_WORKER_LIFETIME} \
+        --memory-report \
+        --module ${UWSGI_WSGI_MODULE} \
+        --need-app \
+        --processes ${UWSGI_PROCESSES} \
+        --py-call-osafterfork \
+        --single-interpreter \
+        --socket 0.0.0.0:${UWSGI_PORT} \
+        --stats /tmp/stats.socket \
+        --threads ${UWSGI_THREADS} \
+        --vacuum \
+        --wsgi-disable-file-wrapper

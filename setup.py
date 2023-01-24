@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2017, 2018, 2021, 2022 CERN.
+# Copyright (C) 2017, 2018, 2021, 2022, 2023 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -92,7 +92,7 @@ install_requires = [
     'invenio-search[elasticsearch7]==1.4.1',
     # Specific Invenio dependencies
     'invenio-xrootd>=1.0.0a6',
-    'xrootdpyfs>=0.2.1',
+    'xrootdpyfs>=0.2.2',
     # Specific dependencies
     'Flask-Markdown>=0.3.0',
     'Flask-Mistune>=0.1.1',
@@ -101,8 +101,8 @@ install_requires = [
     'python-markdown-math>=0.3',
     'python-slugify>=1.2.4',
     # Webserver
-    'uWSGI>=2.0.15',
-    'uwsgitop>=0.10',
+    'uWSGI>=2.0.21',
+    'uwsgitop>=0.11',
     # Pin SQLAlchemy version due to sqlalchemy-utils compatibility
     # <https://github.com/kvesteri/sqlalchemy-utils/issues/505>
     'SQLAlchemy<1.4.0',
@@ -111,7 +111,7 @@ install_requires = [
     # Pin Celery due to worker runtime issues
     'celery==5.0.4',
     # Pin XRootD consistently with Dockerfile
-    'xrootd==4.12.2',
+    'xrootd==4.12.7',
     # Pin Flask/Jinja/importlib/gevent/greenlet/raven to make master work again
     'Flask<1.2',
     'Flask<2.12',
