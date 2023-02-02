@@ -78,8 +78,11 @@ RUN pip install --user xrootd==${XROOTD_VERSION} xrootdpyfs==0.2.2
 # Install requirements
 COPY requirements-production-local-forks.txt /tmp
 COPY requirements-production.txt /tmp
-RUN pip install --user -r /tmp/requirements-production-local-forks.txt
+RUN pip install --user --no-deps -r /tmp/requirements-production-local-forks.txt
 RUN pip install --user -r /tmp/requirements-production.txt
+
+# Check for any broken Python dependencies
+RUN pip check
 
 # Add CERN Open Data Portal sources to `code` and work there
 WORKDIR ${CODE_DIR}
@@ -92,8 +95,9 @@ USER ${INVENIO_USER_ID}
 ARG DEBUG=""
 ENV DEBUG=${DEBUG:-""}
 
+# Install CERN Open Data Portal sources
 # hadolint ignore=DL3013
-RUN if [ "$DEBUG" ]; then pip install --user -e ".[all]"; else pip install --user ".[all]"; fi;
+RUN if [ "$DEBUG" ]; then pip install --user -e ".[all]" && pip check; else pip install --user ".[all]" && pip check; fi;
 
 # Create instance
 RUN scripts/create-instance.sh
@@ -117,7 +121,7 @@ ARG UWSGI_WSGI_MODULE=cernopendata.wsgi:application
 ENV UWSGI_WSGI_MODULE ${UWSGI_WSGI_MODULE:-cernopendata.wsgi:application}
 
 # Install Python packages needed for development
-RUN if [ "$DEBUG" ]; then pip install --user -r requirements-dev.txt; fi;
+RUN if [ "$DEBUG" ]; then pip install --user -r requirements-dev.txt && pip check; fi;
 
 # Start the CERN Open Data Portal application
 # hadolint ignore=DL3025

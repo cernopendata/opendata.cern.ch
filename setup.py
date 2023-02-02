@@ -41,7 +41,7 @@ tests_require = [
     'check-manifest>=0.25',
     'coverage>=4.0',
     'isort>=4.2.2',
-    'locustio>=0.8,<0.14',
+    'locustio>=0.8,<0.13',
     'mock>=1.3.0',
     'pydocstyle>=1.0.0',
     'pycodestyle>=2.4.0',
@@ -52,7 +52,7 @@ tests_require = [
 
 extras_require = {
     'docs': [
-        'Sphinx>=1.4.2',
+        'Sphinx>=1.4.2,<5.0.0',
     ],
     'tests': tests_require,
 }
@@ -72,6 +72,7 @@ install_requires = [
     'invenio-config==1.0.3',
     # Custom Invenio `base` bundle
     'invenio-assets==1.2.7',
+    'invenio-accounts==1.4.5',
     'invenio-logging[sentry]==1.3.0',
     'invenio-rest==1.2.1',
     'invenio-theme==1.3.6',
@@ -112,10 +113,8 @@ install_requires = [
     'celery==5.0.4',
     # Pin XRootD consistently with Dockerfile
     'xrootd==4.12.7',
-    # Pin Flask/Jinja/importlib/gevent/greenlet/raven to make master work again
+    # Pin Flask/gevent/greenlet/raven to make master work again
     'Flask<1.2',
-    'Flask<2.12',
-    "importlib-metadata<5.0.0 ; python_version<'3.8'",
     'gevent<1.6',
     'greenlet<1.2',
     'raven<6.11',
