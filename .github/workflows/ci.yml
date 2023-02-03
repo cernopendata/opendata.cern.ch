@@ -1,5 +1,5 @@
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2020 CERN.
+# Copyright (C) 2020, 2023 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -26,7 +26,7 @@ on: [push, pull_request]
 
 jobs:
   lint-shellcheck:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -37,7 +37,7 @@ jobs:
           ./run-tests.sh --check-shellscript
 
   lint-pycodestyle:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -54,7 +54,7 @@ jobs:
           ./run-tests.sh --check-pycodestyle
 
   lint-pydocstyle:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -71,7 +71,7 @@ jobs:
           ./run-tests.sh --check-pydocstyle
 
   lint-check-manifest:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -88,7 +88,7 @@ jobs:
           ./run-tests.sh --check-manifest
 
   check-fixtures:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -105,7 +105,7 @@ jobs:
         run: ./run-tests.sh --check-fixtures
 
   check-isort:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -122,7 +122,7 @@ jobs:
           ./run-tests.sh --check-isort
 
   docker-build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
