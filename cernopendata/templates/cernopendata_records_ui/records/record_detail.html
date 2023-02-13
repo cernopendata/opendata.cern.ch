@@ -142,7 +142,7 @@
             <span><strong>{{record.distribution.number_files}}</strong> files. </span>
             {% endif %}
             {% if record.distribution.size %}
-            <span><strong>{{record.distribution.size | filesizeformat }}</strong> in total.</span>
+            <span><strong>{{record.distribution.size | filesizeformat(true) }}</strong> in total.</span>
             {% endif %}
         </div>
 

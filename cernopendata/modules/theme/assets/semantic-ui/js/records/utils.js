@@ -2,7 +2,7 @@
  * -*- coding: utf-8 -*-
  *
  * This file is part of CERN Open Data Portal.
- * Copyright (C) 2021 CERN.
+ * Copyright (C) 2021, 2023 CERN.
  *
  * CERN Open Data Portal is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General Public License as
@@ -33,7 +33,7 @@ export function toHumanReadableSize(bytes, precision = 1) {
   if (isNaN(parseFloat(bytes)) || !isFinite(bytes)) {
     return "-";
   }
-  const units = ["bytes", "kB", "MB", "GB", "TB", "PB"];
+  const units = ["bytes", "KiB", "MiB", "GiB", "TiB", "PiB"];
   const number = Math.floor(Math.log(bytes) / Math.log(1024));
   return `${(bytes / Math.pow(1024, number)).toFixed(precision)} ${
     units[number]
