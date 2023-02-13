@@ -2,7 +2,7 @@
  * -*- coding: utf-8 -*-
  *
  * This file is part of CERN Open Data Portal.
- * Copyright (C) 2021 CERN.
+ * Copyright (C) 2021, 2023 CERN.
  *
  * CERN Open Data Portal is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General Public License as
@@ -37,7 +37,14 @@ const CODTermListItem = ({ result: { metadata }, index }) => {
       <Item.Content>
         <Item.Header href={link}>{metadata.anchor}</Item.Header>
         <Item.Description href={link}>
-          <p>{truncate(metadata.definition, { length: 200 })}</p>
+          <p>
+            {truncate(
+              metadata.short_definition
+                ? metadata.short_definition
+                : metadata.definition,
+              { length: 200 }
+            )}
+          </p>
         </Item.Description>
         <Item.Extra>
           <ListItemLabels metadata={metadata} />
