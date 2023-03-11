@@ -76,4 +76,4 @@ The following are provided through this portal:
 ## <a name="policies">Policies</a>
 
 * [Data preservation and open access policy](/record/415)
-* [Papers by CMS members using public data [internal]](https://cms-docdb.cern.ch/cgi-bin/DocDB/ShowDocument?docid=12242)
+* [Papers by CMS members using public data [internal]](https://cms-docdb.cern.ch/cgi-bin/DocDB/ShowDocument?docid=14372)
