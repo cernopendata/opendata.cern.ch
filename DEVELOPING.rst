@@ -29,6 +29,7 @@ mounted in the container in this case. A usage example:
 
 .. code-block:: console
 
+   $ ./scripts/generate-localhost-certificate.sh
    $ docker-compose build
    $ docker-compose up
    $ docker exec -i -t opendatacernch_web_1 /code/scripts/populate-instance.sh

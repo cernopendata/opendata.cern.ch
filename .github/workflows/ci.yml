@@ -1,5 +1,5 @@
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2020 CERN.
+# Copyright (C) 2020, 2023 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -138,6 +138,9 @@ jobs:
 
       - name: Lint Dockerfile
         run: docker run -i --rm hadolint/hadolint:v1.18.2 < Dockerfile
+
+      - name: Create certificates
+        run: ./scripts/generate-localhost-certificate.sh
 
       - name: Build docker
         run: ./run-tests.sh --check-docker-build
