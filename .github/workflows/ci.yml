@@ -135,6 +135,9 @@ jobs:
       - name: Lint Dockerfile
         run: docker run -i --rm hadolint/hadolint:v1.18.2 < Dockerfile
 
+      - name: Create certificates
+        run: ./scripts/generate-localhost-certificate.sh
+
       - name: Build docker
         run: ./run-tests.sh --check-docker-build
 
