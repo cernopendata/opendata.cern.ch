@@ -114,7 +114,7 @@ install_requires = [
     # Pin XRootD consistently with Dockerfile
     'xrootd==4.12.7',
     # Pin Flask/gevent/greenlet/raven to make master work again
-    'Flask<1.2',
+    'Flask<2.4',
     'gevent<1.6',
     'greenlet<1.2',
     'raven<6.11',
