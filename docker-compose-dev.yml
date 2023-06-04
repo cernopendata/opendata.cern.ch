@@ -176,7 +176,6 @@ services:
     image: elasticsearch:7.16.1
     # Uncomment if DEBUG logging needs to enabled for Elasticsearch
     # command: ["elasticsearch", "-Elogger.level=DEBUG"]
-    restart: "unless-stopped"
     environment:
       - bootstrap.memory_lock=true
       # set to reasonable values on production
