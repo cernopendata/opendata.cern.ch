@@ -82,10 +82,10 @@ services:
       - "5000:5000"
 
   worker:
+    restart: "unless-stopped"
     image: cernopendata/static # Use this to make sure that COD3 Python-code image is built only once.
     depends_on:
       - static # Just to make sure that latest cernopendata/static -image is build before creating this container.
-    restart: "unless-stopped"
     command: bash -c "celery -A cernopendata.celery worker --loglevel=INFO --concurrency=1"
     environment:
       - DEBUG=True

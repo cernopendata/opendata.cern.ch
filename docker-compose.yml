@@ -68,6 +68,7 @@ services:
       - "5000"
 
   worker:
+    restart: "always"
     image: cernopendata/web # Use this to make sure that COD3 Python-code image is built only once.
     depends_on:
       - elasticsearch
@@ -75,7 +76,6 @@ services:
       - rabbitmq
       - redis
       - web # Added to make sure that cernopendata/web -image is build before starting this one.
-    restart: "always"
     command: bash -c "celery -A cernopendata.celery worker --loglevel=INFO"
     environment:
       - DEBUG=False
@@ -166,7 +166,6 @@ services:
     restart: "always"
     image: elasticsearch:7.16.1
     command: ["elasticsearch", "-E", "logger.org.elasticsearch.deprecation=error"]
-    restart: "unless-stopped"
     environment:
       - bootstrap.memory_lock=true
       # set to reasonable values on production
