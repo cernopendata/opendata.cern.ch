@@ -335,8 +335,10 @@ If desired, it is possible to "see" the full cvmfs space by installing the cvmfs
 The preferred option is to [install](https://cvmfs.readthedocs.io/en/stable/cpt-quickstart.html) the cvmfs client locally, on the host machine, and [mount](https://cvmfs.readthedocs.io/en/stable/cpt-configure.html#bind-mount-from-the-host) it on the container:
 
 ```sh
-docker run --name my_od -it -v "/cvmfs:/cvmfs:shared" cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493 /bin/bash
+docker run --name my_od -it -v "/cvmfs/cms-opendata-conddb.cern.ch:/cvmfs/cms-opendata-conddb.cern.ch:shared" cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493 /bin/bash
 ```
+
+Do not mount the full `/cvmfs` or `/cvmfs/cms.cern.ch` areas as that will overwrite necessary settings in the local `/cvmfs` area of the container.
 
 The other option is to [install](https://cvmfs.readthedocs.io/en/stable/cpt-quickstart.html) the cvmfs client directly in the container after it is created (only working for the slc6-based containers). For this, the container needs to get started in [privileged](https://cvmfs.readthedocs.io/en/stable/cpt-configure.html#mount-inside-a-container) mode like
 
