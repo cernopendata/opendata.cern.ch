@@ -53,6 +53,26 @@ For the first access of each set of CMS open data, you will need a specific cont
 
 <tr class="odd">
 
+<td align="left">2015 proton-proton heavy-ion reference data at 5.02TeV</td>
+
+<td align="left">CMSSW_7_5_8_patch3</td>
+
+<td align="left">cmsopendata/cmssw_7_5_8_patch3-slc6_amd64_gcc491<br> gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_7_5_8_patch3-slc6_amd64_gcc491</td>
+
+</tr>
+
+<tr class="odd">
+
+<td align="left">2013 proton-lead and proton-proton heavy-ion reference data</td>
+
+<td align="left">CMSSW_5_3_20</td>
+
+<td align="left">cmsopendata/cmssw_5_3_20-slc6_amd64_gcc472<br> gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_20-slc6_amd64_gcc472</td>
+
+</tr>
+
+<tr class="odd">
+
 <td align="left">2011-2012 proton-proton</td>
 
 <td align="left">CMSSW_5_3_32</td>
@@ -308,7 +328,7 @@ initrd=\initrd.img panic=-1 pty.legacy_count=0 nr_cpus=4 vsyscall=emulate
 
 ## <a name="cvmfs">Accessing cvmfs from a container</a>
 
-The CMS open data container images contain the software needed for analysis, and the CMS condition database can be accessed from predefined locations. They are stored in a local `/cvmfs` file system in the container. Therefore, when using these containers, access to the namespace `/cvmfs` (CernVM-File System) at CERN for software and condition data access is not mandatory.
+The CMS open data container images contain the software needed for analysis, and the CMS condition database can be accessed from predefined locations. In the container images for standard proton-proton data, they are stored in a local `/cvmfs` file system. Therefore, when using these containers, access to the namespace `/cvmfs` (CernVM-File System) at CERN for software and condition data access is not mandatory.
 
 If desired, it is possible to "see" the full cvmfs space by installing the cvmfs client following [the official instructions](https://cvmfs.readthedocs.io). In essence, there are two basic ways to achieve this:
 
