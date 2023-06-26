@@ -16,6 +16,7 @@ integration purposes. A usage example:
 
 .. code-block:: console
 
+   $ ./scripts/generate-localhost-certificate.sh
    $ docker-compose -f docker-compose-dev.yml build
    $ docker-compose -f docker-compose-dev.yml up
    $ docker exec -i -t opendatacernch_web_1 /code/scripts/populate-instance.sh --skip-files
