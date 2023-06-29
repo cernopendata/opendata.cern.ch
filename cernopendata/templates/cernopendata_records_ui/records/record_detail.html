@@ -75,7 +75,14 @@
            {% endfor %}
         {% endif %}
         {% if record.experiment %} <a class="badge badge-experiment" href="/search?experiment={{ record.experiment }}">{{ record.experiment }}</a> {% endif %}
-        {% if record.collision_information %} <a class="badge badge-tag" href="/search?q={{ record.collision_information.energy }}"> {{ record.collision_information.energy }}</a> {% endif %}
+        {% if record.collision_information %}
+           {% if record.collision_information.energy %}
+             <a class="badge badge-tag" href="/search?collision_energy={{ record.collision_information.energy }}"> {{ record.collision_information.energy }}</a>
+           {% endif %}
+           {% if record.collision_information.type %}
+             <a class="badge badge-tag" href="/search?collision_type={{ record.collision_information.type }}"> {{ record.collision_information.type }}</a>
+           {% endif %}
+        {% endif %}
         {% if record.accelerator %} <a class="badge badge-tag"  href="/search?q={{ record.accelerator }}"> {{ record.accelerator }}</a> {% endif %}
         {% if record.relations %}
         {% for relation in record.relations %}
