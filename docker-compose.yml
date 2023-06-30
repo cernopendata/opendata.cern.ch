@@ -146,7 +146,7 @@ services:
 
   postgresql:
     restart: "always"
-    image: postgres:12.13
+    image: postgres:14.8
     environment:
       - POSTGRES_USER=cernopendata
       - POSTGRES_DB=cernopendata
