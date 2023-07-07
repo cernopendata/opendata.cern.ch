@@ -32,7 +32,7 @@ services:
   # wdb.set_trace()
   # ```
   wdb:
-    image: kozea/wdb-server
+    image: docker.io/kozea/wdb:3.3.0
     ports:
       - "1984:1984"
 
@@ -151,7 +151,7 @@ services:
 
   postgresql:
     restart: "unless-stopped"
-    image: postgres:14.8
+    image: docker.io/library/postgres:14.8
     environment:
       - POSTGRES_USER=cernopendata
       - POSTGRES_DB=cernopendata
@@ -161,13 +161,13 @@ services:
 
   redis:
     restart: "unless-stopped"
-    image: redis
+    image: docker.io/library/redis:7
     ports:
       - "6379:6379"
 
   elasticsearch:
     restart: "unless-stopped"
-    image: elasticsearch:5.6.16
+    image: docker.io/library/elasticsearch:5.6.16
     # Uncomment if DEBUG logging needs to enabled for Elasticsearch
     # command: ["elasticsearch", "-Elogger.level=DEBUG"]
     environment:
@@ -180,7 +180,7 @@ services:
 
   rabbitmq:
     restart: "unless-stopped"
-    image: rabbitmq
+    image: docker.io/library/rabbitmq:3.12
     ports:
       - "4369:4369"
       - "5672:5672"

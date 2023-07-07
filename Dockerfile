@@ -23,7 +23,7 @@
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
 # Use CentOS7
-FROM centos:7
+FROM docker.io/library/centos:7
 
 # Install Node.js 6 from Nodesource early. Doing so after installing EPEL7
 # would make Nodesource to not recognise anymore the system as a supported
