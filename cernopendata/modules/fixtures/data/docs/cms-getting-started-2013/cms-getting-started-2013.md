@@ -35,7 +35,7 @@ You can list the additional packages installed with
 
 ```console
 $ ls
-FWCore  GeneratorInterface  HeavyIonsAnalysis  RecoHI  RecoJets
+FWCore GeneratorInterface HeavyIonsAnalysis RecoHI RecoJets
 ```
 
 The environment is ready and you can go directly to the [next section](#process)
@@ -62,7 +62,7 @@ $ cd CMSSW_5_3_20/src/
 $ cmsenv # do not execute this command if you are working in the container
 ```
 
-You will need to install the additional packages for heavy-ion analysis. For `git` commands, open the "Outer shell" from the icon at the bottom of the screen and make sure to be in the `CMSSW_5_3_20/src/` directory.
+You will need to install the additional packages for heavy-ion analysis.
 
 Get the package list
 
@@ -75,17 +75,39 @@ Install them
 ```shell
 $ git init
 $ git remote add CmsHI https://github.com/CmsHI/cmssw.git
+```
+For the next command, open the "Outer shell" from the icon at the bottom of the screen and make sure to be in the `CMSSW_5_3_20/src/` directory.
+
+```shell
 $ git remote update
+```
+
+Then come back to the "CMS shell" (always in the `CMSSW_5_3_20/src/` directory)
+```shell
 $ for package in $(cat packages_HI_$CMSSW_VERSION.txt); do git checkout CmsHI/forest_${CMSSW_VERSION} -- ${package}; done
 ```
 
-Then go back to the "CMS shell" and make sure to be in the `CMSSW_5_3_20/src/` directory. Compile the packages with:
+ Compile the packages with:
 
 ```shell
 $ scram b
 ```
 
 That will take some time, but you will only need to do it once.
+
+In addition, for reading condition database files from their open data location, copy the following configuration fragment:
+
+```shell
+$ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/53X/CommonFunctions_OD_53X_cff.py
+$ mv CommonFunctions_OD_53X_cff.py HeavyIonsAnalysis/Configuration/python/
+```
+
+If you are working with 2015 pp reference data in `CMSSW_7_5_8_patch3/src`, do instead:
+
+```shell
+$ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/75X/CommonFunctions_OD_75X_cff.py
+mv CommonFunctions_OD_75X_cff.py HeavyIonsAnalysis/Configuration/python/
+```
 
 ## <a name="process">"Processing heavy-ion data"</a>
 
@@ -101,19 +123,25 @@ First, go to the JetAnalysis test directory
 $ cd HeavyIonsAnalysis/JetAnalysis/test/
 ```
 
-Edit the configuration file `runForest_pPb_DATA_53X.py` to read a file from the CMS open data storage. You can choose a file from the file listing of a [heavy-ion dataset](/record/24655), e.g. `root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAHighPt/RECO/28Sep2013-v1/10000/0475325B-242C-E311-9324-003048F1B968.root`. Use an editor or make the following command-line substitution
+The configuration file `runForest_pPb_DATA_53X.py` needs to be edited to read a file from the CMS open data storage. If you are using the VM image (reading the condition data from `/cvmfs/cms-opendata-conddb/`), you will also need to connect to that database in the configuration.
+
+You can copy the configuration files with these edits already implemented from a [CMS open data code repository](https://github.com/cms-opendata-validation/HeavyIonDataValidation/).
+
+In the container, fetch the configuration file for pPb data processing and start the run with
 
 ```shell
-$ sed -i 's|.*/store/hidata/.*|   "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAHighPt/RECO/28Sep2013-v1/10000/0475325B-242C-E311-9324-003048F1B968.root"|g' runForest_pPb_DATA_53X.py
-```
-
-Start the processing with
-
-```shell
+$ https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/53X/runForest_pPb_DATA_53X.py
 $ cmsRun runForest_pPb_DATA_53X.py
 ```
 
-You can ignore the error message "fatal: Not a valid object name HEAD", those for Xrd and private key, and the warnings about parameter rho. The job will create a file `HiForest.root` containing a selection of objects.
+In the VM, use the `cvmfs` version
+
+```shell
+$ https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/53X/runForest_pPb_DATA_53X_cvmfs.py
+$ cmsRun runForest_pPb_DATA_53X_cvmfs.py
+```
+
+You can ignore the error message "fatal: Not a valid object name HEAD", those for Xrd and private key, and the warnings about parameter rho. In the VM, in particular, the first run may take very long, as the condition data get read to the cache (you can observe that with the command `df` in another terminal). Next times will be faster. The job will create a file `HiForest.root` containing a selection of objects.
 
 In the container, move the output file the directory that you share with you local machine and exit
 
