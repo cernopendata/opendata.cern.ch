@@ -42,7 +42,7 @@ The environment is ready and you can go directly to the [next section](#process)
 
 ### Virtual Machine
 
-If you are using the [CMS Open data Virtual Machine (VM)](/docs/cms-virtual-machine-2015), you will need to install and compile the additional heavy-ion software. Start a new VM. Always use the "CMS shell" terminal available from the "CMS Shell" icon on the desktop for all CMSSW-specific commands, such as compilation and run. 
+If you are using the [CMS Open data Virtual Machine (VM)](/docs/cms-virtual-machine-2015), you will need to install and compile the additional heavy-ion software. Start a new VM. Always use the "CMS shell" terminal available from the "CMS Shell" icon on the desktop for all CMSSW-specific commands, such as compilation and run.
 Build the CMSSW area for the 2013 heavy-ion data with
 
 ```shell
@@ -67,7 +67,7 @@ You will need to install the additional packages for heavy-ion analysis.
 Get the package list
 
 ```shell
-$ wget https://gitlab.cern.ch/cms-cloud/cmssw-docker-opendata/-/raw/master/packages_HI_$CMSSW_VERSION.txt
+$ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/main/packages_HI_$CMSSW_VERSION.txt
 ```
 
 Install them
@@ -87,7 +87,13 @@ Then come back to the "CMS shell" (always in the `CMSSW_5_3_20/src/` directory)
 $ for package in $(cat packages_HI_$CMSSW_VERSION.txt); do git checkout CmsHI/forest_${CMSSW_VERSION} -- ${package}; done
 ```
 
- Compile the packages with:
+If you are working with 2015 data in `CMSSW_7_5_8_patch3/src`, remove the first line of `BuildFile.xml` of one of the packages with
+
+```shell
+sed -i '1d' HeavyIonsAnalysis/VectorBosonAnalysis/BuildFile.xml
+```
+
+Compile the packages with:
 
 ```shell
 $ scram b
@@ -106,7 +112,7 @@ If you are working with 2015 pp reference data in `CMSSW_7_5_8_patch3/src`, do i
 
 ```shell
 $ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/75X/CommonFunctions_OD_75X_cff.py
-mv CommonFunctions_OD_75X_cff.py HeavyIonsAnalysis/Configuration/python/
+$ mv CommonFunctions_OD_75X_cff.py HeavyIonsAnalysis/Configuration/python/
 ```
 
 ## <a name="process">"Processing heavy-ion data"</a>
@@ -130,15 +136,29 @@ You can copy the configuration files with these edits already implemented from a
 In the container, fetch the configuration file for pPb data processing and start the run with
 
 ```shell
-$ https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/53X/runForest_pPb_DATA_53X.py
+$ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/53X/runForest_pPb_DATA_53X.py
 $ cmsRun runForest_pPb_DATA_53X.py
 ```
 
 In the VM, use the `cvmfs` version
 
 ```shell
-$ https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/53X/runForest_pPb_DATA_53X_cvmfs.py
+$ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/53X/runForest_pPb_DATA_53X_cvmfs.py
 $ cmsRun runForest_pPb_DATA_53X_cvmfs.py
+```
+
+If you are working with 2015 pp reference data in `CMSSW_7_5_8_patch3/src`, you would fetch and the run the corresponding configuration file with
+
+```shell
+$ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/75X/runForestAOD_pp_DATA_75X.py 
+$ cmsRun runForestAOD_pp_DATA_75X_cvmfs.py 
+```
+
+or, for the use in the VM:
+
+```shell
+$ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/75X/runForestAOD_pp_DATA_75X.py 
+$ cmsRun runForestAOD_pp_DATA_75X_cvmfs.py 
 ```
 
 You can ignore the error message "fatal: Not a valid object name HEAD", those for Xrd and private key, and the warnings about parameter rho. In the VM, in particular, the first run may take very long, as the condition data get read to the cache (you can observe that with the command `df` in another terminal). Next times will be faster. The job will create a file `HiForest.root` containing a selection of objects.
@@ -155,7 +175,7 @@ $ exit
 The output file is in a `root` format and you will need to open it using the ROOT program. It is available in the VM image and in the container. For container users, we recommend using a separate root container with a more recent ROOT version than that in the container. The CMS open data team maintans a set of utility containers and you can learn about them in the tutorials linked to the [CMS open data guide](https://cms-opendata-guide.web.cern.ch/tools/docker/).
 
 In the VM, you can start ROOT from the command prompt.
-For container users, some additional steps are needed: 
+For container users, some additional steps are needed:
 
 - on your local computer shell, create a root container with
 
