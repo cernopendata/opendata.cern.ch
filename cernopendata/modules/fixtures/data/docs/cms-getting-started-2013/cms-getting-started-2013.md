@@ -70,7 +70,7 @@ Get the package list
 $ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/main/packages_HI_$CMSSW_VERSION.txt
 ```
 
-Install them
+Initialise the git area with
 
 ```shell
 $ git init
@@ -129,7 +129,7 @@ First, go to the JetAnalysis test directory
 $ cd HeavyIonsAnalysis/JetAnalysis/test/
 ```
 
-The configuration file `runForest_pPb_DATA_53X.py` needs to be edited to read a file from the CMS open data storage. If you are using the VM image (reading the condition data from `/cvmfs/cms-opendata-conddb/`), you will also need to connect to that database in the configuration.
+The configuration files `runForest_<collision>_<type>_<version>.py` need to be edited to read a file from the CMS open data storage. If you are using the VM image (reading the condition data from `/cvmfs/cms-opendata-conddb/`), you will also need to connect to that database in the configuration.
 
 You can copy the configuration files with these edits already implemented from a [CMS open data code repository](https://github.com/cms-opendata-validation/HeavyIonDataValidation/).
 
@@ -150,23 +150,23 @@ $ cmsRun runForest_pPb_DATA_53X_cvmfs.py
 If you are working with 2015 pp reference data in `CMSSW_7_5_8_patch3/src`, you would fetch and the run the corresponding configuration file with
 
 ```shell
-$ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/75X/runForestAOD_pp_DATA_75X.py 
-$ cmsRun runForestAOD_pp_DATA_75X_cvmfs.py 
+$ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/75X/runForestAOD_pp_DATA_75X.py
+$ cmsRun runForestAOD_pp_DATA_75X.py
 ```
 
 or, for the use in the VM:
 
 ```shell
-$ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/75X/runForestAOD_pp_DATA_75X.py 
-$ cmsRun runForestAOD_pp_DATA_75X_cvmfs.py 
+$ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/75X/runForestAOD_pp_DATA_75X_cvmfs.py
+$ cmsRun runForestAOD_pp_DATA_75X_cvmfs.py
 ```
 
-You can ignore the error message "fatal: Not a valid object name HEAD", those for Xrd and private key, and the warnings about parameter rho. In the VM, in particular, the first run may take very long, as the condition data get read to the cache (you can observe that with the command `df` in another terminal). Next times will be faster. The job will create a file `HiForest.root` containing a selection of objects.
+You can ignore the error message "fatal: Not a valid object name HEAD", and some other messages that come depending on the configuration. In the VM, in particular, the first run may take very long, as the condition data get read to the cache (you can observe that with the command `df` in another terminal). Next times will be faster. The job will create a file `HiForest.root` (or `HiForestAOD.root` for 2015 data) containing a selection of objects.
 
 In the container, move the output file the directory that you share with you local machine and exit
 
 ```shell
-$ cp HiForest.root /code/my_hi_dir
+$ cp HiForest*.root /code/my_hi_dir
 $ exit
 ```
 
@@ -197,13 +197,19 @@ Now, you can open the file with root
 $ root HiForest.root
 ```
 
+or, for 2015 data:
+
+```shell
+$ root HiForestAOD.root
+```
+
 In the root command prompt, open the ROOT object browser with
 
 ```shell
 TBrowser t
 ```
 
-and in the ROOT object browser window, double-click on the `HiForest.root` file name to expand the file contents. As an example, we can have a look at the collection of "particle flow" candidates. Scroll down to `pfCandAnalyzer`, double-click on it and double-click again on `pfTree` to expand the variables stored in this collection. Double-click on any of them to plot a distribution:
+and in the ROOT object browser window, double-click on the ROOT file name to expand the file contents. As an example, we can have a look at the collection of "particle flow" candidates. Scroll down to `pfCandAnalyzer`, double-click on it and double-click again on `pfTree` to expand the variables stored in this collection. Double-click on any of them to plot a distribution:
 
 <img src="/static/docs/getting-started-with-cms-2013-data/getting_started_with_cms_2013_data_1.png" width="70%">
 
@@ -229,7 +235,3 @@ process.source.lumisToProcess.extend(myLumis)
 This selection must always be applied to any analysis on CMS open data, and to do so you must have the validation file downloaded to your local area.
 
 That's it! Hope you enjoyed this exercise. Feel free to play around with the rest of the data and write your own analyzers and analysis code. Learn more in [the CMS Open data guide](https://cms-opendata-guide.web.cern.ch/).
-
-
-
-
