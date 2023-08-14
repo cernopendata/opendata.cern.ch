@@ -42,14 +42,20 @@ The environment is ready and you can go directly to the [next section](#process)
 
 ### Virtual Machine
 
-If you are using the [CMS Open data Virtual Machine (VM)](/docs/cms-virtual-machine-2015), you will need to install and compile the additional heavy-ion software. Start a new VM. Always use the "CMS shell" terminal available from the "CMS Shell" icon on the desktop for all CMSSW-specific commands, such as compilation and run.
+If you are using the [CMS Open data Virtual Machine (VM)](/docs/cms-virtual-machine-2013), you will need to install and compile the additional heavy-ion software. Start a new VM. Always use the "CMS shell" terminal available from the "CMS Shell" icon on the desktop for all CMSSW-specific commands, such as compilation and run.
 Build the CMSSW area for the 2013 heavy-ion data with
 
 ```shell
 $ cmsrel CMSSW_5_3_20
 ```
 
-For the 2015 proton-proton reference data, you would do `cmsrel CMSSW_7_5_8_patch3` instead, and in what follows, `CMSSW_7_5_8_patch3/src` would be the working area. You could install them in one VM, but it is better to have separate VMs for different CMSSW areas as the internal space of the image may get tight.
+For the 2015 proton-proton reference data, you would do
+
+```shell
+export SCRAM_ARCH=slc6_amd64_gcc491
+cmsrel CMSSW_7_5_8_patch3
+```
+instead, and in what follows, `CMSSW_7_5_8_patch3/src` would be the working area. You could install them in one VM, but it is better to have separate VMs for different CMSSW areas as the internal space of the image may get tight.
 
 Note that if you get a warning message about the current OS not being slc6, you are using a wrong terminal ("Outer Shell") which is CERN CentOS 7 (cc7). Open a "CMS Shell" terminal as explained above and execute the cmsrel command there.
 
@@ -131,34 +137,34 @@ $ cd HeavyIonsAnalysis/JetAnalysis/test/
 
 The configuration files `runForest_<collision>_<type>_<version>.py` need to be edited to read a file from the CMS open data storage. If you are using the VM image (reading the condition data from `/cvmfs/cms-opendata-conddb/`), you will also need to connect to that database in the configuration.
 
-You can copy the configuration files with these edits already implemented from a [CMS open data code repository](https://github.com/cms-opendata-validation/HeavyIonDataValidation/).
+You can copy the configuration files with these edits already implemented from a [CMS open data code repository](https://github.com/cms-opendata-validation/HeavyIonDataValidation/). Note that the edited files have `_OD` in the name.
 
 In the container, fetch the configuration file for pPb data processing and start the run with
 
 ```shell
-$ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/53X/runForest_pPb_DATA_53X.py
-$ cmsRun runForest_pPb_DATA_53X.py
+$ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/53X/runForest_pPb_DATA_53X_OD.py
+$ cmsRun runForest_pPb_DATA_53X_OD.py
 ```
 
 In the VM, use the `cvmfs` version
 
 ```shell
-$ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/53X/runForest_pPb_DATA_53X_cvmfs.py
-$ cmsRun runForest_pPb_DATA_53X_cvmfs.py
+$ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/53X/runForest_pPb_DATA_53X_cvmfs_OD.py
+$ cmsRun runForest_pPb_DATA_53X_cvmfs_OD.py
 ```
 
 If you are working with 2015 pp reference data in `CMSSW_7_5_8_patch3/src`, you would fetch and the run the corresponding configuration file with
 
 ```shell
-$ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/75X/runForestAOD_pp_DATA_75X.py
-$ cmsRun runForestAOD_pp_DATA_75X.py
+$ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/75X/runForestAOD_pp_DATA_75X_OD.py
+$ cmsRun runForestAOD_pp_DATA_75X_OD.py
 ```
 
 or, for the use in the VM:
 
 ```shell
-$ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/75X/runForestAOD_pp_DATA_75X_cvmfs.py
-$ cmsRun runForestAOD_pp_DATA_75X_cvmfs.py
+$ wget https://raw.githubusercontent.com/cms-opendata-validation/HeavyIonDataValidation/75X/runForestAOD_pp_DATA_75X_cvmfs_OD.py
+$ cmsRun runForestAOD_pp_DATA_75X_cvmfs_OD.py
 ```
 
 You can ignore the error message "fatal: Not a valid object name HEAD", and some other messages that come depending on the configuration. In the VM, in particular, the first run may take very long, as the condition data get read to the cache (you can observe that with the command `df` in another terminal). Next times will be faster. The job will create a file `HiForest.root` (or `HiForestAOD.root` for 2015 data) containing a selection of objects.

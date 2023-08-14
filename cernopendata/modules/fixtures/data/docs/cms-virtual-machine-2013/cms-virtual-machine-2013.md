@@ -1,4 +1,4 @@
-The CMS-specific VM includes the [ROOT framework](http://root.cern.ch/) and [CMSSW](http://cms-sw.github.io/). Follow the instructions below to setup a CERN Virtual Machine on your computer for 2015 CMS Open Data. Then, go to [Getting Started with CMS data][getstartedcms]
+The CMS-specific VM includes the [ROOT framework](http://root.cern.ch/) and [CMSSW](http://cms-sw.github.io/). Follow the instructions below to setup a CERN Virtual Machine on your computer for 2013 CMS Open Data. Then, go to [Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data][getstartedcms]
 
 1. [How to install a CERN VM](#vbox)
 2. [How to Test & Validate?](#test)
@@ -26,27 +26,26 @@ By double clicking the downloaded file, VirtualBox imports the image with ready-
 
 ## <a name="test">Step 2: How to Test & Validate?</a>
 
-The validation procedure tests that the CMS environment is installed and operational on your virtual machine, and that you have access to the CMS Open Data files. It gives a quick introduction to the CMS environment. You may skip this step if you want, and head straight to [Getting Started with CMS data][getstartedcms]. If you want to access the CMS heavy-ion data, go directly to the [heavy-ion specific getting-started instructions][getstartedcmshi].
+The validation procedure tests that the CMS environment is installed and operational on your virtual machine, and that you have access to the CMS Open Data files. It gives you a quick introduction to the CMS environment. You may skip this step if you want, and head straight to [Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data][getstartedcms].
 
 ### Set up the CMS environment and inspect file contents
 
 In the "CMS-OpenData-1.5.3" VM, open a terminal from the "CMS Shell" icon from the desktop as shown in the figure (note that the X terminal emulator from an icon bottom-left of the VM screen opens a shell with an operating system incompatible with the CMS software release to be used but can be used e.g. for the git commands or ROOT).
 
-<img src="/static/docs/cms-virtual-machine-2015/cms_vm_2015_2.png" width="70%">
+<img src="/static/docs/cms-virtual-machine-2013/cms_vm_2013_1.png" width="70%">
 
 Execute the following commands; first to select the build architecture corresponding to the CMSSW version that is needed, and then to build the local release area (the directory structure) for CMSSW. This only needs to be run once (note that it may take a while):
 
 ```
-export SCRAM_ARCH=slc6_amd64_gcc493
-cmsrel CMSSW_7_6_7
+cmsrel CMSSW_5_3_20
 ```
 
 Note that if you get a warning message about the current OS being SLC7, you are using a wrong terminal. Open a "CMS Shell" terminal as explained above and execute the cmsrel command there.
 
-Change to the ```CMSSW_7_6_7/src/``` directory:
+Change to the ```CMSSW_5_3_20/src/``` directory:
 
 ```
-cd CMSSW_7_6_7/src/
+cd CMSSW_5_3_20/src/
 ```
 
 Then, run the following command to create the CMS environment:
@@ -58,26 +57,29 @@ cmsenv
 To test that the environment is properly set up, you can try a CMSSW command and see that it works. For example, you can run a helper script to inspect the contents of a CMS open data file:
 
 ```
-edmDumpEventContent root://eospublic.cern.ch//eos/opendata/cms/Run2015D/DoubleEG/MINIAOD/08Jun2016-v1/10000/00387F48-342F-E611-AB5D-0CC47A4D76AC.root
+edmDumpEventContent root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAHighPt/RECO/28Sep2013-v1/10000/0006E29D-F02B-E311-8A9D-003048CB7A80.root
 ```
 
 On slower connnections, this may take a while, not because of data access itself, but because evoking the script triggers downloading things to the local cache of the VM. Next occasions will be faster.
 
-You can consider your VM "validated" — i.e it gets access to and compiles the CMS software, and reads the CMS Open Data files — if you get an output like:
+You can consider your VM "validated" — i.e it gets access to the CMS software, and reads the CMS Open Data files — if you get an output like:
 
 
 ```
 Type                                  Module                      Label             Process
 ----------------------------------------------------------------------------------------------
+L1GlobalTriggerObjectMapRecord        "hltL1GtObjectMap"          ""                "HLT"
 edm::TriggerResults                   "TriggerResults"            ""                "HLT"
-HcalNoiseSummary                      "hcalnoise"                 ""                "RECO"
-L1GlobalTriggerReadoutRecord          "gtDigis"                   ""                "RECO"
-double                                "fixedGridRhoAll"           ""                "RECO"
-double                                "fixedGridRhoFastjetAll"    ""                "RECO"
+trigger::TriggerEvent                 "hltTriggerSummaryAOD"      ""                "HLT"
+ClusterSummary                        "clusterSummaryProducer"    ""                "reRECO"
+EBDigiCollection                      "selectDigi"                "selectedEcalEBDigiCollection"   "reRECO"
+EEDigiCollection                      "selectDigi"                "selectedEcalEEDigiCollection"   "reRECO"
 [...]
-vector<reco::Vertex>                  "offlineSlimmedPrimaryVertices"   ""                "RECO"
-vector<reco::VertexCompositePtrCandidate>    "slimmedSecondaryVertices"   ""                "RECO"
-unsigned int                          "bunchSpacingProducer"      ""                "RECO"
+vector<reco::Vertex>                  "offlinePrimaryVertices"    ""                "reRECO"
+vector<reco::Vertex>                  "offlinePrimaryVerticesWithBS"   ""                "reRECO"
+vector<reco::Vertex>                  "pixelVertices"             ""                "reRECO"
+vector<reco::VertexCompositeCandidate>    "generalV0Candidates"       "Kshort"          "reRECO"
+vector<reco::VertexCompositeCandidate>    "generalV0Candidates"       "Lambda"          "reRECO"
 ```
 
 ## <a name="issue">Known Issues & Limitations</a>
@@ -87,7 +89,6 @@ unsigned int                          "bunchSpacingProducer"      ""            
 **Question:** The following error message appears when the Virtual Machine is started: "Could not start the machine CMS Open Data because the following physical network interfaces were not found: vboxnet0 (adapter 2). You can either change the machine's network settings or stop the machine."
 
 > **Answer:** Change the Network settings for adapter 2 from "Host-only Adapter" to "NAT". The VM should then start correctly.
-
 
 **Question:** What is the root password for the CMS Open Data VM?
 
@@ -113,9 +114,9 @@ unsigned int                          "bunchSpacingProducer"      ""            
 
 > **Answer:** To fix this, open one of the (non-CMS-specific) CernVMs first, after which the CMS-specific one should load without the error message.
 
-**Question:** On Windows 7 and 8, this error message appears: "VT-X/AMD-V hardware acceleration is not available on your system. Your 64-bit guest will fail to detect a 64-but CPU and will not be able to boot."
+**Question:** An error message appears: "VT-X/AMD-V hardware acceleration is not available on your system. Your 64-bit guest will fail to detect a 64-but CPU and will not be able to boot."
 
-> **Answer:** Check whether your processor supports the VT-X feature by going to http://ark.intel.com/: Intel® Virtualisation Technology (VT-x) should be checked as "yes". Then, when the host machine is booting (just after switching it on) press the appropriate function key to get to the setup, go to advanced settings, and enable the virtualisation extensions of the CPU. Note that some recent Acer Inspire laptop models do not give access to the VT-X feature in the BIOS setup even if the processor supports it.
+> **Answer:** When the host machine is booting (just after switching it on) press the appropriate function key to get to the setup, go to advanced settings, and enable the virtualisation extensions of the CPU.
 
 **Question:** The VM does not inherit the keyboard layout of the host machine.
 
@@ -138,5 +139,4 @@ unsigned int                          "bunchSpacingProducer"      ""            
 [installVB]: <https://www.virtualbox.org/wiki/Downloads>
 [installVB2]: <https://www.virtualbox.org/wiki/Download_Old_Builds>
 [cmsvmimage2011]: </record/252>
-[getstartedcms]: </docs/cms-getting-started-2015>
-[getstartedcmshi]: </docs/cms-getting-started-hi-2013-2015>
+[getstartedcms]: </docs/cms-getting-started-hi-2013-2015>
