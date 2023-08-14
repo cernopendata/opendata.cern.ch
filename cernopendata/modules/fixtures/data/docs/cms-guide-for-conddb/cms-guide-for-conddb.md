@@ -522,7 +522,7 @@ process.GlobalTag.globaltag = '<GLOBAL TAG>::All'
 Define the global tag in the configuration file of the job:
 
 ```shell
-#globaltag for 2015 HI-related MC
+#globaltag for 2013 HI-related MC
 process.GlobalTag.globaltag = '<GLOBAL TAG>::All'
 ```
 
