@@ -52,8 +52,8 @@ $ cmsrel CMSSW_5_3_20
 For the 2015 proton-proton reference data, you would do
 
 ```shell
-export SCRAM_ARCH=slc6_amd64_gcc491
-cmsrel CMSSW_7_5_8_patch3
+$ export SCRAM_ARCH=slc6_amd64_gcc491
+$ cmsrel CMSSW_7_5_8_patch3
 ```
 instead, and in what follows, `CMSSW_7_5_8_patch3/src` would be the working area. You could install them in one VM, but it is better to have separate VMs for different CMSSW areas as the internal space of the image may get tight.
 
@@ -96,7 +96,7 @@ $ for package in $(cat packages_HI_$CMSSW_VERSION.txt); do git checkout CmsHI/fo
 If you are working with 2015 data in `CMSSW_7_5_8_patch3/src`, remove the first line of `BuildFile.xml` of one of the packages with
 
 ```shell
-sed -i '1d' HeavyIonsAnalysis/VectorBosonAnalysis/BuildFile.xml
+$ sed -i '1d' HeavyIonsAnalysis/VectorBosonAnalysis/BuildFile.xml
 ```
 
 Compile the packages with:
