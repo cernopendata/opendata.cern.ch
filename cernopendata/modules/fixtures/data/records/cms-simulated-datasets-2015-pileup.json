@@ -274,6 +274,16 @@
       "Run2016D"
     ],
     "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_7_6_7-slc6_amd64_gcc493:latest",
+          "registry": "gitlab"
+        }
+      ],
       "global_tag": "76X_mcRun2_asymptotic_RunIIFall15DR76_v1",
       "release": "CMSSW_7_6_7"
     },
