@@ -1,0 +1,1782 @@
+[
+  {
+    "abstract": {
+      "description": "<p>PPFSQ primary dataset in RECO format from RunA of 2013. Run period from run number 211739 to 211831.</p><p>These proton-proton data were taken at the same centre-of-mass energy and have a similar trigger menu to Pb-Pb collision data from 2010/2011.</p><p>The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14218"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14219"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "2.76TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2013",
+    "distribution": {
+      "formats": [
+        "reco",
+        "root"
+      ],
+      "number_events": 13847463,
+      "number_files": 429,
+      "size": 2060074868706
+    },
+    "doi": "10.7483/OPENDATA.CMS.F9FE.W2S0",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:7924bc41",
+        "description": "PPFSQ RECO file index (1 of 1) for access to data",
+        "size": 119933,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2013A/PPFSQ/RECO/PromptReco-v1/file-indexes/CMS_Run2013A_PPFSQ_RECO_PromptReco-v1_000_file_index.json"
+      },
+      {
+        "checksum": "adler32:c9e7210b",
+        "description": "PPFSQ RECO file index (1 of 1) for access to data",
+        "size": 58773,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2013A/PPFSQ/RECO/PromptReco-v1/file-indexes/CMS_Run2013A_PPFSQ_RECO_PromptReco-v1_000_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset were selected because of the presence of indications of Forward and Small-x QCD (FSQ) physics.</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1702\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible <a href=\"/docs/cms-guide-trigger-system#hlt-trigger-path-definitions\">HLT trigger paths</a> in this dataset are:<br/><a href=\"/search?q=HLT_PAL1SingleJet16&type=Supplementaries&year=2013\">HLT_PAL1SingleJet16</a><br/><a href=\"/search?q=HLT_PAL1SingleJet36&type=Supplementaries&year=2013\">HLT_PAL1SingleJet36</a><br/><a href=\"/search?q=HLT_PASingleForJet15&type=Supplementaries&year=2013\">HLT_PASingleForJet15</a><br/><a href=\"/search?q=HLT_PASingleForJet25&type=Supplementaries&year=2013\">HLT_PASingleForJet25</a><br/><a href=\"/search?q=HLT_PAL1DoubleMu0&type=Supplementaries&year=2013\">HLT_PAL1DoubleMu0</a><br/><a href=\"/search?q=HLT_PADimuon0_NoVertexing&type=Supplementaries&year=2013\">HLT_PADimuon0_NoVertexing</a><br/><a href=\"/search?q=HLT_PARomanPots_Tech52&type=Supplementaries&year=2013\">HLT_PARomanPots_Tech52</a><br/><a href=\"/search?q=HLT_PADoubleMu4_Acoplanarity03&type=Supplementaries&year=2013\">HLT_PADoubleMu4_Acoplanarity03</a><br/><a href=\"/search?q=HLT_PAExclDijet35_HFAND&type=Supplementaries&year=2013\">HLT_PAExclDijet35_HFAND</a><br/><a href=\"/search?q=HLT_PAL1DoubleEG3_FwdVeto&type=Supplementaries&year=2013\">HLT_PAL1DoubleEG3_FwdVeto</a><br/><a href=\"/search?q=HLT_PAL1DoubleJet20_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1DoubleJet20_TotemDiffractive</a><br/><a href=\"/search?q=HLT_PADoubleJet20_ForwardBackward&type=Supplementaries&year=2013\">HLT_PADoubleJet20_ForwardBackward</a><br/><a href=\"/search?q=HLT_PAMu7_Ele7_CaloIdT_CaloIsoVL&type=Supplementaries&year=2013\">HLT_PAMu7_Ele7_CaloIdT_CaloIsoVL</a><br/><a href=\"/search?q=HLT_PAL1SingleMu20_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1SingleMu20_TotemDiffractive</a><br/><a href=\"/search?q=HLT_PAL1SingleJet52_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1SingleJet52_TotemDiffractive</a><br/><a href=\"/search?q=HLT_PAL1SingleEG20_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1SingleEG20_TotemDiffractive</a><br/><a href=\"/search?q=HLT_PAL1DoubleJetC36_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1DoubleJetC36_TotemDiffractive</a><br/><a href=\"/search?q=HLT_PAL1DoubleMu5_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1DoubleMu5_TotemDiffractive</a><br/><a href=\"/search?q=HLT_PAL1DoubleEG5_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1DoubleEG5_TotemDiffractive</a><br/><a href=\"/search?q=HLT_PPL1DoubleJetC36&type=Supplementaries&year=2013\">HLT_PPL1DoubleJetC36</a><br/><a href=\"/search?q=HLT_PAExclDijet35_HFOR&type=Supplementaries&year=2013\">HLT_PAExclDijet35_HFOR</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "24640",
+    "run_numbers": [
+      "211658",
+      "211665",
+      "211678",
+      "211680",
+      "211682",
+      "211688",
+      "211691",
+      "211693",
+      "211700",
+      "211702",
+      "211706",
+      "211711",
+      "211712",
+      "211713",
+      "211716",
+      "211718",
+      "211723",
+      "211724",
+      "211725",
+      "211727",
+      "211728",
+      "211731",
+      "211733",
+      "211735",
+      "211737",
+      "211739",
+      "211740",
+      "211750",
+      "211752",
+      "211756",
+      "211757",
+      "211758",
+      "211760",
+      "211763",
+      "211765",
+      "211771",
+      "211772",
+      "211777",
+      "211778",
+      "211790",
+      "211792",
+      "211795",
+      "211797",
+      "211801",
+      "211804",
+      "211806",
+      "211808",
+      "211810",
+      "211812",
+      "211816",
+      "211819",
+      "211821",
+      "211822",
+      "211823",
+      "211829",
+      "211831",
+      "211835",
+      "211836",
+      "211844",
+      "211848",
+      "211850",
+      "211868",
+      "211873",
+      "211892",
+      "211899",
+      "211903",
+      "211904",
+      "211906",
+      "211909",
+      "211911",
+      "211914",
+      "212019",
+      "212023"
+    ],
+    "run_period": [
+      "Run2013A"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "GR_P_V43D::All",
+      "release": "CMSSW_5_3_20"
+    },
+    "title": "/PPFSQ/Run2013A-PromptReco-v1/RECO",
+    "title_additional": "PPFSQ primary dataset in RECO format from RunA of 2013 (/PPFSQ/Run2013A-PromptReco-v1/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2013"
+        },
+        {
+          "description": "Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data",
+          "url": "/docs/cms-getting-started-hi-2013-2015"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>PPJet primary dataset in RECO format from RunA of 2013. Run period from run number 211739 to 211831.</p><p>This dataset is related to the skim linked below.</p><p>These proton-proton data were taken at the same centre-of-mass energy and have a similar trigger menu to Pb-Pb collision data from 2010/2011.</p><p>The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14218"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14219"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "2.76TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2013",
+    "distribution": {
+      "formats": [
+        "reco",
+        "root"
+      ],
+      "number_events": 33716079,
+      "number_files": 1337,
+      "size": 6441022271015
+    },
+    "doi": "10.7483/OPENDATA.CMS.8XGC.QNOG",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:502f0310",
+        "description": "PPJet RECO file index (1 of 1) for access to data",
+        "size": 374159,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2013A/PPJet/RECO/PromptReco-v1/file-indexes/CMS_Run2013A_PPJet_RECO_PromptReco-v1_000_file_index.json"
+      },
+      {
+        "checksum": "adler32:61ef3ff5",
+        "description": "PPJet RECO file index (1 of 1) for access to data",
+        "size": 183169,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2013A/PPJet/RECO/PromptReco-v1/file-indexes/CMS_Run2013A_PPJet_RECO_PromptReco-v1_000_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset were selected because of the presence of one or more high-pt jet or high track multiplicity.</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1702\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible <a href=\"/docs/cms-guide-trigger-system#hlt-trigger-path-definitions\">HLT trigger paths</a> in this dataset are:<br/><a href=\"/search?q=HLT_PAJet20_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet20_NoJetID</a><br/><a href=\"/search?q=HLT_PAJet40_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet40_NoJetID</a><br/><a href=\"/search?q=HLT_PAJet60_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet60_NoJetID</a><br/><a href=\"/search?q=HLT_PAJet80_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet80_NoJetID</a><br/><a href=\"/search?q=HLT_PAJet100_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet100_NoJetID</a><br/><a href=\"/search?q=HLT_PAJet120_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet120_NoJetID</a><br/><a href=\"/search?q=HLT_PAForJet20Eta2&type=Supplementaries&year=2013\">HLT_PAForJet20Eta2</a><br/><a href=\"/search?q=HLT_PAForJet40Eta2&type=Supplementaries&year=2013\">HLT_PAForJet40Eta2</a><br/><a href=\"/search?q=HLT_PAForJet60Eta2&type=Supplementaries&year=2013\">HLT_PAForJet60Eta2</a><br/><a href=\"/search?q=HLT_PAForJet80Eta2&type=Supplementaries&year=2013\">HLT_PAForJet80Eta2</a><br/><a href=\"/search?q=HLT_PAForJet100Eta2&type=Supplementaries&year=2013\">HLT_PAForJet100Eta2</a><br/><a href=\"/search?q=HLT_PAForJet20Eta3&type=Supplementaries&year=2013\">HLT_PAForJet20Eta3</a><br/><a href=\"/search?q=HLT_PAForJet40Eta3&type=Supplementaries&year=2013\">HLT_PAForJet40Eta3</a><br/><a href=\"/search?q=HLT_PAForJet60Eta3&type=Supplementaries&year=2013\">HLT_PAForJet60Eta3</a><br/><a href=\"/search?q=HLT_PAForJet80Eta3&type=Supplementaries&year=2013\">HLT_PAForJet80Eta3</a><br/><a href=\"/search?q=HLT_PAForJet100Eta3&type=Supplementaries&year=2013\">HLT_PAForJet100Eta3</a><br/><a href=\"/search?q=HLT_PATripleJet20_20_20&type=Supplementaries&year=2013\">HLT_PATripleJet20_20_20</a><br/><a href=\"/search?q=HLT_PATripleJet40_20_20&type=Supplementaries&year=2013\">HLT_PATripleJet40_20_20</a><br/><a href=\"/search?q=HLT_PATripleJet60_20_20&type=Supplementaries&year=2013\">HLT_PATripleJet60_20_20</a><br/><a href=\"/search?q=HLT_PATripleJet80_20_20&type=Supplementaries&year=2013\">HLT_PATripleJet80_20_20</a><br/><a href=\"/search?q=HLT_PATripleJet100_20_20&type=Supplementaries&year=2013\">HLT_PATripleJet100_20_20</a><br/><a href=\"/search?q=HLT_PAJet40ETM30&type=Supplementaries&year=2013\">HLT_PAJet40ETM30</a><br/><a href=\"/search?q=HLT_PAJet60ETM30&type=Supplementaries&year=2013\">HLT_PAJet60ETM30</a><br/><a href=\"/search?q=HLT_PAPixelTracks_Multiplicity100&type=Supplementaries&year=2013\">HLT_PAPixelTracks_Multiplicity100</a><br/><a href=\"/search?q=HLT_PAPixelTracks_Multiplicity130&type=Supplementaries&year=2013\">HLT_PAPixelTracks_Multiplicity130</a><br/><a href=\"/search?q=HLT_PAPixelTracks_Multiplicity160&type=Supplementaries&year=2013\">HLT_PAPixelTracks_Multiplicity160</a><br/><a href=\"/search?q=HLT_PAPixelTracks_Multiplicity190&type=Supplementaries&year=2013\">HLT_PAPixelTracks_Multiplicity190</a><br/><a href=\"/search?q=HLT_PAPixelTracks_Multiplicity220&type=Supplementaries&year=2013\">HLT_PAPixelTracks_Multiplicity220</a><br/><a href=\"/search?q=HLT_PAPixelTrackMultiplicity100_FullTrack12&type=Supplementaries&year=2013\">HLT_PAPixelTrackMultiplicity100_FullTrack12</a><br/><a href=\"/search?q=HLT_PAPixelTrackMultiplicity130_FullTrack12&type=Supplementaries&year=2013\">HLT_PAPixelTrackMultiplicity130_FullTrack12</a><br/><a href=\"/search?q=HLT_PAPixelTrackMultiplicity160_FullTrack12&type=Supplementaries&year=2013\">HLT_PAPixelTrackMultiplicity160_FullTrack12</a><br/><a href=\"/search?q=HLT_PAPixelTrackMultiplicity100_L2DoubleMu3&type=Supplementaries&year=2013\">HLT_PAPixelTrackMultiplicity100_L2DoubleMu3</a><br/><a href=\"/search?q=HLT_PAPixelTrackMultiplicity140_Jet80_NoJetID&type=Supplementaries&year=2013\">HLT_PAPixelTrackMultiplicity140_Jet80_NoJetID</a><br/><a href=\"/search?q=HLT_PATech35&type=Supplementaries&year=2013\">HLT_PATech35</a><br/><a href=\"/search?q=HLT_PATech35_HFSumET100&type=Supplementaries&year=2013\">HLT_PATech35_HFSumET100</a><br/><a href=\"/search?q=HLT_PAHFSumET100&type=Supplementaries&year=2013\">HLT_PAHFSumET100</a><br/><a href=\"/search?q=HLT_PAHFSumET140&type=Supplementaries&year=2013\">HLT_PAHFSumET140</a><br/><a href=\"/search?q=HLT_PAHFSumET170&type=Supplementaries&year=2013\">HLT_PAHFSumET170</a><br/><a href=\"/search?q=HLT_PAHFSumET210&type=Supplementaries&year=2013\">HLT_PAHFSumET210</a><br/><a href=\"/search?q=HLT_PAFullTrack12&type=Supplementaries&year=2013\">HLT_PAFullTrack12</a><br/><a href=\"/search?q=HLT_PAFullTrack20&type=Supplementaries&year=2013\">HLT_PAFullTrack20</a><br/><a href=\"/search?q=HLT_PAFullTrack30&type=Supplementaries&year=2013\">HLT_PAFullTrack30</a><br/><a href=\"/search?q=HLT_PAFullTrack50&type=Supplementaries&year=2013\">HLT_PAFullTrack50</a><br/><a href=\"/search?q=HLT_PPPixelTracks_Multiplicity55&type=Supplementaries&year=2013\">HLT_PPPixelTracks_Multiplicity55</a><br/><a href=\"/search?q=HLT_PPPixelTracks_Multiplicity70&type=Supplementaries&year=2013\">HLT_PPPixelTracks_Multiplicity70</a><br/><a href=\"/search?q=HLT_PPPixelTracks_Multiplicity85&type=Supplementaries&year=2013\">HLT_PPPixelTracks_Multiplicity85</a><br/><a href=\"/search?q=HLT_PPPixelTrackMultiplicity55_FullTrack12&type=Supplementaries&year=2013\">HLT_PPPixelTrackMultiplicity55_FullTrack12</a><br/><a href=\"/search?q=HLT_PPPixelTrackMultiplicity70_FullTrack12&type=Supplementaries&year=2013\">HLT_PPPixelTrackMultiplicity70_FullTrack12</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "24641",
+    "relations": [
+      {
+        "description": "The corresponding HighPtPP-15Feb2013-v1 dataset:",
+        "recid": "24645",
+        "type": "isSiblingOf"
+      }
+    ],
+    "run_numbers": [
+      "211658",
+      "211665",
+      "211678",
+      "211680",
+      "211682",
+      "211688",
+      "211691",
+      "211693",
+      "211700",
+      "211702",
+      "211706",
+      "211711",
+      "211712",
+      "211713",
+      "211716",
+      "211718",
+      "211723",
+      "211724",
+      "211725",
+      "211727",
+      "211728",
+      "211731",
+      "211733",
+      "211735",
+      "211737",
+      "211739",
+      "211740",
+      "211750",
+      "211752",
+      "211756",
+      "211757",
+      "211758",
+      "211760",
+      "211763",
+      "211765",
+      "211771",
+      "211772",
+      "211777",
+      "211778",
+      "211790",
+      "211792",
+      "211795",
+      "211797",
+      "211801",
+      "211804",
+      "211806",
+      "211808",
+      "211810",
+      "211812",
+      "211816",
+      "211819",
+      "211821",
+      "211822",
+      "211823",
+      "211829",
+      "211831",
+      "211835",
+      "211836",
+      "211844",
+      "211848",
+      "211850",
+      "211868",
+      "211873",
+      "211892",
+      "211899",
+      "211903",
+      "211904",
+      "211906",
+      "211909",
+      "211911",
+      "211914",
+      "212019",
+      "212023"
+    ],
+    "run_period": [
+      "Run2013A"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "GR_P_V43D::All",
+      "release": "CMSSW_5_3_20"
+    },
+    "title": "/PPJet/Run2013A-PromptReco-v1/RECO",
+    "title_additional": "PPJet primary dataset in RECO format from RunA of 2013 (/PPJet/Run2013A-PromptReco-v1/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2013"
+        },
+        {
+          "description": "Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data",
+          "url": "/docs/cms-getting-started-hi-2013-2015"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>PPMinBias primary dataset in RECO format from RunA of 2013. Run period from run number 211739 to 211831.</p><p>These proton-proton data were taken at the same centre-of-mass energy and have a similar trigger menu to Pb-Pb collision data from 2010/2011.</p><p>The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14218"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14219"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "2.76TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2013",
+    "distribution": {
+      "formats": [
+        "reco",
+        "root"
+      ],
+      "number_events": 34393913,
+      "number_files": 738,
+      "size": 2277144248624
+    },
+    "doi": "10.7483/OPENDATA.CMS.LDCF.IZY7",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:6a3a367c",
+        "description": "PPMinBias RECO file index (1 of 1) for access to data",
+        "size": 209489,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2013A/PPMinBias/RECO/PromptReco-v1/file-indexes/CMS_Run2013A_PPMinBias_RECO_PromptReco-v1_000_file_index.json"
+      },
+      {
+        "checksum": "adler32:04d8b040",
+        "description": "PPMinBias RECO file index (1 of 1) for access to data",
+        "size": 104058,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2013A/PPMinBias/RECO/PromptReco-v1/file-indexes/CMS_Run2013A_PPMinBias_RECO_PromptReco-v1_000_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset were selected because they pass certain minimum-bias type selections.</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1702\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible <a href=\"/docs/cms-guide-trigger-system#hlt-trigger-path-definitions\">HLT trigger paths</a> in this dataset are:<br/><a href=\"/search?q=HLT_PARomanPots_Tech52&type=Supplementaries&year=2013\">HLT_PARomanPots_Tech52</a><br/><a href=\"/search?q=HLT_PAL1Tech53_MB&type=Supplementaries&year=2013\">HLT_PAL1Tech53_MB</a><br/><a href=\"/search?q=HLT_PAL1Tech53_MB_SingleTrack&type=Supplementaries&year=2013\">HLT_PAL1Tech53_MB_SingleTrack</a><br/><a href=\"/search?q=HLT_PAL1Tech54_ZeroBias&type=Supplementaries&year=2013\">HLT_PAL1Tech54_ZeroBias</a><br/><a href=\"/search?q=HLT_PAT1minbias_Tech55&type=Supplementaries&year=2013\">HLT_PAT1minbias_Tech55</a><br/><a href=\"/search?q=HLT_PAL1Tech_HBHEHO_totalOR&type=Supplementaries&year=2013\">HLT_PAL1Tech_HBHEHO_totalOR</a><br/><a href=\"/search?q=HLT_PAMinBiasHF&type=Supplementaries&year=2013\">HLT_PAMinBiasHF</a><br/><a href=\"/search?q=HLT_PAMinBiasHF_OR&type=Supplementaries&year=2013\">HLT_PAMinBiasHF_OR</a><br/><a href=\"/search?q=HLT_PAMinBiasBHC&type=Supplementaries&year=2013\">HLT_PAMinBiasBHC</a><br/><a href=\"/search?q=HLT_PAMinBiasBHC_OR&type=Supplementaries&year=2013\">HLT_PAMinBiasBHC_OR</a><br/><a href=\"/search?q=HLT_PAMinBiasHfOrBHC&type=Supplementaries&year=2013\">HLT_PAMinBiasHfOrBHC</a><br/><a href=\"/search?q=HLT_PABptxPlusNotBptxMinus&type=Supplementaries&year=2013\">HLT_PABptxPlusNotBptxMinus</a><br/><a href=\"/search?q=HLT_PABptxMinusNotBptxPlus&type=Supplementaries&year=2013\">HLT_PABptxMinusNotBptxPlus</a><br/><a href=\"/search?q=HLT_PAZeroBias&type=Supplementaries&year=2013\">HLT_PAZeroBias</a><br/><a href=\"/search?q=HLT_PAZeroBiasPixel_SingleTrack&type=Supplementaries&year=2013\">HLT_PAZeroBiasPixel_SingleTrack</a><br/><a href=\"/search?q=HLT_PAHFOR_SingleTrack&type=Supplementaries&year=2013\">HLT_PAHFOR_SingleTrack</a><br/><a href=\"/search?q=HLT_PAZeroBiasPixel_DoubleTrack&type=Supplementaries&year=2013\">HLT_PAZeroBiasPixel_DoubleTrack</a><br/><a href=\"/search?q=HLT_PARandom&type=Supplementaries&year=2013\">HLT_PARandom</a><br/><a href=\"/search?q=HLT_PAL1Tech63_CASTORHaloMuon&type=Supplementaries&year=2013\">HLT_PAL1Tech63_CASTORHaloMuon</a><br/><a href=\"/search?q=HLT_PACastorEmNotHfCoincidencePm&type=Supplementaries&year=2013\">HLT_PACastorEmNotHfCoincidencePm</a><br/><a href=\"/search?q=HLT_PACastorEmTotemLowMultiplicity&type=Supplementaries&year=2013\">HLT_PACastorEmTotemLowMultiplicity</a><br/><a href=\"/search?q=HLT_PACastorEmNotHfSingleChannel&type=Supplementaries&year=2013\">HLT_PACastorEmNotHfSingleChannel</a><br/><a href=\"/search?q=HLT_PAL1CastorTotalTotemLowMultiplicity&type=Supplementaries&year=2013\">HLT_PAL1CastorTotalTotemLowMultiplicity</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "24642",
+    "run_numbers": [
+      "211658",
+      "211665",
+      "211678",
+      "211680",
+      "211682",
+      "211688",
+      "211691",
+      "211693",
+      "211700",
+      "211702",
+      "211706",
+      "211711",
+      "211712",
+      "211713",
+      "211716",
+      "211718",
+      "211723",
+      "211724",
+      "211725",
+      "211727",
+      "211728",
+      "211731",
+      "211733",
+      "211735",
+      "211737",
+      "211739",
+      "211740",
+      "211750",
+      "211752",
+      "211756",
+      "211757",
+      "211758",
+      "211760",
+      "211763",
+      "211765",
+      "211771",
+      "211772",
+      "211777",
+      "211778",
+      "211790",
+      "211792",
+      "211795",
+      "211797",
+      "211801",
+      "211804",
+      "211806",
+      "211808",
+      "211810",
+      "211812",
+      "211816",
+      "211819",
+      "211821",
+      "211822",
+      "211823",
+      "211829",
+      "211831",
+      "211835",
+      "211836",
+      "211844",
+      "211848",
+      "211850",
+      "211868",
+      "211873",
+      "211892",
+      "211899",
+      "211903",
+      "211904",
+      "211906",
+      "211909",
+      "211911",
+      "211914",
+      "212019",
+      "212023"
+    ],
+    "run_period": [
+      "Run2013A"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "GR_P_V43D::All",
+      "release": "CMSSW_5_3_20"
+    },
+    "title": "/PPMinBias/Run2013A-PromptReco-v1/RECO",
+    "title_additional": "PPMinBias primary dataset in RECO format from RunA of 2013 (/PPMinBias/Run2013A-PromptReco-v1/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2013"
+        },
+        {
+          "description": "Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data",
+          "url": "/docs/cms-getting-started-hi-2013-2015"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>PPMuon primary dataset in RECO format from RunA of 2013. Run period from run number 211739 to 211831.</p><p>These proton-proton data were taken at the same centre-of-mass energy and have a similar trigger menu to Pb-Pb collision data from 2010/2011.</p><p>The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14218"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14219"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "2.76TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2013",
+    "distribution": {
+      "formats": [
+        "reco",
+        "root"
+      ],
+      "number_events": 33397807,
+      "number_files": 1316,
+      "size": 6112206390968
+    },
+    "doi": "10.7483/OPENDATA.CMS.21ZP.1VD9",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:2e835b98",
+        "description": "PPMuon RECO file index (1 of 1) for access to data",
+        "size": 369588,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2013A/PPMuon/RECO/PromptReco-v1/file-indexes/CMS_Run2013A_PPMuon_RECO_PromptReco-v1_000_file_index.json"
+      },
+      {
+        "checksum": "adler32:b1bb71fb",
+        "description": "PPMuon RECO file index (1 of 1) for access to data",
+        "size": 181608,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2013A/PPMuon/RECO/PromptReco-v1/file-indexes/CMS_Run2013A_PPMuon_RECO_PromptReco-v1_000_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset were selected because of the presence of one or more high-pt muon.</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1702\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible <a href=\"/docs/cms-guide-trigger-system#hlt-trigger-path-definitions\">HLT trigger paths</a> in this dataset are:<br/><a href=\"/search?q=HLT_PAL1DoubleMu0_HighQ&type=Supplementaries&year=2013\">HLT_PAL1DoubleMu0_HighQ</a><br/><a href=\"/search?q=HLT_PAL1DoubleMuOpen&type=Supplementaries&year=2013\">HLT_PAL1DoubleMuOpen</a><br/><a href=\"/search?q=HLT_PAL2DoubleMu3&type=Supplementaries&year=2013\">HLT_PAL2DoubleMu3</a><br/><a href=\"/search?q=HLT_PAMu3&type=Supplementaries&year=2013\">HLT_PAMu3</a><br/><a href=\"/search?q=HLT_PAMu7&type=Supplementaries&year=2013\">HLT_PAMu7</a><br/><a href=\"/search?q=HLT_PAMu12&type=Supplementaries&year=2013\">HLT_PAMu12</a><br/><a href=\"/search?q=HLT_PABTagMu_Jet20_Mu4&type=Supplementaries&year=2013\">HLT_PABTagMu_Jet20_Mu4</a><br/><a href=\"/search?q=HLT_PAMu3PFJet20&type=Supplementaries&year=2013\">HLT_PAMu3PFJet20</a><br/><a href=\"/search?q=HLT_PAMu3PFJet40&type=Supplementaries&year=2013\">HLT_PAMu3PFJet40</a><br/><a href=\"/search?q=HLT_PAMu7PFJet20&type=Supplementaries&year=2013\">HLT_PAMu7PFJet20</a><br/><a href=\"/search?q=HLT_Mu15_eta2p1&type=Supplementaries&year=2013\">HLT_Mu15_eta2p1</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "24643",
+    "run_numbers": [
+      "211658",
+      "211665",
+      "211678",
+      "211680",
+      "211682",
+      "211688",
+      "211691",
+      "211693",
+      "211700",
+      "211702",
+      "211706",
+      "211711",
+      "211712",
+      "211713",
+      "211716",
+      "211718",
+      "211723",
+      "211724",
+      "211725",
+      "211727",
+      "211728",
+      "211731",
+      "211733",
+      "211735",
+      "211737",
+      "211739",
+      "211740",
+      "211750",
+      "211752",
+      "211756",
+      "211757",
+      "211758",
+      "211760",
+      "211763",
+      "211765",
+      "211771",
+      "211772",
+      "211777",
+      "211778",
+      "211790",
+      "211792",
+      "211795",
+      "211797",
+      "211801",
+      "211804",
+      "211806",
+      "211808",
+      "211810",
+      "211812",
+      "211816",
+      "211819",
+      "211821",
+      "211822",
+      "211823",
+      "211829",
+      "211831",
+      "211835",
+      "211836",
+      "211844",
+      "211848",
+      "211850",
+      "211868",
+      "211873",
+      "211892",
+      "211899",
+      "211903",
+      "211904",
+      "211906",
+      "211909",
+      "211911",
+      "211914",
+      "212019",
+      "212023"
+    ],
+    "run_period": [
+      "Run2013A"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "GR_P_V43D::All",
+      "release": "CMSSW_5_3_20"
+    },
+    "title": "/PPMuon/Run2013A-PromptReco-v1/RECO",
+    "title_additional": "PPMuon primary dataset in RECO format from RunA of 2013 (/PPMuon/Run2013A-PromptReco-v1/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2013"
+        },
+        {
+          "description": "Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data",
+          "url": "/docs/cms-getting-started-hi-2013-2015"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>PPPhoton primary dataset in RECO format from RunA of 2013. Run period from run number 211739 to 211831.</p><p>These proton-proton data were taken at the same centre-of-mass energy and have a similar trigger menu to Pb-Pb collision data from 2010/2011.</p><p>The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14218"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14219"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "2.76TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2013",
+    "distribution": {
+      "formats": [
+        "reco",
+        "root"
+      ],
+      "number_events": 22410264,
+      "number_files": 853,
+      "size": 4201145415433
+    },
+    "doi": "10.7483/OPENDATA.CMS.NQ6C.HHAS",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:a40a4ad3",
+        "description": "PPPhoton RECO file index (1 of 1) for access to data",
+        "size": 241198,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2013A/PPPhoton/RECO/PromptReco-v1/file-indexes/CMS_Run2013A_PPPhoton_RECO_PromptReco-v1_000_file_index.json"
+      },
+      {
+        "checksum": "adler32:fb8ca073",
+        "description": "PPPhoton RECO file index (1 of 1) for access to data",
+        "size": 119420,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2013A/PPPhoton/RECO/PromptReco-v1/file-indexes/CMS_Run2013A_PPPhoton_RECO_PromptReco-v1_000_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset were selected because of the presence of one or more high-pt photon.</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1702\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible <a href=\"/docs/cms-guide-trigger-system#hlt-trigger-path-definitions\">HLT trigger paths</a> in this dataset are:<br/><a href=\"/search?q=HLT_PAPhoton10_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton10_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton15_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton15_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton20_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton20_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton30_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton30_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton40_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton40_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton60_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton60_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton10_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton10_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton15_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton15_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton20_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton20_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton30_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton30_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton40_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton40_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton10_Photon10_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton10_Photon10_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton15_Photon10_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton15_Photon10_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton20_Photon15_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton20_Photon15_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton20_Photon20_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton20_Photon20_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton30_Photon30_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton30_Photon30_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton10_Photon10_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton10_Photon10_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton15_Photon10_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton15_Photon10_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton20_Photon15_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton20_Photon15_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_Ele22_CaloIdL_CaloIsoVL&type=Supplementaries&year=2013\">HLT_Ele22_CaloIdL_CaloIsoVL</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "24644",
+    "run_numbers": [
+      "211658",
+      "211665",
+      "211678",
+      "211680",
+      "211682",
+      "211688",
+      "211691",
+      "211693",
+      "211700",
+      "211702",
+      "211706",
+      "211711",
+      "211712",
+      "211713",
+      "211716",
+      "211718",
+      "211723",
+      "211724",
+      "211725",
+      "211727",
+      "211728",
+      "211731",
+      "211733",
+      "211735",
+      "211737",
+      "211739",
+      "211740",
+      "211750",
+      "211752",
+      "211756",
+      "211757",
+      "211758",
+      "211760",
+      "211763",
+      "211765",
+      "211771",
+      "211772",
+      "211777",
+      "211778",
+      "211790",
+      "211792",
+      "211795",
+      "211797",
+      "211801",
+      "211804",
+      "211806",
+      "211808",
+      "211810",
+      "211812",
+      "211816",
+      "211819",
+      "211821",
+      "211822",
+      "211823",
+      "211829",
+      "211831",
+      "211835",
+      "211836",
+      "211844",
+      "211848",
+      "211850",
+      "211868",
+      "211873",
+      "211892",
+      "211899",
+      "211903",
+      "211904",
+      "211906",
+      "211909",
+      "211911",
+      "211914",
+      "212019",
+      "212023"
+    ],
+    "run_period": [
+      "Run2013A"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "GR_P_V43D::All",
+      "release": "CMSSW_5_3_20"
+    },
+    "title": "/PPPhoton/Run2013A-PromptReco-v1/RECO",
+    "title_additional": "PPPhoton primary dataset in RECO format from RunA of 2013 (/PPPhoton/Run2013A-PromptReco-v1/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2013"
+        },
+        {
+          "description": "Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data",
+          "url": "/docs/cms-getting-started-hi-2013-2015"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>PPJet primary dataset in RECO format from RunA of 2013. Run period from run number 211739 to 211831.</p><p>This dataset is a skim of the related dataset linked below.</p><p>These proton-proton data were taken at the same centre-of-mass energy and have a similar trigger menu to Pb-Pb collision data from 2010/2011.</p><p>The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14218"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14219"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "2.76TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2013",
+    "distribution": {
+      "formats": [
+        "reco",
+        "root"
+      ],
+      "number_events": 1537701,
+      "number_files": 91,
+      "size": 350955573203
+    },
+    "doi": "10.7483/OPENDATA.CMS.PLI0.Z7Z4",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:fc44b3a2",
+        "description": "PPJet RECO file index (1 of 1) for access to data",
+        "size": 25118,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2013A/PPJet/RECO/HighPtPP-15Feb2013-v1/file-indexes/CMS_Run2013A_PPJet_RECO_HighPtPP-15Feb2013-v1_10000_file_index.json"
+      },
+      {
+        "checksum": "adler32:e1d5b14d",
+        "description": "PPJet RECO file index (1 of 1) for access to data",
+        "size": 12103,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2013A/PPJet/RECO/HighPtPP-15Feb2013-v1/file-indexes/CMS_Run2013A_PPJet_RECO_HighPtPP-15Feb2013-v1_10000_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset were selected because of the presence of one or more high-pt jet or high track multiplicity. It is a skim of /PPJet/Run2013A-PromptReco-v1/RECO.</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1702\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible <a href=\"/docs/cms-guide-trigger-system#hlt-trigger-path-definitions\">HLT trigger paths</a> in this dataset are:<br/><a href=\"/search?q=HLT_PAJet20_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet20_NoJetID</a><br/><a href=\"/search?q=HLT_PAJet40_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet40_NoJetID</a><br/><a href=\"/search?q=HLT_PAJet60_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet60_NoJetID</a><br/><a href=\"/search?q=HLT_PAJet80_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet80_NoJetID</a><br/><a href=\"/search?q=HLT_PAJet100_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet100_NoJetID</a><br/><a href=\"/search?q=HLT_PAJet120_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet120_NoJetID</a><br/><a href=\"/search?q=HLT_PAForJet20Eta2&type=Supplementaries&year=2013\">HLT_PAForJet20Eta2</a><br/><a href=\"/search?q=HLT_PAForJet40Eta2&type=Supplementaries&year=2013\">HLT_PAForJet40Eta2</a><br/><a href=\"/search?q=HLT_PAForJet60Eta2&type=Supplementaries&year=2013\">HLT_PAForJet60Eta2</a><br/><a href=\"/search?q=HLT_PAForJet80Eta2&type=Supplementaries&year=2013\">HLT_PAForJet80Eta2</a><br/><a href=\"/search?q=HLT_PAForJet100Eta2&type=Supplementaries&year=2013\">HLT_PAForJet100Eta2</a><br/><a href=\"/search?q=HLT_PAForJet20Eta3&type=Supplementaries&year=2013\">HLT_PAForJet20Eta3</a><br/><a href=\"/search?q=HLT_PAForJet40Eta3&type=Supplementaries&year=2013\">HLT_PAForJet40Eta3</a><br/><a href=\"/search?q=HLT_PAForJet60Eta3&type=Supplementaries&year=2013\">HLT_PAForJet60Eta3</a><br/><a href=\"/search?q=HLT_PAForJet80Eta3&type=Supplementaries&year=2013\">HLT_PAForJet80Eta3</a><br/><a href=\"/search?q=HLT_PAForJet100Eta3&type=Supplementaries&year=2013\">HLT_PAForJet100Eta3</a><br/><a href=\"/search?q=HLT_PATripleJet20_20_20&type=Supplementaries&year=2013\">HLT_PATripleJet20_20_20</a><br/><a href=\"/search?q=HLT_PATripleJet40_20_20&type=Supplementaries&year=2013\">HLT_PATripleJet40_20_20</a><br/><a href=\"/search?q=HLT_PATripleJet60_20_20&type=Supplementaries&year=2013\">HLT_PATripleJet60_20_20</a><br/><a href=\"/search?q=HLT_PATripleJet80_20_20&type=Supplementaries&year=2013\">HLT_PATripleJet80_20_20</a><br/><a href=\"/search?q=HLT_PATripleJet100_20_20&type=Supplementaries&year=2013\">HLT_PATripleJet100_20_20</a><br/><a href=\"/search?q=HLT_PAJet40ETM30&type=Supplementaries&year=2013\">HLT_PAJet40ETM30</a><br/><a href=\"/search?q=HLT_PAJet60ETM30&type=Supplementaries&year=2013\">HLT_PAJet60ETM30</a><br/><a href=\"/search?q=HLT_PAPixelTracks_Multiplicity100&type=Supplementaries&year=2013\">HLT_PAPixelTracks_Multiplicity100</a><br/><a href=\"/search?q=HLT_PAPixelTracks_Multiplicity130&type=Supplementaries&year=2013\">HLT_PAPixelTracks_Multiplicity130</a><br/><a href=\"/search?q=HLT_PAPixelTracks_Multiplicity160&type=Supplementaries&year=2013\">HLT_PAPixelTracks_Multiplicity160</a><br/><a href=\"/search?q=HLT_PAPixelTracks_Multiplicity190&type=Supplementaries&year=2013\">HLT_PAPixelTracks_Multiplicity190</a><br/><a href=\"/search?q=HLT_PAPixelTracks_Multiplicity220&type=Supplementaries&year=2013\">HLT_PAPixelTracks_Multiplicity220</a><br/><a href=\"/search?q=HLT_PAPixelTrackMultiplicity100_FullTrack12&type=Supplementaries&year=2013\">HLT_PAPixelTrackMultiplicity100_FullTrack12</a><br/><a href=\"/search?q=HLT_PAPixelTrackMultiplicity130_FullTrack12&type=Supplementaries&year=2013\">HLT_PAPixelTrackMultiplicity130_FullTrack12</a><br/><a href=\"/search?q=HLT_PAPixelTrackMultiplicity160_FullTrack12&type=Supplementaries&year=2013\">HLT_PAPixelTrackMultiplicity160_FullTrack12</a><br/><a href=\"/search?q=HLT_PAPixelTrackMultiplicity100_L2DoubleMu3&type=Supplementaries&year=2013\">HLT_PAPixelTrackMultiplicity100_L2DoubleMu3</a><br/><a href=\"/search?q=HLT_PAPixelTrackMultiplicity140_Jet80_NoJetID&type=Supplementaries&year=2013\">HLT_PAPixelTrackMultiplicity140_Jet80_NoJetID</a><br/><a href=\"/search?q=HLT_PATech35&type=Supplementaries&year=2013\">HLT_PATech35</a><br/><a href=\"/search?q=HLT_PATech35_HFSumET100&type=Supplementaries&year=2013\">HLT_PATech35_HFSumET100</a><br/><a href=\"/search?q=HLT_PAHFSumET100&type=Supplementaries&year=2013\">HLT_PAHFSumET100</a><br/><a href=\"/search?q=HLT_PAHFSumET140&type=Supplementaries&year=2013\">HLT_PAHFSumET140</a><br/><a href=\"/search?q=HLT_PAHFSumET170&type=Supplementaries&year=2013\">HLT_PAHFSumET170</a><br/><a href=\"/search?q=HLT_PAHFSumET210&type=Supplementaries&year=2013\">HLT_PAHFSumET210</a><br/><a href=\"/search?q=HLT_PAFullTrack12&type=Supplementaries&year=2013\">HLT_PAFullTrack12</a><br/><a href=\"/search?q=HLT_PAFullTrack20&type=Supplementaries&year=2013\">HLT_PAFullTrack20</a><br/><a href=\"/search?q=HLT_PAFullTrack30&type=Supplementaries&year=2013\">HLT_PAFullTrack30</a><br/><a href=\"/search?q=HLT_PAFullTrack50&type=Supplementaries&year=2013\">HLT_PAFullTrack50</a><br/><a href=\"/search?q=HLT_PPPixelTracks_Multiplicity55&type=Supplementaries&year=2013\">HLT_PPPixelTracks_Multiplicity55</a><br/><a href=\"/search?q=HLT_PPPixelTracks_Multiplicity70&type=Supplementaries&year=2013\">HLT_PPPixelTracks_Multiplicity70</a><br/><a href=\"/search?q=HLT_PPPixelTracks_Multiplicity85&type=Supplementaries&year=2013\">HLT_PPPixelTracks_Multiplicity85</a><br/><a href=\"/search?q=HLT_PPPixelTrackMultiplicity55_FullTrack12&type=Supplementaries&year=2013\">HLT_PPPixelTrackMultiplicity55_FullTrack12</a><br/><a href=\"/search?q=HLT_PPPixelTrackMultiplicity70_FullTrack12&type=Supplementaries&year=2013\">HLT_PPPixelTrackMultiplicity70_FullTrack12</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "24645",
+    "relations": [
+      {
+        "description": "The corresponding PromptReco-v1 dataset:",
+        "recid": "24641",
+        "type": "isSiblingOf"
+      }
+    ],
+    "run_numbers": [
+      "211658",
+      "211665",
+      "211678",
+      "211680",
+      "211682",
+      "211688",
+      "211691",
+      "211693",
+      "211700",
+      "211702",
+      "211706",
+      "211711",
+      "211712",
+      "211713",
+      "211716",
+      "211718",
+      "211723",
+      "211724",
+      "211725",
+      "211727",
+      "211728",
+      "211731",
+      "211733",
+      "211735",
+      "211737",
+      "211739",
+      "211740",
+      "211750",
+      "211752",
+      "211756",
+      "211757",
+      "211758",
+      "211760",
+      "211763",
+      "211765",
+      "211771",
+      "211772",
+      "211777",
+      "211778",
+      "211790",
+      "211792",
+      "211795",
+      "211797",
+      "211801",
+      "211804",
+      "211806",
+      "211808",
+      "211810",
+      "211812",
+      "211816",
+      "211819",
+      "211821",
+      "211822",
+      "211823",
+      "211829",
+      "211831",
+      "211835",
+      "211836",
+      "211844",
+      "211848",
+      "211850",
+      "211868",
+      "211873",
+      "211892",
+      "211899",
+      "211903",
+      "211904",
+      "211906",
+      "211909",
+      "211911",
+      "211914"
+    ],
+    "run_period": [
+      "Run2013A"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "GR_P_V43D::All",
+      "release": "CMSSW_5_3_20"
+    },
+    "title": "/PPJet/Run2013A-HighPtPP-15Feb2013-v1/RECO",
+    "title_additional": "PPJet primary dataset in RECO format from RunA of 2013 (/PPJet/Run2013A-HighPtPP-15Feb2013-v1/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2013"
+        },
+        {
+          "description": "Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data",
+          "url": "/docs/cms-getting-started-hi-2013-2015"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>ZeroBias1 primary dataset in RECO format from RunA of 2013. Run period from run number 211739 to 211831.</p><p>These proton-proton data were taken at the same centre-of-mass energy and have a similar trigger menu to Pb-Pb collision data from 2010/2011.</p><p>The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14218"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14219"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "2.76TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2013",
+    "distribution": {
+      "formats": [
+        "reco",
+        "root"
+      ],
+      "number_events": 4456051,
+      "number_files": 105,
+      "size": 211238774033
+    },
+    "doi": "10.7483/OPENDATA.CMS.FZW6.BJDH",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:77d51968",
+        "description": "ZeroBias1 RECO file index (1 of 1) for access to data",
+        "size": 25264,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2013A/ZeroBias1/RECO/PromptReco-v1/file-indexes/CMS_Run2013A_ZeroBias1_RECO_PromptReco-v1_000_file_index.json"
+      },
+      {
+        "checksum": "adler32:22c554c9",
+        "description": "ZeroBias1 RECO file index (1 of 1) for access to data",
+        "size": 12549,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2013A/ZeroBias1/RECO/PromptReco-v1/file-indexes/CMS_Run2013A_ZeroBias1_RECO_PromptReco-v1_000_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset are an unbiased sample of all events. They are directed in several primary datasets for data processing purposes.</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1702\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible <a href=\"/docs/cms-guide-trigger-system#hlt-trigger-path-definitions\">HLT trigger paths</a> in this dataset are:<br/><a href=\"/search?q=HLT_ZeroBias_part1&type=Supplementaries&year=2013\">HLT_ZeroBias_part1</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "24646",
+    "run_numbers": [
+      "211711",
+      "211712",
+      "211713",
+      "211716",
+      "211718",
+      "211723",
+      "211724",
+      "211725",
+      "211727",
+      "211728",
+      "211731",
+      "211733",
+      "211735",
+      "211737",
+      "211739",
+      "211740",
+      "211806",
+      "211808",
+      "211810",
+      "211812",
+      "211816",
+      "211819",
+      "211821",
+      "211822",
+      "211823"
+    ],
+    "run_period": [
+      "Run2013A"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "GR_P_V43D::All",
+      "release": "CMSSW_5_3_20"
+    },
+    "title": "/ZeroBias1/Run2013A-PromptReco-v1/RECO",
+    "title_additional": "ZeroBias1 primary dataset in RECO format from RunA of 2013 (/ZeroBias1/Run2013A-PromptReco-v1/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2013"
+        },
+        {
+          "description": "Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data",
+          "url": "/docs/cms-getting-started-hi-2013-2015"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>ZeroBias2 primary dataset in RECO format from RunA of 2013. Run period from run number 211739 to 211831.</p><p>These proton-proton data were taken at the same centre-of-mass energy and have a similar trigger menu to Pb-Pb collision data from 2010/2011.</p><p>The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14218"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14219"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "2.76TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2013",
+    "distribution": {
+      "formats": [
+        "reco",
+        "root"
+      ],
+      "number_events": 4455998,
+      "number_files": 105,
+      "size": 212047819219
+    },
+    "doi": "10.7483/OPENDATA.CMS.4WJT.XQG5",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:25822438",
+        "description": "ZeroBias2 RECO file index (1 of 1) for access to data",
+        "size": 25263,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2013A/ZeroBias2/RECO/PromptReco-v1/file-indexes/CMS_Run2013A_ZeroBias2_RECO_PromptReco-v1_000_file_index.json"
+      },
+      {
+        "checksum": "adler32:648e58d5",
+        "description": "ZeroBias2 RECO file index (1 of 1) for access to data",
+        "size": 12549,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2013A/ZeroBias2/RECO/PromptReco-v1/file-indexes/CMS_Run2013A_ZeroBias2_RECO_PromptReco-v1_000_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset are an unbiased sample of all events. They are directed in several primary datasets for data processing purposes.</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1702\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible <a href=\"/docs/cms-guide-trigger-system#hlt-trigger-path-definitions\">HLT trigger paths</a> in this dataset are:<br/><a href=\"/search?q=HLT_ZeroBias_part1&type=Supplementaries&year=2013\">HLT_ZeroBias_part1</a><br/><a href=\"/search?q=HLT_ZeroBias_part2&type=Supplementaries&year=2013\">HLT_ZeroBias_part2</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "24647",
+    "run_numbers": [
+      "211711",
+      "211712",
+      "211713",
+      "211716",
+      "211718",
+      "211723",
+      "211724",
+      "211725",
+      "211727",
+      "211728",
+      "211731",
+      "211733",
+      "211735",
+      "211737",
+      "211739",
+      "211740",
+      "211806",
+      "211808",
+      "211810",
+      "211812",
+      "211816",
+      "211819",
+      "211821",
+      "211822",
+      "211823"
+    ],
+    "run_period": [
+      "Run2013A"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "GR_P_V43D::All",
+      "release": "CMSSW_5_3_20"
+    },
+    "title": "/ZeroBias2/Run2013A-PromptReco-v1/RECO",
+    "title_additional": "ZeroBias2 primary dataset in RECO format from RunA of 2013 (/ZeroBias2/Run2013A-PromptReco-v1/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2013"
+        },
+        {
+          "description": "Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data",
+          "url": "/docs/cms-getting-started-hi-2013-2015"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>ZeroBias3 primary dataset in RECO format from RunA of 2013. Run period from run number 211739 to 211831.</p><p>These proton-proton data were taken at the same centre-of-mass energy and have a similar trigger menu to Pb-Pb collision data from 2010/2011.</p><p>The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14218"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14219"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "2.76TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2013",
+    "distribution": {
+      "formats": [
+        "reco",
+        "root"
+      ],
+      "number_events": 4456025,
+      "number_files": 105,
+      "size": 211587846165
+    },
+    "doi": "10.7483/OPENDATA.CMS.2K7K.VOAD",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:32342016",
+        "description": "ZeroBias3 RECO file index (1 of 1) for access to data",
+        "size": 25263,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2013A/ZeroBias3/RECO/PromptReco-v1/file-indexes/CMS_Run2013A_ZeroBias3_RECO_PromptReco-v1_000_file_index.json"
+      },
+      {
+        "checksum": "adler32:ee2a58dd",
+        "description": "ZeroBias3 RECO file index (1 of 1) for access to data",
+        "size": 12549,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2013A/ZeroBias3/RECO/PromptReco-v1/file-indexes/CMS_Run2013A_ZeroBias3_RECO_PromptReco-v1_000_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset are an unbiased sample of all events. They are directed in several primary datasets for data processing purposes.</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1702\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible <a href=\"/docs/cms-guide-trigger-system#hlt-trigger-path-definitions\">HLT trigger paths</a> in this dataset are:<br/><a href=\"/search?q=HLT_ZeroBias_part2&type=Supplementaries&year=2013\">HLT_ZeroBias_part2</a><br/><a href=\"/search?q=HLT_ZeroBias_part3&type=Supplementaries&year=2013\">HLT_ZeroBias_part3</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "24648",
+    "run_numbers": [
+      "211711",
+      "211712",
+      "211713",
+      "211716",
+      "211718",
+      "211723",
+      "211724",
+      "211725",
+      "211727",
+      "211728",
+      "211731",
+      "211733",
+      "211735",
+      "211737",
+      "211739",
+      "211740",
+      "211806",
+      "211808",
+      "211810",
+      "211812",
+      "211816",
+      "211819",
+      "211821",
+      "211822",
+      "211823"
+    ],
+    "run_period": [
+      "Run2013A"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "GR_P_V43D::All",
+      "release": "CMSSW_5_3_20"
+    },
+    "title": "/ZeroBias3/Run2013A-PromptReco-v1/RECO",
+    "title_additional": "ZeroBias3 primary dataset in RECO format from RunA of 2013 (/ZeroBias3/Run2013A-PromptReco-v1/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2013"
+        },
+        {
+          "description": "Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data",
+          "url": "/docs/cms-getting-started-hi-2013-2015"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>ZeroBias4 primary dataset in RECO format from RunA of 2013. Run period from run number 211739 to 211831.</p><p>These proton-proton data were taken at the same centre-of-mass energy and have a similar trigger menu to Pb-Pb collision data from 2010/2011.</p><p>The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14218"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14219"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "2.76TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2013",
+    "distribution": {
+      "formats": [
+        "reco",
+        "root"
+      ],
+      "number_events": 4455795,
+      "number_files": 104,
+      "size": 211601126658
+    },
+    "doi": "10.7483/OPENDATA.CMS.Q7TU.I2RM",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:cef3d2f7",
+        "description": "ZeroBias4 RECO file index (1 of 1) for access to data",
+        "size": 24979,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2013A/ZeroBias4/RECO/PromptReco-v1/file-indexes/CMS_Run2013A_ZeroBias4_RECO_PromptReco-v1_000_file_index.json"
+      },
+      {
+        "checksum": "adler32:86592cd4",
+        "description": "ZeroBias4 RECO file index (1 of 1) for access to data",
+        "size": 12408,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/Run2013A/ZeroBias4/RECO/PromptReco-v1/file-indexes/CMS_Run2013A_ZeroBias4_RECO_PromptReco-v1_000_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset are an unbiased sample of all events. They are directed in several primary datasets for data processing purposes.</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1702\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible <a href=\"/docs/cms-guide-trigger-system#hlt-trigger-path-definitions\">HLT trigger paths</a> in this dataset are:<br/><a href=\"/search?q=HLT_ZeroBias_part3&type=Supplementaries&year=2013\">HLT_ZeroBias_part3</a><br/><a href=\"/search?q=HLT_ZeroBias_part4&type=Supplementaries&year=2013\">HLT_ZeroBias_part4</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "24649",
+    "run_numbers": [
+      "211711",
+      "211712",
+      "211713",
+      "211716",
+      "211718",
+      "211723",
+      "211724",
+      "211725",
+      "211727",
+      "211728",
+      "211731",
+      "211733",
+      "211735",
+      "211737",
+      "211739",
+      "211740",
+      "211806",
+      "211808",
+      "211810",
+      "211812",
+      "211816",
+      "211819",
+      "211821",
+      "211822",
+      "211823"
+    ],
+    "run_period": [
+      "Run2013A"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "GR_P_V43D::All",
+      "release": "CMSSW_5_3_20"
+    },
+    "title": "/ZeroBias4/Run2013A-PromptReco-v1/RECO",
+    "title_additional": "ZeroBias4 primary dataset in RECO format from RunA of 2013 (/ZeroBias4/Run2013A-PromptReco-v1/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2013"
+        },
+        {
+          "description": "Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data",
+          "url": "/docs/cms-getting-started-hi-2013-2015"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  }
+]

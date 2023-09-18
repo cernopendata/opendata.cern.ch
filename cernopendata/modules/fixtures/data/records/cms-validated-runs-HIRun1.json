@@ -277,7 +277,7 @@
   },
   {
     "abstract": {
-      "description": "<p>This file describes which luminosity sections in which runs are considered good and should be processed when used as reference data for heavy-ion data analysis.</p> <p>This list covers 2011 p-p data taking at 7 GeV, between run numbers 160404 and 180252.</p>"
+      "description": "<p>This file describes which luminosity sections in which runs are considered good and should be processed when used as reference data for heavy-ion data analysis.</p> <p>This list covers 2011 p-p data taking at 7 TeV, between run numbers 160404 and 180252.</p>"
     },
     "accelerator": "CERN-LHC",
     "collaboration": {
@@ -347,7 +347,7 @@
   },
   {
     "abstract": {
-      "description": "<p>This file describes which luminosity sections in which runs are considered good and should be processed when used as reference data for heavy-ion data analysis, for analyses requiring only valid muons.</p> <p>This list covers 2011 p-p data taking at 7 GeV, between run numbers 160404 and 180252.</p>"
+      "description": "<p>This file describes which luminosity sections in which runs are considered good and should be processed when used as reference data for heavy-ion data analysis, for analyses requiring only valid muons.</p> <p>This list covers 2011 p-p data taking at 7 TeV, between run numbers 160404 and 180252.</p>"
     },
     "accelerator": "CERN-LHC",
     "collaboration": {
@@ -417,7 +417,7 @@
   },
   {
     "abstract": {
-      "description": "<p>This file describes which luminosity sections in which runs are considered good and should be processed when used as reference data for heavy-ion data analysis.</p> <p>This list covers 2011 p-p data taking at 2.76 GeV, between run numbers 161366 and 161474.</p>"
+      "description": "<p>This file describes which luminosity sections in which runs are considered good and should be processed when used as reference data for heavy-ion data analysis.</p> <p>This list covers 2011 p-p data taking at 2.76 TeV, between run numbers 161366 and 161474.</p>"
     },
     "accelerator": "CERN-LHC",
     "collaboration": {
@@ -456,7 +456,7 @@
       "Run2011A"
     ],
     "title": "CMS list of validated runs Cert_161366-161474_2760GeV_PromptReco_Collisions11_JSON_v2.txt",
-    "title_additional": "CMS list of validated runs for p-p 2011 data taken at 2.76 GeV, reference data for heavy-ion data analysis",
+    "title_additional": "CMS list of validated runs for p-p 2011 data taken at 2.76 TeV, reference data for heavy-ion data analysis",
     "type": {
       "primary": "Environment",
       "secondary": [
@@ -486,7 +486,7 @@
   },
   {
     "abstract": {
-      "description": "<p>This file describes which luminosity sections in which runs are considered good and should be processed when used as reference data for heavy-ion data analysis, for analyses requiring only valid muons.</p> <p>This list covers 2011 p-p data taking at 2.76 GeV, between run numbers 161366 and 161474.</p>"
+      "description": "<p>This file describes which luminosity sections in which runs are considered good and should be processed when used as reference data for heavy-ion data analysis, for analyses requiring only valid muons.</p> <p>This list covers 2011 p-p data taking at 2.76 TeV, between run numbers 161366 and 161474.</p>"
     },
     "accelerator": "CERN-LHC",
     "collaboration": {
@@ -525,7 +525,7 @@
       "Run2011A"
     ],
     "title": "CMS list of validated runs Cert_161366-161474_2760GeV_PromptReco_Collisions11_JSON_MuonPhys.txt",
-    "title_additional": "CMS list of validated runs for p-p 2011 data taken at 2.76 GeV, reference data for heavy-ion data analysis, only valid muons",
+    "title_additional": "CMS list of validated runs for p-p 2011 data taken at 2.76 TeV, reference data for heavy-ion data analysis, only valid muons",
     "type": {
       "primary": "Environment",
       "secondary": [
@@ -549,6 +549,408 @@
         {
           "description": "The CMS data quality monitoring software: experience and future prospects",
           "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>This file describes which luminosity sections in which runs are considered good and should be processed.</p><p>This list covers 5.02TeV proton-Pb heavy-ion collision data taken in 2013. HIRun2013 is between run numbers 210498 and 211631.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration"
+    },
+    "collections": [
+      "CMS-Validated-Runs",
+      "CMS-Validation-Utilities"
+    ],
+    "collision_information": {
+      "energy": "5.02TeV",
+      "type": "pPb"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "distribution": {
+      "formats": [
+        "txt"
+      ],
+      "number_files": 1,
+      "size": 1157
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:84a5f510",
+        "size": 1157,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/validated-runs/hi/2013/Cert_210498-211631_HI_PromptReco_Collisions13_JSON_v2.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "14216",
+    "run_period": [
+      "HIRun2013"
+    ],
+    "title": "CMS list of validated runs Cert_210498-211631_HI_PromptReco_Collisions13_JSON_v2.txt",
+    "title_additional": "CMS list of validated runs for 5.02TeV proton-Pb heavy-ion collision data taken in 2013",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "Validation"
+      ]
+    },
+    "usage": {
+      "description": "<p>Add the following lines in the configuration file for a cmsRun job: <br /> <pre>   import FWCore.ParameterSet.Config as cms</pre><pre>   import FWCore.PythonUtilities.LumiList as LumiList</pre><pre>   goodJSON = 'Cert_210498-211631_HI_PromptReco_Collisions13_JSON_v2.txt'</pre><pre>   myLumis = LumiList.LumiList(filename = goodJSON).getCMSSWString().split(',') </pre></p><p> Add the file path if needed in the file name.</p><p> Add the following statements after the <code>process.source</code> input file definition: <br /><pre>   process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange()</pre><pre>   process.source.lumisToProcess.extend(myLumis)</pre></p><p>Note that the two last statements must be placed after the <code>process.source</code> statement defining the input files.</p>"
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>This file describes which luminosity sections in which runs are considered good and should be processed, for analyses requiring only valid muons.</p><p>This list covers 5.02TeV proton-Pb heavy-ion collision data taken in 2013. HIRun2013 is between run numbers 210498 and 211631.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration"
+    },
+    "collections": [
+      "CMS-Validated-Runs",
+      "CMS-Validation-Utilities"
+    ],
+    "collision_information": {
+      "energy": "5.02TeV",
+      "type": "pPb"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "distribution": {
+      "formats": [
+        "txt"
+      ],
+      "number_files": 1,
+      "size": 1121
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:9097ed74",
+        "size": 1121,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/validated-runs/hi/2013/Cert_210498-211631_HI_PromptReco_Collisions13_JSON_MuonPhys_v2.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "14217",
+    "run_period": [
+      "HIRun2013"
+    ],
+    "title": "CMS list of validated runs Cert_210498-211631_HI_PromptReco_Collisions13_JSON_MuonPhys_v2.txt",
+    "title_additional": "CMS list of validated runs for 5.02TeV proton-Pb heavy-ion collision data taken in 2013, only valid muons",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "Validation"
+      ]
+    },
+    "usage": {
+      "description": "<p>Add the following lines in the configuration file for a cmsRun job: <br /> <pre>   import FWCore.ParameterSet.Config as cms</pre><pre>   import FWCore.PythonUtilities.LumiList as LumiList</pre><pre>   goodJSON = 'Cert_210498-211631_HI_PromptReco_Collisions13_JSON_MuonPhys_v2.txt'</pre><pre>   myLumis = LumiList.LumiList(filename = goodJSON).getCMSSWString().split(',') </pre></p><p> Add the file path if needed in the file name.</p><p> Add the following statements after the <code>process.source</code> input file definition: <br /><pre>   process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange()</pre><pre>   process.source.lumisToProcess.extend(myLumis)</pre></p><p>Note that the two last statements must be placed after the <code>process.source</code> statement defining the input files.</p>"
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>This file describes which luminosity sections in which runs are considered good and should be processed.</p><p>This list covers 2.76TeV proton-proton collision data, needed as reference data for heavy-ion data analysis, taken in 2013. Run2013A is between run numbers 211739 and 211831.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration"
+    },
+    "collections": [
+      "CMS-Validated-Runs",
+      "CMS-Validation-Utilities"
+    ],
+    "collision_information": {
+      "energy": "2.76TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "distribution": {
+      "formats": [
+        "txt"
+      ],
+      "number_files": 1,
+      "size": 308
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:7bc341b1",
+        "size": 308,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/validated-runs/hi/2013/Cert_211739-211831_2760GeV_PromptReco_Collisions13_JSON.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "14218",
+    "run_period": [
+      "Run2013A"
+    ],
+    "title": "CMS list of validated runs Cert_211739-211831_2760GeV_PromptReco_Collisions13_JSON.txt",
+    "title_additional": "CMS list of validated runs for 2.76TeV proton-proton collision data, needed as reference data for heavy-ion data analysis, taken in 2013",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "Validation"
+      ]
+    },
+    "usage": {
+      "description": "<p>Add the following lines in the configuration file for a cmsRun job: <br /> <pre>   import FWCore.ParameterSet.Config as cms</pre><pre>   import FWCore.PythonUtilities.LumiList as LumiList</pre><pre>   goodJSON = 'Cert_211739-211831_2760GeV_PromptReco_Collisions13_JSON.txt'</pre><pre>   myLumis = LumiList.LumiList(filename = goodJSON).getCMSSWString().split(',') </pre></p><p> Add the file path if needed in the file name.</p><p> Add the following statements after the <code>process.source</code> input file definition: <br /><pre>   process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange()</pre><pre>   process.source.lumisToProcess.extend(myLumis)</pre></p><p>Note that the two last statements must be placed after the <code>process.source</code> statement defining the input files.</p>"
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>This file describes which luminosity sections in which runs are considered good and should be processed, for analyses requiring only valid muons.</p><p>This list covers 2.76TeV proton-proton collision data, needed as reference data for heavy-ion data analysis, taken in 2013. Run2013A is between run numbers 211739 and 211831.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration"
+    },
+    "collections": [
+      "CMS-Validated-Runs",
+      "CMS-Validation-Utilities"
+    ],
+    "collision_information": {
+      "energy": "2.76TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "distribution": {
+      "formats": [
+        "txt"
+      ],
+      "number_files": 1,
+      "size": 274
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:4e0a3a8b",
+        "size": 274,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/validated-runs/hi/2013/Cert_211739-211831_2760GeV_PromptReco_Collisions13_JSON_MuonPhys.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "14219",
+    "run_period": [
+      "Run2013A"
+    ],
+    "title": "CMS list of validated runs Cert_211739-211831_2760GeV_PromptReco_Collisions13_JSON_MuonPhys.txt",
+    "title_additional": "CMS list of validated runs for 2.76TeV proton-proton collision data, needed as reference data for heavy-ion data analysis, taken in 2013, only valid muons",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "Validation"
+      ]
+    },
+    "usage": {
+      "description": "<p>Add the following lines in the configuration file for a cmsRun job: <br /> <pre>   import FWCore.ParameterSet.Config as cms</pre><pre>   import FWCore.PythonUtilities.LumiList as LumiList</pre><pre>   goodJSON = 'Cert_211739-211831_2760GeV_PromptReco_Collisions13_JSON_MuonPhys.txt'</pre><pre>   myLumis = LumiList.LumiList(filename = goodJSON).getCMSSWString().split(',') </pre></p><p> Add the file path if needed in the file name.</p><p> Add the following statements after the <code>process.source</code> input file definition: <br /><pre>   process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange()</pre><pre>   process.source.lumisToProcess.extend(myLumis)</pre></p><p>Note that the two last statements must be placed after the <code>process.source</code> statement defining the input files.</p>"
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>This file describes which luminosity sections in which runs are considered good and should be processed.</p><p>This list covers 5.02TeV proton-proton collision data, needed as reference data for heavy-ion data analysis, taken in 2015. Run2015E is between run numbers 261445 and 262328.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration"
+    },
+    "collections": [
+      "CMS-Validated-Runs",
+      "CMS-Validation-Utilities"
+    ],
+    "collision_information": {
+      "energy": "5.02TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2015"
+    ],
+    "date_published": "2023",
+    "distribution": {
+      "formats": [
+        "txt"
+      ],
+      "number_files": 1,
+      "size": 876
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:8688ba4d",
+        "size": 876,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/validated-runs/hi/2015/Cert_262081-262328_5TeV_PromptReco_Collisions15_25ns_JSON.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "14212",
+    "run_period": [
+      "Run2015E"
+    ],
+    "title": "CMS list of validated runs Cert_262081-262328_5TeV_PromptReco_Collisions15_25ns_JSON.txt",
+    "title_additional": "CMS list of validated runs for 5.02TeV proton-proton collision data, needed as reference data for heavy-ion data analysis, taken in 2015",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "Validation"
+      ]
+    },
+    "usage": {
+      "description": "<p>Add the following lines in the configuration file for a cmsRun job: <br /> <pre>   import FWCore.ParameterSet.Config as cms</pre><pre>   import FWCore.PythonUtilities.LumiList as LumiList</pre><pre>   goodJSON = 'Cert_262081-262328_5TeV_PromptReco_Collisions15_25ns_JSON.txt'</pre><pre>   myLumis = LumiList.LumiList(filename = goodJSON).getCMSSWString().split(',') </pre></p><p> Add the file path if needed in the file name.</p><p> Add the following statements after the <code>process.source</code> input file definition: <br /><pre>   process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange()</pre><pre>   process.source.lumisToProcess.extend(myLumis)</pre></p><p>Note that the two last statements must be placed after the <code>process.source</code> statement defining the input files.</p>"
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>This file describes which luminosity sections in which runs are considered good and should be processed, for analyses requiring only valid muons.</p><p>This list covers 5.02TeV proton-proton collision data, needed as reference data for heavy-ion data analysis, taken in 2015. Run2015E is between run numbers 261445 and 262328.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration"
+    },
+    "collections": [
+      "CMS-Validated-Runs",
+      "CMS-Validation-Utilities"
+    ],
+    "collision_information": {
+      "energy": "5.02TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2015"
+    ],
+    "date_published": "2023",
+    "distribution": {
+      "formats": [
+        "txt"
+      ],
+      "number_files": 1,
+      "size": 549
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:365874e5",
+        "size": 549,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/validated-runs/hi/2015/Cert_262081-262328_5TeV_PromptReco_Collisions15_25ns_JSON_MuonPhys.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "14213",
+    "run_period": [
+      "Run2015E"
+    ],
+    "title": "CMS list of validated runs Cert_262081-262328_5TeV_PromptReco_Collisions15_25ns_JSON_MuonPhys.txt",
+    "title_additional": "CMS list of validated runs for 5.02TeV proton-proton collision data, needed as reference data for heavy-ion data analysis, taken in 2015, only valid muons",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "Validation"
+      ]
+    },
+    "usage": {
+      "description": "<p>Add the following lines in the configuration file for a cmsRun job: <br /> <pre>   import FWCore.ParameterSet.Config as cms</pre><pre>   import FWCore.PythonUtilities.LumiList as LumiList</pre><pre>   goodJSON = 'Cert_262081-262328_5TeV_PromptReco_Collisions15_25ns_JSON_MuonPhys.txt'</pre><pre>   myLumis = LumiList.LumiList(filename = goodJSON).getCMSSWString().split(',') </pre></p><p> Add the file path if needed in the file name.</p><p> Add the following statements after the <code>process.source</code> input file definition: <br /><pre>   process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange()</pre><pre>   process.source.lumisToProcess.extend(myLumis)</pre></p><p>Note that the two last statements must be placed after the <code>process.source</code> statement defining the input files.</p>"
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
         }
       ]
     }

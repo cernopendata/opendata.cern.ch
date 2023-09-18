@@ -1,4 +1,4 @@
-FROM sentry:8.22
+FROM docker.io/library/sentry:8.22
 
 RUN apt-get update && \
     apt-get install wget -y

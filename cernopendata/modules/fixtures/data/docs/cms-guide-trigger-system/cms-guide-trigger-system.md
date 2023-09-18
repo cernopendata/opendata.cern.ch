@@ -62,6 +62,12 @@ Find the software and usage instructions in
 - [Analysis code for extracting the trigger information from the CMS 2010 data](/record/5003)
 - [Analysis code for extracting the trigger information from the CMS 2011 data](/record/5004)
 
+and in TriggerAnalyzer and TriggerObjectAnalyzer packages in
+
+- [Physics object extractor tool for the CMS 2012 data](/record/12501)
+- [Physics object extractor tool for the CMS 2015 data](/record/12502).
+
+
 ### HLT Trigger Path definitions
 
 For each dataset, the possible HLT trigger paths are listed in the dataset record. Each HLT path is composed of different algorithms and they are defined in the data-taking configuration files, which are given in
@@ -69,6 +75,8 @@ For each dataset, the possible HLT trigger paths are listed in the dataset recor
 - [High-Level Trigger information for 2010 CMS open data](/record/1699)
 - [High-Level Trigger information for 2011 CMS open data](/record/1700)
 - [High-Level Trigger information for 2012 CMS open data](/record/1701)
+- [High-Level Trigger information for 2013 CMS open data](/record/1702)
+- [High-Level Trigger information for 2015 CMS open data](/record/23900)
 
 The exact parameters (such as pT or eta cuts, or else) for each component of the HLT path can be found in the data-taking configuration file.
 

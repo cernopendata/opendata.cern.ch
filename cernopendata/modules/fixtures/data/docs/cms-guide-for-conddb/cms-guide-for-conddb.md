@@ -3,15 +3,15 @@
 3. [How is the condition database accessed?](#how)
     1. [Accessing condition data from the CMS Open Data VM image](#vm)
     2. [Accessing condition data from the CMS Open Data containers](#containers)
-4. [Global Tags](#global-tags)
+4. [Global tags](#global-tags)
     1. [Proton-proton data](#proton-proton)
-    2. [Heavy-ion data](#heavy-ion)
+    2. [Heavy-ion related data](#heavy-ion)
 
 ## <a name="what">What is the condition database?</a>
 
 This page explains the use of global tags and the condition database with the CMS Open Data.
 
-A Global Tag is a coherent collection of records of additional data needed by the reconstruction and analysis software. The Global Tag is defined for each data-taking period, separately for collision and simulated data. These records are stored in the condition database. Condition data include non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for the simulation/reconstruction/analysis software.
+A global tag is a coherent collection of records of additional data needed by the reconstruction and analysis software. The global tag is defined for each data-taking period, separately for collision and simulated data. These records are stored in the condition database. Condition data include non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for the simulation/reconstruction/analysis software.
 
 ## <a name="when">When is the condition database needed?</a>
 
@@ -27,11 +27,10 @@ In both cases, the following lines are needed in the CMSSW analysis job configur
 
 ```shell
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
-process.load('Configuration.StandardSequences.Services_cff')
 process.GlobalTag.globaltag = '<GLOBAL TAG>'
 ```
 
-Replace `<GLOBAL TAG>` with the Global Tag to be used in analysis indicated in each dataset record. They are listed below for all data-taking periods.
+Replace `<GLOBAL TAG>` with the global tag to be used in analysis indicated in each dataset record. They are listed below for all data-taking periods.
 
 ### <a name="vm">Accessing condition data from the CMS Open Data VM image</a>
 
@@ -49,7 +48,7 @@ process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.c
 process.GlobalTag.globaltag = '<GLOBAL TAG>'
 ```
 
-Replace `<DATABASE NAME>` with the database name given in the instructions below, and `<GLOBAL TAG>` with the Global Tag that corresponds to these data.
+Replace `<DATABASE NAME>` with the database name given in the instructions below, and `<GLOBAL TAG>` with the global tag that corresponds to these data.
 
 Note that the first time you run the job accessing condition data on the CMS Open Data VM, it will download them from the `/cvmfs` area. It will take time (an example run of a 10 Mbps line took 45 mins), but it will only happen once as the files will be cached on your VM. The job will not produce any output during this time, but you can check the ongoing processes with the command 'top' and you can monitor the progress of reading the condition data to the local cache with the command 'df'.
 
@@ -63,13 +62,15 @@ In these containers, to connect to the local database area instead external pred
 process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/<DATABASE NAME')
 process.GlobalTag.globaltag = '<GLOBAL TAG>'
 ```
-Replace `<DATABASE NAME>` with the database name given in the instructions below, and `<GLOBAL TAG>` with the Global Tag that corresponds to these data.
+Replace `<DATABASE NAME>` with the database name given in the instructions below, and `<GLOBAL TAG>` with the global tag that corresponds to these data.
 
-Note that the fast access only works for the containers that have the local `/cvmfs/cms-opendata-conddb.cern.ch` installed, and only for those Global Tags that have been stored there. For other case, leave out the `process.GlobalTag.connect` line, and the database information is retreived from external servers.
+Note that the fast access only works for the containers that have the local `/cvmfs/cms-opendata-conddb.cern.ch` installed, and only for those global tags that have been stored there. For other case, leave out the `process.GlobalTag.connect` line, and the database information is retreived from external servers.
 
-## <a name="global-tags">Global Tags</a>
+If you have the `/cvmfs/cms-opendata-conddb.cern.ch` mounted on your local computer and the area is shared into your container, follow the instructions for VM below.
 
-The Global Tags for condition data are different for different data-taking periods. They are listed below for [proton-proton](#proton-proton) and [heavy-ion](#heavy-ion) data.
+## <a name="global-tags">Global tags</a>
+
+The global tags for condition data are different for different data-taking periods. They are listed below for [proton-proton](#proton-proton) and [heavy-ion](#heavy-ion) data.
 
 ### <a name="proton-proton">Proton-proton data</a>
 
@@ -86,7 +87,7 @@ ln -sf /cvmfs/cms-opendata-conddb.cern.ch/FT_R_42_V10A FT_R_42_V10A
 ln -sf /cvmfs/cms-opendata-conddb.cern.ch/FT_R_42_V10A.db FT_R_42_V10A.db
 ```
 
-Then, define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
+Then, define the correct set of condition data by mentioning the global tag in the configuration file of the job.
 
 ```shell
 #globaltag for 2010 data
@@ -98,7 +99,7 @@ Note that **this only works in the "CMS-OpenData-1.1.2" or a higher version** of
 
 **Container:**
 
-Define the Global Tag in the configuration file of the job:
+Define the global tag in the configuration file of the job:
 
 ```shell
 #globaltag for 2010 data
@@ -107,7 +108,7 @@ process.GlobalTag.globaltag = 'FT_R_42_V10A::All'
 
 ---
 
-**For 2010 Montecarlo data**, the global tag is START42_V17B.
+**For 2010 simulated data**, the global tag is START42_V17B.
 
 **VM:**
 
@@ -118,7 +119,7 @@ ln -sf /cvmfs/cms-opendata-conddb.cern.ch/START42_V17B START42_V17B
 ln -sf /cvmfs/cms-opendata-conddb.cern.ch/START42_V17B.db START42_V17B.db
 ```
 
-Then, define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
+Then, define the correct set of condition data by mentioning the global tag in the configuration file of the job.
 
 ```shell
 #globaltag for 2010 MC
@@ -130,7 +131,7 @@ Note that **this only works in the "CMS-OpenData-1.1.2" or a higher version** of
 
 **Container:**
 
-Define the Global Tag in the configuration file of the job:
+Define the global tag in the configuration file of the job:
 
 ```shell
 #globaltag for 2010 data
@@ -156,7 +157,7 @@ ls -l
 ls -l /cvmfs/
 ```
 
-Then, define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
+Then, define the correct set of condition data by mentioning the global tag in the configuration file of the job.
 
 ```shell
 #globaltag for 2011 collision data
@@ -175,7 +176,7 @@ If only accessing 2011 RunA data, using FT_53_LV5_AN1_RUNA by setting the databa
 
 Selected database files have been stored in the local `/cvmfs/cms-opendata-conddb.cern.ch/` area of the container to make the condition database access faster.
 
-Define the Global Tag and connect to the local database in the configuration file of the job:
+Define the global tag and connect to the local database in the configuration file of the job:
 
 ```shell
 process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/FT_53_LV5_AN1_data_stripped.db')
@@ -184,7 +185,7 @@ process.GlobalTag.globaltag = 'FT_53_LV5_AN1::All'
 
 ---
 
-**For 2011 Montecarlo data**, the global tag is START53_LV6A1.
+**For 2011 simulated data**, the global tag is START53_LV6A1.
 
 **VM:**
 
@@ -201,7 +202,7 @@ ls -l
 ls -l /cvmfs/
 ```
 
-Then, define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
+Then, define the correct set of condition data by mentioning the global tag in the configuration file of the job.
 
 ```shell
 #globaltag for 2011 MC
@@ -213,7 +214,7 @@ process.GlobalTag.globaltag = 'START53_LV6A1::All'
 
 Selected database files have been stored in the local `/cvmfs/cms-opendata-conddb.cern.ch/` area of the container to make the condition database access faster.
 
-Define the Global Tag and connect to the local database in the configuration file of the job:
+Define the global tag and connect to the local database in the configuration file of the job:
 
 ```shell
 process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/START53_LV6A1_data_stripped.db')
@@ -240,7 +241,7 @@ ls -l
 ls -l /cvmfs/
 ```
 
-Then, define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
+Then, define the correct set of condition data by mentioning the global tag in the configuration file of the job.
 
 ```shell
 #globaltag for 2012 collision data
@@ -259,18 +260,18 @@ They were proviced because of the small cache area size in the earlier VM images
 
 Selected database files have been stored in the local `/cvmfs/cms-opendata-conddb.cern.ch/` area of the container to make the condition database access faster.
 
-Define the Global Tag and connect to the local database in the configuration file of the job:
+Define the global tag and connect to the local database in the configuration file of the job:
 
 ```shell
 process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/FT53_V21A_AN6_FULL_data_stripped.db')
 process.GlobalTag.globaltag = 'FT53_V21A_AN6_FULL::All'
 ```
 
-Note that when accessing the condition data from external servers, the Global Tag covering the full range of data taking is `FT53_V21A_AN6::All`.
+Note that when accessing the condition data from external servers, the global tag covering the full range of data taking is `FT53_V21A_AN6::All`.
 
 ---
 
-**For 2012 Montecarlo data**, the global tag is START53_V27.
+**For 2012 simulated data**, the global tag is START53_V27.
 
 **VM:**
 
@@ -287,7 +288,7 @@ ls -l
 ls -l /cvmfs/
 ```
 
-Then, define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
+Then, define the correct set of condition data by mentioning the global tag in the configuration file of the job.
 
 ```shell
 #globaltag for 2012 MC
@@ -295,13 +296,13 @@ process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.c
 process.GlobalTag.globaltag = 'START53_V27::All'
 ```
 
-In addition, condition data for the Global Tag START53_V7N is provided. This was used to produce simulated data with dose-dependent detector characteristics, run-dependent pile-up and beam spot conditions for the Higgs boson discovery analysis. The simulated data produced with this Global Tag can be analysed with the other Global Tag above.
+In addition, condition data for the global tag START53_V7N is provided. This was used to produce simulated data with dose-dependent detector characteristics, run-dependent pile-up and beam spot conditions for the Higgs boson discovery analysis. The simulated data produced with this global tag can be analysed with the other global tag above.
 
 **Container:**
 
 Selected database files have been stored in the local `/cvmfs/cms-opendata-conddb.cern.ch/` area of the container to make the condition database access faster.
 
-Define the Global Tag and connect to the local database in the configuration file of the job:
+Define the global tag and connect to the local database in the configuration file of the job:
 
 ```shell
 process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/START53_V27_data_stripped.db')
@@ -313,7 +314,7 @@ process.GlobalTag.globaltag = 'START53_V27::All'
 
 **VM and container:**
 
-Define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
+Define the correct set of condition data by mentioning the global tag in the configuration file of the job.
 
 ```shell
 #globaltag for 2015 collision data
@@ -325,11 +326,11 @@ Note that when using the CMS open data software container, the `process.GlobalTa
 
 ---
 
-**For 2015 Montecarlo data**, the global tag is 76X_mcRun2_asymptotic_RunIIFall15DR76_v1.
+**For 2015 simulated data**, the global tag is 76X_mcRun2_asymptotic_RunIIFall15DR76_v1.
 
 **VM and container:**
 
-Define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
+Define the correct set of condition data by mentioning the global tag in the configuration file of the job.
 
 ```shell
 #globaltag for 2015 MC
@@ -341,7 +342,7 @@ Note that when using the CMS open data software container, the `process.GlobalTa
 
 ---
 
-**For 2016 Montecarlo data**, for the special data science samples, the global tag is 80X_mcRun2_asymptotic_2016_TrancheIV_v8.
+**For 2016 simulated data**, for the special data science samples, the global tag is 80X_mcRun2_asymptotic_2016_TrancheIV_v8.
 
 **VM:**
 
@@ -357,7 +358,7 @@ ls -l
 ls -l /cvmfs/
 ```
 
-Then, define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
+Then, define the correct set of condition data by mentioning the global tag in the configuration file of the job.
 
 ```shell
 #globaltag for 2016 MC
@@ -368,7 +369,7 @@ process.GlobalTag.snapshotTime = cms.string("9999-12-31 23:59:59.000")
 
 ---
 
-**For 2018 Montecarlo data**, for the special data science samples, the global tag is 102X_upgrade2018_design_v9.
+**For 2018 simulated data**, for the special data science samples, the global tag is 102X_upgrade2018_design_v9.
 
 **VM:**
 
@@ -384,7 +385,7 @@ ls -l
 ls -l /cvmfs/
 ```
 
-Then, define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
+Then, define the correct set of condition data by mentioning the global tag in the configuration file of the job.
 
 ```shell
 #globaltag for 2018 MC
@@ -393,7 +394,7 @@ process.GlobalTag.globaltag = '102X_upgrade2018_design_v9'
 process.GlobalTag.snapshotTime = cms.string("9999-12-31 23:59:59.000")
 ```
 
-### <a name="heavy-ion">Heavy-ion data</a>
+### <a name="heavy-ion">Heavy-ion related data</a>
 
 ---
 
@@ -408,7 +409,7 @@ ln -sf /cvmfs/cms-opendata-conddb.cern.ch/GR_R_39X_V6B GR_R_39X_V6B
 ln -sf /cvmfs/cms-opendata-conddb.cern.ch/GR_R_39X_V6B.db GR_R_39X_V6B.db
 ```
 
-Then, define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
+Then, define the correct set of condition data by mentioning the global tag in the configuration file of the job.
 
 ```shell
 #globaltag
@@ -420,7 +421,7 @@ Note that **this only works in the "CMS-OpenData-1.1.2" or a higher version** of
 
 **Container:**
 
-Define the Global Tag in the configuration file of the job:
+Define the global tag in the configuration file of the job:
 
 ```shell
 #globaltag for 2010 data
@@ -440,7 +441,7 @@ ln -sf /cvmfs/cms-opendata-conddb.cern.ch/GR_R_44_V15 GR_R_44_V15
 ln -sf /cvmfs/cms-opendata-conddb.cern.ch/GR_R_44_V15.db GR_R_44_V15.db
 ```
 
-Then, define the correct set of condition data by mentioning the Global Tag in the configuration file of the job.
+Then, define the correct set of condition data by mentioning the global tag in the configuration file of the job.
 
 ```shell
 #globaltag
@@ -452,9 +453,110 @@ Note that **this only works in the "CMS-OpenData-1.1.2" or a higher version** of
 
 **Container:**
 
-Define the Global Tag in the configuration file of the job:
+Define the global tag in the configuration file of the job:
 
 ```shell
-#globaltag for 2010 data
+#globaltag for 2011 data
 process.GlobalTag.globaltag = 'GR_R_44_V15::All'
 ```
+
+---
+
+**For 2013 heavy-ion and p-p reference data**, the global tag is GR_P_V43D.
+
+**VM:**
+
+First, set the symbolic links:
+
+```shell
+ln -sf /cvmfs/cms-opendata-conddb.cern.ch/GR_P_V43D GR_P_V43D
+ln -sf /cvmfs/cms-opendata-conddb.cern.ch/GR_P_V43D.db GR_P_V43D.db
+```
+
+Then, define the correct set of condition data by mentioning the global tag in the configuration file of the job.
+
+```shell
+#globaltag
+process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/GR_P_V43D.db')
+process.GlobalTag.globaltag = 'GR_P_V43D::All'
+```
+
+**Container:**
+
+Define the global tag in the configuration file of the job:
+
+```shell
+#globaltag for 2013 HI data
+process.GlobalTag.globaltag = 'GR_P_V43D::All'
+```
+
+---
+
+**For 2013 heavy-ion related simulated data**, the global tags are:
+
+- PbPb simulated data at 2.76 TeV - STARTHI53_LV1
+- pp simulated reference data at 2.76 TeV - STARTHI53_V28
+- pPb simulated data at 5.02 TeV - STARTHI53_V27
+
+Replace `<GLOBAL TAG>` in the following instructions with the value from this list.
+
+**VM:**
+
+First, set the symbolic links:
+
+```shell
+ln -sf /cvmfs/cms-opendata-conddb.cern.ch/<GLOBAL TAG> <GLOBAL TAG>
+ln -sf /cvmfs/cms-opendata-conddb.cern.ch/<GLOBAL TAG>.db <GLOBAL TAG>.db
+```
+
+Then, define the correct set of condition data by mentioning the global tag in the configuration file of the job.
+
+```shell
+#globaltag
+process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/<GLOBAL TAG>.db')
+process.GlobalTag.globaltag = '<GLOBAL TAG>::All'
+```
+
+**Container:**
+
+Define the global tag in the configuration file of the job:
+
+```shell
+#globaltag for 2013 HI-related MC
+process.GlobalTag.globaltag = '<GLOBAL TAG>::All'
+```
+
+---
+
+**For 2015 p-p reference data**, the global tag is 75X_dataRun2_v13.
+
+**VM:**
+
+First, set the symbolic link:
+
+```shell
+ln -sf /cvmfs/cms-opendata-conddb.cern.ch/75X_dataRun2_v13.db 75X_dataRun2_v13.db
+```
+
+Then, define the correct set of condition data by mentioning the global tag in the configuration file of the job.
+
+```shell
+#globaltag
+process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/75X_dataRun2_v13.db')
+process.GlobalTag.globaltag = '75X_dataRun2_v13::All'
+```
+
+**Container:**
+
+Define the global tag in the configuration file of the job:
+
+```shell
+#globaltag for 2015 pp HI reference data
+process.GlobalTag.globaltag = '75X_dataRun2_v13::All'
+```
+
+---
+
+**Additional database files for heavy-ion software**
+
+In addition to the regular global tags, two sets of additional database files are collected under `/cvmfs/cms-opendata-conddb.cern.ch/hi_53_add_ons/` and `/cvmfs/cms-opendata-conddb.cern.ch/hi_75_add_ons/`. These database files are used in the heavy-ion software and they modify the existing collection of the global tags when needed.

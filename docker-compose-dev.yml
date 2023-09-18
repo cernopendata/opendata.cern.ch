@@ -36,7 +36,7 @@ services:
   # firefox http://localhost:1984
   # ```
   wdb:
-    image: kozea/wdb:3.2.5
+    image: docker.io/kozea/wdb:3.3.0
     ports:
       - "1984:1984"
 
@@ -157,7 +157,7 @@ services:
 
   postgresql:
     restart: "unless-stopped"
-    image: postgres:12.13
+    image: docker.io/library/postgres:14.8
     environment:
       - POSTGRES_USER=cernopendata
       - POSTGRES_DB=cernopendata
@@ -167,13 +167,13 @@ services:
 
   redis:
     restart: "unless-stopped"
-    image: redis
+    image: docker.io/library/redis:7
     ports:
       - "6379:6379"
 
   elasticsearch:
     restart: "unless-stopped"
-    image: elasticsearch:7.16.1
+    image: docker.io/library/elasticsearch:7.16.1
     # Uncomment if DEBUG logging needs to enabled for Elasticsearch
     # command: ["elasticsearch", "-Elogger.level=DEBUG"]
     environment:
@@ -181,18 +181,18 @@ services:
       # set to reasonable values on production
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - discovery.type=single-node
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    mem_limit: 1g
+    # ulimits:
+    #   memlock:
+    #     soft: -1
+    #     hard: -1
+    # mem_limit: 1g
     ports:
       - "9200:9200"
       - "9300:9300"
 
   rabbitmq:
     restart: "unless-stopped"
-    image: rabbitmq
+    image: docker.io/library/rabbitmq:3.12
     ports:
       - "4369:4369"
       - "5672:5672"

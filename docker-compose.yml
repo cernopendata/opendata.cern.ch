@@ -146,7 +146,7 @@ services:
 
   postgresql:
     restart: "always"
-    image: postgres:12.13
+    image: docker.io/library/postgres:14.8
     environment:
       - POSTGRES_USER=cernopendata
       - POSTGRES_DB=cernopendata
@@ -158,13 +158,13 @@ services:
 
   redis:
     restart: "always"
-    image: redis
+    image: docker.io/library/redis:7
     ports:
       - "6379"
 
   elasticsearch:
     restart: "always"
-    image: elasticsearch:7.16.1
+    image: docker.io/library/elasticsearch:7.16.1
     command: ["elasticsearch", "-E", "logger.org.elasticsearch.deprecation=error"]
     environment:
       - bootstrap.memory_lock=true
@@ -173,11 +173,11 @@ services:
       - discovery.type=single-node
     volumes:
       - elasticsearch_data:/usr/share/elasticsearch/data/elasticsearch
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    mem_limit: 1g
+    # ulimits:
+    #   memlock:
+    #     soft: -1
+    #     hard: -1
+    # mem_limit: 1g
     ports:
       - "9200"
       - "9300"
@@ -194,7 +194,7 @@ services:
 
   rabbitmq:
     restart: "always"
-    image: rabbitmq
+    image: docker.io/library/rabbitmq:3.12
     depends_on:
      - redis
     ports:
@@ -204,7 +204,7 @@ services:
   nginx:
     restart: "always"
     build: ./nginx
-    image: cernopendata/nginx
+    image: cernopendata/nginx:1.22
     ports:
       - "80:80"
       - "443:443"

@@ -23,7 +23,7 @@
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
 # Use Invenio's CentOS7 image with Python-3.6
-FROM inveniosoftware/centos7-python:3.6
+FROM docker.io/inveniosoftware/centos7-python:3.6
 
 # Use XRootD 4.12.7
 ENV XROOTD_VERSION=4.12.7

@@ -1,0 +1,236 @@
+[
+  {
+    "abstract": {
+      "description": "<p>CMS measures the luminosity using different luminometers (luminosity detectors) and algorithms. </p><p>The integrated luminosity for validated runs and luminosity sections of the 5.02TeV proton-Pb heavy-ion collision data taken in 2013 (HIRun2013) is available in HIRun2013lumi.txt. </p><p> For luminosity calculation, a detailed list of luminosity by lumi section is provided in <a href=\"/record/1056/files/pPb_2013lumibyls.csv\">pPb_2013lumibyls.csv</a> for the <a href=\"/record/14216\">list of validated runs</a> and lumi sections.</p><p>The uncertainty in the luminosity measurement of 2013 data should be considered as 3.4% (reference <a href=\"https://cds.cern.ch/record/1643269\">Luminosity Calibration for the 2013 Proton-Lead and Proton-Proton Data Taking</a>).</p><p>In your estimate for the integrated luminosity, check for which runs the trigger you have selected is active and sum the values for those runs. For prescaled triggers, the change of prescales (run, lumi section, index of prescales referring to the PrescaleService module in the High-Level Trigger configuration files) is recorded in <a href=\"/record/1056/files/prescale_pPb2013.csv\">prescale_pPb2013.csv</a>.</p><p>Additional information on how to extract luminosity values using the <strong>brilcalc tool</strong> can be found in the <a href=\"/docs/cms-guide-luminosity-calculation\"> luminosity calculation guide</a>.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration"
+    },
+    "collections": [
+      "CMS-Luminosity-Information"
+    ],
+    "collision_information": {
+      "energy": "5.02TeV",
+      "type": "pPb"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "distribution": {
+      "formats": [
+        "csv",
+        "txt"
+      ],
+      "number_files": 3,
+      "size": 2225508
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:58a7e005",
+        "size": 4747,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2013/HIRun2013lumi.txt"
+      },
+      {
+        "checksum": "adler32:d54cefef",
+        "size": 2217660,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2013/pPb_2013lumibyls.csv"
+      },
+      {
+        "checksum": "adler32:685e1d09",
+        "size": 3101,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2013/prescale_pPb2013.csv"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "links": [
+      {
+        "title": "Luminosity Calibration for the 2013 Proton-Lead and Proton-Proton Data Taking",
+        "url": "https://cds.cern.ch/record/1643269"
+      }
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "1056",
+    "relations": [
+      {
+        "recid": "14216",
+        "type": "isRelatedTo"
+      }
+    ],
+    "run_period": [
+      "HIRun2013"
+    ],
+    "title": "CMS luminosity information for 5.02TeV proton-Pb heavy-ion collision data taken in 2013",
+    "type": {
+      "primary": "Supplementaries",
+      "secondary": [
+        "Luminosity"
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>CMS measures the luminosity using different luminometers (luminosity detectors) and algorithms. </p><p>The integrated luminosity for validated runs and luminosity sections of the 2.76TeV proton-proton collision data, needed as reference data for heavy-ion data analysis, taken in 2013 (Run2013A) is available in Run2013Alumi.txt. </p><p> For luminosity calculation, a detailed list of luminosity by lumi section is provided in <a href=\"/record/1057/files/pphiref_2013lumibyls.csv\">pphiref_2013lumibyls.csv</a> for the <a href=\"/record/14218\">list of validated runs</a> and lumi sections.</p><p>The uncertainty in the luminosity measurement of 2013 data should be considered as 3.7% (reference <a href=\"https://cds.cern.ch/record/1643269\">Luminosity Calibration for the 2013 Proton-Lead and Proton-Proton Data Taking</a>).</p><p>In your estimate for the integrated luminosity, check for which runs the trigger you have selected is active and sum the values for those runs. For prescaled triggers, the change of prescales (run, lumi section, index of prescales referring to the PrescaleService module in the High-Level Trigger configuration files) is recorded in <a href=\"/record/1057/files/prescale_pphiref2013.csv\">prescale_pphiref2013.csv</a>.</p><p>Additional information on how to extract luminosity values using the <strong>brilcalc tool</strong> can be found in the <a href=\"/docs/cms-guide-luminosity-calculation\"> luminosity calculation guide</a>.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration"
+    },
+    "collections": [
+      "CMS-Luminosity-Information"
+    ],
+    "collision_information": {
+      "energy": "2.76TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "distribution": {
+      "formats": [
+        "csv",
+        "txt"
+      ],
+      "number_files": 3,
+      "size": 361755
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:65c55d1b",
+        "size": 8681,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2013/Run2013Alumi.txt"
+      },
+      {
+        "checksum": "adler32:5430ff79",
+        "size": 352688,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2013/pphiref_2013lumibyls.csv"
+      },
+      {
+        "checksum": "adler32:0bce4674",
+        "size": 386,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2013/prescale_pphiref2013.csv"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "links": [
+      {
+        "title": "Luminosity Calibration for the 2013 Proton-Lead and Proton-Proton Data Taking",
+        "url": "https://cds.cern.ch/record/1643269"
+      }
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "1057",
+    "relations": [
+      {
+        "recid": "14218",
+        "type": "isRelatedTo"
+      }
+    ],
+    "run_period": [
+      "Run2013A"
+    ],
+    "title": "CMS luminosity information for 2.76TeV proton-proton collision data, needed as reference data for heavy-ion data analysis, taken in 2013",
+    "type": {
+      "primary": "Supplementaries",
+      "secondary": [
+        "Luminosity"
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>CMS measures the luminosity using different luminometers (luminosity detectors) and algorithms. The luminometer giving the best value for each luminosity section is recorded in a <strong>normtag</strong> file <a href=\"/record/1058/files/normtag_PHYSICS_pphiref_2015.json\">normtag_PHYSICS_pphiref_2015.json</a> that is used in the luminosity calculation.</p><p>The integrated luminosity for validated runs and luminosity sections of the 5.02TeV proton-proton collision data, needed as reference data for heavy-ion data analysis, taken in 2015 (Run2015E) is available in Run2015Elumi.txt. </p><p> For luminosity calculation, a detailed list of luminosity by lumi section is provided in <a href=\"/record/1058/files/pphiref_2015lumibyls.csv\">pphiref_2015lumibyls.csv</a> for the <a href=\"/record/14212\">list of validated runs</a> and lumi sections.</p><p>The uncertainty in the luminosity measurement of 2015 data should be considered as 2.3% (reference <a href=\"https://cds.cern.ch/record/2235781\">CMS Luminosity Calibration for the pp Reference Run at $\\sqrt{s}=5.02~\\mathrm{TeV}$</a>).</p><p>In your estimate for the integrated luminosity, check for which runs the trigger you have selected is active and sum the values for those runs. For prescaled triggers, the change of prescales (run, lumi section, index of prescales referring to the PrescaleService module in the High-Level Trigger configuration files) is recorded in <a href=\"/record/1058/files/prescale_pphiref2015.csv\">prescale_pphiref2015.csv</a>.</p><p>Additional information on how to extract luminosity values using the <strong>brilcalc tool</strong> can be found in the <a href=\"/docs/cms-guide-luminosity-calculation\"> luminosity calculation guide</a>.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration"
+    },
+    "collections": [
+      "CMS-Luminosity-Information"
+    ],
+    "collision_information": {
+      "energy": "5.02TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2015"
+    ],
+    "date_published": "2023",
+    "distribution": {
+      "formats": [
+        "csv",
+        "json",
+        "txt"
+      ],
+      "number_files": 4,
+      "size": 551796
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:9191d624",
+        "size": 4211,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2015/Run2015Elumi.txt"
+      },
+      {
+        "checksum": "adler32:26dd27d1",
+        "size": 1129,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2015/normtag_PHYSICS_pphiref_2015.json"
+      },
+      {
+        "checksum": "adler32:70a4df4d",
+        "size": 546005,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2015/pphiref_2015lumibyls.csv"
+      },
+      {
+        "checksum": "adler32:ef9550c9",
+        "size": 451,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2015/prescale_pphiref2015.csv"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "links": [
+      {
+        "title": "CMS Luminosity Calibration for the pp Reference Run at $\\sqrt{s}=5.02~\\mathrm{TeV}$",
+        "url": "https://cds.cern.ch/record/2235781"
+      }
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "1058",
+    "relations": [
+      {
+        "recid": "14212",
+        "type": "isRelatedTo"
+      }
+    ],
+    "run_period": [
+      "Run2015E"
+    ],
+    "title": "CMS luminosity information for 5.02TeV proton-proton collision data, needed as reference data for heavy-ion data analysis, taken in 2015",
+    "type": {
+      "primary": "Supplementaries",
+      "secondary": [
+        "Luminosity"
+      ]
+    }
+  }
+]

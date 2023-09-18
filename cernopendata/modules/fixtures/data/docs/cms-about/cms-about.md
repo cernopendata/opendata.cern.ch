@@ -1,9 +1,9 @@
-The Compact Muon Solenoid (CMS) is one of the large particle detectors at CERN's Large Hadron Collider. The CMS Collaboration consists of more than 4000 scientists, engineers, technicians and students from around 200 institutes and universities from more than 40 countries. You can find more information about the CMS [detector](https://cms.cern/detector) on the official [CMS website](https://cms.cern).
+The Compact Muon Solenoid (CMS) is one of the large particle detectors at CERN's Large Hadron Collider. The CMS Collaboration consists of more than 4000 scientists, engineers, technicians and students from around 240 institutes and universities from more than 50 countries. You can find more information about the CMS [detector](https://cms.cern/detector) on the official [CMS website](https://cms.cern).
 
 You can find usage instructions and suggestions of CMS Open Data for different scopes in:
 
 * [Guide page to education use of CMS Open Data](/docs/cms-guide-for-education)
-* [Guide page to reaserch use of CMS Open Data](/docs/cms-guide-for-research) and a separate [CMS Open Data guide](https://cms-opendata-guide.web.cern.ch/) (under construction).
+* In a separate [CMS Open Data guide](https://cms-opendata-guide.web.cern.ch/) (under construction).
 
 This page gives a brief overview of CMS Open Data contents:
 
@@ -22,7 +22,7 @@ The following are provided through this portal:
     * [Simulation data](/search?page=1&size=20&subtype=Simulated&type=Dataset&experiment=CMS)
     * Examples of [simplified datasets](/search?page=1&size=20&subtype=Derived&type=Dataset&experiment=CMS) derived from the primary ones for use in different applications and analyses
 * Tools
-    * Downloadable [Docker images](/docs/cms-guide-docker) with the CMS software environment through which the datasets can be accessed
+    * Downloadable [container images](/docs/cms-guide-docker) with the CMS software environment through which the datasets can be accessed
     * Alternatively, a downloadable [Virtual Machine (VM)](/docs/cms-virtual-machine-2015) image with the CMS software environment
     * [Getting started instructions](/docs/cms-getting-started-2015) for reading the primary dataset and producing intermediate derived data for the final analysis
     * Ready-to-use online applications, such as [an event display](/visualise/events/cms) and [simple histogramming software](/visualise/histograms/cms)
@@ -65,7 +65,8 @@ The following are provided through this portal:
     * The release of 2010 data is accompanied by a small set of simulated data.
     * The release of 2011 data includes some simulated data, limited to those datasets that were reprocessed with a software release compatible with the 2012 collision data.
     * The release of 2012 data includes a larger sample of simulated data. A part of 2012 simulated data is released with the bibliographic information content only, and these datasets will be made available online on demand.
-    * The release of 2015 includes a large collection of simulated data, reprocessed with a software release compatible with the 2015 collision data, but it may still happen that some simulated data did not make it to this reprocessing and are therefore not available in this collection.
+    * The release of 2013 heavy-ion-related data includes simulated data corresponding to different collision types and centre-of mass energies.
+    * The release of 2015 data includes a large collection of simulated data, reprocessed with a software release compatible with the 2015 collision data, but it may still happen that some simulated data did not make it to this reprocessing and are therefore not available in this collection.
 * If you are interested in joining the CMS Collaboration, please read [How to join CMS](https://cms.cern/collaboration/how-join-cms).
 
 ## <a name="other">Other CMS open data</a>

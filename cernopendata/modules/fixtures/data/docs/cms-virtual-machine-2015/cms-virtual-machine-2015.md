@@ -21,12 +21,12 @@ Note: the latest tested version of VirtualBox working with this CMS-specific Cer
 
 Next download the CMS-specific CernVM image as OVA file from: [CMS VM Image for 2011 CMS Open Data][cmsvmimage2011]. It is recommended using the version "CMS-OpenData-1.5.3". This VM Image is the same that is used for data from 2011 and 2012, but the CMS software version to be used is different.
 
-By double clicking the downloaded file, VirtualBox imports the image with ready-to-run settings. In VirtualBox version 6 or later, you need to unselect "import disks as VDI" on the initial import screen. Then, you launch the CMS-specific CernVM, which boots into the graphical user interface and sets up the CMS environment. You will be prompted to change the settings of the network adaptor 2: change them as instructed to "NAT". Then, be patient, the boot will take a while.
+By double clicking the downloaded file, VirtualBox imports the image with ready-to-run settings. In VirtualBox version 6 or later, you need to unselect "import disks as VDI" on the initial import screen. Before launching the image, change the network settings: select the image from the left bar of the VirtualBox window, go to Settings and select Networks and change the network setting for network adaptor 2 to "NAT". Then, launch the CMS-specific CernVM, which boots into the graphical user interface and sets up the CMS environment. Then, be patient, the boot will take a while.
 
 
 ## <a name="test">Step 2: How to Test & Validate?</a>
 
-The validation procedure tests that the CMS environment is installed and operational on your virtual machine, and that you have access to the CMS Open Data files. You may skip this step if you want, and head straight to [Getting Started with CMS data][getstartedcms]. However, these steps give you a quick introduction to the CMS environment.
+The validation procedure tests that the CMS environment is installed and operational on your virtual machine, and that you have access to the CMS Open Data files. It gives a quick introduction to the CMS environment. You may skip this step if you want, and head straight to [Getting Started with CMS data][getstartedcms]. If you want to access the CMS heavy-ion data, go directly to the [heavy-ion specific getting-started instructions][getstartedcmshi].
 
 ### Set up the CMS environment and inspect file contents
 
@@ -139,3 +139,4 @@ unsigned int                          "bunchSpacingProducer"      ""            
 [installVB2]: <https://www.virtualbox.org/wiki/Download_Old_Builds>
 [cmsvmimage2011]: </record/252>
 [getstartedcms]: </docs/cms-getting-started-2015>
+[getstartedcmshi]: </docs/cms-getting-started-hi-2013-2015>

@@ -111,5 +111,266 @@
     "usage": {
       "description": "If you are using the <a href=\"/record/250\">CMS Virtual Machine</a> image or the <a href=\"/docs/cms-guide-docker\">CMS container</a> image environments, then the condition data files will be served automatically from <code>/cvmfs/cms-opendata-conddb.cern.ch/</code> or from a file server at runtime, and therefore you do not need to download these files. If you need to have them locally, you can download them from here."
     }
+  },
+  {
+    "abstract": {
+      "description": "<p>Condition database includes non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for simulation/reconstruction/analysis software.</p>\n    <p> These files are needed when running a CMSSW job on the open data environment (VM or container), and they are available in the /cvmfs/cms-opendata-conddb.cern.ch file system. They are automatically read from /cvmfs/cms-opendata-conddb.cern.ch/GR_P_V43D runtime.</p>\n       <p>GR_P_V43D is to be used with the proton-lead collision data and proton-proton reference data from 2013.</p>\n      <p>See further information in <a href=\"/docs/cms-guide-for-condition-database\">the guide to CMS condition database</a>.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration"
+    },
+    "collections": [
+      "CMS-Condition-Data"
+    ],
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "distribution": {
+      "formats": [
+        "db",
+        "zip"
+      ],
+      "number_files": 2,
+      "size": 46270587172
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:e8455b8a",
+        "size": 46270511396,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/conddb/GR_P_V43D.zip"
+      },
+      {
+        "checksum": "adler32:18182417",
+        "size": 75776,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/conddb/GR_P_V43D.db"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "1813",
+    "run_period": [
+      "HIRun2013",
+      "Run2013A"
+    ],
+    "title": "Condition data for 2013 CMS proton-lead collision data at 5.02 TeV and proton-proton reference data at 2.76 TeV",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "Condition"
+      ]
+    },
+    "usage": {
+      "description": "If you are using the <a href=\"/record/252\">CMS Virtual Machine</a> image or the <a href=\"/docs/cms-guide-docker\">CMS container</a> image environments, then the condition data files will be served automatically from <code>/cvmfs/cms-opendata-conddb.cern.ch/</code> or from a file server at runtime, and therefore you do not need to download these files. If you need to have them locally, you can download them from here."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Condition database includes non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for simulation/reconstruction/analysis software.</p>\n    <p> These files are needed when running a CMSSW job on the open data environment (VM or container), and they are available in the /cvmfs/cms-opendata-conddb.cern.ch file system. They are automatically read from /cvmfs/cms-opendata-conddb.cern.ch/STARTHI53_LV1 runtime.</p>\n       <p>STARTHI53_LV1 is to be used with the lead-lead simulated data at 2.76 TeV from 2013.</p>\n      <p>See further information in <a href=\"/docs/cms-guide-for-condition-database\">the guide to CMS condition database</a>.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration"
+    },
+    "collections": [
+      "CMS-Condition-Data"
+    ],
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "distribution": {
+      "formats": [
+        "db",
+        "zip"
+      ],
+      "number_files": 2,
+      "size": 166022585
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:d9e1d873",
+        "size": 165934521,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/conddb/STARTHI53_LV1.zip"
+      },
+      {
+        "checksum": "adler32:9029e238",
+        "size": 88064,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/conddb/STARTHI53_LV1.db"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "1814",
+    "title": "Condition data for 2013 CMS lead-lead simulated data at 2.76 TeV",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "Condition"
+      ]
+    },
+    "usage": {
+      "description": "If you are using the <a href=\"/record/252\">CMS Virtual Machine</a> image or the <a href=\"/docs/cms-guide-docker\">CMS container</a> image environments, then the condition data files will be served automatically from <code>/cvmfs/cms-opendata-conddb.cern.ch/</code> or from a file server at runtime, and therefore you do not need to download these files. If you need to have them locally, you can download them from here."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Condition database includes non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for simulation/reconstruction/analysis software.</p>\n    <p> These files are needed when running a CMSSW job on the open data environment (VM or container), and they are available in the /cvmfs/cms-opendata-conddb.cern.ch file system. They are automatically read from /cvmfs/cms-opendata-conddb.cern.ch/STARTHI53_V28 runtime.</p>\n       <p>STARTHI53_V28 is to be used with the proton-proton simulated data at 2.76 TeV from 2013, needed as reference data for heavy-ion data analysis.</p>\n      <p>See further information in <a href=\"/docs/cms-guide-for-condition-database\">the guide to CMS condition database</a>.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration"
+    },
+    "collections": [
+      "CMS-Condition-Data"
+    ],
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "distribution": {
+      "formats": [
+        "db",
+        "zip"
+      ],
+      "number_files": 2,
+      "size": 171268275
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:3e31e97d",
+        "size": 171153587,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/conddb/STARTHI53_V28.zip"
+      },
+      {
+        "checksum": "adler32:182df72b",
+        "size": 114688,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/conddb/STARTHI53_V28.db"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "1815",
+    "title": "Condition data for 2013 CMS proton-proton simulated data at 2.76 TeV for heavy-ion analysis",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "Condition"
+      ]
+    },
+    "usage": {
+      "description": "If you are using the <a href=\"/record/252\">CMS Virtual Machine</a> image or the <a href=\"/docs/cms-guide-docker\">CMS container</a> image environments, then the condition data files will be served automatically from <code>/cvmfs/cms-opendata-conddb.cern.ch/</code> or from a file server at runtime, and therefore you do not need to download these files. If you need to have them locally, you can download them from here."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Condition database includes non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for simulation/reconstruction/analysis software.</p>\n    <p> These files are needed when running a CMSSW job on the open data environment (VM or container), and they are available in the /cvmfs/cms-opendata-conddb.cern.ch file system. They are automatically read from /cvmfs/cms-opendata-conddb.cern.ch/STARTHI53_V27 runtime.</p>\n       <p>STARTHI53_V27 is to be used with the proton-lead simulated data at 5.02 TeV from 2013.</p>\n      <p>See further information in <a href=\"/docs/cms-guide-for-condition-database\">the guide to CMS condition database</a>.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration"
+    },
+    "collections": [
+      "CMS-Condition-Data"
+    ],
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "distribution": {
+      "formats": [
+        "db",
+        "zip"
+      ],
+      "number_files": 2,
+      "size": 171263556
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:5125fad5",
+        "size": 114688,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/conddb/STARTHI53_V27.db"
+      },
+      {
+        "checksum": "adler32:3116605b",
+        "size": 171148868,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/conddb/STARTHI53_V27.zip"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "1816",
+    "title": "Condition data for 2013 CMS proton-lead simulated data at 5.02 TeV",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "Condition"
+      ]
+    },
+    "usage": {
+      "description": "If you are using the <a href=\"/record/252\">CMS Virtual Machine</a> image or the <a href=\"/docs/cms-guide-docker\">CMS container</a> image environments, then the condition data files will be served automatically from <code>/cvmfs/cms-opendata-conddb.cern.ch/</code> or from a file server at runtime, and therefore you do not need to download these files. If you need to have them locally, you can download them from here."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Condition database includes non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for simulation/reconstruction/analysis software.</p>\n    <p> These files are needed when running a CMSSW job on the open data environment (VM or container), and they are available in the /cvmfs/cms-opendata-conddb.cern.ch file system. They are automatically read from /cvmfs/cms-opendata-conddb.cern.ch/75X_dataRun2_v13.db runtime.</p>\n       <p>75X_dataRun2_v13.db is to be used with the proton-proton heavy-ion reference data at 5.02 TeV from 2015.</p>\n      <p>See further information in <a href=\"/docs/cms-guide-for-condition-database\">the guide to CMS condition database</a>.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration"
+    },
+    "collections": [
+      "CMS-Condition-Data"
+    ],
+    "date_created": [
+      "2015"
+    ],
+    "date_published": "2023",
+    "distribution": {
+      "formats": [
+        "db"
+      ],
+      "number_files": 1,
+      "size": 34763472896
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:decb920f",
+        "size": 34763472896,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/conddb/75X_dataRun2_v13.db"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "1817",
+    "run_period": [
+      "Run2015E"
+    ],
+    "title": "Condition data for 2015 CMS proton-proton heavy-ion reference data at 5.02 TeV",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "Condition"
+      ]
+    },
+    "usage": {
+      "description": "If you are using the <a href=\"/record/252\">CMS Virtual Machine</a> image or the <a href=\"/docs/cms-guide-docker\">CMS container</a> image environments, then the condition data files will be served automatically from <code>/cvmfs/cms-opendata-conddb.cern.ch/</code> or from a file server at runtime, and therefore you do not need to download these files. If you need to have them locally, you can download them from here."
+    }
   }
 ]

@@ -1,0 +1,2922 @@
+[
+  {
+    "abstract": {
+      "description": "<p>PAHighPt primary dataset in RECO format from the 5.02 TeV proton-Pb run of 2013. Reprocessing for run numbers from 210498 to 211631.</p><p>For run numbers less than 210676, please use the reprocessed data in the related 28Sep2013-v1 dataset linked below.</p><p>During the 2013 proton-Pb data taking, the beam direction was reversed between runs 211256 and 211313.</p><p>The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14216"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14217"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "5.02TeV",
+      "type": "pPb"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2013",
+    "distribution": {
+      "formats": [
+        "reco",
+        "root"
+      ],
+      "number_events": 222789339,
+      "number_files": 15175,
+      "size": 103541400930704
+    },
+    "doi": "10.7483/OPENDATA.CMS.8EWL.W02X",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:f14a4b16",
+        "description": "PAHighPt RECO file index (1 of 1) for access to data",
+        "size": 4415060,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAHighPt/RECO/PromptReco-v1/file-indexes/CMS_HIRun2013_PAHighPt_RECO_PromptReco-v1_000_file_index.json"
+      },
+      {
+        "checksum": "adler32:7690b074",
+        "description": "PAHighPt RECO file index (1 of 1) for access to data",
+        "size": 2245900,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAHighPt/RECO/PromptReco-v1/file-indexes/CMS_HIRun2013_PAHighPt_RECO_PromptReco-v1_000_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset were selected because of the presence of one or more high-pt object or high track multiplicity.</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1702\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible <a href=\"/docs/cms-guide-trigger-system#hlt-trigger-path-definitions\">HLT trigger paths</a> in this dataset are:<br/><a href=\"/search?q=HLT_PAJet20_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet20_NoJetID</a><br/><a href=\"/search?q=HLT_PAJet40_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet40_NoJetID</a><br/><a href=\"/search?q=HLT_PAJet60_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet60_NoJetID</a><br/><a href=\"/search?q=HLT_PAJet80_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet80_NoJetID</a><br/><a href=\"/search?q=HLT_PAJet100_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet100_NoJetID</a><br/><a href=\"/search?q=HLT_PAJet120_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet120_NoJetID</a><br/><a href=\"/search?q=HLT_PAForJet20Eta2&type=Supplementaries&year=2013\">HLT_PAForJet20Eta2</a><br/><a href=\"/search?q=HLT_PAForJet40Eta2&type=Supplementaries&year=2013\">HLT_PAForJet40Eta2</a><br/><a href=\"/search?q=HLT_PAForJet60Eta2&type=Supplementaries&year=2013\">HLT_PAForJet60Eta2</a><br/><a href=\"/search?q=HLT_PAForJet80Eta2&type=Supplementaries&year=2013\">HLT_PAForJet80Eta2</a><br/><a href=\"/search?q=HLT_PAForJet100Eta2&type=Supplementaries&year=2013\">HLT_PAForJet100Eta2</a><br/><a href=\"/search?q=HLT_PAForJet20Eta3&type=Supplementaries&year=2013\">HLT_PAForJet20Eta3</a><br/><a href=\"/search?q=HLT_PAForJet40Eta3&type=Supplementaries&year=2013\">HLT_PAForJet40Eta3</a><br/><a href=\"/search?q=HLT_PAForJet60Eta3&type=Supplementaries&year=2013\">HLT_PAForJet60Eta3</a><br/><a href=\"/search?q=HLT_PAForJet80Eta3&type=Supplementaries&year=2013\">HLT_PAForJet80Eta3</a><br/><a href=\"/search?q=HLT_PAForJet100Eta3&type=Supplementaries&year=2013\">HLT_PAForJet100Eta3</a><br/><a href=\"/search?q=HLT_PATripleJet20_20_20&type=Supplementaries&year=2013\">HLT_PATripleJet20_20_20</a><br/><a href=\"/search?q=HLT_PATripleJet40_20_20&type=Supplementaries&year=2013\">HLT_PATripleJet40_20_20</a><br/><a href=\"/search?q=HLT_PATripleJet60_20_20&type=Supplementaries&year=2013\">HLT_PATripleJet60_20_20</a><br/><a href=\"/search?q=HLT_PATripleJet80_20_20&type=Supplementaries&year=2013\">HLT_PATripleJet80_20_20</a><br/><a href=\"/search?q=HLT_PATripleJet100_20_20&type=Supplementaries&year=2013\">HLT_PATripleJet100_20_20</a><br/><a href=\"/search?q=HLT_PAJet40ETM30&type=Supplementaries&year=2013\">HLT_PAJet40ETM30</a><br/><a href=\"/search?q=HLT_PAJet60ETM30&type=Supplementaries&year=2013\">HLT_PAJet60ETM30</a><br/><a href=\"/search?q=HLT_PAPhoton10_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton10_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton15_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton15_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton20_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton20_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton30_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton30_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton40_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton40_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton60_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton60_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton10_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton10_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton15_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton15_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton20_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton20_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton30_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton30_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton40_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton40_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton10_TightCaloIdVL_Iso50&type=Supplementaries&year=2013\">HLT_PAPhoton10_TightCaloIdVL_Iso50</a><br/><a href=\"/search?q=HLT_PAPhoton15_TightCaloIdVL_Iso50&type=Supplementaries&year=2013\">HLT_PAPhoton15_TightCaloIdVL_Iso50</a><br/><a href=\"/search?q=HLT_PAPhoton20_TightCaloIdVL_Iso50&type=Supplementaries&year=2013\">HLT_PAPhoton20_TightCaloIdVL_Iso50</a><br/><a href=\"/search?q=HLT_PAPhoton30_TightCaloIdVL_Iso50&type=Supplementaries&year=2013\">HLT_PAPhoton30_TightCaloIdVL_Iso50</a><br/><a href=\"/search?q=HLT_PAPhoton10_Photon10_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton10_Photon10_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton15_Photon10_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton15_Photon10_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton20_Photon15_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton20_Photon15_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton20_Photon20_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton20_Photon20_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton30_Photon30_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton30_Photon30_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton10_Photon10_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton10_Photon10_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton10_Photon10_TightCaloIdVL_Iso50&type=Supplementaries&year=2013\">HLT_PAPhoton10_Photon10_TightCaloIdVL_Iso50</a><br/><a href=\"/search?q=HLT_PAPhoton15_Photon10_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton15_Photon10_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton20_Photon15_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton20_Photon15_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PASingleEle6_CaloIdT_TrkIdVL&type=Supplementaries&year=2013\">HLT_PASingleEle6_CaloIdT_TrkIdVL</a><br/><a href=\"/search?q=HLT_PASingleEle6_CaloIdNone_TrkIdVL&type=Supplementaries&year=2013\">HLT_PASingleEle6_CaloIdNone_TrkIdVL</a><br/><a href=\"/search?q=HLT_PASingleEle8_CaloIdNone_TrkIdVL&type=Supplementaries&year=2013\">HLT_PASingleEle8_CaloIdNone_TrkIdVL</a><br/><a href=\"/search?q=HLT_PAL1DoubleEG5DoubleEle6_CaloIdT_TrkIdVL&type=Supplementaries&year=2013\">HLT_PAL1DoubleEG5DoubleEle6_CaloIdT_TrkIdVL</a><br/><a href=\"/search?q=HLT_PADoubleEle6_CaloIdT_TrkIdVL&type=Supplementaries&year=2013\">HLT_PADoubleEle6_CaloIdT_TrkIdVL</a><br/><a href=\"/search?q=HLT_PADoubleEle8_CaloIdT_TrkIdVL&type=Supplementaries&year=2013\">HLT_PADoubleEle8_CaloIdT_TrkIdVL</a><br/><a href=\"/search?q=HLT_PAPixelTracks_Multiplicity100&type=Supplementaries&year=2013\">HLT_PAPixelTracks_Multiplicity100</a><br/><a href=\"/search?q=HLT_PAPixelTracks_Multiplicity130&type=Supplementaries&year=2013\">HLT_PAPixelTracks_Multiplicity130</a><br/><a href=\"/search?q=HLT_PAPixelTracks_Multiplicity160&type=Supplementaries&year=2013\">HLT_PAPixelTracks_Multiplicity160</a><br/><a href=\"/search?q=HLT_PAPixelTracks_Multiplicity190&type=Supplementaries&year=2013\">HLT_PAPixelTracks_Multiplicity190</a><br/><a href=\"/search?q=HLT_PAPixelTracks_Multiplicity220&type=Supplementaries&year=2013\">HLT_PAPixelTracks_Multiplicity220</a><br/><a href=\"/search?q=HLT_PAPixelTrackMultiplicity100_FullTrack12&type=Supplementaries&year=2013\">HLT_PAPixelTrackMultiplicity100_FullTrack12</a><br/><a href=\"/search?q=HLT_PAPixelTrackMultiplicity130_FullTrack12&type=Supplementaries&year=2013\">HLT_PAPixelTrackMultiplicity130_FullTrack12</a><br/><a href=\"/search?q=HLT_PAPixelTrackMultiplicity160_FullTrack12&type=Supplementaries&year=2013\">HLT_PAPixelTrackMultiplicity160_FullTrack12</a><br/><a href=\"/search?q=HLT_PAPixelTrackMultiplicity100_L2DoubleMu3&type=Supplementaries&year=2013\">HLT_PAPixelTrackMultiplicity100_L2DoubleMu3</a><br/><a href=\"/search?q=HLT_PAPixelTrackMultiplicity140_Jet80_NoJetID&type=Supplementaries&year=2013\">HLT_PAPixelTrackMultiplicity140_Jet80_NoJetID</a><br/><a href=\"/search?q=HLT_PATech35&type=Supplementaries&year=2013\">HLT_PATech35</a><br/><a href=\"/search?q=HLT_PATech35_HFSumET100&type=Supplementaries&year=2013\">HLT_PATech35_HFSumET100</a><br/><a href=\"/search?q=HLT_PAHFSumET100&type=Supplementaries&year=2013\">HLT_PAHFSumET100</a><br/><a href=\"/search?q=HLT_PAHFSumET140&type=Supplementaries&year=2013\">HLT_PAHFSumET140</a><br/><a href=\"/search?q=HLT_PAHFSumET170&type=Supplementaries&year=2013\">HLT_PAHFSumET170</a><br/><a href=\"/search?q=HLT_PAHFSumET210&type=Supplementaries&year=2013\">HLT_PAHFSumET210</a><br/><a href=\"/search?q=HLT_PAFullTrack12&type=Supplementaries&year=2013\">HLT_PAFullTrack12</a><br/><a href=\"/search?q=HLT_PAFullTrack20&type=Supplementaries&year=2013\">HLT_PAFullTrack20</a><br/><a href=\"/search?q=HLT_PAFullTrack30&type=Supplementaries&year=2013\">HLT_PAFullTrack30</a><br/><a href=\"/search?q=HLT_PAFullTrack50&type=Supplementaries&year=2013\">HLT_PAFullTrack50</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "24650",
+    "relations": [
+      {
+        "description": "The corresponding 28Sep2013-v1 dataset:",
+        "recid": "24655",
+        "type": "isSiblingOf"
+      }
+    ],
+    "run_numbers": [
+      "209842",
+      "209845",
+      "209846",
+      "209854",
+      "209856",
+      "209862",
+      "209868",
+      "209869",
+      "209870",
+      "209878",
+      "209883",
+      "209889",
+      "209891",
+      "209893",
+      "209903",
+      "209906",
+      "209909",
+      "209910",
+      "209924",
+      "209930",
+      "209933",
+      "209935",
+      "209938",
+      "209940",
+      "209942",
+      "209948",
+      "210021",
+      "210022",
+      "210023",
+      "210035",
+      "210037",
+      "210041",
+      "210046",
+      "210049",
+      "210051",
+      "210052",
+      "210059",
+      "210065",
+      "210066",
+      "210069",
+      "210070",
+      "210074",
+      "210091",
+      "210095",
+      "210100",
+      "210114",
+      "210116",
+      "210120",
+      "210121",
+      "210178",
+      "210263",
+      "210303",
+      "210305",
+      "210306",
+      "210311",
+      "210317",
+      "210319",
+      "210321",
+      "210327",
+      "210328",
+      "210329",
+      "210332",
+      "210333",
+      "210334",
+      "210335",
+      "210340",
+      "210345",
+      "210348",
+      "210349",
+      "210350",
+      "210351",
+      "210353",
+      "210354",
+      "210355",
+      "210361",
+      "210362",
+      "210363",
+      "210393",
+      "210396",
+      "210406",
+      "210408",
+      "210410",
+      "210411",
+      "210412",
+      "210413",
+      "210414",
+      "210415",
+      "210416",
+      "210419",
+      "210421",
+      "210423",
+      "210428",
+      "210430",
+      "210432",
+      "210434",
+      "210436",
+      "210438",
+      "210440",
+      "210442",
+      "210444",
+      "210446",
+      "210447",
+      "210448",
+      "210449",
+      "210453",
+      "210454",
+      "210456",
+      "210458",
+      "210461",
+      "210463",
+      "210465",
+      "210468",
+      "210470",
+      "210471",
+      "210473",
+      "210474",
+      "210477",
+      "210479",
+      "210480",
+      "210483",
+      "210491",
+      "210492",
+      "210494",
+      "210498",
+      "210499",
+      "210501",
+      "210510",
+      "210512",
+      "210513",
+      "210516",
+      "210529",
+      "210531",
+      "210533",
+      "210534",
+      "210544",
+      "210546",
+      "210580",
+      "210583",
+      "210584",
+      "210585",
+      "210586",
+      "210589",
+      "210590",
+      "210592",
+      "210602",
+      "210608",
+      "210610",
+      "210611",
+      "210614",
+      "210622",
+      "210624",
+      "210626",
+      "210628",
+      "210629",
+      "210632",
+      "210634",
+      "210635",
+      "210638",
+      "210643",
+      "210647",
+      "210651",
+      "210653",
+      "210655",
+      "210656",
+      "210658",
+      "210668",
+      "210670",
+      "210672",
+      "210673",
+      "210674",
+      "210676",
+      "210684",
+      "210686",
+      "210687",
+      "210690",
+      "210691",
+      "210699",
+      "210700",
+      "210702",
+      "210710",
+      "210718",
+      "210721",
+      "210727",
+      "210732",
+      "210735",
+      "210737",
+      "210738",
+      "210742",
+      "210744",
+      "210748",
+      "210749",
+      "210751",
+      "210753",
+      "210754",
+      "210755",
+      "210759",
+      "210765",
+      "210771",
+      "210776",
+      "210777",
+      "210778",
+      "210786",
+      "210788",
+      "210790",
+      "210794",
+      "210812",
+      "210814",
+      "210815",
+      "210816",
+      "210818",
+      "210824",
+      "210826",
+      "210827",
+      "210832",
+      "210833",
+      "210837",
+      "210844",
+      "210846",
+      "210850",
+      "210851",
+      "210852",
+      "210854",
+      "210855",
+      "210860",
+      "210866",
+      "210869",
+      "210871",
+      "210873",
+      "210874",
+      "210876",
+      "210882",
+      "210884",
+      "210885",
+      "210888",
+      "210890",
+      "210892",
+      "210896",
+      "210897",
+      "210899",
+      "210903",
+      "210904",
+      "210906",
+      "210909",
+      "210913",
+      "210915",
+      "210917",
+      "210918",
+      "210919",
+      "210921",
+      "210925",
+      "210929",
+      "210931",
+      "210933",
+      "210938",
+      "210943",
+      "210944",
+      "210945",
+      "210949",
+      "210957",
+      "210960",
+      "210961",
+      "210963",
+      "210968",
+      "210971",
+      "210974",
+      "210975",
+      "210983",
+      "210984",
+      "210986",
+      "210992",
+      "210994",
+      "210997",
+      "210998",
+      "210999",
+      "211000",
+      "211001",
+      "211004",
+      "211005",
+      "211007",
+      "211014",
+      "211021",
+      "211023",
+      "211024",
+      "211025",
+      "211026",
+      "211029",
+      "211030",
+      "211032",
+      "211039",
+      "211042",
+      "211044",
+      "211059",
+      "211062",
+      "211069",
+      "211074",
+      "211077",
+      "211100",
+      "211103",
+      "211119",
+      "211121",
+      "211162",
+      "211164",
+      "211165",
+      "211166",
+      "211168",
+      "211169",
+      "211170",
+      "211173",
+      "211175",
+      "211178",
+      "211180",
+      "211181",
+      "211189",
+      "211193",
+      "211194",
+      "211200",
+      "211201",
+      "211244",
+      "211247",
+      "211249",
+      "211252",
+      "211254",
+      "211256",
+      "211261",
+      "211264",
+      "211267",
+      "211269",
+      "211275",
+      "211277",
+      "211278",
+      "211282",
+      "211285",
+      "211287",
+      "211291",
+      "211293",
+      "211296",
+      "211298",
+      "211301",
+      "211305",
+      "211307",
+      "211311",
+      "211313",
+      "211318",
+      "211321",
+      "211325",
+      "211327",
+      "211328",
+      "211331",
+      "211333",
+      "211334",
+      "211335",
+      "211337",
+      "211339",
+      "211340",
+      "211345",
+      "211347",
+      "211350",
+      "211352",
+      "211354",
+      "211359",
+      "211361",
+      "211362",
+      "211363",
+      "211366",
+      "211368",
+      "211371",
+      "211375",
+      "211377",
+      "211379",
+      "211390",
+      "211395",
+      "211396",
+      "211399",
+      "211401",
+      "211404",
+      "211406",
+      "211407",
+      "211408",
+      "211410",
+      "211411",
+      "211416",
+      "211418",
+      "211419",
+      "211421",
+      "211436",
+      "211438",
+      "211443",
+      "211447",
+      "211448",
+      "211450",
+      "211456",
+      "211457",
+      "211458",
+      "211460",
+      "211473",
+      "211474",
+      "211481",
+      "211482",
+      "211524",
+      "211526",
+      "211531",
+      "211532",
+      "211536",
+      "211538",
+      "211548",
+      "211558",
+      "211561",
+      "211566",
+      "211568",
+      "211571",
+      "211575",
+      "211579",
+      "211582",
+      "211584",
+      "211585",
+      "211587",
+      "211596",
+      "211598",
+      "211599",
+      "211603",
+      "211605",
+      "211607",
+      "211612",
+      "211614",
+      "211616",
+      "211618",
+      "211620",
+      "211622",
+      "211623",
+      "211627",
+      "211629",
+      "211631"
+    ],
+    "run_period": [
+      "HIRun2013"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "GR_P_V43D::All",
+      "release": "CMSSW_5_3_20"
+    },
+    "title": "/PAHighPt/HIRun2013-PromptReco-v1/RECO",
+    "title_additional": "PAHighPt primary dataset in RECO format from the 5.02 TeV proton-Pb run of 2013 (/PAHighPt/HIRun2013-PromptReco-v1/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2013"
+        },
+        {
+          "description": "Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data",
+          "url": "/docs/cms-getting-started-hi-2013-2015"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>PAMinBias1 primary dataset in RECO format from the 5.02 TeV proton-Pb run of 2013. Reprocessing for run numbers from 210498 to 211631.</p><p>For run numbers less than 210676, please use the reprocessed data in the related 28Sep2013-v1 dataset linked below.</p><p>During the 2013 proton-Pb data taking, the beam direction was reversed between runs 211256 and 211313.</p><p>The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14216"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14217"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "5.02TeV",
+      "type": "pPb"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2013",
+    "distribution": {
+      "formats": [
+        "reco",
+        "root"
+      ],
+      "number_events": 16957281,
+      "number_files": 470,
+      "size": 1713483346183
+    },
+    "doi": "10.7483/OPENDATA.CMS.EKLF.9PZJ",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:233dec08",
+        "description": "PAMinBias1 RECO file index (1 of 1) for access to data",
+        "size": 137318,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMinBias1/RECO/PromptReco-v1/file-indexes/CMS_HIRun2013_PAMinBias1_RECO_PromptReco-v1_000_file_index.json"
+      },
+      {
+        "checksum": "adler32:ab0f1f4a",
+        "description": "PAMinBias1 RECO file index (1 of 1) for access to data",
+        "size": 70500,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMinBias1/RECO/PromptReco-v1/file-indexes/CMS_HIRun2013_PAMinBias1_RECO_PromptReco-v1_000_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset are a sample of all events. They are directed in two primary datasets for data processing purposes.</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1702\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible <a href=\"/docs/cms-guide-trigger-system#hlt-trigger-path-definitions\">HLT trigger paths</a> in this dataset are:<br/><a href=\"/search?q=HLT_PARomanPots_Tech52&type=Supplementaries&year=2013\">HLT_PARomanPots_Tech52</a><br/><a href=\"/search?q=HLT_PAL1Tech53_MB&type=Supplementaries&year=2013\">HLT_PAL1Tech53_MB</a><br/><a href=\"/search?q=HLT_PAL1Tech53_MB_SingleTrack&type=Supplementaries&year=2013\">HLT_PAL1Tech53_MB_SingleTrack</a><br/><a href=\"/search?q=HLT_PAL1Tech54_ZeroBias&type=Supplementaries&year=2013\">HLT_PAL1Tech54_ZeroBias</a><br/><a href=\"/search?q=HLT_PAT1minbias_Tech55&type=Supplementaries&year=2013\">HLT_PAT1minbias_Tech55</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "24651",
+    "relations": [
+      {
+        "description": "The corresponding 28Sep2013-v1 dataset:",
+        "recid": "24656",
+        "type": "isSiblingOf"
+      }
+    ],
+    "run_numbers": [
+      "209842",
+      "209845",
+      "209846",
+      "209847",
+      "209848",
+      "209854",
+      "209856",
+      "209869",
+      "209870",
+      "209878",
+      "209883",
+      "209889",
+      "209891",
+      "209893",
+      "209903",
+      "209906",
+      "209909",
+      "209910",
+      "209924",
+      "209930",
+      "209933",
+      "209935",
+      "209938",
+      "209940",
+      "209942",
+      "209948",
+      "210021",
+      "210022",
+      "210023",
+      "210035",
+      "210037",
+      "210041",
+      "210046",
+      "210049",
+      "210051",
+      "210052",
+      "210059",
+      "210065",
+      "210066",
+      "210069",
+      "210070",
+      "210074",
+      "210091",
+      "210095",
+      "210100",
+      "210114",
+      "210116",
+      "210120",
+      "210121",
+      "210178",
+      "210263",
+      "210303",
+      "210305",
+      "210306",
+      "210311",
+      "210317",
+      "210319",
+      "210321",
+      "210327",
+      "210328",
+      "210329",
+      "210332",
+      "210333",
+      "210334",
+      "210335",
+      "210340",
+      "210345",
+      "210348",
+      "210349",
+      "210350",
+      "210351",
+      "210353",
+      "210354",
+      "210355",
+      "210361",
+      "210362",
+      "210363",
+      "210393",
+      "210396",
+      "210406",
+      "210408",
+      "210410",
+      "210411",
+      "210412",
+      "210413",
+      "210414",
+      "210415",
+      "210416",
+      "210419",
+      "210421",
+      "210423",
+      "210428",
+      "210430",
+      "210432",
+      "210434",
+      "210436",
+      "210438",
+      "210440",
+      "210442",
+      "210444",
+      "210446",
+      "210447",
+      "210448",
+      "210449",
+      "210453",
+      "210454",
+      "210456",
+      "210458",
+      "210461",
+      "210463",
+      "210465",
+      "210468",
+      "210470",
+      "210471",
+      "210473",
+      "210474",
+      "210477",
+      "210479",
+      "210480",
+      "210483",
+      "210491",
+      "210492",
+      "210494",
+      "210498",
+      "210499",
+      "210501",
+      "210510",
+      "210512",
+      "210513",
+      "210516",
+      "210529",
+      "210531",
+      "210533",
+      "210534",
+      "211566",
+      "211568",
+      "211571"
+    ],
+    "run_period": [
+      "HIRun2013"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "GR_P_V43D::All",
+      "release": "CMSSW_5_3_20"
+    },
+    "title": "/PAMinBias1/HIRun2013-PromptReco-v1/RECO",
+    "title_additional": "PAMinBias1 primary dataset in RECO format from the 5.02 TeV proton-Pb run of 2013 (/PAMinBias1/HIRun2013-PromptReco-v1/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2013"
+        },
+        {
+          "description": "Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data",
+          "url": "/docs/cms-getting-started-hi-2013-2015"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>PAMinBias2 primary dataset in RECO format from the 5.02 TeV proton-Pb run of 2013. Reprocessing for run numbers from 210498 to 211631.</p><p>For run numbers less than 210676, please use the reprocessed data in the related 28Sep2013-v1 dataset linked below.</p><p>During the 2013 proton-Pb data taking, the beam direction was reversed between runs 211256 and 211313.</p><p>The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14216"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14217"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "5.02TeV",
+      "type": "pPb"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2013",
+    "distribution": {
+      "formats": [
+        "reco",
+        "root"
+      ],
+      "number_events": 10709384,
+      "number_files": 630,
+      "size": 2044834897566
+    },
+    "doi": "10.7483/OPENDATA.CMS.TIQ0.V8KE",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:cf4ed278",
+        "description": "PAMinBias2 RECO file index (1 of 1) for access to data",
+        "size": 184107,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMinBias2/RECO/PromptReco-v1/file-indexes/CMS_HIRun2013_PAMinBias2_RECO_PromptReco-v1_000_file_index.json"
+      },
+      {
+        "checksum": "adler32:098ddebc",
+        "description": "PAMinBias2 RECO file index (1 of 1) for access to data",
+        "size": 94500,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMinBias2/RECO/PromptReco-v1/file-indexes/CMS_HIRun2013_PAMinBias2_RECO_PromptReco-v1_000_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset are a sample of all events. They are directed in two primary datasets for data processing purposes.</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1702\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible <a href=\"/docs/cms-guide-trigger-system#hlt-trigger-path-definitions\">HLT trigger paths</a> in this dataset are:<br/><a href=\"/search?q=HLT_PAL1Tech54_ZeroBias&type=Supplementaries&year=2013\">HLT_PAL1Tech54_ZeroBias</a><br/><a href=\"/search?q=HLT_PAMinBiasHF_OR&type=Supplementaries&year=2013\">HLT_PAMinBiasHF_OR</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "24652",
+    "run_numbers": [
+      "209842",
+      "209845",
+      "209846",
+      "209847",
+      "209848",
+      "209854",
+      "209856",
+      "209862",
+      "209868",
+      "209869",
+      "209870",
+      "209878",
+      "209883",
+      "209889",
+      "209891",
+      "209893",
+      "209903",
+      "209906",
+      "209909",
+      "209910",
+      "209924",
+      "209930",
+      "209933",
+      "209935",
+      "209938",
+      "209940",
+      "209942",
+      "209948",
+      "210021",
+      "210022",
+      "210023",
+      "210035",
+      "210037",
+      "210041",
+      "210046",
+      "210049",
+      "210051",
+      "210052",
+      "210059",
+      "210065",
+      "210066",
+      "210069",
+      "210070",
+      "210074",
+      "210091",
+      "210095",
+      "210100",
+      "210114",
+      "210116",
+      "210120",
+      "210121",
+      "210178",
+      "210263",
+      "210303",
+      "210305",
+      "210306",
+      "210311",
+      "210317",
+      "210319",
+      "210321",
+      "210327",
+      "210328",
+      "210329",
+      "210332",
+      "210333",
+      "210334",
+      "210335",
+      "210340",
+      "210345",
+      "210348",
+      "210349",
+      "210350",
+      "210351",
+      "210353",
+      "210354",
+      "210355",
+      "210361",
+      "210362",
+      "210363",
+      "210393",
+      "210396",
+      "210406",
+      "210408",
+      "210410",
+      "210411",
+      "210412",
+      "210413",
+      "210414",
+      "210415",
+      "210416",
+      "210419",
+      "210421",
+      "210423",
+      "210428",
+      "210430",
+      "210432",
+      "210434",
+      "210436",
+      "210438",
+      "210440",
+      "210442",
+      "210444",
+      "210446",
+      "210447",
+      "210448",
+      "210449",
+      "210453",
+      "210454",
+      "210456",
+      "210458",
+      "210461",
+      "210463",
+      "210465",
+      "210468",
+      "210470",
+      "210471",
+      "210473",
+      "210474",
+      "210477",
+      "210479",
+      "210480",
+      "210483",
+      "210491",
+      "210492",
+      "210494",
+      "210498",
+      "210499",
+      "210501",
+      "210510",
+      "210512",
+      "210513",
+      "210516",
+      "210529",
+      "210531",
+      "210533",
+      "210534",
+      "211566",
+      "211568",
+      "211571"
+    ],
+    "run_period": [
+      "HIRun2013"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "GR_P_V43D::All",
+      "release": "CMSSW_5_3_20"
+    },
+    "title": "/PAMinBias2/HIRun2013-PromptReco-v1/RECO",
+    "title_additional": "PAMinBias2 primary dataset in RECO format from the 5.02 TeV proton-Pb run of 2013 (/PAMinBias2/HIRun2013-PromptReco-v1/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2013"
+        },
+        {
+          "description": "Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data",
+          "url": "/docs/cms-getting-started-hi-2013-2015"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>PAMinBiasUPC primary dataset in RECO format from the 5.02 TeV proton-Pb run of 2013. Reprocessing for run numbers from 210498 to 211631.</p><p>For run numbers less than 210676, please use the reprocessed data in the related 28Sep2013-v1 dataset linked below.</p><p>During the 2013 proton-Pb data taking, the beam direction was reversed between runs 211256 and 211313.</p><p>The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14216"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14217"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "5.02TeV",
+      "type": "pPb"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2013",
+    "distribution": {
+      "formats": [
+        "reco",
+        "root"
+      ],
+      "number_events": 286814246,
+      "number_files": 8345,
+      "size": 44416192413170
+    },
+    "doi": "10.7483/OPENDATA.CMS.33AQ.83WZ",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:84b10ed7",
+        "description": "PAMinBiasUPC RECO file index (1 of 1) for access to data",
+        "size": 2461163,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMinBiasUPC/RECO/PromptReco-v1/file-indexes/CMS_HIRun2013_PAMinBiasUPC_RECO_PromptReco-v1_000_file_index.json"
+      },
+      {
+        "checksum": "adler32:a06b7c81",
+        "description": "PAMinBiasUPC RECO file index (1 of 1) for access to data",
+        "size": 1268440,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMinBiasUPC/RECO/PromptReco-v1/file-indexes/CMS_HIRun2013_PAMinBiasUPC_RECO_PromptReco-v1_000_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset were selected because of the presence of signs of ultra-peripheral collisions or because they pass certain minimum-bias type selections.</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1702\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible <a href=\"/docs/cms-guide-trigger-system#hlt-trigger-path-definitions\">HLT trigger paths</a> in this dataset are:<br/><a href=\"/search?q=HLT_PAL1SingleJet16&type=Supplementaries&year=2013\">HLT_PAL1SingleJet16</a><br/><a href=\"/search?q=HLT_PAL1SingleJet36&type=Supplementaries&year=2013\">HLT_PAL1SingleJet36</a><br/><a href=\"/search?q=HLT_PASingleForJet15&type=Supplementaries&year=2013\">HLT_PASingleForJet15</a><br/><a href=\"/search?q=HLT_PASingleForJet25&type=Supplementaries&year=2013\">HLT_PASingleForJet25</a><br/><a href=\"/search?q=HLT_PAL1DoubleMu0&type=Supplementaries&year=2013\">HLT_PAL1DoubleMu0</a><br/><a href=\"/search?q=HLT_PADimuon0_NoVertexing&type=Supplementaries&year=2013\">HLT_PADimuon0_NoVertexing</a><br/><a href=\"/search?q=HLT_PARomanPots_Tech52&type=Supplementaries&year=2013\">HLT_PARomanPots_Tech52</a><br/><a href=\"/search?q=HLT_PAL1Tech53_MB&type=Supplementaries&year=2013\">HLT_PAL1Tech53_MB</a><br/><a href=\"/search?q=HLT_PAL1Tech53_MB_SingleTrack&type=Supplementaries&year=2013\">HLT_PAL1Tech53_MB_SingleTrack</a><br/><a href=\"/search?q=HLT_PAL1Tech54_ZeroBias&type=Supplementaries&year=2013\">HLT_PAL1Tech54_ZeroBias</a><br/><a href=\"/search?q=HLT_PAT1minbias_Tech55&type=Supplementaries&year=2013\">HLT_PAT1minbias_Tech55</a><br/><a href=\"/search?q=HLT_PAL1Tech_HBHEHO_totalOR&type=Supplementaries&year=2013\">HLT_PAL1Tech_HBHEHO_totalOR</a><br/><a href=\"/search?q=HLT_PAMinBiasHF&type=Supplementaries&year=2013\">HLT_PAMinBiasHF</a><br/><a href=\"/search?q=HLT_PAMinBiasHF_OR&type=Supplementaries&year=2013\">HLT_PAMinBiasHF_OR</a><br/><a href=\"/search?q=HLT_PAMinBiasBHC&type=Supplementaries&year=2013\">HLT_PAMinBiasBHC</a><br/><a href=\"/search?q=HLT_PAMinBiasBHC_OR&type=Supplementaries&year=2013\">HLT_PAMinBiasBHC_OR</a><br/><a href=\"/search?q=HLT_PAMinBiasHfOrBHC&type=Supplementaries&year=2013\">HLT_PAMinBiasHfOrBHC</a><br/><a href=\"/search?q=HLT_PABptxPlusNotBptxMinus&type=Supplementaries&year=2013\">HLT_PABptxPlusNotBptxMinus</a><br/><a href=\"/search?q=HLT_PABptxMinusNotBptxPlus&type=Supplementaries&year=2013\">HLT_PABptxMinusNotBptxPlus</a><br/><a href=\"/search?q=HLT_PAZeroBias&type=Supplementaries&year=2013\">HLT_PAZeroBias</a><br/><a href=\"/search?q=HLT_PAZeroBiasPixel_SingleTrack&type=Supplementaries&year=2013\">HLT_PAZeroBiasPixel_SingleTrack</a><br/><a href=\"/search?q=HLT_PAHFOR_SingleTrack&type=Supplementaries&year=2013\">HLT_PAHFOR_SingleTrack</a><br/><a href=\"/search?q=HLT_PAZeroBiasPixel_DoubleTrack&type=Supplementaries&year=2013\">HLT_PAZeroBiasPixel_DoubleTrack</a><br/><a href=\"/search?q=HLT_PADoubleMu4_Acoplanarity03&type=Supplementaries&year=2013\">HLT_PADoubleMu4_Acoplanarity03</a><br/><a href=\"/search?q=HLT_PAExclDijet35_HFAND&type=Supplementaries&year=2013\">HLT_PAExclDijet35_HFAND</a><br/><a href=\"/search?q=HLT_PAL1DoubleEG3_FwdVeto&type=Supplementaries&year=2013\">HLT_PAL1DoubleEG3_FwdVeto</a><br/><a href=\"/search?q=HLT_PAL1DoubleJet20_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1DoubleJet20_TotemDiffractive</a><br/><a href=\"/search?q=HLT_PADoubleJet20_ForwardBackward&type=Supplementaries&year=2013\">HLT_PADoubleJet20_ForwardBackward</a><br/><a href=\"/search?q=HLT_PAMu7_Ele7_CaloIdT_CaloIsoVL&type=Supplementaries&year=2013\">HLT_PAMu7_Ele7_CaloIdT_CaloIsoVL</a><br/><a href=\"/search?q=HLT_PAUpcSingleEG5Pixel_TrackVeto&type=Supplementaries&year=2013\">HLT_PAUpcSingleEG5Pixel_TrackVeto</a><br/><a href=\"/search?q=HLT_PAUpcSingleEG5Full_TrackVeto7&type=Supplementaries&year=2013\">HLT_PAUpcSingleEG5Full_TrackVeto7</a><br/><a href=\"/search?q=HLT_PAUpcSingleMuOpenPixel_TrackVeto&type=Supplementaries&year=2013\">HLT_PAUpcSingleMuOpenPixel_TrackVeto</a><br/><a href=\"/search?q=HLT_PAUpcSingleMuOpenFull_TrackVeto7&type=Supplementaries&year=2013\">HLT_PAUpcSingleMuOpenFull_TrackVeto7</a><br/><a href=\"/search?q=HLT_PAUpcSingleMuOpenTkMu_Onia&type=Supplementaries&year=2013\">HLT_PAUpcSingleMuOpenTkMu_Onia</a><br/><a href=\"/search?q=HLT_PARandom&type=Supplementaries&year=2013\">HLT_PARandom</a><br/><a href=\"/search?q=HLT_PAL1Tech63_CASTORHaloMuon&type=Supplementaries&year=2013\">HLT_PAL1Tech63_CASTORHaloMuon</a><br/><a href=\"/search?q=HLT_PACastorEmNotHfCoincidencePm&type=Supplementaries&year=2013\">HLT_PACastorEmNotHfCoincidencePm</a><br/><a href=\"/search?q=HLT_PACastorEmTotemLowMultiplicity&type=Supplementaries&year=2013\">HLT_PACastorEmTotemLowMultiplicity</a><br/><a href=\"/search?q=HLT_PACastorEmNotHfSingleChannel&type=Supplementaries&year=2013\">HLT_PACastorEmNotHfSingleChannel</a><br/><a href=\"/search?q=HLT_PAL1CastorTotalTotemLowMultiplicity&type=Supplementaries&year=2013\">HLT_PAL1CastorTotalTotemLowMultiplicity</a><br/><a href=\"/search?q=HLT_PAL1SingleMu20_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1SingleMu20_TotemDiffractive</a><br/><a href=\"/search?q=HLT_PAL1SingleJet52_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1SingleJet52_TotemDiffractive</a><br/><a href=\"/search?q=HLT_PAL1SingleEG20_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1SingleEG20_TotemDiffractive</a><br/><a href=\"/search?q=HLT_PAL1DoubleJetC36_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1DoubleJetC36_TotemDiffractive</a><br/><a href=\"/search?q=HLT_PAL1DoubleMu5_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1DoubleMu5_TotemDiffractive</a><br/><a href=\"/search?q=HLT_PAL1DoubleEG5_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1DoubleEG5_TotemDiffractive</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "24653",
+    "relations": [
+      {
+        "description": "The corresponding 28Sep2013-v1 dataset:",
+        "recid": "24657",
+        "type": "isSiblingOf"
+      }
+    ],
+    "run_numbers": [
+      "209846",
+      "209854",
+      "209868",
+      "209870",
+      "209878",
+      "209883",
+      "209889",
+      "209891",
+      "209893",
+      "209903",
+      "209906",
+      "209909",
+      "209910",
+      "209924",
+      "209930",
+      "209933",
+      "209938",
+      "209940",
+      "209948",
+      "210021",
+      "210022",
+      "210023",
+      "210035",
+      "210037",
+      "210041",
+      "210046",
+      "210049",
+      "210051",
+      "210052",
+      "210059",
+      "210065",
+      "210066",
+      "210069",
+      "210070",
+      "210074",
+      "210091",
+      "210095",
+      "210100",
+      "210114",
+      "210116",
+      "210120",
+      "210121",
+      "210178",
+      "210263",
+      "210303",
+      "210305",
+      "210306",
+      "210311",
+      "210317",
+      "210319",
+      "210321",
+      "210327",
+      "210328",
+      "210329",
+      "210332",
+      "210333",
+      "210334",
+      "210335",
+      "210340",
+      "210345",
+      "210348",
+      "210349",
+      "210350",
+      "210351",
+      "210353",
+      "210354",
+      "210355",
+      "210361",
+      "210362",
+      "210363",
+      "210393",
+      "210396",
+      "210406",
+      "210408",
+      "210410",
+      "210411",
+      "210412",
+      "210413",
+      "210414",
+      "210415",
+      "210416",
+      "210419",
+      "210421",
+      "210423",
+      "210428",
+      "210430",
+      "210432",
+      "210434",
+      "210436",
+      "210438",
+      "210440",
+      "210442",
+      "210444",
+      "210446",
+      "210447",
+      "210448",
+      "210449",
+      "210453",
+      "210454",
+      "210456",
+      "210458",
+      "210461",
+      "210463",
+      "210465",
+      "210468",
+      "210470",
+      "210471",
+      "210473",
+      "210474",
+      "210477",
+      "210479",
+      "210480",
+      "210483",
+      "210491",
+      "210492",
+      "210494",
+      "210498",
+      "210499",
+      "210501",
+      "210510",
+      "210512",
+      "210513",
+      "210516",
+      "210529",
+      "210531",
+      "210533",
+      "210534",
+      "210544",
+      "210546",
+      "210580",
+      "210583",
+      "210584",
+      "210585",
+      "210586",
+      "210589",
+      "210590",
+      "210592",
+      "210602",
+      "210608",
+      "210610",
+      "210611",
+      "210614",
+      "210622",
+      "210624",
+      "210626",
+      "210628",
+      "210629",
+      "210632",
+      "210634",
+      "210635",
+      "210638",
+      "210643",
+      "210647",
+      "210651",
+      "210653",
+      "210655",
+      "210656",
+      "210658",
+      "210668",
+      "210670",
+      "210672",
+      "210673",
+      "210674",
+      "210676",
+      "210684",
+      "210686",
+      "210687",
+      "210690",
+      "210691",
+      "210699",
+      "210700",
+      "210702",
+      "210710",
+      "210718",
+      "210721",
+      "210727",
+      "210732",
+      "210735",
+      "210737",
+      "210738",
+      "210742",
+      "210744",
+      "210748",
+      "210749",
+      "210751",
+      "210753",
+      "210754",
+      "210755",
+      "210759",
+      "210765",
+      "210771",
+      "210776",
+      "210777",
+      "210778",
+      "210786",
+      "210788",
+      "210790",
+      "210794",
+      "210812",
+      "210814",
+      "210815",
+      "210816",
+      "210818",
+      "210824",
+      "210826",
+      "210827",
+      "210832",
+      "210833",
+      "210837",
+      "210844",
+      "210846",
+      "210850",
+      "210851",
+      "210852",
+      "210854",
+      "210855",
+      "210860",
+      "210866",
+      "210869",
+      "210871",
+      "210873",
+      "210874",
+      "210876",
+      "210882",
+      "210884",
+      "210885",
+      "210888",
+      "210890",
+      "210892",
+      "210896",
+      "210897",
+      "210899",
+      "210903",
+      "210904",
+      "210906",
+      "210909",
+      "210913",
+      "210915",
+      "210917",
+      "210918",
+      "210919",
+      "210921",
+      "210925",
+      "210929",
+      "210931",
+      "210933",
+      "210938",
+      "210943",
+      "210944",
+      "210945",
+      "210949",
+      "210957",
+      "210960",
+      "210961",
+      "210963",
+      "210968",
+      "210971",
+      "210974",
+      "210975",
+      "210983",
+      "210984",
+      "210986",
+      "210992",
+      "210994",
+      "210997",
+      "210998",
+      "210999",
+      "211000",
+      "211001",
+      "211004",
+      "211005",
+      "211007",
+      "211014",
+      "211021",
+      "211023",
+      "211024",
+      "211025",
+      "211026",
+      "211029",
+      "211030",
+      "211032",
+      "211039",
+      "211042",
+      "211044",
+      "211059",
+      "211062",
+      "211069",
+      "211074",
+      "211077",
+      "211100",
+      "211103",
+      "211119",
+      "211121",
+      "211162",
+      "211164",
+      "211165",
+      "211166",
+      "211168",
+      "211169",
+      "211170",
+      "211173",
+      "211175",
+      "211178",
+      "211180",
+      "211181",
+      "211189",
+      "211193",
+      "211194",
+      "211200",
+      "211201",
+      "211244",
+      "211247",
+      "211249",
+      "211252",
+      "211254",
+      "211256",
+      "211261",
+      "211264",
+      "211267",
+      "211269",
+      "211275",
+      "211277",
+      "211278",
+      "211282",
+      "211285",
+      "211287",
+      "211291",
+      "211293",
+      "211296",
+      "211298",
+      "211301",
+      "211305",
+      "211307",
+      "211311",
+      "211313",
+      "211318",
+      "211321",
+      "211325",
+      "211327",
+      "211328",
+      "211331",
+      "211333",
+      "211334",
+      "211335",
+      "211337",
+      "211339",
+      "211340",
+      "211345",
+      "211347",
+      "211350",
+      "211352",
+      "211354",
+      "211359",
+      "211361",
+      "211362",
+      "211363",
+      "211366",
+      "211368",
+      "211371",
+      "211375",
+      "211377",
+      "211379",
+      "211390",
+      "211395",
+      "211396",
+      "211399",
+      "211401",
+      "211404",
+      "211406",
+      "211407",
+      "211408",
+      "211410",
+      "211411",
+      "211416",
+      "211418",
+      "211419",
+      "211421",
+      "211436",
+      "211438",
+      "211443",
+      "211447",
+      "211448",
+      "211450",
+      "211456",
+      "211457",
+      "211458",
+      "211460",
+      "211473",
+      "211474",
+      "211481",
+      "211482",
+      "211524",
+      "211526",
+      "211532",
+      "211536",
+      "211538",
+      "211548",
+      "211558",
+      "211561",
+      "211566",
+      "211568",
+      "211571",
+      "211575",
+      "211579",
+      "211582",
+      "211584",
+      "211585",
+      "211587",
+      "211596",
+      "211598",
+      "211599",
+      "211603",
+      "211605",
+      "211607",
+      "211612",
+      "211614",
+      "211616",
+      "211618",
+      "211620",
+      "211622",
+      "211623",
+      "211627",
+      "211629",
+      "211631"
+    ],
+    "run_period": [
+      "HIRun2013"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "GR_P_V43D::All",
+      "release": "CMSSW_5_3_20"
+    },
+    "title": "/PAMinBiasUPC/HIRun2013-PromptReco-v1/RECO",
+    "title_additional": "PAMinBiasUPC primary dataset in RECO format from the 5.02 TeV proton-Pb run of 2013 (/PAMinBiasUPC/HIRun2013-PromptReco-v1/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2013"
+        },
+        {
+          "description": "Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data",
+          "url": "/docs/cms-getting-started-hi-2013-2015"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>PAMuon primary dataset in RECO format from the 5.02 TeV proton-Pb run of 2013. Reprocessing for run numbers from 210498 to 211631.</p><p>For run numbers less than 210676, please use the reprocessed data in the related 28Sep2013-v1 dataset linked below.</p><p>During the 2013 proton-Pb data taking, the beam direction was reversed between runs 211256 and 211313.</p><p>The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14216"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14217"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "5.02TeV",
+      "type": "pPb"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2013",
+    "distribution": {
+      "formats": [
+        "reco",
+        "root"
+      ],
+      "number_events": 101376106,
+      "number_files": 5137,
+      "size": 36796217501039
+    },
+    "doi": "10.7483/OPENDATA.CMS.A9Z5.UQIN",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:c90ef468",
+        "description": "PAMuon RECO file index (1 of 1) for access to data",
+        "size": 1483549,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMuon/RECO/PromptReco-v1/file-indexes/CMS_HIRun2013_PAMuon_RECO_PromptReco-v1_000_file_index.json"
+      },
+      {
+        "checksum": "adler32:d6e4f97b",
+        "description": "PAMuon RECO file index (1 of 1) for access to data",
+        "size": 750002,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMuon/RECO/PromptReco-v1/file-indexes/CMS_HIRun2013_PAMuon_RECO_PromptReco-v1_000_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset were selected because of the presence of one or more high-pt muon.</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1702\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible <a href=\"/docs/cms-guide-trigger-system#hlt-trigger-path-definitions\">HLT trigger paths</a> in this dataset are:<br/><a href=\"/search?q=HLT_PAL1DoubleMu0_HighQ&type=Supplementaries&year=2013\">HLT_PAL1DoubleMu0_HighQ</a><br/><a href=\"/search?q=HLT_PAL1DoubleMuOpen&type=Supplementaries&year=2013\">HLT_PAL1DoubleMuOpen</a><br/><a href=\"/search?q=HLT_PAL2DoubleMu3&type=Supplementaries&year=2013\">HLT_PAL2DoubleMu3</a><br/><a href=\"/search?q=HLT_PAMu3&type=Supplementaries&year=2013\">HLT_PAMu3</a><br/><a href=\"/search?q=HLT_PAMu7&type=Supplementaries&year=2013\">HLT_PAMu7</a><br/><a href=\"/search?q=HLT_PAMu12&type=Supplementaries&year=2013\">HLT_PAMu12</a><br/><a href=\"/search?q=HLT_PABTagMu_Jet20_Mu4&type=Supplementaries&year=2013\">HLT_PABTagMu_Jet20_Mu4</a><br/><a href=\"/search?q=HLT_PAMu3PFJet20&type=Supplementaries&year=2013\">HLT_PAMu3PFJet20</a><br/><a href=\"/search?q=HLT_PAMu3PFJet40&type=Supplementaries&year=2013\">HLT_PAMu3PFJet40</a><br/><a href=\"/search?q=HLT_PAMu7PFJet20&type=Supplementaries&year=2013\">HLT_PAMu7PFJet20</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "24654",
+    "relations": [
+      {
+        "description": "The corresponding 28Sep2013-v1 dataset:",
+        "recid": "24658",
+        "type": "isSiblingOf"
+      }
+    ],
+    "run_numbers": [
+      "209842",
+      "209845",
+      "209846",
+      "209847",
+      "209848",
+      "209854",
+      "209856",
+      "209862",
+      "209868",
+      "209869",
+      "209870",
+      "209878",
+      "209883",
+      "209889",
+      "209891",
+      "209893",
+      "209903",
+      "209906",
+      "209909",
+      "209910",
+      "209924",
+      "209930",
+      "209933",
+      "209935",
+      "209938",
+      "209940",
+      "209942",
+      "209948",
+      "210021",
+      "210022",
+      "210023",
+      "210035",
+      "210037",
+      "210041",
+      "210046",
+      "210049",
+      "210051",
+      "210052",
+      "210059",
+      "210065",
+      "210066",
+      "210069",
+      "210070",
+      "210074",
+      "210091",
+      "210095",
+      "210100",
+      "210114",
+      "210116",
+      "210120",
+      "210121",
+      "210178",
+      "210263",
+      "210303",
+      "210305",
+      "210306",
+      "210311",
+      "210317",
+      "210319",
+      "210321",
+      "210327",
+      "210328",
+      "210329",
+      "210332",
+      "210333",
+      "210334",
+      "210335",
+      "210340",
+      "210345",
+      "210348",
+      "210349",
+      "210350",
+      "210351",
+      "210353",
+      "210354",
+      "210355",
+      "210361",
+      "210362",
+      "210363",
+      "210393",
+      "210396",
+      "210406",
+      "210408",
+      "210410",
+      "210411",
+      "210412",
+      "210413",
+      "210414",
+      "210415",
+      "210416",
+      "210419",
+      "210421",
+      "210423",
+      "210428",
+      "210430",
+      "210432",
+      "210434",
+      "210436",
+      "210438",
+      "210440",
+      "210442",
+      "210444",
+      "210446",
+      "210447",
+      "210448",
+      "210449",
+      "210453",
+      "210454",
+      "210456",
+      "210458",
+      "210461",
+      "210463",
+      "210465",
+      "210468",
+      "210470",
+      "210471",
+      "210473",
+      "210474",
+      "210477",
+      "210479",
+      "210480",
+      "210483",
+      "210491",
+      "210492",
+      "210494",
+      "210498",
+      "210499",
+      "210501",
+      "210510",
+      "210512",
+      "210513",
+      "210516",
+      "210529",
+      "210531",
+      "210533",
+      "210534",
+      "210544",
+      "210546",
+      "210580",
+      "210583",
+      "210584",
+      "210585",
+      "210586",
+      "210589",
+      "210590",
+      "210592",
+      "210602",
+      "210608",
+      "210610",
+      "210611",
+      "210614",
+      "210622",
+      "210624",
+      "210626",
+      "210628",
+      "210629",
+      "210632",
+      "210634",
+      "210635",
+      "210638",
+      "210643",
+      "210647",
+      "210651",
+      "210653",
+      "210655",
+      "210656",
+      "210658",
+      "210668",
+      "210670",
+      "210672",
+      "210673",
+      "210674",
+      "210676",
+      "210684",
+      "210686",
+      "210687",
+      "210690",
+      "210691",
+      "210699",
+      "210700",
+      "210702",
+      "210710",
+      "210718",
+      "210721",
+      "210727",
+      "210732",
+      "210735",
+      "210737",
+      "210738",
+      "210742",
+      "210744",
+      "210748",
+      "210749",
+      "210751",
+      "210753",
+      "210754",
+      "210755",
+      "210759",
+      "210765",
+      "210771",
+      "210776",
+      "210777",
+      "210778",
+      "210786",
+      "210788",
+      "210790",
+      "210794",
+      "210812",
+      "210814",
+      "210815",
+      "210816",
+      "210818",
+      "210824",
+      "210826",
+      "210827",
+      "210832",
+      "210833",
+      "210837",
+      "210844",
+      "210846",
+      "210850",
+      "210851",
+      "210852",
+      "210854",
+      "210855",
+      "210860",
+      "210866",
+      "210869",
+      "210871",
+      "210873",
+      "210874",
+      "210876",
+      "210882",
+      "210884",
+      "210885",
+      "210888",
+      "210890",
+      "210892",
+      "210896",
+      "210897",
+      "210899",
+      "210903",
+      "210904",
+      "210906",
+      "210909",
+      "210913",
+      "210915",
+      "210917",
+      "210918",
+      "210919",
+      "210921",
+      "210925",
+      "210929",
+      "210931",
+      "210933",
+      "210938",
+      "210943",
+      "210944",
+      "210945",
+      "210949",
+      "210957",
+      "210960",
+      "210961",
+      "210963",
+      "210968",
+      "210971",
+      "210974",
+      "210975",
+      "210983",
+      "210984",
+      "210986",
+      "210992",
+      "210994",
+      "210997",
+      "210998",
+      "210999",
+      "211000",
+      "211001",
+      "211004",
+      "211005",
+      "211007",
+      "211014",
+      "211021",
+      "211023",
+      "211024",
+      "211025",
+      "211026",
+      "211029",
+      "211030",
+      "211032",
+      "211039",
+      "211042",
+      "211044",
+      "211059",
+      "211062",
+      "211069",
+      "211074",
+      "211077",
+      "211100",
+      "211103",
+      "211119",
+      "211121",
+      "211162",
+      "211164",
+      "211165",
+      "211166",
+      "211168",
+      "211169",
+      "211170",
+      "211173",
+      "211175",
+      "211178",
+      "211180",
+      "211181",
+      "211189",
+      "211193",
+      "211194",
+      "211200",
+      "211201",
+      "211244",
+      "211247",
+      "211249",
+      "211252",
+      "211254",
+      "211256",
+      "211261",
+      "211264",
+      "211267",
+      "211269",
+      "211275",
+      "211277",
+      "211278",
+      "211282",
+      "211285",
+      "211287",
+      "211291",
+      "211293",
+      "211296",
+      "211298",
+      "211301",
+      "211305",
+      "211307",
+      "211311",
+      "211313",
+      "211318",
+      "211321",
+      "211325",
+      "211327",
+      "211328",
+      "211331",
+      "211333",
+      "211334",
+      "211335",
+      "211337",
+      "211339",
+      "211340",
+      "211345",
+      "211347",
+      "211350",
+      "211352",
+      "211354",
+      "211359",
+      "211361",
+      "211362",
+      "211363",
+      "211366",
+      "211368",
+      "211371",
+      "211375",
+      "211377",
+      "211379",
+      "211390",
+      "211395",
+      "211396",
+      "211399",
+      "211401",
+      "211404",
+      "211406",
+      "211407",
+      "211408",
+      "211410",
+      "211411",
+      "211416",
+      "211418",
+      "211419",
+      "211421",
+      "211436",
+      "211438",
+      "211443",
+      "211447",
+      "211448",
+      "211450",
+      "211456",
+      "211457",
+      "211458",
+      "211460",
+      "211473",
+      "211474",
+      "211481",
+      "211482",
+      "211524",
+      "211526",
+      "211531",
+      "211532",
+      "211536",
+      "211538",
+      "211548",
+      "211558",
+      "211561",
+      "211566",
+      "211568",
+      "211571",
+      "211575",
+      "211579",
+      "211582",
+      "211584",
+      "211585",
+      "211587",
+      "211596",
+      "211598",
+      "211599",
+      "211603",
+      "211605",
+      "211607",
+      "211612",
+      "211614",
+      "211616",
+      "211618",
+      "211620",
+      "211622",
+      "211623",
+      "211627",
+      "211629",
+      "211631"
+    ],
+    "run_period": [
+      "HIRun2013"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "GR_P_V43D::All",
+      "release": "CMSSW_5_3_20"
+    },
+    "title": "/PAMuon/HIRun2013-PromptReco-v1/RECO",
+    "title_additional": "PAMuon primary dataset in RECO format from the 5.02 TeV proton-Pb run of 2013 (/PAMuon/HIRun2013-PromptReco-v1/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2013"
+        },
+        {
+          "description": "Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data",
+          "url": "/docs/cms-getting-started-hi-2013-2015"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>PAHighPt primary dataset in RECO format from the 5.02 TeV proton-Pb run of 2013. Reprocessing for run numbers from 210498 to 210658.</p><p>For run numbers greater than or equal to 210676, please use the related PromptReco-v1 dataset linked below.</p><p>During the 2013 proton-Pb data taking, the beam direction was reversed between runs 211256 and 211313.</p><p>The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14216"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14217"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "5.02TeV",
+      "type": "pPb"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2013",
+    "distribution": {
+      "formats": [
+        "reco",
+        "root"
+      ],
+      "number_events": 36872579,
+      "number_files": 4844,
+      "size": 17698528573500
+    },
+    "doi": "10.7483/OPENDATA.CMS.OAKC.0YCP",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:ee289a3a",
+        "description": "PAHighPt RECO file index (1 of 7) for access to data",
+        "size": 321645,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAHighPt/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAHighPt_RECO_28Sep2013-v1_10000_file_index.json"
+      },
+      {
+        "checksum": "adler32:b7bf2840",
+        "description": "PAHighPt RECO file index (2 of 7) for access to data",
+        "size": 260489,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAHighPt/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAHighPt_RECO_28Sep2013-v1_10001_file_index.json"
+      },
+      {
+        "checksum": "adler32:41dcafee",
+        "description": "PAHighPt RECO file index (3 of 7) for access to data",
+        "size": 274111,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAHighPt/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAHighPt_RECO_28Sep2013-v1_10002_file_index.json"
+      },
+      {
+        "checksum": "adler32:d383b52d",
+        "description": "PAHighPt RECO file index (4 of 7) for access to data",
+        "size": 97303,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAHighPt/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAHighPt_RECO_28Sep2013-v1_10003_file_index.json"
+      },
+      {
+        "checksum": "adler32:bb9bc070",
+        "description": "PAHighPt RECO file index (5 of 7) for access to data",
+        "size": 3630,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAHighPt/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAHighPt_RECO_28Sep2013-v1_110000_file_index.json"
+      },
+      {
+        "checksum": "adler32:4fb568eb",
+        "description": "PAHighPt RECO file index (6 of 7) for access to data",
+        "size": 241028,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAHighPt/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAHighPt_RECO_28Sep2013-v1_20000_file_index.json"
+      },
+      {
+        "checksum": "adler32:b0206479",
+        "description": "PAHighPt RECO file index (7 of 7) for access to data",
+        "size": 148455,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAHighPt/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAHighPt_RECO_28Sep2013-v1_20001_file_index.json"
+      },
+      {
+        "checksum": "adler32:fd3e5c2a",
+        "description": "PAHighPt RECO file index (1 of 7) for access to data",
+        "size": 156195,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAHighPt/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAHighPt_RECO_28Sep2013-v1_10000_file_index.txt"
+      },
+      {
+        "checksum": "adler32:54f92c24",
+        "description": "PAHighPt RECO file index (2 of 7) for access to data",
+        "size": 126495,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAHighPt/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAHighPt_RECO_28Sep2013-v1_10001_file_index.txt"
+      },
+      {
+        "checksum": "adler32:eff9fc46",
+        "description": "PAHighPt RECO file index (3 of 7) for access to data",
+        "size": 133110,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAHighPt/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAHighPt_RECO_28Sep2013-v1_10002_file_index.txt"
+      },
+      {
+        "checksum": "adler32:7c935390",
+        "description": "PAHighPt RECO file index (4 of 7) for access to data",
+        "size": 47250,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAHighPt/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAHighPt_RECO_28Sep2013-v1_10003_file_index.txt"
+      },
+      {
+        "checksum": "adler32:d0370661",
+        "description": "PAHighPt RECO file index (5 of 7) for access to data",
+        "size": 1768,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAHighPt/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAHighPt_RECO_28Sep2013-v1_110000_file_index.txt"
+      },
+      {
+        "checksum": "adler32:9b968030",
+        "description": "PAHighPt RECO file index (6 of 7) for access to data",
+        "size": 117045,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAHighPt/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAHighPt_RECO_28Sep2013-v1_20000_file_index.txt"
+      },
+      {
+        "checksum": "adler32:d07dbae6",
+        "description": "PAHighPt RECO file index (7 of 7) for access to data",
+        "size": 72090,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAHighPt/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAHighPt_RECO_28Sep2013-v1_20001_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset were selected because of the presence of one or more high-pt object or high track multiplicity.</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1702\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible <a href=\"/docs/cms-guide-trigger-system#hlt-trigger-path-definitions\">HLT trigger paths</a> in this dataset are:<br/><a href=\"/search?q=HLT_PAJet20_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet20_NoJetID</a><br/><a href=\"/search?q=HLT_PAJet40_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet40_NoJetID</a><br/><a href=\"/search?q=HLT_PAJet60_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet60_NoJetID</a><br/><a href=\"/search?q=HLT_PAJet80_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet80_NoJetID</a><br/><a href=\"/search?q=HLT_PAJet100_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet100_NoJetID</a><br/><a href=\"/search?q=HLT_PAJet120_NoJetID&type=Supplementaries&year=2013\">HLT_PAJet120_NoJetID</a><br/><a href=\"/search?q=HLT_PAForJet20Eta2&type=Supplementaries&year=2013\">HLT_PAForJet20Eta2</a><br/><a href=\"/search?q=HLT_PAForJet40Eta2&type=Supplementaries&year=2013\">HLT_PAForJet40Eta2</a><br/><a href=\"/search?q=HLT_PAForJet60Eta2&type=Supplementaries&year=2013\">HLT_PAForJet60Eta2</a><br/><a href=\"/search?q=HLT_PAForJet80Eta2&type=Supplementaries&year=2013\">HLT_PAForJet80Eta2</a><br/><a href=\"/search?q=HLT_PAForJet100Eta2&type=Supplementaries&year=2013\">HLT_PAForJet100Eta2</a><br/><a href=\"/search?q=HLT_PAForJet20Eta3&type=Supplementaries&year=2013\">HLT_PAForJet20Eta3</a><br/><a href=\"/search?q=HLT_PAForJet40Eta3&type=Supplementaries&year=2013\">HLT_PAForJet40Eta3</a><br/><a href=\"/search?q=HLT_PAForJet60Eta3&type=Supplementaries&year=2013\">HLT_PAForJet60Eta3</a><br/><a href=\"/search?q=HLT_PAForJet80Eta3&type=Supplementaries&year=2013\">HLT_PAForJet80Eta3</a><br/><a href=\"/search?q=HLT_PAForJet100Eta3&type=Supplementaries&year=2013\">HLT_PAForJet100Eta3</a><br/><a href=\"/search?q=HLT_PATripleJet20_20_20&type=Supplementaries&year=2013\">HLT_PATripleJet20_20_20</a><br/><a href=\"/search?q=HLT_PATripleJet40_20_20&type=Supplementaries&year=2013\">HLT_PATripleJet40_20_20</a><br/><a href=\"/search?q=HLT_PATripleJet60_20_20&type=Supplementaries&year=2013\">HLT_PATripleJet60_20_20</a><br/><a href=\"/search?q=HLT_PATripleJet80_20_20&type=Supplementaries&year=2013\">HLT_PATripleJet80_20_20</a><br/><a href=\"/search?q=HLT_PATripleJet100_20_20&type=Supplementaries&year=2013\">HLT_PATripleJet100_20_20</a><br/><a href=\"/search?q=HLT_PAJet40ETM30&type=Supplementaries&year=2013\">HLT_PAJet40ETM30</a><br/><a href=\"/search?q=HLT_PAJet60ETM30&type=Supplementaries&year=2013\">HLT_PAJet60ETM30</a><br/><a href=\"/search?q=HLT_PAPhoton10_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton10_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton15_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton15_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton20_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton20_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton30_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton30_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton40_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton40_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton60_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton60_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton10_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton10_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton15_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton15_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton20_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton20_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton30_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton30_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton40_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton40_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton10_TightCaloIdVL_Iso50&type=Supplementaries&year=2013\">HLT_PAPhoton10_TightCaloIdVL_Iso50</a><br/><a href=\"/search?q=HLT_PAPhoton15_TightCaloIdVL_Iso50&type=Supplementaries&year=2013\">HLT_PAPhoton15_TightCaloIdVL_Iso50</a><br/><a href=\"/search?q=HLT_PAPhoton20_TightCaloIdVL_Iso50&type=Supplementaries&year=2013\">HLT_PAPhoton20_TightCaloIdVL_Iso50</a><br/><a href=\"/search?q=HLT_PAPhoton30_TightCaloIdVL_Iso50&type=Supplementaries&year=2013\">HLT_PAPhoton30_TightCaloIdVL_Iso50</a><br/><a href=\"/search?q=HLT_PAPhoton10_Photon10_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton10_Photon10_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton15_Photon10_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton15_Photon10_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton20_Photon15_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton20_Photon15_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton20_Photon20_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton20_Photon20_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton30_Photon30_NoCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton30_Photon30_NoCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton10_Photon10_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton10_Photon10_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton10_Photon10_TightCaloIdVL_Iso50&type=Supplementaries&year=2013\">HLT_PAPhoton10_Photon10_TightCaloIdVL_Iso50</a><br/><a href=\"/search?q=HLT_PAPhoton15_Photon10_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton15_Photon10_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PAPhoton20_Photon15_TightCaloIdVL&type=Supplementaries&year=2013\">HLT_PAPhoton20_Photon15_TightCaloIdVL</a><br/><a href=\"/search?q=HLT_PASingleEle6_CaloIdT_TrkIdVL&type=Supplementaries&year=2013\">HLT_PASingleEle6_CaloIdT_TrkIdVL</a><br/><a href=\"/search?q=HLT_PASingleEle6_CaloIdNone_TrkIdVL&type=Supplementaries&year=2013\">HLT_PASingleEle6_CaloIdNone_TrkIdVL</a><br/><a href=\"/search?q=HLT_PASingleEle8_CaloIdNone_TrkIdVL&type=Supplementaries&year=2013\">HLT_PASingleEle8_CaloIdNone_TrkIdVL</a><br/><a href=\"/search?q=HLT_PAL1DoubleEG5DoubleEle6_CaloIdT_TrkIdVL&type=Supplementaries&year=2013\">HLT_PAL1DoubleEG5DoubleEle6_CaloIdT_TrkIdVL</a><br/><a href=\"/search?q=HLT_PADoubleEle6_CaloIdT_TrkIdVL&type=Supplementaries&year=2013\">HLT_PADoubleEle6_CaloIdT_TrkIdVL</a><br/><a href=\"/search?q=HLT_PADoubleEle8_CaloIdT_TrkIdVL&type=Supplementaries&year=2013\">HLT_PADoubleEle8_CaloIdT_TrkIdVL</a><br/><a href=\"/search?q=HLT_PAPixelTracks_Multiplicity100&type=Supplementaries&year=2013\">HLT_PAPixelTracks_Multiplicity100</a><br/><a href=\"/search?q=HLT_PAPixelTracks_Multiplicity130&type=Supplementaries&year=2013\">HLT_PAPixelTracks_Multiplicity130</a><br/><a href=\"/search?q=HLT_PAPixelTracks_Multiplicity160&type=Supplementaries&year=2013\">HLT_PAPixelTracks_Multiplicity160</a><br/><a href=\"/search?q=HLT_PAPixelTracks_Multiplicity190&type=Supplementaries&year=2013\">HLT_PAPixelTracks_Multiplicity190</a><br/><a href=\"/search?q=HLT_PAPixelTracks_Multiplicity220&type=Supplementaries&year=2013\">HLT_PAPixelTracks_Multiplicity220</a><br/><a href=\"/search?q=HLT_PAPixelTrackMultiplicity100_FullTrack12&type=Supplementaries&year=2013\">HLT_PAPixelTrackMultiplicity100_FullTrack12</a><br/><a href=\"/search?q=HLT_PAPixelTrackMultiplicity130_FullTrack12&type=Supplementaries&year=2013\">HLT_PAPixelTrackMultiplicity130_FullTrack12</a><br/><a href=\"/search?q=HLT_PAPixelTrackMultiplicity160_FullTrack12&type=Supplementaries&year=2013\">HLT_PAPixelTrackMultiplicity160_FullTrack12</a><br/><a href=\"/search?q=HLT_PAPixelTrackMultiplicity100_L2DoubleMu3&type=Supplementaries&year=2013\">HLT_PAPixelTrackMultiplicity100_L2DoubleMu3</a><br/><a href=\"/search?q=HLT_PAPixelTrackMultiplicity140_Jet80_NoJetID&type=Supplementaries&year=2013\">HLT_PAPixelTrackMultiplicity140_Jet80_NoJetID</a><br/><a href=\"/search?q=HLT_PATech35&type=Supplementaries&year=2013\">HLT_PATech35</a><br/><a href=\"/search?q=HLT_PATech35_HFSumET100&type=Supplementaries&year=2013\">HLT_PATech35_HFSumET100</a><br/><a href=\"/search?q=HLT_PAHFSumET100&type=Supplementaries&year=2013\">HLT_PAHFSumET100</a><br/><a href=\"/search?q=HLT_PAHFSumET140&type=Supplementaries&year=2013\">HLT_PAHFSumET140</a><br/><a href=\"/search?q=HLT_PAHFSumET170&type=Supplementaries&year=2013\">HLT_PAHFSumET170</a><br/><a href=\"/search?q=HLT_PAHFSumET210&type=Supplementaries&year=2013\">HLT_PAHFSumET210</a><br/><a href=\"/search?q=HLT_PAFullTrack12&type=Supplementaries&year=2013\">HLT_PAFullTrack12</a><br/><a href=\"/search?q=HLT_PAFullTrack20&type=Supplementaries&year=2013\">HLT_PAFullTrack20</a><br/><a href=\"/search?q=HLT_PAFullTrack30&type=Supplementaries&year=2013\">HLT_PAFullTrack30</a><br/><a href=\"/search?q=HLT_PAFullTrack50&type=Supplementaries&year=2013\">HLT_PAFullTrack50</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "24655",
+    "relations": [
+      {
+        "description": "The corresponding PromptReco-v1 dataset:",
+        "recid": "24650",
+        "type": "isSiblingOf"
+      }
+    ],
+    "run_numbers": [
+      "210498",
+      "210534",
+      "210614",
+      "210634",
+      "210635",
+      "210638",
+      "210658"
+    ],
+    "run_period": [
+      "HIRun2013"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "GR_P_V43D::All",
+      "release": "CMSSW_5_3_20"
+    },
+    "title": "/PAHighPt/HIRun2013-28Sep2013-v1/RECO",
+    "title_additional": "PAHighPt primary dataset in RECO format from the 5.02 TeV proton-Pb run of 2013 (/PAHighPt/HIRun2013-28Sep2013-v1/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2013"
+        },
+        {
+          "description": "Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data",
+          "url": "/docs/cms-getting-started-hi-2013-2015"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>PAMinBias1 primary dataset in RECO format from the 5.02 TeV proton-Pb run of 2013. Reprocessing for run numbers 210498 to 210534.</p><p>For run numbers greater than or equal to 210676, please use the related PromptReco-v1 dataset linked below.</p><p>During the 2013 proton-Pb data taking, the beam direction was reversed between runs 211256 and 211313.</p><p>The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14216"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14217"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "5.02TeV",
+      "type": "pPb"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2013",
+    "distribution": {
+      "formats": [
+        "reco",
+        "root"
+      ],
+      "number_events": 4175636,
+      "number_files": 155,
+      "size": 536124445413
+    },
+    "doi": "10.7483/OPENDATA.CMS.QDFC.VGTU",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:376be764",
+        "description": "PAMinBias1 RECO file index (1 of 1) for access to data",
+        "size": 43402,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMinBias1/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAMinBias1_RECO_28Sep2013-v1_10000_file_index.json"
+      },
+      {
+        "checksum": "adler32:3b865e93",
+        "description": "PAMinBias1 RECO file index (1 of 1) for access to data",
+        "size": 21235,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMinBias1/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAMinBias1_RECO_28Sep2013-v1_10000_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset are a sample of all events. They are directed in two primary datasets for data processing purposes.</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1702\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible <a href=\"/docs/cms-guide-trigger-system#hlt-trigger-path-definitions\">HLT trigger paths</a> in this dataset are:<br/><a href=\"/search?q=HLT_PARomanPots_Tech52&type=Supplementaries&year=2013\">HLT_PARomanPots_Tech52</a><br/><a href=\"/search?q=HLT_PAL1Tech53_MB&type=Supplementaries&year=2013\">HLT_PAL1Tech53_MB</a><br/><a href=\"/search?q=HLT_PAL1Tech53_MB_SingleTrack&type=Supplementaries&year=2013\">HLT_PAL1Tech53_MB_SingleTrack</a><br/><a href=\"/search?q=HLT_PAL1Tech54_ZeroBias&type=Supplementaries&year=2013\">HLT_PAL1Tech54_ZeroBias</a><br/><a href=\"/search?q=HLT_PAT1minbias_Tech55&type=Supplementaries&year=2013\">HLT_PAT1minbias_Tech55</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "24656",
+    "relations": [
+      {
+        "description": "The corresponding PromptReco-v1 dataset:",
+        "recid": "24651",
+        "type": "isSiblingOf"
+      }
+    ],
+    "run_numbers": [
+      "210498",
+      "210534"
+    ],
+    "run_period": [
+      "HIRun2013"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "GR_P_V43D::All",
+      "release": "CMSSW_5_3_20"
+    },
+    "title": "/PAMinBias1/HIRun2013-28Sep2013-v1/RECO",
+    "title_additional": "PAMinBias1 primary dataset in RECO format from the 5.02 TeV proton-Pb run of 2013 (/PAMinBias1/HIRun2013-28Sep2013-v1/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2013"
+        },
+        {
+          "description": "Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data",
+          "url": "/docs/cms-getting-started-hi-2013-2015"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>PAMinBiasUPC primary dataset in RECO format from the 5.02 TeV proton-Pb run of 2013. Reprocessing for run numbers from 210498 to 210658.</p><p>For run numbers greater than or equal to 210676, please use the related PromptReco-v1 dataset linked below.</p><p>During the 2013 proton-Pb data taking, the beam direction was reversed between runs 211256 and 211313.</p><p>The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14216"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14217"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "5.02TeV",
+      "type": "pPb"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2013",
+    "distribution": {
+      "formats": [
+        "reco",
+        "root"
+      ],
+      "number_events": 38599905,
+      "number_files": 2031,
+      "size": 7078881027006
+    },
+    "doi": "10.7483/OPENDATA.CMS.I2YK.2QAX",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:82a55641",
+        "description": "PAMinBiasUPC RECO file index (1 of 5) for access to data",
+        "size": 89115,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMinBiasUPC/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAMinBiasUPC_RECO_28Sep2013-v1_10000_file_index.json"
+      },
+      {
+        "checksum": "adler32:6338b771",
+        "description": "PAMinBiasUPC RECO file index (2 of 5) for access to data",
+        "size": 4531,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMinBiasUPC/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAMinBiasUPC_RECO_28Sep2013-v1_110000_file_index.json"
+      },
+      {
+        "checksum": "adler32:d8f9db50",
+        "description": "PAMinBiasUPC RECO file index (3 of 5) for access to data",
+        "size": 285387,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMinBiasUPC/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAMinBiasUPC_RECO_28Sep2013-v1_20000_file_index.json"
+      },
+      {
+        "checksum": "adler32:44a39938",
+        "description": "PAMinBiasUPC RECO file index (4 of 5) for access to data",
+        "size": 193455,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMinBiasUPC/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAMinBiasUPC_RECO_28Sep2013-v1_20001_file_index.json"
+      },
+      {
+        "checksum": "adler32:3d344c23",
+        "description": "PAMinBiasUPC RECO file index (5 of 5) for access to data",
+        "size": 285,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMinBiasUPC/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAMinBiasUPC_RECO_28Sep2013-v1_20004_file_index.json"
+      },
+      {
+        "checksum": "adler32:49be8940",
+        "description": "PAMinBiasUPC RECO file index (1 of 5) for access to data",
+        "size": 43924,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMinBiasUPC/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAMinBiasUPC_RECO_28Sep2013-v1_10000_file_index.txt"
+      },
+      {
+        "checksum": "adler32:553e9532",
+        "description": "PAMinBiasUPC RECO file index (2 of 5) for access to data",
+        "size": 2240,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMinBiasUPC/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAMinBiasUPC_RECO_28Sep2013-v1_110000_file_index.txt"
+      },
+      {
+        "checksum": "adler32:160bea01",
+        "description": "PAMinBiasUPC RECO file index (3 of 5) for access to data",
+        "size": 140668,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMinBiasUPC/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAMinBiasUPC_RECO_28Sep2013-v1_20000_file_index.txt"
+      },
+      {
+        "checksum": "adler32:ce4dc2dc",
+        "description": "PAMinBiasUPC RECO file index (4 of 5) for access to data",
+        "size": 95354,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMinBiasUPC/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAMinBiasUPC_RECO_28Sep2013-v1_20001_file_index.txt"
+      },
+      {
+        "checksum": "adler32:6a90294a",
+        "description": "PAMinBiasUPC RECO file index (5 of 5) for access to data",
+        "size": 139,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMinBiasUPC/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAMinBiasUPC_RECO_28Sep2013-v1_20004_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset were selected because of the presence of signs of ultra-peripheral collisions or because they pass certain minimum-bias type selections.</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1702\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible <a href=\"/docs/cms-guide-trigger-system#hlt-trigger-path-definitions\">HLT trigger paths</a> in this dataset are:<br/><a href=\"/search?q=HLT_PAL1SingleJet16&type=Supplementaries&year=2013\">HLT_PAL1SingleJet16</a><br/><a href=\"/search?q=HLT_PAL1SingleJet36&type=Supplementaries&year=2013\">HLT_PAL1SingleJet36</a><br/><a href=\"/search?q=HLT_PASingleForJet15&type=Supplementaries&year=2013\">HLT_PASingleForJet15</a><br/><a href=\"/search?q=HLT_PASingleForJet25&type=Supplementaries&year=2013\">HLT_PASingleForJet25</a><br/><a href=\"/search?q=HLT_PAL1DoubleMu0&type=Supplementaries&year=2013\">HLT_PAL1DoubleMu0</a><br/><a href=\"/search?q=HLT_PADimuon0_NoVertexing&type=Supplementaries&year=2013\">HLT_PADimuon0_NoVertexing</a><br/><a href=\"/search?q=HLT_PARomanPots_Tech52&type=Supplementaries&year=2013\">HLT_PARomanPots_Tech52</a><br/><a href=\"/search?q=HLT_PAL1Tech53_MB&type=Supplementaries&year=2013\">HLT_PAL1Tech53_MB</a><br/><a href=\"/search?q=HLT_PAL1Tech53_MB_SingleTrack&type=Supplementaries&year=2013\">HLT_PAL1Tech53_MB_SingleTrack</a><br/><a href=\"/search?q=HLT_PAL1Tech54_ZeroBias&type=Supplementaries&year=2013\">HLT_PAL1Tech54_ZeroBias</a><br/><a href=\"/search?q=HLT_PAT1minbias_Tech55&type=Supplementaries&year=2013\">HLT_PAT1minbias_Tech55</a><br/><a href=\"/search?q=HLT_PAL1Tech_HBHEHO_totalOR&type=Supplementaries&year=2013\">HLT_PAL1Tech_HBHEHO_totalOR</a><br/><a href=\"/search?q=HLT_PAMinBiasHF&type=Supplementaries&year=2013\">HLT_PAMinBiasHF</a><br/><a href=\"/search?q=HLT_PAMinBiasHF_OR&type=Supplementaries&year=2013\">HLT_PAMinBiasHF_OR</a><br/><a href=\"/search?q=HLT_PAMinBiasBHC&type=Supplementaries&year=2013\">HLT_PAMinBiasBHC</a><br/><a href=\"/search?q=HLT_PAMinBiasBHC_OR&type=Supplementaries&year=2013\">HLT_PAMinBiasBHC_OR</a><br/><a href=\"/search?q=HLT_PAMinBiasHfOrBHC&type=Supplementaries&year=2013\">HLT_PAMinBiasHfOrBHC</a><br/><a href=\"/search?q=HLT_PABptxPlusNotBptxMinus&type=Supplementaries&year=2013\">HLT_PABptxPlusNotBptxMinus</a><br/><a href=\"/search?q=HLT_PABptxMinusNotBptxPlus&type=Supplementaries&year=2013\">HLT_PABptxMinusNotBptxPlus</a><br/><a href=\"/search?q=HLT_PAZeroBias&type=Supplementaries&year=2013\">HLT_PAZeroBias</a><br/><a href=\"/search?q=HLT_PAZeroBiasPixel_SingleTrack&type=Supplementaries&year=2013\">HLT_PAZeroBiasPixel_SingleTrack</a><br/><a href=\"/search?q=HLT_PAHFOR_SingleTrack&type=Supplementaries&year=2013\">HLT_PAHFOR_SingleTrack</a><br/><a href=\"/search?q=HLT_PAZeroBiasPixel_DoubleTrack&type=Supplementaries&year=2013\">HLT_PAZeroBiasPixel_DoubleTrack</a><br/><a href=\"/search?q=HLT_PADoubleMu4_Acoplanarity03&type=Supplementaries&year=2013\">HLT_PADoubleMu4_Acoplanarity03</a><br/><a href=\"/search?q=HLT_PAExclDijet35_HFAND&type=Supplementaries&year=2013\">HLT_PAExclDijet35_HFAND</a><br/><a href=\"/search?q=HLT_PAL1DoubleEG3_FwdVeto&type=Supplementaries&year=2013\">HLT_PAL1DoubleEG3_FwdVeto</a><br/><a href=\"/search?q=HLT_PAL1DoubleJet20_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1DoubleJet20_TotemDiffractive</a><br/><a href=\"/search?q=HLT_PADoubleJet20_ForwardBackward&type=Supplementaries&year=2013\">HLT_PADoubleJet20_ForwardBackward</a><br/><a href=\"/search?q=HLT_PAMu7_Ele7_CaloIdT_CaloIsoVL&type=Supplementaries&year=2013\">HLT_PAMu7_Ele7_CaloIdT_CaloIsoVL</a><br/><a href=\"/search?q=HLT_PAUpcSingleEG5Pixel_TrackVeto&type=Supplementaries&year=2013\">HLT_PAUpcSingleEG5Pixel_TrackVeto</a><br/><a href=\"/search?q=HLT_PAUpcSingleEG5Full_TrackVeto7&type=Supplementaries&year=2013\">HLT_PAUpcSingleEG5Full_TrackVeto7</a><br/><a href=\"/search?q=HLT_PAUpcSingleMuOpenPixel_TrackVeto&type=Supplementaries&year=2013\">HLT_PAUpcSingleMuOpenPixel_TrackVeto</a><br/><a href=\"/search?q=HLT_PAUpcSingleMuOpenFull_TrackVeto7&type=Supplementaries&year=2013\">HLT_PAUpcSingleMuOpenFull_TrackVeto7</a><br/><a href=\"/search?q=HLT_PAUpcSingleMuOpenTkMu_Onia&type=Supplementaries&year=2013\">HLT_PAUpcSingleMuOpenTkMu_Onia</a><br/><a href=\"/search?q=HLT_PARandom&type=Supplementaries&year=2013\">HLT_PARandom</a><br/><a href=\"/search?q=HLT_PAL1Tech63_CASTORHaloMuon&type=Supplementaries&year=2013\">HLT_PAL1Tech63_CASTORHaloMuon</a><br/><a href=\"/search?q=HLT_PACastorEmNotHfCoincidencePm&type=Supplementaries&year=2013\">HLT_PACastorEmNotHfCoincidencePm</a><br/><a href=\"/search?q=HLT_PACastorEmTotemLowMultiplicity&type=Supplementaries&year=2013\">HLT_PACastorEmTotemLowMultiplicity</a><br/><a href=\"/search?q=HLT_PACastorEmNotHfSingleChannel&type=Supplementaries&year=2013\">HLT_PACastorEmNotHfSingleChannel</a><br/><a href=\"/search?q=HLT_PAL1CastorTotalTotemLowMultiplicity&type=Supplementaries&year=2013\">HLT_PAL1CastorTotalTotemLowMultiplicity</a><br/><a href=\"/search?q=HLT_PAL1SingleMu20_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1SingleMu20_TotemDiffractive</a><br/><a href=\"/search?q=HLT_PAL1SingleJet52_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1SingleJet52_TotemDiffractive</a><br/><a href=\"/search?q=HLT_PAL1SingleEG20_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1SingleEG20_TotemDiffractive</a><br/><a href=\"/search?q=HLT_PAL1DoubleJetC36_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1DoubleJetC36_TotemDiffractive</a><br/><a href=\"/search?q=HLT_PAL1DoubleMu5_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1DoubleMu5_TotemDiffractive</a><br/><a href=\"/search?q=HLT_PAL1DoubleEG5_TotemDiffractive&type=Supplementaries&year=2013\">HLT_PAL1DoubleEG5_TotemDiffractive</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "24657",
+    "relations": [
+      {
+        "description": "The corresponding PromptReco-v1 dataset:",
+        "recid": "24653",
+        "type": "isSiblingOf"
+      }
+    ],
+    "run_numbers": [
+      "210498",
+      "210534",
+      "210614",
+      "210634",
+      "210635",
+      "210638",
+      "210658"
+    ],
+    "run_period": [
+      "HIRun2013"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "GR_P_V43D::All",
+      "release": "CMSSW_5_3_20"
+    },
+    "title": "/PAMinBiasUPC/HIRun2013-28Sep2013-v1/RECO",
+    "title_additional": "PAMinBiasUPC primary dataset in RECO format from the 5.02 TeV proton-Pb run of 2013 (/PAMinBiasUPC/HIRun2013-28Sep2013-v1/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2013"
+        },
+        {
+          "description": "Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data",
+          "url": "/docs/cms-getting-started-hi-2013-2015"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>PAMuon primary dataset in RECO format from the 5.02 TeV proton-Pb run of 2013. Reprocessing for run numbers from 210498 to 210658.</p><p>For run numbers greater than or equal to 210676, please use the related PromptReco-v1 dataset linked below.</p><p>During the 2013 proton-Pb data taking, the beam direction was reversed between runs 211256 and 211313.</p><p>The list of validated runs, which must be applied to all analyses, either with the full validation or for an analysis requiring only muons, can be found in</p>",
+      "links": [
+        {
+          "description": "Validated runs, full validation",
+          "recid": "14216"
+        },
+        {
+          "description": "Validated runs, muons only",
+          "recid": "14217"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration",
+      "recid": "451"
+    },
+    "collections": [
+      "CMS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "5.02TeV",
+      "type": "pPb"
+    },
+    "date_created": [
+      "2013"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2013",
+    "distribution": {
+      "formats": [
+        "reco",
+        "root"
+      ],
+      "number_events": 15445691,
+      "number_files": 1636,
+      "size": 5515355571479
+    },
+    "doi": "10.7483/OPENDATA.CMS.B1W4.HP9Z",
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:0534d1b0",
+        "description": "PAMuon RECO file index (1 of 3) for access to data",
+        "size": 205071,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMuon/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAMuon_RECO_28Sep2013-v1_10000_file_index.json"
+      },
+      {
+        "checksum": "adler32:7260077b",
+        "description": "PAMuon RECO file index (2 of 3) for access to data",
+        "size": 245918,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMuon/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAMuon_RECO_28Sep2013-v1_20000_file_index.json"
+      },
+      {
+        "checksum": "adler32:9b12921b",
+        "description": "PAMuon RECO file index (3 of 3) for access to data",
+        "size": 555,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMuon/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAMuon_RECO_28Sep2013-v1_20001_file_index.json"
+      },
+      {
+        "checksum": "adler32:8b20568e",
+        "description": "PAMuon RECO file index (1 of 3) for access to data",
+        "size": 98819,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMuon/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAMuon_RECO_28Sep2013-v1_10000_file_index.txt"
+      },
+      {
+        "checksum": "adler32:e733f9db",
+        "description": "PAMuon RECO file index (2 of 3) for access to data",
+        "size": 118503,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMuon/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAMuon_RECO_28Sep2013-v1_20000_file_index.txt"
+      },
+      {
+        "checksum": "adler32:db574e2f",
+        "description": "PAMuon RECO file index (3 of 3) for access to data",
+        "size": 266,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/hidata/HIRun2013/PAMuon/RECO/28Sep2013-v1/file-indexes/CMS_HIRun2013_PAMuon_RECO_28Sep2013-v1_20001_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "heavy-ion physics"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>Events stored in this primary dataset were selected because of the presence of one or more high-pt muon.</p><p><strong>Data taking / HLT</strong><br/>The collision data were assigned to different RAW datasets using the following <a href=\"/record/1702\">HLT configuration</a>.</p><p><strong>HLT trigger paths</strong><br/>The possible <a href=\"/docs/cms-guide-trigger-system#hlt-trigger-path-definitions\">HLT trigger paths</a> in this dataset are:<br/><a href=\"/search?q=HLT_PAL1DoubleMu0_HighQ&type=Supplementaries&year=2013\">HLT_PAL1DoubleMu0_HighQ</a><br/><a href=\"/search?q=HLT_PAL1DoubleMuOpen&type=Supplementaries&year=2013\">HLT_PAL1DoubleMuOpen</a><br/><a href=\"/search?q=HLT_PAL2DoubleMu3&type=Supplementaries&year=2013\">HLT_PAL2DoubleMu3</a><br/><a href=\"/search?q=HLT_PAMu3&type=Supplementaries&year=2013\">HLT_PAMu3</a><br/><a href=\"/search?q=HLT_PAMu7&type=Supplementaries&year=2013\">HLT_PAMu7</a><br/><a href=\"/search?q=HLT_PAMu12&type=Supplementaries&year=2013\">HLT_PAMu12</a><br/><a href=\"/search?q=HLT_PABTagMu_Jet20_Mu4&type=Supplementaries&year=2013\">HLT_PABTagMu_Jet20_Mu4</a><br/><a href=\"/search?q=HLT_PAMu3PFJet20&type=Supplementaries&year=2013\">HLT_PAMu3PFJet20</a><br/><a href=\"/search?q=HLT_PAMu3PFJet40&type=Supplementaries&year=2013\">HLT_PAMu3PFJet40</a><br/><a href=\"/search?q=HLT_PAMu7PFJet20&type=Supplementaries&year=2013\">HLT_PAMu7PFJet20</a></p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "24658",
+    "relations": [
+      {
+        "description": "The corresponding PromptReco-v1 dataset:",
+        "recid": "24654",
+        "type": "isSiblingOf"
+      }
+    ],
+    "run_numbers": [
+      "210498",
+      "210534",
+      "210614",
+      "210634",
+      "210635",
+      "210638",
+      "210658"
+    ],
+    "run_period": [
+      "HIRun2013"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_20-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "GR_P_V43D::All",
+      "release": "CMSSW_5_3_20"
+    },
+    "title": "/PAMuon/HIRun2013-28Sep2013-v1/RECO",
+    "title_additional": "PAMuon primary dataset in RECO format from the 5.02 TeV proton-Pb run of 2013 (/PAMuon/HIRun2013-28Sep2013-v1/RECO)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "You can access these data through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2013"
+        },
+        {
+          "description": "Getting Started with CMS 2013 and 2015 Heavy-Ion Open Data",
+          "url": "/docs/cms-getting-started-hi-2013-2015"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "The Data Quality Monitoring Software for the CMS experiment at the LHC: past, present and future",
+          "url": "https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02003.pdf"
+        }
+      ]
+    }
+  }
+]

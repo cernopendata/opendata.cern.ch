@@ -79,10 +79,6 @@
             "description": "The affiliation of the author. Multiple affiliations are separated by a semicolon (;)",
             "type": "string"
           },
-          "rorid": {
-            "description": "The ROR ID for the author's affiliation. Multiple ROR IDs are separated by a semicolon (;)",
-            "type": "string"
-          },
           "ccid": {
             "description": "The author's CCID",
             "type": "string"
@@ -91,12 +87,16 @@
             "description": "The author's INSPIRE ID",
             "type": "string"
           },
+          "name": {
+            "description": "The name of the author",
+            "type": "string"
+          },
           "orcid": {
             "description": "The author's ORCID iD",
             "type": "string"
           },
-          "name": {
-            "description": "The name of the author",
+          "rorid": {
+            "description": "The ROR ID for the author's affiliation. Multiple ROR IDs are separated by a semicolon (;)",
             "type": "string"
           }
         },
@@ -155,7 +155,11 @@
     "collision_information": {
       "properties": {
         "energy": {
-          "description": "E.g. 8TeV",
+          "description": "Collision energy e.g. 8TeV",
+          "type": "string"
+        },
+        "type": {
+          "description": "Collision type e.g. pp",
           "type": "string"
         }
       },
@@ -204,8 +208,11 @@
       "properties": {
         "availability": {
           "description": "Specifies if dataset is on-demand, online in future might be also tape, disk",
-          "type": "string",
-          "enum": ["ondemand", "online"]
+          "enum": [
+            "ondemand",
+            "online"
+          ],
+          "type": "string"
         },
         "formats": {
           "items": {
@@ -295,6 +302,30 @@
           "description": "A description of the methodology used for the production of this data/software",
           "type": "string"
         },
+        "links": {
+          "items": {
+            "properties": {
+              "description": {
+                "description": "A brief description of the link associated with the methodology",
+                "type": "string"
+              },
+              "recid": {
+                "description": "If the link is to another CERN Open Data portal record, the record ID of that record",
+                "type": "string"
+              },
+              "title": {
+                "description": "The title for the link",
+                "type": "string"
+              },
+              "url": {
+                "description": "The URL for the link associated with this record (for an external URL)",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
         "steps": {
           "items": [
             {
@@ -303,14 +334,6 @@
                   "items": [
                     {
                       "properties": {
-                        "script": {
-                          "description": "Production script",
-                          "type": "string"
-                        },
-                        "title": {
-                          "description": "Title of the script",
-                          "type": "string"
-                        },
                         "cms_confdb_id": {
                           "description": "the cms_confdb_id (applies to CMS records)",
                           "type": "string"
@@ -321,6 +344,14 @@
                         },
                         "recid": {
                           "description": "The internal ID of the related record, if it is another Open Data record",
+                          "type": "string"
+                        },
+                        "script": {
+                          "description": "Production script",
+                          "type": "string"
+                        },
+                        "title": {
+                          "description": "Title of the script",
                           "type": "string"
                         },
                         "url": {
@@ -346,12 +377,12 @@
                   "description": "The global tag for generator",
                   "type": "string"
                 },
-                "release": {
-                  "description": "CMS software version used in production",
-                  "type": "string"
-                },
                 "output_dataset": {
                   "description": "Output for production",
+                  "type": "string"
+                },
+                "release": {
+                  "description": "CMS software version used in production",
                   "type": "string"
                 },
                 "type": {
@@ -362,30 +393,6 @@
               "type": "object"
             }
           ],
-          "type": "array"
-        },
-        "links": {
-          "items": {
-            "properties": {
-              "description": {
-                "description": "A brief description of the link associated with the methodology",
-                "type": "string"
-              },
-              "recid": {
-                "description": "If the link is to another CERN Open Data portal record, the record ID of that record",
-                "type": "string"
-              },
-              "title": {
-                "description": "The title for the link",
-                "type": "string"
-              },
-              "url": {
-                "description": "The URL for the link associated with this record (for an external URL)",
-                "type": "string"
-              }
-            },
-            "type": "object"
-          },
           "type": "array"
         }
       },
@@ -481,6 +488,13 @@
       },
       "type": "array"
     },
+    "run_numbers" : {
+      "items": {
+        "description": "The data-taking run numbers for the given collision data",
+        "type": "string"
+      },
+      "type": "array"
+    },
     "run_period": {
       "items": {
         "description": "The data-taking run period during which the collision data or for which the simulated data or software was produced, in a format such as 'Run2011A'",
@@ -523,6 +537,30 @@
     },
     "system_details": {
       "properties": {
+        "container_images": {
+          "items": {
+            "properties": {
+              "description": {
+                "description": "Description of the container image that is recommended for analysing these data",
+                "type": "string"
+              },
+              "recid": {
+                "description": "Record ID of the container image (if it exists as another Open Data record)",
+                "type": "string"
+              },
+              "registry": {
+                "description": "Registry type where the image can be found (e.g. dockerhub, gitlab)",
+                "type": "string"
+              },
+              "name": {
+                "description": "Fully Qualified Image Name (FQIN) where the container image is located (repository/name:tag)",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
         "description": {
           "type": "string"
         },
@@ -667,6 +705,14 @@
       "type": "object"
     }
   },
-  "type": "object",
-  "required": ["collections", "date_published", "experiment", "publisher", "recid", "title", "type"]
+  "required": [
+    "collections",
+    "date_published",
+    "experiment",
+    "publisher",
+    "recid",
+    "title",
+    "type"
+  ],
+  "type": "object"
 }

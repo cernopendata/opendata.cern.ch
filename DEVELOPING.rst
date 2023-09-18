@@ -9,32 +9,74 @@ Installation
 ============
 
 You can run a local CERN Open Data instance for development purposes using
-Docker with ``docker-compose-dev.yml`` configuration. The source code directory
-will be mounted in the container and the system will be ready for "live
-editing". This is useful for active feature development or for pull request
-integration purposes. A usage example:
+container technology such as Docker or Podman.
 
-.. code-block:: console
+Install with Docker
+-------------------
 
-   $ docker-compose -f docker-compose-dev.yml build
-   $ docker-compose -f docker-compose-dev.yml up
-   $ docker exec -i -t opendatacernch_web_1 scripts/populate-instance.sh --skip-files
-   $ firefox http://0.0.0.0:5000/
-   $ docker-compose -f docker-compose-dev.yml down
-
-If you want to use production-like conditions locally, you can use Docker with
-``docker-compose.yml`` configuration. This is useful for tuning overall system
-performance such as reverse proxy caching. The source code directory will not be
-mounted in the container in this case. A usage example:
+One popular solution to develop the CERN Open Data instance locally is to use
+Docker. For development purposes, please use the ``docker-compose-dev.yml``
+configuration. The source code directory will be mounted in the container and
+the system will be ready for "live editing". This is useful for active feature
+development or for pull request integration purposes. A usage example:
 
 .. code-block:: console
 
    $ ./scripts/generate-localhost-certificate.sh
-   $ docker-compose build
-   $ docker-compose up
-   $ docker exec -i -t opendatacernch_web_1 scripts/populate-instance.sh
+   $ docker compose -f docker-compose-dev.yml build
+   $ docker compose -f docker-compose-dev.yml up -d
+   $ docker exec -i -t opendatacernch-web-1 /code/scripts/populate-instance.sh
+   $ firefox http://0.0.0.0:5000/
+   $ docker compose -f docker-compose-dev.yml down -v
+
+If you want to simulate production-like deployment conditions locally, please
+use the ``docker-compose.yml`` configuration. This is useful for tuning overall
+system performance such as reverse proxy caching. The source code directory
+will not be mounted in the container in this case. A usage example:
+
+.. code-block:: console
+
+   $ ./scripts/generate-localhost-certificate.sh
+   $ docker compose build
+   $ docker compose up -d
+   $ docker exec -i -t opendatacernch-web-1 /code/scripts/populate-instance.sh
    $ firefox http://0.0.0.0/
-   $ docker-compose down -v
+   $ docker compose down -v
+
+Install with Podman
+-------------------
+
+Another possibility to develop the CERN Open Data instance locally is to use
+the Podman container technology. This has an advantage that your containers
+will be running in the regular user space, not requiring any superuser access.
+
+An example of a Podman development session:
+
+.. code-block:: console
+
+   $ ./scripts/generate-localhost-certificate.sh
+   $ podman-compose -f docker-compose-dev.yml --podman-build-args='--format docker' build
+   $ podman-compose -f docker-compose-dev.yml up
+   $ podman exec -i -t opendatacernch_web_1 \
+       ./scripts/populate-instance.sh --skip-docs --skip-glossary --skip-records
+   $ podman exec -i -t opendatacernch_web_1 \
+       cernopendata fixtures records --mode insert -f cernopendata/modules/fixtures/data/records/cms-primary-datasets.json
+   $ podman-compose -f docker-compose-dev.yml down -v
+
+Note that if you would like to test production-like conditions with Podman, you
+will have to allow the regular user processes to listen to privileged
+HTTP/HTTPS ports, for example by allowing all ports from 80 up:
+
+.. code-block:: console
+
+   $ echo 80 | sudo tee /proc/sys/net/ipv4/ip_unprivileged_port_start
+
+Then, when you are done with the testing, you can return back to the default
+operating system configuration allowing only ports 1024 and up:
+
+.. code-block:: console
+
+   $ echo 1024 | sudo tee /proc/sys/net/ipv4/ip_unprivileged_port_start
 
 Development tips
 ================
@@ -82,8 +124,8 @@ can re-upload all the docs by cleaning the instance first:
 
 .. code-block:: console
 
-   $ docker exec -i -t opendatacernch_web_1 scripts/clean-instance.sh
-   $ docker exec -i -t opendatacernch_web_1 scripts/populate-instance.sh --skip-records
+   $ docker exec -i -t opendatacernch-web-1 /code/scripts/clean-instance.sh
+   $ docker exec -i -t opendatacernch-web-1 /code/scripts/populate-instance.sh --skip-records
 
 Working with records
 --------------------
@@ -95,20 +137,20 @@ wish by doing:
 
 .. code-block:: console
 
-   $ docker exec -i -t opendatacernch_web_1 scripts/populate-instance.sh --skip-records
-   $ docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-author-list-multiplicity.json --mode insert
-   $ docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-author-list-tau.json --mode insert
-   $ docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-detector-events-multiplicity.json --mode insert
-   $ docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-detector-events-tau.json --mode insert
-   $ docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-ecc-datasets.json --mode insert
-   $ docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-ed-datasets.json --mode insert
+   $ docker exec -i -t opendatacernch-web-1 /code/scripts/populate-instance.sh --skip-records
+   $ docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-author-list-multiplicity.json --mode insert
+   $ docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-author-list-tau.json --mode insert
+   $ docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-detector-events-multiplicity.json --mode insert
+   $ docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-detector-events-tau.json --mode insert
+   $ docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-ecc-datasets.json --mode insert
+   $ docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-ed-datasets.json --mode insert
 
 If you alter one of the fixture files, you can upload your changes by using the
 ``replace`` mode:
 
 .. code-block:: console
 
-   $ docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-ed-datasets.json --mode replace
+   $ docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-ed-datasets.json --mode replace
 
 Working with files
 ------------------
@@ -120,7 +162,7 @@ your laptop from the deep sleep. In this case it may be necessary to restart the
 
 .. code-block:: console
 
-   $ docker-compose -f docker-compose-dev.yml restart web web-files
+   $ docker compose -f docker-compose-dev.yml restart web web-files
 
 Working with proxy
 ------------------
@@ -130,7 +172,7 @@ cache content, you can run:
 
 .. code-block:: console
 
-   $ docker exec opendatacernch_nginx_1 find /var/cache/nginx -type f -delete
+   $ docker exec opendatacernch-nginx-1 find /var/cache/nginx -type f -delete
 
 Working with UI packages
 ------------------------
@@ -193,37 +235,37 @@ can do:
 
 .. code-block:: shell
 
-   docker-compose down -v
-   docker-compose -f docker-compose-dev.yml down -v
-   docker-compose build
-   docker-compose up -d
+   docker compose down -v
+   docker compose -f docker-compose-dev.yml down -v
+   docker compose build
+   docker compose up -d
    sleep 20
-   docker exec -i -t opendatacernch_web_1 scripts/populate-instance.sh --skip-records
-   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-author-list-multiplicity.json --mode insert
-   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-author-list-tau.json --mode insert
-   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-detector-events-multiplicity.json --mode insert
-   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-detector-events-tau.json --mode insert
-   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-ecc-datasets.json --mode insert
-   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-ed-datasets.json --mode insert
+   docker exec -i -t opendatacernch-web-1 /code/scripts/populate-instance.sh --skip-records
+   docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-author-list-multiplicity.json --mode insert
+   docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-author-list-tau.json --mode insert
+   docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-detector-events-multiplicity.json --mode insert
+   docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-detector-events-tau.json --mode insert
+   docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-ecc-datasets.json --mode insert
+   docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-ed-datasets.json --mode insert
 
 For switching from any mode to the development mode working on OPERA records,
 you can do:
 
 .. code-block:: shell
 
-   docker-compose down -v
-   docker-compose -f docker-compose-dev.yml down -v
-   docker-compose -f docker-compose-dev.yml build
-   docker-compose -f docker-compose-dev.yml up -d
+   docker compose down -v
+   docker compose -f docker-compose-dev.yml down -v
+   docker compose -f docker-compose-dev.yml build
+   docker compose -f docker-compose-dev.yml up -d
    sleep 20
-   docker exec -i -t opendatacernch_web_1 scripts/populate-instance.sh --skip-records
-   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/cms-derived-csv-Run2011A.json --mode insert
-   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-author-list-multiplicity.json --mode insert
-   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-author-list-tau.json --mode insert
-   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-detector-events-multiplicity.json --mode insert
-   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-detector-events-tau.json --mode insert
-   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-ecc-datasets.json --mode insert
-   docker exec -i -t opendatacernch_web_1 cernopendata fixtures records -f cernopendata/modules/fixtures/data/records/opera-ed-datasets.json --mode insert
+   docker exec -i -t opendatacernch-web-1 /code/scripts/populate-instance.sh --skip-records
+   docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/cms-derived-csv-Run2011A.json --mode insert
+   docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-author-list-multiplicity.json --mode insert
+   docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-author-list-tau.json --mode insert
+   docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-detector-events-multiplicity.json --mode insert
+   docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-detector-events-tau.json --mode insert
+   docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-ecc-datasets.json --mode insert
+   docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-ed-datasets.json --mode insert
 
 Appendix: Git workflow
 ======================
