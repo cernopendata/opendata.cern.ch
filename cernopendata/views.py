@@ -37,11 +37,11 @@ blueprint = Blueprint(
 )
 
 
-@blueprint.record_once
-def redefine_search_endpoint(blueprint_setup):
-    """Redefine invenio search endpoint."""
-    blueprint_setup.app.view_functions[
-        'invenio_search_ui.search'] = search_wrapper
+#@blueprint.record_once
+#def redefine_search_endpoint(blueprint_setup):
+#    """Redefine invenio search endpoint."""
+#    blueprint_setup.app.view_functions[
+#         'invenio_search_ui.search'] = search_wrapper
 
 
 def search_wrapper():

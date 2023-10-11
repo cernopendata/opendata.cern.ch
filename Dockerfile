@@ -22,40 +22,31 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
-# Use Invenio's CentOS7 image with Python-3.6
-FROM docker.io/inveniosoftware/centos7-python:3.6
+# Use Invenio's alma image with Python-3.9
+FROM registry.cern.ch/inveniosoftware/almalinux:1
 
-# Use XRootD 4.12.7
-ENV XROOTD_VERSION=4.12.7
+# Use XRootD 5.5.5
+ENV XROOTD_VERSION=5.5.5
 
 # Install CERN Open Data Portal web node pre-requisites
 # hadolint ignore=DL3033
 RUN yum install -y \
         ca-certificates \
         cmake3 \
-        curl \
-        git \
+        emacs-nox \
+        epel-release \
+        libuuid-devel \
         rlwrap \
         screen \
-        vim \
-        emacs-nox && \
-    yum install -y \
-        epel-release && \
-    yum groupinstall -y "Development Tools" && \
-    yum --setopt=obsoletes=0 install -y \
-        cmake3 gcc-c++ zlib-devel openssl-devel libuuid-devel python3-devel jq \
-        openssl-devel \
-        devtoolset-7-gcc-c++ \
-        https://storage-ci.web.cern.ch/storage-ci/xrootd/release/cc-7-x86_64/v${XROOTD_VERSION}/xrootd-libs-${XROOTD_VERSION}-1.el7.x86_64.rpm \
-        https://storage-ci.web.cern.ch/storage-ci/xrootd/release/cc-7-x86_64/v${XROOTD_VERSION}/xrootd-client-libs-${XROOTD_VERSION}-1.el7.x86_64.rpm \
-        https://storage-ci.web.cern.ch/storage-ci/xrootd/release/cc-7-x86_64/v${XROOTD_VERSION}/xrootd-devel-${XROOTD_VERSION}-1.el7.x86_64.rpm \
-        https://storage-ci.web.cern.ch/storage-ci/xrootd/release/cc-7-x86_64/v${XROOTD_VERSION}/xrootd-client-${XROOTD_VERSION}-1.el7.x86_64.rpm \
-        https://storage-ci.web.cern.ch/storage-ci/xrootd/release/cc-7-x86_64/v${XROOTD_VERSION}/xrootd-client-devel-${XROOTD_VERSION}-1.el7.x86_64.rpm \
-        https://storage-ci.web.cern.ch/storage-ci/xrootd/release/cc-7-x86_64/v${XROOTD_VERSION}/python3-xrootd-${XROOTD_VERSION}-1.el7.x86_64.rpm && \
-    yum clean -y all
+        vim && \
+    yum groupinstall -y "Development Tools"
+RUN if [ ! -z "$xrootd_version" ] ; then XROOTD_V="-$xrootd_version" ; else XROOTD_V="" ; fi && \
+    echo "Will install xrootd version: $XROOTD_V (latest if empty)" && \
+    yum install -y xrootd"$XROOTD_V" python3-xrootd"$XROOTD_V"
+RUN yum clean -y all
 
 RUN pip uninstall pipenv -y && pip install --upgrade pip==20.2.4 setuptools==51.0.0 wheel==0.36.2 && \
-    npm install -g --unsafe-perm node-sass@4.14.1 clean-css@3.4.24 requirejs@2.3.6 uglify-js@3.12.1 jsonlint@1.6.3 d3@6.3.1
+    npm install -g --unsafe-perm node-sass@6.0.1 clean-css@3.4.24 requirejs@2.3.6 uglify-js@3.12.1 jsonlint@1.6.3 d3@6.3.1
 
 # Change group to root to support OpenShift runtime
 RUN chgrp -R 0 "${INVENIO_INSTANCE_PATH}" && \
@@ -73,16 +64,6 @@ ENV PYTHONUSERBASE=${INVENIO_INSTANCE_PATH}/python
 
 # Add Invenio user Python base to global PATH
 ENV PATH=$PATH:${INVENIO_INSTANCE_PATH}/python/bin
-RUN pip install --user xrootd==${XROOTD_VERSION} xrootdpyfs==0.2.2
-
-# Install requirements
-COPY requirements-production-local-forks.txt /tmp
-COPY requirements-production.txt /tmp
-RUN pip install --user --no-deps -r /tmp/requirements-production-local-forks.txt
-RUN pip install --user -r /tmp/requirements-production.txt
-
-# Check for any broken Python dependencies
-RUN pip check
 
 # Add CERN Open Data Portal sources to `code` and work there
 WORKDIR ${CODE_DIR}
@@ -97,8 +78,8 @@ ENV DEBUG=${DEBUG:-""}
 
 # Install CERN Open Data Portal sources
 # hadolint ignore=DL3013
-RUN if [ "$DEBUG" ]; then pip install --user -e ".[all]" && pip check; else pip install --user ".[all]" && pip check; fi;
-
+RUN if [ "$DEBUG" ]; then FLAGS="-e"; fi;
+RUN pip install --user $FLAGS ".[all]" && pip check
 # Create instance
 RUN scripts/create-instance.sh
 
@@ -119,9 +100,6 @@ ARG UWSGI_THREADS=1
 ENV UWSGI_THREADS ${UWSGI_THREADS:-1}
 ARG UWSGI_WSGI_MODULE=cernopendata.wsgi:application
 ENV UWSGI_WSGI_MODULE ${UWSGI_WSGI_MODULE:-cernopendata.wsgi:application}
-
-# Install Python packages needed for development
-RUN if [ "$DEBUG" ]; then pip install --user -r requirements-dev.txt && pip check; fi;
 
 # Start the CERN Open Data Portal application
 # hadolint ignore=DL3025

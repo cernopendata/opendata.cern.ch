@@ -24,7 +24,7 @@
 
 """Cernopendata Query factory for REST API."""
 
-from elasticsearch_dsl.query import Q, Range, Bool
+from invenio_search.engine import dsl
 from flask import current_app, request
 from invenio_records_rest.errors import InvalidQueryRESTError
 from invenio_records_rest.sorter import default_sorter_factory
@@ -48,14 +48,13 @@ def cernopendata_query_parser(query_string=None, show_ondemand=None):
             _query_string[index] = '"' + _query_term + '"'
     query_string = " ".join(_query_string)
     if query_string:
-        _query = Q("query_string", query=query_string)
+        _query = dsl.Q("query_string", query=query_string)
     else:
-        _query = Q()
+        _query = dsl.Q()
 
     if show_ondemand != 'true':
         _query = _query & \
-            ~Q('match', **{'distribution.availability.keyword': 'ondemand'})
-
+            ~dsl.Q('match', **{'distribution.availability.keyword': 'ondemand'})
     return _query
 
 
@@ -114,6 +113,6 @@ def cernopendata_range_filter(field):
                     else:
                         dict_key = opers['nonstrict']
                     range_args[dict_key] = range_end
-            range_query.append(Range(**{field: range_args}))
-        return Bool(should=range_query)
+            range_query.append(dsl.Range(**{field: range_args}))
+        return dsl.Bool(should=range_query)
     return inner

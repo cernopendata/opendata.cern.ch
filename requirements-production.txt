@@ -87,12 +87,6 @@ dnspython==2.1.0
     # via email-validator
 dulwich==0.19.16
     # via autosemver
-elasticsearch==7.13.1
-    # via
-    #   elasticsearch-dsl
-    #   invenio-search
-elasticsearch-dsl==7.3.0
-    # via invenio-search
 email-validator==1.1.3
     # via invenio-accounts
 entrypoints==0.3
@@ -258,13 +252,13 @@ invenio-config==1.0.3
     #   invenio-app
 invenio-db[postgresql,versioning]==1.0.5
     # via cernopendata (setup.py)
-invenio-files-rest==1.2.0
+invenio-files-rest==1.4.0
     # via
     #   invenio-records-files
     #   invenio-xrootd
 invenio-formatter==1.1.0
     # via invenio-previewer
-invenio-i18n==1.3.0
+invenio-i18n==1.3.2
     # via
     #   invenio-accounts
     #   invenio-pidstore
@@ -458,7 +452,7 @@ pyparsing==2.4.7
     # via packaging
 pyrsistent==0.17.3
     # via jsonschema
-python-dateutil==2.8.1
+python-dateutil==2.8.2
     # via
     #   alembic
     #   arrow
@@ -592,11 +586,11 @@ wtforms==2.3.3
     # via
     #   flask-wtf
     #   invenio-files-rest
-xrootd==4.12.7
+xrootd==5.5.5
     # via
     #   cernopendata (setup.py)
     #   xrootdpyfs
-xrootdpyfs==0.2.2
+xrootdpyfs==2.0.01a
     # via
     #   cernopendata (setup.py)
     #   invenio-xrootd

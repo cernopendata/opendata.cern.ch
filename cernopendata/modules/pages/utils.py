@@ -24,7 +24,7 @@
 
 """Frontpage records."""
 
-from elasticsearch_dsl.query import Q
+from invenio_search.engine import dsl
 from invenio_search.api import RecordsSearch
 
 
@@ -39,4 +39,4 @@ class FeaturedArticlesSearch(RecordsSearch):
     def __init__(self, **kwargs):
         """Initialize instance."""
         super(FeaturedArticlesSearch, self).__init__(**kwargs)
-        self.query = Q('exists', field='featured')
+        self.query = dsl.Q('exists', field='featured')
