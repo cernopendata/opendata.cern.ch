@@ -34,7 +34,7 @@ class BasicJSONSerializer(JSONSerializer):
     """Basic JSON serializer."""
 
     # We need to override `dump()` as invenio-records-rest attempts to
-    # return `.data` which it doesn't exists in Marshmallow v3.
+    # return `.data` which it doesn't exist in Marshmallow v3.
     # (https://github.com/inveniosoftware/invenio-records-rest/blob/c4a3717afcf9b08b6e42f3529addecc64bb2e47c/invenio_records_rest/serializers/marshmallow.py#L28)
     def dump(self, obj, context=None):
         """Serialize object with schema."""

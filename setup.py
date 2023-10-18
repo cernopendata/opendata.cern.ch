@@ -68,20 +68,21 @@ setup_requires = [
 install_requires = [
     # General Invenio dependencies
     'invenio-app==1.3.0',
-    'invenio-base==1.2.11',
+    'invenio-base==1.3.0',
     'invenio-config==1.0.3',
     # Custom Invenio `base` bundle
     'invenio-assets==3.0.0',
-    'invenio-accounts==2.2.0',
+    'invenio-accounts==3.0.0',
     'importlib-metadata==4.13.0',
     'invenio-logging[sentry]==1.3.0',
     'invenio-rest==1.2.8',
     'invenio-theme==2.5.5',
     # Custom Invenio `metadata` bundle
     'invenio-indexer==2.1.0',
-    'invenio-jsonschemas==1.1.0',
+    'invenio-jsonschemas==1.1.3',
     'invenio-pidstore==1.3.1',
-    'invenio-records-rest[datacite]==2.2.0',
+    # This one requires the nested_filter (not committed yet!)
+    'invenio-records-rest[datacite]>2.2.0',
     'invenio-records-ui==1.2.0',
     'invenio-records==2.1.0',
     'invenio-search-ui==2.8.2',

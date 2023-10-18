@@ -185,7 +185,7 @@ def records(skip_files, files, profile, mode):
     if profile:
         import cProfile
         import pstats
-        import StringIO
+        from io import StringIO
         pr = cProfile.Profile()
         pr.enable()
 
@@ -218,40 +218,26 @@ def records(skip_files, files, profile, mode):
 
                 files = data.get('files', [])
 
-                if mode == 'insert-or-replace':
-                    try:
-                        pid = PersistentIdentifier.get('recid', data['recid'])
-                        if pid:
-                            record = update_record(
-                                pid, schema, data, files, skip_files)
-                            action = 'updated'
-                    except PIDDoesNotExistError:
-                        record = create_record(schema, data, files, skip_files)
-                        action = 'inserted'
-                elif mode == 'insert':
-                    try:
-                        pid = PersistentIdentifier.get('recid', data['recid'])
-                        if pid:
-                            click.echo(
-                                'Record recid {} exists already;'
-                                ' cannot insert it.  '.format(
-                                    data.get('recid')), err=True)
-                            return
-                    except PIDDoesNotExistError:
-                        record = create_record(schema, data, files, skip_files)
-                        action = 'inserted'
-                else:
-                    try:
-                        pid = PersistentIdentifier.get('recid', data['recid'])
-                    except PIDDoesNotExistError:
-                        click.echo(
-                            'Record recid {} does not exist; '
-                            'cannot replace it.'.format(
-                                data.get('recid')), err=True)
+                try:
+                    pid = PersistentIdentifier.get('recid', data['recid'])
+                    if mode == 'insert':
+                        click.secho(
+                            'Record recid {} exists already;'
+                            ' cannot insert it.  '.format(
+                                data.get('recid')), fg="red", err=True)
                         return
                     record = update_record(
                         pid, schema, data, files, skip_files)
                     action = 'updated'
+                except PIDDoesNotExistError:
+                    if mode == "replace":
+                        click.secho(
+                            'Record recid {} does not exist; '
+                            'cannot replace it.'.format(
+                                data.get('recid')), fg="red", err=True)
+                        return
+                    record = create_record(schema, data, files, skip_files)
+                    action = 'inserted'
 
                 if not skip_files:
                     record.files.flush()
@@ -265,7 +251,7 @@ def records(skip_files, files, profile, mode):
 
     if profile:
         pr.disable()
-        s = StringIO.StringIO()
+        s = StringIO()
         sortby = 'cumulative'
         ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
         ps.print_stats()

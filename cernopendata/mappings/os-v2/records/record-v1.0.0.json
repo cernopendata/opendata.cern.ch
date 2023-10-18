@@ -9,16 +9,10 @@
           "type": "integer"
         },
         "doi": {
-          "type":"text"
+          "type":"keyword"
         },
         "title": {
-            "type": "text",
-            "analyzer": "title_analyzer",
-            "fields": {
-              "exact": {
-                "type": "keyword"
-              }
-            }
+            "type": "keyword"
         },
         "facet_schema": {
           "index": true,
@@ -27,20 +21,10 @@
         "distribution": {
           "properties": {
             "formats": {
-              "fields": {
-                "keyword": {
-                  "type": "keyword"
-                }
-              },
-              "type": "text"
+              "type": "keyword"
             },
             "availability": {
-              "fields": {
-                "keyword": {
-                  "type": "keyword"
-                }
-              },
-              "type": "text"
+              "type": "keyword"
             },
             "number_events": {
               "type": "integer"
@@ -51,47 +35,22 @@
         "authors": {
           "properties": {
             "affiliation": {
-              "type": "text",
-              "fields": {
-                "exact": {
-                  "type": "keyword"
-                }
-              }
+              "type": "keyword"
             },
             "rorid": {
-              "type": "text",
-              "fields": {
-                "exact": {
-                  "type": "keyword"
-                }
-              }
+              "type": "keyword"
             },
             "ccid": {
-              "type": "text",
-              "fields": {
-                "exact": {
-                  "type": "keyword"
-                }
-              }
+              "type": "keyword"
             },
             "inspireid": {
-              "type": "text",
-              "fields": {
-                "exact": {
-                  "type": "keyword"
-                }
-              }
+              "type": "keyword"
             },
             "orcid": {
               "type": "keyword"
             },
             "name": {
-              "type": "text",
-              "fields": {
-                "exact": {
-                  "type": "keyword"
-                }
-              }
+              "type": "keyword"
             }
           }
         },
@@ -105,131 +64,61 @@
         "categories": {
           "properties": {
             "primary": {
-              "fields": {
-                "keyword": {
-                  "type": "keyword"
-                }
-              },
-              "type": "text"
+              "type": "keyword"
             },
             "secondary": {
-              "fields": {
-                "keyword": {
-                  "type": "keyword"
-                }
-              },
-              "type": "text"
+              "type": "keyword"
             }
           }
         },
         "collections": {
-          "fields": {
-            "keyword": {
-              "type": "keyword"
-            }
-          },
-          "type": "text"
+          "type": "keyword"
         },
         "collision_information": {
           "properties": {
             "energy": {
-              "fields": {
-                "keyword": {
-                  "type": "keyword"
-                }
-              },
-              "type": "text"
+              "type": "keyword"
             },
             "type": {
-              "fields": {
-                "keyword": {
-                  "type": "keyword"
-                }
-              },
-              "type": "text"
+              "type": "keyword"
             }
           }
         },
         "date_created": {
-          "fields": {
-            "keyword": {
-              "type": "keyword"
-            }
-          },
-          "type": "text"
+          "type": "keyword"
         },
         "experiment": {
-          "fields": {
-            "keyword": {
-              "type": "keyword"
-            }
-          },
-          "type": "text"
+          "type": "keyword"
         },
         "keywords": {
-          "fields": {
-            "keyword": {
-              "type": "keyword"
-            }
-          },
-          "type": "text"
+          "type": "keyword"
         },
         "magnet_polarity": {
-          "fields": {
-            "keyword": {
-              "type": "keyword"
-            }
-          },
-          "type": "text"
+          "type": "keyword"
         },
         "publisher": {
-          "type": "text"
+          "type": "keyword"
         },
         "signature": {
-          "fields": {
-            "keyword": {
-              "type": "keyword"
-            }
-          },
-          "type": "text"
+          "type": "keyword"
         },
         "stripping": {
           "properties": {
             "stream": {
-              "fields": {
-                "keyword": {
-                  "type": "keyword"
-                }
-              },
-              "type": "text"
+              "type": "keyword"
             },
             "version": {
-              "fields": {
-                "keyword": {
-                  "type": "keyword"
-                }
-              },
-              "type": "text"
+              "type": "keyword"
             }
           }
         },
         "type": {
           "properties": {
             "primary": {
-              "fields": {
-                "keyword": {
-                  "type": "keyword"
-                }
-              },
-              "type": "text"
+              "type": "keyword"
             },
             "secondary": {
-              "fields": {
-                "keyword": {
-                  "type": "keyword"
-                }
-              },
-              "type": "text"
+              "type": "keyword"
             }
           }
         }

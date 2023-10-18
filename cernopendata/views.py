@@ -44,25 +44,25 @@ blueprint = Blueprint(
 #         'invenio_search_ui.search'] = search_wrapper
 
 
-def search_wrapper():
-    """Wrap default invenio search endpoint."""
-    # translate old search query params to new format
-    # e.g. type=Dataset => f=type:Dataset
-    facets = current_app.config['RECORDS_REST_FACETS']
-    facet_keys = facets['_all']['aggs'].keys()
-    args = request.args.to_dict(flat=False)
-    if set(facet_keys).intersection(set(args.keys())):
-        qs = translate_search_url(args, facets)
-        return redirect(url_for('invenio_search_ui.search', **qs))
-
-    # translate p parameter to q (backwards compatibility)
-    # only if q itself not passed
-    if 'p' in request.args and 'q' not in request.args:
-        values = request.args.to_dict()
-        values['q'] = values.pop('p')
-        return redirect(url_for('invenio_search_ui.search', **values))
-    else:
-        return invenio_search_view()
+#def search_wrapper():
+#    """Wrap default invenio search endpoint."""
+#    # translate old search query params to new format
+#    # e.g. type=Dataset => f=type:Dataset
+#    facets = current_app.config['RECORDS_REST_FACETS']
+#    facet_keys = facets['opendata-*']['aggs'].keys()
+#    args = request.args.to_dict(flat=False)
+#    if set(facet_keys).intersection(set(args.keys())):
+#        qs = translate_search_url(args, facets)
+#        return redirect(url_for('invenio_search_ui.search', **qs))
+#
+#    # translate p parameter to q (backwards compatibility)
+#    # only if q itself not passed
+#    if 'p' in request.args and 'q' not in request.args:
+#        values = request.args.to_dict()
+#        values['q'] = values.pop('p')
+#        return redirect(url_for('invenio_search_ui.search', **values))
+#    else:
+#        return invenio_search_view()
 
 
 def translate_search_url(args, facets):

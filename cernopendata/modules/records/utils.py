@@ -89,7 +89,7 @@ def file_download_ui(pid, record, _record_file_factory=None, **kwargs):
             'pid_type': pid.pid_type,
             'pid_value': pid.pid_value,
         },
-        create_dir=False
+        #create_dir=False
     )
 
 
@@ -107,7 +107,7 @@ def eos_send_file_or_404(file_path=""):
     """File download for a given EOS uri."""
     storage = EOSFileStorage(
         "root://eospublic.cern.ch//eos/opendata/" + file_path,
-        create_dir=False
+     #   create_dir=False
     )
 
     filename = file_path.split('/')[-1:]

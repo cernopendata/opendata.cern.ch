@@ -10,37 +10,26 @@
         "null_value": 0
       },
       "id": {
-        "type": "text"
+        "type": "keyword"
       },
       "anchor": {
-        "type": "text",
-        "copy_to": "title",
-        "fields": {
-          "exact": {
-            "type": "keyword"
-          }
-        }
+        "type": "keyword"
       },
       "title": {
-        "type": "text",
-        "fields": {
-          "exact": {
-            "type": "keyword"
-          }
-        }
+        "type": "keyword"
       },
       "category": {
-        "type": "text"
+        "type": "keyword"
       },
       "collections": {
         "properties": {
           "facet_collections_primary": {
             "index": true,
-            "type": "text"
+            "type": "keyword"
           },
           "primary": {
             "copy_to": "collections.facet_collections_primary",
-            "type": "text"
+            "type": "keyword"
           },
           "secondary": {
             "analyzer": "collections",
@@ -53,39 +42,24 @@
       },
       "facet_schema": {
         "index": true,
-        "type": "text"
+        "type": "keyword"
       },
       "short_definition": {
         "type": "text"
       },
       "term": {
-        "type": "text"
+        "type": "keyword"
       },
       "title": {
-        "fields": {
-          "keyword": {
-            "type": "keyword"
-          }
-        },
-        "type": "text"
+        "type": "keyword"
       },
       "type": {
         "properties": {
           "primary": {
-            "fields": {
-              "keyword": {
-                "type": "keyword"
-              }
-            },
-            "type": "text"
+            "type": "keyword"
           },
           "secondary": {
-            "fields": {
-              "keyword": {
-                "type": "keyword"
-              }
-            },
-            "type": "text"
+              "type": "keyword"
           }
         }
       }

@@ -58,7 +58,8 @@ services:
       - INVENIO_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 3
       - INVENIO_CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 4
       - INVENIO_CELERY_RESULT_BACKEND=redis://redis:6379/2
-      - INVENIO_SEARCH_ELASTIC_HOSTS=elasticsearch
+      - INVENIO_SEARCH_CLIENT_CONFIG='{"use_ssl":True, "verify_certs":False, "http_auth":"admin:admin"}'
+      - INVENIO_SEARCH_HOSTS=https://opensearch:9200
       - INVENIO_PIDSTORE_DATACITE_TESTMODE=False
       - INVENIO_PIDSTORE_DATACITE_DOI_PREFIX=10.5072
       - INVENIO_PIDSTORE_DATACITE_USERNAME=CERN.OPENDATA
@@ -74,12 +75,12 @@ services:
     links:
       - postgresql
       - redis
-      - elasticsearch
+      - opensearch
       - rabbitmq
       - wdb
 #      - sentry
     ports:
-      - "5000:5000"
+      - "5002:5000"
 
   worker:
     restart: "unless-stopped"
@@ -98,7 +99,8 @@ services:
       - INVENIO_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 3
       - INVENIO_CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 4
       - INVENIO_CELERY_RESULT_BACKEND=redis://redis:6379/2
-      - INVENIO_SEARCH_ELASTIC_HOSTS=elasticsearch
+      - INVENIO_SEARCH_CLIENT_CONFIG='{"use_ssl":True, "verify_certs":False, "http_auth":"admin:admin"}'
+      - INVENIO_SEARCH_HOSTS=https://opensearch:9200
 #      - SENTRY_DSN=http://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@sentry:9000/2
 #      - LOGGING_SENTRY_CELERY=True
     volumes:
@@ -109,7 +111,7 @@ services:
     links:
       - postgresql
       - redis
-      - elasticsearch
+      - opensearch
       - rabbitmq
       - wdb
 #      - sentry
@@ -132,7 +134,8 @@ services:
       - INVENIO_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 3
       - INVENIO_CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 4
       - INVENIO_CELERY_RESULT_BACKEND=redis://redis:6379/2
-      - INVENIO_SEARCH_ELASTIC_HOSTS=elasticsearch
+      - INVENIO_SEARCH_CLIENT_CONFIG='{"use_ssl":True, "verify_certs":False, "http_auth":"admin:admin"}'
+      - INVENIO_SEARCH_HOSTS=https://opensearch:9200
       - INVENIO_PIDSTORE_DATACITE_TESTMODE=False
       - INVENIO_PIDSTORE_DATACITE_DOI_PREFIX=10.5072
       - INVENIO_PIDSTORE_DATACITE_USERNAME=CERN.OPENDATA
@@ -148,7 +151,7 @@ services:
     links:
       - postgresql
       - redis
-      - elasticsearch
+      - opensearch
       - rabbitmq
       - wdb
 #      - sentry
@@ -171,15 +174,15 @@ services:
     ports:
       - "6379:6379"
 
-  elasticsearch:
+  opensearch:
     restart: "unless-stopped"
-    image: docker.io/library/elasticsearch:7.16.1
+    image: opensearchproject/opensearch:2
     # Uncomment if DEBUG logging needs to enabled for Elasticsearch
     # command: ["elasticsearch", "-Elogger.level=DEBUG"]
     environment:
       - bootstrap.memory_lock=true
       # set to reasonable values on production
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
       - discovery.type=single-node
     # ulimits:
     #   memlock:
@@ -187,8 +190,16 @@ services:
     #     hard: -1
     # mem_limit: 1g
     ports:
-      - "9200:9200"
-      - "9300:9300"
+      - 9200:9200
+
+  opensearch-dashboards:
+    image: opensearchproject/opensearch-dashboards:2 # Make sure the version of opensearch-dashboards matches the version of opensearch installed on other nodes
+    ports:
+      - 5601:5601 # Map host port 5601 to container port 5601
+    expose:
+      - "5601" # Expose port 5601 for web access to OpenSearch Dashboards
+    environment:
+      OPENSEARCH_HOSTS: '["https://opensearch:9200"]' # Define the OpenSearch nodes that OpenSearch Dashboards will query
 
   rabbitmq:
     restart: "unless-stopped"

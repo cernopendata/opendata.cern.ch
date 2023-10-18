@@ -28,7 +28,7 @@ import os
 
 from invenio_records_files.api import _Record
 from invenio_records_rest.config import RECORDS_REST_ENDPOINTS
-from invenio_records_rest.facets import terms_filter
+from invenio_records_rest.facets import terms_filter, nested_filter
 from invenio_records_rest.utils import allow_all
 
 from cernopendata.modules.pages.config import *
@@ -36,6 +36,20 @@ from cernopendata.modules.records.search.query import cernopendata_range_filter
 from cernopendata.modules.search_ui.helpers import \
     CODSearchAppInvenioRestConfigHelper
 from cernopendata.modules.theme.config import *
+from urllib3.exceptions import InsecureRequestWarning
+
+import warnings
+# Disable opensearch warning of connecting without checking certificates
+warnings.filterwarnings(
+    action='ignore',
+    category=UserWarning,
+    module=r'.*urllib3'
+)
+warnings.filterwarnings(
+    action='ignore',
+    category=InsecureRequestWarning,
+    module=r'.*urllib3'
+)
 
 # Debug
 DEBUG = os.environ.get(
@@ -214,8 +228,8 @@ RECORDS_UI_ENDPOINTS = dict(
 RECORDS_REST_ENDPOINTS['recid']['search_index'] = '_all'
 
 RECORDS_REST_ENDPOINTS['recid'].update({
-    'search_factory_imp': 'cernopendata.modules.records.search.query'
-                          ':cernopendata_search_factory',
+#    'search_factory_imp': 'cernopendata.modules.records.search.query'
+#                          ':cernopendata_search_factory',
     'pid_minter': 'cernopendata_recid_minter',
     'pid_fetcher': 'cernopendata_recid_fetcher',
     'record_class': _Record,
@@ -292,25 +306,16 @@ RECORDS_REST_SORT_OPTIONS = {
             default_order='desc',
             order=1,
         ),
-        'title': dict(fields=['title.exact'],
+        'title': dict(fields=['title'],
                       title='Title A-Z',
                       default_order='asc',
-                      order=1)
-    },
-    "records-glossary-term-v1.0.0": {
-        'anchor': dict(fields=['anchor'],
-                       title='Title',
-                       default_order='asc',
-                       order=1),
+                      order=1),
+        'title_desc': dict(fields=['title'],
+                           title='Title Z-A',
+                           default_order='desc',
+                           order=1)
     }
 }
-
-# FIXME: KeyError: 'query'
-# RECORDS_REST_DEFAULT_SORT = {
-#     'records-glossary-term-v1.0.0': {
-#         'noquery': 'anchor'
-#     }
-# }
 
 # TODO: based on invenio-records-rest default config
 RECORDS_REST_DEFAULT_SORT = dict(
@@ -324,41 +329,41 @@ RECORDS_REST_FACETS = {
     '_all': {
         'aggs': dict(
             type=dict(terms=dict(
-                field='type.primary.keyword',
+                field='type.primary',
                 order=dict(_key='asc')),
                 aggs=dict(subtype=dict(terms=dict(
-                          field="type.secondary.keyword",
+                          field="type.secondary",
                           order=dict(_key='asc'))))),
             experiment=dict(terms=dict(
-                field='experiment.keyword',
+                field='experiment',
                 order=dict(_key='asc'))),
             year=dict(terms=dict(
-                field='date_created.keyword',
+                field='date_created',
                 order=dict(_key='asc'))),
             file_type=dict(terms=dict(
-                field='distribution.formats.keyword',
+                field='distribution.formats',
                 size=50,
                 order=dict(_key='asc'))),
             collision_type=dict(terms=dict(
-                field='collision_information.type.keyword',
+                field='collision_information.type',
                 order=dict(_key='asc'))),
             collision_energy=dict(terms=dict(
-                field='collision_information.energy.keyword',
+                field='collision_information.energy',
                 order=dict(_key='asc'))),
             category=dict(terms=dict(
-                field='categories.primary.keyword',
+                field='categories.primary',
                 order=dict(_key='asc')),
                 aggs=dict(subcategory=dict(terms=dict(
-                          field="categories.secondary.keyword",
+                          field="categories.secondary",
                           order=dict(_key='asc'))))),
             magnet_polarity=dict(terms=dict(
-                field='magnet_polarity.keyword',
+                field='magnet_polarity',
                 order=dict(_term='asc'))),
             stripping_stream=dict(terms=dict(
-                field='stripping.stream.keyword',
+                field='stripping.stream',
                 order=dict(_term='asc'))),
             stripping_version=dict(terms=dict(
-                field='stripping.version.keyword',
+                field='stripping.version',
                 order=dict(_term='asc'))),
             event_number={
                 'range': {
@@ -397,32 +402,29 @@ RECORDS_REST_FACETS = {
                 }
             },
             signature=dict(terms=dict(
-                field='signature.keyword',
+                field='signature',
                 order=dict(_key='asc'))),
             keywords=dict(terms=dict(
-                field='keywords.keyword',
+                field='keywords',
                 order=dict(_key='asc'))),
         ),
         'post_filters': dict(
-            type=terms_filter('type.primary.keyword'),
-            subtype=terms_filter('type.secondary.keyword'),
-            experiment=terms_filter('experiment.keyword'),
-            year=terms_filter('date_created.keyword'),
-            file_type=terms_filter('distribution.formats.keyword'),
-            tags=terms_filter('tags.keyword'),
-            collision_type=terms_filter('collision_information.type.keyword'),
-            collision_energy=terms_filter('collision_information.energy'
-                                          '.keyword'),
-            category=terms_filter('categories.primary.keyword'),
-            subcategory=terms_filter('categories.secondary.keyword'),
-            magnet_polarity=terms_filter('magnet_polarity.keyword'),
-            stripping_stream=terms_filter('stripping.stream.keyword'),
-            stripping_version=terms_filter('stripping.version.keyword'),
+            type=nested_filter('type.primary', "subtype", "type.secondary"),
+            experiment=terms_filter('experiment'),
+            year=terms_filter('date_created'),
+            file_type=terms_filter('distribution.formats'),
+            tags=terms_filter('tags'),
+            collision_type=terms_filter('collision_information.type'),
+            collision_energy=terms_filter('collision_information.energy'),
+            category=nested_filter('categories.primary', "subcategory", 'categories.secondary'),
+            magnet_polarity=terms_filter('magnet_polarity'),
+            stripping_stream=terms_filter('stripping.stream'),
+            stripping_version=terms_filter('stripping.version'),
             event_number=cernopendata_range_filter(
                             'distribution.number_events'),
-            collections=terms_filter('collections.keyword'),
-            signature=terms_filter('signature.keyword'),
-            keywords=terms_filter('keywords.keyword'),
+            collections=terms_filter('collections'),
+            signature=terms_filter('signature'),
+            keywords=terms_filter('keywords'),
         )
     }
 }
@@ -663,28 +665,8 @@ PIDSTORE_LANDING_BASE_URL = os.environ.get(
     "http://opendata.cern.ch/record"
 )
 
-if os.environ.get('SEARCH_USER') and \
-   os.environ.get('SEARCH_PASSWORD'):
-    params = dict(
-        http_auth=(os.environ.get('SEARCH_USER'),
-                   os.environ.get('SEARCH_PASSWORD')),
-        use_ssl=str(os.environ.get('SEARCH_USE_SSL')).lower()
-        in ('true'),
-        verify_certs=str(os.environ.get('SEARCH_VERIFY_CERTS')).lower()
-        in ('true'),
-    )
-else:
-    params = {}
-
-SEARCH_HOSTS = [
-    dict(
-        host=os.environ.get('SEARCH_HOST',
-                            'opensearch'),
-        port=int(os.environ.get('SEARCH_PORT',
-                                '9200')),
-        **params
-    )
-]
-
 ANNOUNCEMENT_BANNER_MESSAGE = os.getenv('ANNOUNCEMENT_BANNER_MESSAGE', '')
 """Message to display in all pages as a banner (HTML allowed)."""
+
+#THIS ONE IS ONLY FOR THE DEVELOPMENT
+RATELIMIT_PER_ENDPOINT = {'static':  "600 per minute"}

@@ -10,21 +10,16 @@
         "null_value": 0
       },
       "author": {
-        "type": "text"
+        "type": "keyword"
       },
       "experiment": {
-        "type": "text"
+        "type": "keyword"
       },
       "id": {
-        "type": "text"
+        "type": "keyword"
       },
       "title": {
-        "type": "text",
-        "fields": {
-          "exact": {
-            "type": "keyword"
-          }
-        }
+        "type": "keyword"
       },
       "body": {
         "properties": {
@@ -32,25 +27,15 @@
             "type": "text"
           },
           "format": {
-            "type": "text"
+            "type": "keyword"
           }
         }
       },
       "date_created": {
-        "fields": {
-          "keyword": {
-            "type": "keyword"
-          }
-        },
-        "type": "text"
+        "type": "keyword"
       },
       "experiment": {
-        "fields": {
-          "keyword": {
-            "type": "keyword"
-          }
-        },
-        "type": "text"
+        "type": "keyword"
       },
       "facet_schema": {
         "index": true,
@@ -59,15 +44,15 @@
       "collections": {
         "properties": {
           "experiment": {
-            "type": "text"
+            "type": "keyword"
           },
           "facet_collections_primary": {
             "index": true,
-            "type": "text"
+            "type": "keyword"
           },
           "primary": {
             "copy_to": "collections.facet_collections_primary",
-            "type": "text"
+            "type": "keyword"
           },
           "secondary": {
             "analyzer": "collections",
@@ -82,10 +67,10 @@
       "files": {
         "properties": {
           "name": {
-            "type": "text"
+            "type": "keyword"
           },
           "uri": {
-            "type": "text"
+            "type": "keyword"
           }
         }
       },
@@ -98,63 +83,33 @@
             "type": "text"
           },
           "format": {
-            "type": "text"
+            "type": "keyword"
           }
         }
       },
       "stripping": {
         "properties": {
           "stream": {
-            "fields": {
-              "keyword": {
-                "type": "keyword"
-              }
-            },
-            "type": "text"
+            "type": "keyword"
           },
           "version": {
-            "fields": {
-              "keyword": {
-                "type": "keyword"
-              }
-            },
-            "type": "text"
+            "type": "keyword"
           }
         }
       },
       "tags": {
-        "fields": {
-          "keyword": {
-            "type": "keyword"
-          }
-        },
-        "type": "text"
+        "type": "keyword"
       },
       "title": {
-        "fields": {
-          "keyword": {
-            "type": "keyword"
-          }
-        },
-        "type": "text"
+        "type": "keyword"
       },
       "type": {
         "properties": {
           "primary": {
-            "fields": {
-              "keyword": {
-                "type": "keyword"
-              }
-            },
-            "type": "text"
+            "type": "keyword"
           },
           "secondary": {
-            "fields": {
-              "keyword": {
-                "type": "keyword"
-              }
-            },
-            "type": "text"
+            "type": "keyword"
           }
         }
       }
