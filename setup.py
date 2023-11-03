@@ -82,7 +82,7 @@ install_requires = [
     'invenio-jsonschemas==1.1.3',
     'invenio-pidstore==1.3.1',
     # This one requires the nested_filter (not committed yet!)
-    'invenio-records-rest[datacite]>2.2.0',
+    'invenio-records-rest[datacite]==2.3.0',
     'invenio-records-ui==1.2.0',
     'invenio-records==2.1.0',
     'invenio-search-ui==2.8.2',

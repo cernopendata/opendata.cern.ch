@@ -32,7 +32,7 @@ const initSearchApp = createSearchAppInit({
   "ResultsGrid.container": null,
   "Count.element": ResultsCount,
   "SearchApp.facets": CODFacets,
-  /*"SearchApp.searchbarContainer": CODSearchBarContainer,*/
+  "SearchApp.searchbarContainer": CODSearchBarContainer,
   /*"SearchBar.element": CODSearchBarElement,*/
   /*"BucketAggregationValues.element": CODFacetItem,*/
 });

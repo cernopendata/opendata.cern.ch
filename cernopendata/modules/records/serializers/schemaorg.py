@@ -51,7 +51,7 @@ class BasicJSONSerializer(JSONSerializer):
 class CODSchemaorgSerializer(BasicJSONSerializer):
     """CERN Open Data schema.org serializer.
 
-    Serializes a Record based on it's type (Dataset, Software, etc.) to
+    Serializes a Record based on its type (Dataset, Software, etc.) to
     schema.org compatible JSON-LD syntax.
     """
 
