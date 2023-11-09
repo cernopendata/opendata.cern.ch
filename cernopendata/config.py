@@ -25,19 +25,20 @@
 """CERN Open Data configuration."""
 
 import os
+import warnings
 
 from invenio_records_files.api import _Record
 from invenio_records_rest.config import RECORDS_REST_ENDPOINTS
-from invenio_records_rest.facets import terms_filter, nested_filter, range_filter
+from invenio_records_rest.facets import nested_filter, range_filter, \
+    terms_filter
 from invenio_records_rest.utils import allow_all
+from urllib3.exceptions import InsecureRequestWarning
 
 from cernopendata.modules.pages.config import *
 from cernopendata.modules.search_ui.helpers import \
     CODSearchAppInvenioRestConfigHelper
 from cernopendata.modules.theme.config import *
-from urllib3.exceptions import InsecureRequestWarning
 
-import warnings
 # Disable opensearch warning of connecting without checking certificates
 warnings.filterwarnings(
     action='ignore',
@@ -227,8 +228,8 @@ RECORDS_UI_ENDPOINTS = dict(
 RECORDS_REST_ENDPOINTS['recid']['search_index'] = '_all'
 
 RECORDS_REST_ENDPOINTS['recid'].update({
-#    'search_factory_imp': 'cernopendata.modules.records.search.query'
-#                          ':cernopendata_search_factory',
+    #    'search_factory_imp': 'cernopendata.modules.records.search.query'
+    #                          ':cernopendata_search_factory',
     'pid_minter': 'cernopendata_recid_minter',
     'pid_fetcher': 'cernopendata_recid_fetcher',
     'record_class': _Record,
@@ -364,37 +365,37 @@ RECORDS_REST_FACETS = {
             stripping_version=dict(terms=dict(
                 field='stripping.version',
                 order=dict(_term='asc'))),
-            event_number={
+            number_of_events={
                 'range': {
                     'field': 'distribution.number_events',
                     'ranges': [
                         {
-                            'key': '0--999',
+                            'key': '0 -- 1k ',
                             'from': 0,
                             'to': 999
                         },
                         {
-                            'key': '1000--9999',
+                            'key': '1k -- 10k',
                             'from': 1000,
                             'to': 9999
                         },
                         {
-                            'key': '10000--99999',
+                            'key': '10k -- 100k',
                             'from': 10000,
                             'to': 99999
                         },
                         {
-                            'key': '100000--999999',
+                            'key': '100k -- 1M',
                             'from': 100000,
                             'to': 999999
                         },
                         {
-                            'key': '1000000--9999999',
+                            'key': '1M -- 10M',
                             'from': 1000000,
                             'to': 9999999
                         },
                         {
-                            'key': '10000000--',
+                            'key': ' +10M',
                             'from': 10000000
                         }
                     ]
@@ -415,12 +416,13 @@ RECORDS_REST_FACETS = {
             tags=terms_filter('tags'),
             collision_type=terms_filter('collision_information.type'),
             collision_energy=terms_filter('collision_information.energy'),
-            category=nested_filter('categories.primary', 'categories.secondary'),
+            category=nested_filter('categories.primary',
+                                   'categories.secondary'),
             magnet_polarity=terms_filter('magnet_polarity'),
             stripping_stream=terms_filter('stripping.stream'),
             stripping_version=terms_filter('stripping.version'),
-            event_number=range_filter(
-                            'distribution.number_events'),
+            number_of_events=range_filter(
+                'distribution.number_events'),
             collections=terms_filter('collections'),
             signature=terms_filter('signature'),
             keywords=terms_filter('keywords'),
@@ -667,5 +669,5 @@ PIDSTORE_LANDING_BASE_URL = os.environ.get(
 ANNOUNCEMENT_BANNER_MESSAGE = os.getenv('ANNOUNCEMENT_BANNER_MESSAGE', '')
 """Message to display in all pages as a banner (HTML allowed)."""
 
-#THIS ONE IS ONLY FOR THE DEVELOPMENT
+# THIS ONE IS ONLY FOR THE DEVELOPMENT
 RATELIMIT_PER_ENDPOINT = {'static':  "600 per minute"}

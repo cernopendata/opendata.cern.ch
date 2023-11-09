@@ -27,15 +27,12 @@
 from __future__ import absolute_import, print_function
 
 from flask import current_app
-from invenio_records_rest.facets import (
-    _create_filter_dsl,
-    _post_filter,
-    _query_filter
-)
+from invenio_records_rest.facets import _create_filter_dsl,\
+    post_filter, _query_filter
 from werkzeug.datastructures import MultiDict
 
 
-#def _aggregations(search, definitions, urlkwargs, filters):
+# def _aggregations(search, definitions, urlkwargs, filters):
 #   """Add aggregations to query.
 #
 #    :param search: Invenio Search Object
@@ -90,7 +87,7 @@ from werkzeug.datastructures import MultiDict
 #    return search
 
 
-#def cernopendata_facets_factory(search, index):
+# def cernopendata_facets_factory(search, index):
 #    """Add a cernopendata facets to query.
 #
 #    :param search: Search object.

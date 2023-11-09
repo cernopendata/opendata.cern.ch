@@ -25,27 +25,26 @@
 # Use Invenio's alma image with Python-3.9
 FROM registry.cern.ch/inveniosoftware/almalinux:1
 
-# Use XRootD 5.5.5
-ENV XROOTD_VERSION=5.5.5
+# Use XRootD 5.6.3
+ENV XROOTD_VERSION=5.6.3
 
 # Install CERN Open Data Portal web node pre-requisites
 # hadolint ignore=DL3033
 RUN yum install -y \
         ca-certificates \
         cmake3 \
-        emacs-nox \
         epel-release \
         libuuid-devel \
         rlwrap \
-        screen \
         vim && \
-    yum groupinstall -y "Development Tools"
-RUN if [ ! -z "$xrootd_version" ] ; then XROOTD_V="-$xrootd_version" ; else XROOTD_V="" ; fi && \
-    echo "Will install xrootd version: $XROOTD_V (latest if empty)" && \
-    yum install -y xrootd"$XROOTD_V" python3-xrootd"$XROOTD_V"
-RUN yum clean -y all
+    yum groupinstall -y "Development Tools" && \
+    yum clean -y all
 
-RUN pip uninstall pipenv -y && pip install --upgrade pip==20.2.4 setuptools==51.0.0 wheel==0.36.2 && \
+RUN echo "Will install xrootd version: $XROOTD_VERSION (latest if empty)" && \
+    yum install -y xrootd-"$XROOTD_VERSION" python3-xrootd-"$XROOTD_VERSION" && \
+    yum clean -y all
+
+RUN pip uninstall pipenv -y && pip install --upgrade pip==20.2.4 setuptools==68.2.2 wheel==0.36.2 && \
     npm install -g --unsafe-perm node-sass@6.0.1 clean-css@3.4.24 requirejs@2.3.6 uglify-js@3.12.1 jsonlint@1.6.3 d3@6.3.1
 
 # Change group to root to support OpenShift runtime
@@ -78,8 +77,8 @@ ENV DEBUG=${DEBUG:-""}
 
 # Install CERN Open Data Portal sources
 # hadolint ignore=DL3013
-RUN if [ "$DEBUG" ]; then FLAGS="-e"; fi;
-RUN pip install --user $FLAGS ".[all]" && pip check
+RUN if [ "$DEBUG" ]; then FLAGS="-e"; fi && \
+    pip install --user ${FLAGS} ".[all]" && pip check
 # Create instance
 RUN scripts/create-instance.sh
 

@@ -76,13 +76,13 @@ install_requires = [
     'importlib-metadata==4.13.0',
     'invenio-logging[sentry]==1.3.0',
     'invenio-rest==1.2.8',
-    'invenio-theme==2.5.5',
+    'invenio-theme==2.5.7',
     # Custom Invenio `metadata` bundle
     'invenio-indexer==2.1.0',
     'invenio-jsonschemas==1.1.3',
     'invenio-pidstore==1.3.1',
-    # This one requires the nested_filter (not committed yet!)
-    'invenio-records-rest[datacite]==2.3.0',
+    # This one requires the nested_filter
+    'invenio-records-rest[datacite]==2.3.1',
     'invenio-records-ui==1.2.0',
     'invenio-records==2.1.0',
     'invenio-search-ui==2.8.2',
@@ -93,7 +93,7 @@ install_requires = [
     'invenio-records-files==1.2.1',
     # Custom Invenio `postgresql` bundle
     'invenio-db[versioning,postgresql]==1.1.0',
-    # Custom Invenio `elasticsearch7` bundle
+    # Custom Invenio `opensearch` bundle
     'invenio-search[opensearch2]==2.1.0',
     # Specific Invenio dependencies
     'invenio-xrootd>=1.0.0a6',

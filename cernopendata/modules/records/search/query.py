@@ -30,7 +30,7 @@ from invenio_records_rest.errors import InvalidQueryRESTError
 from invenio_records_rest.sorter import default_sorter_factory
 from invenio_records_rest.facets import default_facets_factory
 
-#from .facets import cernopendata_facets_factory
+# from .facets import cernopendata_facets_factory
 
 
 def cernopendata_query_parser(query_string=None, show_ondemand=None):
@@ -52,13 +52,14 @@ def cernopendata_query_parser(query_string=None, show_ondemand=None):
     else:
         _query = dsl.Q()
 
-    if show_ondemand != 'true':
-        _query = _query & \
-            ~dsl.Q('match', **{'distribution.availability.keyword': 'ondemand'})
+    if show_ondemand != "true":
+        _query = _query & ~dsl.Q(
+            "match", **{"distribution.availability.keyword": "ondemand"}
+        )
     return _query
 
 
-#def cernopendata_search_factory(self, search):
+# def cernopendata_search_factory(self, search):
 #    """Customized parse query using invenio query parser.
 #
 #    :param self: REST view
@@ -87,4 +88,3 @@ def cernopendata_query_parser(query_string=None, show_ondemand=None):
 #    url_kwargs.add("q", query_string)
 #
 #    return search, url_kwargs
-

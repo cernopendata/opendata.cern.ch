@@ -27,24 +27,24 @@
 from flask import Blueprint, current_app, redirect, request, url_for
 from invenio_search_ui.views import search as invenio_search_view
 
-#from cernopendata.config import FACET_HIERARCHY
+# from cernopendata.config import FACET_HIERARCHY
 
 blueprint = Blueprint(
-    'cernopendata',
+    "cernopendata",
     __name__,
-    template_folder='templates',
-    static_folder='static',
+    template_folder="templates",
+    static_folder="static",
 )
 
 
-#@blueprint.record_once
-#def redefine_search_endpoint(blueprint_setup):
+# @blueprint.record_once
+# def redefine_search_endpoint(blueprint_setup):
 #    """Redefine invenio search endpoint."""
 #    blueprint_setup.app.view_functions[
 #         'invenio_search_ui.search'] = search_wrapper
 
 
-#def search_wrapper():
+# def search_wrapper():
 #    """Wrap default invenio search endpoint."""
 #    # translate old search query params to new format
 #    # e.g. type=Dataset => f=type:Dataset
@@ -65,7 +65,7 @@ blueprint = Blueprint(
 #        return invenio_search_view()
 
 
-#def translate_search_url(args, facets):
+# def translate_search_url(args, facets):
 #    """Translate old search querystring args to new ones."""
 #
 #    def _get_subagg_agg_mapping(aggs):
@@ -133,7 +133,7 @@ blueprint = Blueprint(
 #    return qs_values
 
 
-@blueprint.route('/ping', methods=['HEAD', 'GET'])
+@blueprint.route("/ping", methods=["HEAD", "GET"])
 def ping():
     """Load balancer ping view."""
-    return 'OK'
+    return "OK"
