@@ -50,6 +50,9 @@ Another possibility to develop the CERN Open Data instance locally is to use
 the Podman container technology. This has an advantage that your containers
 will be running in the regular user space, not requiring any superuser access.
 
+Setting the SELinux policy to either minimal or disabled might help with the 
+following Commands.
+
 An example of a Podman development session:
 
 .. code-block:: console
@@ -61,6 +64,7 @@ An example of a Podman development session:
        ./scripts/populate-instance.sh --skip-docs --skip-glossary --skip-records
    $ podman exec -i -t opendatacernch_web_1 \
        cernopendata fixtures records --mode insert -f cernopendata/modules/fixtures/data/records/cms-primary-datasets.json
+   $ firefox http://0.0.0.0:5000/
    $ podman-compose -f docker-compose-dev.yml down -v
 
 Note that if you would like to test production-like conditions with Podman, you
