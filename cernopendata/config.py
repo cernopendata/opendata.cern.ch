@@ -324,6 +324,7 @@ RECORDS_REST_DEFAULT_SORT = dict(
         noquery='mostrecent',
     )
 )
+RECORDS_REST_FACETS_FILTER = True
 
 RECORDS_REST_FACETS = {
     '_all': {
