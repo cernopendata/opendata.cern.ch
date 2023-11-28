@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": "proton-proton (pp) collision data collected by the LHCb experiment in the year 2011 of Run1 of the LHC."
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment in the year 2011 of Run1 of the LHC."
     },
     "accelerator": "CERN-LHC",
     "collaboration": {
@@ -51,7 +51,7 @@
     ],
     "magnet_polarity": "MagDown",
     "methodology": {
-      "description": "<p> This dataset was created in several production steps. These steps, software used and the configuration is provided below. </p> \n<p> <strong> Prod ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> 93829\n<p> <strong>Prod type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong> Merge<p> <strong> Parent Prod ID:&nbsp;&nbsp;&nbsp;&nbsp; </strong> 93828<p> <strong> Parent Prod type: </strong> DataStripping<p> <strong> Conditions: </strong><p>dddb-20190206-1<p>cond-20150409-1</strong><p> <strong> List of Trigger Configuration Keys (TCK): </strong> </p> <p>\n    <p><strong>TCK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Number of Files </strong>\n    \n     <p>0x360032 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 75\n     \n     <p>0x5a0032 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 155\n     \n     <p>0x6d0032 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 430\n     \n     <p>0x730035 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 263\n     \n     <p>0x760037 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 653\n     \n     <p>0x710035 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9\n     \n     <p>0x790038 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 780\n     \n     <p>0x480032 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 18\n     \n     <p>0x700034 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4\n     \n     <p>0x5b0032 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10\n     \n     <p>0x4a0033 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 26\n     ",
+      "description": "<p> This dataset was created in several production steps. These steps, software used and the configuration is provided below. </p> <p> <strong> Prod ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> 93829 <p> <strong>Prod type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong> Merge<p> <strong> Parent Prod ID:&nbsp;&nbsp;&nbsp;&nbsp; </strong> 93828<p> <strong> Parent Prod type: </strong> DataStripping<p> <strong> Conditions: </strong><p>dddb-20190206-1<p>cond-20150409-1</strong><p> <strong> List of Trigger Configuration Keys (TCK): </strong> </p> <p> <p><strong>TCK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Number of Files </strong>  <p>0x360032 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 75  <p>0x5a0032 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 155  <p>0x6d0032 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 430  <p>0x730035 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 263  <p>0x760037 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 653  <p>0x710035 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9  <p>0x790038 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 780  <p>0x480032 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 18  <p>0x700034 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4  <p>0x5b0032 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10  <p>0x4a0033 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 26 ",
       "steps": [
         {
           "configuration_files": [
@@ -71,7 +71,7 @@
               "title": "Persistency/Compression-ZLIB-1.py"
             }
           ],
-          "release": "\n  DaVinci.v39r1p6 \n AppConfig.v3r384 \n Det/SQLDDDB.v7r10 \n TMVAWeights.v1r14",
+          "release": "DaVinci.v39r1p6 AppConfig.v3r384 Det/SQLDDDB.v7r10 TMVAWeights.v1r14",
           "type": "Stripping21r1p2"
         },
         {
@@ -83,7 +83,7 @@
               "title": "Persistency/Compression-LZMA-4.py"
             }
           ],
-          "release": "\n  DaVinci.v39r1p6 \n AppConfig.v3r384 \n Det/SQLDDDB.v7r10",
+          "release": "DaVinci.v39r1p6 AppConfig.v3r384 Det/SQLDDDB.v7r10",
           "type": "Stripping21r1p2-Merging"
         }
       ]

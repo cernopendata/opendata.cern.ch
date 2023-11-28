@@ -1,0 +1,172 @@
+[
+  {
+    "abstract": {
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment in the year 2011 of Run1 of the LHC."
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration",
+      "recid": "455"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "collision_information": {
+      "energy": "7TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2019",
+    "distribution": {
+      "formats": [
+        "DST"
+      ],
+      "number_events": 94729677,
+      "number_files": 3146,
+      "size": 7865124062946
+    },
+    "experiment": "LHCb",
+    "magnet_polarity": "MagUp",
+    "methodology": {
+      "description": "<p> This dataset was created in several production steps. These steps, software used and the configuration is provided below. </p> <p> <strong> Prod ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> 93855 <p> <strong>Prod type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong> Merge<p> <strong> Parent Prod ID:&nbsp;&nbsp;&nbsp;&nbsp; </strong> 93854<p> <strong> Parent Prod type: </strong> DataStripping<p> <strong> Conditions: </strong><p>dddb-20190206-1<p>cond-20150409-1</strong><p> <strong> List of Trigger Configuration Keys (TCK): </strong> </p> <p> <p><strong>TCK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Number of Files </strong>  <p>0x5b0032 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 34  <p>0x5a0032 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 226  <p>0x5d0033 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 25  <p>0x760037 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 745  <p>0x730035 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 831  <p>0x740036 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 27  <p>0x790037 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 287  <p>0x790038 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 971 ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "title": "DaVinci/DV-Stripping21r1p2-Stripping.py"
+            },
+            {
+              "title": "DaVinci/DV-RedoCaloPID-Stripping21.py"
+            },
+            {
+              "title": "DaVinci/DataType-2011.py"
+            },
+            {
+              "title": "DaVinci/InputType-DST.py"
+            },
+            {
+              "title": "Persistency/Compression-ZLIB-1.py"
+            }
+          ],
+          "release": "DaVinci.v39r1p5 AppConfig.v3r383 Det/SQLDDDB.v7r10 TMVAWeights.v1r14",
+          "type": "Stripping21r1p2"
+        },
+        {
+          "configuration_files": [
+            {
+              "title": "Merging/DV-Stripping-Merging.py"
+            },
+            {
+              "title": "Persistency/Compression-LZMA-4.py"
+            }
+          ],
+          "release": "DaVinci.v39r1p5 AppConfig.v3r383 Det/SQLDDDB.v7r10",
+          "type": "Stripping21r1p2-Merging"
+        },
+        {
+          "configuration_files": [
+            {
+              "title": "DaVinci/DV-Stripping21r1p2-Stripping.py"
+            },
+            {
+              "title": "DaVinci/DV-RedoCaloPID-Stripping21.py"
+            },
+            {
+              "title": "DaVinci/DataType-2011.py"
+            },
+            {
+              "title": "DaVinci/InputType-DST.py"
+            },
+            {
+              "title": "Persistency/Compression-ZLIB-1.py"
+            }
+          ],
+          "release": "DaVinci.v39r1p6 AppConfig.v3r384 Det/SQLDDDB.v7r10 TMVAWeights.v1r14",
+          "type": "Stripping21r1p2"
+        },
+        {
+          "configuration_files": [
+            {
+              "title": "Merging/DV-Stripping-Merging.py"
+            },
+            {
+              "title": "Persistency/Compression-LZMA-4.py"
+            }
+          ],
+          "release": "DaVinci.v39r1p6 AppConfig.v3r384 Det/SQLDDDB.v7r10",
+          "type": "Stripping21r1p2-Merging"
+        },
+        {
+          "configuration_files": [
+            {
+              "title": "DaVinci/DV-Stripping21r1p2-Stripping.py"
+            },
+            {
+              "title": "DaVinci/DV-RedoCaloPID-Stripping21.py"
+            },
+            {
+              "title": "DaVinci/DataType-2011.py"
+            },
+            {
+              "title": "DaVinci/InputType-DST.py"
+            },
+            {
+              "title": "Persistency/Compression-ZLIB-1.py"
+            }
+          ],
+          "release": "DaVinci.v39r1p6 AppConfig.v3r384 Det/SQLDDDB.v7r10 TMVAWeights.v1r14",
+          "type": "Stripping21r1p2"
+        },
+        {
+          "configuration_files": [
+            {
+              "title": "Merging/DV-Stripping-Merging.py"
+            },
+            {
+              "title": "Persistency/Compression-LZMA-4.py"
+            }
+          ],
+          "release": "DaVinci.v39r1p6 AppConfig.v3r384 Det/SQLDDDB.v7r10",
+          "type": "Stripping21r1p2-Merging"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "28031",
+    "run_period": [
+      "2011"
+    ],
+    "stripping": {
+      "stream": "BHADRONCOMPLETEEVENT",
+      "version": "stripping21r1p2"
+    },
+    "title": "LHCb 2011 Beam3500GeV MagUp BHADRONCOMPLETEEVENT Stream Stripping21r1p2",
+    "title_additional": "",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p> The data collected by the LHCb detector is available in .DST and .mDST formats. The data files can be explored using LHCb software but it is best to write the relevant columns to ROOT Tuples or preferred data format. <p> Instructions for exploring a DST and writing out ROOT tuples are available in LHCb Starterkit below. For \"tupling\" jobs, software called DaVinci is mainly used within LHCb, its documentation is also available bellow.",
+      "links": [
+        {
+          "description": "LHCb StarterKit",
+          "url": "https://lhcb.github.io/starterkit-lessons/first-analysis-steps/minimal-dv-job.html"
+        },
+        {
+          "description": "DaVinci",
+          "url": "http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/"
+        },
+        {
+          "description": "Stripping lines index for stripping21r1p2",
+          "url": "/docs/stripping21r1p2-index"
+        }
+      ]
+    }
+  }
+]

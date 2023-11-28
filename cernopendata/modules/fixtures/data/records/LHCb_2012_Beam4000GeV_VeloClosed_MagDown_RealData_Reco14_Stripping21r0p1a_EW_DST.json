@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": "proton-proton (pp) collision data collected by the LHCb experiment in the year 2012 of Run1 of the LHC."
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment in the year 2012 of Run1 of the LHC."
     },
     "accelerator": "CERN-LHC",
     "collaboration": {
@@ -51,7 +51,7 @@
     ],
     "magnet_polarity": "MagDown",
     "methodology": {
-      "description": "<p> This dataset was created in several production steps. These steps, software used and the configuration is provided below. </p> \n<p> <strong> Prod ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> 50929\n<p> <strong>Prod type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong> Merge<p> <strong> Parent Prod ID:&nbsp;&nbsp;&nbsp;&nbsp; </strong> 50928<p> <strong> Parent Prod type: </strong> DataStripping<p> <strong> Conditions: </strong><p>dddb-20150928<p>cond-20150409-1</strong><p> <strong> List of Trigger Configuration Keys (TCK): </strong> </p> <p>\n    <p><strong>TCK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Number of Files </strong>\n    \n     <p>0x8c0040 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 221\n     \n     <p>0x860040 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 21\n     \n     <p>0x94003d &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 257\n     \n     <p>0x97003d &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 279\n     \n     <p>0x95003d &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 11\n     \n     <p>0x990042 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 458\n     \n     <p>0x990044 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 177\n     \n     <p>0xa30044 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 337\n     \n     <p>0xa30046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14\n     \n     <p>0xa90046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 106\n     \n     <p>0xab0046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 133\n     \n     <p>0xac0046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 171\n     \n     <p>0xad0046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10\n     \n     <p>0x7e003a &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8\n     \n     <p>0x7f0040 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4\n     \n     <p>0x8e0040 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1\n     ",
+      "description": "<p> This dataset was created in several production steps. These steps, software used and the configuration is provided below. </p> <p> <strong> Prod ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> 50929 <p> <strong>Prod type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong> Merge<p> <strong> Parent Prod ID:&nbsp;&nbsp;&nbsp;&nbsp; </strong> 50928<p> <strong> Parent Prod type: </strong> DataStripping<p> <strong> Conditions: </strong><p>dddb-20150928<p>cond-20150409-1</strong><p> <strong> List of Trigger Configuration Keys (TCK): </strong> </p> <p> <p><strong>TCK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Number of Files </strong>  <p>0x8c0040 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 221  <p>0x860040 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 21  <p>0x94003d &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 257  <p>0x97003d &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 279  <p>0x95003d &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 11  <p>0x990042 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 458  <p>0x990044 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 177  <p>0xa30044 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 337  <p>0xa30046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 14  <p>0xa90046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 106  <p>0xab0046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 133  <p>0xac0046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 171  <p>0xad0046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10  <p>0x7e003a &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8  <p>0x7f0040 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4  <p>0x8e0040 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 ",
       "steps": [
         {
           "configuration_files": [
@@ -74,7 +74,7 @@
               "title": "Persistency/Compression-ZLIB-1.py"
             }
           ],
-          "release": "\n  DaVinci.v39r1p1 \n AppConfig.v3r274 \n Det/SQLDDDB.v7r10",
+          "release": "DaVinci.v39r1p1 AppConfig.v3r274 Det/SQLDDDB.v7r10",
           "type": "Stripping21r0p1"
         },
         {
@@ -83,7 +83,7 @@
               "title": "Merging/DV-Stripping-Merging.py"
             }
           ],
-          "release": "\n  DaVinci.v39r1p1 \n AppConfig.v3r274 \n Det/SQLDDDB.v7r10",
+          "release": "DaVinci.v39r1p1 AppConfig.v3r274 Det/SQLDDDB.v7r10",
           "type": "Stripping21r0p1-Merging"
         }
       ]
