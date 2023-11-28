@@ -24,13 +24,13 @@
 
 """Cernopendata Query factory for REST API."""
 
-from elasticsearch_dsl.query import Q, Range, Bool
+from invenio_search.engine import dsl
 from flask import current_app, request
 from invenio_records_rest.errors import InvalidQueryRESTError
 from invenio_records_rest.sorter import default_sorter_factory
 from invenio_records_rest.facets import default_facets_factory
 
-from .facets import cernopendata_facets_factory
+# from .facets import cernopendata_facets_factory
 
 
 def cernopendata_query_parser(query_string=None, show_ondemand=None):
@@ -48,72 +48,43 @@ def cernopendata_query_parser(query_string=None, show_ondemand=None):
             _query_string[index] = '"' + _query_term + '"'
     query_string = " ".join(_query_string)
     if query_string:
-        _query = Q("query_string", query=query_string)
+        _query = dsl.Q("query_string", query=query_string)
     else:
-        _query = Q()
+        _query = dsl.Q()
 
-    if show_ondemand != 'true':
-        _query = _query & \
-            ~Q('match', **{'distribution.availability.keyword': 'ondemand'})
-
+    if show_ondemand != "true":
+        _query = _query & ~dsl.Q(
+            "match", **{"distribution.availability.keyword": "ondemand"}
+        )
     return _query
 
 
-def cernopendata_search_factory(self, search):
-    """Customized parse query using invenio query parser.
-
-    :param self: REST view
-    :param search: Elastic search DSL search instance
-
-    :return: Tuple with search instance and URL arguments
-    """
-    query_string = request.values.get("q")
-    show_ondemand = request.values.get("ondemand")
-    try:
-        search = search.query(
-            cernopendata_query_parser(query_string, show_ondemand)
-        )
-    except SyntaxError:
-        current_app.logger.debug(
-            "Failed parsing query: {0}".format(
-                request.values.get("q", "")),
-            exc_info=True)
-        raise InvalidQueryRESTError()
-
-    search_index = search._index[0]
-    search, url_kwargs = cernopendata_facets_factory(search, search_index)
-    search, sort_kwargs = default_sorter_factory(search, search_index)
-    for key, value in sort_kwargs.items():
-        url_kwargs.add(key, value)
-    url_kwargs.add("q", query_string)
-
-    return search, url_kwargs
-
-
-def cernopendata_range_filter(field):
-    """Create a range filter.
-
-    :param field: Field name.
-    :returns: Function that returns the Range query.
-    """
-    def inner(values):
-        ineq_opers = [
-            {'strict': 'gt', 'nonstrict': 'gte'},
-            {'strict': 'lt', 'nonstrict': 'lte'}]
-        range_query = []
-        for _range in values:
-            range_ends = _range.split('--')
-            range_args = dict()
-            # Add the proper values to the dict
-            for (range_end, strict, opers) in zip(range_ends, ['>', '<'], ineq_opers):  # noqa
-                if range_end:
-                    # If first char is '>' for start or '<' for end
-                    if range_end[0] == strict:
-                        dict_key = opers['strict']
-                        range_end = range_end[1:]
-                    else:
-                        dict_key = opers['nonstrict']
-                    range_args[dict_key] = range_end
-            range_query.append(Range(**{field: range_args}))
-        return Bool(should=range_query)
-    return inner
+# def cernopendata_search_factory(self, search):
+#    """Customized parse query using invenio query parser.
+#
+#    :param self: REST view
+#    :param search: Elastic search DSL search instance
+#
+#    :return: Tuple with search instance and URL arguments
+#    """
+#    query_string = request.values.get("q")
+#    show_ondemand = request.values.get("ondemand")
+#    try:
+#        search = search.query(
+#            cernopendata_query_parser(query_string, show_ondemand)
+#        )
+#    except SyntaxError:
+#        current_app.logger.debug(
+#            "Failed parsing query: {0}".format(
+#                request.values.get("q", "")),
+#            exc_info=True)
+#        raise InvalidQueryRESTError()
+#
+#    search_index = search._index[0]
+#   search, url_kwargs = cernopendata_facets_factory(search, search_index)
+#    search, sort_kwargs = default_sorter_factory(search, search_index)
+#    for key, value in sort_kwargs.items():
+#        url_kwargs.add(key, value)
+#    url_kwargs.add("q", query_string)
+#
+#    return search, url_kwargs

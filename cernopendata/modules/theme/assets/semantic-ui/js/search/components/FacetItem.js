@@ -23,7 +23,7 @@
  * waive the privileges and immunities granted to it by virtue of its status
  * as an Intergovernmental Organization or submit itself to any jurisdiction.
  */
-
+/*
 import React from "react";
 import { List, Checkbox } from "semantic-ui-react";
 
@@ -32,10 +32,10 @@ const CODFacetItem = (props) => {
     bucket,
     isSelected,
     onFilterClicked,
-    getChildAggCmps,
-    keyField,
+    childAggCmps,
+    label,
   } = props;
-  const label = bucket.label ? (
+  /*const label = bucket.label ? (
     bucket.label
   ) : (
     <label>
@@ -44,8 +44,8 @@ const CODFacetItem = (props) => {
         ({bucket.doc_count.toLocaleString("en-US")})
       </span>
     </label>
-  );
-  const childAggCmps = getChildAggCmps(bucket);
+  );*/
+/*
   return (
     <List.Item key={bucket.key}>
       <Checkbox
@@ -60,3 +60,4 @@ const CODFacetItem = (props) => {
 };
 
 export default CODFacetItem;
+*/

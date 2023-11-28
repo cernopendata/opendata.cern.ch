@@ -34,7 +34,7 @@ class BasicJSONSerializer(JSONSerializer):
     """Basic JSON serializer."""
 
     # We need to override `dump()` as invenio-records-rest attempts to
-    # return `.data` which it doesn't exists in Marshmallow v3.
+    # return `.data` which it doesn't exist in Marshmallow v3.
     # (https://github.com/inveniosoftware/invenio-records-rest/blob/c4a3717afcf9b08b6e42f3529addecc64bb2e47c/invenio_records_rest/serializers/marshmallow.py#L28)
     def dump(self, obj, context=None):
         """Serialize object with schema."""
@@ -75,13 +75,13 @@ class CODJSONSerializer(JSONSerializer):
 
         aggregations = aggregations[0]
 
-        # Remove empty buckets in event_numbers facet
-        if "event_number" in aggregations.keys():
+        # Remove empty buckets in number_of_events facet
+        if "number_of_events" in aggregations.keys():
             new_event_list = []
-            for bucket in aggregations["event_number"]["buckets"]:
+            for bucket in aggregations["number_of_events"]["buckets"]:
                 if bucket["doc_count"] != 0:
                     new_event_list.append(bucket)
-            aggregations["event_number"]["buckets"] = new_event_list
+            aggregations["number_of_events"]["buckets"] = new_event_list
 
         return json.dumps(
             dict(

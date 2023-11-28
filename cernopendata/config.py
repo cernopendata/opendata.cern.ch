@@ -25,17 +25,31 @@
 """CERN Open Data configuration."""
 
 import os
+import warnings
 
 from invenio_records_files.api import _Record
 from invenio_records_rest.config import RECORDS_REST_ENDPOINTS
-from invenio_records_rest.facets import terms_filter
+from invenio_records_rest.facets import nested_filter, range_filter, \
+    terms_filter
 from invenio_records_rest.utils import allow_all
+from urllib3.exceptions import InsecureRequestWarning
 
 from cernopendata.modules.pages.config import *
-from cernopendata.modules.records.search.query import cernopendata_range_filter
 from cernopendata.modules.search_ui.helpers import \
     CODSearchAppInvenioRestConfigHelper
 from cernopendata.modules.theme.config import *
+
+# Disable opensearch warning of connecting without checking certificates
+warnings.filterwarnings(
+    action='ignore',
+    category=UserWarning,
+    module=r'.*urllib3'
+)
+warnings.filterwarnings(
+    action='ignore',
+    category=InsecureRequestWarning,
+    module=r'.*urllib3'
+)
 
 # Debug
 DEBUG = os.environ.get(
@@ -214,8 +228,8 @@ RECORDS_UI_ENDPOINTS = dict(
 RECORDS_REST_ENDPOINTS['recid']['search_index'] = '_all'
 
 RECORDS_REST_ENDPOINTS['recid'].update({
-    'search_factory_imp': 'cernopendata.modules.records.search.query'
-                          ':cernopendata_search_factory',
+    #    'search_factory_imp': 'cernopendata.modules.records.search.query'
+    #                          ':cernopendata_search_factory',
     'pid_minter': 'cernopendata_recid_minter',
     'pid_fetcher': 'cernopendata_recid_fetcher',
     'record_class': _Record,
@@ -292,25 +306,16 @@ RECORDS_REST_SORT_OPTIONS = {
             default_order='desc',
             order=1,
         ),
-        'title': dict(fields=['title.exact'],
+        'title': dict(fields=['title'],
                       title='Title A-Z',
                       default_order='asc',
-                      order=1)
-    },
-    "records-glossary-term-v1.0.0": {
-        'anchor': dict(fields=['anchor'],
-                       title='Title',
-                       default_order='asc',
-                       order=1),
+                      order=1),
+        'title_desc': dict(fields=['title'],
+                           title='Title Z-A',
+                           default_order='desc',
+                           order=1)
     }
 }
-
-# FIXME: KeyError: 'query'
-# RECORDS_REST_DEFAULT_SORT = {
-#     'records-glossary-term-v1.0.0': {
-#         'noquery': 'anchor'
-#     }
-# }
 
 # TODO: based on invenio-records-rest default config
 RECORDS_REST_DEFAULT_SORT = dict(
@@ -319,266 +324,265 @@ RECORDS_REST_DEFAULT_SORT = dict(
         noquery='mostrecent',
     )
 )
+RECORDS_REST_FACETS_FILTER = True
 
 RECORDS_REST_FACETS = {
     '_all': {
         'aggs': dict(
             type=dict(terms=dict(
-                field='type.primary.keyword',
+                field='type.primary',
                 order=dict(_key='asc')),
                 aggs=dict(subtype=dict(terms=dict(
-                          field="type.secondary.keyword",
+                          field="type.secondary",
                           order=dict(_key='asc'))))),
             experiment=dict(terms=dict(
-                field='experiment.keyword',
+                field='experiment',
                 order=dict(_key='asc'))),
             year=dict(terms=dict(
-                field='date_created.keyword',
+                field='date_created',
                 order=dict(_key='asc'))),
             file_type=dict(terms=dict(
-                field='distribution.formats.keyword',
+                field='distribution.formats',
                 size=50,
                 order=dict(_key='asc'))),
             collision_type=dict(terms=dict(
-                field='collision_information.type.keyword',
+                field='collision_information.type',
                 order=dict(_key='asc'))),
             collision_energy=dict(terms=dict(
-                field='collision_information.energy.keyword',
+                field='collision_information.energy',
                 order=dict(_key='asc'))),
             category=dict(terms=dict(
-                field='categories.primary.keyword',
+                field='categories.primary',
                 order=dict(_key='asc')),
                 aggs=dict(subcategory=dict(terms=dict(
-                          field="categories.secondary.keyword",
+                          field="categories.secondary",
                           order=dict(_key='asc'))))),
             magnet_polarity=dict(terms=dict(
-                field='magnet_polarity.keyword',
+                field='magnet_polarity',
                 order=dict(_term='asc'))),
             stripping_stream=dict(terms=dict(
-                field='stripping.stream.keyword',
+                field='stripping.stream',
                 order=dict(_term='asc'))),
             stripping_version=dict(terms=dict(
-                field='stripping.version.keyword',
+                field='stripping.version',
                 order=dict(_term='asc'))),
-            event_number={
+            number_of_events={
                 'range': {
                     'field': 'distribution.number_events',
                     'ranges': [
                         {
-                            'key': '0--999',
+                            'key': '0 -- 1k ',
                             'from': 0,
                             'to': 999
                         },
                         {
-                            'key': '1000--9999',
+                            'key': '1k -- 10k',
                             'from': 1000,
                             'to': 9999
                         },
                         {
-                            'key': '10000--99999',
+                            'key': '10k -- 100k',
                             'from': 10000,
                             'to': 99999
                         },
                         {
-                            'key': '100000--999999',
+                            'key': '100k -- 1M',
                             'from': 100000,
                             'to': 999999
                         },
                         {
-                            'key': '1000000--9999999',
+                            'key': '1M -- 10M',
                             'from': 1000000,
                             'to': 9999999
                         },
                         {
-                            'key': '10000000--',
+                            'key': ' +10M',
                             'from': 10000000
                         }
                     ]
                 }
             },
             signature=dict(terms=dict(
-                field='signature.keyword',
+                field='signature',
                 order=dict(_key='asc'))),
             keywords=dict(terms=dict(
-                field='keywords.keyword',
+                field='keywords',
                 order=dict(_key='asc'))),
         ),
         'post_filters': dict(
-            type=terms_filter('type.primary.keyword'),
-            subtype=terms_filter('type.secondary.keyword'),
-            experiment=terms_filter('experiment.keyword'),
-            year=terms_filter('date_created.keyword'),
-            file_type=terms_filter('distribution.formats.keyword'),
-            tags=terms_filter('tags.keyword'),
-            collision_type=terms_filter('collision_information.type.keyword'),
-            collision_energy=terms_filter('collision_information.energy'
-                                          '.keyword'),
-            category=terms_filter('categories.primary.keyword'),
-            subcategory=terms_filter('categories.secondary.keyword'),
-            magnet_polarity=terms_filter('magnet_polarity.keyword'),
-            stripping_stream=terms_filter('stripping.stream.keyword'),
-            stripping_version=terms_filter('stripping.version.keyword'),
-            event_number=cernopendata_range_filter(
-                            'distribution.number_events'),
-            collections=terms_filter('collections.keyword'),
-            signature=terms_filter('signature.keyword'),
-            keywords=terms_filter('keywords.keyword'),
+            type=nested_filter('type.primary', 'type.secondary'),
+            experiment=terms_filter('experiment'),
+            year=terms_filter('date_created'),
+            file_type=terms_filter('distribution.formats'),
+            tags=terms_filter('tags'),
+            collision_type=terms_filter('collision_information.type'),
+            collision_energy=terms_filter('collision_information.energy'),
+            category=nested_filter('categories.primary',
+                                   'categories.secondary'),
+            magnet_polarity=terms_filter('magnet_polarity'),
+            stripping_stream=terms_filter('stripping.stream'),
+            stripping_version=terms_filter('stripping.version'),
+            number_of_events=range_filter(
+                'distribution.number_events'),
+            collections=terms_filter('collections'),
+            signature=terms_filter('signature'),
+            keywords=terms_filter('keywords'),
         )
     }
 }
 
 """Facets per index for the default facets factory."""
 
-# Generated by scripts/get_facet_hierarchy.py
-FACET_HIERARCHY = {
-    "category": {
-        "B physics and Quarkonia": {"subcategory": set()},
-        "Exotica": {"subcategory": {"Miscellaneous", "Gravitons"}},
-        "Higgs Physics": {
-            "subcategory": {
-                "Beyond Standard Model",
-                "Standard Model"
-            }
-        },
-        "Physics Modelling": {"subcategory": set()},
-        "Standard Model Physics": {
-            "subcategory": {
-                "Drell-Yan",
-                "ElectroWeak",
-                "Forward and Small-x " "QCD Physics",
-                "Minimum Bias",
-                "QCD",
-                "Top physics",
-            }
-        },
-        "Supersymmetry": {"subcategory": set()},
-    },
-    "collision_energy": {
-        "0.9TeV": {},
-        "0TeV": {},
-        "13TeV": {},
-        "2.76TeV": {},
-        "7TeV": {},
-        "8TeV": {},
-    },
-    "collision_type": {"Interfill": {}, "PbPb": {}, "pp": {}},
-    "event_number": {
-        "0--999": {},
-        "1000--9999": {},
-        "10000--99999": {},
-        "100000--999999": {},
-        "1000000--9999999": {},
-        "10000000--": {},
-    },
-    "experiment": {
-        "ALICE": {},
-        "ATLAS": {},
-        "CMS": {},
-        "LHCb": {},
-        "OPERA": {}
-    },
-    "file_type": {
-        "C": {},
-        "aod": {},
-        "aodsim": {},
-        "cc": {},
-        "csv": {},
-        "docx": {},
-        "fevtdebughlt": {},
-        "gen-sim": {},
-        "gen-sim-digi-raw": {},
-        "gen-sim-reco": {},
-        "gz": {},
-        "h5": {},
-        "html": {},
-        "ig": {},
-        "ipynb": {},
-        "jpg": {},
-        "json": {},
-        "m4v": {},
-        "miniaodsim": {},
-        "nanoaod": {},
-        "ova": {},
-        "pdf": {},
-        "png": {},
-        "py": {},
-        "raw": {},
-        "reco": {},
-        "root": {},
-        "tar": {},
-        "tar.gz": {},
-        "txt": {},
-        "xls": {},
-        "xml": {},
-        "zip": {},
-    },
-    "keywords": {
-        "datascience": {},
-        "education": {},
-        "external resource": {},
-        "heavy-ion physics": {},
-        "masterclass": {},
-        "teaching": {},
-    },
-    "signature": {
-        "H": {},
-        "Jpsi": {},
-        "W": {},
-        "Y": {},
-        "Z": {},
-        "electron": {},
-        "missing transverse energy": {},
-        "muon": {},
-        "photon": {},
-    },
-    "type": {
-        "Dataset": {"subtype": {"Simulated", "Derived", "Collision"}},
-        "Documentation": {
-            "subtype": {
-                "About",
-                "Activities",
-                "Authors",
-                "Guide",
-                "Help",
-                "Policy",
-                "Report",
-            }
-        },
-        "Environment": {"subtype": {"VM", "Condition", "Validation"}},
-        "Glossary": {"subtype": set()},
-        "News": {"subtype": set()},
-        "Software": {
-            "subtype": {
-                "Analysis",
-                "Framework",
-                "Tool",
-                "Validation",
-                "Workflow"
-            }
-        },
-        "Supplementaries": {
-            "subtype": {
-                "Configuration",
-                "Configuration HLT",
-                "Configuration LHE",
-                "Configuration RECO",
-                "Configuration SIM",
-                "Luminosity",
-                "Trigger",
-            }
-        },
-    },
-    "year": {
-        "2008": {},
-        "2009": {},
-        "2010": {},
-        "2011": {},
-        "2012": {},
-        "2016": {},
-        "2018": {},
-        "2019": {},
-    },
-}
+# # Generated by scripts/get_facet_hierarchy.py
+# FACET_HIERARCHY = {
+#     "category": {
+#         "B physics and Quarkonia": {"subcategory": set()},
+#         "Exotica": {"subcategory": {"Miscellaneous", "Gravitons"}},
+#         "Higgs Physics": {
+#             "subcategory": {
+#                 "Beyond Standard Model",
+#                 "Standard Model"
+#             }
+#         },
+#         "Physics Modelling": {"subcategory": set()},
+#         "Standard Model Physics": {
+#             "subcategory": {
+#                 "Drell-Yan",
+#                 "ElectroWeak",
+#                 "Forward and Small-x " "QCD Physics",
+#                 "Minimum Bias",
+#                 "QCD",
+#                 "Top physics",
+#             }
+#         },
+#         "Supersymmetry": {"subcategory": set()},
+#     },
+#     "collision_energy": {
+#         "0.9TeV": {},
+#         "0TeV": {},
+#         "13TeV": {},
+#         "2.76TeV": {},
+#         "7TeV": {},
+#         "8TeV": {},
+#     },
+#     "collision_type": {"Interfill": {}, "PbPb": {}, "pp": {}},
+#     "event_number": {
+#         "0--999": {},
+#         "1000--9999": {},
+#         "10000--99999": {},
+#         "100000--999999": {},
+#         "1000000--9999999": {},
+#         "10000000--": {},
+#     },
+#     "experiment": {
+#         "ALICE": {},
+#         "ATLAS": {},
+#         "CMS": {},
+#         "LHCb": {},
+#         "OPERA": {}
+#     },
+#     "file_type": {
+#         "C": {},
+#         "aod": {},
+#         "aodsim": {},
+#         "cc": {},
+#         "csv": {},
+#         "docx": {},
+#         "fevtdebughlt": {},
+#         "gen-sim": {},
+#         "gen-sim-digi-raw": {},
+#         "gen-sim-reco": {},
+#         "gz": {},
+#         "h5": {},
+#         "html": {},
+#         "ig": {},
+#         "ipynb": {},
+#         "jpg": {},
+#         "json": {},
+#         "m4v": {},
+#         "miniaodsim": {},
+#         "nanoaod": {},
+#         "ova": {},
+#         "pdf": {},
+#         "png": {},
+#         "py": {},
+#         "raw": {},
+#         "reco": {},
+#         "root": {},
+#         "tar": {},
+#         "tar.gz": {},
+#         "txt": {},
+#         "xls": {},
+#         "xml": {},
+#         "zip": {},
+#     },
+#     "keywords": {
+#         "datascience": {},
+#         "education": {},
+#         "external resource": {},
+#         "heavy-ion physics": {},
+#         "masterclass": {},
+#         "teaching": {},
+#     },
+#     "signature": {
+#         "H": {},
+#         "Jpsi": {},
+#         "W": {},
+#         "Y": {},
+#         "Z": {},
+#         "electron": {},
+#         "missing transverse energy": {},
+#         "muon": {},
+#         "photon": {},
+#     },
+#     "type": {
+#         "Dataset": {"subtype": {"Simulated", "Derived", "Collision"}},
+#         "Documentation": {
+#             "subtype": {
+#                 "About",
+#                 "Activities",
+#                 "Authors",
+#                 "Guide",
+#                 "Help",
+#                 "Policy",
+#                 "Report",
+#             }
+#         },
+#         "Environment": {"subtype": {"VM", "Condition", "Validation"}},
+#         "Glossary": {"subtype": set()},
+#         "News": {"subtype": set()},
+#         "Software": {
+#             "subtype": {
+#                 "Analysis",
+#                 "Framework",
+#                 "Tool",
+#                 "Validation",
+#                 "Workflow"
+#             }
+#         },
+#         "Supplementaries": {
+#             "subtype": {
+#                 "Configuration",
+#                 "Configuration HLT",
+#                 "Configuration LHE",
+#                 "Configuration RECO",
+#                 "Configuration SIM",
+#                 "Luminosity",
+#                 "Trigger",
+#             }
+#         },
+#     },
+#     "year": {
+#         "2008": {},
+#         "2009": {},
+#         "2010": {},
+#         "2011": {},
+#         "2012": {},
+#         "2016": {},
+#         "2018": {},
+#         "2019": {},
+#     },
+# }
 
 """Hierarchy of facets containing subfacets."""
 
@@ -663,28 +667,8 @@ PIDSTORE_LANDING_BASE_URL = os.environ.get(
     "http://opendata.cern.ch/record"
 )
 
-if os.environ.get('ELASTICSEARCH_USER') and \
-   os.environ.get('ELASTICSEARCH_PASSWORD'):
-    params = dict(
-        http_auth=(os.environ.get('ELASTICSEARCH_USER'),
-                   os.environ.get('ELASTICSEARCH_PASSWORD')),
-        use_ssl=str(os.environ.get('ELASTICSEARCH_USE_SSL')).lower()
-        in ('true'),
-        verify_certs=str(os.environ.get('ELASTICSEARCH_VERIFY_CERTS')).lower()
-        in ('true'),
-    )
-else:
-    params = {}
-
-SEARCH_ELASTIC_HOSTS = [
-    dict(
-        host=os.environ.get('ELASTICSEARCH_HOST',
-                            'elasticsearch'),
-        port=int(os.environ.get('ELASTICSEARCH_PORT',
-                                '9200')),
-        **params
-    )
-]
-
 ANNOUNCEMENT_BANNER_MESSAGE = os.getenv('ANNOUNCEMENT_BANNER_MESSAGE', '')
 """Message to display in all pages as a banner (HTML allowed)."""
+
+# THIS ONE IS ONLY FOR THE DEVELOPMENT
+RATELIMIT_PER_ENDPOINT = {'static':  "600 per minute"}

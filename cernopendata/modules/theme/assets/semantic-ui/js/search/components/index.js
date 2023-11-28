@@ -29,7 +29,7 @@ export { default as TermListItem } from "./TermListItem";
 export { default as DocsListItem } from "./DocsListItem";
 export { default as CODLayoutSwitcher } from "./LayoutSwitcher";
 export { default as ResultsCount } from "./ResultsCount";
-export { default as CODFacetItem } from "./FacetItem";
+/*export { default as CODFacetItem } from "./FacetItem";*/
 export { default as CODFacets } from "./Facets";
 export { default as CODSearchBarElement } from "./SearchBarElement";
 export { default as CODSearchBarContainer } from "./SearchBarContainer";

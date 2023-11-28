@@ -25,19 +25,26 @@
  */
 
 import React from "react";
-import { BucketAggregation, Toggle } from "react-searchkit";
+import { BucketAggregation, Toggle, ActiveFilters } from "react-searchkit";
 
 const CODFacets = ({ aggs }) => {
   return (
     <>
-      {aggs.map((agg) => (
-        <BucketAggregation key={agg.title} title={agg.title} agg={agg.agg} />
-      ))}
+      <div class="ui card" visibility="display">
+        <div class="content">
+          <div class="header">Current filters</div>
+          <ActiveFilters />
+        </div>
+      </div>
+
       <Toggle
         title="Availability"
         label="include on-demand datasets"
         filterValue={["ondemand", "true"]}
       />
+      {aggs.map((agg) => (
+        <BucketAggregation key={agg.title} title={agg.title} agg={agg.agg} />
+      ))}
     </>
   );
 };

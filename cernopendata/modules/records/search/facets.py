@@ -27,93 +27,90 @@
 from __future__ import absolute_import, print_function
 
 from flask import current_app
-from invenio_records_rest.facets import (
-    _create_filter_dsl,
-    _post_filter,
-    _query_filter
-)
+from invenio_records_rest.facets import _create_filter_dsl,\
+    post_filter, _query_filter
 from werkzeug.datastructures import MultiDict
 
 
-def _aggregations(search, definitions, urlkwargs, filters):
-    """Add aggregations to query.
+# def _aggregations(search, definitions, urlkwargs, filters):
+#   """Add aggregations to query.
+#
+#    :param search: Invenio Search Object
+#    :param definitions: Dictionary of all available facets definitions
+#    :param urlkwargs: Argument from the query
+#    :param filters: Filters applied on facets
+#
+#    :return: Search object with custom filtered object in aggregation
+#             after every filter is applied.
+#    """
+#
+#    def without_nested_subtypes(facet_filters, facet_names):
+#        """Remove the nested subtypes from the filter.
+#
+#        Example: If `CMS` from Experiment type is selected
+#        then aggregation count of other subtypes in Experiment
+#        type will not be changed.
+#        """
+#        new_facet_filters = facet_filters.copy()
+#        for name in facet_names:
+#            new_facet_filters.pop(name)
+#        return new_facet_filters
+#
+#    if definitions:
+#        for facet_name, aggregation in definitions.items():
+#            # get nested aggs
+#            facet_names = [facet_name]
+#            facet_names.extend(aggregation.get("aggs", {}).keys())
+#
+#            # collect filters except for aggs and nested aggs (if any)
+#            facet_filters, _ = _create_filter_dsl(
+#                            urlkwargs,
+#                            without_nested_subtypes(
+#                                filters,
+#                                facet_names)
+#                        )
+#            if facet_filters:
+#                aggregation = {
+#                    "filter":
+#                        {
+#                            "bool":
+#                                {
+#                                    "must": [
+#                                            facet_filter.to_dict()
+#                                            for facet_filter in facet_filters
+#                                        ]
+#                                }
+#                        },
+#                    "aggs": {"filtered": aggregation},
+#                }
+#            search.aggs[facet_name] = aggregation
+#    return search
 
-    :param search: Invenio Search Object
-    :param definitions: Dictionary of all available facets definitions
-    :param urlkwargs: Argument from the query
-    :param filters: Filters applied on facets
 
-    :return: Search object with custom filtered object in aggregation
-             after every filter is applied.
-    """
-
-    def without_nested_subtypes(facet_filters, facet_names):
-        """Remove the nested subtypes from the filter.
-
-        Example: If `CMS` from Experiment type is selected
-        then aggregation count of other subtypes in Experiment
-        type will not be changed.
-        """
-        new_facet_filters = facet_filters.copy()
-        for name in facet_names:
-            new_facet_filters.pop(name)
-        return new_facet_filters
-
-    if definitions:
-        for facet_name, aggregation in definitions.items():
-            # get nested aggs
-            facet_names = [facet_name]
-            facet_names.extend(aggregation.get("aggs", {}).keys())
-
-            # collect filters except for aggs and nested aggs (if any)
-            facet_filters, _ = _create_filter_dsl(
-                            urlkwargs,
-                            without_nested_subtypes(
-                                filters,
-                                facet_names)
-                        )
-            if facet_filters:
-                aggregation = {
-                    "filter":
-                        {
-                            "bool":
-                                {
-                                    "must": [
-                                            facet_filter.to_dict()
-                                            for facet_filter in facet_filters
-                                        ]
-                                }
-                        },
-                    "aggs": {"filtered": aggregation},
-                }
-            search.aggs[facet_name] = aggregation
-    return search
-
-
-def cernopendata_facets_factory(search, index):
-    """Add a cernopendata facets to query.
-
-    :param search: Search object.
-    :param index: Index name.
-
-    :returns: A tuple containing the new search object
-              and a dictionary with all fields and values used.
-    """
-    urlkwargs = MultiDict()
-    facets = current_app.config["RECORDS_REST_FACETS"].get(index)
-
-    if facets is not None:
-        # Aggregations
-        search = _aggregations(
-            search,
-            facets.get("aggs", {}), urlkwargs, facets.get("post_filters", {}))
-
-        # Query filter
-        search, urlkwargs = _query_filter(
-            search, urlkwargs, facets.get("filters", {}))
-
-        # Post filter
-        search, urlkwargs = _post_filter(
-            search, urlkwargs, facets.get("post_filters", {}))
-
-    return (search, urlkwargs)
+# def cernopendata_facets_factory(search, index):
+#    """Add a cernopendata facets to query.
+#
+#    :param search: Search object.
+#    :param index: Index name.
+#
+#    :returns: A tuple containing the new search object
+#              and a dictionary with all fields and values used.
+#    """
+#    urlkwargs = MultiDict()
+#   facets = current_app.config["RECORDS_REST_FACETS"].get(index)
+#
+#    if facets is not None:
+#        # Aggregations
+#        search = _aggregations(
+#            search,
+#            facets.get("aggs", {}), urlkwargs, facets.get("post_filters", {}))
+#
+#        # Query filter
+#        search, urlkwargs = _query_filter(
+#            search, urlkwargs, facets.get("filters", {}))
+#
+#        # Post filter
+#        search, urlkwargs = _post_filter(
+#            search, urlkwargs, facets.get("post_filters", {}))
+#
+#    return (search, urlkwargs)

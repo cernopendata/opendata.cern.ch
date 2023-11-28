@@ -29,7 +29,7 @@ import json
 import pkg_resources
 from flask import Blueprint, abort, current_app, escape, jsonify, redirect, \
     render_template, request, url_for, Response
-from flask_babelex import lazy_gettext as _
+from invenio_i18n import lazy_gettext as _
 from flask_breadcrumbs import default_breadcrumb_root
 from jinja2.exceptions import TemplateNotFound
 from speaklater import make_lazy_string

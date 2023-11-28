@@ -108,8 +108,8 @@ records_file_box = WebpackThemeBundle(
                 "cernopendata_records_file_box": "./js/records/app.js",
             },
             dependencies={
-                "react": "^17.0.1",
-                "react-dom": "^17.0.1",
+                "react": "^16.13.0",
+                "react-dom": "^16.13.0",
                 "prop-types": "^15.7.2"
             }
         ),

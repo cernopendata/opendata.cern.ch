@@ -31,7 +31,7 @@ services:
       context: .
     image: cernopendata/web
     depends_on:
-      - elasticsearch
+      - opensearch
       - postgresql
       - rabbitmq
       - redis
@@ -44,17 +44,13 @@ services:
       - INVENIO_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 3
       - INVENIO_CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 4
       - INVENIO_CELERY_RESULT_BACKEND=redis://redis:6379/2
+      - INVENIO_SEARCH_CLIENT_CONFIG={"use_ssl":True, "verify_certs":False, "http_auth":"admin:admin"}
+      - INVENIO_SEARCH_HOSTS=https://opensearch:9200
       - INVENIO_PIDSTORE_DATACITE_TESTMODE=False
       - INVENIO_PIDSTORE_DATACITE_DOI_PREFIX=10.5072
       - INVENIO_PIDSTORE_DATACITE_USERNAME=CERN.OPENDATA
       - INVENIO_PIDSTORE_DATACITE_PASSWORD=CHANGE_ME
       - INVENIO_PIDSTORE_LANDING_BASE_URL=http://opendata.cern.ch/record/
-      - ELASTICSEARCH_HOST=elasticsearch-proxy
-      - ELASTICSEARCH_PORT=443
-      - ELASTICSEARCH_USER=esuser
-      - ELASTICSEARCH_PASSWORD=espass
-      - ELASTICSEARCH_USE_SSL=true
-      - ELASTICSEARCH_VERIFY_CERTS=false
 #      - SENTRY_DSN=https://<INPUT_CORRECT_DSN_FOR_YOUR_SENTRY_INSTANCE>@<INPUT_YOUR_SENTRY_URL>
 #      - LOGGING_SENTRY_CELERY=True
     volumes:
@@ -62,7 +58,7 @@ services:
     links:
       - postgresql
       - redis
-      - elasticsearch
+      - opensearch
       - rabbitmq
     ports:
       - "5000"
@@ -71,7 +67,7 @@ services:
     restart: "always"
     image: cernopendata/web # Use this to make sure that COD3 Python-code image is built only once.
     depends_on:
-      - elasticsearch
+      - opensearch
       - postgresql
       - rabbitmq
       - redis
@@ -86,20 +82,16 @@ services:
       - INVENIO_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 3
       - INVENIO_CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 4
       - INVENIO_CELERY_RESULT_BACKEND=redis://redis:6379/2
-      - ELASTICSEARCH_HOST=elasticsearch-proxy
-      - ELASTICSEARCH_PORT=443
-      - ELASTICSEARCH_USER=esuser
-      - ELASTICSEARCH_PASSWORD=espass
-      - ELASTICSEARCH_USE_SSL=true
-      - ELASTICSEARCH_VERIFY_CERTS=false
-#      - SENTRY_DSN=https://<INPUT_CORRECT_DSN_FOR_YOUR_SENTRY_INSTANCE>@<INPUT_YOUR_SENTRY_URL>
+      - INVENIO_SEARCH_CLIENT_CONFIG={"use_ssl":True, "verify_certs":False, "http_auth":"admin:admin"}
+      - INVENIO_SEARCH_HOSTS=https://opensearch:9200
+#      - SENTRY_DSN=http://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@sentry:9000/2
 #      - LOGGING_SENTRY_CELERY=True
     volumes:
       - web_data:/opt/invenio/var/instance/static
     links:
       - postgresql
       - redis
-      - elasticsearch
+      - opensearch
       - rabbitmq
 
   web-files:
@@ -108,7 +100,7 @@ services:
       context: .
     image: cernopendata/web
     depends_on:
-      - elasticsearch
+      - opensearch
       - postgresql
       - rabbitmq
       - redis
@@ -121,17 +113,13 @@ services:
       - INVENIO_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 3
       - INVENIO_CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672/ # Celery 4
       - INVENIO_CELERY_RESULT_BACKEND=redis://redis:6379/2
+      - INVENIO_SEARCH_CLIENT_CONFIG={"use_ssl":True, "verify_certs":False, "http_auth":"admin:admin"}
+      - INVENIO_SEARCH_HOSTS=https://opensearch:9200
       - INVENIO_PIDSTORE_DATACITE_TESTMODE=False
       - INVENIO_PIDSTORE_DATACITE_DOI_PREFIX=10.5072
       - INVENIO_PIDSTORE_DATACITE_USERNAME=CERN.OPENDATA
       - INVENIO_PIDSTORE_DATACITE_PASSWORD=CHANGE_ME
       - INVENIO_PIDSTORE_LANDING_BASE_URL=http://opendata.cern.ch/record/
-      - ELASTICSEARCH_HOST=elasticsearch-proxy
-      - ELASTICSEARCH_PORT=443
-      - ELASTICSEARCH_USER=esuser
-      - ELASTICSEARCH_PASSWORD=espass
-      - ELASTICSEARCH_USE_SSL=true
-      - ELASTICSEARCH_VERIFY_CERTS=false
 #      - SENTRY_DSN=https://<INPUT_CORRECT_DSN_FOR_YOUR_SENTRY_INSTANCE>@<INPUT_YOUR_SENTRY_URL>
 #      - LOGGING_SENTRY_CELERY=True
     volumes:
@@ -139,7 +127,7 @@ services:
     links:
       - postgresql
       - redis
-      - elasticsearch
+      - opensearch
       - rabbitmq
     ports:
       - "5000"
@@ -162,35 +150,32 @@ services:
     ports:
       - "6379"
 
-  elasticsearch:
+  opensearch:
     restart: "always"
-    image: docker.io/library/elasticsearch:7.16.1
-    command: ["elasticsearch", "-E", "logger.org.elasticsearch.deprecation=error"]
+    image: docker.io/opensearchproject/opensearch:2
     environment:
       - bootstrap.memory_lock=true
       # set to reasonable values on production
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
       - discovery.type=single-node
     volumes:
-      - elasticsearch_data:/usr/share/elasticsearch/data/elasticsearch
+      - opensearch_data:/usr/share/opensearch/data/
     # ulimits:
     #   memlock:
     #     soft: -1
     #     hard: -1
     # mem_limit: 1g
     ports:
-      - "9200"
-      - "9300"
+      - 9200:9200
 
-  elasticsearch-proxy:
-    restart: "always"
-    depends_on:
-      - elasticsearch
-    build: ./elasticsearch-proxy
+  opensearch-dashboards:
+    image: docker.io/opensearchproject/opensearch-dashboards:2 # Make sure the version of opensearch-dashboards matches the version of opensearch installed on other nodes
     ports:
-      - "443"
-    links:
-      - elasticsearch
+      - 5601:5601 # Map host port 5601 to container port 5601
+    expose:
+      - "5601" # Expose port 5601 for web access to OpenSearch Dashboards
+    environment:
+      OPENSEARCH_HOSTS: '["https://opensearch:9200"]' # Define the OpenSearch nodes that OpenSearch Dashboards will query
 
   rabbitmq:
     restart: "always"
@@ -217,4 +202,4 @@ services:
 volumes:
   web_data:
   postgresql_data:
-  elasticsearch_data:
+  opensearch_data:

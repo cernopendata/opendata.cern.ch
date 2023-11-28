@@ -52,7 +52,7 @@ tests_require = [
 
 extras_require = {
     'docs': [
-        'Sphinx>=1.4.2,<5.0.0',
+        'Sphinx==7.2.6',
     ],
     'tests': tests_require,
 }
@@ -68,32 +68,36 @@ setup_requires = [
 install_requires = [
     # General Invenio dependencies
     'invenio-app==1.3.0',
-    'invenio-base==1.2.5',
+    'invenio-base==1.3.0',
     'invenio-config==1.0.3',
     # Custom Invenio `base` bundle
-    'invenio-assets==1.2.7',
-    'invenio-accounts==1.4.5',
+    'invenio-assets==3.0.0',
+    'invenio-accounts==3.0.0',
+    'importlib-metadata==4.13.0',
     'invenio-logging[sentry]==1.3.0',
-    'invenio-rest==1.2.1',
-    'invenio-theme==1.3.6',
+    'invenio-rest==1.2.8',
+    'invenio-theme==2.5.7',
     # Custom Invenio `metadata` bundle
-    'invenio-indexer==1.2.0',
-    'invenio-jsonschemas==1.1.0',
-    'invenio-pidstore==1.2.1',
-    'invenio-records-rest[datacite]==1.7.2',
+    'invenio-indexer==2.1.0',
+    'invenio-jsonschemas==1.1.3',
+    'invenio-pidstore==1.3.1',
+    # This one requires the nested_filter
+    'invenio-records-rest[datacite]==2.3.1',
     'invenio-records-ui==1.2.0',
-    'invenio-records==1.4.0a3',
-    'invenio-search-ui==2.0.4',
+    'invenio-records==2.1.0',
+    'invenio-search-ui==2.8.2',
     # Custom Invenio `files` bundle
-    'invenio-previewer==1.3.2',
+    'invenio-previewer==2.0.1',
+    'jupyter-client==7.1.0',
+    'pluggy==0.13.1',
     'invenio-records-files==1.2.1',
     # Custom Invenio `postgresql` bundle
-    'invenio-db[versioning,postgresql]==1.0.5',
-    # Custom Invenio `elasticsearch7` bundle
-    'invenio-search[elasticsearch7]==1.4.1',
+    'invenio-db[versioning,postgresql]==1.1.0',
+    # Custom Invenio `opensearch` bundle
+    'invenio-search[opensearch2]==2.1.0',
     # Specific Invenio dependencies
     'invenio-xrootd>=1.0.0a6',
-    'xrootdpyfs>=0.2.2',
+    'xrootdpyfs==2.0.0a1',
     # Specific dependencies
     'Flask-Markdown>=0.3.0',
     'Flask-Mistune>=0.1.1',
@@ -106,17 +110,20 @@ install_requires = [
     'uwsgitop>=0.11',
     # Pin SQLAlchemy version due to sqlalchemy-utils compatibility
     # <https://github.com/kvesteri/sqlalchemy-utils/issues/505>
-    'SQLAlchemy<1.4.0',
+    'SQLAlchemy==1.4.49 ',
     # Pin Flask-SQLAlchemy version due to apply_driver_hacks
-    'Flask-SQLAlchemy<2.5.0',
+    'Flask-SQLAlchemy==3.0.0',
     # Pin Celery due to worker runtime issues
-    'celery==5.0.4',
+    'celery==5.2.7',
     # Pin XRootD consistently with Dockerfile
-    'xrootd==4.12.7',
+    'xrootd==5.6.2',
     # Pin Flask/gevent/greenlet/raven to make master work again
-    'Flask<1.2',
-    'gevent<1.6',
+    'Flask==2.2.5',
+    'flask-celeryext==0.4.0',
+    'Werkzeug~=2.2.0',
+    'gevent==22.10.1',
     'greenlet<1.2',
+    'flask-babel==4.0.0',
     'raven<6.11',
 ]
 
