@@ -121,7 +121,7 @@ install_requires = [
     'Flask==2.2.5',
     'flask-celeryext==0.4.0',
     'Werkzeug~=2.2.0',
-    'gevent==22.10.1',
+    'gevent==23.9.0',
     'greenlet<1.2',
     'flask-babel==4.0.0',
     'raven<6.11',
