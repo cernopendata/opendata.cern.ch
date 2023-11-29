@@ -225,7 +225,7 @@ RECORDS_UI_ENDPOINTS = dict(
     ),
 )
 
-RECORDS_REST_ENDPOINTS['recid']['search_index'] = '_all'
+RECORDS_REST_ENDPOINTS['recid']['search_index'] = 'records'
 
 RECORDS_REST_ENDPOINTS['recid'].update({
     #    'search_factory_imp': 'cernopendata.modules.records.search.query'
@@ -293,7 +293,7 @@ RECORDS_REST_ENDPOINTS['docid'] = {
 }
 
 RECORDS_REST_SORT_OPTIONS = {
-    "_all": {
+    "records": {
         'bestmatch': dict(
             fields=['-_score'],
             title='Best match',
@@ -319,7 +319,7 @@ RECORDS_REST_SORT_OPTIONS = {
 
 # TODO: based on invenio-records-rest default config
 RECORDS_REST_DEFAULT_SORT = dict(
-    _all=dict(
+    records=dict(
         query='bestmatch',
         noquery='mostrecent',
     )
@@ -327,7 +327,7 @@ RECORDS_REST_DEFAULT_SORT = dict(
 RECORDS_REST_FACETS_FILTER = True
 
 RECORDS_REST_FACETS = {
-    '_all': {
+    'records': {
         'aggs': dict(
             type=dict(terms=dict(
                 field='type.primary',
@@ -612,9 +612,12 @@ SEARCH_DOC_TYPE_DEFAULT = None
 #: Do not map any keywords.
 SEARCH_ELASTIC_KEYWORD_MAPPING = {}
 
+# This one can be used to have multiple instances on the same cluster
+# SEARCH_INDEX_PREFIX = "opendata-dev-"
+
 #: Configure the search page template.
 SEARCH_UI_SEARCH_TEMPLATE = 'cernopendata_search_ui/search.html'
-SEARCH_UI_SEARCH_INDEX = '_all'
+SEARCH_UI_SEARCH_INDEX = 'records'
 #: Override the React-SearchKit config generator to support range aggs.
 SEARCH_UI_SEARCH_CONFIG_GEN = {
     'invenio_records_rest': CODSearchAppInvenioRestConfigHelper,
@@ -623,7 +626,7 @@ SEARCH_UI_SEARCH_CONFIG_GEN = {
 # OAI-PMH
 # =======
 #: Default Elasticsearch index.
-OAISERVER_RECORD_INDEX = '_all'
+OAISERVER_RECORD_INDEX = 'records'
 #: OAI ID prefix.
 OAISERVER_ID_PREFIX = 'oai:opendata.cern.ch:recid/'
 
