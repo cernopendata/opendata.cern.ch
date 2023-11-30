@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2017, 2018, 2022 CERN.
+# Copyright (C) 2017, 2018, 2022, 2023 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -293,6 +293,7 @@ RECORDS_REST_FACETS = {
                 order=dict(_term='asc'))),
             year=dict(terms=dict(
                 field='date_created.keyword',
+                size=70,
                 order=dict(_term='asc'))),
             keywords=dict(terms=dict(
                 field='keywords.keyword',
