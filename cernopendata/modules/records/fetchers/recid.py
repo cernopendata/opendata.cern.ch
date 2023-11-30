@@ -4,7 +4,7 @@ from collections import namedtuple
 
 from ..providers.recid import RecordUUIDProvider
 
-FetchedPID = namedtuple('FetchedPID', ['provider', 'pid_type', 'pid_value'])
+FetchedPID = namedtuple("FetchedPID", ["provider", "pid_type", "pid_value"])
 
 
 def cernopendata_recid_fetcher(record_uuid, data):
@@ -12,5 +12,5 @@ def cernopendata_recid_fetcher(record_uuid, data):
     return FetchedPID(
         provider=RecordUUIDProvider,
         pid_type=RecordUUIDProvider.pid_type,
-        pid_value=data['control_number'],
+        pid_value=data["control_number"],
     )

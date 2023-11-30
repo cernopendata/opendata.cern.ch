@@ -26,4 +26,4 @@
 
 from .ext import CernopendataMarkdown
 
-__all__ = ('CernopendataMarkdown', 'md')
+__all__ = ("CernopendataMarkdown", "md")

@@ -31,17 +31,17 @@ def _(x):
 
 
 # Default language and timezone
-BABEL_DEFAULT_LANGUAGE = 'en'
-BABEL_DEFAULT_TIMEZONE = 'Europe/Zurich'
+BABEL_DEFAULT_LANGUAGE = "en"
+BABEL_DEFAULT_TIMEZONE = "Europe/Zurich"
 I18N_LANGUAGES = [
-    ('en', _('English')),
+    ("en", _("English")),
 ]
 
-BASE_TEMPLATE = 'cernopendata_theme/page.html'
-HEADER_TEMPLATE = 'cernopendata_theme/header.html'
-COVER_TEMPLATE = 'invenio_theme/page_cover.html'
-SETTINGS_TEMPLATE = 'invenio_theme/settings/content.html'
+BASE_TEMPLATE = "cernopendata_theme/page.html"
+HEADER_TEMPLATE = "cernopendata_theme/header.html"
+COVER_TEMPLATE = "invenio_theme/page_cover.html"
+SETTINGS_TEMPLATE = "invenio_theme/settings/content.html"
 
 # Theme
-THEME_SITENAME = _('CERN Open Data Portal')
-THEME_LOGO = 'img/cernopendata.svg'
+THEME_SITENAME = _("CERN Open Data Portal")
+THEME_LOGO = "img/cernopendata.svg"

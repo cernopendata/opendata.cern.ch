@@ -22,7 +22,6 @@ def split_json_file(filename, split):
         records = json.loads(fdesc.read())
 
     if len(records) > split:
-
         num_output_files = math.ceil(len(records) / split)
 
         for i in range(0, math.ceil(len(records) / split)):
@@ -31,7 +30,7 @@ def split_json_file(filename, split):
             )
             print("[INFO] Creating file %s..." % filenamepart)
             split_content = json.dumps(
-                records[split*i:split*(i+1)],
+                records[split * i : split * (i + 1)],
                 indent=2,
                 sort_keys=True,
                 ensure_ascii=False,

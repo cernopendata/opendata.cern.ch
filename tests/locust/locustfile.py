@@ -51,153 +51,220 @@ If you need to run an specific set of tests:
 from locust import HttpLocust, TaskSet, task
 
 # 452, 3901, 3900, 4000 hidden Opera records.
-RECORDS = [1, 1000, 1002, 1050, 1052, 1100, 11000, 1120, 1200, 1204, 1300, 15,
-           1700, 1701, 1800, 1801, 1803, 200, 2000, 201, 203, 220, 221, 230,
-           233, 250, 252, 253, 300, 3000, 320, 328, 35, 3500, 352, 3600, 3700,
-           3800, 3860, 40, 400, 402, 41, 410, 450, 451, 453, 460, 463, 4900,
-           50, 5000, 5001, 5003, 5100, 5104, 545, 55, 550, 5500, 551, 553, 554,
-           556, 560, 60, 600, 6000, 6026, 6100, 614, 6200, 7000, 7100, 7125,
-           7299]
+RECORDS = [
+    1,
+    1000,
+    1002,
+    1050,
+    1052,
+    1100,
+    11000,
+    1120,
+    1200,
+    1204,
+    1300,
+    15,
+    1700,
+    1701,
+    1800,
+    1801,
+    1803,
+    200,
+    2000,
+    201,
+    203,
+    220,
+    221,
+    230,
+    233,
+    250,
+    252,
+    253,
+    300,
+    3000,
+    320,
+    328,
+    35,
+    3500,
+    352,
+    3600,
+    3700,
+    3800,
+    3860,
+    40,
+    400,
+    402,
+    41,
+    410,
+    450,
+    451,
+    453,
+    460,
+    463,
+    4900,
+    50,
+    5000,
+    5001,
+    5003,
+    5100,
+    5104,
+    545,
+    55,
+    550,
+    5500,
+    551,
+    553,
+    554,
+    556,
+    560,
+    60,
+    600,
+    6000,
+    6026,
+    6100,
+    614,
+    6200,
+    7000,
+    7100,
+    7125,
+    7299,
+]
 
 
 class MixTaskSet(TaskSet):
-
     @task(10)
     def frontpage(self):
-        self.client.get('/')
+        self.client.get("/")
 
     @task(5)
     def search(self):
-        self.client.get('/search')
+        self.client.get("/search")
 
     @task(3)
     def search_type_glossary(self):
-        self.client.get('/search?page=1&size=20&type=Glossary&sort=title')
+        self.client.get("/search?page=1&size=20&type=Glossary&sort=title")
 
     @task(3)
     def search_experiment_cms(self):
-        self.client.get('/search?experiment=CMS')
+        self.client.get("/search?experiment=CMS")
 
     @task(3)
     def search_type_news(self):
-        self.client.get('/search?type=News')
+        self.client.get("/search?type=News")
 
     @task(5)
     def api_search(self):
-        self.client.get('/api/records')
+        self.client.get("/api/records")
 
     @task(3)
     def api_search_atlas(self):
-        self.client.get('/api/records?page=1&size=20&experiment=ATLAS')
+        self.client.get("/api/records?page=1&size=20&experiment=ATLAS")
 
     @task(3)
     def api_search_alice(self):
-        self.client.get('/api/records?page=1&size=20&experiment=ALICE')
+        self.client.get("/api/records?page=1&size=20&experiment=ALICE")
 
     @task(3)
     def api_search_cms(self):
-        self.client.get('/api/records?page=1&size=20&experiment=CMS')
+        self.client.get("/api/records?page=1&size=20&experiment=CMS")
 
     @task(3)
     def api_search_lhcb(self):
-        self.client.get('/api/records?page=1&size=20&experiment=LHCb')
+        self.client.get("/api/records?page=1&size=20&experiment=LHCb")
 
     @task(3)
     def api_search_dataset(self):
-        self.client.get('/api/records?page=1&size=20&experiment=Dataset')
+        self.client.get("/api/records?page=1&size=20&experiment=Dataset")
 
     @task(3)
     def api_search_software(self):
-        self.client.get('/api/records?page=1&size=20&experiment=Software')
+        self.client.get("/api/records?page=1&size=20&experiment=Software")
 
     @task(3)
     def api_search_environment(self):
-        self.client.get('/api/records?page=1&size=20&experiment=Environment')
+        self.client.get("/api/records?page=1&size=20&experiment=Environment")
 
     @task(3)
     def api_search_documentation(self):
-        self.client.get('/api/records?page=1&size=20&experiment=Documentation')
+        self.client.get("/api/records?page=1&size=20&experiment=Documentation")
 
     @task(3)
     def api_search_keywords_education(self):
-        self.client.get(
-            '/api/records?page=1&size=20&experiment=keywords:education')
+        self.client.get("/api/records?page=1&size=20&experiment=keywords:education")
 
     @task(3)
     def api_search_collision_data(self):
-        self.client.get(
-            '/api/records?page=1&size=20&experiment=collision%20data')
+        self.client.get("/api/records?page=1&size=20&experiment=collision%20data")
 
     @task(3)
     def docs_alice_getting_started(self):
-        self.client.get('/docs/alice-getting-started')
+        self.client.get("/docs/alice-getting-started")
 
     @task(3)
     def docs_atlas_higgs_machine_learning_challenge(self):
-        self.client.get('/docs/atlas-higgs-machine-learning-challenge')
+        self.client.get("/docs/atlas-higgs-machine-learning-challenge")
 
     @task(3)
     def docs_cms_guide_for_education(self):
-        self.client.get('/docs/cms-guide-for-education')
+        self.client.get("/docs/cms-guide-for-education")
 
     @task(3)
     def docs_cms_guide_for_research(self):
-        self.client.get('/docs/cms-guide-for-research')
+        self.client.get("/docs/cms-guide-for-research")
 
     @task(3)
     def docs_cms_summer_student_report_2017(self):
-        self.client.get('/docs/cms-summer-student-report-2017')
+        self.client.get("/docs/cms-summer-student-report-2017")
 
     @task(3)
     def docs_cms_the_future_is_open_2017(self):
-        self.client.get('/docs/cms-the-future-is-open-2017')
+        self.client.get("/docs/cms-the-future-is-open-2017")
 
     @task(3)
     def docs_lhcb_getting_started(self):
-        self.client.get('/docs/lhcb-getting-started')
+        self.client.get("/docs/lhcb-getting-started")
 
     @task(3)
     def docs_docs_welcome(self):
-        self.client.get('/docs/welcome')
+        self.client.get("/docs/welcome")
 
     @task(3)
     def visualise_events_cms(self):
-        self.client.get('/visualise/events/cms')
+        self.client.get("/visualise/events/cms")
 
     @task(3)
     def visualise_histograms(self):
-        self.client.get('/visualise/histograms')
+        self.client.get("/visualise/histograms")
 
     @task(1)
     def record_detail_1002(self):
-        self.client.get('/record/1002')
+        self.client.get("/record/1002")
 
     @task(1)
     def record_detail_5001(self):
-        self.client.get('/record/5001')
+        self.client.get("/record/5001")
 
     @task(1)
     def cached_file_download(self):
-        self.client.get('/record/545/files/Zee.csv')
+        self.client.get("/record/545/files/Zee.csv")
 
     @task(1)
     def non_cached_file_download(self):
-        self.client.get('/record/545/files/Dimuon_SingleMu.csv')
+        self.client.get("/record/545/files/Dimuon_SingleMu.csv")
 
 
 class RecordsTaskSet(TaskSet):
-
     @task
     def records_ui(self):
         for record_id in RECORDS:
-            self.client.get('/record/{0}'.format(record_id),
-                            name="/record/[id]")
+            self.client.get("/record/{0}".format(record_id), name="/record/[id]")
 
     @task
     def records_api(self):
         for record_id in RECORDS:
-            self.client.get('/api/records/{0}'.format(record_id),
-                            name="/api/records/[id]")
+            self.client.get(
+                "/api/records/{0}".format(record_id), name="/api/records/[id]"
+            )
 
 
 class Records(HttpLocust):

@@ -36,32 +36,30 @@ class CERNOpenDataSitemap(object):
     def init_app(self, app):
         """Flask application initialization."""
         # Follow the Flask guidelines on usage of app.extensions
-        if 'cernopendata-sitemap' in app.extensions:
-            raise RuntimeError('CERNOpenDataSitemap application already'
-                               'initialized')
+        if "cernopendata-sitemap" in app.extensions:
+            raise RuntimeError("CERNOpenDataSitemap application already" "initialized")
         self.app = app
         self.init_config(app)
         self.urls_generator = urls_generator
-        app.extensions['cernopendata-sitemap'] = self
+        app.extensions["cernopendata-sitemap"] = self
 
     @staticmethod
     def init_config(app):
         """Initialize configuration."""
         for k in dir(config):
-            if k.startswith('CERNOPENDATA_SITEMAP_'):
+            if k.startswith("CERNOPENDATA_SITEMAP_"):
                 app.config.setdefault(k, getattr(config, k))
 
     def _generate_all_urls(self):
         """Run all generators and yield the sitemap JSON entries."""
-        for doc_type in current_app.config['CERNOPENDATA_SITEMAP_DOC_TYPES']:
+        for doc_type in current_app.config["CERNOPENDATA_SITEMAP_DOC_TYPES"]:
             for generated in urls_generator(doc_type):
                 yield generated
 
     def get_populated_sitemap(self):
         """Populate sitemap template with current app urls."""
-        site_url = current_app.config['SITE_URL']
+        site_url = current_app.config["SITE_URL"]
         with current_app.test_request_context(base_url=site_url):
             urls = iter(self._generate_all_urls())
-            page = render_template('sitemap/sitemap.xml',
-                                   urlset=filter(None, urls))
+            page = render_template("sitemap/sitemap.xml", urlset=filter(None, urls))
             return page

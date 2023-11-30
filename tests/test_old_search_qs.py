@@ -89,8 +89,10 @@ from cernopendata.config import RECORDS_REST_FACETS
 def disabled_test_old_search_qs(old_qs_args, new_qs_args):
     """Test translation from old search querystring args to new ones."""
     # P. SAIZ IS THIS TEST NEEDED?
-    translated_qs = new_qs_args # translate_search_url(old_qs_args, RECORDS_REST_FACETS)
+    translated_qs = (
+        new_qs_args  # translate_search_url(old_qs_args, RECORDS_REST_FACETS)
+    )
     # compare facets no matter the order
-    assert set(translated_qs.pop('f')) == set(new_qs_args.pop('f'))
+    assert set(translated_qs.pop("f")) == set(new_qs_args.pop("f"))
     # compare rest of query params
     assert translated_qs == new_qs_args

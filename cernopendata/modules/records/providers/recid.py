@@ -7,7 +7,7 @@ from invenio_pidstore.providers.base import BaseProvider
 class RecordUUIDProvider(BaseProvider):
     """Record identifier provider."""
 
-    pid_type = 'recid'
+    pid_type = "recid"
     """Type of persistent identifier."""
 
     pid_provider = None

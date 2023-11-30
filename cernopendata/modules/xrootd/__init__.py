@@ -4,4 +4,4 @@
 
 from .ext import CODPXRootD
 
-__all__ = ('CODPXRootD', )
+__all__ = ("CODPXRootD",)

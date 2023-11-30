@@ -26,41 +26,40 @@
 
 from invenio_assets.webpack import WebpackThemeBundle
 
-
 theme = WebpackThemeBundle(
     __name__,
-    'assets',
-    default='semantic-ui',
+    "assets",
+    default="semantic-ui",
     themes={
-        'semantic-ui': dict(
+        "semantic-ui": dict(
             entry={
-                'cernopendata_css': './scss/styles.scss',
-                'cernopendata_js': './js/app.js'
+                "cernopendata_css": "./scss/styles.scss",
+                "cernopendata_js": "./js/app.js",
             },
             dependencies={
-                'open-iconic': '~1.1.1',
-                'popper.js': '~1.11.0',
+                "open-iconic": "~1.1.1",
+                "popper.js": "~1.11.0",
             },
             aliases={
-                '../../theme.config$': 'less/cernopendata/theme.config',
+                "../../theme.config$": "less/cernopendata/theme.config",
             },
         ),
-    }
+    },
 )
 
 
 glossary = WebpackThemeBundle(
     __name__,
-    'assets',
-    default='semantic-ui',
+    "assets",
+    default="semantic-ui",
     themes={
-        'semantic-ui': dict(
+        "semantic-ui": dict(
             entry={
-                'glossary_js': './js/glossary/jquery.zglossary.js',
-                'glossary_css': './js/glossary/jquery.zglossary.css',
+                "glossary_js": "./js/glossary/jquery.zglossary.js",
+                "glossary_css": "./js/glossary/jquery.zglossary.css",
             },
         )
-    }
+    },
 )
 
 search_ui = WebpackThemeBundle(
@@ -74,28 +73,28 @@ search_ui = WebpackThemeBundle(
                 "cernopendata_search_css": "./scss/search.scss",
             },
             aliases={
-                '@js/cernopendata_search_ui': 'js/search',
-            }
+                "@js/cernopendata_search_ui": "js/search",
+            },
         ),
     },
 )
 
 visualise = WebpackThemeBundle(
     __name__,
-    'assets',
-    default='semantic-ui',
+    "assets",
+    default="semantic-ui",
     themes={
-        'semantic-ui': dict(
+        "semantic-ui": dict(
             entry={
-                'visualise_js': './js/visualise/visualise_histograms.js',
-                'visualise_css': './scss/visualise.scss',
+                "visualise_js": "./js/visualise/visualise_histograms.js",
+                "visualise_css": "./scss/visualise.scss",
             },
             dependencies={
-                'd3': '^3.3.13',
-                'flot': '~0.8.0-alpha',
-            }
+                "d3": "^3.3.13",
+                "flot": "~0.8.0-alpha",
+            },
         )
-    }
+    },
 )
 
 records_file_box = WebpackThemeBundle(
@@ -110,8 +109,8 @@ records_file_box = WebpackThemeBundle(
             dependencies={
                 "react": "^16.13.0",
                 "react-dom": "^16.13.0",
-                "prop-types": "^15.7.2"
-            }
+                "prop-types": "^15.7.2",
+            },
         ),
     },
 )

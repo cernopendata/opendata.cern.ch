@@ -37,10 +37,8 @@ json = BasicJSONSerializer(RecordSchemaV1)
 
 schemaorg_jsonld = CODSchemaorgSerializer(replace_refs=True)
 
-schemaorg_jsonld_response = record_responsify(
-                                schemaorg_jsonld,
-                                'application/ld+json')
+schemaorg_jsonld_response = record_responsify(schemaorg_jsonld, "application/ld+json")
 
 json_search = CODJSONSerializer(RecordSchemaJSONV1)
 
-json_v1_search = search_responsify(json_search, 'application/json')
+json_v1_search = search_responsify(json_search, "application/json")

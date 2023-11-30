@@ -34,23 +34,29 @@ def _sitemapdtformat(dt):
     UTC designator 'Z'. See more information at
     https://www.w3.org/TR/NOTE-datetime.
     """
-    adt = arrow.Arrow.fromdatetime(dt).to('utc')
-    return adt.format('YYYY-MM-DDTHH:mm:ss') + 'Z'
+    adt = arrow.Arrow.fromdatetime(dt).to("utc")
+    return adt.format("YYYY-MM-DDTHH:mm:ss") + "Z"
 
 
 def urls_generator(doc_type):
     """Generate the records links."""
-    q = (db.session.query(PersistentIdentifier, RecordMetadata)
-         .join(RecordMetadata,
-               RecordMetadata.id == PersistentIdentifier.object_uuid)
-         .filter(PersistentIdentifier.status == PIDStatus.REGISTERED,
-                 PersistentIdentifier.pid_type == doc_type))
+    q = (
+        db.session.query(PersistentIdentifier, RecordMetadata)
+        .join(RecordMetadata, RecordMetadata.id == PersistentIdentifier.object_uuid)
+        .filter(
+            PersistentIdentifier.status == PIDStatus.REGISTERED,
+            PersistentIdentifier.pid_type == doc_type,
+        )
+    )
 
-    scheme = current_app.config['CERNOPENDATA_SITEMAP_URL_SCHEME']
+    scheme = current_app.config["CERNOPENDATA_SITEMAP_URL_SCHEME"]
     for pid, rm in q.yield_per(1000):
         yield {
-            'loc': url_for('invenio_records_ui.{0}'.format(doc_type),
-                           pid_value=pid.pid_value,
-                           _external=True, _scheme=scheme),
-            'lastmod': _sitemapdtformat(rm.updated)
+            "loc": url_for(
+                "invenio_records_ui.{0}".format(doc_type),
+                pid_value=pid.pid_value,
+                _external=True,
+                _scheme=scheme,
+            ),
+            "lastmod": _sitemapdtformat(rm.updated),
         }

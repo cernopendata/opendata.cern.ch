@@ -36,6 +36,21 @@ jobs:
           sudo apt-get install shellcheck
           ./run-tests.sh --check-shellscript
 
+  lint-black:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Check Python code formatting
+        run: |
+          pip install black
+          ./run-tests.sh --check-black
+
   lint-pycodestyle:
     runs-on: ubuntu-20.04
     steps:
@@ -45,7 +60,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.6
+          python-version: 3.9
 
       - name: Check compliance with Python coding style conventions
         run: |
@@ -62,7 +77,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.6
+          python-version: 3.9
 
       - name: Check compliance with Python docstring conventions
         run: |
@@ -79,7 +94,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.6
+          python-version: 3.9
 
       - name: Check Python manifest completeness
         run: |
@@ -113,7 +128,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.6
+          python-version: 3.9
 
       - name: Check isort
         run: |
@@ -130,7 +145,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.6
+          python-version: 3.9
 
       - name: Lint Dockerfile
         run: docker run -i --rm hadolint/hadolint:v1.18.2 < Dockerfile

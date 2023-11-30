@@ -32,7 +32,7 @@ from flask import Flask
 from cernopendata.factory import create_api
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def instance_path():
     """Default instance path."""
     path = tempfile.mkdtemp()
@@ -42,29 +42,29 @@ def instance_path():
     shutil.rmtree(path)
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def env_config(instance_path):
     """Default instance path."""
     os.environ.update(
-        APP_INSTANCE_PATH=os.environ.get(
-            'INSTANCE_PATH', instance_path),
+        APP_INSTANCE_PATH=os.environ.get("INSTANCE_PATH", instance_path),
     )
 
     return os.environ
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def default_config():
     """Default configuration."""
     return dict(
         DEBUG_TB_ENABLED=False,
         SQLALCHEMY_DATABASE_URI=os.environ.get(
-            'SQLALCHEMY_DATABASE_URI', 'sqlite:///test.db'),
+            "SQLALCHEMY_DATABASE_URI", "sqlite:///test.db"
+        ),
         TESTING=True,
     )
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def app(env_config, default_config, instance_path):
     """Flask application fixture."""
     app = create_api(**default_config)

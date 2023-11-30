@@ -29,43 +29,46 @@ from marshmallow import Schema, fields
 class DataCiteSerializer(Schema):
     """DataCite complient schema."""
 
-    identifier = fields.Method('get_identifier')
-    creators = fields.Method('get_creators')
-    titles = fields.Method('get_titles')
-    resourceType = fields.Method('get_resourcetype')
+    identifier = fields.Method("get_identifier")
+    creators = fields.Method("get_creators")
+    titles = fields.Method("get_titles")
+    resourceType = fields.Method("get_resourcetype")
     publisher = fields.Str()
-    publicationYear = fields.Str(attribute='date_published')
+    publicationYear = fields.Str(attribute="date_published")
 
     def get_identifier(self, obj):
         """Get identifier based on doi field."""
-        return {
-            'identifier': obj['doi'],
-            'identifierType': 'DOI'
-        }
+        return {"identifier": obj["doi"], "identifierType": "DOI"}
 
     def get_creators(self, obj):
         """Get creators based on authors or collaboration field."""
-        authors = obj.get('authors', [obj.get('collaboration', None)])
+        authors = obj.get("authors", [obj.get("collaboration", None)])
         creators = [
             {
-                'creatorName': author['name'],
-                'nameIdentifiers': [{
-                    'nameIdentifier': author['orcid'],
-                    'nameIdentifierScheme': 'ORCID',
-                    'schemeURI': 'http://orcid.org/'
-                }] if 'orcid' in author else []
-            } for author in authors]
+                "creatorName": author["name"],
+                "nameIdentifiers": [
+                    {
+                        "nameIdentifier": author["orcid"],
+                        "nameIdentifierScheme": "ORCID",
+                        "schemeURI": "http://orcid.org/",
+                    }
+                ]
+                if "orcid" in author
+                else [],
+            }
+            for author in authors
+        ]
         return creators
 
     def get_titles(self, obj):
         """Get title."""
-        return [{'title': obj['title']}]
+        return [{"title": obj["title"]}]
 
     def get_resourcetype(self, obj):
         """Get resource type based on type field."""
-        resource_type = 'Other'
-        if obj['type']:
-            type_primary = obj['type'].get('primary', '')
-            if type_primary in ['Software', 'Dataset']:
+        resource_type = "Other"
+        if obj["type"]:
+            type_primary = obj["type"].get("primary", "")
+            if type_primary in ["Software", "Dataset"]:
                 resource_type = type_primary
-        return {'resourceTypeGeneral': resource_type}
+        return {"resourceTypeGeneral": resource_type}

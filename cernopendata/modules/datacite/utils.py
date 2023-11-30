@@ -35,22 +35,23 @@ def generate_doi(prefix, experiment=None):
     while True:
         doi = random_doi(prefix, experiment)
         try:
-            PersistentIdentifier.get('doi', doi)
+            PersistentIdentifier.get("doi", doi)
         except PIDDoesNotExistError:
             return doi
 
 
 def random_doi(prefix, experiment=None):
     """Generate random DOI."""
+
     def _generate_random_string(length):
         chars = string.ascii_uppercase + string.digits
-        return ''.join((random.choice(chars)) for x in range(length))
+        return "".join((random.choice(chars)) for x in range(length))
 
     if experiment:
-        base = '{}/OPENDATA.{}'.format(prefix, experiment)
+        base = "{}/OPENDATA.{}".format(prefix, experiment)
     else:
-        base = '{}/OPENDATA'.format(prefix)
+        base = "{}/OPENDATA".format(prefix)
 
-    return '{}.{}.{}'.format(base,
-                             _generate_random_string(4),
-                             _generate_random_string(4)).upper()
+    return "{}.{}.{}".format(
+        base, _generate_random_string(4), _generate_random_string(4)
+    ).upper()

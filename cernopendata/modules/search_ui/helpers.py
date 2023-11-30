@@ -55,9 +55,11 @@ class CODSearchAppInvenioRestConfigHelper(SearchAppInvenioRestConfigHelper):
                     field = list(definition.values())[0].get("field")
                     item["agg"]["childAgg"] = {"aggName": name, "field": field}
                 else:
-                    item.update({
-                        "title": agg_name.capitalize().replace("_", " "),
-                        "agg": {"aggName": agg_name, "field": v.get("field")},
-                    })
+                    item.update(
+                        {
+                            "title": agg_name.capitalize().replace("_", " "),
+                            "agg": {"aggName": agg_name, "field": v.get("field")},
+                        }
+                    )
             agg_list.append(item)
         return agg_list

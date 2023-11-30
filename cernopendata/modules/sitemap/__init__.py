@@ -21,4 +21,4 @@
 
 from .ext import CERNOpenDataSitemap
 
-__all__ = ('CERNOpenDataSitemap', )
+__all__ = ("CERNOpenDataSitemap",)

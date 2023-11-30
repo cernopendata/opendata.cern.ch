@@ -7,7 +7,7 @@ from invenio_pidstore.providers.base import BaseProvider
 class TermUUIDProvider(BaseProvider):
     """Term identifier provider."""
 
-    pid_type = 'termid'
+    pid_type = "termid"
     """Type of persistent identifier."""
 
     pid_provider = None

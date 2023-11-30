@@ -24,11 +24,11 @@
 
 """Cernopendata Query factory for REST API."""
 
-from invenio_search.engine import dsl
 from flask import current_app, request
 from invenio_records_rest.errors import InvalidQueryRESTError
-from invenio_records_rest.sorter import default_sorter_factory
 from invenio_records_rest.facets import default_facets_factory
+from invenio_records_rest.sorter import default_sorter_factory
+from invenio_search.engine import dsl
 
 # from .facets import cernopendata_facets_factory
 

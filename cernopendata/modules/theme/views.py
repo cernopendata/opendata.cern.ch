@@ -28,58 +28,60 @@ import operator
 
 from flask import Blueprint
 
-from cernopendata.modules.records.utils import \
-    serialize_record as utils_serialize_record
+from cernopendata.modules.records.utils import (
+    serialize_record as utils_serialize_record,
+)
 
 blueprint = Blueprint(
-    'cernopendata_theme',
+    "cernopendata_theme",
     __name__,
-    template_folder='templates',
-    static_folder='static',
+    template_folder="templates",
+    static_folder="static",
 )
 
 
-@blueprint.app_template_filter('get_record_title')
-def get_record_title(id, type='recid'):
+@blueprint.app_template_filter("get_record_title")
+def get_record_title(id, type="recid"):
     """Fetches record title by id."""
-    from invenio_records.api import Record
-    from invenio_pidstore.models import PersistentIdentifier
     from invenio_pidstore.errors import PIDDoesNotExistError
+    from invenio_pidstore.models import PersistentIdentifier
+    from invenio_records.api import Record
+
     try:
         pid = PersistentIdentifier.get(type, id)
     except PIDDoesNotExistError:
         return None
     record = Record.get_record(pid.object_uuid)
-    return record.get('title', '')
+    return record.get("title", "")
 
 
-@blueprint.app_template_filter('get_first_file')
+@blueprint.app_template_filter("get_first_file")
 def get_first_file(file_list):
     """Fetches first file from a list."""
-    keys = [f.get('key') for f in file_list
-            if f.get('key', '').endswith('.ig')]
+    keys = [f.get("key") for f in file_list if f.get("key", "").endswith(".ig")]
     if keys:
         return keys[0]
 
 
-@blueprint.app_template_filter('sort_multi')
+@blueprint.app_template_filter("sort_multi")
 def sort_multi(lst, *operators):
     """Sorts list by multiple fields."""
     lst.sort(key=operator.itemgetter(*operators))
     return lst
 
 
-@blueprint.app_template_filter('get_year')
+@blueprint.app_template_filter("get_year")
 def get_year(year):
     """Returns current year."""
     import datetime
+
     now = datetime.datetime.now()
     return now.year
 
 
-@blueprint.app_template_filter('serialize_record')
-def serialize_record(record, pid, serializer, module=None, throws=True,
-                     **kwargs):
+@blueprint.app_template_filter("serialize_record")
+def serialize_record(record, pid, serializer, module=None, throws=True, **kwargs):
     """Serialize record according to the passed serializer."""
-    return utils_serialize_record(record, pid, serializer, module=module,
-                                  throws=throws, **kwargs)
+    return utils_serialize_record(
+        record, pid, serializer, module=module, throws=throws, **kwargs
+    )

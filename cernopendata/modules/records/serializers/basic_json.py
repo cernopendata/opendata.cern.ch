@@ -25,9 +25,8 @@
 """Cernopendata JSON serializer for records."""
 
 from flask import current_app, json
-from marshmallow import Schema, fields
-
 from invenio_records_rest.serializers.json import JSONSerializer
+from marshmallow import Schema, fields
 
 
 class BasicJSONSerializer(JSONSerializer):
@@ -49,12 +48,7 @@ class CODJSONSerializer(JSONSerializer):
     # react-search-kit expect the buckets inside the aggregations directly
     # not inside filtered object.
     def serialize_search(
-        self,
-        pid_fetcher,
-        search_result,
-        links=None,
-        item_links_factory=None,
-        **kwargs
+        self, pid_fetcher, search_result, links=None, item_links_factory=None, **kwargs
     ):
         """Serialize a search result.
 
@@ -62,16 +56,16 @@ class CODJSONSerializer(JSONSerializer):
         :param search_result: Elasticsearch search result.
         :param links: Dictionary of links to add to response.
         """
-        total = search_result['hits']['total']['value']
+        total = search_result["hits"]["total"]["value"]
 
         # Serialize aggregation and remove `filtered` object
-        aggregations = (search_result.get('aggregations', dict()),)
+        aggregations = (search_result.get("aggregations", dict()),)
         for k, agg in aggregations[0].items():
-            if 'filtered' in agg:
-                buckets = agg.get('filtered')
+            if "filtered" in agg:
+                buckets = agg.get("filtered")
                 if buckets:
                     agg.update(buckets)
-                    agg.pop('filtered')
+                    agg.pop("filtered")
 
         aggregations = aggregations[0]
 
@@ -88,12 +82,12 @@ class CODJSONSerializer(JSONSerializer):
                 hits=dict(
                     hits=[
                         self.transform_search_hit(
-                            pid_fetcher(hit['_id'], hit['_source']),
+                            pid_fetcher(hit["_id"], hit["_source"]),
                             hit,
                             links_factory=item_links_factory,
                             **kwargs
                         )
-                        for hit in search_result['hits']['hits']
+                        for hit in search_result["hits"]["hits"]
                     ],
                     total=total,
                 ),
@@ -109,23 +103,23 @@ def dump_files(obj):
     _files = []
     _index_files = []
 
-    recid = obj.get('pid').pid_value
-    files = obj.get('metadata', {}).get('files', [])
+    recid = obj.get("pid").pid_value
+    files = obj.get("metadata", {}).get("files", [])
 
     for file in files:
         _file = {
-            'checksum': file.get('checksum', ''),
-            'size': file.get('size', ''),
-            'filename': file.get('key', ''),
-            'uri_http': '{}/record/{}/files/{}'.format(
-                current_app.config.get('HOST_URI', 'http://opendata.cern.ch'),
+            "checksum": file.get("checksum", ""),
+            "size": file.get("size", ""),
+            "filename": file.get("key", ""),
+            "uri_http": "{}/record/{}/files/{}".format(
+                current_app.config.get("HOST_URI", "http://opendata.cern.ch"),
                 recid,
-                file.get('key', ''),
+                file.get("key", ""),
             ),
-            'uri_root': file.get('uri', ''),
+            "uri_root": file.get("uri", ""),
         }
 
-        if 'index' in file.get('type', ''):
+        if "index" in file.get("type", ""):
             _index_files.append(_file)
         else:
             _files.append(_file)
@@ -136,21 +130,21 @@ def dump_files(obj):
 class RecordSchemaV1(Schema):
     """Common record schema."""
 
-    id = fields.Integer(attribute='pid.pid_value', dump_only=True)
+    id = fields.Integer(attribute="pid.pid_value", dump_only=True)
     created = fields.Str(dump_only=True)
     updated = fields.Str(dump_only=True)
-    metadata = fields.Method('dump_metadata')
+    metadata = fields.Method("dump_metadata")
 
     def dump_metadata(self, obj):
         """Dumps metadata and removes `_files`."""
-        if '_files' in obj['metadata']:
-            del obj['metadata']['_files']
+        if "_files" in obj["metadata"]:
+            del obj["metadata"]["_files"]
 
-        if '_bucket' in obj['metadata']:
-            del obj['metadata']['_bucket']
+        if "_bucket" in obj["metadata"]:
+            del obj["metadata"]["_bucket"]
 
         _files = dump_files(obj)
-        obj['metadata']['files'] = _files[0]
-        obj['metadata']['index_files'] = _files[1]
+        obj["metadata"]["files"] = _files[0]
+        obj["metadata"]["index_files"] = _files[1]
 
-        return obj['metadata']
+        return obj["metadata"]

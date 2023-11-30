@@ -24,7 +24,6 @@
 """CERN Opendata schema.org marshmallow schema."""
 
 from marshmallow import Schema, fields
-
 from marshmallow.decorators import post_dump
 
 SITE_URL = "http://opendata.cern.ch"
@@ -34,20 +33,19 @@ class RecordSchemaorgSchema(Schema):
     """schema.org JSON-LD schema for CERN Opendata Record."""
 
     # JSON-LD minimum requirements
-    context_ = fields.Field(default='https://schema.org/', data_key='@context')
-    id_ = fields.Method('get_identifier', data_key='@id')
+    context_ = fields.Field(default="https://schema.org/", data_key="@context")
+    id_ = fields.Method("get_identifier", data_key="@id")
 
     # Minimum functional
-    type_ = fields.Method('get_type', data_key='@type')
-    name = fields.Str(attribute='title', data_key='name')
-    description = fields.Method('get_description', data_key='description')
-    identifier = fields.Method('get_identifier', data_key='identifier')
-    url = fields.Method('get_url', data_key='url')
-    creator = fields.Method('get_creator', data_key='creator')
-    date_created = fields.Method('get_date_created', data_key='dateCreated')
-    date_published = fields.Str(attribute='date_published',
-                                data_key='datePublished')
-    publisher = fields.Method('get_publisher', data_key='publisher')
+    type_ = fields.Method("get_type", data_key="@type")
+    name = fields.Str(attribute="title", data_key="name")
+    description = fields.Method("get_description", data_key="description")
+    identifier = fields.Method("get_identifier", data_key="identifier")
+    url = fields.Method("get_url", data_key="url")
+    creator = fields.Method("get_creator", data_key="creator")
+    date_created = fields.Method("get_date_created", data_key="dateCreated")
+    date_published = fields.Str(attribute="date_published", data_key="datePublished")
+    publisher = fields.Method("get_publisher", data_key="publisher")
 
     # Minimum operational
     # license = fields.Str('license', data_key='license')
@@ -60,42 +58,49 @@ class RecordSchemaorgSchema(Schema):
 
     def get_creator(self, obj):
         """Get creator(s) based on authors or collaboration field."""
-        authors = obj.get('authors', None)
+        authors = obj.get("authors", None)
 
         if authors:
-            return [{"@type": "Person", 'name': x['name']} for x in authors]
+            return [{"@type": "Person", "name": x["name"]} for x in authors]
         else:
             # Note: Can there be many Organizations in a Record?
             #       Now only one is expected.
-            collaboration = obj.get('collaboration', {}).get('name', None)
+            collaboration = obj.get("collaboration", {}).get("name", None)
             if collaboration:
-                return {"@type": "Organization", 'name': collaboration}
+                return {"@type": "Organization", "name": collaboration}
             return None
 
     def get_description(self, obj):
         """Get description based on abstract.description field."""
-        return obj.get('abstract', {}).get('description', None)
+        return obj.get("abstract", {}).get("description", None)
 
     def get_identifier(self, obj):
         """Get identifier based on doi or recid field."""
-        doi = obj.get('doi', None)
+        doi = obj.get("doi", None)
 
         if doi:
             return "https://doi.org/{}".format(doi)
         else:
-            recid = obj.get('recid', None)
+            recid = obj.get("recid", None)
             return "{}/record/{}".format(SITE_URL, recid)
 
     def get_date_created(self, obj):
         """Get most recent date_created year."""
-        return max(obj.get('date_created', ['0', ]))
+        return max(
+            obj.get(
+                "date_created",
+                [
+                    "0",
+                ],
+            )
+        )
 
     def get_publisher(self, obj):
         """Get publisher based on publisher field."""
         # Organization or Person - The publisher of the creative work.
-        publisher = obj.get('publisher', None)
+        publisher = obj.get("publisher", None)
         if publisher:
-            return {"@type": "Organization", 'name': publisher}
+            return {"@type": "Organization", "name": publisher}
         return None
 
     def get_type(self, obj):
@@ -104,7 +109,7 @@ class RecordSchemaorgSchema(Schema):
 
     def get_url(self, obj):
         """Get url based on recid field."""
-        recid = obj.get('recid', None)
+        recid = obj.get("recid", None)
         return "{}/record/{}".format(SITE_URL, recid)
 
 
@@ -119,7 +124,7 @@ class DatasetSchemaorgSchema(RecordSchemaorgSchema):
 class DocumentationSchemaorgSchema(RecordSchemaorgSchema):
     """schema.org JSON-LD schema for CERN Opendata Documentation Record."""
 
-    REMOVE_IF_EMPTY = ['creator', 'description']
+    REMOVE_IF_EMPTY = ["creator", "description"]
     """Keys that should be removed in case they don't have a value."""
 
     @post_dump
@@ -136,11 +141,11 @@ class DocumentationSchemaorgSchema(RecordSchemaorgSchema):
 
     def get_publisher(self, obj):
         """Return 'CERN Open Data Portal' as publisher for Document Records."""
-        return {"@type": "Organization", 'name': 'CERN Open Data Portal'}
+        return {"@type": "Organization", "name": "CERN Open Data Portal"}
 
     def get_url(self, obj):
         """Get url based on slug field."""
-        slug = obj.get('slug', None)
+        slug = obj.get("slug", None)
         return "{}/docs/{}".format(SITE_URL, slug)
 
 

@@ -19,6 +19,6 @@
 
 """Configuration for CERN Open Data Portal sitemap package."""
 
-CERNOPENDATA_SITEMAP_URL_SCHEME = 'http'
+CERNOPENDATA_SITEMAP_URL_SCHEME = "http"
 
-CERNOPENDATA_SITEMAP_DOC_TYPES = ['recid', 'docid']
+CERNOPENDATA_SITEMAP_DOC_TYPES = ["recid", "docid"]

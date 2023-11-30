@@ -21,21 +21,26 @@
 
 from flask import Blueprint, current_app, make_response
 
-static_folder = 'static'
+static_folder = "static"
 
 blueprint = Blueprint(
-    'cernopendata_sitemap',
+    "cernopendata_sitemap",
     __name__,
-    url_prefix='',
-    template_folder='templates',
+    url_prefix="",
+    template_folder="templates",
     static_folder=static_folder,
 )
 
 
-@blueprint.route('/sitemap.xml', methods=['GET', ])
+@blueprint.route(
+    "/sitemap.xml",
+    methods=[
+        "GET",
+    ],
+)
 def sitemappage():
     """Get the sitemap."""
-    sitemap = current_app.extensions['cernopendata-sitemap']
+    sitemap = current_app.extensions["cernopendata-sitemap"]
     sitemap_xml = sitemap.get_populated_sitemap()
     response = make_response(sitemap_xml)
     response.headers["Content-Type"] = "application/xml"

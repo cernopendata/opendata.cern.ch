@@ -42,12 +42,12 @@ class DataCiteMDSClientWrapper(DataCiteMDSClient):
         * `PIDSTORE_DATACITE_URL` as DataCite URL.
         """
         super(DataCiteMDSClientWrapper, self).__init__(
-            username=current_app.config.get('PIDSTORE_DATACITE_USERNAME'),
-            password=current_app.config.get('PIDSTORE_DATACITE_PASSWORD'),
-            prefix=current_app.config.get('PIDSTORE_DATACITE_DOI_PREFIX'),
-            test_mode=current_app.config.get('PIDSTORE_DATACITE_TESTMODE',
-                                             False),
-            url=current_app.config.get('PIDSTORE_DATACITE_URL'))
+            username=current_app.config.get("PIDSTORE_DATACITE_USERNAME"),
+            password=current_app.config.get("PIDSTORE_DATACITE_PASSWORD"),
+            prefix=current_app.config.get("PIDSTORE_DATACITE_DOI_PREFIX"),
+            test_mode=current_app.config.get("PIDSTORE_DATACITE_TESTMODE", False),
+            url=current_app.config.get("PIDSTORE_DATACITE_URL"),
+        )
 
     def doi_get_all(self):
         """Get list of all registered DOIs."""

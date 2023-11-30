@@ -27,8 +27,9 @@ import json
 
 from invenio_records_rest.serializers.json import JSONSerializer
 
-from cernopendata.modules.records.serializers.schemas \
-    import schemaorg_schemas as schemas
+from cernopendata.modules.records.serializers.schemas import (
+    schemaorg_schemas as schemas,
+)
 
 
 class BasicJSONSerializer(JSONSerializer):
@@ -56,11 +57,11 @@ class CODSchemaorgSerializer(BasicJSONSerializer):
     """
 
     SCHEMAS = {
-        'Dataset': schemas.DatasetSchemaorgSchema,
-        'Software': schemas.SoftwareSchemaorgSchema,
-        'Environment': schemas.RecordSchemaorgSchema,
-        'Supplementaries': schemas.RecordSchemaorgSchema,
-        'Documentation': schemas.DocumentationSchemaorgSchema,
+        "Dataset": schemas.DatasetSchemaorgSchema,
+        "Software": schemas.SoftwareSchemaorgSchema,
+        "Environment": schemas.RecordSchemaorgSchema,
+        "Supplementaries": schemas.RecordSchemaorgSchema,
+        "Documentation": schemas.DocumentationSchemaorgSchema,
     }
     """Marsmallow Schemas for each Record type in CERN Open Data."""
 
@@ -68,8 +69,8 @@ class CODSchemaorgSerializer(BasicJSONSerializer):
         """Serialize object with schema."""
         schema_cls = None
 
-        obj = obj.get('metadata', obj)
-        type = obj['type']['primary']
+        obj = obj.get("metadata", obj)
+        type = obj["type"]["primary"]
 
         schema_cls = self.SCHEMAS[type]
         return schema_cls(context=context).dump(obj)

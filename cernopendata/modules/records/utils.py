@@ -19,21 +19,18 @@
 
 """Implementention of various utility functions."""
 
-import six
 import json
 
-from flask import abort, current_app, render_template, jsonify, request
+import six
+from flask import abort, current_app, jsonify, render_template, request
 from invenio_files_rest.views import ObjectResource
+from invenio_records.api import Record
+from invenio_records_files.utils import record_file_factory
+
 # from invenio_files_rest.models import FileInstance, ObjectVersion
 # from invenio_records.errors import MissingModelError
 from invenio_records_ui.utils import obj_or_import_string
-
-from invenio_records_files.utils import record_file_factory
-
-from invenio_records.api import Record
-
 from invenio_xrootd import EOSFileStorage
-
 from werkzeug.utils import import_string
 
 
@@ -59,18 +56,16 @@ def file_download_ui(pid, record, _record_file_factory=None, **kwargs):
     """
     _record_file_factory = _record_file_factory or record_file_factory
     # Extract file from record.
-    filename = kwargs.get('filename')
+    filename = kwargs.get("filename")
 
     if filename == "configFile.py":
         rf = record.files.dumps()
         for file in rf:
-            if file.get("key", "").endswith('configFile.py'):
+            if file.get("key", "").endswith("configFile.py"):
                 filename = file.get("key")
                 break
 
-    fileobj = _record_file_factory(
-        pid, record, filename
-    )
+    fileobj = _record_file_factory(pid, record, filename)
 
     if not fileobj:
         abort(404)
@@ -82,12 +77,13 @@ def file_download_ui(pid, record, _record_file_factory=None, **kwargs):
 
     # Send file.
     return ObjectResource.send_object(
-        obj.bucket, obj,
+        obj.bucket,
+        obj,
         # expected_chksum=fileobj.get('checksum'),
         logger_data={
-            'bucket_id': obj.bucket_id,
-            'pid_type': pid.pid_type,
-            'pid_value': pid.pid_value,
+            "bucket_id": obj.bucket_id,
+            "pid_type": pid.pid_type,
+            "pid_value": pid.pid_value,
         },
         # create_dir=False
     )
@@ -95,10 +91,10 @@ def file_download_ui(pid, record, _record_file_factory=None, **kwargs):
 
 def eos_file_download_ui(pid, record, _record_file_factory=None, **kwargs):
     """File download view for a given EOS uri."""
-    if current_app.config.get('CERNOPENDATA_DISABLE_DOWNLOADS', False):
+    if current_app.config.get("CERNOPENDATA_DISABLE_DOWNLOADS", False):
         abort(503)
 
-    path = kwargs.get('filepath', "")
+    path = kwargs.get("filepath", "")
 
     return eos_send_file_or_404(path)
 
@@ -110,7 +106,7 @@ def eos_send_file_or_404(file_path=""):
         # create_dir=False
     )
 
-    filename = file_path.split('/')[-1:]
+    filename = file_path.split("/")[-1:]
 
     try:
         return storage.send_file(filename[0])
@@ -128,48 +124,47 @@ def get_paged_files(files, page, items_per_page=5):
 
 def record_file_page(pid, record, page=1, **kwargs):
     """Record view - get files for current page."""
-    rf = record.get('files', [])
+    rf = record.get("files", [])
 
-    items_per_page = request.args.get('perPage', 5)
+    items_per_page = request.args.get("perPage", 5)
     try:
         items_per_page = int(items_per_page)
     except Exception:
         items_per_page = 5
 
-    if request.args.get('group'):
+    if request.args.get("group"):
         # grouped = groupby(rf, lambda x: x.get('type'))
-        index_files = [d for d in rf if (
-            d.get('type', "") in ['index', 'index.txt'])]
-        _files = [d for d in rf if (
-            d.get('type', "") not in ['index', 'index.txt', 'index.json'])]
+        index_files = [d for d in rf if (d.get("type", "") in ["index", "index.txt"])]
+        _files = [
+            d
+            for d in rf
+            if (d.get("type", "") not in ["index", "index.txt", "index.json"])
+        ]
         grouped_files = {
             "index_files": {
                 "total": len(index_files),
-                "files": index_files[:items_per_page]
+                "files": index_files[:items_per_page],
             },
-            "files": {
-                "total": len(_files),
-                "files": _files[:items_per_page]
-            },
+            "files": {"total": len(_files), "files": _files[:items_per_page]},
         }
 
         return jsonify(grouped_files)
 
-    file_type_filter = request.args.get('type')
+    file_type_filter = request.args.get("type")
 
-    if file_type_filter == 'index_files':
-        filtered_files = [d
-                          for d in rf
-                          if (d.get('type', "")
-                              in ['index', 'index.txt'])]
+    if file_type_filter == "index_files":
+        filtered_files = [
+            d for d in rf if (d.get("type", "") in ["index", "index.txt"])
+        ]
         rf_len = len(filtered_files)
         paged_files = get_paged_files(filtered_files, page, items_per_page)
         return jsonify({"total": rf_len, "files": paged_files})
     else:
-        filtered_files = [d
-                          for d in rf
-                          if (d.get('type', "")
-                              not in ['index', 'index.txt', 'index.json'])]
+        filtered_files = [
+            d
+            for d in rf
+            if (d.get("type", "") not in ["index", "index.txt", "index.json"])
+        ]
         rf_len = len(filtered_files)
         paged_files = get_paged_files(filtered_files, page, items_per_page)
         return jsonify({"total": rf_len, "files": paged_files})
@@ -183,28 +178,29 @@ def record_file_page(pid, record, page=1, **kwargs):
 def record_metadata_view(pid, record, template=None):
     """Record detail view."""
     collection = ""
-    if len(record.get('collections', [])) > 0:
-        collection = record.get('collections', [])[0]
-    return render_template([
-        'cernopendata_records_ui/records/record_detail_{}.html'.format(
-            collection),
-        'cernopendata_records_ui/records/record_detail.html'
-    ],
+    if len(record.get("collections", [])) > 0:
+        collection = record.get("collections", [])[0]
+    return render_template(
+        [
+            "cernopendata_records_ui/records/record_detail_{}.html".format(collection),
+            "cernopendata_records_ui/records/record_detail.html",
+        ],
         pid=pid,
-        record=record)
+        record=record,
+    )
 
 
-def serialize_record(record, pid, serializer, module=None, throws=True,
-                     **kwargs):
+def serialize_record(record, pid, serializer, module=None, throws=True, **kwargs):
     """Serialize record according to the passed serializer."""
     if isinstance(record, Record):
         try:
-            module = module or 'cernopendata.modules.records.serializers'
-            serializer = import_string('.'.join((module, serializer)))
+            module = module or "cernopendata.modules.records.serializers"
+            serializer = import_string(".".join((module, serializer)))
             return serializer.serialize(pid, record, **kwargs)
         except Exception:
             current_app.logger.exception(
-                u'Record serialization failed {}.'.format(str(record.id)))
+                "Record serialization failed {}.".format(str(record.id))
+            )
             if throws:
                 raise
 
@@ -219,9 +215,8 @@ def export_json_view(pid, record, template=None, **kwargs):
     :param \*\*kwargs: Additional view arguments based on URL rule.
     :return: The rendered template.
     """
-    formats = current_app.config.get('RECORDS_UI_EXPORT_FORMATS', {}).get(
-        pid.pid_type)
-    fmt = formats.get(request.view_args.get('format'))
+    formats = current_app.config.get("RECORDS_UI_EXPORT_FORMATS", {}).get(pid.pid_type)
+    fmt = formats.get(request.view_args.get("format"))
 
     if fmt is False:
         # If value is set to False, it means it was deprecated.
@@ -230,7 +225,7 @@ def export_json_view(pid, record, template=None, **kwargs):
         abort(404)
     else:
         try:
-            serializer = obj_or_import_string(fmt['serializer'])
+            serializer = obj_or_import_string(fmt["serializer"])
             data = serializer.serialize(pid, record)
             data = json.loads(data)
         except Exception:

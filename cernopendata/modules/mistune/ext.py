@@ -26,17 +26,13 @@
 
 import re
 
-from flask.ext.mistune import Mistune
-
 import mistune
-from mistune_contrib.math import MathBlockMixin
-from mistune_contrib.math import MathInlineMixin
-from mistune_contrib.math import MathRendererMixin
-
+import pygments.util
+from flask.ext.mistune import Mistune
+from mistune_contrib.math import MathBlockMixin, MathInlineMixin, MathRendererMixin
+from pygments import highlight
 from pygments.formatters.html import HtmlFormatter
 from pygments.lexers import get_lexer_by_name
-from pygments import highlight
-import pygments.util
 
 
 class MathBlockLexer(MathBlockMixin, mistune.BlockLexer):
@@ -94,13 +90,14 @@ class CodeHtmlFormatter(HtmlFormatter):
 
     def _wrap_code(self, source):
         if self.lang:
-            yield 0, '<div class="highlight"><pre><code class="lang-{}">'. \
-                format(self.lang)
+            yield 0, '<div class="highlight"><pre><code class="lang-{}">'.format(
+                self.lang
+            )
         else:
             yield 0, '<div class="highlight"><pre><code>'
         for i, t in source:
             yield i, t
-        yield 0, '</code></pre></div>'
+        yield 0, "</code></pre></div>"
 
 
 class CodeRenderer(mistune.Renderer):
@@ -111,12 +108,7 @@ class CodeRenderer(mistune.Renderer):
       - mistune-contrib.highlight.py
     """
 
-    def block_code(self,
-                   code,
-                   lang,
-                   code_tag=True,
-                   inlinestyles=False,
-                   linenos=False):
+    def block_code(self, code, lang, code_tag=True, inlinestyles=False, linenos=False):
         """Render code block.
 
         :param code_tag: If True html will contain <code>-tag.
@@ -127,12 +119,10 @@ class CodeRenderer(mistune.Renderer):
         try:
             lexer = get_lexer_by_name(lang, stripnl=False)
         except pygments.util.ClassNotFound:
-            lexer = get_lexer_by_name('text', stripnl=False)
+            lexer = get_lexer_by_name("text", stripnl=False)
 
         if code_tag:
-            formatter = CodeHtmlFormatter(lang,
-                                          noclasses=inlinestyles,
-                                          linenos=linenos)
+            formatter = CodeHtmlFormatter(lang, noclasses=inlinestyles, linenos=linenos)
         else:
             formatter = HtmlFormatter(noclasses=inlinestyles, linenos=linenos)
 
@@ -178,11 +168,11 @@ class CernopendataMistune(object):
 
     def init_app(self, app):
         """Flask application initialization."""
-        if not hasattr(app, 'extensions'):
+        if not hasattr(app, "extensions"):
             app.extensions = {}
-        if 'cod-mistune' in app.extensions:
+        if "cod-mistune" in app.extensions:
             raise RuntimeError("Flask application already initialized")
-        app.extensions['cod-mistune'] = self
+        app.extensions["cod-mistune"] = self
 
         # TODO: Define and add config entries to app.config.
         # TODO: Init according options in app.config.
@@ -208,11 +198,9 @@ class CernopendataMistune(object):
         class MathRenderer(MathRendererMixin, CodeRenderer):
             pass
 
-        self.mistune = Mistune(app,
-                               renderer=MathRenderer(
-                                   escape=False, hard_wrap=True),
-                               inline=MathInlineLexer(renderer=MathRenderer(
-                                   escape=False, hard_wrap=True)),
-                               block=MathBlockLexer(renderer=MathRenderer(
-                                   escape=False, hard_wrap=True))
-                               )
+        self.mistune = Mistune(
+            app,
+            renderer=MathRenderer(escape=False, hard_wrap=True),
+            inline=MathInlineLexer(renderer=MathRenderer(escape=False, hard_wrap=True)),
+            block=MathBlockLexer(renderer=MathRenderer(escape=False, hard_wrap=True)),
+        )

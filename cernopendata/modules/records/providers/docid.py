@@ -7,7 +7,7 @@ from invenio_pidstore.providers.base import BaseProvider
 class DocUUIDProvider(BaseProvider):
     """Article identifier provider."""
 
-    pid_type = 'docid'
+    pid_type = "docid"
     """Type of persistent identifier."""
 
     pid_provider = None

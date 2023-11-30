@@ -26,4 +26,5 @@
 def test_version():
     """Test version import."""
     from cernopendata import __version__
+
     assert __version__

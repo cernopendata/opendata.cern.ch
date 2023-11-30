@@ -30,6 +30,11 @@ check_script () {
     shellcheck run-tests.sh
 }
 
+check_black () {
+    black --check .
+}
+
+
 check_fixtures () {
     # check for possibly incorrect JSON files:
     find cernopendata/modules/fixtures/data/ -name "*.json" -exec jsonlint -q {} \;
@@ -83,7 +88,7 @@ check_fixtures () {
 }
 
 check_pycodestyle () {
-    pycodestyle cernopendata
+    pycodestyle --max-line-length=120 cernopendata
 }
 
 check_pydocstyle () {
@@ -91,7 +96,7 @@ check_pydocstyle () {
 }
 
 check_isort () {
-    isort -rc -c -df -- **/*.py
+    isort -rc -c -df --profile black -- **/*.py
 }
 
 check_manifest () {
@@ -110,6 +115,7 @@ check_all () {
     check_script
     check_fixtures
     check_pycodestyle
+    check_black
     check_pydocstyle
     check_isort
     check_manifest

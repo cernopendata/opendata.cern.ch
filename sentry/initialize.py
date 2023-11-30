@@ -29,8 +29,8 @@ Based on example code from: 'https://docs.sentry.io/server/faq/'
 """
 
 # Bootstrap the Sentry environment
-from sentry.models import Organization, OrganizationMember, \
-    OrganizationMemberTeam, Project, ProjectKey, Team, User
+from sentry.models import Organization, OrganizationMember, OrganizationMemberTeam, \
+    Project, ProjectKey, Team, User,
 from sentry.utils.runner import configure
 
 configure()

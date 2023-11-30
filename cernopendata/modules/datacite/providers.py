@@ -45,6 +45,5 @@ class DataCiteProviderWrapper(DataCiteProvider):
             pid_value = generate_doi(client.prefix, experiment)
 
         return super(DataCiteProviderWrapper, cls).create(
-            pid_value=pid_value,
-            client=client,
-            **kwargs)
+            pid_value=pid_value, client=client, **kwargs
+        )

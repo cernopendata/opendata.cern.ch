@@ -24,8 +24,8 @@
 
 """Frontpage records."""
 
-from invenio_search.engine import dsl
 from invenio_search.api import RecordsSearch
+from invenio_search.engine import dsl
 
 
 class FeaturedArticlesSearch(RecordsSearch):
@@ -34,9 +34,9 @@ class FeaturedArticlesSearch(RecordsSearch):
     class Meta:
         """Default index and filter for frontpage search."""
 
-        index = 'records-docs-v1.0.0'
+        index = "records-docs-v1.0.0"
 
     def __init__(self, **kwargs):
         """Initialize instance."""
         super(FeaturedArticlesSearch, self).__init__(**kwargs)
-        self.query = dsl.Q('exists', field='featured')
+        self.query = dsl.Q("exists", field="featured")

@@ -19,87 +19,111 @@
 
 """Define fixtures."""
 
-COLLECTIONS = [dict(
-    name='CERN Open Data Portal',
-    dbquery=None,
-    children=[dict(
-        name='CMS',
+COLLECTIONS = [
+    dict(
+        name="CERN Open Data Portal",
         dbquery=None,
-        children=[dict(
-            name='CMS-Primary-Datasets',
-            dbquery='collections.primary:"CMS-Primary-Datasets"',
-        ), dict(
-            name='CMS-Derived-Datasets',
-            dbquery='collections.primary:"CMS-Derived-Datasets"',
-        ), dict(
-            name='CMS-Tools',
-            dbquery='collections.primary:"CMS-Tools"',
-        ), dict(
-            name='CMS-Validated-Runs',
-            dbquery='collections.primary:"CMS-Validated-Runs"',
-        ), dict(
-            name='CMS-Learning-Resources',
-            dbquery='collections.primary:"CMS-Learning-Resources"',
-        ), dict(
-            name='CMS-Open-Data-Instructions',
-            dbquery='collections.primary:"CMS-Open-Data-Instructions"',
-        ),
+        children=[
+            dict(
+                name="CMS",
+                dbquery=None,
+                children=[
+                    dict(
+                        name="CMS-Primary-Datasets",
+                        dbquery='collections.primary:"CMS-Primary-Datasets"',
+                    ),
+                    dict(
+                        name="CMS-Derived-Datasets",
+                        dbquery='collections.primary:"CMS-Derived-Datasets"',
+                    ),
+                    dict(
+                        name="CMS-Tools",
+                        dbquery='collections.primary:"CMS-Tools"',
+                    ),
+                    dict(
+                        name="CMS-Validated-Runs",
+                        dbquery='collections.primary:"CMS-Validated-Runs"',
+                    ),
+                    dict(
+                        name="CMS-Learning-Resources",
+                        dbquery='collections.primary:"CMS-Learning-Resources"',
+                    ),
+                    dict(
+                        name="CMS-Open-Data-Instructions",
+                        dbquery='collections.primary:"CMS-Open-Data-Instructions"',
+                    ),
+                ],
+            ),
+            dict(
+                name="ALICE",
+                dbquery=None,
+                children=[
+                    dict(
+                        name="ALICE-Derived-Datasets",
+                        dbquery='collections.primary:"ALICE-Derived-Datasets"',
+                    ),
+                    dict(
+                        name="ALICE-Tools",
+                        dbquery='collections.primary:"ALICE-Tools"',
+                    ),
+                    dict(
+                        name="ALICE-Reconstructed-Data",
+                        dbquery='collections.primary:"ALICE-Reconstructed-Data"',
+                    ),
+                    dict(
+                        name="ALICE-Learning-Resources",
+                        dbquery='collections.primary:"ALICE-Learning-Resources"',
+                    ),
+                ],
+            ),
+            dict(
+                name="ATLAS",
+                dbquery=None,
+                children=[
+                    dict(
+                        name="ATLAS-Derived-Datasets",
+                        dbquery='collections.primary:"ATLAS-Derived-Datasets"',
+                    ),
+                    dict(
+                        name="ATLAS-Learning-Resources",
+                        dbquery='collections.primary:"ATLAS-Learning-Resources"',
+                    ),
+                    dict(
+                        name="ATLAS-Tools",
+                        dbquery='collections.primary:"ATLAS-Tools"',
+                    ),
+                    dict(
+                        name="ATLAS-Higgs-Challenge-2014",
+                        dbquery='collections.primary:"ATLAS-Higgs-Challenge-2014"',
+                    ),
+                ],
+            ),
+            dict(
+                name="LHCb",
+                dbquery=None,
+                children=[
+                    dict(
+                        name="LHCb-Derived-Datasets",
+                        dbquery='collections.primary:"LHCb-Derived-Datasets"',
+                    ),
+                    dict(
+                        name="LHCb-Tools",
+                        dbquery='collections.primary:"LHCb-Tools"',
+                    ),
+                    dict(
+                        name="LHCb-Learning-Resources",
+                        dbquery='collections.primary:"LHCb-Learning-Resources"',
+                    ),
+                ],
+            ),
+            dict(
+                name="Author-Lists",
+                dbquery='collections.primary:"Author-Lists"',
+            ),
+            dict(
+                name="Data-Policies",
+                dbquery='collections.primary:"Data-Policies"',
+            ),
         ],
-    ), dict(
-        name='ALICE',
-        dbquery=None,
-        children=[dict(
-            name='ALICE-Derived-Datasets',
-            dbquery='collections.primary:"ALICE-Derived-Datasets"',
-        ), dict(
-            name='ALICE-Tools',
-            dbquery='collections.primary:"ALICE-Tools"',
-        ), dict(
-            name='ALICE-Reconstructed-Data',
-            dbquery='collections.primary:"ALICE-Reconstructed-Data"',
-        ), dict(
-            name='ALICE-Learning-Resources',
-            dbquery='collections.primary:"ALICE-Learning-Resources"',
-        ),
-        ],
-    ), dict(
-        name='ATLAS',
-        dbquery=None,
-        children=[dict(
-            name='ATLAS-Derived-Datasets',
-            dbquery='collections.primary:"ATLAS-Derived-Datasets"',
-        ), dict(
-            name='ATLAS-Learning-Resources',
-            dbquery='collections.primary:"ATLAS-Learning-Resources"',
-        ), dict(
-            name='ATLAS-Tools',
-            dbquery='collections.primary:"ATLAS-Tools"',
-        ), dict(
-            name='ATLAS-Higgs-Challenge-2014',
-            dbquery='collections.primary:"ATLAS-Higgs-Challenge-2014"',
-        ),
-        ],
-    ), dict(
-        name='LHCb',
-        dbquery=None,
-        children=[dict(
-            name='LHCb-Derived-Datasets',
-            dbquery='collections.primary:"LHCb-Derived-Datasets"',
-        ), dict(
-            name='LHCb-Tools',
-            dbquery='collections.primary:"LHCb-Tools"',
-        ), dict(
-            name='LHCb-Learning-Resources',
-            dbquery='collections.primary:"LHCb-Learning-Resources"',
-        ),
-        ],
-    ), dict(
-        name='Author-Lists',
-        dbquery='collections.primary:"Author-Lists"',
-    ), dict(
-        name='Data-Policies',
-        dbquery='collections.primary:"Data-Policies"',
     ),
-    ],
-),
 ]

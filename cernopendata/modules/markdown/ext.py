@@ -78,11 +78,11 @@ class CernopendataMarkdown(object):
     def init_app(self, app):
         """Flask application initialization."""
         # Follow the Flask guidelines on usage of app.extensions
-        if not hasattr(app, 'extensions'):
+        if not hasattr(app, "extensions"):
             app.extensions = {}
-        if 'cod-markdown' in app.extensions:
+        if "cod-markdown" in app.extensions:
             raise RuntimeError("Flask application already initialized")
-        app.extensions['cod-markdown'] = self
+        app.extensions["cod-markdown"] = self
 
         # TODO: Define and add config entries to app.config.
         # TODO: Init according options in app.config.
@@ -93,40 +93,39 @@ class CernopendataMarkdown(object):
         # GitHub Flavored Markdown.
         # github extension is deprecated, workaround is to use other extensions
         # https://facelessuser.github.io/pymdown-extensions/faq/
-        pymd_extensions.append('markdown.extensions.attr_list')
-        pymd_extensions.append('markdown.extensions.tables')
-        pymd_extensions.append('markdown.extensions.toc')
-        pymd_extensions.append('pymdownx.magiclink')
-        pymd_extensions.append('pymdownx.betterem')
-        pymd_extensions.append('pymdownx.tilde')
-        pymd_extensions.append('pymdownx.emoji')
-        pymd_extensions.append('pymdownx.tasklist')
-        pymd_extensions.append('pymdownx.superfences')
+        pymd_extensions.append("markdown.extensions.attr_list")
+        pymd_extensions.append("markdown.extensions.tables")
+        pymd_extensions.append("markdown.extensions.toc")
+        pymd_extensions.append("pymdownx.magiclink")
+        pymd_extensions.append("pymdownx.betterem")
+        pymd_extensions.append("pymdownx.tilde")
+        pymd_extensions.append("pymdownx.emoji")
+        pymd_extensions.append("pymdownx.tasklist")
+        pymd_extensions.append("pymdownx.superfences")
 
         # TeX-syntax math notation support.
-        pymd_extensions.append('mdx_math')
+        pymd_extensions.append("mdx_math")
 
         # Configuration for extensions.
         # For config format see:
         # https://pythonhosted.org/Markdown/reference.html#extension_configs
         pymd_extension_configs = {
-            'markdown.extensions.toc.': {
-                'anchorlink': True,
-                'permalink': True,
-                'toc_depth': 3
+            "markdown.extensions.toc.": {
+                "anchorlink": True,
+                "permalink": True,
+                "toc_depth": 3,
             },
-            'pymdownx.tilde': {
-                'subscript': True
-            },
-            'mdx_math': {
-                'enable_dollar_delimiter': 'True',
+            "pymdownx.tilde": {"subscript": True},
+            "mdx_math": {
+                "enable_dollar_delimiter": "True",
                 # 'add_preview': 'False',
-            }
+            },
         }
 
         # Initialize Flask-Markdown Flask-extension
         # Pass list of Python-Markdown extensions and extension's config
-        self.md = Markdown(app,
-                           extensions=pymd_extensions,
-                           extension_configs=pymd_extension_configs,
-                           )
+        self.md = Markdown(
+            app,
+            extensions=pymd_extensions,
+            extension_configs=pymd_extension_configs,
+        )

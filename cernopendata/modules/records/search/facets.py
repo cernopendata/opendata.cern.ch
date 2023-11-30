@@ -27,10 +27,8 @@
 from __future__ import absolute_import, print_function
 
 from flask import current_app
-from invenio_records_rest.facets import _create_filter_dsl,\
-    post_filter, _query_filter
+from invenio_records_rest.facets import _create_filter_dsl, _query_filter, post_filter
 from werkzeug.datastructures import MultiDict
-
 
 # def _aggregations(search, definitions, urlkwargs, filters):
 #   """Add aggregations to query.
