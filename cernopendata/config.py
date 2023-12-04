@@ -31,6 +31,7 @@ from invenio_records_files.api import _Record
 from invenio_records_rest.config import RECORDS_REST_ENDPOINTS
 from invenio_records_rest.facets import nested_filter, range_filter, terms_filter
 from invenio_records_rest.utils import allow_all
+from invenio_search.engine import dsl
 from urllib3.exceptions import InsecureRequestWarning
 
 from cernopendata.modules.pages.config import *
@@ -210,10 +211,19 @@ RECORDS_UI_ENDPOINTS = dict(
 
 RECORDS_REST_ENDPOINTS["recid"]["search_index"] = "records"
 
+
+def _query_parser_and(qstr=None):
+    """Parser that uses the Q() with AND from search engine dsl."""
+    if qstr:
+        return dsl.Q("query_string", query=qstr, default_operator="AND")
+    return dsl.Q()
+
+
 RECORDS_REST_ENDPOINTS["recid"].update(
     {
         #    'search_factory_imp': 'cernopendata.modules.records.search.query'
         #                          ':cernopendata_search_factory',
+        "search_query_parser": _query_parser_and,
         "pid_minter": "cernopendata_recid_minter",
         "pid_fetcher": "cernopendata_recid_fetcher",
         "record_class": _Record,
