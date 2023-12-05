@@ -301,7 +301,7 @@ RECORDS_REST_SORT_OPTIONS = {
             order=1,
         ),
         'mostrecent': dict(
-            fields=['recid'],
+            fields=['created', 'recid'],
             title='Most recent',
             default_order='desc',
             order=1,
