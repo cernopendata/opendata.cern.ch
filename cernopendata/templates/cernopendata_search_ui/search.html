@@ -33,3 +33,15 @@
     {{ super() }}
     {{ webpack['cernopendata_search_app.js'] }}
 {%- endblock %}
+
+{%- block page_body %}
+<div class="ui container">
+<div data-invenio-search-config='{{
+  search_app_helpers.invenio_records_rest.generate(
+    dict(
+      endpoint_id="recid",
+      app_id="search"
+    )
+  ) | tojson(indent=2) }}'></div>
+</div>
+{%- endblock page_body -%}
