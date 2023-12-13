@@ -216,7 +216,7 @@ RECORDS_REST_ENDPOINTS["recid"]["search_index"] = "records"
 def _query_parser_and(qstr=None):
     """Parser that uses the Q() with AND from search engine dsl."""
     if qstr:
-        return dsl.Q("query_string", query=qstr, default_operator="AND")
+        return dsl.Q("query_string", query=qstr.replace("/", "\\/"), default_operator="AND")
     return dsl.Q()
 
 
