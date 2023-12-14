@@ -319,7 +319,11 @@ RECORDS_REST_DEFAULT_SORT = dict(
         noquery="mostrecent",
     )
 )
-RECORDS_REST_FACETS_FILTER = True
+# This parameter ensures that the numbers that appear in the facets get updated after the user
+# selects some filters. Note that the filters apply to other areas. For example, imagine that the user selects
+# in the area of `experiment` the value 'A'. All the other `experiments` will still appear, and, for the area of
+# `year` for instance, it will be filtered to show only where `experiment==A`
+RECORDS_REST_FACETS_POST_FILTERS_PROPAGATE = True
 
 RECORDS_REST_FACETS = {
     "records": {
