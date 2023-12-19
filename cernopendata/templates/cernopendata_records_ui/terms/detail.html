@@ -24,11 +24,9 @@
                     <p>
                         <span>
                             <strong>See also: </strong>
-                            {% if record.experiment %}
-                                {% for exp in record.experiment %}
-                                    <a class="ui tiny label navy" href="/search?f=experiment:{{ exp.name }}">{{ exp.name }}</a>
-                                {% endfor %}
-                            {% endif %}
+                            {% for exp in record.experiment %}
+                                <a class="ui tiny label navy" href="/search?f=experiment:{{ exp }}">{{ exp }}</a>
+                            {% endfor %}
                             {% for term in record.see_also%}
                             <a href="/glossary/{{term.term}}"><span class="ui tiny label grey">{{ term.term }}</span></a>
                             {% endfor %}

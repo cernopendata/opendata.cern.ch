@@ -58,7 +58,7 @@
                       href="/search?q={{record.collision_information.energy}}">{{record.collision_information.energy}}</a></span>
                     {% endif %}
                     <label>Experiment:</label>
-                    <span><a href="/search?q={{record.experiment}}">{{record.experiment}}</a></span>
+                    <span>{% for exp in record.experiment %} <a href="/search?q={{exp}}">{{exp}}</a>{%endfor%} </span>
                     <label>Accelerator:</label>
                     <span><a href="/search?q={{record.accelerator}}">{{record.accelerator}}</a></span>
                 </div>
@@ -87,7 +87,7 @@
                     <p>{{record.license.attribution}}</p>
                     {% else %}
                     <p>The open data are released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative
-                        Commons CC0 waiver</a>. Neither {{record.experiment}} nor CERN endorse any
+                        Commons CC0 waiver</a>. Neither the experiment(s) ({% for exp in record.experiment %} {{ exp }}  {% endfor %}) nor CERN endorse any
                     works, scientific or otherwise, produced using these data.
                     All releases will have a unique DOI that you are requested to cite in any applications or
                     publications.
@@ -96,7 +96,7 @@
                     {% endif %}
                     {% else %}
                     <p>The open data are released under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative
-                        Commons CC0 waiver</a>. Neither {{record.experiment}} nor CERN endorse any
+                        Commons CC0 waiver</a>. Neither the experiment(s) ({% for exp in record.experiment %} {{ exp }}  {% endfor %}) nor CERN endorse any
                     works, scientific or otherwise, produced using these data.
                     All releases will have a unique DOI that you are requested to cite in any applications or
                     publications.

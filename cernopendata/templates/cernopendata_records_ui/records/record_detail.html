@@ -75,7 +75,10 @@
               <a class="ui tiny label dark-blue" href="/search?f=keywords:{{ keyword }}"> {{ keyword | capitalize }}</a>
            {% endfor %}
         {% endif %}
-        {% if record.experiment %} <a class="ui tiny label navy" href="/search?f=experiment:{{ record.experiment }}">{{ record.experiment }}</a> {% endif %}
+        {% for exp in record.experiment %}
+          <a class="ui tiny label navy" href="/search?f=experiment:{{ exp }}">{{ exp }}</a>
+        {% endfor %}
+
         {% if record.collision_information %}
            {% if record.collision_information.energy %}
              <a class="ui tiny label grey" href="/search?f=collision_energy:{{ record.collision_information.energy }}">{{ record.collision_information.energy }}</a>
