@@ -61,7 +61,7 @@ An example of a Podman development session:
 .. code-block:: console
 
    $ ./scripts/generate-localhost-certificate.sh
-   $ podman-compose -f docker-compose-dev.yml build
+   $ podman-compose -f docker-compose-dev.yml --podman-build-args='--format docker' build
    $ podman-compose -f docker-compose-dev.yml up
    $ podman exec -i -t opendatacernch_web_1 \
        ./scripts/populate-instance.sh --skip-docs --skip-glossary --skip-records
