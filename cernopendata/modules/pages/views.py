@@ -29,6 +29,7 @@ import json
 import pkg_resources
 from flask import (
     Blueprint,
+    Response,
     abort,
     current_app,
     escape,
@@ -37,10 +38,9 @@ from flask import (
     render_template,
     request,
     url_for,
-    Response,
 )
-from invenio_i18n import lazy_gettext as _
 from flask_breadcrumbs import default_breadcrumb_root
+from invenio_i18n import lazy_gettext as _
 from jinja2.exceptions import TemplateNotFound
 from speaklater import make_lazy_string
 
@@ -173,7 +173,7 @@ def record_redirect(recid):
 @blueprint.route("/glossary")
 def glossary():
     """Display glossary terms."""
-    return redirect("/search?type=Glossary&sort=title")
+    return redirect("/search?f=type%3AGlossary&sort=title")
 
 
 @blueprint.route("/glossary/json")
