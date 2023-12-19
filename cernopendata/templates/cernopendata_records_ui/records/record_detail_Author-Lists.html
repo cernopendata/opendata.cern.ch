@@ -67,10 +67,10 @@
               <span><a
                 href="/search?q={{record.collision_information.energy}}">{{record.collision_information.energy}}</a></span>
               {% endif %}
-              {% if record.experiment %}
+              {% for exp in record.experiment %}
               <label>Experiment:</label>
-              <span><a href="/search?q={{record.experiment}}">{{record.experiment}}</a></span>
-              {% endif %}
+              <span><a href="/search?q={{exp}}">{{exp}}</a></span>
+              {% endfor %}
               {% if record.accelerator %}
               <label>Accelerator:</label>
               <span><a href="/search?q={{record.accelerator}}">{{record.accelerator}}</a></span>
