@@ -22,13 +22,201 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
+from unittest.mock import patch
+
 import pytest
 
 from cernopendata.config import RECORDS_REST_FACETS
+from cernopendata.views import translate_search_url
 
-# from cernopendata.views import translate_search_url
+
+# This is usually fetched from OpenSearch. For the tests, let's assume that we have this values
+def mock_data():
+    return {
+        "keywords": {
+            "datascience": {},
+            "education": {},
+            "external resource": {},
+            "heavy-ion physics": {},
+            "masterclass": {},
+            "teaching": {},
+        },
+        "signature": {
+            "H": {},
+            "Jpsi": {},
+            "W": {},
+            "Y": {},
+            "Z": {},
+            "electron": {},
+            "missing transverse energy": {},
+            "muon": {},
+            "photon": {},
+        },
+        "collision_energy": {
+            "0.9TeV": {},
+            "0TeV": {},
+            "13TeV": {},
+            "2.76TeV": {},
+            "5.02TeV": {},
+            "7TeV": {},
+            "8TeV": {},
+        },
+        "year": {
+            "2008": {},
+            "2009": {},
+            "2010": {},
+            "2011": {},
+            "2012": {},
+            "2013": {},
+            "2015": {},
+            "2016": {},
+            "2018": {},
+            "2019": {},
+            "2020": {},
+        },
+        "stripping_version": {
+            "stripping21": {},
+            "stripping21r0p1": {},
+            "stripping21r0p2": {},
+            "stripping21r1": {},
+            "stripping21r1p1": {},
+            "stripping21r1p2": {},
+        },
+        "type": {
+            "Dataset": {"subtype": {"Collision", "Simulated", "Derived"}},
+            "Documentation": {
+                "subtype": {
+                    "Policy",
+                    "Authors",
+                    "Report",
+                    "Help",
+                    "Activities",
+                    "Stripping",
+                    "Guide",
+                    "About",
+                }
+            },
+            "Environment": {"subtype": {"Condition", "VM", "Validation"}},
+            "Glossary": {"subtype": set()},
+            "News": {"subtype": set()},
+            "Software": {
+                "subtype": {"Validation", "Workflow", "Tool", "Framework", "Analysis"}
+            },
+            "Supplementaries": {
+                "subtype": {
+                    "Configuration LHE",
+                    "Configuration RECO",
+                    "Configuration",
+                    "Trigger",
+                    "Configuration SIM",
+                    "Configuration HLT",
+                    "Luminosity",
+                }
+            },
+        },
+        "collision_type": {"Interfill": {}, "PbPb": {}, "pPb": {}, "pp": {}},
+        "experiment": {
+            "": {},
+            "ALICE": {},
+            "ATLAS": {},
+            "CMS": {},
+            "LHCb": {},
+            "OPERA": {},
+            "PHENIX": {},
+        },
+        "stripping_stream": {
+            "COMMONPARTICLES": {},
+            "EW": {},
+            "LEPTONIC": {},
+            "RADIATIVE": {},
+        },
+        "file_type": {
+            "C": {},
+            "DST": {},
+            "MDST": {},
+            "aod": {},
+            "aodsim": {},
+            "cc": {},
+            "csv": {},
+            "db": {},
+            "docx": {},
+            "fevtdebughlt": {},
+            "gen-sim": {},
+            "gen-sim-digi-raw": {},
+            "gen-sim-reco": {},
+            "gz": {},
+            "h5": {},
+            "html": {},
+            "ig": {},
+            "ipynb": {},
+            "jpg": {},
+            "json": {},
+            "m4v": {},
+            "miniaod": {},
+            "miniaodsim": {},
+            "nanoaod": {},
+            "ova": {},
+            "pdf": {},
+            "png": {},
+            "py": {},
+            "raw": {},
+            "reco": {},
+            "root": {},
+            "tar": {},
+            "tar.gz": {},
+            "tgz": {},
+            "txt": {},
+            "xls": {},
+            "xml": {},
+            "zip": {},
+        },
+        "category": {
+            " Heavy-Ion Physics": {"subcategory": set()},
+            "B physics and Quarkonia": {"subcategory": set()},
+            "Beyond 2 Generations": {"subcategory": set()},
+            "Exotica": {
+                "subcategory": {
+                    "Gravitons",
+                    "Heavy Fermions, Heavy Righ-Handed Neutrinos",
+                    "Heavy Gauge Bosons",
+                    "Leptoquarks",
+                    "Contact Interaction",
+                    "Extra Dimensions",
+                    "Miscellaneous",
+                    "Excited Fermions",
+                    "Dark Matter",
+                }
+            },
+            "Heavy-Ion Physics": {"subcategory": set()},
+            "Higgs Physics": {
+                "subcategory": {"Standard Model", "Beyond Standard Model"}
+            },
+            "Physics Modelling": {"subcategory": set()},
+            "Standard Model Physics": {
+                "subcategory": {
+                    "ElectroWeak",
+                    "Top physics",
+                    "Minimum Bias",
+                    "QCD",
+                    "Forward and Small-x QCD Physics",
+                    "Drell-Yan",
+                }
+            },
+            "Supersymmetry": {"subcategory": set()},
+        },
+        "number_of_events": {
+            "0 -- 999 ": {},
+            "1000 -- 9999": {},
+            "10000 -- 99999": {},
+            "100000 -- 999999": {},
+            "1000000 -- 9999999": {},
+            " 10000000 --": {},
+        },
+        "magnet_polarity": {"MagDown": {}, "MagUp": {}},
+    }
 
 
+@patch("cernopendata.views.initialize_facet_hierarchy", mock_data)
 @pytest.mark.parametrize(
     "old_qs_args,new_qs_args",
     [
@@ -86,12 +274,9 @@ from cernopendata.config import RECORDS_REST_FACETS
         ({"q": ["foo"], "type": ["Software"]}, {"q": ["foo"], "f": ["type:Software"]}),
     ],
 )
-def disabled_test_old_search_qs(old_qs_args, new_qs_args):
+def test_old_search_qs(old_qs_args, new_qs_args):
     """Test translation from old search querystring args to new ones."""
-    # P. SAIZ IS THIS TEST NEEDED?
-    translated_qs = (
-        new_qs_args  # translate_search_url(old_qs_args, RECORDS_REST_FACETS)
-    )
+    translated_qs = translate_search_url(old_qs_args, RECORDS_REST_FACETS)
     # compare facets no matter the order
     assert set(translated_qs.pop("f")) == set(new_qs_args.pop("f"))
     # compare rest of query params

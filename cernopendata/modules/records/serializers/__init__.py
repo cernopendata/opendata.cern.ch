@@ -24,14 +24,14 @@
 
 """Record serialization."""
 
-from .basic_json import BasicJSONSerializer, RecordSchemaV1, CODJSONSerializer
-from .schemaorg import CODSchemaorgSerializer
-
+from invenio_records_rest.schemas import RecordSchemaJSONV1
 from invenio_records_rest.serializers.response import (
     record_responsify,
     search_responsify,
 )
-from invenio_records_rest.schemas import RecordSchemaJSONV1
+
+from .basic_json import BasicJSONSerializer, CODJSONSerializer, RecordSchemaV1
+from .schemaorg import CODSchemaorgSerializer
 
 json = BasicJSONSerializer(RecordSchemaV1)
 
