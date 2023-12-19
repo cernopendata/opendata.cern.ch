@@ -226,6 +226,16 @@ you can do:
    docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-ecc-datasets.json --mode insert
    docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -f /code/cernopendata/modules/fixtures/data/records/opera-ed-datasets.json --mode insert
 
+Beware when switching between production and development or between different
+version of Python, since this may necessitate to delete all `*.pyc` and similar
+files created during development. The best is to make sure that you don't have
+any non-committed changes to the source code in your workspace and then to
+clean your workspace fully by running:
+
+.. code-block:: shell
+
+   sudo git clean -d -ff -x
+
 Appendix: Git workflow
 ======================
 
