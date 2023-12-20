@@ -278,5 +278,100 @@
         "Luminosity"
       ]
     }
+  },
+  {
+    "abstract": {
+      "description": "<p>CMS measures the luminosity using different luminometers (luminosity detectors) and algorithms. The luminometer giving the best value for each luminosity section is recorded in a <strong>normtag</strong> file <a href=\"/record/1059/files/normtag_PHYSICS_pp_2016.json\">normtag_PHYSICS_pp_2016.json</a> that is used in the luminosity calculation.</p><p>The integrated luminosity for validated runs and luminosity sections of the 13TeV proton-proton collision data taken in 2016 (Run2016G,Run2016H) is available in Run2016G,Run2016Hlumi.txt. (The integrated luminosity for validated runs and luminosity sections of all 2016 p-p data taking is available in 2016lumi.txt.)</p><p> For luminosity calculation, a detailed list of luminosity by lumi section is provided in <a href=\"/record/1059/files/pp_2016lumibyls.csv\">pp_2016lumibyls.csv</a> for the <a href=\"/record/14220\">list of validated runs</a> and lumi sections.</p><p>The uncertainty in the luminosity measurement of 2016 data should be considered as 1.2% (reference <a href=\"https://cds.cern.ch/record/2759951\">Precision luminosity measurement in proton-proton collisions at $\\sqrt{s} =$ 13 TeV in 2015 and 2016 at CMS</a>).</p><p>In your estimate for the integrated luminosity, check for which runs the trigger you have selected is active and sum the values for those runs. For prescaled triggers, the change of prescales (run, lumi section, index of prescales referring to the PrescaleService module in the High-Level Trigger configuration files) is recorded in <a href=\"/record/1059/files/prescale_pp2016.csv\">prescale_pp2016.csv</a>.</p><p>Additional information on how to extract luminosity values using the <strong>brilcalc tool</strong> can be found in the <a href=\"/docs/cms-guide-luminosity-calculation\"> luminosity calculation guide</a>.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration"
+    },
+    "collections": [
+      "CMS-Luminosity-Information"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2023",
+    "distribution": {
+      "formats": [
+        "csv",
+        "json",
+        "txt"
+      ],
+      "number_files": 6,
+      "size": 21285548
+    },
+    "experiment": "CMS",
+    "files": [
+      {
+        "checksum": "adler32:7aeeff3e",
+        "size": 33554,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2016/2016lumi.txt"
+      },
+      {
+        "checksum": "adler32:979dd73f",
+        "size": 7173,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2016/Run2016Glumi.txt"
+      },
+      {
+        "checksum": "adler32:c43e99a2",
+        "size": 8092,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2016/Run2016Hlumi.txt"
+      },
+      {
+        "checksum": "adler32:0fa62144",
+        "size": 85543,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2016/normtag_PHYSICS_pp_2016.json"
+      },
+      {
+        "checksum": "adler32:3a0e2089",
+        "size": 21137550,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2016/pp_2016lumibyls.csv"
+      },
+      {
+        "checksum": "adler32:e23b5516",
+        "size": 13636,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2016/prescale_pp2016.csv"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "links": [
+      {
+        "title": "Precision luminosity measurement in proton-proton collisions at $\\sqrt{s} =$ 13 TeV in 2015 and 2016 at CMS",
+        "url": "https://cds.cern.ch/record/2759951"
+      }
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "1059",
+    "relations": [
+      {
+        "recid": "14220",
+        "type": "isRelatedTo"
+      }
+    ],
+    "run_period": [
+      "Run2016B",
+      "Run2016C",
+      "Run2016D",
+      "Run2016E",
+      "Run2016F",
+      "Run2016G",
+      "Run2016H"
+    ],
+    "title": "CMS luminosity information for 13TeV proton-proton collision data taken in 2016",
+    "type": {
+      "primary": "Supplementaries",
+      "secondary": [
+        "Luminosity"
+      ]
+    }
   }
 ]

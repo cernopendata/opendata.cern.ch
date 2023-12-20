@@ -1,0 +1,126 @@
+[
+  {
+    "abstract": {
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment in the year 2012 of Run1 of the LHC."
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration",
+      "recid": "456"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "collision_information": {
+      "energy": "8TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2012"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2016",
+    "distribution": {
+      "formats": [
+        "DST"
+      ],
+      "number_events": 27462598,
+      "number_files": 2150,
+      "size": 2640835910923
+    },
+    "doi": "10.7483/OPENDATA.LHCB.HE2S.YPAE",
+    "experiment": "LHCb",
+    "files": [
+      {
+        "checksum": "adler32:0c6c6ed7",
+        "size": 169850,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/Collision12/DIMUON/LHCb_2012_Beam4000GeV_VeloClosed_MagUp_RealData_Reco14_Stripping21r0p1a_DIMUON_DST/file-indexes/LHCb_2012_Beam4000GeV_VeloClosed_MagUp_RealData_Reco14_Stripping21r0p1a_DIMUON_DST_LFNS.txt"
+      },
+      {
+        "checksum": "adler32:c90d9f74",
+        "size": 692000,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/Collision12/DIMUON/LHCb_2012_Beam4000GeV_VeloClosed_MagUp_RealData_Reco14_Stripping21r0p1a_DIMUON_DST/file-indexes/LHCb_2012_Beam4000GeV_VeloClosed_MagUp_RealData_Reco14_Stripping21r0p1a_DIMUON_DST_file_index.json"
+      },
+      {
+        "checksum": "adler32:7d0f587d",
+        "size": 410650,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/Collision12/DIMUON/LHCb_2012_Beam4000GeV_VeloClosed_MagUp_RealData_Reco14_Stripping21r0p1a_DIMUON_DST/file-indexes/LHCb_2012_Beam4000GeV_VeloClosed_MagUp_RealData_Reco14_Stripping21r0p1a_DIMUON_DST_file_index.txt"
+      }
+    ],
+    "magnet_polarity": "MagUp",
+    "methodology": {
+      "description": "<p> This dataset was created in several production steps. These steps, software used and the configuration is provided below. </p> <p> <strong> Prod ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> 50931 <p> <strong>Prod type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong> Merge<p> <strong> Parent Prod ID:&nbsp;&nbsp;&nbsp;&nbsp; </strong> 50930<p> <strong> Parent Prod type: </strong> DataStripping<p> <strong> Conditions: </strong><p>dddb-20150928<p>cond-20150409-1</strong><p> <strong> List of Trigger Configuration Keys (TCK): </strong> </p> <p> <p><strong>TCK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Number of Files </strong>  <p>0x94003d &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 394  <p>0x95003d &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3  <p>0x97003d &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 245  <p>0x990042 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 835  <p>0xa10045 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 130  <p>0x990044 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 56  <p>0xa10044 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 43  <p>0x9f0045 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 57  <p>0xa30044 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 313  <p>0xa30046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 35  <p>0xac0046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 22  <p>0xa20044 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4  <p>0xad0046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3  <p>0x9a0042 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1  <p>0x990043 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9 ",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "title": "DaVinci/DV-Stripping21r0p1-Stripping.py"
+            },
+            {
+              "title": "DaVinci/DV-RedoCaloPID-Stripping21.py"
+            },
+            {
+              "title": "DaVinci/DataType-2012.py"
+            },
+            {
+              "title": "DaVinci/InputType-DST.py"
+            },
+            {
+              "title": "DaVinci/DV-RawEventJuggler-2_0-to-4_2.py"
+            },
+            {
+              "title": "Persistency/Compression-ZLIB-1.py"
+            }
+          ],
+          "release": "DaVinci.v39r1p1 AppConfig.v3r274 Det/SQLDDDB.v7r10",
+          "type": "Stripping21r0p1"
+        },
+        {
+          "configuration_files": [
+            {
+              "title": "Merging/DV-Stripping-Merging.py"
+            }
+          ],
+          "release": "DaVinci.v39r1p1 AppConfig.v3r274 Det/SQLDDDB.v7r10",
+          "type": "Stripping21r0p1-Merging"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "28058",
+    "run_period": [
+      "2012"
+    ],
+    "stripping": {
+      "stream": "DIMUON",
+      "version": "stripping21r0p1"
+    },
+    "title": "LHCb 2012 Beam4000GeV MagUp DIMUON Stream Stripping21r0p1",
+    "title_additional": "",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p> The data collected by the LHCb detector is available in .DST and .mDST formats. The data files can be explored using LHCb software but it is best to write the relevant columns to ROOT Tuples or preferred data format. <p> Instructions for exploring a DST and writing out ROOT tuples are available in LHCb Starterkit below. For \"tupling\" jobs, software called DaVinci is mainly used within LHCb, its documentation is also available bellow.",
+      "links": [
+        {
+          "description": "LHCb StarterKit",
+          "url": "https://lhcb.github.io/starterkit-lessons/first-analysis-steps/minimal-dv-job.html"
+        },
+        {
+          "description": "DaVinci",
+          "url": "http://lhcbdoc.web.cern.ch/lhcbdoc/davinci/"
+        },
+        {
+          "description": "Stripping lines index for stripping21r0p1",
+          "url": "/docs/stripping21r0p1-index"
+        }
+      ]
+    }
+  }
+]

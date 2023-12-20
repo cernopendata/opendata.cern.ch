@@ -65,6 +65,7 @@ services:
       - INVENIO_PIDSTORE_DATACITE_USERNAME=CERN.OPENDATA
       - INVENIO_PIDSTORE_DATACITE_PASSWORD=CHANGE_ME
       - INVENIO_PIDSTORE_LANDING_BASE_URL=http://opendata.cern.ch/record/
+      - INVENIO_ACCOUNTS_REGISTER_BLUEPRINT=None
 #      - SENTRY_DSN=http://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@sentry:9000/2
 #      - LOGGING_SENTRY_CELERY=True
     volumes:
@@ -80,7 +81,7 @@ services:
       - wdb
 #      - sentry
     ports:
-      - "5002:5000"
+      - "5000:5000"
 
   worker:
     restart: "unless-stopped"
@@ -101,6 +102,7 @@ services:
       - INVENIO_CELERY_RESULT_BACKEND=redis://redis:6379/2
       - INVENIO_SEARCH_CLIENT_CONFIG={"use_ssl":True, "verify_certs":False, "http_auth":"admin:admin"}
       - INVENIO_SEARCH_HOSTS=https://opensearch:9200
+      - INVENIO_ACCOUNTS_REGISTER_BLUEPRINT=None
 #      - SENTRY_DSN=http://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@sentry:9000/2
 #      - LOGGING_SENTRY_CELERY=True
     volumes:
@@ -141,6 +143,7 @@ services:
       - INVENIO_PIDSTORE_DATACITE_USERNAME=CERN.OPENDATA
       - INVENIO_PIDSTORE_DATACITE_PASSWORD=CHANGE_ME
       - INVENIO_PIDSTORE_LANDING_BASE_URL=http://opendata.cern.ch/record/
+      - INVENIO_ACCOUNTS_REGISTER_BLUEPRINT=None
 #      - SENTRY_DSN=http://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb@sentry:9000/2
 #      - LOGGING_SENTRY_CELERY=True
     volumes:

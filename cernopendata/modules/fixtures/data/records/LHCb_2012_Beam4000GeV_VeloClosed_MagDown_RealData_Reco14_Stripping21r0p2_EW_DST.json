@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": "proton-proton (pp) collision data collected by the LHCb experiment in the year 2012 of Run1 of the LHC."
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment in the year 2012 of Run1 of the LHC."
     },
     "accelerator": "CERN-LHC",
     "collaboration": {
@@ -51,7 +51,7 @@
     ],
     "magnet_polarity": "MagDown",
     "methodology": {
-      "description": "<p> This dataset was created in several production steps. These steps, software used and the configuration is provided below. </p> \n<p> <strong> Prod ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> 95378\n<p> <strong>Prod type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong> Merge<p> <strong> Parent Prod ID:&nbsp;&nbsp;&nbsp;&nbsp; </strong> 94007<p> <strong> Parent Prod type: </strong> DataStripping<p> <strong> Conditions: </strong><p>dddb-20190206-2<p>cond-20150409-1</strong><p> <strong> List of Trigger Configuration Keys (TCK): </strong> </p> <p>\n    <p><strong>TCK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Number of Files </strong>\n    \n     <p>0x990042 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 958\n     \n     <p>0x990044 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 396\n     \n     <p>0xa30044 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 604\n     \n     <p>0xa30046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 41\n     \n     <p>0xab0046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 281\n     \n     <p>0xa90046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 290\n     \n     <p>0xad0046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 22\n     \n     <p>0xac0046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 483\n     \n     <p>0x8c0040 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 457\n     \n     <p>0x860040 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 34\n     \n     <p>0x7e003a &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9\n     \n     <p>0x94003d &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 440\n     \n     <p>0x97003d &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 572\n     \n     <p>0x7f0040 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4\n     \n     <p>0x95003d &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 11\n     \n     <p>0x8e0040 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3\n     ",
+      "description": "<p> This dataset was created in several production steps. These steps, software used and the configuration is provided below. </p> <p> <strong> Prod ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> 95378 <p> <strong>Prod type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong> Merge<p> <strong> Parent Prod ID:&nbsp;&nbsp;&nbsp;&nbsp; </strong> 94007<p> <strong> Parent Prod type: </strong> DataStripping<p> <strong> Conditions: </strong><p>dddb-20190206-2<p>cond-20150409-1</strong><p> <strong> List of Trigger Configuration Keys (TCK): </strong> </p> <p> <p><strong>TCK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Number of Files </strong>  <p>0x990042 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 958  <p>0x990044 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 396  <p>0xa30044 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 604  <p>0xa30046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 41  <p>0xab0046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 281  <p>0xa90046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 290  <p>0xad0046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 22  <p>0xac0046 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 483  <p>0x8c0040 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 457  <p>0x860040 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 34  <p>0x7e003a &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9  <p>0x94003d &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 440  <p>0x97003d &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 572  <p>0x7f0040 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4  <p>0x95003d &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 11  <p>0x8e0040 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 ",
       "steps": [
         {
           "configuration_files": [
@@ -71,7 +71,7 @@
               "title": "Persistency/Compression-ZLIB-1.py"
             }
           ],
-          "release": "\n  DaVinci.v39r1p5 \n AppConfig.v3r383 \n Det/SQLDDDB.v7r10 \n TMVAWeights.v1r14",
+          "release": "DaVinci.v39r1p5 AppConfig.v3r383 Det/SQLDDDB.v7r10 TMVAWeights.v1r14",
           "type": "Stripping21r0p2"
         },
         {
@@ -83,7 +83,7 @@
               "title": "Persistency/Compression-LZMA-4.py"
             }
           ],
-          "release": "\n  DaVinci.v39r1p5 \n AppConfig.v3r383 \n Det/SQLDDDB.v7r10",
+          "release": "DaVinci.v39r1p5 AppConfig.v3r383 Det/SQLDDDB.v7r10",
           "type": "Stripping21r0p2-Merging"
         },
         {
@@ -104,7 +104,7 @@
               "title": "Persistency/Compression-ZLIB-1.py"
             }
           ],
-          "release": "\n  DaVinci.v39r1p5 \n AppConfig.v3r383 \n Det/SQLDDDB.v7r10 \n TMVAWeights.v1r14",
+          "release": "DaVinci.v39r1p5 AppConfig.v3r383 Det/SQLDDDB.v7r10 TMVAWeights.v1r14",
           "type": "Stripping21r0p2"
         },
         {
@@ -116,7 +116,7 @@
               "title": "Persistency/Compression-LZMA-4.py"
             }
           ],
-          "release": "\n  DaVinci.v39r1p5 \n AppConfig.v3r383 \n Det/SQLDDDB.v7r10",
+          "release": "DaVinci.v39r1p5 AppConfig.v3r383 Det/SQLDDDB.v7r10",
           "type": "Stripping21r0p2-Merging"
         },
         {
@@ -137,7 +137,7 @@
               "title": "Persistency/Compression-ZLIB-1.py"
             }
           ],
-          "release": "\n  DaVinci.v39r1p6 \n AppConfig.v3r384 \n Det/SQLDDDB.v7r10 \n TMVAWeights.v1r14",
+          "release": "DaVinci.v39r1p6 AppConfig.v3r384 Det/SQLDDDB.v7r10 TMVAWeights.v1r14",
           "type": "Stripping21r0p2"
         },
         {
@@ -149,7 +149,7 @@
               "title": "Persistency/Compression-LZMA-4.py"
             }
           ],
-          "release": "\n  DaVinci.v39r1p6 \n AppConfig.v3r384 \n Det/SQLDDDB.v7r10",
+          "release": "DaVinci.v39r1p6 AppConfig.v3r384 Det/SQLDDDB.v7r10",
           "type": "Stripping21r0p2-Merging"
         },
         {
@@ -170,7 +170,7 @@
               "title": "Persistency/Compression-ZLIB-1.py"
             }
           ],
-          "release": "\n  DaVinci.v39r1p6 \n AppConfig.v3r384 \n Det/SQLDDDB.v7r10 \n TMVAWeights.v1r14",
+          "release": "DaVinci.v39r1p6 AppConfig.v3r384 Det/SQLDDDB.v7r10 TMVAWeights.v1r14",
           "type": "Stripping21r0p2"
         },
         {
@@ -182,7 +182,7 @@
               "title": "Persistency/Compression-LZMA-4.py"
             }
           ],
-          "release": "\n  DaVinci.v39r1p6 \n AppConfig.v3r384 \n Det/SQLDDDB.v7r10",
+          "release": "DaVinci.v39r1p6 AppConfig.v3r384 Det/SQLDDDB.v7r10",
           "type": "Stripping21r0p2-Merging"
         },
         {
@@ -203,7 +203,7 @@
               "title": "Persistency/Compression-ZLIB-1.py"
             }
           ],
-          "release": "\n  DaVinci.v39r1p6 \n AppConfig.v3r384 \n Det/SQLDDDB.v7r10 \n TMVAWeights.v1r14",
+          "release": "DaVinci.v39r1p6 AppConfig.v3r384 Det/SQLDDDB.v7r10 TMVAWeights.v1r14",
           "type": "Stripping21r0p2"
         },
         {
@@ -215,7 +215,7 @@
               "title": "Persistency/Compression-LZMA-4.py"
             }
           ],
-          "release": "\n  DaVinci.v39r1p6 \n AppConfig.v3r384 \n Det/SQLDDDB.v7r10",
+          "release": "DaVinci.v39r1p6 AppConfig.v3r384 Det/SQLDDDB.v7r10",
           "type": "Stripping21r0p2-Merging"
         }
       ]
