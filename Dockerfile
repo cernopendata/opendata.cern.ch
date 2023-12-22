@@ -25,8 +25,8 @@
 # Use Invenio's alma image with Python-3.9
 FROM registry.cern.ch/inveniosoftware/almalinux:1
 
-# Use XRootD 5.6.3
-ENV XROOTD_VERSION=5.6.3
+# Use XRootD 5.6.4
+ENV XROOTD_VERSION=5.6.4
 
 # Install CERN Open Data Portal web node pre-requisites
 # hadolint ignore=DL3033
