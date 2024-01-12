@@ -67,36 +67,36 @@ setup_requires = [
 
 install_requires = [
     # General Invenio dependencies
-    "invenio-app==1.3.0",
-    "invenio-base==1.3.0",
-    "invenio-config==1.0.3",
+    "invenio-app>=1.3.0,<2.0.0",
+    "invenio-base>=1.3.0,<2.0.0",
+    "invenio-config>=1.0.3,<2.0.0",
     # Custom Invenio `base` bundle
-    "invenio-assets==3.0.0",
-    "invenio-accounts==3.0.0",
     "importlib-metadata==4.13.0",
-    "invenio-logging[sentry]==1.3.0",
+    "invenio-accounts==3.1.0",
+    "invenio-assets>=3.0.0,<4.0.0",
+    "invenio-logging[sentry]>=1.3.0,<2.0.0",
     "invenio-rest==1.2.8",
-    "invenio-theme==2.5.7",
+    "invenio-theme>=2.5.7,<3.0.0",
     # Custom Invenio `metadata` bundle
-    "invenio-indexer==2.1.0",
-    "invenio-jsonschemas==1.1.3",
-    "invenio-pidstore==1.3.1",
+    "invenio-indexer>=2.1.0,<3.0.0",
+    "invenio-jsonschemas>=1.1.4,<2.0.0",
+    "invenio-pidstore>=1.3.1,<2.0.0",
     # This one requires the nested_filter
-    "invenio-records-rest[datacite]==2.4.0",
-    "invenio-records-ui==1.2.0",
-    "invenio-records==2.1.0",
-    "invenio-search-ui==2.8.2",
+    "invenio-records>=2.1.0,<3.0.0",
+    "invenio-records-rest[datacite]>=2.4.0,<3.0.0",
+    "invenio-records-ui>=1.2.0,<3.0.0",
+    "invenio-search-ui>=2.8.3,<3.0.0",
     # Custom Invenio `files` bundle
-    "invenio-previewer==2.0.1",
+    "invenio-previewer>=2.0.1,<3.0.0",
+    "invenio-records-files>=1.2.1,<3.0.0",
     "jupyter-client==7.1.0",
     "pluggy==0.13.1",
-    "invenio-records-files==1.2.1",
     # Custom Invenio `postgresql` bundle
     "invenio-db[versioning,postgresql]==1.1.0",
     # Custom Invenio `opensearch` bundle
-    "invenio-search[opensearch2]==2.1.0",
+    "invenio-search[opensearch2]>=2.1.0,<3.0.0",
     # Specific Invenio dependencies
-    "invenio-xrootd>=1.0.0a6",
+    "invenio-xrootd==2.0.0a1",
     "xrootdpyfs==2.0.0a1",
     # Specific dependencies
     "Flask-Markdown>=0.3.0",
@@ -116,7 +116,7 @@ install_requires = [
     # Pin Celery due to worker runtime issues
     "celery==5.2.7",
     # Pin XRootD consistently with Dockerfile
-    "xrootd==5.6.2",
+    "xrootd==5.6.4",
     # Pin Flask/gevent/greenlet/raven to make master work again
     "Flask==2.2.5",
     "flask-celeryext==0.4.0",
