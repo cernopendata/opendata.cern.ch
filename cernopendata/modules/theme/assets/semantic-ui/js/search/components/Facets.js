@@ -32,7 +32,7 @@ const CODFacets = ({ aggs }) => {
     <>
       <div class="ui card" visibility="display">
         <div class="content">
-          <div class="header">Current filters</div>
+          <div class="header">Current parameters</div>
           <ActiveFilters />
         </div>
       </div>
@@ -40,7 +40,7 @@ const CODFacets = ({ aggs }) => {
       <Toggle
         title="Availability"
         label="include on-demand datasets"
-        filterValue={["ondemand", "true"]}
+        filterValue={["ondemand", "ondemand"]}
       />
       {aggs.map((agg) => (
         <BucketAggregation key={agg.title} title={agg.title} agg={agg.agg} />
