@@ -224,7 +224,7 @@ def _query_parser_and(qstr=None):
         )
     else:
         _query = dsl.Q()
-    if request.values.get("ondemand") != "true":
+    if request.values.get("ondemand") != "true" and request.values.get("ondemand") != "ondemand":
         _query = _query & ~dsl.Q("match", **{"distribution.availability": "ondemand"})
     return _query
 
