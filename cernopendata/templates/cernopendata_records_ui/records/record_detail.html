@@ -187,37 +187,22 @@
             <label>Recommended release for analysis:</label>
             {% endif %}
             <span>{{record.system_details.release}}</span>
+            {% if record.system_details.container_images %}
+              <br>
+              <span>Recommended container image for analyses is available in the following locations (<a href="/docs/cms-guide-docker">see guide</a>): </span>
+              <ul>
+                {% for container_image in record.system_details.container_images %}
+                <li><code>{{ container_image.name }}</code></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
         {% endif %}
         {% if record.system_details.recid %}
         <p>
             <a href="/record/{{record.system_details.recid}}">{{record.system_details.recid | get_record_title}}</a>
         </p>
         {% endif %}
-            <br>
-            {% if record.system_details.release %}
-                {% if record.type.primary == 'Software' %}
-                <label>Software release:</label>
-                {% elif 'raw' in record.get('distribution', {}).get('formats', []) %}
-                <label>Recommended release for reconstruction:</label>
-                {% else %}
-                <label>Recommended release for analysis:</label>
-                {% endif %}
-                <span>{{record.system_details.release}}</span>
-                {% if record.system_details.container_images %}
-                <br>
-                <span>Recommended container image for analyses is available in the following locations (<a href="/docs/cms-guide-docker">see guide</a>): </span>
-                <ul>
-                    {% for container_image in record.system_details.container_images %}
-                        <li><code>{{ container_image.name }}</code></li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-            {% endif %}
-            {% if record.system_details.recid %}
-            <p>
-                <a href="/record/{{record.system_details.recid}}">{{record.system_details.recid | get_record_title}}</a>
-            </p>
-            {% endif %}
+        <br>
         </div>
     </div>
     {% endif %}
