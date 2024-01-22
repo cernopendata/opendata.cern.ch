@@ -37,7 +37,7 @@ const CODResultsGridItem = ({ result }) => {
 
 const CODResultsGridContainer = ({ results }) => {
   const _results = results.map((result, index) => (
-    <CODResultsGridItem result={result} key={index} />
+    <CODResultsGridItem result={result.props.result} key={index} />
   ));
 
   return (
