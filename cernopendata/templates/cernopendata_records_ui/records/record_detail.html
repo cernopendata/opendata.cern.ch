@@ -176,8 +176,8 @@
             <label>Recommended <a href="/docs/cms-guide-for-condition-database">global tag</a> for analysis:</label>
             {% endif %}
         <span>{{record.system_details.global_tag}}</span>
-        {% endif %}
         <br>
+        {% endif %}
         {% if record.system_details.release %}
             {% if record.type.primary == 'Software' %}
             <label>Software release:</label>
@@ -187,15 +187,15 @@
             <label>Recommended release for analysis:</label>
             {% endif %}
             <span>{{record.system_details.release}}</span>
-            {% if record.system_details.container_images %}
-              <br>
-              <span>Recommended container image for analyses is available in the following locations (<a href="/docs/cms-guide-docker">see guide</a>): </span>
-              <ul>
-                {% for container_image in record.system_details.container_images %}
-                <li><code>{{ container_image.name }}</code></li>
-                {% endfor %}
-              </ul>
-            {% endif %}
+        <br>
+        {% endif %}
+        {% if record.system_details.container_images %}
+          <span>Recommended container image for analyses is available in the following locations (<a href="/docs/cms-guide-docker">see guide</a>): </span>
+          <ul>
+            {% for container_image in record.system_details.container_images %}
+            <li><code>{{ container_image.name }}</code></li>
+            {% endfor %}
+          </ul>
         {% endif %}
         {% if record.system_details.recid %}
         <p>
