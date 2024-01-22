@@ -12,7 +12,8 @@
           "type":"keyword"
         },
         "title": {
-            "type": "keyword"
+            "type": "keyword",
+            "fields": {"tokens":  {"type": "text"}}
         },
         "facet_schema": {
           "index": true,
@@ -87,6 +88,9 @@
         "date_created": {
           "type": "keyword"
         },
+        "date_published": {
+          "type": "date"
+        },
         "experiment": {
           "type": "keyword"
         },
@@ -123,26 +127,5 @@
           }
         }
       }
-    },
-    "settings": {
-        "analysis": {
-          "analyzer": {
-            "title_analyzer": {
-              "tokenizer": "pattern",
-              "filter": [
-                "title_filter"
-              ]
-            }
-          },
-          "filter": {
-            "title_filter": {
-              "type": "pattern_capture",
-              "preserve_original": true,
-              "patterns": [
-                "(/[a-zA-Z-_0-9]+)"
-              ]
-            }
-          }
-        }
     }
 }
