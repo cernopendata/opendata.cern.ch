@@ -168,6 +168,7 @@
         <h2>System details</h2>
         {% if record.system_details.description %}
         <span>{{record.system_details.description | safe}}</span>
+        <br>
         {% endif %}
         {% if record.system_details.global_tag %}
             {% if 'raw' in record.get('distribution', {}).get('formats', []) %}
@@ -202,7 +203,6 @@
             <a href="/record/{{record.system_details.recid}}">{{record.system_details.recid | get_record_title}}</a>
         </p>
         {% endif %}
-        <br>
         </div>
     </div>
     {% endif %}
