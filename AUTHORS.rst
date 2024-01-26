@@ -29,6 +29,8 @@ The list of contributors in alphabetical order:
 - `Jan Okraska <https://orcid.org/0000-0002-1416-3244>`_
 - `Jiri Kuncar <https://github.com/jirikuncar>`_
 - `Jose Benito Gonzalez Lopez <https://github.com/jbenito3>`_
+- `Joud Masoud <https://github.com/joudmas>`_
+- `Julie Hogan <https://orcid.org/0000-0002-8604-3452>`_
 - `Juha-Matti Teuho <https://github.com/JuhaTeuho>`_
 - `Kati Lassila-Perini <https://github.com/katilp>`_
 - `Kyle Cranmer <https://github.com/cranmer>`_
@@ -37,6 +39,7 @@ The list of contributors in alphabetical order:
 - `Mantas Savaniakas <https://github.com/mantasavas>`_
 - `Matt Bellis <https://github.com/mattbellis>`_
 - `Mihaela Gheata <https://github.com/mgheata>`_
+- `Nancy Hamdan <https://github.com/nancyhamdan>`_
 - `Osama Sh. Almomani <https://github.com/OsamaMomani>`_
 - `Pablo Saiz <https://github.com/psaiz>`_
 - `Pamfilos Fokianos <https://github.com/pamfilos>`_
@@ -50,4 +53,5 @@ The list of contributors in alphabetical order:
 - `Thomas McCauley <https://github.com/tpmccauley>`_
 - `Tibor Šimko <https://orcid.org/0000-0001-7202-5803>`_
 - `Tim Smith <https://github.com/TimSmithCH>`_
+- `Xiaohe Shen <https://github.com/Ari-mu-l>`_
 - `Zacharias Zacharodimos <https://github.com/zzacharo>`_
