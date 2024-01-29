@@ -46,8 +46,8 @@ tests_require = [
     "pydocstyle>=1.0.0",
     "pycodestyle>=2.4.0",
     "pytest-cache>=1.0",
-    "pytest-cov>=1.8.0",
-    "pytest>=2.8.0",
+    "pytest-cov==4.1.0",
+    "pytest==7.4.4",
 ]
 
 extras_require = {
