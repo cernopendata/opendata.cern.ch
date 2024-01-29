@@ -21,6 +21,7 @@
                     {% endif %}
                     {% endif %}
                     </p>
+                    {%if record.date_published%}Date of publication: {{record.date_published}}  {%endif%}
                     <hr>
                     <div class="news-content">
                         {% if record.get("body", {}).get("format", None) == "html" %}

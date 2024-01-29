@@ -195,15 +195,15 @@ RECORDS_UI_ENDPOINTS = dict(
     termid=dict(
         pid_type="termid",
         route="/glossary/<pid_value>",
-        template="cernopendata_records_ui/terms/detail.html",
         permission_factory_imp=None,
+        view_imp="cernopendata.modules.records.utils:term_metadata_view",
     ),
     docid=dict(
         pid_type="docid",
         route="/docs/<pid_value>",
-        template="cernopendata_records_ui/docs/detail.html",
         permission_factory_imp=None,
         record_class="invenio_records_files.api:Record",
+        view_imp="cernopendata.modules.records.utils:doc_metadata_view",
     ),
     docid_export=dict(
         pid_type="docid",

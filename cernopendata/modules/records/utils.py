@@ -187,6 +187,27 @@ def record_metadata_view(pid, record, template=None):
         ],
         pid=pid,
         record=record,
+        title=record.get("title", "Untitled record") + " | CERN Open Data Portal",
+    )
+
+
+def term_metadata_view(pid, record, template=None):
+    """Term detail view."""
+    return render_template(
+        ["cernopendata_records_ui/terms/detail.html"],
+        pid=pid,
+        record=record,
+        title=record.get("anchor", "Glossary term") + " | CERN Open Data Portal",
+    )
+
+
+def doc_metadata_view(pid, record, template=None):
+    """Doc detail view."""
+    return render_template(
+        ["cernopendata_records_ui/docs/detail.html"],
+        pid=pid,
+        record=record,
+        title=record.get("title", "Untitled document") + " | CERN Open Data Portal",
     )
 
 
