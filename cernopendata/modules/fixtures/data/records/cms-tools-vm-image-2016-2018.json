@@ -1,0 +1,92 @@
+[
+  {
+    "abstract": {
+      "description": " <p>This virtual machine image provides CMS computing environment to be used with the CMS MiniAOD open data from 2016 - 2018. The virtual machine is based on <a href=\"https://cernvm.cern.ch/appliance/\">CernVM</a>. The image gets the CMS software (CMSSW) from <code>/cvmfs/cms.cern.ch</code> and the jobs running on the VM read the condition data from <code>/cvmfs/cms-opendata-conddb.cern.ch</code>. Access to the data is through XRootD.</p> <p>It has a 40G virtual hard disk and a 20G cvmfs cache, which is large enough for condition data for full event range for 2016 data (see <a href=\"/docs/cms-guide-for-condition-database\">the CMS guide to the condition database</a> for further details). It has an embedded CERN CentOS (cc7) shell with the architecture compatible with the CMS software version, in which all CMS software specific commands should be executed. Additionally, it has another CERN CentOS 7 (cc7) shell, which can be used in the same session.</p>   <p>For known issues and limitations see</p>",
+      "links": [
+        {
+          "title": "CMS CC7 Virtual Machines - Known Issues and Limitations",
+          "url": "/docs/cms-virtual-machine-cc7#issue"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS Collaboration"
+    },
+    "collections": [
+      "CMS-Tools"
+    ],
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2024",
+    "experiment": "CMS",
+    "methodology": {
+      "description": "The contextualisation scripts used for setting up the CMS VM images are available at",
+      "links": [
+        {
+          "recid": "259"
+        }
+      ]
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "258",
+    "run_period": [
+      "Run2016G",
+      "Run2016H"
+    ],
+    "title": "CMS CC7 VM Image, for CMS MiniAOD open data from 2016 - 2018",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "VM"
+      ]
+    },
+    "usage": {
+      "description": "Please follow the instructions on how to use the CMS Virtual Machine",
+      "links": [
+        {
+          "description": "CMS CC7 Virtual Machines: How to install",
+          "url": "/docs/cms-virtual-machine-cc7"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": " <p>The scripts provided create the CMS virtual machine image based on <a href=\"https://cernvm.cern.ch/appliance/\">CernVM</a>, with CERN CentOS 7 (cc7).</p> "
+    },
+    "accelerator": "CERN-LHC",
+    "collections": [
+      "CMS-Tools"
+    ],
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2024",
+    "experiment": "CMS",
+    "publisher": "CERN Open Data Portal",
+    "recid": "259",
+    "relations": [
+      {
+        "description": "The CERN VM image produced by these scripts can be found here:",
+        "recid": "258",
+        "type": "isRelatedTo"
+      }
+    ],
+    "run_period": [
+      "Run2016G",
+      "Run2016H"
+    ],
+    "title": "Contextualisation scripts to create the CMS VM Image version 1.6.0",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "VM"
+      ]
+    },
+    "usage": {
+      "description": " <p> First, you need to run a normal Micro-CernVM, using your own context so you can login. Copy the attached files to the running VM and then login.</p><p>Inside the VM, you need a copy of the latest Micro-CernVM release as a template for the Open Data image. Download the template <code>ucernvm-v4prod.2020.07-1.cernvm.x86_64.hdd</code> from this record, inside the running VM placing it in the same directory as the other files.</p><p>Run the script:<br/><code>./cernvm-script</code><br/>which will produce some output on the terminal, and then finish.</p><p>The result should be a file with the title coming from the -n field in the script, in this case:<br/><code>CMS-OpenData-1.6.0.ova</code><br/>which can be copied from the running VM to elsewhere.</p> "
+    }
+  }
+]
