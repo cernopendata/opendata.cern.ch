@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": "<p>PFNanoProducerTool is a CMSSW producer module that allows users to add Particle Flow (PF) candidates to NanoAOD files, by preprocessing MiniAOD files. The example input in the code is 2016 MiniAOD.</p>\n<p>This code has been used to produce the <a href=\"/search?q=CMS&f=file_type%3Ananoaod-pf\">Run2016G NanoAOD-PF samples</a> that are available from this portal.</p>"
+      "description": "<p>PFNanoProducerTool is a CMSSW producer module that allows users to add Particle Flow (PF) candidates to NanoAOD files, by preprocessing MiniAOD files. The example input in the code is for 2016 MiniAOD files.</p>\n<p>This code has been used to produce NanoAOD-PF files that are available from this portal.</p>"
     },
     "accelerator": "CERN-LHC",
     "authors": [
@@ -30,7 +30,7 @@
       "url": "https://github.com/cms-opendata-analyses/PFNanoProducerTool"
     },
     "system_details": {
-      "description": "Use this software in the <a href=\"/record/258\">CMS Open Data Virtual Machine environment for 2016 data</a> or in the corresponding <a href=\"/docs/cms-guide-docker\">Docker container</a>.",
+      "description": "Use this software in the CMS Open Data VM environment (<a href=\"/record/258\">CMS VM Image for 2016-2018 CMS open data</a>) or in the corresponding <a href=\"/docs/cms-guide-docker\">Docker container</a>.",
       "release": "CMSSW_10_6_30"
     },
     "title": "PFNano producer tool for CMS 2016",
@@ -42,7 +42,7 @@
       ]
     },
     "usage": {
-      "description": "<p>PFNanoProducerTool is a producer package to be used with the <a href=\"https://github.com/cms-sw/cmssw\">CMSSW software</a>. The output files are available for <a href=\"/search?q=CMS&f=file_type%3Ananoaod-pf\">Run2016G collision datasets</a> on this portal and they can be analysed independently.</p>\n<p>For any additional production, CMSSW is available in the CMS Open Data environments: in the CMS Docker container and in the CMS VM image.<ul><li> For the Docker container, install the corresponding <a href=\"/docs/cms-guide-docker\">Docker container</a>.</li><li>For the VM image, follow the instructions in <a href=\"/docs/cms-virtual-machine-2016\">How to install a CERN Virtual Machine</a>.</li></ul></p>\n\t\t\t<p>To download and run the PFNanoProducer code, follow the instructions at <a href=\"https://github.com/cms-opendata-analyses/PFNanoProducerTool\">https://github.com/cms-opendata-analyses/PFNanoProducerTool</a>.</p>\n<p>For more information about physics object access, see the <a href=\"https://cms-opendata-guide.web.cern.ch/analysis/selection/objects/objects/\">CMS Open Data Guide</a> web site.</p>\n<p>The output files from the PFNanoProducer package have the usual NanoAOD content and, in addition, the PF candidate information. The files are produced in the <a href=\"https://root.cern.ch/\">ROOT</a> format and their analysis does not require the use of CMSSW and CMS Open data environments.</p>"
+      "description": "<p>PFNanoProducerTool is an producer package to be used with the <a href=\"https://github.com/cms-sw/cmssw\">CMSSW software</a>. CMSSW is available in the CMS Open Data environments: in the CMS Docker container and in the CMS VM image:<ul><li> For the Docker container, install the corresponding <a href=\"/docs/cms-guide-docker\">Docker container</a>.</li><li>For the VM image, follow the instructions in <a href=\"/docs/cms-virtual-machine-2016\">How to install a CERN Virtual Machine</a>.</li></ul></p>\n\t\t\t<p>To download and run the PFNanoProducer code, follow the instructions at <a href=\"https://github.com/cms-opendata-analyses/PFNanoProducerTool\">https://github.com/cms-opendata-analyses/PFNanoProducerTool</a>.</p>\n<p>For more information about physics object access, see the <a href=\"https://cms-opendata-guide.web.cern.ch/analysis/selection/objects/objects/\">CMS Open Data Guide</a> web site.</p>\n<p>The output files from the PFNanoProducer package have the usual NanoAOD content and, in addition, the PF candidate information. The files are produced in the <a href=\"https://root.cern.ch/\">ROOT</a> format and their analysis does not require the use of CMSSW and CMS Open data environments.</p>"
     },
     "use_with": {
       "description": "Use this software with any CMS 2016 MiniAOD or MiniAODSIM datasets."
