@@ -30,12 +30,12 @@
                         {% for tag in article.tags %}
                         <a href="/search?tags={{tag}}" class="ui label">{{ tag }}</a>
                         {% endfor %}
-                        {% if article.experiment %}
-                        <a href="/search?experiment={{article.experiment}}"
+                        {% for exp in article.experiment %}
+                        <a href="/search?experiment={{exp}}"
                             class="ui label orange">
-                            {{ article.experiment }}
+                            {{ exp }}
                         </a>
-                        {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
             </div>
