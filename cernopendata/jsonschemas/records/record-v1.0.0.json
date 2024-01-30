@@ -245,8 +245,11 @@
       "type": "string"
     },
     "experiment": {
-      "description": "The name of the experiment the author is part of",
-      "type": "string"
+      "items": {
+        "description": "The name of the experiment the author is part of",
+        "type": "string"
+      },
+      "type": "array"
     },
     "keywords": {
       "items": {
