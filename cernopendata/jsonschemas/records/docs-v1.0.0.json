@@ -64,7 +64,11 @@
       "type": "string"
     },
     "experiment": {
-      "type": "string"
+      "items": {
+        "description": "The name of the experiment the author is part of",
+        "type": "string"
+      },
+      "type": "array"
     },
     "featured": {
       "type": "integer"

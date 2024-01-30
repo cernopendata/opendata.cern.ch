@@ -67,13 +67,10 @@ const ListItemLabels = ({ metadata }) => {
           </Label>
         ))}
       {metadata.experiment &&
-        (Array.isArray(metadata.experiment) ? (
-          metadata.experiment.map(({ name }) => (
-            <ExperimentLabel name={name} key={name} withKey />
+          metadata.experiment.map(( exp ) => (
+            <ExperimentLabel name={exp} />
           ))
-        ) : (
-          <ExperimentLabel name={metadata.experiment} />
-        ))}
+      }
     </>
   );
 };
