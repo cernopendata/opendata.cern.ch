@@ -1,0 +1,74 @@
+[
+  {
+    "abstract": {
+      "description": "<p>Condition database includes non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for simulation/reconstruction/analysis software.</p>\n    <p> These files are needed when running a CMSSW job on the open data environment (VM or container), and they are available in the /cvmfs/cms-opendata-conddb.cern.ch file system. They are automatically read from /cvmfs/cms-opendata-conddb.cern.ch/106X_dataRun2_v37.db runtime.</p>\n       <p>106X_dataRun2_v37.db is to be used with the proton-proton collision data at 13 TeV from 2016.</p>\n      <p>See further information in <a href=\"/docs/cms-guide-for-condition-database\">the guide to CMS condition database</a>.</p></p>\n       <p>For condition data to be used with 2016 CMS simulated datasets see:</p>",
+      "links": [
+        {
+          "recid": "1819"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration"
+    },
+    "collections": [
+      "CMS-Condition-Data"
+    ],
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2024",
+    "experiment": "CMS",
+    "publisher": "CERN Open Data Portal",
+    "recid": "1818",
+    "run_period": [
+      "Run2016G",
+      "Run2016H"
+    ],
+    "title": "Condition data for 2016 CMS proton-proton collision data at 13 TeV",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "Condition"
+      ]
+    },
+    "usage": {
+      "description": "If you are using the <a href=\"/record/258\">CMS Virtual Machine</a> image or the <a href=\"/docs/cms-guide-docker\">CMS container</a> image environments, then the condition data files will be served automatically from <code>/cvmfs/cms-opendata-conddb.cern.ch/</code> or from a file server at runtime, and therefore you do not need to download these files. If you need to have them locally, you can download them from here."
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Condition database includes non-event-related information (Alignment, Calibration, Temperature, etc.) and parameters for simulation/reconstruction/analysis software.</p>\n    <p> These files are needed when running a CMSSW job on the open data environment (VM or container), and they are available in the /cvmfs/cms-opendata-conddb.cern.ch file system. They are automatically read from /cvmfs/cms-opendata-conddb.cern.ch/106X_mcRun2_asymptotic_v17.db runtime.</p>\n       <p>106X_mcRun2_asymptotic_v17.db is to be used with the proton-proton simulated data at 13 TeV from 2016.</p>\n      <p>See further information in <a href=\"/docs/cms-guide-for-condition-database\">the guide to CMS condition database</a>.</p></p>\n       <p>For condition data to be used with 2016 CMS simulated datasets see:</p>",
+      "links": [
+        {
+          "recid": "1818"
+        }
+      ]
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "CMS collaboration"
+    },
+    "collections": [
+      "CMS-Condition-Data"
+    ],
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2024",
+    "experiment": "CMS",
+    "publisher": "CERN Open Data Portal",
+    "recid": "1819",
+    "title": "Condition data for 2016 CMS proton-proton simulated data at 13 TeV",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "Condition"
+      ]
+    },
+    "usage": {
+      "description": "If you are using the <a href=\"/record/258\">CMS Virtual Machine</a> image or the <a href=\"/docs/cms-guide-docker\">CMS container</a> image environments, then the condition data files will be served automatically from <code>/cvmfs/cms-opendata-conddb.cern.ch/</code> or from a file server at runtime, and therefore you do not need to download these files. If you need to have them locally, you can download them from here."
+    }
+  }
+]
