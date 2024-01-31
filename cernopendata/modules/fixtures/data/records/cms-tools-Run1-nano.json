@@ -1,0 +1,58 @@
+[
+  {
+    "abstract": {
+      "description": "<p>NanoAODRun1ProducerTool is a CMSSW analyzer module to produce NanoAOD-like research-level Ntuple format for CMS Run1 data.</p>\n<p>This code has been used to produce the NanoAOD-Run1 <a href=\"/search?q=CMS&f=file_type%3Ananoaod-run1\">data</a> and <a href=\"/search?q=CMS&f=file_type%3Ananoaodsim-run1\">simulated</a> samples that are available from this portal.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "CMS Open data group"
+      }
+    ],
+    "collections": [
+      "CMS-Tools"
+    ],
+    "date_created": [
+      "2010",
+      "2011",
+      "2012"
+    ],
+    "date_published": "2024",
+    "experiment": "CMS",
+    "license": {
+      "attribution": "GNU General Public License (GPL) version 3"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12505",
+    "run_period": [
+      "Run2010A",
+      "Run2010B",
+      "Run2011A",
+      "Run2011B",
+      "Run2012A",
+      "Run2012B",
+      "Run2012C",
+      "Run2012D"
+    ],
+    "source_code_repository": {
+      "url": "https://github.com/cms-opendata-analyses/NanoAODRun1ProducerTool"
+    },
+    "system_details": {
+      "description": "Use this software in the CMS Open Data VM environment for <a href=\"/record/250\">2010</a> or <a href=\"/record/252\">2011-2012</a> CMS open data or in the corresponding <a href=\"/docs/cms-guide-docker\">Docker container</a>.",
+      "release": "CMSSW_4_2_8 (2010 data), CMSSW_5_3_32 (2011-2012 data)"
+    },
+    "title": "NanoAOD-like Ntuple producer tool for CMS Run1 data",
+    "type": {
+      "primary": "Software",
+      "secondary": [
+        "Tool"
+      ]
+    },
+    "usage": {
+      "description": "<p>NanoAODRun1ProducerTool is a package to be used with the <a href=\"https://github.com/cms-sw/cmssw\">CMSSW software</a>. In contrast to the CMS NanoAOD format which is centrally produced from MiniAOD by the CMS data processing system, this code generates an equivalent format from AOD with this completely independent code provided by the CMS open data group. The output files are available for selected Run1 <a href=\"/search?q=CMS&f=file_type%3Ananoaod-run1\">data</a> and <a href=\"/search?q=CMS&f=file_type%3Ananoaodsim-run1\">simulated</a> samples on this portal and they can be analysed independently.</p>\n<p>For any additional production, CMSSW is available in the CMS Open Data environments: in the CMS Docker container and in the CMS VM image.<ul><li> For the Docker container, install the corresponding <a href=\"/docs/cms-guide-docker\">Docker container</a>.</li><li>For the VM image, follow the instructions for the virtual machine installations for <a href=\"/docs/cms-virtual-machine-2010\">2010</a> or <a href=\"/docs/cms-virtual-machine-2011\">2011-2012</a> data.</li></ul></p>\n\t\t\t<p>To download and run the NanoAODRun1Producer code, follow the instructions at <a href=\"https://github.com/cms-opendata-analyses/NanoAODRun1ProducerTool\">https://github.com/cms-opendata-analyses/NanoAODRun1ProducerTool</a>.</p>\n<p>For more information about physics object access, see the <a href=\"https://cms-opendata-guide.web.cern.ch/analysis/selection/objects/objects/\">CMS Open Data Guide</a> web site.</p>\n<p>The output files from the NanoAODRun1Producer package are in a NanoAOD-like research-level Ntuple format for CMS Run1. There is a large overlap in functionality and content between NanoAOD-Run1 and the usual CMS NanoAOD such that common analyses are possible. The files are in the <a href=\"https://root.cern.ch/\">ROOT</a> tree format and their analysis does not require the use of CMSSW and CMS Open data environments.</p>"
+    },
+    "use_with": {
+      "description": "Use this software with any CMS Run1 AOD or AODSIM datasets."
+    }
+  }
+]
