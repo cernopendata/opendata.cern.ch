@@ -8,6 +8,7 @@ The list of contributors in alphabetical order:
 - `Adriano Di Florio <https://github.com/AdrianoDee>`_
 - `Alexander Ioannidis <https://github.com/slint>`_
 - `Ana Trisovic <https://github.com/atrisovic>`_
+- `Andrii Verbytskyi <https://orcid.org/0000-0002-3713-8033>`_
 - `Anna Trzcinska <https://github.com/annatrz>`_
 - `Annemarie Mattmann <https://github.com/Kjili>`_
 - `Anxhela Dani <https://github.com/anxheladani>`_
@@ -40,6 +41,7 @@ The list of contributors in alphabetical order:
 - `Pablo Saiz <https://github.com/psaiz>`_
 - `Pamfilos Fokianos <https://github.com/pamfilos>`_
 - `Patricia Herterich <https://github.com/pherterich>`_
+- `Richard Hildebrandt <https://github.com/rdebrand>`_
 - `Sebastian Feger <https://github.com/sefeg>`_
 - `Sergey Dmitrievsky <https://github.com/dmitr25>`_
 - `Silvia Amerio <https://github.com/samerio>`_
