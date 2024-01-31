@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <h1> {{ record.title }} </h1>
                     <p>
-                    {% if record.get('created') %} <small>{{ record.get('created') }} by </small> {% endif %}
+                    {% if record.get('date_published') %} <small>{{ record.get('date_published') }} by </small> {% endif %}
                     <small>{{ record.author}} </small>
                     </p>
                     <p>
@@ -21,7 +21,7 @@
                     {% endif %}
                     {% endif %}
                     </p>
-                    {%if record.date_published%}Date of publication: {{record.date_published}}  {%endif%}
+
                     <hr>
                     <div class="news-content">
                         {% if record.get("body", {}).get("format", None) == "html" %}
