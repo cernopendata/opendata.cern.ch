@@ -1,0 +1,242 @@
+[
+  {
+    "abstract": {
+      "description": "<p>For this new study, researchers looked for charginos decaying in three ways – via two W bosons (WW), a W boson and a Z boson (WZ), or a W boson and a Higgs boson (WH). These decay channels can all result in similar experimental signatures with one lepton. Researchers looked for unique collision-event signatures with isolated leptons, missing momentum, and large-radius jets (or b-jets in the WH case). They applied improved cut-and-count strategies in the WW/WZ cases, and revised the previous cut-and-count WH analysis with new machine-learning techniques. Using Boosted Decision Trees (BDTs), researchers were able to enhance signal identification in scenarios where the chargino and next-to-lightest neutralino decays were mediated by a Higgs boson, or when their mass difference closely aligns with the mass of the Higgs boson itself.</p> <p>Researchers utilised this open dataset for training the analysis BDTs, making it readily available for subsequent advanced theoretical or machine learning investigations. The dataset is organised into 16 folders, each containing root files derived from Monte Carlo (MC) simulations. These files encompass both object-level and event-level variables, incorporating their associated systematic uncertainties.</p> <p>Within these folders, 14 pertain to Standard Model background samples, with three major contributors being Single Top, ttbar, and W jets. The remaining two folders house signal samples and theory uncertainties for all MC-generated events. Each file is enriched with additional variables representing BDT scores for both Signal and Backgrounds.</p> <p>Adopting a 1 vs all strategy, separate BDTs undergo individual training, reweighing, and optimisation tailored to specific classifications. The resultant scores conform to a comprehensive classification framework, providing sample-targeted independent probabilities spanning from 0 to 1 for all noteworthy Backgrounds and Signal categories. These scores serve as benchmarks for evaluating other cutting-edge models, such as Graph Neural Networks (GNNs), in the ongoing exploration of competitive state-of-the-art methodologies.</p><p>The dataset contains a total number of 12,380,322 events of which more than 6 million are ttbar events, 463,056 events in MC-generated Signal samples, and 23,251,217 events in theory samples.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "ATLAS collaboration"
+    },
+    "collections": [
+      "ATLAS-Derived-Datasets"
+    ],
+    "date_published": "2024",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_events": 36094595,
+      "number_files": 1076,
+      "size": 618957496181
+    },
+    "doi": "10.7483/OPENDATA.ATLAS.KG0B.XX5J",
+    "experiment": [
+      "ATLAS"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:6ca3481a",
+        "size": 17653,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_Higgs_samples_root_file_index.json"
+      },
+      {
+        "checksum": "adler32:70626c5b",
+        "size": 8833,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_Higgs_samples_root_file_index.txt"
+      },
+      {
+        "checksum": "adler32:14985e68",
+        "size": 219747,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_Signal_samples_root_file_index.json"
+      },
+      {
+        "checksum": "adler32:070d4c31",
+        "size": 110343,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_Signal_samples_root_file_index.txt"
+      },
+      {
+        "checksum": "adler32:7a36a243",
+        "size": 3081,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_WW_samples_root_file_index.json"
+      },
+      {
+        "checksum": "adler32:6edef23b",
+        "size": 1527,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_WW_samples_root_file_index.txt"
+      },
+      {
+        "checksum": "adler32:803fe6e1",
+        "size": 54960,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_W_samples_root_file_index.json"
+      },
+      {
+        "checksum": "adler32:15158bd9",
+        "size": 27247,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_W_samples_root_file_index.txt"
+      },
+      {
+        "checksum": "adler32:361b86ef",
+        "size": 4672,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_ZW_samples_root_file_index.json"
+      },
+      {
+        "checksum": "adler32:b08df763",
+        "size": 2320,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_ZW_samples_root_file_index.txt"
+      },
+      {
+        "checksum": "adler32:9456e652",
+        "size": 14326,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_ZZ_samples_root_file_index.json"
+      },
+      {
+        "checksum": "adler32:1b641721",
+        "size": 7132,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_ZZ_samples_root_file_index.txt"
+      },
+      {
+        "checksum": "adler32:651bb9d9",
+        "size": 48103,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_Z_samples_root_file_index.json"
+      },
+      {
+        "checksum": "adler32:64e435b0",
+        "size": 23871,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_Z_samples_root_file_index.txt"
+      },
+      {
+        "checksum": "adler32:b34f5b96",
+        "size": 21197,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_other_samples_root_file_index.json"
+      },
+      {
+        "checksum": "adler32:b38bc760",
+        "size": 10661,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_other_samples_root_file_index.txt"
+      },
+      {
+        "checksum": "adler32:1cff6a47",
+        "size": 12609,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_st_samples_root_file_index.json"
+      },
+      {
+        "checksum": "adler32:7e763768",
+        "size": 6257,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_st_samples_root_file_index.txt"
+      },
+      {
+        "checksum": "adler32:ae1f896a",
+        "size": 34046,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_theory_samples_root_file_index.json"
+      },
+      {
+        "checksum": "adler32:71c6721b",
+        "size": 17113,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_theory_samples_root_file_index.txt"
+      },
+      {
+        "checksum": "adler32:2cc868eb",
+        "size": 5461,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_triboson_samples_root_file_index.json"
+      },
+      {
+        "checksum": "adler32:b3198582",
+        "size": 2763,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_triboson_samples_root_file_index.txt"
+      },
+      {
+        "checksum": "adler32:1c5a07b2",
+        "size": 7648,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_ttH_samples_root_file_index.json"
+      },
+      {
+        "checksum": "adler32:6addd590",
+        "size": 3807,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_ttH_samples_root_file_index.txt"
+      },
+      {
+        "checksum": "adler32:8b547783",
+        "size": 1236,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_ttW_samples_root_file_index.json"
+      },
+      {
+        "checksum": "adler32:6f8cc873",
+        "size": 612,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_ttW_samples_root_file_index.txt"
+      },
+      {
+        "checksum": "adler32:75039ca9",
+        "size": 9693,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_ttZ_samples_root_file_index.json"
+      },
+      {
+        "checksum": "adler32:c1923636",
+        "size": 4823,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_ttZ_samples_root_file_index.txt"
+      },
+      {
+        "checksum": "adler32:1179f896",
+        "size": 812,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_ttbar_allhad_samples_root_file_index.json"
+      },
+      {
+        "checksum": "adler32:4a898912",
+        "size": 412,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_ttbar_allhad_samples_root_file_index.txt"
+      },
+      {
+        "checksum": "adler32:c525ee00",
+        "size": 6650,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_ttbar_samples_root_file_index.json"
+      },
+      {
+        "checksum": "adler32:dc3a4308",
+        "size": 3311,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2023-174/Wh_24_01_28/file-indexes/Wh_24_01_28_ttbar_samples_root_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "datascience"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "links": [
+      {
+        "description": "ATLAS publication CERN-EP-2023-174",
+        "url": "https://cds.cern.ch/record/2875455"
+      }
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "28100",
+    "title": "ATLAS SUSY Searches in Wh1Lbb Channel Open Data Set",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    }
+  }
+]
