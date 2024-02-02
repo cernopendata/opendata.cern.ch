@@ -427,10 +427,8 @@ CERNOPENDATA_MAX_DOWNLOAD_SIZE = os.environ.get(
 CERNOPENDATA_DISABLE_DOWNLOADS = os.environ.get("CERNOPENDATA_DISABLE_DOWNLOADS", False)
 # Search
 # ======
-#: Default Elasticsearch document type.
+#: Default OpenSearch document type.
 SEARCH_DOC_TYPE_DEFAULT = None
-#: Do not map any keywords.
-SEARCH_ELASTIC_KEYWORD_MAPPING = {}
 
 # This one can be used to have multiple instances on the same cluster
 # SEARCH_INDEX_PREFIX = "opendata-dev-"
@@ -447,7 +445,7 @@ SEARCH_UI_SEARCH_CONFIG_GEN = {
 SEARCH_UI_SEARCH_VIEW = search_legacy
 # OAI-PMH
 # =======
-#: Default Elasticsearch index.
+#: Default OpenSearch index.
 OAISERVER_RECORD_INDEX = "records"
 #: OAI ID prefix.
 OAISERVER_ID_PREFIX = "oai:opendata.cern.ch:recid/"

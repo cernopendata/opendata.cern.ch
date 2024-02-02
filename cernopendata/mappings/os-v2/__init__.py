@@ -22,4 +22,4 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
-"""CERN Open Data Elasticsearch v7 Mappings."""
+"""CERN Open Data OpenSearch v7 Mappings."""

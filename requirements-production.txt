@@ -50,7 +50,6 @@ celery==5.0.4
 certifi==2021.5.30
     # via
     #   dulwich
-    #   elasticsearch
     #   requests
 cffi==1.14.5
     # via cryptography
@@ -308,7 +307,7 @@ invenio-rest[cors]==1.2.1
     #   invenio-accounts
     #   invenio-files-rest
     #   invenio-records-rest
-invenio-search[elasticsearch7]==1.4.1
+invenio-search[opensearch2]==1.4.1
     # via cernopendata (setup.py)
 invenio-search-ui==2.0.1
     # via cernopendata (setup.py)
@@ -456,7 +455,6 @@ python-dateutil==2.8.2
     # via
     #   alembic
     #   arrow
-    #   elasticsearch-dsl
     #   invenio-records-rest
     #   jupyter-client
 python-editor==1.0.4
@@ -493,7 +491,6 @@ six==1.16.0
     #   base32-lib
     #   bleach
     #   click-repl
-    #   elasticsearch-dsl
     #   flask-breadcrumbs
     #   flask-cors
     #   flask-kvsession-invenio
@@ -555,7 +552,6 @@ uritools==3.0.2
 urllib3==1.26.6
     # via
     #   dulwich
-    #   elasticsearch
     #   requests
 uwsgi==2.0.21
     # via cernopendata (setup.py)
