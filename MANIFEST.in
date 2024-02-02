@@ -9,8 +9,6 @@ include .inveniorc
 include Dockerfile
 include LICENSE
 include babel.ini
-include elasticsearch-proxy/Dockerfile
-include elasticsearch-proxy/nginx.conf
 include nginx/Dockerfile
 include pytest.ini
 include sentry/Dockerfile
@@ -45,4 +43,3 @@ recursive-include sentry *.json
 recursive-include sentry *.py
 recursive-include sentry *.sh
 recursive-include sentry *.yml
-recursive-exclude elasticsearch-proxy *
