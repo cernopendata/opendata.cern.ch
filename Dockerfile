@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2015, 2016, 2017, 2018, 2020, 2021, 2023 CERN.
+# Copyright (C) 2015, 2016, 2017, 2018, 2020, 2021, 2023, 2024 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -25,8 +25,8 @@
 # Use Invenio's alma image with Python-3.9
 FROM registry.cern.ch/inveniosoftware/almalinux:1
 
-# Use XRootD 5.6.4
-ENV XROOTD_VERSION=5.6.4
+# Use XRootD 5.6.6
+ENV XROOTD_VERSION=5.6.6
 
 # Install CERN Open Data Portal web node pre-requisites
 # hadolint ignore=DL3033

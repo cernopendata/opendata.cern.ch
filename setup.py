@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2017, 2018, 2021, 2022, 2023 CERN.
+# Copyright (C) 2017, 2018, 2021, 2022, 2023, 2024 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -116,7 +116,7 @@ install_requires = [
     # Pin Celery due to worker runtime issues
     "celery==5.2.7",
     # Pin XRootD consistently with Dockerfile
-    "xrootd==5.6.4",
+    "xrootd==5.6.6",
     # Pin Flask/gevent/greenlet/raven to make master work again
     "Flask==2.2.5",
     "flask-celeryext==0.4.0",
