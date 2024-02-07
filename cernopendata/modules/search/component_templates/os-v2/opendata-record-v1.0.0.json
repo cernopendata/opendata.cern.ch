@@ -1,23 +1,9 @@
 {
+  "template": {
     "mappings": {
       "properties": {
-        "$schema": {
-          "copy_to": "facet_schema",
-          "type": "text"
-        },
-        "recid": {
-          "type": "integer"
-        },
         "doi": {
-          "type":"keyword"
-        },
-        "title": {
-            "type": "keyword",
-            "fields": {"tokens":  {"type": "text"}}
-        },
-        "facet_schema": {
-          "index": true,
-          "type": "text"
+          "type": "keyword"
         },
         "distribution": {
           "properties": {
@@ -85,15 +71,6 @@
             }
           }
         },
-        "date_created": {
-          "type": "keyword"
-        },
-        "date_published": {
-          "type": "date"
-        },
-        "experiment": {
-          "type": "keyword"
-        },
         "keywords": {
           "type": "keyword"
         },
@@ -115,17 +92,8 @@
               "type": "keyword"
             }
           }
-        },
-        "type": {
-          "properties": {
-            "primary": {
-              "type": "keyword"
-            },
-            "secondary": {
-              "type": "keyword"
-            }
-          }
         }
       }
     }
+  }
 }

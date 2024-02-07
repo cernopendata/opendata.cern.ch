@@ -1,0 +1,89 @@
+{
+  "template": {
+    "mappings": {
+      "properties": {
+        "author": {
+          "type": "keyword"
+        },
+        "id": {
+          "type": "keyword"
+        },
+        "body": {
+          "properties": {
+            "content": {
+              "type": "text"
+            },
+            "format": {
+              "type": "keyword"
+            }
+          }
+        },
+        "collections": {
+          "properties": {
+            "experiment": {
+              "type": "keyword"
+            },
+            "facet_collections_primary": {
+              "index": true,
+              "type": "keyword"
+            },
+            "primary": {
+              "copy_to": "collections.facet_collections_primary",
+              "type": "keyword"
+            },
+            "secondary": {
+              "type": "text"
+            },
+            "year": {
+              "type": "text"
+            }
+          }
+        },
+        "files": {
+          "properties": {
+            "name": {
+              "type": "keyword"
+            },
+            "uri": {
+              "type": "keyword"
+            }
+          }
+        },
+        "featured": {
+          "type": "integer"
+        },
+        "short_description": {
+          "properties": {
+            "content": {
+              "type": "text"
+            },
+            "format": {
+              "type": "keyword"
+            }
+          }
+        },
+        "stripping": {
+          "properties": {
+            "stream": {
+              "type": "keyword"
+            },
+            "version": {
+              "type": "keyword"
+            }
+          }
+        },
+        "tags": {
+          "type": "keyword"
+        },
+        "title": {
+          "type": "keyword",
+          "fields": {
+            "tokens": {
+              "type": "text"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -200,8 +200,11 @@ setup(
             " cernopendata.modules.records.fetchers.docid:"
             "cernopendata_docid_fetcher",
         ],
-        "invenio_search.mappings": [
-            "records = cernopendata.mappings",
+        "invenio_search.index_templates": [
+            "records = cernopendata.modules.search.index_templates",
+        ],
+        "invenio_search.component_templates": [
+            "records = cernopendata.modules.search.component_templates",
         ],
         "invenio_jsonschemas.schemas": [
             "cernopendata_schemas = cernopendata.jsonschemas",

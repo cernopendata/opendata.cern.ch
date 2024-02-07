@@ -1,0 +1,41 @@
+{
+  "template": {
+    "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "anchor": {
+        "type": "keyword"
+      },
+      "category": {
+        "type": "keyword"
+      },
+      "collections": {
+        "properties": {
+          "facet_collections_primary": {
+            "index": true,
+            "type": "keyword"
+          },
+          "primary": {
+            "copy_to": "collections.facet_collections_primary",
+            "type": "keyword"
+          },
+          "secondary": {
+            "type": "text"
+          }
+        }
+      },
+      "definition": {
+        "type": "text"
+      },
+      "short_definition": {
+        "type": "text"
+      },
+      "term": {
+        "type": "keyword"
+      }
+    }
+  }
+}
+}

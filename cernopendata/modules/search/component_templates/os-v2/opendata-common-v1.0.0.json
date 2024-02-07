@@ -1,0 +1,46 @@
+{
+  "template": {
+    "mappings": {
+      "properties": {
+        "$schema": {
+          "copy_to": "facet_schema",
+          "type": "text"
+        },
+        "date_created": {
+          "type": "keyword"
+        },
+        "date_published": {
+          "type": "date"
+        },
+        "experiment": {
+          "type": "keyword"
+        },
+        "facet_schema": {
+          "index": true,
+          "type": "text"
+        },
+        "recid": {
+          "type": "integer",
+          "null_value": 0
+        },
+        "title": {
+          "type": "text"
+        },
+        "type": {
+          "properties": {
+            "primary": {
+              "type": "keyword"
+            },
+            "secondary": {
+              "type": "keyword"
+            }
+          }
+        }
+      }
+    },
+    "settings": {
+      "number_of_replicas": 1
+    }
+  }
+
+}
