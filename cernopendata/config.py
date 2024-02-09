@@ -56,7 +56,7 @@ MAIL_DEBUG = 0
 
 # Piwik tracking code: set None to disabled it
 THEME_PIWIK_ID = os.environ.get("PIWIK_ID", None)
-
+ACCOUNTS_SESSION_ACTIVITY_ENABLED = None
 SITE_URL = os.environ.get("CERNOPENDATA_SITE_URL", "opendata.cern.ch")
 
 # Logging - Set up Sentry for Invenio-Logging

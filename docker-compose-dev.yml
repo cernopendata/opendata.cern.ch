@@ -48,7 +48,7 @@ services:
     command: bash -c "cernopendata run -h 0.0.0.0 --reload" # In case one needs to test/work with uWSGI comment out this CMD override.
     environment:
       - DEBUG=True
-      - FLASK_ENV=development
+      - FLASK_DEBUG=1
       - WDB_SOCKET_SERVER=wdb
       - WDB_NO_BROWSER_AUTO_OPEN=True
       - INVENIO_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://cernopendata:dbpass123@postgresql:5432/cernopendata
@@ -126,7 +126,7 @@ services:
     command: bash -c "cernopendata run -h 0.0.0.0" # In case one needs to test/work with uWSGI comment out this.
     environment:
       - DEBUG=True
-      - FLASK_ENV=development
+      - FLASK_DEBUG=1
       - WDB_SOCKET_SERVER=wdb
       - WDB_NO_BROWSER_AUTO_OPEN=True
       - INVENIO_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://cernopendata:dbpass123@postgresql:5432/cernopendata
