@@ -41,4 +41,8 @@ cd node_modules/ispy-webgl \
     && rm package-lock.json
 
 cernopendata collect -v
+# The collect takes the files in order. Some files, like the favicon, are provided by invenio_theme, and they should
+# be overwritten with the ones from opendata.
+for d in $(find /code/cernopendata/modules/theme/static/ -type 'f' | sed 's/\/code\/cernopendata\/modules\/theme\/static//' ) ; do cp --remove-destination /code/cernopendata/modules/theme/static${d}  ${INVENIO_INSTANCE_PATH}/static${d}; done;
+
 cernopendata webpack clean buildall
