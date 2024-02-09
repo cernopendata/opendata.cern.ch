@@ -113,6 +113,7 @@ install_requires = [
     "SQLAlchemy==1.4.49 ",
     # Pin Flask-SQLAlchemy version due to apply_driver_hacks
     "Flask-SQLAlchemy==3.0.0",
+    "Flask-Alembic==2.0.1",
     # Pin Celery due to worker runtime issues
     "celery==5.2.7",
     # Pin XRootD consistently with Dockerfile
