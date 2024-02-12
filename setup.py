@@ -119,6 +119,7 @@ install_requires = [
     "xrootd==5.6.6",
     # Pin Flask/gevent/greenlet/raven to make master work again
     "Flask==2.2.5",
+    "Flask-Alembic==2.0.1",
     "flask-celeryext==0.4.0",
     "Werkzeug~=2.2.0",
     "gevent==22.10.1",
