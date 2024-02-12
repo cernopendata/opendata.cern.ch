@@ -1,0 +1,161 @@
+[
+  {
+    "abstract": {
+      "description": "<p>Simulated dataset Neutrino_E-10_gun in PREMIX format for 2016 collision data. Events are sampled from this dataset and added to simulated data to make them comparable with the 2016 collision data, see <a href=\"/docs/cms-guide-pileup-simulation\">the guide to pile-up simulation</a>.</p><p>See the description of the simulated dataset names in: <a href=\"/about/CMS-Simulated-Dataset-Names\">About CMS simulated dataset names</a>.</p><p>This is a sample (10%) of the original dataset.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Pileup",
+      "source": "CMS Collaboration"
+    },
+    "collaboration": {
+      "name": "CMS Collaboration",
+      "recid": ""
+    },
+    "collections": [
+      "CMS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2023",
+    "date_reprocessed": "2020",
+    "distribution": {
+      "formats": [
+        "premix",
+        "root"
+      ],
+      "number_events": 27646400,
+      "number_files": 17279,
+      "size": 0
+    },
+    "experiment": [
+      "CMS"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>These data were generated in several steps (see also <a href=\"/docs/cms-mc-production-overview\">CMS Monte Carlo production overview</a>):</p>",
+      "steps": [
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\n\n# GEN Script begin\nrm -f request_fragment_check.py\nwget -q https://raw.githubusercontent.com/cms-sw/genproductions/master/bin/utils/request_fragment_check.py\nchmod +x request_fragment_check.py\n./request_fragment_check.py --bypass_status --prepid PPD-RunIISummer20UL16GEN-00001\nGEN_ERR=$?\nif [ $GEN_ERR -ne 0 ]; then\n  echo \"GEN Checking Script returned exit code $GEN_ERR which means there are $GEN_ERR errors\"\n  echo \"Validation WILL NOT RUN\"\n  echo \"Please correct errors in the request and run validation again\"\n  exit $GEN_ERR\nfi\necho \"Running VALIDATION. GEN Request Checking Script returned no errors\"\n# GEN Script end\n\n# Download fragment from McM\ncurl -s -k https://cms-pdmv-prod.web.cern.ch/mcm/public/restapi/requests/get_fragment/PPD-RunIISummer20UL16GEN-00001 --retry 3 --create-dirs -o Configuration/GenProduction/python/PPD-RunIISummer20UL16GEN-00001-fragment.py\n[ -s Configuration/GenProduction/python/PPD-RunIISummer20UL16GEN-00001-fragment.py ] || exit $?;\n\n# Check if fragment contais gridpack path ant that it is in cvmfs\nif grep -q \"gridpacks\" Configuration/GenProduction/python/PPD-RunIISummer20UL16GEN-00001-fragment.py; then\n  if ! grep -q \"/cvmfs/cms.cern.ch/phys_generator/gridpacks\" Configuration/GenProduction/python/PPD-RunIISummer20UL16GEN-00001-fragment.py; then\n    echo \"Gridpack inside fragment is not in cvmfs.\"\n    exit -1\n  fi\nfi\n\n# Dump actual test code to a PPD-RunIISummer20UL16GEN-00001_test.sh file that can be run in Singularity\ncat <<'EndOfTestFile' > PPD-RunIISummer20UL16GEN-00001_test.sh\n#!/bin/bash\n\nexport SCRAM_ARCH=slc7_amd64_gcc700\n\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_10_6_17_patch1/src ] ; then\n  echo release CMSSW_10_6_17_patch1 already exists\nelse\n  scram p CMSSW CMSSW_10_6_17_patch1\nfi\ncd CMSSW_10_6_17_patch1/src\neval `scram runtime -sh`\n\nmv ../../Configuration .\nscram b\ncd ../..\n\n# Maximum validation duration: 28800s\n# Margin for validation duration: 30%\n# Validation duration with margin: 28800 * (1 - 0.30) = 20160s\n# Time per event for each sequence: 0.0474s\n# Threads for each sequence: 1\n# Time per event for single thread for each sequence: 1 * 0.0474s = 0.0474s\n# Which adds up to 0.0474s per event\n# Single core events that fit in validation duration: 20160s / 0.0474s = 425652\n# Produced events limit in McM is 10000\n# According to 1.0000 efficiency, validation should run 10000 / 1.0000 = 10000 events to reach the limit of 10000\n# Take the minimum of 425652 and 10000, but more than 0 -> 10000\n# It is estimated that this validation will produce: 10000 * 1.0000 = 10000 events\nEVENTS=10000\n\n\n# cmsDriver command\ncmsDriver.py Configuration/GenProduction/python/PPD-RunIISummer20UL16GEN-00001-fragment.py --python_filename PPD-RunIISummer20UL16GEN-00001_1_cfg.py --eventcontent RAWSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier GEN --fileout file:PPD-RunIISummer20UL16GEN-00001.root --conditions 106X_mcRun2_asymptotic_v13 --beamspot Realistic25ns13TeV2016Collision --customise_commands process.source.numberEventsInLuminosityBlock=\"cms.untracked.uint32(100)\" --step GEN --geometry DB:Extended --era Run2_2016 --no_exec --mc -n $EVENTS || exit $? ;\n\n# Run generated config\nREPORT_NAME=PPD-RunIISummer20UL16GEN-00001_report.xml\n# Run the cmsRun\ncmsRun -e -j $REPORT_NAME PPD-RunIISummer20UL16GEN-00001_1_cfg.py || exit $? ;\n\n# Parse values from PPD-RunIISummer20UL16GEN-00001_report.xml report\nprocessedEvents=$(grep -Po \"(?<=<Metric Name=\\\"NumberEvents\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\nproducedEvents=$(grep -Po \"(?<=<TotalEvents>)(\\d*)(?=</TotalEvents>)\" $REPORT_NAME | tail -n 1)\nthreads=$(grep -Po \"(?<=<Metric Name=\\\"NumberOfThreads\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\npeakValueRss=$(grep -Po \"(?<=<Metric Name=\\\"PeakValueRss\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\npeakValueVsize=$(grep -Po \"(?<=<Metric Name=\\\"PeakValueVsize\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\ntotalSize=$(grep -Po \"(?<=<Metric Name=\\\"Timing-tstoragefile-write-totalMegabytes\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\ntotalSizeAlt=$(grep -Po \"(?<=<Metric Name=\\\"Timing-file-write-totalMegabytes\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\ntotalJobTime=$(grep -Po \"(?<=<Metric Name=\\\"TotalJobTime\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\ntotalJobCPU=$(grep -Po \"(?<=<Metric Name=\\\"TotalJobCPU\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\neventThroughput=$(grep -Po \"(?<=<Metric Name=\\\"EventThroughput\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\navgEventTime=$(grep -Po \"(?<=<Metric Name=\\\"AvgEventTime\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\nif [ -z \"$threads\" ]; then\n  echo \"Could not find NumberOfThreads in report, defaulting to 1\"\n  threads=1\nfi\nif [ -z \"$eventThroughput\" ]; then\n  eventThroughput=$(bc -l <<< \"scale=4; 1 / ($avgEventTime / $threads)\")\nfi\nif [ -z \"$totalSize\" ]; then\n  totalSize=$totalSizeAlt\nfi\nif [ -z \"$processedEvents\" ]; then\n  processedEvents=$EVENTS\nfi\necho \"Validation report of PPD-RunIISummer20UL16GEN-00001 sequence 1/1\"\necho \"Processed events: $processedEvents\"\necho \"Produced events: $producedEvents\"\necho \"Threads: $threads\"\necho \"Peak value RSS: $peakValueRss MB\"\necho \"Peak value Vsize: $peakValueVsize MB\"\necho \"Total size: $totalSize MB\"\necho \"Total job time: $totalJobTime s\"\necho \"Total CPU time: $totalJobCPU s\"\necho \"Event throughput: $eventThroughput\"\necho \"CPU efficiency: \"$(bc -l <<< \"scale=2; ($totalJobCPU * 100) / ($threads * $totalJobTime)\")\" %\"\necho \"Size per event: \"$(bc -l <<< \"scale=4; ($totalSize * 1024 / $producedEvents)\")\" kB\"\necho \"Time per event: \"$(bc -l <<< \"scale=4; (1 / $eventThroughput)\")\" s\"\necho \"Filter efficiency percent: \"$(bc -l <<< \"scale=8; ($producedEvents * 100) / $processedEvents\")\" %\"\necho \"Filter efficiency fraction: \"$(bc -l <<< \"scale=10; ($producedEvents) / $processedEvents\")\n\n# End of PPD-RunIISummer20UL16GEN-00001_test.sh file\nEndOfTestFile\n\n# Make file executable\nchmod +x PPD-RunIISummer20UL16GEN-00001_test.sh\n\nif [ -e \"/cvmfs/unpacked.cern.ch/registry.hub.docker.com/cmssw/el7:amd64\" ]; then\n  CONTAINER_NAME=\"el7:amd64\"\nelif [ -e \"/cvmfs/unpacked.cern.ch/registry.hub.docker.com/cmssw/el7:x86_64\" ]; then\n  CONTAINER_NAME=\"el7:x86_64\"\nelse\n  echo \"Could not find amd64 or x86_64 for el7\"\n  exit 1\nfi\n# Run in singularity container\n# Mount afs, eos, cvmfs\n# Mount /etc/grid-security for xrootd\nexport SINGULARITY_CACHEDIR=\"/tmp/$(whoami)/singularity\"\nsingularity run -B /afs -B /eos -B /cvmfs -B /etc/grid-security -B /etc/pki/ca-trust --home $PWD:$PWD /cvmfs/unpacked.cern.ch/registry.hub.docker.com/cmssw/$CONTAINER_NAME $(echo $(pwd)/PPD-RunIISummer20UL16GEN-00001_test.sh)\n",
+              "title": "Production script"
+            },
+            {
+              "script": "import FWCore.ParameterSet.Config as cms\n\nfrom Configuration.Generator.Pythia8CommonSettings_cfi import *\nfrom Configuration.Generator.MCTunes2017.PythiaCP5Settings_cfi import *\n\ngenerator = cms.EDFilter(\"Pythia8GeneratorFilter\",\n    maxEventsToPrint = cms.untracked.int32(1),\n    pythiaPylistVerbosity = cms.untracked.int32(1),\n    filterEfficiency = cms.untracked.double(1.0),\n    pythiaHepMCVerbosity = cms.untracked.bool(False),\n    comEnergy = cms.double(13000.),\n    PythiaParameters = cms.PSet(\n        pythia8CommonSettingsBlock,\n        pythia8CP5SettingsBlock,\n        processParameters = cms.vstring(\n            'SoftQCD:inelastic = on',\n       ),\n        parameterSets = cms.vstring('pythia8CommonSettings',\n                                    'pythia8CP5Settings',\n                                    'processParameters',\n                                    )\n    )\n)",
+              "title": "Generator parameters",
+              "url": "https://cms-pdmv-prod.web.cern.ch/mcm/public/restapi/requests/get_fragment/PPD-RunIISummer20UL16GEN-00001"
+            },
+            {
+              "cms_confdb_id": "d762e23304ef73cf0335517bd6e0563c",
+              "process": "GEN",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "Pythia8"
+          ],
+          "global_tag": "106X_mcRun2_asymptotic_v13",
+          "output_dataset": "/MinBias_TuneCP5_13TeV-pythia8/RunIISummer20UL16GEN-106X_mcRun2_asymptotic_v13-v2/GEN",
+          "release": "CMSSW_10_6_17_patch1",
+          "type": "GEN"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\n\n\n# Dump actual test code to a PPD-RunIISummer20UL16SIM-00001_test.sh file that can be run in Singularity\ncat <<'EndOfTestFile' > PPD-RunIISummer20UL16SIM-00001_test.sh\n#!/bin/bash\n\nexport SCRAM_ARCH=slc7_amd64_gcc700\n\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_10_6_17_patch1/src ] ; then\n  echo release CMSSW_10_6_17_patch1 already exists\nelse\n  scram p CMSSW CMSSW_10_6_17_patch1\nfi\ncd CMSSW_10_6_17_patch1/src\neval `scram runtime -sh`\n\nmv ../../Configuration .\nscram b\ncd ../..\n\n# Maximum validation duration: 28800s\n# Margin for validation duration: 30%\n# Validation duration with margin: 28800 * (1 - 0.30) = 20160s\n# Time per event for each sequence: 13.3371s\n# Threads for each sequence: 8\n# Time per event for single thread for each sequence: 8 * 13.3371s = 106.6968s\n# Which adds up to 106.6968s per event\n# Single core events that fit in validation duration: 20160s / 106.6968s = 188\n# Produced events limit in McM is 10000\n# According to 1.0000 efficiency, validation should run 10000 / 1.0000 = 10000 events to reach the limit of 10000\n# Take the minimum of 188 and 10000, but more than 0 -> 188\n# It is estimated that this validation will produce: 188 * 1.0000 = 188 events\nEVENTS=188\n\n\n# cmsDriver command\ncmsDriver.py  --python_filename PPD-RunIISummer20UL16SIM-00001_1_cfg.py --eventcontent RAWSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier GEN-SIM --fileout file:PPD-RunIISummer20UL16SIM-00001.root --conditions 106X_mcRun2_asymptotic_v13 --beamspot Realistic25ns13TeV2016Collision --step SIM --geometry DB:Extended --filein \"dbs:/MinBias_TuneCP5_13TeV-pythia8/RunIISummer20UL16GEN-106X_mcRun2_asymptotic_v13-v2/GEN\" --era Run2_2016 --runUnscheduled --no_exec --mc -n $EVENTS || exit $? ;\n\n# Run generated config\nREPORT_NAME=PPD-RunIISummer20UL16SIM-00001_report.xml\n# Run the cmsRun\ncmsRun -e -j $REPORT_NAME PPD-RunIISummer20UL16SIM-00001_1_cfg.py || exit $? ;\n\n# Parse values from PPD-RunIISummer20UL16SIM-00001_report.xml report\nprocessedEvents=$(grep -Po \"(?<=<Metric Name=\\\"NumberEvents\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\nproducedEvents=$(grep -Po \"(?<=<TotalEvents>)(\\d*)(?=</TotalEvents>)\" $REPORT_NAME | tail -n 1)\nthreads=$(grep -Po \"(?<=<Metric Name=\\\"NumberOfThreads\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\npeakValueRss=$(grep -Po \"(?<=<Metric Name=\\\"PeakValueRss\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\npeakValueVsize=$(grep -Po \"(?<=<Metric Name=\\\"PeakValueVsize\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\ntotalSize=$(grep -Po \"(?<=<Metric Name=\\\"Timing-tstoragefile-write-totalMegabytes\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\ntotalSizeAlt=$(grep -Po \"(?<=<Metric Name=\\\"Timing-file-write-totalMegabytes\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\ntotalJobTime=$(grep -Po \"(?<=<Metric Name=\\\"TotalJobTime\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\ntotalJobCPU=$(grep -Po \"(?<=<Metric Name=\\\"TotalJobCPU\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\neventThroughput=$(grep -Po \"(?<=<Metric Name=\\\"EventThroughput\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\navgEventTime=$(grep -Po \"(?<=<Metric Name=\\\"AvgEventTime\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\nif [ -z \"$threads\" ]; then\n  echo \"Could not find NumberOfThreads in report, defaulting to 1\"\n  threads=1\nfi\nif [ -z \"$eventThroughput\" ]; then\n  eventThroughput=$(bc -l <<< \"scale=4; 1 / ($avgEventTime / $threads)\")\nfi\nif [ -z \"$totalSize\" ]; then\n  totalSize=$totalSizeAlt\nfi\nif [ -z \"$processedEvents\" ]; then\n  processedEvents=$EVENTS\nfi\necho \"Validation report of PPD-RunIISummer20UL16SIM-00001 sequence 1/1\"\necho \"Processed events: $processedEvents\"\necho \"Produced events: $producedEvents\"\necho \"Threads: $threads\"\necho \"Peak value RSS: $peakValueRss MB\"\necho \"Peak value Vsize: $peakValueVsize MB\"\necho \"Total size: $totalSize MB\"\necho \"Total job time: $totalJobTime s\"\necho \"Total CPU time: $totalJobCPU s\"\necho \"Event throughput: $eventThroughput\"\necho \"CPU efficiency: \"$(bc -l <<< \"scale=2; ($totalJobCPU * 100) / ($threads * $totalJobTime)\")\" %\"\necho \"Size per event: \"$(bc -l <<< \"scale=4; ($totalSize * 1024 / $producedEvents)\")\" kB\"\necho \"Time per event: \"$(bc -l <<< \"scale=4; (1 / $eventThroughput)\")\" s\"\necho \"Filter efficiency percent: \"$(bc -l <<< \"scale=8; ($producedEvents * 100) / $processedEvents\")\" %\"\necho \"Filter efficiency fraction: \"$(bc -l <<< \"scale=10; ($producedEvents) / $processedEvents\")\n\n# End of PPD-RunIISummer20UL16SIM-00001_test.sh file\nEndOfTestFile\n\n# Make file executable\nchmod +x PPD-RunIISummer20UL16SIM-00001_test.sh\n\nif [ -e \"/cvmfs/unpacked.cern.ch/registry.hub.docker.com/cmssw/el7:amd64\" ]; then\n  CONTAINER_NAME=\"el7:amd64\"\nelif [ -e \"/cvmfs/unpacked.cern.ch/registry.hub.docker.com/cmssw/el7:x86_64\" ]; then\n  CONTAINER_NAME=\"el7:x86_64\"\nelse\n  echo \"Could not find amd64 or x86_64 for el7\"\n  exit 1\nfi\n# Run in singularity container\n# Mount afs, eos, cvmfs\n# Mount /etc/grid-security for xrootd\nexport SINGULARITY_CACHEDIR=\"/tmp/$(whoami)/singularity\"\nsingularity run -B /afs -B /eos -B /cvmfs -B /etc/grid-security -B /etc/pki/ca-trust --home $PWD:$PWD /cvmfs/unpacked.cern.ch/registry.hub.docker.com/cmssw/$CONTAINER_NAME $(echo $(pwd)/PPD-RunIISummer20UL16SIM-00001_test.sh)\n",
+              "title": "Production script"
+            },
+            {
+              "cms_confdb_id": "d762e23304ef73cf0335517bd6e08158",
+              "process": "SIM",
+              "title": "Configuration file"
+            }
+          ],
+          "global_tag": "106X_mcRun2_asymptotic_v13",
+          "output_dataset": "/MinBias_TuneCP5_13TeV-pythia8/RunIISummer20UL16SIM-106X_mcRun2_asymptotic_v13-v2/GEN-SIM",
+          "release": "CMSSW_10_6_17_patch1",
+          "type": "SIM"
+        },
+        {
+          "configuration_files": [
+            {
+              "script": "#!/bin/bash\n\n# GEN Script begin\nrm -f request_fragment_check.py\nwget -q https://raw.githubusercontent.com/cms-sw/genproductions/master/bin/utils/request_fragment_check.py\nchmod +x request_fragment_check.py\n./request_fragment_check.py --bypass_status --prepid PPD-RunIISummer20ULPrePremix-00003\nGEN_ERR=$?\nif [ $GEN_ERR -ne 0 ]; then\n  echo \"GEN Checking Script returned exit code $GEN_ERR which means there are $GEN_ERR errors\"\n  echo \"Validation WILL NOT RUN\"\n  echo \"Please correct errors in the request and run validation again\"\n  exit $GEN_ERR\nfi\necho \"Running VALIDATION. GEN Request Checking Script returned no errors\"\n# GEN Script end\n\n# Download fragment from McM\ncurl -s -k https://cms-pdmv-prod.web.cern.ch/mcm/public/restapi/requests/get_fragment/PPD-RunIISummer20ULPrePremix-00003 --retry 3 --create-dirs -o Configuration/GenProduction/python/PPD-RunIISummer20ULPrePremix-00003-fragment.py\n[ -s Configuration/GenProduction/python/PPD-RunIISummer20ULPrePremix-00003-fragment.py ] || exit $?;\n\n# Check if fragment contais gridpack path ant that it is in cvmfs\nif grep -q \"gridpacks\" Configuration/GenProduction/python/PPD-RunIISummer20ULPrePremix-00003-fragment.py; then\n  if ! grep -q \"/cvmfs/cms.cern.ch/phys_generator/gridpacks\" Configuration/GenProduction/python/PPD-RunIISummer20ULPrePremix-00003-fragment.py; then\n    echo \"Gridpack inside fragment is not in cvmfs.\"\n    exit -1\n  fi\nfi\n\n# Dump actual test code to a PPD-RunIISummer20ULPrePremix-00003_test.sh file that can be run in Singularity\ncat <<'EndOfTestFile' > PPD-RunIISummer20ULPrePremix-00003_test.sh\n#!/bin/bash\n\nexport SCRAM_ARCH=slc7_amd64_gcc700\n\nsource /cvmfs/cms.cern.ch/cmsset_default.sh\nif [ -r CMSSW_10_6_17_patch1/src ] ; then\n  echo release CMSSW_10_6_17_patch1 already exists\nelse\n  scram p CMSSW CMSSW_10_6_17_patch1\nfi\ncd CMSSW_10_6_17_patch1/src\neval `scram runtime -sh`\n\nmv ../../Configuration .\nscram b\ncd ../..\n\n# Maximum validation duration: 28800s\n# Margin for validation duration: 30%\n# Validation duration with margin: 28800 * (1 - 0.30) = 20160s\n# Time per event for each sequence: 17.7118s\n# Threads for each sequence: 1\n# Time per event for single thread for each sequence: 1 * 17.7118s = 17.7118s\n# Which adds up to 17.7118s per event\n# Single core events that fit in validation duration: 20160s / 17.7118s = 1138\n# Produced events limit in McM is 10000\n# According to 1.0000 efficiency, validation should run 10000 / 1.0000 = 10000 events to reach the limit of 10000\n# Take the minimum of 1138 and 10000, but more than 0 -> 1138\n# It is estimated that this validation will produce: 1138 * 1.0000 = 1138 events\nEVENTS=1138\n\n\n# cmsDriver command\ncmsDriver.py Configuration/GenProduction/python/PPD-RunIISummer20ULPrePremix-00003-fragment.py --python_filename PPD-RunIISummer20ULPrePremix-00003_1_cfg.py --eventcontent PREMIX --pileup 2016_25ns_UltraLegacy_PoissonOOTPU --customise Configuration/DataProcessing/Utils.addMonitoring --datatier PREMIX --fileout file:PPD-RunIISummer20ULPrePremix-00003.root --pileup_input \"dbs:/MinBias_TuneCP5_13TeV-pythia8/RunIISummer20UL16SIM-106X_mcRun2_asymptotic_v13-v2/GEN-SIM\" --conditions 106X_mcRun2_asymptotic_v13 --customise_commands process.source.numberEventsInLuminosityBlock=\"cms.untracked.uint32(100)\" --step GEN,SIM,DIGI --procModifiers premix_stage1 --geometry DB:Extended --era Run2_2016 --no_exec --mc -n $EVENTS || exit $? ;\n\n# Run generated config\nREPORT_NAME=PPD-RunIISummer20ULPrePremix-00003_report.xml\n# Run the cmsRun\ncmsRun -e -j $REPORT_NAME PPD-RunIISummer20ULPrePremix-00003_1_cfg.py || exit $? ;\n\n# Parse values from PPD-RunIISummer20ULPrePremix-00003_report.xml report\nprocessedEvents=$(grep -Po \"(?<=<Metric Name=\\\"NumberEvents\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\nproducedEvents=$(grep -Po \"(?<=<TotalEvents>)(\\d*)(?=</TotalEvents>)\" $REPORT_NAME | tail -n 1)\nthreads=$(grep -Po \"(?<=<Metric Name=\\\"NumberOfThreads\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\npeakValueRss=$(grep -Po \"(?<=<Metric Name=\\\"PeakValueRss\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\npeakValueVsize=$(grep -Po \"(?<=<Metric Name=\\\"PeakValueVsize\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\ntotalSize=$(grep -Po \"(?<=<Metric Name=\\\"Timing-tstoragefile-write-totalMegabytes\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\ntotalSizeAlt=$(grep -Po \"(?<=<Metric Name=\\\"Timing-file-write-totalMegabytes\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\ntotalJobTime=$(grep -Po \"(?<=<Metric Name=\\\"TotalJobTime\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\ntotalJobCPU=$(grep -Po \"(?<=<Metric Name=\\\"TotalJobCPU\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\neventThroughput=$(grep -Po \"(?<=<Metric Name=\\\"EventThroughput\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\navgEventTime=$(grep -Po \"(?<=<Metric Name=\\\"AvgEventTime\\\" Value=\\\")(.*)(?=\\\"/>)\" $REPORT_NAME | tail -n 1)\nif [ -z \"$threads\" ]; then\n  echo \"Could not find NumberOfThreads in report, defaulting to 1\"\n  threads=1\nfi\nif [ -z \"$eventThroughput\" ]; then\n  eventThroughput=$(bc -l <<< \"scale=4; 1 / ($avgEventTime / $threads)\")\nfi\nif [ -z \"$totalSize\" ]; then\n  totalSize=$totalSizeAlt\nfi\nif [ -z \"$processedEvents\" ]; then\n  processedEvents=$EVENTS\nfi\necho \"Validation report of PPD-RunIISummer20ULPrePremix-00003 sequence 1/1\"\necho \"Processed events: $processedEvents\"\necho \"Produced events: $producedEvents\"\necho \"Threads: $threads\"\necho \"Peak value RSS: $peakValueRss MB\"\necho \"Peak value Vsize: $peakValueVsize MB\"\necho \"Total size: $totalSize MB\"\necho \"Total job time: $totalJobTime s\"\necho \"Total CPU time: $totalJobCPU s\"\necho \"Event throughput: $eventThroughput\"\necho \"CPU efficiency: \"$(bc -l <<< \"scale=2; ($totalJobCPU * 100) / ($threads * $totalJobTime)\")\" %\"\necho \"Size per event: \"$(bc -l <<< \"scale=4; ($totalSize * 1024 / $producedEvents)\")\" kB\"\necho \"Time per event: \"$(bc -l <<< \"scale=4; (1 / $eventThroughput)\")\" s\"\necho \"Filter efficiency percent: \"$(bc -l <<< \"scale=8; ($producedEvents * 100) / $processedEvents\")\" %\"\necho \"Filter efficiency fraction: \"$(bc -l <<< \"scale=10; ($producedEvents) / $processedEvents\")\n\n# End of PPD-RunIISummer20ULPrePremix-00003_test.sh file\nEndOfTestFile\n\n# Make file executable\nchmod +x PPD-RunIISummer20ULPrePremix-00003_test.sh\n\nif [ -e \"/cvmfs/unpacked.cern.ch/registry.hub.docker.com/cmssw/el7:amd64\" ]; then\n  CONTAINER_NAME=\"el7:amd64\"\nelif [ -e \"/cvmfs/unpacked.cern.ch/registry.hub.docker.com/cmssw/el7:x86_64\" ]; then\n  CONTAINER_NAME=\"el7:x86_64\"\nelse\n  echo \"Could not find amd64 or x86_64 for el7\"\n  exit 1\nfi\n# Run in singularity container\n# Mount afs, eos, cvmfs\n# Mount /etc/grid-security for xrootd\nexport SINGULARITY_CACHEDIR=\"/tmp/$(whoami)/singularity\"\nsingularity run -B /afs -B /eos -B /cvmfs -B /etc/grid-security -B /etc/pki/ca-trust --home $PWD:$PWD /cvmfs/unpacked.cern.ch/registry.hub.docker.com/cmssw/$CONTAINER_NAME $(echo $(pwd)/PPD-RunIISummer20ULPrePremix-00003_test.sh)\n",
+              "title": "Production script"
+            },
+            {
+              "cms_confdb_id": "bd6fc1859c555ba6f366001d9c1c61e5",
+              "process": "DIGI",
+              "title": "Configuration file"
+            }
+          ],
+          "generators": [
+            "Pythia8"
+          ],
+          "global_tag": "106X_mcRun2_asymptotic_v13",
+          "output_dataset": "/Neutrino_E-10_gun/RunIISummer20ULPrePremix-UL16_106X_mcRun2_asymptotic_v13-v1/PREMIX",
+          "release": "CMSSW_10_6_17_patch1",
+          "type": "DIGI"
+        }
+      ]
+    },
+    "pileup": {
+      "description": "<p>To make these simulated data comparable with the collision data, <a href=\"/docs/cms-guide-pileup-simulation\">pile-up events</a> from the dataset <code>/MinBias_TuneCP5_13TeV-pythia8/RunIISummer20UL16SIM-106X_mcRun2_asymptotic_v13-v2/GEN-SIM</code> are added to the simulated event in the DIGI step.</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "30566",
+    "run_period": [
+      "Run2016G",
+      "Run2016H"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_10_6_30-slc7_amd64_gcc700:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_10_6_30-slc7_amd64_gcc700:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "106X_mcRun2_asymptotic_v17",
+      "release": "CMSSW_10_6_30"
+    },
+    "title": "/Neutrino_E-10_gun/RunIISummer20ULPrePremix-UL16_106X_mcRun2_asymptotic_v13-v1/PREMIX",
+    "title_additional": "Simulated dataset Neutrino_E-10_gun in PREMIX format for 2016 collision data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "These simulated data are not meant to be analysed on their own. The dataset can be used to add pile-up events to newly simulated event samples using CMS experiment software, available through the CMS Open Data container or the CMS Virtual Machine. See the instructions for setting up one of the two alternative environments and getting started in",
+      "links": [
+        {
+          "description": "Running CMS analysis code using Docker",
+          "url": "/docs/cms-guide-docker"
+        },
+        {
+          "description": "How to install the CMS Virtual Machine",
+          "url": "/docs/cms-virtual-machine-2016-2018"
+        },
+        {
+          "description": "Getting started with CMS open data",
+          "url": "/docs/cms-getting-started-miniaod"
+        }
+      ]
+    },
+    "validation": {
+      "description": "The generation and simulation of Monte Carlo data has been validated through general CMS validation procedures."
+    }
+  }
+]
