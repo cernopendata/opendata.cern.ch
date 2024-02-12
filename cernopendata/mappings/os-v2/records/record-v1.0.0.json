@@ -12,8 +12,7 @@
           "type":"keyword"
         },
         "title": {
-            "type": "keyword",
-            "fields": {"tokens":  {"type": "text"}}
+            "type": "text"
         },
         "facet_schema": {
           "index": true,
@@ -51,7 +50,7 @@
               "type": "keyword"
             },
             "name": {
-              "type": "keyword"
+              "type": "text"
             }
           }
         },
