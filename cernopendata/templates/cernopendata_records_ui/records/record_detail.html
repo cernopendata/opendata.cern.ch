@@ -210,6 +210,15 @@
     </div>
     {% endif %}
 
+    {% if record.dataset_semantics_files %}
+    <div>
+        <h2>Dataset semantics</h2>
+        <a href="{{record.dataset_semantics_files.url}}">
+            Variable list
+        </a>
+    </div>
+    {% endif %}
+
     {% if record.dataset_semantics %}
     <div>
         <h2>Dataset semantics</h2>
