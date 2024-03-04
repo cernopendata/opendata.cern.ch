@@ -15,15 +15,11 @@ Install with Docker
 -------------------
 
 One popular solution to develop the CERN Open Data instance locally is to use
-Docker. For development purposes, please use the ``docker-compose-dev.yml``
-configuration. The source code directory will be mounted in the container and
-the system will be ready for "live editing". This is useful for active feature
-development or for pull request integration purposes. A usage example:
+Docker. Please use the ``docker-compose-dev.yml``. A usage example:
 
 .. code-block:: console
 
    $ ./scripts/generate-localhost-certificate.sh
-   $ docker compose -f docker-compose-dev.yml build
    $ docker compose -f docker-compose-dev.yml up -d
    $ docker exec -i -t opendatacernch-web-1 /code/scripts/populate-instance.sh
    $ firefox http://0.0.0.0:5000/
@@ -42,6 +38,26 @@ will not be mounted in the container in this case. A usage example:
    $ docker exec -i -t opendatacernch-web-1 /code/scripts/populate-instance.sh
    $ firefox http://0.0.0.0/
    $ docker compose down -v
+
+
+This will create a new instance of the portal, with the records that come out of the common package.
+The next step would be to insert the data that comes from this repository.
+
+.. code-block:: console
+   $ docker compose up -d
+   $ docker exec -i -t opendatacernch-web-1 cernopendata fixtures records -d /data/records
+   $ docker exec -i -t opendatacernch-web-1 cernopendata fixtures docs -d /data/docs
+   $ firefox http://0.0.0.0/
+   $ docker compose down -v
+
+If you want to modify the portal itself (for instance, the JINJA templates or the schema of the objects), then the
+recommended setup is to check out as well the repository for the code (in the same parent directory as this one), and
+mount the code directory, so that the system is ready for "live editing". This is useful for active feature
+development or for pull request integration purposes.
+
+.. code-block:: console
+   $ ( cd .. && git clone https://github.com/cernopendata/cernopendata-portal.git )
+   $ sed -i '' 's/#\(.*# Uncomment this one to do "Live Editing"\)/\1/g' docker-compose.yml
 
 Install with Podman
 -------------------
@@ -63,10 +79,7 @@ An example of a Podman development session:
    $ ./scripts/generate-localhost-certificate.sh
    $ podman-compose -f docker-compose-dev.yml --podman-build-args='--format docker' build
    $ podman-compose -f docker-compose-dev.yml up
-   $ podman exec -i -t opendatacernch_web_1 \
-       ./scripts/populate-instance.sh --skip-docs --skip-glossary --skip-records
-   $ podman exec -i -t opendatacernch_web_1 \
-       cernopendata fixtures records --mode insert -f cernopendata/modules/fixtures/data/records/cms-primary-datasets.json
+   $ podman exec -i -t opendatacernch_web_1 /code/scripts/populate-instance.sh
    $ firefox http://0.0.0.0:5000/
    $ podman-compose -f docker-compose-dev.yml down -v
 
