@@ -67,7 +67,7 @@ setup_requires = [
 
 install_requires = [
     # General Invenio dependencies
-    "invenio-app>=1.3.0,<2.0.0",
+    "invenio-app>=1.3.0,<1.5.0",
     "invenio-base>=1.3.0,<2.0.0",
     "invenio-config>=1.0.3,<2.0.0",
     # Custom Invenio `base` bundle
