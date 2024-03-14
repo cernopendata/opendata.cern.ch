@@ -1,0 +1,51 @@
+[
+  {
+    "abstract": {
+      "description": "<p>This software can be used to apply selections and other analysis computations to NanoAOD files. Input NanoAOD files are processed through pre-defined or user-defined modules to produce output NanoAOD files with new content and/or fewer events.</p><br><p>For use with NanoAOD <a href=\"/search?q=CMS&f=file_type%3Ananoaod\">data</a> and <a href=\"/search?q=CMS&f=file_type%3Ananoaodsim\">simulation</a> samples on this portal.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "CMS Open data group"
+      }
+    ],
+    "collections": [
+      "CMS-Tools"
+    ],
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2024",
+    "experiment": [
+      "CMS"
+    ],
+    "license": {
+      "attribution": "GNU General Public License (GPL) version 3"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12507",
+    "run_period": [
+      "Run2016G",
+      "Run2016H"
+    ],
+    "source_code_repository": {
+      "url": "https://github.com/cms-opendata-analyses/nanoAOD-tools"
+    },
+    "system_details": {
+      "release": "This software requires python 2.7 and a recent ROOT version."
+    },
+    "title": "Tool for processing CMS NanoAOD data",
+    "type": {
+      "primary": "Software",
+      "secondary": [
+        "Analysis"
+      ]
+    },
+    "usage": {
+      "description": "<p>This software can be run with a plain ROOT installation. Go to <a href=\"https://root.cern\">root.cern</a> for instructions how to install the software, or use the ROOT docker container documented on the <a href=\"/docs/cms-guide-docker\">CMS docker guide</a>.</p><p>To download the files, you can either use directly the web browser or follow the instructions given in the <a href=\"/docs/cms-getting-started-nanoaod\">NanoAOD Getting Started page</a>.The Getting Started page provides an example for using NanoAOD-tools to skim NanoAOD and keep only the validated runs, and other examples are provided in the README file of the repository.</p>"
+    },
+    "use_with": {
+      "description": "This software can be run with the datasets in the nanoaod or nanoaodsim formats"
+    }
+  }
+]
