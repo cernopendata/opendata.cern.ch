@@ -149,7 +149,7 @@ Before exiting the ROOT session, your histogram canvas should look something lik
 
 #### NanoAOD skimming and analysis with `NanoAOD-tools`
 
-The [NanoAOD-tools](/record/12507) repository provides a toolkit to perform operations on NanoAOD files outside the CMSSW software environment. This program can be used to:
+The [NanoAOD-tools](/record/12507) software provides a toolkit to perform operations on NanoAOD files outside the CMSSW software environment. This program can be used to:
 
 * skim events that fail the validation
 * skim events that fail an analysis condition based on NanoAOD branch contents
@@ -157,7 +157,7 @@ The [NanoAOD-tools](/record/12507) repository provides a toolkit to perform oper
 * compute many common corrections for simulation
 * compute new observables in user-created modules
 
-Skimming data events that fail the validation is a critical feature, so let's see how to do it by following instructions from the [NanoAOD-tools](/record/12507) repository README. This example will be performed in the [ROOT docker container](/docs/cms-guide-docker#nanoaod) using files from the [Tau 2016H dataset](/record/30565). The instructions here download files via `git clone`, but it is also possible to download a `.zip` file of the repository from the [record page](/record/12507)
+Skimming data events that fail the validation is a critical feature, so let's see how to do it by following instructions from the [NanoAOD-tools repository](https://github.com/cms-opendata-analyses/nanoAOD-tools/). This example will be performed in the [ROOT docker container](/docs/cms-guide-docker#nanoaod) using files from the [Tau 2016H dataset](/record/30565). The instructions here download files via `git clone`, but it is also possible to download a `.zip` file of the NanoAOD-tools repository from the [record page](/record/12507)
 
 ```shell
 $ git clone https://github.com/cms-opendata-analyses/nanoAOD-tools.git NanoAODTools

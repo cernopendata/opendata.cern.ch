@@ -46,15 +46,14 @@
     "type": {
       "primary": "Software",
       "secondary": [
-        "Analysis",
-        "Workflow"
+        "Analysis"
       ]
     },
     "usage": {
-      "description": "<p>The analysis can be run with a plain ROOT installation. Go to <a href=\"https://root.cern\">root.cern</a> for instructions how to install the software, or use the ROOT docker container documented on the <a href=\"/docs/cms-guide-docker\">CMS docker guide</a>.</p><p>To download the files, you can either use directly the web browser or the following command.</p><p><code>git clone git://github.com/cms-opendata-analyses/NanoAODRun1Examples</code></p>><p>To run an example, enter one of the <code>dimuon_20XX</code> directories and execute the ROOT macro inside with a command such as:</p><p><code>$ root -l Dimuon2011_eospublic.C</code></p><p>Step-by-step commands and output examples are provided on the <a href=\"https://github.com/cms-opendata-analyses/NanoAODRun1Examples\">Github repository</a>. The final plots of the analysis are also included in the source code repository.</p>"
+      "description": "<p>The analysis can be run with a plain ROOT installation. Go to <a href=\"https://root.cern\">root.cern</a> for instructions how to install the software, or use the ROOT docker container documented on the <a href=\"/docs/cms-guide-docker\">CMS docker guide</a>.</p><p>To download the files, you can either use directly the web browser or the following command.</p><p><code>$ git clone https://github.com/cms-opendata-analyses/NanoAODRun1Examples</code></p><p>To run an example, enter one of the <code>dimuon_20XX</code> directories and execute the ROOT macro inside with a command such as:</p><p><code>$ root -l Dimuon2011_eospublic.C</code></p><p>Step-by-step commands and output examples are provided on the <a href=\"https://github.com/cms-opendata-analyses/NanoAODRun1Examples\">Github repository</a>. The final plots of the analysis are also included in the source code repository.</p>"
     },
     "use_with": {
-      "description": "These examples can be run with the datasets in the nanoaod-run1 or nanoaodsim-run1 formats",
+      "description": "These examples can be run with the datasets in the nanoaod-run1 or nanoaodsim-run1 formats"
     }
   }
 ]
