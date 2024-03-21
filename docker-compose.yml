@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2015, 2016, 2017, 2018, 2021, 2022, 2023 CERN.
+# Copyright (C) 2015, 2016, 2017, 2018, 2021, 2022, 2023, 2024 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -137,7 +137,7 @@ services:
 
   postgresql:
     restart: "always"
-    image: docker.io/library/postgres:14.8
+    image: docker.io/library/postgres:14.10
     environment:
       - POSTGRES_USER=cernopendata
       - POSTGRES_DB=cernopendata
