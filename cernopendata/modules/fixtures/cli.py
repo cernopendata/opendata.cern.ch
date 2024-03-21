@@ -192,7 +192,7 @@ def records(skip_files, files, profile, mode):
 
     indexer = RecordIndexer()
     schema = current_app.extensions["invenio-jsonschemas"].path_to_url(
-        "records/record-v1.0.0.json"
+        "records/opendata-record-v1.0.0.json"
     )
     data = pkg_resources.resource_filename(
         "cernopendata", "modules/fixtures/data/records"
@@ -282,7 +282,7 @@ def glossary(files, mode):
     """Load glossary term records."""
     indexer = RecordIndexer()
     schema = current_app.extensions["invenio-jsonschemas"].path_to_url(
-        "records/glossary-term-v1.0.0.json"
+        "records/opendata-opendata-glossary-term-v1.0.0.json"
     )
     data = pkg_resources.resource_filename("cernopendata", "modules/fixtures/data")
 
@@ -370,7 +370,7 @@ def docs(files, mode):
 
     indexer = RecordIndexer()
     schema = current_app.extensions["invenio-jsonschemas"].path_to_url(
-        "records/docs-v1.0.0.json"
+        "records/opendata-docs-v1.0.0.json"
     )
     data = pkg_resources.resource_filename("cernopendata", "modules/fixtures/data/docs")
 
