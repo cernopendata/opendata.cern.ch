@@ -36,7 +36,7 @@ $ cmsenv # do not execute this command if you are working in the container
 <details>
 <summary> 2016 </summary>
 <p>
-To analyse CMS data collected in 2016, you need <b>version 10.6.30</b> of CMSSW, supported on Scientific Linux 7. Once you have installed the <a href="/docs/cms-guide-docker">CMS open data container</a> or the <a href="/docs/cms-virtual-machine-2016-2018">CMS-specific CERN Virtual Machine (VM)</a>, you need to open a terminal.
+To analyse CMS data collected in 2016, you need <b>version 10.6.30</b> of CMSSW, supported on Scientific Linux 7. Once you have installed the <a href="/docs/cms-guide-docker">CMS open data container</a> or the <a href="/docs/cms-virtual-machine-cc7">CMS-specific CERN Virtual Machine (VM)</a>, you need to open a terminal.
 </p>
 If you are using the VM, always use the "CMS shell" terminal available from the "CMS Shell" icon on the desktop for all CMSSW-specific commands, such as compilation and run. In the VM, execute the following command in the terminal if you haven't done so before; it ensures that you have this version of CMSSW running:
 
