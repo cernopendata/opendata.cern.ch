@@ -5,7 +5,11 @@
     2. [Accessing condition data from the CMS Open Data containers](#containers)
 4. [Global tags](#global-tags)
     1. [Proton-proton data](#proton-proton)
+        1. [Run-1](#pp-run1)
+        2. [Run-2](#pp-run2)
     2. [Heavy-ion related data](#heavy-ion)
+        1. [Run-1](#hi-run1)
+        2. [Run-2](#hi-run2)
 
 ## <a name="what">What is the condition database?</a>
 
@@ -73,6 +77,8 @@ If you have the `/cvmfs/cms-opendata-conddb.cern.ch` mounted on your local compu
 The global tags for condition data are different for different data-taking periods. They are listed below for [proton-proton](#proton-proton) and [heavy-ion](#heavy-ion) data.
 
 ### <a name="proton-proton">Proton-proton data</a>
+
+#### <a name="pp-run1">Run-1</a>
 
 ---
 
@@ -309,6 +315,8 @@ process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.c
 process.GlobalTag.globaltag = 'START53_V27::All'
 ```
 
+#### <a name="pp-run2">Run-2</a>
+
 ---
 **For 2015 collision data**, the global tag is 76X_dataRun2_16Dec2015_v0.
 
@@ -336,6 +344,38 @@ Define the correct set of condition data by mentioning the global tag in the con
 #globaltag for 2015 MC
 process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/76X_mcRun2_asymptotic_RunIIFall15DR76_v1.db')
 process.GlobalTag.globaltag = '76X_mcRun2_asymptotic_RunIIFall15DR76_v1'
+```
+
+Note that when using the CMS open data software container, the `process.GlobalTag.connect` line makes the job read the condition data from the local `/cvmfs` area in the container. If it is left out, the condition data are read from predefined condition data servers and it may take longer.
+
+---
+
+**For 2016 collision data**, the global tag is 106X_dataRun2_v37.
+
+**VM and container:**
+
+Define the correct set of condition data by mentioning the global tag in the configuration file of the job.
+
+```shell
+#globaltag for 2016 collision data
+process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/106X_dataRun2_v37.db')
+process.GlobalTag.globaltag = '106X_dataRun2_v37'
+```
+
+Note that when using the CMS open data software container, the `process.GlobalTag.connect` line makes the job read the condition data from the local `/cvmfs` area in the container. If it is left out, the condition data are read from predefined condition data servers and it may take longer.
+
+---
+
+**For 2016 simulated data**, the global tag is 106X_mcRun2_asymptotic_v17.
+
+**VM and container:**
+
+Define the correct set of condition data by mentioning the global tag in the configuration file of the job.
+
+```shell
+#globaltag for 2016 MC
+process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/106X_mcRun2_asymptotic_v17.db')
+process.GlobalTag.globaltag = '106X_mcRun2_asymptotic_v17'
 ```
 
 Note that when using the CMS open data software container, the `process.GlobalTag.connect` line makes the job read the condition data from the local `/cvmfs` area in the container. If it is left out, the condition data are read from predefined condition data servers and it may take longer.
@@ -395,6 +435,8 @@ process.GlobalTag.snapshotTime = cms.string("9999-12-31 23:59:59.000")
 ```
 
 ### <a name="heavy-ion">Heavy-ion related data</a>
+
+#### <a name="hi-run1">Run-1</a>
 
 ---
 
@@ -525,6 +567,8 @@ Define the global tag in the configuration file of the job:
 #globaltag for 2013 HI-related MC
 process.GlobalTag.globaltag = '<GLOBAL TAG>::All'
 ```
+
+#### <a name="hi-run2">Run-2</a>
 
 ---
 
