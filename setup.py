@@ -67,7 +67,7 @@ setup_requires = [
 
 install_requires = [
     # General Invenio dependencies
-    "invenio-app>=1.3.0,<2.0.0",
+    "invenio-app>=1.3.0,<1.5.0",
     "invenio-base>=1.3.0,<2.0.0",
     "invenio-config>=1.0.3,<2.0.0",
     # Custom Invenio `base` bundle
@@ -117,7 +117,7 @@ install_requires = [
     # Pin Celery due to worker runtime issues
     "celery==5.2.7",
     # Pin XRootD consistently with Dockerfile
-    "xrootd==5.6.7",
+    "xrootd==5.6.8",
     # Pin Flask/gevent/greenlet/raven to make master work again
     "Flask==2.2.5",
     "Flask-Alembic==2.0.1",
