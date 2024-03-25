@@ -1,5 +1,5 @@
 <center>
-<img src="/static/docs/cms-releases-data-run2-2016/tZq_2016_v2.png" width="60%">
+<img src="/static/docs/cms-releases-data-run2-2016/tZq_2016_v2.png" width="80%">
 <br/>
 Photo: <a href="https://cds.cern.ch/record/2649553?ln=en">CERN Document Server</a>
 </center>
