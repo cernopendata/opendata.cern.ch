@@ -5,25 +5,26 @@ Photo: <a href="https://cds.cern.ch/record/2649553?ln=en">CERN Document Server</
 </center>
 
 The CMS experiment at CERN is proud to announce the first release of 13 TeV proton-proton
-collision data collected in 2016. Over 70 TB of 13 TeV [collision data](https://opendata.cern.ch/search?q=&f=experiment%3ACMS&f=type%3ADataset%2Bsubtype%3ACollision&f=year%3A2016&l=list&order=desc&p=1&s=10&sort=mostrecent)
-and 830 TB of [corresponding simulations](https://opendata.cern.ch/search?q=&f=experiment%3ACMS&f=type%3ADataset%2Bsubtype%3ASimulated&f=year%3A2016&l=list&order=desc&p=1&s=10&sort=mostrecent)
+collision data collected in 2016. Over 70 TB of 13 TeV [collision data](/search?q=&f=experiment%3ACMS&f=type%3ADataset%2Bsubtype%3ACollision&f=year%3A2016&l=list&order=desc&p=1&s=10&sort=mostrecent)
+and 830 TB of [corresponding simulations](/search?q=&f=experiment%3ACMS&f=type%3ADataset%2Bsubtype%3ASimulated&f=year%3A2016&l=list&order=desc&p=1&s=10&sort=mostrecent)
 are now accessible to the global scientific community and enthusiasts alike through the [CERN Open Data Portal](https://opendata.cern.ch/).
 
 For the first time, the scientific community has access to substantial datasets of 13 TeV
-collisions. This release augments the [2015 data and simulation](https://opendata.cern.ch/search?q=&f=experiment%3ACMS&f=type%3ADataset&f=year%3A2015&l=list&order=desc&p=1&s=10&sort=mostrecent) that were made public
+collisions. This release augments the [2015 data and simulation](/search?q=&f=experiment%3ACMS&f=type%3ADataset&f=year%3A2015&l=list&order=desc&p=1&s=10&sort=mostrecent) that were made public
 in 2021. Over 20,000 simulations of different physics processes have been released alongside the
-collision data, as well as new [software containers](/docs/cms-guide-docker) and a new [virtual machine](/docs/cms-virtual-machine-cc7) for analysis. A subset of the collision data is available in an [expanded
-NanoAOD format](https://opendata.cern.ch/search?q=&f=experiment%3ACMS&f=file_type%3Ananoaod-pf&l=list&order=desc&p=1&s=10&sort=mostrecent) that includes information about particle candidates from the CMS "particle flow" algorithm.
+collision data, as well as new [software containers](/docs/cms-guide-docker) and a new [virtual machine](/docs/cms-virtual-machine-cc7) for analysis.
 
 As a reflection of its commitment to accessible open science, CMS has released both 2016 collision
-data and simulation in the new "NanoAOD" (Analysis Object Data) format -- a streamlined and condensed
+data and simulation in the new "NanoAOD" (Analysis Object Data) format, a streamlined and condensed
 storage format that can be analyzed directly by open data users. NanoAOD is extremely efficient, encapsulating
 key physics information while reducing file sizes by about 95% and storing data in standard structures that
 can be analyzed without dedicated CMS software. This format takes a big step toward easily reusable CMS data.
+All data and simulation in this release are also available in the more comprehensive “MiniAOD” format for full
+preservation, and a subset of the collision data is available in an [expanded NanoAOD format](/search?q=&f=experiment%3ACMS&f=file_type%3Ananoaod-pf&l=list&order=desc&p=1&s=10&sort=mostrecent) that includes information about particle candidates from the CMS "particle flow" algorithm.
 
 The 2016 data released today was used by CMS to publish over 200 publications studying 36 inverse femtobarns of
 data, including explorations of the nature of the Higgs boson, searches for new and rare physics processes,
-precision measurements of standard model processes, studies of heavy flavor physics, and more (LINK?).
+precision measurements of standard model processes, studies of heavy flavor physics, and more.
 Scientists, researchers, educators, and students worldwide are encouraged to explore this rich dataset.
 The open nature of the CERN Open Data Portal aligns with CERN's commitment to transparency and knowledge-sharing,
 ensuring that the global community can collectively advance our understanding of the universe.
@@ -34,6 +35,7 @@ Julie Hogan, a leader in the CMS Data Preservation and Open Access group who use
 her undergraduate laboratory course. The group will offer its [5th annual Open Data Workshop](https://indico.cern.ch/event/1387505/)
 in July 2024 to teach users how to analyze the 2016 data. To celebrate the release of data in the NanoAOD format,
 the workshop will feature "hackathon" segments where researchers can actively launch new projects using the open data.
+[Register now](https://indico.cern.ch/event/1387505/registrations/103376/) to participate!
 
 "The entire CMS collaboration has worked for many years to understand the Run 2 data and produce innovative
 new algorithms, data formats, and analysis tools," adds Hogan. "We are excited to open the doors to the
