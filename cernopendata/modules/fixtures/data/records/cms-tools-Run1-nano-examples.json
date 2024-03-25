@@ -1,0 +1,59 @@
+[
+  {
+    "abstract": {
+      "description": "<p>This repository contains example analysis scripts using NanoAODRun1 derived data from 2010, 2011, or 2012 CMS Open Data. These are pedagogical examples that show users how to analyze NanoAOD-format ROOT files using event loops in C++ as well as ROOT's RDataFrame package in C++ and Python. The examples all reproduce a public dimuon mass spectrum histogram from data, highlighting the mass peaks of various particles. The scripts provide real-life examples of creating complex histograms with publication-style labels in ROOT.</p><br><p>For use with nanoaod-run1 <a href=\"/search?q=CMS&f=file_type%3Ananoaod-run1\">data</a> and <a href=\"/search?q=CMS&f=file_type%3Ananoaodsim-run1\">simulation</a> samples on this portal.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "CMS Open data group"
+      }
+    ],
+    "collections": [
+      "CMS-Tools"
+    ],
+    "date_created": [
+      "2010",
+      "2011",
+      "2012"
+    ],
+    "date_published": "2024",
+    "experiment": [
+      "CMS"
+    ],
+    "license": {
+      "attribution": "GNU General Public License (GPL) version 3"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12506",
+    "run_period": [
+      "Run2010A",
+      "Run2010B",
+      "Run2011A",
+      "Run2011B",
+      "Run2012A",
+      "Run2012B",
+      "Run2012C",
+      "Run2012D"
+    ],
+    "source_code_repository": {
+      "url": "https://github.com/cms-opendata-analyses/NanoAODRun1Examples"
+    },
+    "system_details": {
+      "release": "ROOT 6.30 or later"
+    },
+    "title": "Analysis examples using CMS 2010, 2011, or 2012 derived data in the NanoAODRun1 format",
+    "type": {
+      "primary": "Software",
+      "secondary": [
+        "Analysis"
+      ]
+    },
+    "usage": {
+      "description": "<p>The analysis can be run with a plain ROOT installation. Go to <a href=\"https://root.cern\">root.cern</a> for instructions how to install the software, or use the ROOT docker container documented on the <a href=\"/docs/cms-guide-docker\">CMS docker guide</a>.</p><p>To download the files, you can either use directly the web browser or the following command.</p><p><code>$ git clone https://github.com/cms-opendata-analyses/NanoAODRun1Examples</code></p><p>To run an example, enter one of the <code>dimuon_20XX</code> directories and execute the ROOT macro inside with a command such as:</p><p><code>$ root -l Dimuon2011_eospublic.C</code></p><p>Step-by-step commands and output examples are provided on the <a href=\"https://github.com/cms-opendata-analyses/NanoAODRun1Examples\">Github repository</a>. The final plots of the analysis are also included in the source code repository.</p>"
+    },
+    "use_with": {
+      "description": "These examples can be run with the datasets in the nanoaod-run1 or nanoaodsim-run1 formats"
+    }
+  }
+]
