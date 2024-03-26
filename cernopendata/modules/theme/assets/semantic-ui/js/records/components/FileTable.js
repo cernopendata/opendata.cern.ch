@@ -60,6 +60,7 @@ export default function FileTable({ items }) {
                   },
                 }
               : { href: getFileUri(file.key) };
+          const label= file.type=='index.txt' ? 'Download index' : 'Download';
           return (
             <Table.Row key={file.version_id}>
               <Table.Cell className="filename-cell">{file.key}</Table.Cell>
@@ -80,7 +81,7 @@ export default function FileTable({ items }) {
                   </Button>
                 )}
                 <Button as="a" icon size="mini" primary {...downloadProp}>
-                  <Icon name="download" /> Download
+                  <Icon name="download" /> {label}
                 </Button>
               </Table.Cell>
             </Table.Row>
