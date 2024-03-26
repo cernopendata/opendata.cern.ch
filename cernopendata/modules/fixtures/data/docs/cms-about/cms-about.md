@@ -3,7 +3,7 @@ The Compact Muon Solenoid (CMS) is one of the large particle detectors at CERN's
 You can find usage instructions and suggestions of CMS Open Data for different scopes in:
 
 * [Guide page to education use of CMS Open Data](/docs/cms-guide-for-education)
-* In a separate [CMS Open Data guide](https://cms-opendata-guide.web.cern.ch/).
+* [Guide page to research use of CMS Open Data](/docs/cms-guide-for-research) and a separate [CMS Open Data guide](https://cms-opendata-guide.web.cern.ch/).
 
 This page gives a brief overview of CMS Open Data contents:
 
