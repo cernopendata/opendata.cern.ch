@@ -79,6 +79,16 @@ For the first access of each set of CMS open data, you will need a specific cont
 
 <tr class="odd">
 
+<td align="left">2016 proton-proton</td>
+
+<td align="left">CMSSW_10_6_30</td>
+
+<td align="left">cmsopendata/cmssw_10_6_30-slc7_amd64_gcc700<br> gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_10_6_30-slc7_amd64_gcc700</td>
+
+</tr>
+
+<tr class="odd">
+
 <td align="left">2015 proton-proton</td>
 
 <td align="left">CMSSW_7_6_7</td>
