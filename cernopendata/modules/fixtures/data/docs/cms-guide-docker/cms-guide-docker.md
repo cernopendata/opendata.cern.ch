@@ -79,6 +79,16 @@ For the first access of each set of CMS open data, you will need a specific cont
 
 <tr class="odd">
 
+<td align="left">2016 proton-proton</td>
+
+<td align="left">CMSSW_10_6_30</td>
+
+<td align="left">cmsopendata/cmssw_10_6_30-slc7_amd64_gcc700<br> gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_10_6_30-slc7_amd64_gcc700</td>
+
+</tr>
+
+<tr class="odd">
+
 <td align="left">2015 proton-proton</td>
 
 <td align="left">CMSSW_7_6_7</td>
@@ -169,57 +179,47 @@ gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_3_9_2_patch5-slc5_
 ## <a name="fetch-start">Fetch an image and start a container</a>
 
 In the following instructions, make sure to replace the example container image name according to the table above.
-These commands are for 2015 proton-proton data, with the CMSSW version 7_6_7 and the `cmssw_7_6_7-slc6_amd64_gcc493` container image.
+These commands are for 2016 proton-proton data, with the CMSSW version 10_6_30 and the `cmssw_10_6_30-slc7_amd64_gcc700` container image.
 
 Once you have installed Docker on your computer, you can fetch a container image, and create and start a container using the `docker run` command:
 
 ```sh
-docker run -it --name my_od -P -p 5901:5901 -p 6080:6080 cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493 /bin/bash
+docker run -it --name my_od -P -p 5901:5901 -p 6080:6080 cmsopendata/cmssw_10_6_30-slc7_amd64_gcc700 /bin/bash
 ```
 
-Here we fetch the `cmssw_7_6_7-slc6_amd64_gcc493` docker image from [dockerhub](https://hub.docker.com/u/cmsopendata) and name the container `my_od`.
+Here we fetch the `cmssw_10_6_30-slc7_amd64_gcc700` docker image from [dockerhub](https://hub.docker.com/u/cmsopendata) and name the container `my_od`.
 
 This will install a stand-alone CMSSW image (several gigabytes). Therefore this may take a while. However, the image will only have to be downloaded once. The following will appear in your terminal, with messages changing during the download:
 
 ```console
-$ docker run -it --name my_od -P -p 5901:5901 -p 6080:6080 cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493 /bin/bash
-Unable to find image 'cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493:latest' locally
-latest: Pulling from cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493
-a34e8f61dde2: Already exists
-c341e9bd0d75: Pull complete
-b00c4ec204ea: Pull complete
-b75a825d190f: Pull complete
-c1d073a0336d: Pull complete
-650dcb078423: Pull complete
-90c8f402a4b2: Pull complete
-6fbc78240c7f: Pull complete
-1a000c4d9168: Pull complete
-684aeffff49a: Pull complete
-2bf2b8821c7a: Pull complete
-c3325087056c: Pull complete
-acc958e9a46a: Pull complete
-aebfbe474a64: Pull complete
-e869fa526195: Pull complete
-80a3efb6451b: Pull complete
-b27531c14546: Pull complete
-dc3997c36289: Pull complete
-af1734a85201: Pull complete
-0a263c644307: Pull complete
-ba24eee3284a: Pull complete
-a622f52fef0b: Pull complete
-aff80dc8ccdd: Pull complete
-49f941d726e3: Pull complete
-Digest: sha256:f5ec05556302a31fd59ce031af06e9a6163990a6d4a64aacf76b7c775667c65e
-Status: Downloaded newer image for cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493:latest
-Setting up CMSSW_7_6_7
+$ docker run -it --name my_od -P -p 5901:5901 -p 6080:6080 cmsopendata/cmssw_10_6_30-slc7_amd64_gcc700 /bin/bash
+Unable to find image 'cmsopendata/cmssw_10_6_30-slc7_amd64_gcc700:latest' locally
+latest: Pulling from cmsopendata/cmssw_10_6_30-slc7_amd64_gcc700
+8e644b3666d3: Already exists
+945e96025c00: Pull complete
+41a70f52f56f: Pull complete
+77c4aea19d7c: Pull complete
+3e40d434bd23: Pull complete
+52d966019a75: Pull complete
+913ddaff535b: Pull complete
+2a41aaf2ef99: Pull complete
+6e773ee02fe9: Pull complete
+878de2d80b06: Pull complete
+c59f44225a9d: Pull complete
+f0782ac1f652: Pull complete
+4d506d893fa2: Pull complete
+3f1785fba3dc: Pull complete
+Digest: sha256:56ef1955c399912f4cdf53e91b39d66aca04a084d8a3a1002a7e27500ac1efa0
+Status: Downloaded newer image for cmsopendata/cmssw_10_6_30-slc7_amd64_gcc700:latest
+Setting up CMSSW_10_6_30
 CMSSW should now be available.
-This is a standalone image for CMSSW_7_6_7 slc6_amd64_gcc493.
+This is a standalone image for CMSSW_10_6_30 slc7_amd64_gcc700.
 ```
 
 Once done, in a CMSSW container you should see the commmand prompt for the CMSSW instance within Docker:
 
 ```console
-(/code/CMSSW_7_6_7/src)
+(/code/CMSSW_10_6_30/src)
 ```
 
 If you are using a linux distribution on WSL2, and do not get this prompt, but get back to your local terminal prompt, see the instructions [below](#on-wsl2) under "Running CMS open data containers on WSL2".
@@ -294,7 +294,7 @@ chmod -R 777 cms_open_data_work
 Then create a container that includes mounting information through the `-v` option.
 
 ```sh
-docker run -it --name my_od -P -p 5901:5901 -p 6080:6080 -v ${workpath}/cms_open_data_work:/code cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493 /bin/bash
+docker run -it --name my_od -P -p 5901:5901 -p 6080:6080 -v ${workpath}/cms_open_data_work:/code cmsopendata/cmssw_10_6_30-slc7_amd64_gcc700 /bin/bash
 ```
 
 #### <a name="exec">Execute a command in a running container</a>
@@ -332,7 +332,7 @@ You can find more details on the configuration and usage of VNC in the CMS open 
 If you are running on a Linux computer, you can also use X11 forwarding. If you already started a container name `my_od` and now decide to use X11 forwarding instead of VNC, exit from the container shell with `exit`, remove the existing container with `docker rm my_od`. Then start a new container with
 
 ```sh
-docker run -it --name my_od --net=host --env="DISPLAY" -v $HOME/.Xauthority:/home/cmsusr/.Xauthority:rw cmssw_7_6_7-slc6_amd64_gcc493 /bin/bash
+docker run -it --name my_od --net=host --env="DISPLAY" -v $HOME/.Xauthority:/home/cmsusr/.Xauthority:rw cmsopendata/cmssw_10_6_30-slc7_amd64_gcc700 /bin/bash
 ```
 
 #### <a name="test-graphics">Test graphics</a>
@@ -350,7 +350,7 @@ TBrowser t
 ```
 This will open the ROOT browser window. You can exit ROOT with `.q` in the `root[..]` prompt, or from the browser window menu.
 
-If you are new to ROOT, have a quick look to [the Getting started page](/docs/cms-getting-started-2015), or follow the links in [the CMS open data guide](https://cms-opendata-guide.web.cern.ch/tools/root/).
+If you are new to ROOT, have a quick look to [the Getting started page](/docs/cms-getting-started-nanoaod), or follow the links in [the CMS open data guide](https://cms-opendata-guide.web.cern.ch/tools/root/).
 
 #### <a name="prompt">Container prompt</a>
 
@@ -436,7 +436,7 @@ If desired, it is possible to "see" the full cvmfs space by installing the cvmfs
 The preferred option is to [install](https://cvmfs.readthedocs.io/en/stable/cpt-quickstart.html) the cvmfs client locally, on the host machine, and [mount](https://cvmfs.readthedocs.io/en/stable/cpt-configure.html#bind-mount-from-the-host) it on the container:
 
 ```sh
-docker run --name my_od -it -v "/cvmfs/cms-opendata-conddb.cern.ch:/cvmfs/cms-opendata-conddb.cern.ch:shared" cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493 /bin/bash
+docker run --name my_od -it -v "/cvmfs/cms-opendata-conddb.cern.ch:/cvmfs/cms-opendata-conddb.cern.ch:shared" cmsopendata/cmssw_10_6_30-slc7_amd64_gcc700 /bin/bash
 ```
 
 Do not mount the full `/cvmfs` or `/cvmfs/cms.cern.ch` areas as that will overwrite necessary settings in the local `/cvmfs` area of the container.
@@ -444,5 +444,5 @@ Do not mount the full `/cvmfs` or `/cvmfs/cms.cern.ch` areas as that will overwr
 The other option is to [install](https://cvmfs.readthedocs.io/en/stable/cpt-quickstart.html) the cvmfs client directly in the container after it is created (only working for the slc6-based containers). For this, the container needs to get started in [privileged](https://cvmfs.readthedocs.io/en/stable/cpt-configure.html#mount-inside-a-container) mode like
 
 ```sh
-docker run --privileged --name my_od -it cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493 /bin/bash
+docker run --privileged --name my_od -it cmsopendata/cmssw_10_6_30-slc7_amd64_gcc700 /bin/bash
 ```
