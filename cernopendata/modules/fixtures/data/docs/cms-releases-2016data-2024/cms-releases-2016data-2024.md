@@ -22,9 +22,9 @@ can be analyzed without dedicated CMS software. This format takes a big step tow
 All data and simulation in this release are also available in the more comprehensive “MiniAOD” format for full
 preservation, and a subset of the collision data is available in an [expanded NanoAOD format](/search?q=&f=experiment%3ACMS&f=file_type%3Ananoaod-pf&l=list&order=desc&p=1&s=10&sort=mostrecent) that includes information about particle candidates from the CMS "particle flow" algorithm.
 
-The 2016 data released today was used by CMS to publish over 200 publications studying 36 inverse femtobarns of
-data, including explorations of the nature of the Higgs boson, searches for new and rare physics processes,
-precision measurements of standard model processes, studies of heavy flavor physics, and more.
+The 2016 data released today, about half of the total collected in 2016, was used by CMS to publish over 200 publications
+exploring the nature of the Higgs boson, searching for new and rare physics processes, performing precision measurements of
+standard model processes, studying heavy flavor physics, and more.
 Scientists, researchers, educators, and students worldwide are encouraged to explore this rich dataset.
 The open nature of the CERN Open Data Portal aligns with CERN's commitment to transparency and knowledge-sharing,
 ensuring that the global community can collectively advance our understanding of the universe.
