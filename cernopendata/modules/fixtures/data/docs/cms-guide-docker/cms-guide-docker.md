@@ -213,13 +213,13 @@ Digest: sha256:56ef1955c399912f4cdf53e91b39d66aca04a084d8a3a1002a7e27500ac1efa0
 Status: Downloaded newer image for cmsopendata/cmssw_10_6_30-slc7_amd64_gcc700:latest
 Setting up CMSSW_10_6_30
 CMSSW should now be available.
-This is a standalone image for CMSSW_10_6_30 slc7_amd64_gcc700. 
+This is a standalone image for CMSSW_10_6_30 slc7_amd64_gcc700.
 ```
 
 Once done, in a CMSSW container you should see the commmand prompt for the CMSSW instance within Docker:
 
 ```console
-(/code/CMSSW_10_6_30/src) 
+(/code/CMSSW_10_6_30/src)
 ```
 
 If you are using a linux distribution on WSL2, and do not get this prompt, but get back to your local terminal prompt, see the instructions [below](#on-wsl2) under "Running CMS open data containers on WSL2".
