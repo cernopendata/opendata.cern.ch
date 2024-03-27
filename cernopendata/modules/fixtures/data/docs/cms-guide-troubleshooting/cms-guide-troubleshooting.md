@@ -1,5 +1,8 @@
 This page lists possible solutions to frequently encountered issues with CMS Open Data: for the virtual machine; for the CMSSW software and examples; and for the file download and access.
 
+More up-to-date troubleshooting information will be collected on the [CMS Open Data Guide FAQ page](https://cms-opendata-guide.web.cern.ch/faq/).
+Also, the [Open Data Forum](https://opendata-forum.cern.ch/) has many previously asked and answered questions, and you can ask your own specific questions there -- be sure to include the category "CMS".
+
 ### Virtual machine
 
 **I have trouble installing VirtualBox**

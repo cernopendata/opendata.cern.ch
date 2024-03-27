@@ -47,10 +47,10 @@ $ cmsrel CMSSW_10_6_30
 Both in the CMS open data container and in the VM, make sure that you are always in the <b>CMSSW_10_6_30/src/</b> directory (and in the "CMS Shell" terminal in VM).
 </p>
 <p>
-In both the container and the VM, the CMS analysis environment needs to be properly set up by entering the following commands in the terminal (you must do so every time you boot the VM or start the container before you can proceed):
+In the VM, the CMS analysis environment needs to be properly set up by entering the following commands in the terminal (you must do so every time you boot the VM before you can proceed):
 </p>
 ```shell
-$ cd CMSSW_10_6_30/src/ # not needed in the docker container
+$ cd CMSSW_10_6_30/src/
 $ cmsenv
 ```
 <br>
@@ -111,7 +111,7 @@ To run over the example file, change the input file name <code>file:myfile.root<
 <details>
 <summary>2015 VM, 2016 VM, or 2016 docker container</summary>
 <p>
-Download example <code>EDAnalyzer</code>scripts from <a href="https://github.com/cms-opendata-analyses/MiniAnalyzer_CMSSW_10_6_30">this Github repository</a> into a directory two levels below <code>src/</code>:
+Download example <code>EDAnalyzer</code>scripts from <a href="https://github.com/cms-opendata-analyses/MiniAnalyzer_CMSSW_10_6_30">this Github repository</a> into a directory two levels below <code>src/</code> by executing the following command (using `Test/MiniAnalyzer/` in the command provides the directory structure needed for CMSSW to work):
 </p>
 
 ```shell
@@ -120,7 +120,7 @@ $ cd Test/MiniAnalyzer
 ```
 
 <p>
-This example analyzer contains an example file from a 2016 MiniAOD data in the <code>python/ConfFile_cfg.py</code>configuration file. You can change this test file to any other MiniAOD file. The example is also set to process 10 events.
+This example analyzer contains an example file from a 2016 MiniAOD data in the <code>python/ConfFile_cfg.py</code>configuration file. You can change this test file to any other 2015 or 2016 MiniAOD (or MiniAODSIM) file. The example is also set to process 10 events.
 </p>
 <br>
 </details>
@@ -133,24 +133,24 @@ $ scram b
 You can run this "empty" analyzer to see that the data are accessed properly:
 
 ```shell
-$ cmsRun python/ConfFile_cfg.py
-09-Dec-2021 12:00:35 CET  Initiating request to open file root://eospublic.cern.ch//eos/opendata/cms/Run2015D/DoubleEG/MINIAOD/08Jun2016-v1/10000/00387F48-342F-E611-AB5D-0CC47A4D76AC.root
-211209 12:00:35 722 secgsi_InitProxy: cannot access private key file: /home/cmsusr/.globus/userkey.pem
-%MSG-w XrdAdaptor:  file_open 09-Dec-2021 12:00:37 CET pre-events
+(/code/CMSSW_10_6_30/src/Test/MiniAnalyzer) cmsRun python/ConfFile_cfg.py
+26-Mar-2024 17:34:32 CET  Initiating request to open file root://eospublic.cern.ch//eos/opendata/cms/Run2016G/SingleElectron/MINIAOD/UL2016_MiniAODv2-v2/120000/FF99404A-8F07-444E-B931-7B2AE327070B.root
+240326 17:34:32 865 secgsi_InitProxy: cannot access private key file: /home/cmsusr/.globus/userkey.pem
+%MSG-w XrdAdaptor:  file_open 26-Mar-2024 17:34:35 CET pre-events
 Data is served from cern.ch instead of original site eospublic
 %MSG
-09-Dec-2021 12:00:38 CET  Successfully opened file root://eospublic.cern.ch//eos/opendata/cms/Run2015D/DoubleEG/MINIAOD/08Jun2016-v1/10000/00387F48-342F-E611-AB5D-0CC47A4D76AC.root
-Begin processing the 1st record. Run 258434, Event 269235992, LumiSection 165 at 09-Dec-2021 12:01:10.140 CET
-Begin processing the 2nd record. Run 258434, Event 269040066, LumiSection 165 at 09-Dec-2021 12:01:10.141 CET
-Begin processing the 3rd record. Run 258434, Event 269567329, LumiSection 165 at 09-Dec-2021 12:01:10.142 CET
-Begin processing the 4th record. Run 258434, Event 268674092, LumiSection 165 at 09-Dec-2021 12:01:10.143 CET
-Begin processing the 5th record. Run 258434, Event 269416541, LumiSection 165 at 09-Dec-2021 12:01:10.143 CET
-Begin processing the 6th record. Run 258434, Event 269251857, LumiSection 165 at 09-Dec-2021 12:01:10.143 CET
-Begin processing the 7th record. Run 258434, Event 268739237, LumiSection 165 at 09-Dec-2021 12:01:10.144 CET
-Begin processing the 8th record. Run 258434, Event 269456225, LumiSection 165 at 09-Dec-2021 12:01:10.144 CET
-Begin processing the 9th record. Run 258434, Event 269845067, LumiSection 165 at 09-Dec-2021 12:01:10.144 CET
-Begin processing the 10th record. Run 258434, Event 268437313, LumiSection 165 at 09-Dec-2021 12:01:10.145 CET
-09-Dec-2021 12:01:10 CET  Closed file root://eospublic.cern.ch//eos/opendata/cms/Run2015D/DoubleEG/MINIAOD/08Jun2016-v1/10000/00387F48-342F-E611-AB5D-0CC47A4D76AC.root
+26-Mar-2024 17:34:48 CET  Successfully opened file root://eospublic.cern.ch//eos/opendata/cms/Run2016G/SingleElectron/MINIAOD/UL2016_MiniAODv2-v2/120000/FF99404A-8F07-444E-B931-7B2AE327070B.root
+Begin processing the 1st record. Run 280363, Event 187657341, LumiSection 116 on stream 0 at 26-Mar-2024 17:34:59.995 CET
+Begin processing the 2nd record. Run 280363, Event 186936772, LumiSection 116 on stream 0 at 26-Mar-2024 17:34:59.997 CET
+Begin processing the 3rd record. Run 280363, Event 186325056, LumiSection 116 on stream 0 at 26-Mar-2024 17:35:00.000 CET
+Begin processing the 4th record. Run 280363, Event 187418881, LumiSection 116 on stream 0 at 26-Mar-2024 17:35:00.001 CET
+Begin processing the 5th record. Run 280363, Event 186613060, LumiSection 116 on stream 0 at 26-Mar-2024 17:35:00.001 CET
+Begin processing the 6th record. Run 280363, Event 186347521, LumiSection 116 on stream 0 at 26-Mar-2024 17:35:00.001 CET
+Begin processing the 7th record. Run 280363, Event 186424707, LumiSection 116 on stream 0 at 26-Mar-2024 17:35:00.004 CET
+Begin processing the 8th record. Run 280363, Event 186377469, LumiSection 116 on stream 0 at 26-Mar-2024 17:35:00.004 CET
+Begin processing the 9th record. Run 280363, Event 187712063, LumiSection 116 on stream 0 at 26-Mar-2024 17:35:00.004 CET
+Begin processing the 10th record. Run 280363, Event 187347460, LumiSection 116 on stream 0 at 26-Mar-2024 17:35:00.004 CET
+26-Mar-2024 17:35:00 CET  Closed file root://eospublic.cern.ch//eos/opendata/cms/Run2016G/SingleElectron/MINIAOD/UL2016_MiniAODv2-v2/120000/FF99404A-8F07-444E-B931-7B2AE327070B.root
 
 =============================================
 
@@ -165,13 +165,15 @@ MessageLogger Summary
  type    category    Examples: run/evt        run/evt          run/evt
  ---- -------------------- ---------------- ---------------- ----------------
     1 XrdAdaptor           pre-events
-    2 fileAction           PostEndRun
+    2 fileAction           PostGlobalEndRun
     3 fileAction           pre-events       pre-events
 
 Severity    # Occurrences   Total Occurrences
 --------    -------------   -----------------
 Warning                 1                   1
 System                  3                   3
+
+dropped waiting message count 0
 ```
 
 To access the physics object information in the code, for example that of electrons, add the following lines in `plugins/MiniAnalyzer.cc` (the lines before and after of the line to be added are also shown):
@@ -220,25 +222,30 @@ $ cmsRun python/ConfFile_cfg.py
 and the output gives information on the electrons in these events:
 
 ```shell
-Begin processing the 1st record. Run 258434, Event 269235992, LumiSection 165 at 09-Dec-2021 12:11:17.653 CET
-electron with pt 94.4, eta -1.959, cluster eta -1.969, pass conversion veto 1
-Begin processing the 2nd record. Run 258434, Event 269040066, LumiSection 165 at 09-Dec-2021 12:11:17.748 CET
-electron with pt 19.3, eta -0.215, cluster eta -0.236, pass conversion veto 1
-electron with pt 18.1, eta -2.271, cluster eta -2.296, pass conversion veto 1
-Begin processing the 3rd record. Run 258434, Event 269567329, LumiSection 165 at 09-Dec-2021 12:11:17.749 CET
-electron with pt 47.2, eta +0.530, cluster eta +0.548, pass conversion veto 1
-electron with pt 42.6, eta +0.362, cluster eta +0.377, pass conversion veto 1
-Begin processing the 4th record. Run 258434, Event 268674092, LumiSection 165 at 09-Dec-2021 12:11:17.750 CET
-electron with pt 23.3, eta +2.008, cluster eta +2.045, pass conversion veto 0
-Begin processing the 5th record. Run 258434, Event 269416541, LumiSection 165 at 09-Dec-2021 12:11:17.751 CET
-electron with pt 17.7, eta +2.101, cluster eta +2.081, pass conversion veto 1
-Begin processing the 6th record. Run 258434, Event 269251857, LumiSection 165 at 09-Dec-2021 12:11:17.751 CET
-Begin processing the 7th record. Run 258434, Event 268739237, LumiSection 165 at 09-Dec-2021 12:11:17.751 CET
-Begin processing the 8th record. Run 258434, Event 269456225, LumiSection 165 at 09-Dec-2021 12:11:17.752 CET
-electron with pt 23.2, eta +0.491, cluster eta +0.483, pass conversion veto 1
-Begin processing the 9th record. Run 258434, Event 269845067, LumiSection 165 at 09-Dec-2021 12:11:17.752 CET
-electron with pt 23.0, eta -2.378, cluster eta -2.395, pass conversion veto 1
-Begin processing the 10th record. Run 258434, Event 268437313, LumiSection 165 at 09-Dec-2021 12:11:17.752 CET
+Begin processing the 1st record. Run 280363, Event 187657341, LumiSection 116 on stream 0 at 26-Mar-2024 17:51:17.116 CET
+electron with pt 30.8, eta -0.795, cluster eta -0.789, pass conversion veto 1
+Begin processing the 2nd record. Run 280363, Event 186936772, LumiSection 116 on stream 0 at 26-Mar-2024 17:51:20.200 CET
+electron with pt 42.8, eta -2.243, cluster eta -2.252, pass conversion veto 1
+electron with pt 38.5, eta -2.154, cluster eta -2.162, pass conversion veto 1
+Begin processing the 3rd record. Run 280363, Event 186325056, LumiSection 116 on stream 0 at 26-Mar-2024 17:51:20.202 CET
+electron with pt 32.0, eta +1.864, cluster eta +1.859, pass conversion veto 1
+Begin processing the 4th record. Run 280363, Event 187418881, LumiSection 116 on stream 0 at 26-Mar-2024 17:51:20.205 CET
+electron with pt 33.8, eta -1.882, cluster eta -1.884, pass conversion veto 1
+Begin processing the 5th record. Run 280363, Event 186613060, LumiSection 116 on stream 0 at 26-Mar-2024 17:51:20.206 CET
+electron with pt 48.5, eta +2.082, cluster eta +2.096, pass conversion veto 1
+electron with pt  5.5, eta +2.324, cluster eta +2.328, pass conversion veto 1
+Begin processing the 6th record. Run 280363, Event 186347521, LumiSection 116 on stream 0 at 26-Mar-2024 17:51:20.206 CET
+electron with pt 27.2, eta -0.647, cluster eta -0.646, pass conversion veto 1
+Begin processing the 7th record. Run 280363, Event 186424707, LumiSection 116 on stream 0 at 26-Mar-2024 17:51:20.208 CET
+electron with pt 142.9, eta -2.304, cluster eta -2.320, pass conversion veto 1
+Begin processing the 8th record. Run 280363, Event 186377469, LumiSection 116 on stream 0 at 26-Mar-2024 17:51:20.211 CET
+electron with pt 23.8, eta +1.947, cluster eta +1.956, pass conversion veto 1
+Begin processing the 9th record. Run 280363, Event 187712063, LumiSection 116 on stream 0 at 26-Mar-2024 17:51:20.212 CET
+electron with pt 132.1, eta -1.534, cluster eta -1.546, pass conversion veto 1
+electron with pt 15.3, eta -0.924, cluster eta -0.938, pass conversion veto 1
+electron with pt  9.2, eta -0.988, cluster eta -0.991, pass conversion veto 1
+Begin processing the 10th record. Run 280363, Event 187347460, LumiSection 116 on stream 0 at 26-Mar-2024 17:51:20.212 CET
+electron with pt 33.6, eta +1.325, cluster eta +1.366, pass conversion veto 1
 ```
 
 Note that the specific output will look slightly different for other MiniAOD test files, but should contain the same features.
@@ -343,7 +350,7 @@ This selection must always be applied to any analysis on CMS open data, and to d
 <details>
 <summary> 2016 </summary>
 <p>
-The instructions for the Physics Object Extractor Tool given in the 2015 data analysis drop-down above cannot be directly applied to 2016 data, but they still represent a good example of forming a collection of EDAnalyzers for filtering validated runs and storing information of interest. CMS recommends working with the NanoAOD format of the 2016 data, which is derived from MiniAOD. Instead of holding custom C++ classes, it holds ROOT trees with standard classes that can be directly read or analyzed using ROOT or other ROOT-compatible software. See the <a href="/docs/cms-getting-started-nanoaod/">NanoAOD Getting Started page</a> for more information.
+The instructions for the Physics Object Extractor Tool given in the 2015 data analysis drop-down above cannot be directly applied to 2016 data, but they still represent a good example of forming a collection of EDAnalyzers for filtering validated runs and storing information of interest. CMS recommends working with the NanoAOD format of the 2016 data, which is derived from MiniAOD. Instead of holding custom C++ classes, it holds ROOT trees with standard classes that can be directly read or analyzed using ROOT or other ROOT-compatible software. See the <a href="/docs/cms-getting-started-nanoaod">NanoAOD Getting Started page</a> for more information.
 </p>
 <br>
 
