@@ -149,7 +149,7 @@ Before exiting the ROOT session, your histogram canvas should look something lik
 
 #### NanoAOD skimming and analysis with `NanoAOD-tools`
 
-The [NanoAOD-tools](https://github.com/cms-nanoAOD/nanoAOD-tools/) repository provides a toolkit to perform operations on NanoAOD files outside the CMSSW software environment. This program can be used to:
+The [NanoAOD-tools](/record/12507) software provides a toolkit to perform operations on NanoAOD files outside the CMSSW software environment. This program can be used to:
 
 * skim events that fail the validation
 * skim events that fail an analysis condition based on NanoAOD branch contents
@@ -157,10 +157,10 @@ The [NanoAOD-tools](https://github.com/cms-nanoAOD/nanoAOD-tools/) repository pr
 * compute many common corrections for simulation
 * compute new observables in user-created modules
 
-Skimming data events that fail the validation is a critical feature, so let's see how to do it by following instructions from the [NanoAOD-tools](https://github.com/cms-nanoAOD/nanoAOD-tools/) page. This example will be performed in the ROOT docker container using files from the [Tau 2016H dataset](/record/30565).
+Skimming data events that fail the validation is a critical feature, so let's see how to do it by following instructions from the [NanoAOD-tools repository](https://github.com/cms-opendata-analyses/nanoAOD-tools/). This example will be performed in the [ROOT docker container](/docs/cms-guide-docker#nanoaod) using files from the [Tau 2016H dataset](/record/30565). The instructions here download files via `git clone`, but it is also possible to download a `.zip` file of the NanoAOD-tools repository from the [record page](/record/12507)
 
 ```shell
-$ git clone https://github.com/cms-nanoAOD/nanoAOD-tools.git NanoAODTools
+$ git clone https://github.com/cms-opendata-analyses/nanoAOD-tools.git NanoAODTools
 Cloning into 'NanoAODTools'...
 remote: Enumerating objects: 4269, done.
 remote: Counting objects: 100% (110/110), done.
@@ -215,13 +215,13 @@ Done ./03DD0FB3-219B-C54D-A476-EE8937CC214E_Skim.root
 Total time 4721.5 sec. to process 2160343 events. Rate = 457.6 Hz.
 ```
 
-As before, the `TClass` warnings from ROOT can be safely ignored. The [NanoAOD-tools README](https://github.com/cms-nanoAOD/nanoAOD-tools/) page shows more options for this command and discusses their "module" format for applying corrections, performing further event selection, and storing user analysis variables in the file.
+As before, the `TClass` warnings from ROOT can be safely ignored. The [NanoAOD-tools README](https://github.com/cms-opendata-analyses/nanoAOD-tools/) page shows more options for this command and discusses their "module" format for applying corrections, performing further event selection, and storing user analysis variables in the file.
 
 #### More example analysis frameworks
 
 The ROOT Trees within NanoAOD files have been a common HEP data structure for many years, and classic "event loop" methods (primarily written in C++) are an effective and understandable model for analyzing NanoAOD. However, as the overall CMS data size has grown, "columnar" analysis methods have become more and more popular within CMS, and can reduce the computing resources needed for the analysis. The core message is that **NanoAOD is extremely flexible**!
 
-* Event loop: as a generic example, see the [ROOT TTree](https://root.cern/doc/master/tree1_8C.html) tutorials. In the Open Data context, the [example analyses using "NanoAODRun1"](https://github.com/cms-opendata-analyses/NanoAODRun1Examples) derived data can be replicated for newer NanoAOD files.
+* Event loop: as a generic example, see the [ROOT TTree](https://root.cern/doc/master/tree1_8C.html) tutorials. In the Open Data context, the [example analyses using "NanoAODRun1"](/record/12506) derived data can be replicated for newer NanoAOD files.
 * RDataframe: ROOT has developed the [RDataFrame](https://root.cern/doc/master/classROOT_1_1RDataFrame.html) package to integrate columnar analysis natively. Several outreach examples using older Open Data in NanoAOD format, such as this [Higgs analysis example](/record/12360) use RDataFrame in the `skim.cxx` scriptto select events and reconstruct a particle. Some example analyses in the [NanoAODRun1Examples](https://github.com/cms-opendata-analyses/NanoAODRun1Examples) repository also use RDataFrame, in both C++ and Python.
 * Coffea/Scikit-HEP tools: significant work has gone into developing HEP software tools within a scientific python ecosystem. The [Analysis Grand Challenge](https://agc.readthedocs.io/en/latest/index.html) from the [IRIS-HEP](https://iris-hep.org/projects/agc.html) project have created an analysis example that reads NanoAOD files to measure the top quark pair production cross section. The example uses 2015 Open Data that was independently processed as NanoAOD, but the methods can be applied to newer NanoAOD files.
 

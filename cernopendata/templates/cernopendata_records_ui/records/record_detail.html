@@ -103,6 +103,25 @@
         {%include "cernopendata_ispy/ispy_standalone.html"%}
     {% endif %}
 
+    {% if record.cross_section %}
+    <h2>Cross section</h2>
+        {% if record.cross_section.description %}
+            <span>{{record.cross_section.description | safe}}</span>
+            <br>
+        {% else %}
+            <p>For {{record.collision_information.type }} collisions at {{record.collision_information.energy }}, this sample has a cross section of (<span><strong>{{record.cross_section.total_value }}</strong></span> +/- <span><strong>{{record.cross_section.total_value_uncertainty }}</strong></span>) pb, calculated using the method described in <a href="/docs/cms-guide-cross-sections#run2">CMS guide for cross sections</a>.</p>
+        {% endif %}
+        {% if record.cross_section.matching_efficiency %}
+            <p>This cross section takes into account a matching efficiency of <span><strong>{{record.cross_section.matching_efficiency }}</strong></span> and a filtering efficiency of <span><strong>{{record.cross_section.filter_efficiency }}</strong></span>, based on generator settings and/or filters.</p>
+        {% else %}
+            <p>This cross section takes into account a filtering efficiency of <span><strong>{{record.cross_section.filter_efficiency }}</strong></span>, based on generator settings and/or filters.</p>
+        {% endif %}
+        {% if record.cross_section.neg_weight_fraction %}
+            <p>If this sample was generated at NLO, it has <span><strong>{{record.cross_section.neg_weight_fraction }}</strong></span>% events with negative weights.</p>
+        {% endif %}
+        <p>This is a leading-order value, and cross sections evaluated at next-to-leading order (NLO) or next-to-next-to-leading order (NNLO) should be used, if available.</p>
+    {% endif %}
+
     {% if record.use_with %}
     <h2>Use with</h2>
     <p>{{record.use_with.description | safe}}</p>
@@ -207,6 +226,15 @@
         </p>
         {% endif %}
         </div>
+    </div>
+    {% endif %}
+
+    {% if record.dataset_semantics_files %}
+    <div>
+        <h2>Dataset semantics</h2>
+        <a href="{{record.dataset_semantics_files.url}}">
+            Variable list
+        </a>
     </div>
     {% endif %}
 

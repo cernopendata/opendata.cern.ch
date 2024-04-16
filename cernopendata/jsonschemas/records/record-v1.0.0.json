@@ -165,6 +165,44 @@
       },
       "type": "object"
     },
+    "cross_section": {
+      "properties": {
+        "filter_efficiency": {
+          "description": "Cross section filter efficiency as given by GenXSecAnalyser",
+          "type": "string"
+        },
+        "matching_efficiency": {
+          "description": "Cross section matching efficiency as given by GenXSecAnalyser",
+          "type": "string"
+        },
+        "neg_weight_fraction": {
+          "description": "Cross section negative weight fraction as given by GenXSecAnalyser",
+          "type": "string"
+        },
+        "total_value": {
+          "description": "Cross section total value as given by GenXSecAnalyser (in pb)",
+          "type": "string"
+        },
+        "total_value_uncertainty": {
+          "description": "Cross section total uncertainty as given by GenXSecAnalyser (in pb)",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "dataset_semantics_files": {
+      "properties": {
+        "url": {
+          "description": "Url of the dataset content description html file",
+          "type": "string"
+        },
+        "json": {
+          "description": "Name of the dataset content description json file",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "dataset_semantics": {
       "items": {
         "properties": {
