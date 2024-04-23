@@ -1,131 +1,135 @@
 {
-    "mappings": {
-      "properties": {
-        "$schema": {
-          "copy_to": "facet_schema",
-          "type": "text"
-        },
-        "recid": {
-          "type": "integer"
-        },
-        "doi": {
-          "type":"keyword"
-        },
-        "title": {
-            "type": "keyword",
-            "fields": {"tokens":  {"type": "text"}}
-        },
-        "facet_schema": {
-          "index": true,
-          "type": "text"
-        },
-        "distribution": {
-          "properties": {
-            "formats": {
-              "type": "keyword"
-            },
-            "availability": {
-              "type": "keyword"
-            },
-            "number_events": {
-              "type": "integer"
-            }
+  "mappings": {
+    "properties": {
+      "$schema": {
+        "copy_to": "facet_schema",
+        "type": "text"
+      },
+      "abstract": {
+        "properties": {
+          "description": {
+            "type": "text"
+          }
+        }
+      },
+      "authors": {
+        "properties": {
+          "affiliation": {
+            "type": "keyword"
           },
-          "type": "object"
-        },
-        "authors": {
-          "properties": {
-            "affiliation": {
-              "type": "keyword"
-            },
-            "rorid": {
-              "type": "keyword"
-            },
-            "ccid": {
-              "type": "keyword"
-            },
-            "inspireid": {
-              "type": "keyword"
-            },
-            "orcid": {
-              "type": "keyword"
-            },
-            "name": {
-              "type": "keyword"
-            }
+          "ccid": {
+            "type": "keyword"
+          },
+          "inspireid": {
+            "type": "keyword"
+          },
+          "name": {
+            "type": "keyword"
+          },
+          "orcid": {
+            "type": "keyword"
+          },
+          "rorid": {
+            "type": "keyword"
+          }
+        }
+      },
+      "categories": {
+        "properties": {
+          "primary": {
+            "type": "keyword"
+          },
+          "secondary": {
+            "type": "keyword"
+          }
+        }
+      },
+      "collections": {
+        "type": "keyword"
+      },
+      "collision_information": {
+        "properties": {
+          "energy": {
+            "type": "keyword"
+          },
+          "type": {
+            "type": "keyword"
+          }
+        }
+      },
+      "date_created": {
+        "type": "keyword"
+      },
+      "date_published": {
+        "type": "date"
+      },
+      "distribution": {
+        "properties": {
+          "availability": {
+            "type": "keyword"
+          },
+          "formats": {
+            "type": "keyword"
+          },
+          "number_events": {
+            "type": "integer"
           }
         },
-        "abstract": {
-          "properties": {
-            "description": {
-              "type": "text"
-            }
+        "type": "object"
+      },
+      "doi": {
+        "type": "keyword"
+      },
+      "experiment": {
+        "type": "keyword"
+      },
+      "facet_schema": {
+        "index": true,
+        "type": "text"
+      },
+      "keywords": {
+        "type": "keyword"
+      },
+      "magnet_polarity": {
+        "type": "keyword"
+      },
+      "publisher": {
+        "type": "keyword"
+      },
+      "recid": {
+        "type": "integer"
+      },
+      "signature": {
+        "type": "keyword"
+      },
+      "stripping": {
+        "properties": {
+          "stream": {
+            "type": "keyword"
+          },
+          "version": {
+            "type": "keyword"
+          }
+        }
+      },
+      "title": {
+        "fields": {
+          "tokens": {
+            "type": "text"
           }
         },
-        "categories": {
-          "properties": {
-            "primary": {
-              "type": "keyword"
-            },
-            "secondary": {
-              "type": "keyword"
-            }
-          }
-        },
-        "collections": {
-          "type": "keyword"
-        },
-        "collision_information": {
-          "properties": {
-            "energy": {
-              "type": "keyword"
-            },
-            "type": {
-              "type": "keyword"
-            }
-          }
-        },
-        "date_created": {
-          "type": "keyword"
-        },
-        "date_published": {
-          "type": "date"
-        },
-        "experiment": {
-          "type": "keyword"
-        },
-        "keywords": {
-          "type": "keyword"
-        },
-        "magnet_polarity": {
-          "type": "keyword"
-        },
-        "publisher": {
-          "type": "keyword"
-        },
-        "signature": {
-          "type": "keyword"
-        },
-        "stripping": {
-          "properties": {
-            "stream": {
-              "type": "keyword"
-            },
-            "version": {
-              "type": "keyword"
-            }
-          }
-        },
-        "type": {
-          "properties": {
-            "primary": {
-              "type": "keyword"
-            },
-            "secondary": {
-              "type": "keyword"
-            }
+        "type": "keyword"
+      },
+      "type": {
+        "properties": {
+          "primary": {
+            "type": "keyword"
+          },
+          "secondary": {
+            "type": "keyword"
           }
         }
       }
     }
+  }
 }
