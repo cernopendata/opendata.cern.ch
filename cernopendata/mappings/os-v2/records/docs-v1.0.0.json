@@ -5,17 +5,7 @@
         "copy_to": "facet_schema",
         "type": "text"
       },
-      "recid": {
-        "type": "integer",
-        "null_value": 0
-      },
       "author": {
-        "type": "keyword"
-      },
-      "id": {
-        "type": "keyword"
-      },
-      "title": {
         "type": "keyword"
       },
       "body": {
@@ -41,28 +31,8 @@
         "index": true,
         "type": "text"
       },
-      "collections": {
-        "properties": {
-          "experiment": {
-            "type": "keyword"
-          },
-          "facet_collections_primary": {
-            "index": true,
-            "type": "keyword"
-          },
-          "primary": {
-            "copy_to": "collections.facet_collections_primary",
-            "type": "keyword"
-          },
-          "secondary": {
-            "analyzer": "collections",
-            "type": "text"
-          },
-          "year": {
-            "analyzer": "collections",
-            "type": "text"
-          }
-        }
+      "featured": {
+        "type": "integer"
       },
       "files": {
         "properties": {
@@ -74,7 +44,11 @@
           }
         }
       },
-      "featured": {
+      "id": {
+        "type": "keyword"
+      },
+      "recid": {
+        "null_value": 0,
         "type": "integer"
       },
       "short_description": {
@@ -101,8 +75,12 @@
         "type": "keyword"
       },
       "title": {
-        "type": "keyword",
-        "fields": {"tokens":  {"type": "text"}}
+        "fields": {
+          "tokens": {
+            "type": "text"
+          }
+        },
+        "type": "keyword"
       },
       "type": {
         "properties": {
