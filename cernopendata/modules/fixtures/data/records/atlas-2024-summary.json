@@ -1,0 +1,165 @@
+[
+  {
+    "abstract": {
+      "description": "2015-2016 Open Data for Research from the ATLAS experiment"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "source": "ATLAS Collaboration"
+    },
+    "collaboration": {
+      "name": "ATLAS collaboration"
+    },
+    "collections": [
+      "ATLAS-Simulated-Datasets",
+      "ATLAS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2015",
+      "2016"
+    ],
+    "date_published": "2024",
+    "date_reprocessed": "2020",
+    "distribution": {
+      "formats": [
+        "DAOD_PHYSLITE",
+        "root"
+      ],
+      "number_events": 9058437931,
+      "number_files": 70611,
+      "size": 71749688366060
+    },
+    "doi": "10.7483/OPENDATA.ATLAS.9HK7.P5SI",
+    "experiment": [
+      "ATLAS"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>These data were created during LS2 as part of a major reprocessing campaign of the Run 2 data. All data were reprocessed using Athena Release 22, and new corresponding MC simulation samples were produced, in an MC simulation campaign called MC20a. These data and MC simulation datasets were processed into DAOD_PHSYLITE format files; this is a light-weight data format intended for general analysis use, sufficient to support a wide variety of ATLAS analyses."
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "80020",
+    "relations": [
+      {
+        "description": "Run 2 2015 proton-proton collision data",
+        "doi": "10.7483/OPENDATA.ATLAS.AOQL.8TT3",
+        "recid": "80000",
+        "title": "Run 2 2015 proton-proton collision data",
+        "type": "isParentOf"
+      },
+      {
+        "description": "Run 2 2016 proton-proton collision data",
+        "doi": "10.7483/OPENDATA.ATLAS.4ZES.DJHA",
+        "recid": "80001",
+        "title": "Run 2 2016 proton-proton collision data",
+        "type": "isParentOf"
+      },
+      {
+        "description": "MC simulation electroweak boson nominal samples",
+        "doi": "10.7483/OPENDATA.ATLAS.K5SU.X65Y",
+        "recid": "80010",
+        "title": "MC simulation electroweak boson nominal samples",
+        "type": "isParentOf"
+      },
+      {
+        "description": "MC simulation exotic signal samples",
+        "doi": "10.7483/OPENDATA.ATLAS.SVB0.DLT1",
+        "recid": "80011",
+        "title": "MC simulation exotic signal samples",
+        "type": "isParentOf"
+      },
+      {
+        "description": "MC simulation Higgs nominal samples",
+        "doi": "10.7483/OPENDATA.ATLAS.Z2J9.709J",
+        "recid": "80012",
+        "title": "MC simulation Higgs nominal samples",
+        "type": "isParentOf"
+      },
+      {
+        "description": "MC simulation Higgs systematic variation samples",
+        "doi": "10.7483/OPENDATA.ATLAS.J3U3.RIMC",
+        "recid": "80013",
+        "title": "MC simulation Higgs systematic variation samples",
+        "type": "isParentOf"
+      },
+      {
+        "description": "MC simulation QCD jet nominal samples",
+        "doi": "10.7483/OPENDATA.ATLAS.OXQR.DJQ3",
+        "recid": "80014",
+        "title": "MC simulation QCD jet nominal samples",
+        "type": "isParentOf"
+      },
+      {
+        "description": "MC simulation QCD jet systematic variation samples",
+        "doi": "10.7483/OPENDATA.ATLAS.BO71.CH27",
+        "recid": "80015",
+        "title": "MC simulation QCD jet systematic variation samples",
+        "type": "isParentOf"
+      },
+      {
+        "description": "MC simulation SUSY signal samples",
+        "doi": "10.7483/OPENDATA.ATLAS.2764.CUL7",
+        "recid": "80016",
+        "title": "MC simulation SUSY signal samples",
+        "type": "isParentOf"
+      },
+      {
+        "description": "MC simulation top nominal samples",
+        "doi": "10.7483/OPENDATA.ATLAS.MM1Y.O0PH",
+        "recid": "80017",
+        "title": "MC simulation top nominal samples",
+        "type": "isParentOf"
+      },
+      {
+        "description": "MC simulation top systematic variation samples",
+        "doi": "10.7483/OPENDATA.ATLAS.F7P0.VAST",
+        "recid": "80018",
+        "title": "MC simulation top systematic variation samples",
+        "type": "isParentOf"
+      }
+    ],
+    "run_period": [
+      "2015",
+      "2016"
+    ],
+    "title": "DAOD_PHYSLITE format 2015-2016 Open Data for Research from the ATLAS experiment",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated",
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p> The data and MC simulation provided by the ATLAS experiment in DAOD_PHYSLITE format is released under a CC0 license; citation of the data and acknowledgement of the collaboration is requested. This format can be used directly like a ROOT ntuple (or using uproot) for simple studies or processed into secondary ntuples with systematic uncertainties included using the ATLAS AnalysisBase software. <p>Extensive instructions for interacting with the data, as well as documentation of the dataset naming conventions and their contents, are provided on the ATLAS Open Data website linked below. Designing and implementing a research-quality data analysis is a complex process that requires an understanding of particle physics; for those new to the subject, the open data designed for education (also linked below) might be a good starting point. Please be sure to cite the Open Data that you use, in line with the policy below.",
+      "links": [
+        {
+          "description": "ATLAS Open Data Website",
+          "url": "http://opendata.atlas.cern"
+        },
+        {
+          "description": "Resources to understand and use the open data for research",
+          "url": "https://opendata.atlas.cern/docs/userpath/researchers"
+        },
+        {
+          "description": "ATLAS Analysis Software Tutorial",
+          "url": "https://atlassoftwaredocs.web.cern.ch/ASWTutorial/TutorialWeek/"
+        },
+        {
+          "description": "More about the DAOD_PHYSLITE data format",
+          "url": "https://opendata.atlas.cern/docs/documentation/data_format/physlite/"
+        },
+        {
+          "description": "Citation policy",
+          "url": "https://opendata.atlas.cern/docs/documentation/ethical_legal/citation_policy"
+        }
+      ]
+    }
+  }
+]
