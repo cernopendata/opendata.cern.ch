@@ -123,7 +123,7 @@ install_requires = [
     "Flask==2.2.5",
     "Flask-Alembic==2.0.1",
     "flask-celeryext==0.4.0",
-    "Werkzeug~=2.2.0",
+    "Werkzeug>=2.2,<3.1",
     "gevent==22.10.1",
     "greenlet<1.2",
     "flask-babel==4.0.0",
