@@ -71,3 +71,74 @@ def app(env_config, default_config, instance_path):
 
     with app.app_context():
         yield app
+
+
+@pytest.fixture(scope="module")
+def database(app):
+    """Setup database.
+
+    Scope: module
+
+    Normally, tests should use the function-scoped :py:data:`db` fixture
+    instead. This fixture takes care of creating the database/tables and
+    removing the tables once tests are done.
+    """
+    from invenio_db import db as db_
+    from sqlalchemy_utils.functions import create_database, database_exists
+
+    if not database_exists(str(db_.engine.url)):
+        create_database(str(db_.engine.url))
+
+    # Use unlogged tables for PostgreSQL (see https://github.com/sqlalchemy/alembic/discussions/1108)
+    if db_.engine.name == "postgresql":
+        from sqlalchemy.ext.compiler import compiles
+        from sqlalchemy.schema import CreateTable
+
+        @compiles(CreateTable)
+        def _compile_unlogged(element, compiler, **kwargs):
+            return compiler.visit_create_table(element).replace(
+                "CREATE TABLE ",
+                "CREATE UNLOGGED TABLE ",
+            )
+
+    db_.create_all()
+
+    yield db_
+
+    db_.session.remove()
+    db_.drop_all()
+
+
+def _search_create_indexes(current_search, current_search_client):
+    """Create all registered search indexes."""
+    from invenio_search.engine import search
+
+    try:
+        list(current_search.create())
+    except search.RequestError:
+        list(current_search.delete(ignore=[404]))
+        list(current_search.create())
+    current_search_client.indices.refresh()
+
+
+def _search_delete_indexes(current_search):
+    """Delete all registered search indexes."""
+    list(current_search.delete(ignore=[404]))
+
+
+@pytest.fixture(scope="module")
+def search(app):
+    """Setup and teardown all registered search indices.
+
+    Scope: module
+
+    This fixture will create all registered indexes in search and remove
+    once done. Fixtures that perform changes (e.g. index or remove documents),
+    should used the function-scoped :py:data:`search_clear` fixture to leave the
+    indexes clean for the following tests.
+    """
+    from invenio_search import current_search, current_search_client
+
+    _search_create_indexes(current_search, current_search_client)
+    yield current_search_client
+    _search_delete_indexes(current_search)

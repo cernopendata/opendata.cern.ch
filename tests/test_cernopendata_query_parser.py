@@ -28,35 +28,31 @@ from invenio_search.engine import dsl
 from cernopendata.config import _query_parser_and
 
 
+def _create_query(term):
+    # Defines the skeleton of a query
+    return dsl.query.Bool(
+        must=[
+            dsl.query.QueryString(
+                default_operator="AND", fields=["title.tokens^2", "*"], query=term
+            )
+        ],
+        must_not=[dsl.query.Match(distribution__availability="ondemand")],
+    )
+
+
 def test_cernopendata_query_parser(app):
     with app.test_request_context("/"):
-        assert _query_parser_and("/Btau") == dsl.query.Bool(
-            must=[dsl.query.QueryString(default_operator="AND", query="\\/Btau")],
-            must_not=[dsl.query.Match(distribution__availability="ondemand")],
+        assert _query_parser_and("/Btau") == _create_query("\\/Btau")
+        assert _query_parser_and('"/Btau"') == _create_query('"\\/Btau"')
+        assert _query_parser_and("/btau AND CMS") == _create_query("\\/btau AND CMS")
+        assert _query_parser_and('"/btau" AND CMS') == _create_query(
+            '"\\/btau" AND CMS'
         )
-        assert _query_parser_and('"/Btau"') == dsl.query.Bool(
-            must=[dsl.query.QueryString(default_operator="AND", query='"\\/Btau"')],
-            must_not=[dsl.query.Match(distribution__availability="ondemand")],
-        )
-        assert _query_parser_and("/btau AND CMS") == dsl.query.Bool(
-            must=[
-                dsl.query.QueryString(default_operator="AND", query="\\/btau AND CMS")
-            ],
-            must_not=[dsl.query.Match(distribution__availability="ondemand")],
-        )
-        assert _query_parser_and('"/btau" AND CMS') == dsl.query.Bool(
-            must=[
-                dsl.query.QueryString(default_operator="AND", query='"\\/btau" AND CMS')
-            ],
-            must_not=[dsl.query.Match(distribution__availability="ondemand")],
-        )
-        assert _query_parser_and("CMS AND /btau") == dsl.query.Bool(
-            must=[
-                dsl.query.QueryString(default_operator="AND", query="CMS AND \\/btau")
-            ],
-            must_not=[dsl.query.Match(distribution__availability="ondemand")],
-        )
+        assert _query_parser_and("CMS AND /btau") == _create_query("CMS AND \\/btau")
+
     with app.test_request_context("/?ondemand=true"):
         assert _query_parser_and("CMS AND /btau") == dsl.query.QueryString(
-            default_operator="AND", query="CMS AND \\/btau"
+            default_operator="AND",
+            fields=["title.tokens^2", "*"],
+            query="CMS AND \\/btau",
         )

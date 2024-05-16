@@ -231,11 +231,17 @@ def _query_parser_and(qstr=None):
     """Parser that uses the Q() with AND from search engine dsl."""
     if qstr:
         _query = dsl.Q(
-            "query_string", query=qstr.replace("/", "\\/"), default_operator="AND"
+            "query_string",
+            query=qstr.replace("/", "\\/"),
+            default_operator="AND",
+            fields=["title.tokens^2", "*"],
         )
     else:
         _query = dsl.Q()
-    if request.values.get("ondemand") != "true" and request.values.get("ondemand") != "ondemand":
+    if (
+        request.values.get("ondemand") != "true"
+        and request.values.get("ondemand") != "ondemand"
+    ):
         _query = _query & ~dsl.Q("match", **{"distribution.availability": "ondemand"})
     return _query
 
