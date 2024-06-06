@@ -110,7 +110,8 @@ install_requires = [
     "uwsgitop>=0.11",
     # Pin SQLAlchemy version due to sqlalchemy-utils compatibility
     # <https://github.com/kvesteri/sqlalchemy-utils/issues/505>
-    "SQLAlchemy==1.4.49 ",
+    "SQLAlchemy==1.4.49",
+    "SQLAlchemy-Continuum==1.4.1",
     # Pin Flask-SQLAlchemy version due to apply_driver_hacks
     "Flask-SQLAlchemy==3.0.0",
     "Flask-Alembic==2.0.1",

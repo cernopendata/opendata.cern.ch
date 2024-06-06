@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2015, 2016, 2017, 2018, 2021, 2022, 2023 CERN.
+# Copyright (C) 2015, 2016, 2017, 2018, 2021, 2022, 2023, 2024 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -155,7 +155,7 @@ services:
 
   opensearch:
     restart: "always"
-    image: docker.io/opensearchproject/opensearch:2
+    image: docker.io/opensearchproject/opensearch:2.11.1
     environment:
       - bootstrap.memory_lock=true
       # set to reasonable values on production
@@ -172,7 +172,7 @@ services:
       - 9200:9200
 
   opensearch-dashboards:
-    image: docker.io/opensearchproject/opensearch-dashboards:2 # Make sure the version of opensearch-dashboards matches the version of opensearch installed on other nodes
+    image: docker.io/opensearchproject/opensearch-dashboards:2.11.1 # Make sure the version of opensearch-dashboards matches the version of opensearch installed on other nodes
     ports:
       - 5601:5601 # Map host port 5601 to container port 5601
     expose:
