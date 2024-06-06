@@ -1,11 +1,11 @@
 [
   {
     "abstract": {
-      "description": "<p>JADE real data</p>",
+      "description": "<p>All data from the JADE detector at the PETRA accelerator taken from 1979 to 1986 with e+e- collision energies ranging from 12 to 46.7 GeV. JADE was one of the detectors responsible for the discovery of the gluon.</p><p>This data was recovered in recent years as it had to be moved due to space problems and was migrated multiple times over the years as more compact data storage devices became available.</p>",
       "links": [
         {
-          "description": "All JADE runs",
-          "recid": "FIXME"
+          "description": "Article about history, achievements and revival of the JADE experiment",
+          "url": "https://arxiv.org/pdf/2208.11076"
         }
       ]
     },
@@ -34,7 +34,7 @@
       "number_files": 2861,
       "size": 2614994979
     },
-    "doi": "10.7483/OPENDATA.9S5F.BY3B",
+    "doi": "",
     "experiment": [
       "JADE"
     ],
@@ -53,10 +53,10 @@
       "attribution": "CC0"
     },
     "methodology": {
-      "description": "<p> During the experiment, the raw data was written to the tapes.</p>"
+      "description": "<p>The events from the e+e- collisions were filtered by three trigger levels. The first relied on analog signals from scintillators and lead glass counters and filtered based on energy sums. The second level relied on the tracking chamber only accepted certain paths, while the third level was based on signals from the muon system. </p>"
     },
     "publisher": "CERN Open Data Portal",
-    "recid": "FIXME",
+    "recid": "26999",
     "title": "JADE raw data",
     "title_additional": "JADE raw data",
     "type": {
@@ -66,11 +66,11 @@
       ]
     },
     "usage": {
-      "description": "You can access these data through the EOS",
+      "description": "Use of the JADE software with Docker.",
       "links": [
         {
-          "description": "Running CMS analysis code using Docker",
-          "url": "/docs/cms-guide-docker"
+          "description": "Repository and installation guide",
+          "url": "https://github.com/andriish/JADE"
         }
       ]
     }
