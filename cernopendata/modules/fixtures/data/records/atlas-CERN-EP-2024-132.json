@@ -1,0 +1,109 @@
+[
+  {
+    "abstract": {
+      "description": "<p>These datasets contain the unbinned, twenty-four-dimensional ATLAS Z+jets differential cross-section measurement presented in <a href=\"https://cds.cern.ch/record/2899105\">CERN-EP-2024-132</a>. The measurements are presented as Pandas DataFrames in HDF5 format, and they are accompanied by MC predictions formatted as Numpy arrays. Measurements are provided both for \"pseudo-data\", i.e. a validation MC sample with truth- and reco-level quantities that has been reweighted to match data, as well as real data.</p> <p><strong>Important:</strong> Before using this data, please consult <a href=\"https://gitlab.cern.ch/atlas-physics/sm/wz/z-jets-omnifold-2024\">documentation and example notebooks</a>.</p> <p>The signal process is inclusive Z→μμ production with a fiducial region defined in the boosted regime: p_T^μμ > 200 GeV.</p> <p>In total, 24 Z+jets kinematic observables are measured:</p> <ul> <li>p_T, η, and ϕ of each of the two muons (6 observables); <li>The p_T and rapidity of the dimuon system: p_T^μμ, y^μμ (2 observables); <li>The 4-momenta (p_T, y, ϕ, m) of the two leading charged particle jets (8 observables); <li> The number of (charged) constituents and n-subjettiness quantities τ_1, τ_2, and τ_3 for each of the same two jets (8 observables). </ul> <p>The dimuon system p_T and y can be obtained from the muon kinematics, but they are included for convenience. The observables are labeled by 1 and 2 for leading and subleading in p_T, respectively.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "ATLAS collaboration"
+    },
+    "collections": [
+      "ATLAS-Derived-Datasets"
+    ],
+    "date_published": "2024",
+    "distribution": {
+      "formats": [
+        "h5",
+        "npy"
+      ],
+      "number_events": 26273652,
+      "number_files": 10,
+      "size": 4275919339
+    },
+    "doi": "10.7483/OPENDATA.ATLAS.QC42.N41U",
+    "experiment": [
+      "ATLAS"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:69801d5a",
+        "size": 28846,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-132/data_mc_preds.npy"
+      },
+      {
+        "checksum": "adler32:c606b23f",
+        "size": 28846,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-132/data_mc_preds_tau1_01.npy"
+      },
+      {
+        "checksum": "adler32:b14bac71",
+        "size": 675528667,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-132/data_multifold.h5"
+      },
+      {
+        "checksum": "adler32:5bb41c53",
+        "size": 50283468,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-132/data_multifold_nonDY.h5"
+      },
+      {
+        "checksum": "adler32:fe378700",
+        "size": 103161198,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-132/data_multifold_sherpa.h5"
+      },
+      {
+        "checksum": "adler32:69801d5a",
+        "size": 28846,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-132/pseudodata_mc_preds.npy"
+      },
+      {
+        "checksum": "adler32:1749df4c",
+        "size": 498288228,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-132/pseudodata_multifold.h5"
+      },
+      {
+        "checksum": "adler32:bda94522",
+        "size": 135233280,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-132/pseudodata_multifold_nonDY.h5"
+      },
+      {
+        "checksum": "adler32:c70bbbab",
+        "size": 134515904,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-132/pseudodata_multifold_sherpa.h5"
+      },
+      {
+        "checksum": "adler32:165229e6",
+        "size": 2678822056,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-132/pseudodata_target.h5"
+      }
+    ],
+    "keywords": [
+      "datascience"
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "links": [
+      {
+        "description": "ATLAS publication CERN-EP-2024-132",
+        "url": "https://cds.cern.ch/record/2899105"
+      }
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "28101",
+    "title": "ATLAS OmniFold 24-Dimensional Z+jets Open Data",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "links": [
+        {
+          "description": "Documenation and example notebooks",
+          "url": "https://gitlab.cern.ch/atlas-physics/sm/wz/z-jets-omnifold-2024"
+        }
+      ]
+    }
+  }
+]
