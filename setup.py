@@ -98,6 +98,7 @@ install_requires = [
     # Specific Invenio dependencies
     "invenio-xrootd==2.0.0a1",
     "xrootdpyfs==2.0.0a1",
+    "invenio-mail==2.1.0",
     # Specific dependencies
     "Flask-Markdown>=0.3.0",
     "Flask-Mistune>=0.1.1",
