@@ -9,7 +9,7 @@ DEBUG = False
 
 
 def main():
-    """Main script doing the work."""
+    """Do the work."""
     found = []
     # find unique twiki.cern.ch URLs
     source = subprocess.getoutput("git grep twiki.cern.ch")

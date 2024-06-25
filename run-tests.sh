@@ -37,10 +37,10 @@ check_black () {
 
 check_fixtures () {
     # check for possibly incorrect JSON files:
-    find cernopendata/modules/fixtures/data/ -name "*.json" -exec jsonlint -q {} \;
+    find data/ -name "*.json" -exec jsonlint -q {} \;
 
     # check record ID uniqueness:
-    dupes=$(jq '.[].recid' cernopendata/modules/fixtures/data/records/*.json | sort | uniq -d)
+    dupes=$(jq '.[].recid' data/records/*.json | sort | uniq -d)
     if [ "x${dupes}" != "x" ]; then
         echo "[ERROR] Found duplicate record IDs:"
         echo "${dupes}"
@@ -48,7 +48,7 @@ check_fixtures () {
     fi
 
     # check DOI uniqueness:
-    dupes=$(jq '.[].doi' cernopendata/modules/fixtures/data/records/*.json | sort | grep -v null | uniq -d)
+    dupes=$(jq '.[].doi' data/records/*.json | sort | grep -v null | uniq -d)
     if [ "x${dupes}" != "x" ]; then
         echo "[ERROR] Found duplicate record DOIs:"
         echo "${dupes}"
@@ -57,7 +57,7 @@ check_fixtures () {
 
     # check docs slug uniqueness:
     # shellcheck disable=SC2044
-    dupes=$(for file in $(find cernopendata/modules/fixtures/data/docs -name "*.json"); do jq '.[].slug' "$file"; done | sort | grep -v null | uniq -d)
+    dupes=$(for file in $(find data/docs -name "*.json"); do jq '.[].slug' "$file"; done | sort | grep -v null | uniq -d)
     if [ "x${dupes}" != "x" ]; then
         echo "[ERROR] Found duplicate docs slugs:"
         echo "${dupes}"
@@ -79,7 +79,7 @@ check_fixtures () {
 
     # check for empty secondary type in fixtures
     # shellcheck disable=SC2044
-    for file in $(find cernopendata/modules/fixtures/data/{records,docs}/ -name "*.json"); do
+    for file in $(find data/{records,docs}/ -name "*.json"); do
         secondaries=$(jq '.[].type.secondary' "$file" -c | sort | uniq)
         if echo "$secondaries" | grep -q -e '\[\]' -e "null"; then
             echo "[Warning] empty type.secondary field in $file"
@@ -88,27 +88,15 @@ check_fixtures () {
 }
 
 check_pycodestyle () {
-    pycodestyle --max-line-length=120 cernopendata
+    pycodestyle --max-line-length=120 scripts
 }
 
 check_pydocstyle () {
-    pydocstyle cernopendata
+    pydocstyle scripts
 }
 
 check_isort () {
     isort -rc -c -df --profile black -- **/*.py
-}
-
-check_manifest () {
-    check-manifest --ignore "*.crt,*.key,.htpasswd"
-}
-
-check_docker_build () {
-    docker compose build
-}
-
-check_pytest () {
-    python setup.py test
 }
 
 check_all () {
@@ -118,9 +106,6 @@ check_all () {
     check_black
     check_pydocstyle
     check_isort
-    check_manifest
-    check_docker_build
-    check_pytest
 }
 
 if [ $# -eq 0 ]; then
@@ -136,9 +121,6 @@ do
         --check-pycodestyle) check_pycodestyle;;
         --check-pydocstyle) check_pydocstyle;;
         --check-isort) check_isort;;
-        --check-manifest) check_manifest;;
-        --check-docker-build) check_docker_build;;
-        --check-pytest) check_pytest;;
         *)
     esac
 done

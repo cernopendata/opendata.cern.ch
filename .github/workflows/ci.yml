@@ -85,23 +85,6 @@ jobs:
           pip install pydocstyle
           ./run-tests.sh --check-pydocstyle
 
-  lint-check-manifest:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
-
-      - name: Check Python manifest completeness
-        run: |
-          pip install --upgrade pip
-          pip install check-manifest
-          ./run-tests.sh --check-manifest
-
   check-fixtures:
     runs-on: ubuntu-20.04
     steps:
@@ -135,32 +118,3 @@ jobs:
           pip install --upgrade pip
           pip install isort
           ./run-tests.sh --check-isort
-
-  docker-build:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
-
-      - name: Lint Dockerfile
-        run: docker run -i --rm hadolint/hadolint:v1.18.2 < Dockerfile
-
-      - name: Create certificates
-        run: ./scripts/generate-localhost-certificate.sh
-
-      - name: Build docker
-        run: ./run-tests.sh --check-docker-build
-
-      - name: Run pytest
-        run: docker compose run --rm web ./run-tests.sh --check-pytest
-
-      - name: Codecov Coverage
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: coverage.xml

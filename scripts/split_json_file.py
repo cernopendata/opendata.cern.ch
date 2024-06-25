@@ -17,10 +17,8 @@ import click
 @click.option("-s", "--split", help="Split by how many records?", default=100)
 def split_json_file(filename, split):
     """Split JSON file into a group of SPLIT records."""
-
     with open(filename, "r") as fdesc:
         records = json.loads(fdesc.read())
-
     if len(records) > split:
         num_output_files = math.ceil(len(records) / split)
 
@@ -30,7 +28,7 @@ def split_json_file(filename, split):
             )
             print("[INFO] Creating file %s..." % filenamepart)
             split_content = json.dumps(
-                records[split * i : split * (i + 1)],
+                records[split * i: split * (i + 1)],
                 indent=2,
                 sort_keys=True,
                 ensure_ascii=False,
