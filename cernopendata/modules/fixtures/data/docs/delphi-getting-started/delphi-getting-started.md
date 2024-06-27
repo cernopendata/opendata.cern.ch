@@ -7,10 +7,10 @@ This quick start guide is meant as a guide for the very first steps to get going
 
 The DELPHI stack consists of the following modules:
 
-* DELPHI DST analysis framework, also referred to as dstana. Please take a look at the [Skelana framework](docs/27002) for detailed information.
-* MonteCarlo production, consisting of simulation, reconstruction and short DST production. Note that the DST format depends on the year. During LEP1, mainly short DST was used, while during LEP2 the extendent short DST format was used. The various formats are described [here](docs/27004)
+* DELPHI DST analysis framework, also referred to as dstana. Please take a look at the [Skelana framework](/record/80502) for detailed information.
+* MonteCarlo production, consisting of simulation, reconstruction and short DST production. Note that the DST format depends on the year. During LEP1, mainly short DST was used, while during LEP2 the extendent short DST format was used. The various formats are described [here](/record/80504)
 * Event reconstruction from raw data, using the DELPHI event server.
-* The graphical DELPHI Event display, also referred to as [delgra](docs/27003).
+* The graphical DELPHI Event display, also referred to as [delgra](/record/80503).
 
 ## Before you start ...
 
@@ -62,9 +62,9 @@ DELPHI manuals and notes are available from [https://cds.cern.ch/](http://cds.ce
 
 Here is a selection for getting started:
 
-* [Analysis framework](/docs/27002)
-* [Event display](/docs/27003)
-* [DST contents](/docs/27004)
+* [Analysis framework](/record/80502)
+* [Event display](/record/80503)
+* [DST contents](/record/80504)
 
 ## Source code
 The sources are available on https://gitlab.cern.ch/delphi. Some modules still requires CERN authentication. The plan is to release the software in the near future.
