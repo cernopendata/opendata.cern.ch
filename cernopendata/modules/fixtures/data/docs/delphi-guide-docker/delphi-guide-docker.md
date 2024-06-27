@@ -1,4 +1,3 @@
-%TOC%
 # Running DELPHI software from a container
 An alternative way to run DELPHI software is to use a container image. The images are automatically created from a CI when the software stack is being build, and contain the full software stack.
 
