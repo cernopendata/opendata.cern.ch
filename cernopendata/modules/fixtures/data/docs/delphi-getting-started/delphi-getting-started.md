@@ -1,5 +1,3 @@
-[[_TOC_]]
-
 # Introduction
 This quick start guide is meant as a guide for the very first steps to get going with DELPHI software and data access.
 
@@ -51,38 +49,7 @@ The collaboration main contact for data preservation is the mailing list DELPHI-
 # Contents of the software stack
 CERN accounts with primary GID being XX automatically source the CVMFS software stack via the HEPiX scripts. The matching binaries are automatically selected, based on the information retrieved from the machine you run on.
 
-The top level contains operating system independent things as well as folders for the operating system dependent binaries:
-
-```mermaid
-graph TD;
-  /cvmfs/delphi.cern.ch-->DELPHI_Data_preservation-8.pdf
-  /cvmfs/delphi.cern.ch-->db
-  /cvmfs/delphi.cern.ch-->docs
-  /cvmfs/delphi.cern.ch-->pdl
-  /cvmfs/delphi.cern.ch-->RunInfo
-  /cvmfs/delphi.cern.ch-->examples
-  /cvmfs/delphi.cern.ch-->perl
-  /cvmfs/delphi.cern.ch-->scripts[scripts]
-  /cvmfs/delphi.cern.ch-->os1
-  /cvmfs/delphi.cern.ch-->os2
-  /cvmfs/delphi.cern.ch-->os3
-  os1-->cern
-  os1-->dstana
-  os1-->ddb
-  os1-->delgra
-  os1-->evserv
-  os1-->idea
-  os1-->profiles
-  os1-->scriptsos1[scripts]
-  os1-->simana
-  os1-->perl
-```
-where ```os1/```, ```os2/```, ```os3/``` etc correspond to different supported operating system versions. These are made of the flavor, the architecture, and the major version. The structure beneath os1 repeates for each of the other releases.
-Perl modules are shared. There are two scripts folders, where the operating system specific folder has priority over the top level one, which allows for overriding individual scripts if needed.
-
-In addition, there are compatibility links called ```delana``` and ```delsim```  which both point to ```simana```. The simana folder contains the full simulation and reconstruction binaries. There are also links to the documentation which is on the top level.
-
-Please note that this structure may change.
+More details about the structure of the stack can be found at https://gitlab.cern.ch/delphi/quickstart
 
 ## Source code
 The sources are available on https://gitlab.cern.ch/delphi. The bulk of the folders currently still requires CERN authentication. However, the plan is to release the software in the near future.
