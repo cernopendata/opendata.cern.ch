@@ -17,6 +17,7 @@ The list of contributors in alphabetical order:
 - `Audrius Mecionis <https://orcid.org/0000-0002-3759-1663>`_
 - `Clemens Lange <https://github.com/clelange>`_
 - `Daan Rosendal <https://github.com/DaanRosendal>`_
+- `Dana Alsharif <https://github.com/danaalsharif>`_
 - `Diego Rodriguez <https://orcid.org/0000-0003-0649-2002>`_
 - `Edgar Carrera <https://github.com/caredg>`_
 - `Eric Engestrom <https://github.com/1ace>`_
@@ -39,6 +40,7 @@ The list of contributors in alphabetical order:
 - `Mantas Savaniakas <https://github.com/mantasavas>`_
 - `Matt Bellis <https://github.com/mattbellis>`_
 - `Mihaela Gheata <https://github.com/mgheata>`_
+- `Mohammad Doleh <https://github.com/d0leh>`_
 - `Nancy Hamdan <https://github.com/nancyhamdan>`_
 - `Osama Sh. Almomani <https://github.com/OsamaMomani>`_
 - `Pablo Saiz <https://github.com/psaiz>`_
