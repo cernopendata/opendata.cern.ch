@@ -1,6 +1,6 @@
 The DELPHI Collaboration decided to open their data and release it for the Open Data Portal.
 
-<p><center><img src="/docs/delphi-news-first-release/t545043_001_r109187_e003066.png" width="60%"></center></p>
+<p><center><img src="/docs/delphi-news-first-release/t302035_001_r109522_e013843.png" width="60%"></center></p>
 
 See also:
 
