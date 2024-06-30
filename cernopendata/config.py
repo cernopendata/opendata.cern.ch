@@ -101,6 +101,7 @@ APP_DEFAULT_SECURE_HEADERS = {
             "mybinder.org",
             "cms-results.web.cern.ch",
             "cds.cern.ch",
+            "img.youtube.com",
         ],
     },
     "content_security_policy_report_uri": None,
