@@ -3,12 +3,12 @@ This quick start guide is meant as a guide for the very first steps to get going
 
 ## Overview
 
-The /cvmfs/delphi.cern.ch repository contains the software binaries and sources for running:
+The DELPHI stack consists of the following modules:
 
-* DELPHI analysis framework (dstana)
-* MonteCarlo production (delsim/delana/shortdst production)
-* Event reconstruction (the DELPHI event server)
-* Event display (delgra)
+* DELPHI DST analysis framework, also referred to as dstana. Please take a look at the [Skelana framework](docs/27002) for detailed information.
+* MonteCarlo production, consisting of simulation, reconstruction and short DST production. Note that the DST format depends on the year. During LEP1, mainly short DST was used, while during LEP2 the extendent short DST format was used. The various formats are described [here](docs/27004)
+* Event reconstruction from raw data, using the DELPHI event server.
+* The graphical DELPHI Event display, also referred to as [delgra](docs/27003).
 
 ## Before you start ...
 

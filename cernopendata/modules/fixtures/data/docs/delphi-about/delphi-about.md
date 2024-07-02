@@ -36,9 +36,9 @@ A special case is the DELPHI event server, which allows to pick and reconstruct 
 
 ### Distribution of binaries
 
-DELPHI binaries are distributed via CVMFS via /cvmfs/delphi.cern.ch. Several Linux distributions are supported.
+Container images are available which can be directly used locally. The Alma9 container image can be found in [https://gitlab-registry.cern.ch/delphi/deployment/delphi/al9_64](gitlab-registry.cern.ch/delphi/deployment/delphi/al9_64).
 
-In addition, container images are available which can be directly used locally. The Alma9 container image can be found in [https://gitlab-registry.cern.ch/delphi/deployment/delphi/al9_64](gitlab-registry.cern.ch/delphi/deployment/delphi/al9_64).
+Apart from that, it is also possible to run the DELPHI stack from /cvmfs/delphi.cern.ch.
 
 ## Quick start guide
 A quickstart guide can be found in [here](docs/delphi-getting-started).
