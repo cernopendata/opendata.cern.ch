@@ -45,7 +45,7 @@
             {% if record.collaboration %} {{ record.collaboration.name }} {% endif %}
             {% if record.date_published %} ({{ record.date_published }}). {% endif %}
             {{ record.title_additional or record.title }}. CERN Open Data Portal.
-            DOI:<a href="http://doi.org/{{record.doi}}">{{record.doi}}</a> (<a href="https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=references.reference.dois%3A{{record.doi}}">Citations</a> via <a href="https://inspirehep.net"><img src="https://inspirehep.net/favicon.ico" height=14 alt="INSPIRE-HEP"></a>)
+            DOI:<a href="http://doi.org/{{record.doi}}">{{record.doi}}</a> (<a href="https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=references.reference.urls.value%3Ahttps%3A%2F%2Fopendata.cern.ch%2Frecord%2F{{record.recid}}%20or%20references.reference.dois%3A{{record.doi}}">Citations</a> via <a href="https://inspirehep.net"><img src="https://inspirehep.net/favicon.ico" height=14 alt="INSPIRE-HEP"></a>)
         </span>
     </p>
     {% endif %}
