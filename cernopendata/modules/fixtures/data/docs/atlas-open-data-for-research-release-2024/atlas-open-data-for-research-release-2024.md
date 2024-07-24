@@ -14,7 +14,7 @@ Today’s release builds upon previous open data releases for educational use (i
 
 The ATLAS open data website also serves as a hub for the community, which includes teachers, students, enthusiasts and, now, scientists. Anyone diving into the open data can also directly engage with ATLAS physicists, who are available to respond to user feedback and take suggestions.
 
-This release marks the start of more to come, with ATLAS’ first release of lead-lead-nuclei collision data data up next. The ATLAS Collaboration, along with the other main LHC experiment collaborations, has [committed](https://home.cern/news/press-release/knowledge-sharing/cern-announces-new-open-data-policy-support-open-science) to making all of its data publicly accessible after a certain time. Openness is deeply ingrained in the culture of high-energy physics, enabling greater accessibility, reproducibility and better science.
+This release marks the start of more to come, with ATLAS’ first release of lead-lead-nuclei collision data up next. The ATLAS Collaboration, along with the other main LHC experiment collaborations, has [committed](https://home.cern/news/press-release/knowledge-sharing/cern-announces-new-open-data-policy-support-open-science) to making all of its data publicly accessible after a certain time. Openness is deeply ingrained in the culture of high-energy physics, enabling greater accessibility, reproducibility and better science.
 
 Begin your journey with [ATLAS open data](https://opendata.atlas.cern/docs/userpath/quickstart) by following the tutorial below.
 
