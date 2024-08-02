@@ -1,5 +1,5 @@
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2020, 2023 CERN.
+# Copyright (C) 2020, 2023, 2024 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -157,7 +157,7 @@ jobs:
         run: ./run-tests.sh --check-docker-build
 
       - name: Run pytest
-        run: docker-compose run --rm web ./run-tests.sh --check-pytest
+        run: docker compose run --rm web ./run-tests.sh --check-pytest
 
       - name: Codecov Coverage
         uses: codecov/codecov-action@v1
