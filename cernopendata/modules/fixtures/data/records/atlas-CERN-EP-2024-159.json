@@ -1,0 +1,249 @@
+[
+  {
+    "abstract": {
+      "description": "<p>Boosted top tagging is an essential binary classification task for experiments at the Large Hadron Collider (LHC) to measure the properties of the top quark. The \"ATLAS top tagging open data set with systematic uncertainties\" is a publicly available dataset for the development of Machine Learning (ML) based boosted top tagging algorithms. The dataset consists of a nominal piece used for the training and evaluation of algorithms, and a systematic piece used for estimating the size of systematic uncertainties produced by an algorithm. The nominal data is split into two orthogonal sets, named train and test and stored in the HDF5 file format, containing about 92 million and 10 million jets respectively. The systematic varied data is split into many more pieces that should only be used for evaluation in most cases. Both nominal sets are composed of equal parts signal (jets initiated by a boosted top quark) and background (jets initiated by light quarks or gluons). For each jet, the datasets contain:</p> <p> <ul> <li>The four vectors of constituent particles <li>15 high level summary quantities evaluated on the jet <li>The four vector of the whole jet <li>A training weight (nominal only) <li>PYTHIA shower weights (nominal only) <li>A signal (1) vs background (0) label </ul> </p> <p> There are two rules for using this data set: the contribution to a loss function from any jet should always be weighted by the training weight, and any performance claim is incomplete without an estimate of the systematic uncertainties via the method illustrated in this repository. The ideal model shows high performance but also small systematic uncertainties.</p><p>This dataset accompanies the paper <a href=\"https://arxiv.org/abs/2407.20127\">arxiv:2047.20127</a>.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "ATLAS collaboration"
+    },
+    "collections": [
+      "ATLAS-Derived-Datasets"
+    ],
+    "date_published": "2024",
+    "distribution": {
+      "formats": [
+        "gz",
+        "h5"
+      ],
+      "number_events": 0,
+      "number_files": 2020,
+      "size": 182814191608
+    },
+    "doi": "10.7483/OPENDATA.ATLAS.SOAY.LABE",
+    "experiment": [
+      "ATLAS"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:1038c77b",
+        "size": 10449,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/angular_file_index.json"
+      },
+      {
+        "checksum": "adler32:cdbc02bc",
+        "size": 4600,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/angular_file_index.txt"
+      },
+      {
+        "checksum": "adler32:2388bf00",
+        "size": 20505,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/bias_file_index.json"
+      },
+      {
+        "checksum": "adler32:6ce4a28a",
+        "size": 8989,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/bias_file_index.txt"
+      },
+      {
+        "checksum": "adler32:bacc7441",
+        "size": 20304,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/cer_file_index.json"
+      },
+      {
+        "checksum": "adler32:90827ab1",
+        "size": 8888,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/cer_file_index.txt"
+      },
+      {
+        "checksum": "adler32:339d094c",
+        "size": 10658,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/cluster_file_index.json"
+      },
+      {
+        "checksum": "adler32:f7642647",
+        "size": 4692,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/cluster_file_index.txt"
+      },
+      {
+        "checksum": "adler32:e0b3d370",
+        "size": 20506,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/cpos_file_index.json"
+      },
+      {
+        "checksum": "adler32:cabcab38",
+        "size": 8989,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/cpos_file_index.txt"
+      },
+      {
+        "checksum": "adler32:37199a30",
+        "size": 10349,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/dipole_file_index.json"
+      },
+      {
+        "checksum": "adler32:c1cced63",
+        "size": 4550,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/dipole_file_index.txt"
+      },
+      {
+        "checksum": "adler32:e2537ff4",
+        "size": 20910,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/esdown_file_index.json"
+      },
+      {
+        "checksum": "adler32:bb2e01ae",
+        "size": 9191,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/esdown_file_index.txt"
+      },
+      {
+        "checksum": "adler32:6951dd5d",
+        "size": 20506,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/esup_file_index.json"
+      },
+      {
+        "checksum": "adler32:d83fae60",
+        "size": 8989,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/esup_file_index.txt"
+      },
+      {
+        "checksum": "adler32:d22cdd38",
+        "size": 10556,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/string_file_index.json"
+      },
+      {
+        "checksum": "adler32:56e610f6",
+        "size": 4641,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/string_file_index.txt"
+      },
+      {
+        "checksum": "adler32:7330abc8",
+        "size": 15078,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/teg_file_index.json"
+      },
+      {
+        "checksum": "adler32:6400878f",
+        "size": 6600,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/teg_file_index.txt"
+      },
+      {
+        "checksum": "adler32:8a1cca2b",
+        "size": 14274,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/tej_file_index.json"
+      },
+      {
+        "checksum": "adler32:5fc213ee",
+        "size": 6248,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/tej_file_index.txt"
+      },
+      {
+        "checksum": "adler32:58983cbf",
+        "size": 22778,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/test_nominal_file_index.json"
+      },
+      {
+        "checksum": "adler32:b5b75fba",
+        "size": 10088,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/test_nominal_file_index.txt"
+      },
+      {
+        "checksum": "adler32:ba0f9265",
+        "size": 14073,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/tfj_file_index.json"
+      },
+      {
+        "checksum": "adler32:5a8ef707",
+        "size": 6160,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/tfj_file_index.txt"
+      },
+      {
+        "checksum": "adler32:92d9584d",
+        "size": 12062,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/tfl_file_index.json"
+      },
+      {
+        "checksum": "adler32:78f0d417",
+        "size": 5280,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/tfl_file_index.txt"
+      },
+      {
+        "checksum": "adler32:34fdfbdb",
+        "size": 205312,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/train_nominal_file_index.json"
+      },
+      {
+        "checksum": "adler32:3e62dbfb",
+        "size": 91042,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/train_nominal_file_index.txt"
+      },
+      {
+        "checksum": "adler32:7d9f8190",
+        "size": 442,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/ttbar_herwig_file_index.json"
+      },
+      {
+        "checksum": "adler32:a26941ae",
+        "size": 194,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/ttbar_herwig_file_index.txt"
+      },
+      {
+        "checksum": "adler32:64288261",
+        "size": 443,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/ttbar_pythia_file_index.json"
+      },
+      {
+        "checksum": "adler32:a76a41c0",
+        "size": 194,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/CERN-EP-2024-159/file-indexes/ttbar_pythia_file_index.txt"
+      }
+    ],
+    "keywords": [
+      "datascience"
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "80030",
+    "title": "ATLAS top tagging open data set with systematic uncertainties",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": "<p>This dataset supersedes an <a href=\"/record/15013\">earlier data release</a> which did not include data for estimating systematic uncertainties. A detailed explanation of this dataset, with examples demonstrating how to train a tagger and assess systematic uncertainties, is provided in the <a href=\"https://gitlab.cern.ch/atlas/ATLAS-top-tagging-open-data\">this repository</a>.</p></p>If this dataset is used in a publication, please cite this dataset record along with the accompanying paper <a href=\"https://arxiv.org/abs/2407.20127\">arxiv:2047.20127</a>.</p>"
+    }
+  }
+]

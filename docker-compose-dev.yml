@@ -227,7 +227,7 @@ services:
   ##          ! Remember to set / uncomment `SENTRY_DSN` and `LOGGING_SENTRY_CELERY`
   ##          ! environment variables for cernopendata services and
   ##          ! enable cernopendata service to reach sentry-service
-  ##          ! (e.g. by 'links' docker-compose definition).
+  ##          ! (e.g. by 'links' docker compose definition).
   ##          ! Default DSN public key: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
   ##          ! Default DSN secret key: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'
   ##          Sentry UI can be reached at 'http://127.0.0.1:9000'
@@ -242,7 +242,7 @@ services:
 #    build: ./sentry
 #    image: cernopendata/sentry
 #    environment:
-#      # Run `docker-compose run sentry config generate-secret-key`
+#      # Run `docker compose run sentry config generate-secret-key`
 #      # to get a proper the SENTRY_SECRET_KEY value.
 #      - SENTRY_SECRET_KEY=more_than_thirty_two_characters_long_secret_key
 #      - SENTRY_REDIS_HOST=redis
