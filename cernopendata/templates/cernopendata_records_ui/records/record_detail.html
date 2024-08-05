@@ -109,7 +109,7 @@
             <span>{{record.cross_section.description | safe}}</span>
             <br>
         {% else %}
-            <p>For {{record.collision_information.type }} collisions at {{record.collision_information.energy }}, this sample has a cross section of (<span><strong>{{record.cross_section.total_value }}</strong></span> +/- <span><strong>{{record.cross_section.total_value_uncertainty }}</strong></span>) pb, calculated using the method described in <a href="/docs/cms-guide-cross-sections#run2">CMS guide for cross sections</a>.</p>
+            <p>For {{record.collision_information.type }} collisions at {{record.collision_information.energy }}, this sample has a cross section of (<span><strong>{{record.cross_section.total_value }}</strong></span> +/- <span><strong>{{record.cross_section.total_value_uncertainty }}</strong></span>) pb, calculated using the method described in <a href="/docs/cms-guide-xsec#run2">CMS guide for cross sections</a>.</p>
         {% endif %}
         {% if record.cross_section.matching_efficiency %}
             <p>This cross section takes into account a matching efficiency of <span><strong>{{record.cross_section.matching_efficiency }}</strong></span> and a filtering efficiency of <span><strong>{{record.cross_section.filter_efficiency }}</strong></span>, based on generator settings and/or filters.</p>
