@@ -1,11 +1,23 @@
-The DELPHI Collaboration decided to open their data and released it to the physics community for public access, following FAIR principles. The publication includes:
+The DELPHI Collaboration decided to open their data and released it to the physics community for public access, following FAIR principles.
+DELPHI was one of four detectors at the LEP collider, which collided electrons and positrons, at until now unreached energies. Since the two
+particles annihilate entirely into pure energy, the total energy of the events is precisely known, and the end states are much cleaner than
+this is the case for hadron colliders like LHC.
+
+
+Along with the data, the collaboration decided to open
+the original software stack, including simulation and reconstruction. This enables scientists to pass the output of decent generators through the detector simulation of the DELPHI detector,
+and compare to what was actually measured at the time. It is also possible to use this data for educational purpose. The available data and software allow to either pick and reprocess individual
+events from raw data, or create simulated events of a specific end state, pass them through the detector response, and then scan them using the event display.
+
+
+The publication includes:
 
 DELPHI Data sets:
 
-* The complete raw data set, years 1990-2000
-* The complete reconstructed data set, years 1991 - 2000
-* The complete set of simulated data
-* The DELPHI conditions database
+* The complete [raw data](/search?q=&f=experiment%3ADELPHI&f=file_type%3ARAWD&l=list&order=desc&p=1&s=10&sort=mostrecent) set, for the years 1990-2000, about 6 Tb
+* The complete [reconstructed data](/search?q=&f=experiment%3ADELPHI&f=type%3ADataset%2Bsubtype%3ACollision&l=list&order=desc&p=1&s=10&sort=mostrecent) set, years 1991 - 2000, about  14 Tb
+* The complete set of [simulated data](/search?q=&f=experiment%3ADELPHI&f=type%3ADataset%2Bsubtype%3ASimulated&l=list&order=desc&p=1&s=10&sort=mostrecent), about 16Tb of data
+* The full DELPHI conditions database
 
 Sofware stack components:
 
