@@ -27,8 +27,8 @@ User analyses should only use short or long DST reconstructed data.
 ## The DELPHI software stack
 The preserved DELPHI stack consist of the following components:
 
-* The analysis framework: [dstana package](/records/27002)
-* Event display: [delgra package](/records/27003)
+* The analysis framework: [dstana package](/record/80502)
+* Event display: [delgra package](/record/80503)
 * Simulation: delsim package
 * Reconstruction: delana package
 
