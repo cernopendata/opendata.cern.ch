@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2015, 2016, 2017, 2018, 2019, 2020 CERN.
+# Copyright (C) 2015, 2016, 2017, 2018, 2019, 2020, 2024 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -104,7 +104,7 @@ check_manifest () {
 }
 
 check_docker_build () {
-    docker-compose build
+    docker compose build
 }
 
 check_pytest () {

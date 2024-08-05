@@ -95,7 +95,12 @@
           <div class="ui segment">
             <div class="card-body">
               {% block metadata_block %}
-              {% if record.title %}
+              {% if record.note %}
+              <div>
+                <h3 class="detail_view_h3">Description</h3>
+                <p>{{record.note.get("description", "") | safe}}</p>
+              </div>
+              {% elif record.title %}
               <div>
                 <h3 class="detail_view_h3">Description</h3>
                 <p>{{record.title | safe}}</p>
