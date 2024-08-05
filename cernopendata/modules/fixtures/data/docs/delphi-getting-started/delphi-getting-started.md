@@ -1,9 +1,12 @@
-FIXME: Introduce table of contents
-
-# Introduction
+# Table of contents
 This quick start guide is meant as a guide for the very first steps to get going with DELPHI software and data access.
 
-## Overview
+* [Overview and requirements](#overview)
+* [Accessing the software stack](#access)
+* [Documentation](#documentation)
+* [Examples](#examples)
+
+## <a name="overview"> Overview
 
 The DELPHI stack consists of the following modules:
 
@@ -12,7 +15,7 @@ The DELPHI stack consists of the following modules:
 * Event reconstruction from raw data, using the DELPHI event server.
 * The graphical DELPHI Event display, also referred to as [delgra](/record/80503).
 
-## Before you start ...
+### Before you start ...
 
 Please read and accept the data access rules.
 
@@ -20,7 +23,7 @@ DELPHI data access rules are available [here](/record/417), or from [the DELPHI 
 
 Please read these before accessing the DELPHI software and data.
 
-## Accessing the software stack
+## <a name="access"> Accessing the software stack
 There are two possible ways to access the software stack.
 
 ### Docker
@@ -57,7 +60,7 @@ If using the container, please use ```/etc/profile.d/delphi.sh``` or ```/etc/pro
 
 After sourcing the environment, make sure that the environment variable **DELPHI_DATA_ROOT** points to the tip of the data area. This is specifically important if you copied the data sets you want to use locally. The default is ```/eos/experiment/delphi/castor2015```.
 
-## Documentation
+## <a name="documentation"> Documentation
 DELPHI manuals and notes are available from [https://cds.cern.ch/](http://cds.cern.ch/search?c=DELPHI&sc=1)
 
 Here is a selection for getting started:
@@ -76,7 +79,7 @@ The DELPHI stack is mostly written in Fortran, with some bits written in C. Only
 
 The collaboration main contact for data preservation is the mailing list DELPHI-data-preservation-board@cern.ch. Support can only be given on a best effort basis. Suggestions and feedback is of course welcome!
 
-# Examples
+# <a name="examples"> Examples
 Some basic examples of how to run the software stack and perform various tasks can be found in the ```/cvmfs/delphi.cern.ch/examples``` tree.
 
 In the following, we will
@@ -197,7 +200,7 @@ FAT = short94_c2
 ```
 to read 94 C2 data. It will automatically resolve the data files and loop over all of them.
 
-# Raw data access
+## Raw data access
 The DELPHI event server can be used to pick and reprocss individual events from raw data.
 It supports different modes:
 
@@ -227,5 +230,5 @@ rungra
 ```
 Note that the event display can read only reconstructed data, not raw data. Both full and short DST work.
 
-# More examples
+## More examples
 More examples can be found at https://gitlab.cern.ch/delphi/examples.
