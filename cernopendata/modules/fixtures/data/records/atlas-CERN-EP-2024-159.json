@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": "<p>Boosted top tagging is an essential binary classification task for experiments at the Large Hadron Collider (LHC) to measure the properties of the top quark. The \"ATLAS top tagging open data set with systematic uncertainties\" is a publicly available dataset for the development of Machine Learning (ML) based boosted top tagging algorithms. The dataset consists of a nominal piece used for the training and evaluation of algorithms, and a systematic piece used for estimating the size of systematic uncertainties produced by an algorithm. The nominal data is split into two orthogonal sets, named train and test and stored in the HDF5 file format, containing about 92 million and 10 million jets respectively. The systematic varied data is split into many more pieces that should only be used for evaluation in most cases. Both nominal sets are composed of equal parts signal (jets initiated by a boosted top quark) and background (jets initiated by light quarks or gluons). For each jet, the datasets contain:</p> <p> <ul> <li>The four vectors of constituent particles <li>15 high level summary quantities evaluated on the jet <li>The four vector of the whole jet <li>A training weight (nominal only) <li>PYTHIA shower weights (nominal only) <li>A signal (1) vs background (0) label </ul> </p> <p> There are two rules for using this data set: the contribution to a loss function from any jet should always be weighted by the training weight, and any performance claim is incomplete without an estimate of the systematic uncertainties via the method illustrated in this repository. The ideal model shows high performance but also small systematic uncertainties.</p><p>This dataset accompanies the paper <a href=\"https://arxiv.org/abs/2407.20127\">arxiv:2047.20127</a>.</p>"
+      "description": "<p> Boosted top tagging is an essential binary classification task for experiments at the Large Hadron Collider (LHC) to measure the properties of the top quark. The ATLAS Top Tagging Open Data Set is a publicly available dataset for the development of Machine Learning (ML) based boosted top tagging algorithms. The dataset consists of a nominal piece used for the training and evaluation of algorithms, and a systematic piece used for estimating the size of systematic uncertainties produced by an algorithm. The nominal data are is split into two orthogonal sets, named train and test. The systematic varied data is split into many more pieces that should only be used for evaluation in most cases. Both nominal sets are composed of equal parts signal (jets initiated by a boosted top quark) and background (jets initiated by light quarks or gluons).</p> <p>A brief overview of these datasets is as follows. For more detailed information see <a href=\"https://arxiv.org/abs/2407.20127\">arxiv:2047.20127</a>. <ul> <li>train_nominal - 92,820,427 jets, equal parts signal and background</li> <li>test_nominal - 10,306,813 jets, equal parts signal and background</li> <li>esup - 10,032,472 jets with the cluster energy scale up systematic variation active, equal parts signal and background</li> <li>esdown - 10,032,472 jets with the cluster energy scale down systematic variation active, equal parts signal and background</li> <li>cer - 10,040,653 jets with the cluster energy resolution systematic variation active, equal parts signal and background</li> <li>cpos - 10,032,472 jets with the cluster energy position systematic variation active, equal parts signal and background</li> <li>teg - 7,421,204 jets with the track efficiency global systematic variation active, 30% signal jets</li> <li>tej - 7,017,046 jets with the track efficiency in jets systematic variation active, 32% signal jets</li> <li>tfl - 5,907,310 jets with the track fake rate loose systematic variation active, 18% signal jets</li> <li>tfj - 6,977,371 jets with the track fake rate in jets systematic variation active, 32% signal jets</li> <li>bias - 10,011,330 jets with the track bias systematic variation active, 52% signal jets</li> <li>ttbar_pythia - 193,792 jets from Pythia simulated events containing Standard Model top-anti top quark pair production, all signal jets</li> <li>ttbar_herwig - 180,811 jets from Herwig simulated events containing Standard Model top-anti top quark pair production, all signal jets</li> <li>cluster - 5,000,004 jets simulated using the Sherpa cluster based hadronization model, all background jets</li> <li>string - 5,000,001 jets simulated using the Lund string based hadronization model, all background jets</li> <li>angular - 4,900,000 jets simulated using the Herwig angular ordered parton shower model, all background jets</li> <li>dipole - 4,900,000 jets simulated using the Herwig dipole parton shower model, all background jets</li> </ul> </p> <p>For each jet, the datasets contain: <ul> <li>The four vectors of constituent particles</li> <li>15 high level summary quantities evaluated on the jet</li> <li>The four vector of the whole jet</li> <li>A training weight (nominal only)</li> <li>PYTHIA shower weights (nominal only)</li> <li>A signal (1) vs background (0) label</li> </ul> </p> <p>There are two rules for using this data set: the contribution to a loss function from any jet should always be weighted by the training weight, and any performance claim is incomplete without an estimate of the systematic uncertainties via the method illustrated in this repository. The ideal model shows high performance but also small systematic uncertainties.</p>"
     },
     "accelerator": "CERN-LHC",
     "collaboration": {
@@ -16,7 +16,7 @@
         "gz",
         "h5"
       ],
-      "number_events": 0,
+      "number_events": 205774178,
       "number_files": 2020,
       "size": 182814191608
     },
@@ -233,6 +233,12 @@
     "keywords": [
       "datascience"
     ],
+    "links": [
+      {
+        "description": "ATLAS paper arxiv:2047.20127",
+        "url": "https://arxiv.org/abs/2407.20127"
+      }
+    ],
     "publisher": "CERN Open Data Portal",
     "recid": "80030",
     "title": "ATLAS top tagging open data set with systematic uncertainties",
@@ -243,7 +249,7 @@
       ]
     },
     "usage": {
-      "description": "<p>This dataset supersedes an <a href=\"/record/15013\">earlier data release</a> which did not include data for estimating systematic uncertainties. A detailed explanation of this dataset, with examples demonstrating how to train a tagger and assess systematic uncertainties, is provided in the <a href=\"https://gitlab.cern.ch/atlas/ATLAS-top-tagging-open-data\">this repository</a>.</p></p>If this dataset is used in a publication, please cite this dataset record along with the accompanying paper <a href=\"https://arxiv.org/abs/2407.20127\">arxiv:2047.20127</a>.</p>"
+      "description": "<p>This dataset supersedes an <a href=\"/record/15013\">earlier data release</a> which did not include data for estimating systematic uncertainties.</p> <p>A detailed explanation of this dataset, with examples demonstrating how to train a tagger and assess systematic uncertainties, is provided in the <a href=\"https://gitlab.cern.ch/atlas/ATLAS-top-tagging-open-data\">this repository</a>.</p></p>If this dataset is used in a publication, please cite this dataset record along with the accompanying paper <a href=\"https://arxiv.org/abs/2407.20127\">arxiv:2047.20127</a>.</p>"
     }
   }
 ]
