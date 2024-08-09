@@ -77,5 +77,23 @@ cd
 rungra
 ```
 
-It should start up showing an hour glass, and a file selection box.
-In the event display, switch to ~/graexe/data and select the short DST file. Start reading the first event from the file.
+It should start up showing an hour glass, and a file selection box, like this:
+
+<p><center><img src="/static/docs/delphi-data-screenshots-2024/delgra_startup_1.png" width="60%"></center></p>
+
+Press on OK, which will bring up the file dialog where you can select the folder and the file to be read in:
+
+<p><center><img src="/static/docs/delphi-data-screenshots-2024/delgra_startup_2.png" width="60%"></center></p>
+
+Switch to ~/graexe/data and select the simana.sdst file which we just copied there, and press Ok in that dialog:
+
+<p><center><img src="/static/docs/delphi-data-screenshots-2024/delgra_startup_3.png" width="60%"></center></p>
+
+When asked which event to read, just press OK to start reading the first event from the run, or press return:
+
+<p><center><img src="/static/docs/delphi-data-screenshots-2024/delgra_startup_3.png" width="60%"></center></p>
+
+You will see the first event, can rotate it, zoom in, and analyze it:
+
+<p><center><img src="/static/docs/delphi-data-screenshots-2024/delgra_startup_3.png" width="60%"></center></p>
+
