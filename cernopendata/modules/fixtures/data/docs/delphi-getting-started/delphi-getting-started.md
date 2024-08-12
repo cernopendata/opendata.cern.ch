@@ -1,9 +1,12 @@
-FIXME: Introduce table of contents
-
-# Introduction
+# Table of contents
 This quick start guide is meant as a guide for the very first steps to get going with DELPHI software and data access.
 
-## Overview
+* [Overview and requirements](#overview)
+* [Accessing the software stack](#access)
+* [Documentation](#documentation)
+* [Examples](#examples)
+
+# <a name="overview"> Overview
 
 The DELPHI stack consists of the following modules:
 
@@ -20,18 +23,18 @@ DELPHI data access rules are available [here](/record/417), or from [the DELPHI 
 
 Please read these before accessing the DELPHI software and data.
 
-## Accessing the software stack
+# <a name="access"> Accessing the software stack
 There are two possible ways to access the software stack.
 
-### Docker
+## Docker
 A docker container is available which ships with all the modules installed. Please take a look [here](docs/delpi-guide-docker)
 
-### CVMFS
+## CVMFS
 Binaries are also available from CVMFS, for a variety of different Linux flavors. There are no native Windows or Apple ports available for the time being.
 
 This method is convenient if you are running a desktop or a virtual machine with one of the supported Linux flavors on it.
 
-#### Requirements
+### Requirements
 You will need to have:
 
 * /cvmfs/delphi.cern.ch mounted. Documentation can be found at https://cvmfs.readthedocs.io/en/stable/
@@ -43,7 +46,7 @@ You will need to have:
 
 Please check the instructions at https://cvmfs.readthedocs.io/en/stable/cpt-quickstart.html and https://eoscta.docs.cern.ch/install/eos/ and https://eos-web.web.cern.ch/eos-web.
 
-#### Initialising the environment:
+### Initialising the environment
 For C-Shell (csh, tcsh ), do
 ```
  source /cvmfs/delphi.cern.ch/setup.csh
@@ -53,11 +56,11 @@ For Bourne shell (sh, bash, zsh, ...), type
 ```
 . /cvmfs/delphi.cern.ch/setup.sh
 ```
-If using the container, please use ```/etc/profile.d/delphi.sh``` or ```/etc/profile.d/delphi.csh``` instead.
+If using the container, please use `/etc/profile.d/delphi.sh` or `/etc/profile.d/delphi.csh` instead.
 
-After sourcing the environment, make sure that the environment variable **DELPHI_DATA_ROOT** points to the tip of the data area. This is specifically important if you copied the data sets you want to use locally. The default is ```/eos/experiment/delphi/castor2015```.
+After sourcing the environment, make sure that the environment variable **DELPHI_DATA_ROOT** points to the tip of the data area. This is specifically important if you copied the data sets you want to use locally. The default is `/eos/experiment/delphi/castor2015`.
 
-## Documentation
+# <a name="documentation"> Documentation
 DELPHI manuals and notes are available from [https://cds.cern.ch/](http://cds.cern.ch/search?c=DELPHI&sc=1)
 
 Here is a selection for getting started:
@@ -76,8 +79,8 @@ The DELPHI stack is mostly written in Fortran, with some bits written in C. Only
 
 The collaboration main contact for data preservation is the mailing list DELPHI-data-preservation-board@cern.ch. Support can only be given on a best effort basis. Suggestions and feedback is of course welcome!
 
-# Examples
-Some basic examples of how to run the software stack and perform various tasks can be found in the ```/cvmfs/delphi.cern.ch/examples``` tree.
+# <a name="examples"> Examples
+Some basic examples of how to run the software stack and perform various tasks can be found in the `/cvmfs/delphi.cern.ch/examples` tree.
 
 In the following, we will
 * Create some Monte Carlo events and run simulation, reconstruction and DST production on them
@@ -197,7 +200,7 @@ FAT = short94_c2
 ```
 to read 94 C2 data. It will automatically resolve the data files and loop over all of them.
 
-# Raw data access
+## Raw data access
 The DELPHI event server can be used to pick and reprocss individual events from raw data.
 It supports different modes:
 
@@ -220,12 +223,12 @@ where the first one is the full DST output, and the second the short dst one.
 
 Note: Running the event server requires access to the DELPHI raw data sets.
 
-## Event visualisation:
+## Event visualisation
 After setting up the DELPHI environment you can start the DELPHI event display with
 ```
 rungra
 ```
 Note that the event display can read only reconstructed data, not raw data. Both full and short DST work.
 
-# More examples
+## More examples
 More examples can be found at https://gitlab.cern.ch/delphi/examples.
