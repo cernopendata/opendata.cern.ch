@@ -77,22 +77,4 @@ cd
 rungra
 ```
 
-It should start up showing an hour glass, and a welcome box, like this:
-
-<p><center><img src="/static/docs/delphi-guide-docker/delgra_startup_1.png" width="60%"></center></p>
-
-After pressing on OK in the welcome box, the program will bring up the file dialog where you can select the folder and the file to be read in:
-
-<p><center><img src="/static/docs/delphi-guide-docker/delgra_startup_2.png" width="60%"></center></p>
-
-Switch to ~/graexe/data and select the simana.sdst file which we just copied there, and press Ok in that dialog. Next, it will ask for the number of event in this run to be read:
-
-<p><center><img src="/static/docs/delphi-guide-docker/delgra_startup_3.png" width="60%"></center></p>
-
-Just press OK to start reading the first event from the run, or press return.
-
-You will see the first event, can rotate it, zoom in, and analyze it, or you can skip to the next event, going through them one by one. Here's a screen shot of event number 5, viewed at a slightly different angle:
-
-<p><center><img src="/static/docs/delphi-guide-docker/delgra_startup_4.png" width="60%"></center></p>
-
-Note that due to possibly different random number seeds, the sequence may look different for you.
+Please take a look at the [DELGRA guide](delphi-guide-delgra) on how to proceed.

@@ -213,10 +213,14 @@ Note: Running the event server requires access to the DELPHI raw data sets.
 
 ## <a name="delgra">Event visualisation</a>
 After setting up the DELPHI environment you can start the DELPHI event display with
+
 ```
+cd
 rungra
 ```
-Note that the event display can read only reconstructed data, not raw data. Both full and short DST work.
+
+For convenience, copy the files you want to scan to ~/graexe/data.
+Please take a look at the [DELGRA guide](delphi-guide-delgra) on how to proceed.
 
 ## <a name="more">More examples</a>
 More examples can be found at https://gitlab.cern.ch/delphi/examples.
