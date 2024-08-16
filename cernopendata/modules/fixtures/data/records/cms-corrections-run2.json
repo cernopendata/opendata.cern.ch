@@ -1,0 +1,61 @@
+[
+  {
+    "abstract": {
+      "description": "<p>CMS supports corrections for various physics objects, either to improve modeling of data by simulation, or to correct for imperfect detector response. For Run 2 data, the official corrections are stored in a common JSON format that can be read with the correctionlib library.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "authors": [
+      {
+        "name": "CMS Open data group"
+      }
+    ],
+    "collections": [
+      "CMS-Tools"
+    ],
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2024",
+    "distribution": {
+      "formats": [
+        "zip"
+      ],
+      "number_files": 1,
+      "size": 10494603
+    },
+    "experiment": [
+      "CMS"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:7ccaf136",
+        "size": 10494603,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/corrections/jsonpog-integration-2016post.tar"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "12508",
+    "run_period": [
+      "Run2016"
+    ],
+    "system_details": {
+      "description": "Use this software in the CMS Open Data <a href=\"/docs/cms-guide-docker\">Docker container</a>, beginning with 2016 data. Correctionlib can be installed for use with either C++ or Python."
+    },
+    "title": "Physics object corrections for Run 2",
+    "type": {
+      "primary": "Supplementaries",
+      "secondary": [
+        "Correction"
+      ]
+    },
+    "usage": {
+      "description": "<p>The physics object correction files provided here are intended to be read using the <a href=\"https://cms-nanoaod.github.io/correctionlib/index.html\">correctionlib software</a>. The correction files are a type of structured json, and correctionlib provides an \"evaluate\" function to access appropriate values within the json file. The contents of the correction files can be explored <a href=\"https://opendata.cern.ch/eos/opendata/cms/corrections/jsonpog-integration-summary/index.html\">on this web summary page</a>. Correctionlib can be installed in the CMS Docker containers or VM images.</p><p>To use the correction files, download the file from this record and unpack it in a location that is accessible to your software container or image. Install correctionlib following the instructions at <a href=\"https://cms-nanoaod.github.io/correctionlib/install.html\">https://cms-nanoaod.github.io/correctionlib/install.html</a>.</p>\n<p>For more information about physics object access and the individual corrections, see the <a href=\"https://cms-opendata-guide.web.cern.ch/\">CMS Open Data Guide</a> web site.</p>"
+    },
+    "use_with": {
+      "description": "Use these corrections with any CMS Run 2 (2016 and onward) proton-proton collision or Monte Carlo datasets."
+    }
+  }
+]
