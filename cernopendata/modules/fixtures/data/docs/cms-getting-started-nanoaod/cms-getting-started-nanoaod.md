@@ -129,7 +129,7 @@ Warning in <TClass::Init>: no dictionary for class pair<edm::Hash<1>,edm::Parame
 root [1] TTree *t = (TTree*)_file0->Get("Events")
 (TTree *) 0x55f8837d3910
 
-root [2] t->Draw("Muon_pt,"Muon_pt < 2000")  # draws pT of all muons below 2 TeV
+root [2] t->Draw("Muon_pt","Muon_pt < 2000")  # draws pT of all muons below 2 TeV
 Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
 (long long) 4804238
 
