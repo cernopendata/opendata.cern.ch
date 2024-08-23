@@ -25,27 +25,24 @@ This quick start guide is meant as a guide for the very first steps to get going
 
 The DELPHI stack consists of the following modules:
 
-* DELPHI DST analysis framework, also referred to as dstana. Please take a look at the [Skelana framework](/record/80502) for detailed information.
-* MonteCarlo production, consisting of simulation, reconstruction and short DST production. Note that the DST format depends on the year. During LEP1, mainly short DST was used, while during LEP2 the extendent short DST format was used. The various formats are described [here](/record/80504)
+* DELPHI DST analysis framework, also referred to as `dstana`. Please take a look at the [Skelana framework](/record/80502) for detailed information.
+* MonteCarlo production, includes simulation, reconstruction and short DST creation. Note that the DST format depends on the year. During LEP1, mainly [short DST](/record/80506) or [long DST](/record/80507) formats were used, while during LEP2 the [extendent short DST](/record/80505) format was the default.
+Note that the reconstruction code returns results in [full DST format](/record/80504). Analyses should always use short or extended short DST format, because these generally contain fixes which were applied after the reconstruction itself.
 * Event reconstruction from raw data, using the DELPHI event server.
 * The graphical DELPHI Event display, also referred to as [delgra](/record/80503).
 
 ## <a name="before"> Before you start ... </a>
 
-Please read and accept the data access rules.
-
-DELPHI data access rules are available [here](/record/417), or from [the DELPHI web pages](https://delphi-www.web.cern.ch/delphi-www/delsec/finalrules/DELPHI_Data_preservation-8.pdf).
-
-Please read these before accessing the DELPHI software and data.
+Please read and accept the [DELPHI data access rules](/record/417). They can as well be viewd at the [the DELPHI web pages](https://delphi-www.web.cern.ch/delphi-www/delsec/finalrules/DELPHI_Data_preservation-8.pdf).
 
 # <a name="access"> Accessing the software stack</a>
 There are two possible ways to access the software stack.
 
-## <a name="docker"> Docker</a>
-A docker container is available which ships with all the modules installed. Please take a look [here](/docs/delphi-guide-docker).
+## <a name="docker"> Docker </a>
+A container image is available which ships with all the modules installed. Please take a look at the [DELPHI docker guide](/docs/delphi-guide-docker).
 
 ## <a name="cvmfs"> CVMFS</a>
-Binaries are also available from CVMFS, for a variety of different Linux flavors. Please take a look [here](/docs/delphi-guide-cvmfs).
+Binaries are also available from CVMFS, for a variety of different Linux flavors. Instructions can be found in our [dedicated CVMFS guide](/docs/delphi-guide-cvmfs).
 
 # <a name="documentation"> Documentation</a>
 DELPHI manuals and notes are available from [https://cds.cern.ch/](http://cds.cern.ch/search?c=DELPHI&sc=1)
@@ -57,14 +54,16 @@ Here is a selection for getting started:
 * [DST contents](/record/80504)
 
 ## <a name="sources">Source code</a>
-The sources are available on https://gitlab.cern.ch/delphi. Some modules still requires CERN authentication. The plan is to release the software in the near future.
+The sources are available from https://gitlab.cern.ch/delphi. Some modules still requires CERN authentication. The plan is to release the software in the near future.
 
 ## <a name="compilers">Compilers</a>
-The DELPHI stack is mostly written in Fortran, with some bits written in C. Only gfortran and GNU gcc are supported. We use the gfortran version which comes with the supported operating system.
+The DELPHI stack is mostly written in `Fortran`, with some bits written in `C`. Only `gfortran` and `GNU gcc` are supported. We use the `gfortran` version which comes with the
+supported operating system. Recommended compiler and linker flags are set by the environment and should be used when building software linking with the DELPHI libraries.
 
 ## <a name="help">Getting help</a>
 
-The collaboration main contact for data preservation is the mailing list DELPHI-data-preservation-board@cern.ch. Support can only be given on a best effort basis. Suggestions and feedback is of course welcome!
+The collaboration main contact for data preservation is the mailing list DELPHI-data-preservation-board@cern.ch. Support can only be given on a best effort basis.
+Suggestions and feedback is of course welcome!
 
 # <a name="examples">Examples</a>
 Some basic examples of how to run the software stack and perform various tasks can be found in the `/cvmfs/delphi.cern.ch/examples` tree.
@@ -82,100 +81,43 @@ Simulation is reconstruction code is supported for all the years 1992 and later.
  * The DELPHI simulation code comes with a few build-in generators. Typically, generators are run externally though.
  * The script *runsim* is used to do the detector simulation, reconstruction and short DST creation steps. Use -gext to process an external file from some generator.
 
+There is a [dedicated guide](delphi-guide-simulation) available with more details about how to run DELPHI simulations.
+
 ## <a name="simulinter"> Creating Monte Carlo samples interactively</a>
 
 ### <a name="internalgen">Using internal generators</a>
 For creating a few events with a build-in generator run
-```
-runsim -VERSION va0u -LABO CERN -NRUN 1000 -EBEAM 45.625 -igen qqps -NEVMAX 10
 
 ```
-This will create 10 Z-> qqbar events at a beam energy of 45.625 GeV (ECM 91.25 GeV), using the build-in QQPS generator.
+$ runsim -VERSION v94c -LABO CERN -NRUN 1000 -EBEAM 45.625 -igen qqps -NEVMAX 10
 
-It will as well pass the events through the detector simulation with the following settings:
+```
+This will create 10 Z-> qqbar events at a beam energy of 45.625 GeV (ECM 91.25 GeV), using the build-in QQPS generator and the detector setup of 1994.
 
-* Run number -1000 (negative numbers indicate simulated events)
-* Laboratory identifier CERN (please change that if possible)
-* year 2000 (no TPC sector 6 period)
-
-The events will be reconstructed and an extended short DST file will be created, which is ready for analysis.
-
-Created files:
-
-* simana.fadsim : detector simulation output (corresponds to raw data, not to be used directly)
-* simana.fadana : reconstructed output, full DST format (not to be used directly)
-* simana.xsdst  : short DST output for analysis
-
-In principle, analysis code can be run as well on the full DST output, however, this requires that a bunch of modules and fixes have to be rerun on top of the data, before they can be used.
+It will as well pass the events through the detector simulation, and create a short DST file named `simana.sdst` which can be used for analysis, scanning etc.
 
 ### <a name="externalgen">Using external generators</a>
-In this case the generator is run externally and the output is written to a file in a specific format. This can then
-be passed through the detector simulation with
-```
-runsim -VERSION va0u -LABO CERN -NRUN 1000 -EBEAM 45.625 -gext generated.lund -NEVMAX 10
-```
-Old executables for generators can be found in /cvmfs/delphi.cern.ch/mc-production/generators/pgf77_glibc2.2
+In this case the generator is run externally and the output is written to a file
+in a specific format. This can then be passed through the detector simulation with
 
-A source code example of DELPHI tuned Pythia can be found in the example tree.
+```
+$ runsim -VERSION 94c -LABO CERN -NRUN 1000 -EBEAM 45.625 -gext generated.lund -NEVMAX 10
+```
+
+Again, this will create a short DST file name simana.sdst. Note that for the LEP 2 phase, a sol called extended short DST file will be created, which is typically called simana.xsdst instead.
+
 
 ## <a name="anajobinter">Running an analysis job on the result</a>
-The following script can be run interactively or submitted to a batch farm with DELPHI setup
+A [dedicated guide](delphi-guide-analysis) is availabe with more details about how to run an analysis job for DELPHI.
 
-```
-#!/bin/bash
-pgm=skelana
+The DELPHI analysis framework is called `skelana`. The way to write analysis code is by overriding one or more of the following Fortran functions:
 
-export DELLIBS=`dellib skelana dstana pxdst vfclap vdclap ux tanagra ufield bsaurus herlib trigger uhlib dstana`
-export CERNLIBS=`cernlib  genlib packlib kernlib ariadne herwig jetset74`
-echo "+OPTION VERbose" > $pgm.cra1
-echo "+USE, ${PLINAM}." >> $pgm.cra1
-cat $DELPHI_PAM/skelana.cra >> $pgm.cra1
+* `USER00` for the initialisation at the start of the run
+* `USER01` for the event selection. It should return 0 to skip the current event and 1 to read it.
+* `USER02` is called for each selected event.
+* `USER99` is called at the end of the run
 
-# modify
-ycmd=`which nypatchy`
-command="$ycmd - $pgm.f $pgm.cra1 $pgm.ylog $pgm.c - - ${pgm}R.f .go"
-echo "Running $command"
-eval $command
-
-# compile
-for ending in .f .F ; do
-    ls *$ending >/dev/null 2>&1
-    if [ $? -eq 0 ]; then
-	for file in *$ending  ; do
-	    $FCOMP $FFLAGS -c $file
-	done
-    fi
-done
-
-for ending in  *.c *.C *.cc ; do
-    ls *$ending >/dev/null 2>&1
-    if [ $? -eq 0 ]; then
-	for file in *ending ; do
-	    $CCOMP $CFLAGS -c $file
-	done
-    fi
-done
-
-# link
-$FCOMP $LDFLAGS *.o -o $pgm.exe $ADDLIB $DELLIBS $CERNLIBS
-
-# cleanup
-rm -f *.f *.c *.o
-
-# create input file
-echo "FILE = simana.xsdst" > ./PDLINPUT
-
-# execute
-./$pgm.exe 1>$pgm.log 2>$pgm.err
-```
-
-This simple script will:
-
-* get the sources
-* run nypatchy to create the compilable Fortran input files
-* compile the Fortran code to create an executable file
-* create a data input fiel which would read **simana.xsdst** from the local folder where the executable will be started
-* run the job
+An example can be found in the examples folder on the [DELPHI container](delphi_guide_docker) or on [CERN gitlab](https://gitlab.cern.ch/delphi/examples). Take a look e.g. at the `dump` folder there.
 
 ## <a name="nicknames">Using nicknames</a>
 DELPHI data is organised in data sets which are identified via a nickname. When using opendata, each nickname comes with a corresponding DOI which you can quote.
@@ -186,40 +128,27 @@ In this case, the PDLINPUT file created by the script above should contain the k
 ```bash
 FAT = short94_c2
 ```
+
 to read 94 C2 data. It will automatically resolve the data files and loop over all of them.
 
 ## <a name="rawdata">Raw data access</a>
 The DELPHI event server can be used to pick and reprocss individual events from raw data.
-It supports different modes:
-
-* *pick* only selects the raw data of a specific event and returns that
-* *delana* picks an event from raw data, and runs the reconstruction code on it, returning a full dst file#
-* *dstana* picks the event from raw data, runs reconstruction and dst creation on it, subsequently
-
-The *wired* option is no longer supported as the wired code no longer exists.
+A [dedicated guide](delphi-guide-eventserver) is available on the DELPHI event server.
 
 Example:
 ```
-des -m dstana -e 84078:10815
+$ des -m dstana -e 84078:10815
 ```
-creates the following output files:
-```
-R84078_E10815.dst
-dstana.dst
-```
-where the first one is the full DST output, and the second the short dst one.
-
-Note: Running the event server requires access to the DELPHI raw data sets.
 
 ## <a name="delgra">Event visualisation</a>
 After setting up the DELPHI environment you can start the DELPHI event display with
 
 ```
-cd
-rungra
+$ cd
+$ rungra
 ```
 
-For convenience, copy the files you want to scan to ~/graexe/data.
+For convenience, copy the files you want to scan to `~/graexe/data`.
 Please take a look at the [DELGRA guide](delphi-guide-delgra) on how to proceed.
 
 ## <a name="more">More examples</a>
