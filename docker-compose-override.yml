@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2015, 2016, 2017, 2018, 2021, 2022, 2023, 2024 CERN.
+# Copyright (C) 2015, 2016, 2017, 2018, 2021, 2022, 2023, 2024, 2025 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -30,7 +30,7 @@ services:
       - TEMPLATES_AUTO_RELOAD=True
     command: bash -c "/content/scripts/start-server-debug.sh"
     restart: "unless-stopped"
-    image: registry.cern.ch/cernopendata/cernopendata-portal:0.2.5
+    image: registry.cern.ch/cernopendata/cernopendata-portal:0.2.9
     volumes:
       - ../opendata.cern.ch:/content
       - ./cernopendata:/code/cernopendata
