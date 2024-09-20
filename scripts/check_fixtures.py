@@ -25,7 +25,7 @@ def print_warning(filename, recid="", field="", message="missing-field"):
 def main():
     """Check record fixtures for basic fields."""
     problems_found = False
-    fixtures_directory = "cernopendata/modules/fixtures/data/records"
+    fixtures_directory = "data/records"
     for filename in os.listdir(fixtures_directory):
         records = json.loads(open(fixtures_directory + os.sep + filename, "r").read())
         for record in records:
