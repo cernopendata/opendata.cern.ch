@@ -56,6 +56,7 @@ If you want a more detailed understanding of particle physics or an introduction
 For example:
 
 * [Particle Physics Playground](/record/52) provides you with further hands-on activities with open data from CMS and other experiments.
+* [Particle Discovery Lab](/record/49) is a 6-hour computational exercise for intermediate university students that reinforces physics course concepts like relativistic energy-momentum conservation and provides a platform for teaching analysis of histograms and propagation of uncertainties.
 * [Computing Methods in High-Energy Physics](/record/61) is an introductory course on computing in high-energy physics.
 * [CMS HEP Tutorial](/record/50) is a one-week course with a basic introduction to fundamental concepts of data analysis in HEP experiments using CMS Open Data.
 
