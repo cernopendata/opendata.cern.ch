@@ -5,66 +5,130 @@
 .. contents::
    :backlinks: none
 
-Installation
-============
+This document describes how you can run a local instance of the CERN Open Data
+portal in order to work with the content records and associated documentation.
 
-This module contains the content of the CERN Open Data instance. It does not contain the code of the portal itself.
-For local development, it is recommended to have an installation of the CERN Open Data Portal. For detail instructions
-on how to install the portal, please follow `these instructions <https://github.com/cernopendata/cernopendata-portal/blob/main/DEVELOPING.rst>`_.
+Prerequisites
+=============
+
+You will need to clone two repositories:
+
+- `opendata.cern.ch <https://github.com/cernopendata/opendata.cern.ch>`_ which
+  contains the open data content;
+
+- `cernopendata-portal <https://github.com/cernopendata/cernopendata-portal>`_
+  which contains the portal infrastructure code.
+
+Please make sure to also install `Docker
+<https://docs.docker.com/get-started/get-docker/>`_ and `Docker Compose
+<https://docs.docker.com/compose/install/>`_ v2 that is used for local
+developments.
 
 Quick start
--------------------
-For a quickstart guide, do the following:
+===========
+
+In order to create a local CERN Open Data portal instance, please proceed as
+follows:
 
 .. code-block:: console
 
-  $ # Checkout this repository
-  $ git clone https://github.com/cernopendata/opendata.cern.ch.git
-  $ # Checkout the module with the portal
-  $ git clone https://github.com/cernopendata/cernopendata-portal.git
-  $ # Move to the directory of the content
+  $ git clone https://github.com/johndoe/opendata.cern.ch
+  $ git clone https://github.com/johndoe/cernopendata-portal
   $ cd opendata.cern.ch
-  $ # Make sure that the latest images are available
   $ docker compose pull
-  $ # Start the services
   $ docker compose up -d
-  $ # Give enough time to the containers to start properly. Note that there are some dependencies among them,
-  $ # and the web container starts by setting up the development environment
-  $ sleep 120
-  $ # Create the basic structure
-  $ docker exec -i -t opendatacernch-web-1 /code/scripts/populate-instance.sh --skip-records --skip-docs
-  $ docker exec -i -t opendatacernch-web-1 cernopendata fixtures records \
-              --mode insert-or-replace \
-              -f /content/data/records/cms-primary-datasets.json
-..
+  $ sleep 120 # give enough time for the containers to start properly
+  $ docker exec -i -t opendatacernch-web-1 /code/scripts/populate-instance.sh \
+        --skip-records --skip-docs
 
+This will create a running instance of the CERN Open Data portal with a
+relatively empty content. The portal will be accessible locally at
+`http://127.0.0.1:500 <http://127.0.0.1:5000>`_.
 
-At this point, all the services should be up and running. If you go to a web browser to http://0.0.0.0:5000/, you should
-see the web portal, with the vocabularies and some documents about the portal itself.
+If you would like to stop and delete your local instance, you can do:
 
-From this moment on,
+.. code-block:: console
 
-Defining new entries
+   $ docker compose down -v
+
+Working with records
 ====================
 
-This repository has the following data structure:
+If you would like to work with certain data records and test your edits on your
+local instance, you can proceed as follows.
 
-* data:
-    * records: Put here the entries that should be inserted as records
-    * docs: This folder will be for the documents
-    * images: And this is for static images that might be needed
-* scripts: Directory with shell scripts to help the development
+Edit the record file, such as CMS 2012 collision dataset records:
 
-If you want to modify the json schema, mappings or templates, you will find these folders in the
-`cernopendata portal <https://github.com/cernopendata/cernopendata-portal/>`_ repository
+   .. code-block:: console
+
+  $ vim data/records/cms-primary-datasets.json
+
+Upload the local file into your instance:
+
+.. code-block:: console
+
+  $ docker exec -i -t opendatacernch-web-1 cernopendata fixtures records \
+        --mode insert-or-replace \
+        -f /content/data/records/cms-primary-datasets.json
+
+You can then check your changes at `http://127.0.0.1:500
+<http://127.0.0.1:5000>`_.
+
+Note that you can take advantage of shell scripting if you would like to upload
+all experiment records locally, for example for ATLAS:
+
+.. code-block:: console
+
+  $ for file in data/records/atlas-*; do \
+       docker exec -i -t opendatacernch-web-1 cernopendata fixtures records \
+           --mode insert-or-replace -f $file; \
+    done
+
+Understanding metadata fields
+=============================
+
+When working with data records, there are several fields such as
+`collision_energy` that you can use to store the content. The list of all
+available record fields, together with their semantic meaning, is described in
+the JSON Schema files. You can find the `record schema
+<https://github.com/cernopendata/cernopendata-portal/blob/main/cernopendata/jsonschemas/records/record-v1.0.0.json>`_
+in the portal infrastructure repository.
+
+If you would like to modify the JSON schema, for example to add a new field,
+this would require working with the `cernopendata-portal` sister repository.
+Please see its own `documenation
+<https://github.com/cernopendata/cernopendata-portal/>`_ about how to add new
+metadata fields. We would be happy to assist with the process.
+
+Understanding output templates
+==============================
+
+If you would like to change the way how the data records are displayed on the
+web, for example to introduce new section displaying newly added field, this is
+something that is governed by `Jinja templating language
+<https://jinja.palletsprojects.com/en/2.10.x/templates/>`_ in the
+`cernopendata-portal` sister repository. Please see its own `documenation
+<https://github.com/cernopendata/cernopendata-portal/>`_ about how to amend
+look and feel of the record metadata. We would be happy to assist with the
+process.
+
+Verifying metadata conformance
+==============================
+
+You can use the provided helper script `check_fixtures.py` to check the
+conformance of record files to the required minimal standard:
+
+.. code-block:: console
+
+   ./scripts/check_fixtures.py
 
 Working with docs/records
 -------------------------
 
 The recommended development process is the following:
 
-1. Create the entries under data/(records/docs)
-2. Validate that the yaml syntax is correct
+1. Create the entries under data/(records/docs) 2. Validate that the yaml
+   syntax is correct
 
 .. code-block:: console
 
