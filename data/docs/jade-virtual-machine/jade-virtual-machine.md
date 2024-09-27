@@ -13,6 +13,6 @@ every platform to perform the installation of VirtualBox.
 
 ## <a name="download">Step 2: Download a JADE virtual machine image</a>
 
-Download JADE virtual machine image from [here](https://eospublichttp.cern.ch/eos/opendata/jade/environment/MPP-JADE-CentOS-7-x86_64-DVD-1511.ova).
+Download JADE virtual machine image from [here](/record/26000).
 
 Open it with VirtualBox to create your own JADE virtual machine.
