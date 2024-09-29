@@ -22,8 +22,6 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
-version: "2"
-
 services:
   web:
     environment:
@@ -38,7 +36,6 @@ services:
       - ./cernopendata:/code/cernopendata
       - ./scripts:/code/scripts
       - ./tests:/code/tests
-
   mq:
     profiles:
       - donotstart
@@ -46,5 +43,8 @@ services:
     profiles:
       - donotstart
   web-files:
+    profiles:
+      - donotstart
+  worker:
     profiles:
       - donotstart
