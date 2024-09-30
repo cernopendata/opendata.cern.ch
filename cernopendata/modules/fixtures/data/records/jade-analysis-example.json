@@ -1,0 +1,1071 @@
+[
+    {
+      "abstract": {
+        "description": ""
+      },
+      "accelerator": "DESY-PETRA",
+      "collaboration": {
+      "name": "JADE collaboration",
+      "recid": "26050"
+      },
+      "collections": [
+        "JADE-Analysis"
+      ],
+      "dataset_semantics": [
+        {
+          "description": "Run number.",
+          "type": "UShort_t",
+          "variable": "Irun"
+        },
+        {
+          "description": "Event number",
+          "type": "Int_t",
+          "variable": "Ievnt"
+        },
+        {
+          "description": "Tokio multihadron selection flag, see primer , flag ITKMH=1 indicates event is TKMH, =0 otherwise",
+          "type": "UChar_t",
+          "variable": "Itkmh"
+        },
+        {
+          "description": "flag IGPMH=1 indicates event is GPMH, =0 otherwise",
+          "type": "UChar_t",
+          "variable": "Igpmh"
+        },
+        {
+          "description": "",
+          "type": "UChar_t",
+          "variable": "Isist"
+        },
+        {
+          "description": "",
+          "type": "UChar_t",
+          "variable": "Icvst"
+        },
+        {
+          "description": "Detector status, see primer, document me",
+          "type": "UChar_t",
+          "variable": "Icjst"
+        },
+        {
+          "description": "",
+          "type": "UChar_t",
+          "variable": "Iczst"
+        },
+        {
+          "description": "Detector status, see primer, document me",
+          "type": "UChar_t",
+          "variable": "Iebst"
+        },
+        {
+          "description": "",
+          "type": "UChar_t",
+          "variable": "Ieest"
+        },
+        {
+          "description": "flag for stage 1 selection, =1 selected, =0 rejected",
+          "type": "UChar_t",
+          "variable": "Istg1"
+        },
+        {
+          "description": "",
+          "type": "UShort_t",
+          "variable": "Ntkd02"
+        },
+        {
+          "description": "Beam energy",
+          "type": "Float_t",
+          "variable": "Ebeam"
+        },
+        {
+          "description": "4-vector of hadron system from GCE CT+EC+HT",
+          "type": "Float_t",
+          "variable": "Pgce[4]"
+        },
+        {
+          "description": "vector calculated from tracks and clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Tvectc[3]"
+        },
+        {
+          "description": "flag IL2MH=1 indicates event is L2MH, =0 otherwise",
+          "type": "UChar_t",
+          "variable": "Il2mh"
+        },
+        {
+          "description": "\\f$WW \\rightarrow qqqq\\f$ log-likelihood selection, see \\cite Abbiendi:2000eg",
+          "type": "UChar_t",
+          "variable": "Iwqqqq"
+        },
+        {
+          "description": "\\f$WW \\rightarrow qql\\nu\\f$ log-likelihood selection, see \\cite Abbiendi:2000eg",
+          "type": "Char_t",
+          "variable": "Iwqqln"
+        },
+        {
+          "description": "\\f$WW \\rightarrow qql\\nu\\f$ lepton id",
+          "type": "Int_t",
+          "variable": "Idqqln"
+        },
+        {
+          "description": "flag for energy balance selection, =1 selected, =0 rejected",
+          "type": "UChar_t",
+          "variable": "Iebal"
+        },
+        {
+          "description": "",
+          "type": "UChar_t",
+          "variable": "Icat"
+        },
+        {
+          "description": "bit indicating whether a mini ramp is in progress",
+          "type": "UChar_t",
+          "variable": "Iminrmp"
+        },
+        {
+          "description": "4-vector of hadron system from kin fit or ECAL cluster (WWSPRI)",
+          "type": "Float_t",
+          "variable": "Pspri[4]"
+        },
+        {
+          "description": "4-vector of hadron system from kin fit or ECAL cluster (WWSPR)",
+          "type": "Float_t",
+          "variable": "Pspr[4]"
+        },
+        {
+          "description": "energy of most energetic isolated photon in ECAL",
+          "type": "Float_t",
+          "variable": "Ephot"
+        },
+        {
+          "description": "energy of hypothetical ISR photon returned by kin fit, sign indicates direction +z or -z (WWSPRI)",
+          "type": "Float_t",
+          "variable": "Efit"
+        },
+        {
+          "description": "\\f$\\chi^2\\f$ probability of kin fit (WWSPRI)",
+          "type": "Float_t",
+          "variable": "Pfit"
+        },
+        {
+          "description": "energy in forward detectors FD+SW+GC",
+          "type": "Float_t",
+          "variable": "Efd"
+        },
+        {
+          "description": "Some QCD matrix element weights for 2-4 jets from PXERT3",
+          "type": "Float_t",
+          "variable": "W310"
+        },
+        {
+          "description": "Some QCD matrix element weights for 2-4 jets from PXERT3",
+          "type": "Float_t",
+          "variable": "W420"
+        },
+        {
+          "description": "Likelihood variable for WW all hadronic decay, see \\cite Abbiendi:2000eg",
+          "type": "Float_t",
+          "variable": "Lwqqqq"
+        },
+        {
+          "description": "Likelihood variable for WW leptonic/hadronic decay, see \\cite Abbiendi:2000eg",
+          "type": "Float_t",
+          "variable": "Lwqqln"
+        },
+        {
+          "description": "4 fermion matrix element weight for all 4f diagrams",
+          "type": "Float_t",
+          "variable": "Lwexef0"
+        },
+        {
+          "description": "4 fermion matrix element weight for CC03 WW only",
+          "type": "Float_t",
+          "variable": "Lwexef1"
+        },
+        {
+          "description": "Thrust from tracks and clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Tdtc"
+        },
+        {
+          "description": "Thrust major from tracks and clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Tmadtc"
+        },
+        {
+          "description": "Thrust minor from tracks and clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Tmidtc"
+        },
+        {
+          "description": "Mass of heavy hemisphere from tracks and clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Mhdtc"
+        },
+        {
+          "description": "Mass of lite hemisphere from tracks and clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Mldtc"
+        },
+        {
+          "description": "Total jet broadening from tracks and clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Btdtc"
+        },
+        {
+          "description": "Wide jet broadening from tracks and clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Bwdtc"
+        },
+        {
+          "description": "C parameter from tracks and clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Cpdtc"
+        },
+        {
+          "description": "D parameter from tracks and clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Dpdtc"
+        },
+        {
+          "description": "Sphericity from tracks and clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Sdtc"
+        },
+        {
+          "description": "Aplanarity from tracks and clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Adtc"
+        },
+        {
+          "description": "Acoplanarity from tracks and clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Acpdtc"
+        },
+        {
+          "description": "Thrust from tracks, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Tdt"
+        },
+        {
+          "description": "Thrust major from tracks, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Tmadt"
+        },
+        {
+          "description": "Thrust minor from tracks , see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Tmidt"
+        },
+        {
+          "description": "Mass of heavy hemisphere from tracks, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Mhdt"
+        },
+        {
+          "description": "Mass of lite hemisphere from tracks, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Mldt"
+        },
+        {
+          "description": "Total jet broadening from tracks, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Btdt"
+        },
+        {
+          "description": "Wide jet broadening from tracks, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Bwdt"
+        },
+        {
+          "description": "C parameter from tracks, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Cpdt"
+        },
+        {
+          "description": "D parameter from tracks, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Dpdt"
+        },
+        {
+          "description": "Sphericisy parameter from tracks, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Sdt"
+        },
+        {
+          "description": "Aplanarity parameter from tracks, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Adt"
+        },
+        {
+          "description": "Acoplanarity parameter from tracks, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Acpdt"
+        },
+        {
+          "description": "Thrust minor from clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Tdc"
+        },
+        {
+          "description": "Thrust major from clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Tmadc"
+        },
+        {
+          "description": "Thrust minor from clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Tmidc"
+        },
+        {
+          "description": "Mass of heavy hemisphere from clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Mhdc"
+        },
+        {
+          "description": "Mass of lite hemisphere from clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Mldc"
+        },
+        {
+          "description": "Total jet broadening from clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Btdc"
+        },
+        {
+          "description": "Wide jet broadening from clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Bwdc"
+        },
+        {
+          "description": "C parameter from clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Cpdc"
+        },
+        {
+          "description": "D parameter from clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Dpdc"
+        },
+        {
+          "description": "Sphericity parameter from clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Sdc"
+        },
+        {
+          "description": "Aplanarity parameter from clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Adc"
+        },
+        {
+          "description": "Acoplanarity parameter from clusters, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Acpdc"
+        },
+        {
+          "description": "Thrust from enegry flow, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Tdmt"
+        },
+        {
+          "description": "Thrust major from enegry flow, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Tmadmt"
+        },
+        {
+          "description": "Thrust minor from enegry flow, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Tmidmt"
+        },
+        {
+          "description": "Mass of heavy hemisphere from energy flow, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Mhdmt"
+        },
+        {
+          "description": "Mass of lite hemisphere from energy flow, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Mldmt"
+        },
+        {
+          "description": "Total jet broadining from energy flow, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Btdmt"
+        },
+        {
+          "description": "Wide jet broadining from energy flow, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Bwdmt"
+        },
+        {
+          "description": "C parameter from energy flow, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Cpdmt"
+        },
+        {
+          "description": "D parameter from energy flow, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Dpdmt"
+        },
+        {
+          "description": "Sphericity from energy flow, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Sdmt"
+        },
+        {
+          "description": "Aplanarity from energy flow, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Admt"
+        },
+        {
+          "description": "Acoplanarity from energy flow, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Acpdmt"
+        },
+        {
+          "description": "Number of Durham jets from tracks and clusters",
+          "type": "Int_t",
+          "variable": "Nxjdtc"
+        },
+        {
+          "description": "Number of Durham jets from tracks",
+          "type": "Int_t",
+          "variable": "Nxjdt"
+        },
+        {
+          "description": "Number of Durham jets from clusters",
+          "type": "Int_t",
+          "variable": "Nxjdc"
+        },
+        {
+          "description": "Number of Durham jets from energy flow",
+          "type": "Int_t",
+          "variable": "Nxjdmt"
+        },
+        {
+          "description": "Number of JADE jets from tracks and clusters",
+          "type": "Int_t",
+          "variable": "Nxjetc"
+        },
+        {
+          "description": "Number of JADE jets from tracks",
+          "type": "Int_t",
+          "variable": "Nxjet"
+        },
+        {
+          "description": "Number of JADE jets from clusters",
+          "type": "Int_t",
+          "variable": "Nxjec"
+        },
+        {
+          "description": "Number of JADE jets from energy flow",
+          "type": "Int_t",
+          "variable": "Nxjemt"
+        },
+        {
+          "description": "Number of CA jets from tracks and clusters",
+          "type": "Int_t",
+          "variable": "Nxjctc"
+        },
+        {
+          "description": "Number of CA jets from tracks",
+          "type": "Int_t",
+          "variable": "Nxjct"
+        },
+        {
+          "description": "Number of CA jets from clusters",
+          "type": "Int_t",
+          "variable": "Nxjcc"
+        },
+        {
+          "description": "Number of CA jets from energy flow",
+          "type": "Int_t",
+          "variable": "Nxjcmt"
+        },
+        {
+          "description": "Transition parameters for Durham jets from tracks and clusters, size [Nxjdtc],",
+          "type": "Float_t",
+          "variable": "Yddtc[31]"
+        },
+        {
+          "description": "Transition parameters for JADE jets from tracks and clusters, size [Nxjetc],",
+          "type": "Float_t",
+          "variable": "Yedtc[31]"
+        },
+        {
+          "description": "Transition parameters for CA jets from tracks and clusters, size [Nxjctc],",
+          "type": "Float_t",
+          "variable": "Ycdtc[31]"
+        },
+        {
+          "description": "",
+          "type": "Char_t",
+          "variable": "Njcedtc[7]"
+        },
+        {
+          "description": "",
+          "type": "Char_t",
+          "variable": "Njcrdtc[7]"
+        },
+        {
+          "description": "Transition parameters for Durham jets from tracks and clusters, size [Nxjdt],",
+          "type": "Float_t",
+          "variable": "Yddt[31]"
+        },
+        {
+          "description": "Transition parameters for JADE jets from tracks and clusters, size [Nxjet],",
+          "type": "Float_t",
+          "variable": "Yedt[31]"
+        },
+        {
+          "description": "Transition parameters for CA jets from tracks and clusters, size [Nxjct],",
+          "type": "Float_t",
+          "variable": "Ycdt[31]"
+        },
+        {
+          "description": "",
+          "type": "Char_t",
+          "variable": "Njcedt[7]"
+        },
+        {
+          "description": "",
+          "type": "Char_t",
+          "variable": "Njcrdt[7]"
+        },
+        {
+          "description": "Transition parameters for Durham jets from clusters, size [Nxjdc],",
+          "type": "Float_t",
+          "variable": "Yddc[31]"
+        },
+        {
+          "description": "Transition parameters for JADE jets from clusters, size [Nxjdc]",
+          "type": "Float_t",
+          "variable": "Yedc[31]"
+        },
+        {
+          "description": "Transition parameters for CA jets from clusters, size [Nxjdc]",
+          "type": "Float_t",
+          "variable": "Ycdc[31]"
+        },
+        {
+          "description": "",
+          "type": "Char_t",
+          "variable": "Njcedc[7]"
+        },
+        {
+          "description": "",
+          "type": "Char_t",
+          "variable": "Njcrdc[7]"
+        },
+        {
+          "description": "Transition parameters for Durham jets from energy flow, size [Nxjdmt]",
+          "type": "Float_t",
+          "variable": "Yddmt[31]"
+        },
+        {
+          "description": "Transition parameters for JADE jets from energy flow, size [Nxjdmt]",
+          "type": "Float_t",
+          "variable": "Yedmt[31]"
+        },
+        {
+          "description": "Transition parameters for CA jets from energy flow, size [Nxjdmt]",
+          "type": "Float_t",
+          "variable": "Ycdmt[31]"
+        },
+        {
+          "description": "",
+          "type": "Char_t",
+          "variable": "Njcedmt[7]"
+        },
+        {
+          "description": "",
+          "type": "Char_t",
+          "variable": "Njcrdmt[7]"
+        },
+        {
+          "description": "Number of tracks",
+          "type": "Int_t",
+          "variable": "Ntrk"
+        },
+        {
+          "description": "",
+          "type": "UChar_t",
+          "variable": "Id02[501]"
+        },
+        {
+          "description": "Energy losses for track, size [Ntrk]",
+          "type": "Float_t",
+          "variable": "Dedx[501]"
+        },
+        {
+          "description": "Error on energy losses for track, size [Ntrk]",
+          "type": "Float_t",
+          "variable": "Dded[501]"
+        },
+        {
+          "description": "Number of hist used for energy losses for track, size [Ntrk]",
+          "type": "UChar_t",
+          "variable": "Nhde[501]"
+        },
+        {
+          "description": "Track peregee parameter, see primer, size [Ntrk]",
+          "type": "Float_t",
+          "variable": "Dp[501]"
+        },
+        {
+          "description": "Track momenta, size [Ntrk]",
+          "type": "Float_t",
+          "variable": "Ptrk[501][3]"
+        },
+        {
+          "description": "Track charge, size [Ntrk]",
+          "type": "Char_t",
+          "variable": "Ichg[501]"
+        },
+        {
+          "description": "",
+          "type": "UChar_t",
+          "variable": "Nhcj[501]"
+        },
+        {
+          "description": "Track peregee parameter Z0, see primer, size [Ntrk]",
+          "type": "Float_t",
+          "variable": "Z0[501]"
+        },
+        {
+          "description": "Track peregee parameter Z0, see primer, size [Ntrk]",
+          "type": "Float_t",
+          "variable": "D0[501]"
+        },
+        {
+          "description": "",
+          "type": "Int_t",
+          "variable": "Nmttrk"
+        },
+        {
+          "description": "",
+          "type": "UShort_t",
+          "variable": "Imttrk[501]"
+        },
+        {
+          "description": "",
+          "type": "Float_t",
+          "variable": "Mtscft[501]"
+        },
+        {
+          "description": "Number of clusters",
+          "type": "Int_t",
+          "variable": "Nclus"
+        },
+        {
+          "description": "Number of energy flow objects",
+          "type": "Int_t",
+          "variable": "Nmtcls"
+        },
+        {
+          "description": "",
+          "type": "UShort_t",
+          "variable": "Imtcls[501]"
+        },
+        {
+          "description": "",
+          "type": "Int_t",
+          "variable": "Nmtkil"
+        },
+        {
+          "description": "",
+          "type": "UShort_t",
+          "variable": "Imtkil[501]"
+        },
+        {
+          "description": "momenta, see primer, size [Nclus]",
+          "type": "Float_t",
+          "variable": "Pclus[1503][3]"
+        },
+        {
+          "description": "",
+          "type": "Float_t",
+          "variable": "Mtscfc[501]"
+        },
+        {
+          "description": "",
+          "type": "UChar_t",
+          "variable": "Ioselbt"
+        },
+        {
+          "description": "",
+          "type": "UChar_t",
+          "variable": "Levslbt"
+        },
+        {
+          "description": "",
+          "type": "Int_t",
+          "variable": "Nvtxbt"
+        },
+        {
+          "description": "",
+          "type": "UChar_t",
+          "variable": "Ivmulbt[30]"
+        },
+        {
+          "description": "",
+          "type": "UChar_t",
+          "variable": "Nvsigbt[30]"
+        },
+        {
+          "description": "",
+          "type": "Float_t",
+          "variable": "Thrvecbt[3]"
+        },
+        {
+          "description": "",
+          "type": "Float_t",
+          "variable": "Prvtxbt[3]"
+        },
+        {
+          "description": "",
+          "type": "Float_t",
+          "variable": "Vnnbt[30]"
+        },
+        {
+          "description": "",
+          "type": "Float_t",
+          "variable": "Vchi2bt[30]"
+        },
+        {
+          "description": "",
+          "type": "Float_t",
+          "variable": "Vtxbt[30][3]"
+        },
+        {
+          "description": "",
+          "type": "Float_t",
+          "variable": "Pvtxbt[30][5]"
+        },
+        {
+          "description": "",
+          "type": "Float_t",
+          "variable": "Vdlen3bt[30]"
+        },
+        {
+          "description": "",
+          "type": "Float_t",
+          "variable": "Vderr3bt[30]"
+        },
+        {
+          "description": "event type returned by WWTYPE, see WW primer pg. 8",
+          "type": "UChar_t",
+          "variable": "Ievtyp"
+        },
+        {
+          "description": "",
+          "type": "UChar_t",
+          "variable": "Inonr"
+        },
+        {
+          "description": "",
+          "type": "Float_t",
+          "variable": "Pisr[4]"
+        },
+        {
+          "description": "",
+          "type": "Int_t",
+          "variable": "Nprimf"
+        },
+        {
+          "description": "",
+          "type": "Char_t",
+          "variable": "Iferid[4]"
+        },
+        {
+          "description": "",
+          "type": "Float_t",
+          "variable": "Primf[4][4]"
+        },
+        {
+          "description": "Thrust at parton level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Tp"
+        },
+        {
+          "description": "Thrust major at parton level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Tmap"
+        },
+        {
+          "description": "Thrust minor at parton level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Tmip"
+        },
+        {
+          "description": "Mass of heavy hemisphere at parton level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Mhp"
+        },
+        {
+          "description": "Mass of lite hemisphere at parton level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Mlp"
+        },
+        {
+          "description": "Total broadening at parton level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Btp"
+        },
+        {
+          "description": "Wide broadeningat parton level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Bwp"
+        },
+        {
+          "description": "C parameter at parton level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Cpp"
+        },
+        {
+          "description": "D parameter at parton level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Dpp"
+        },
+        {
+          "description": "Sphericityat parton level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Sp"
+        },
+        {
+          "description": "Aplanarity at parton level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Ap"
+        },
+        {
+          "description": "Acoplanarity at parton level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Acpp"
+        },
+        {
+          "description": "Thrust at hadron level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Th"
+        },
+        {
+          "description": "Thrust major at hadron level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Tmah"
+        },
+        {
+          "description": "Thrust manor at hadron level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Tmih"
+        },
+        {
+          "description": "Mass of heavy hemisphere at hadron level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Mhh"
+        },
+        {
+          "description": "Mass of lite hemisphere at hadron level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Mlh"
+        },
+        {
+          "description": "Total broadening at hadron level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Bth"
+        },
+        {
+          "description": "Wide jet broadening at hadron level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Bwh"
+        },
+        {
+          "description": "C parameter at parton level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Cph"
+        },
+        {
+          "description": "D parameter at hadron level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Dph"
+        },
+        {
+          "description": "Sphericity at hadron level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Sh"
+        },
+        {
+          "description": "Aplanarity at hadron level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Ah"
+        },
+        {
+          "description": "Acoplanarity at hadron level, MC trees only, see \\cite OPAL:2011aa",
+          "type": "Float_t",
+          "variable": "Acph"
+        },
+        {
+          "description": "Number of jets at parton level with Durham algorithm, MC trees only",
+          "type": "Int_t",
+          "variable": "Nxjdp"
+        },
+        {
+          "description": "Number of jets at parton level with Durham algorithm, MC trees only",
+          "type": "Int_t",
+          "variable": "Nxjdh"
+        },
+        {
+          "description": "Number of jets at parton level with JADE algorithm, MC trees only",
+          "type": "Int_t",
+          "variable": "Nxjep"
+        },
+        {
+          "description": "Number of jets at parton level with JADE algorithm, MC trees only",
+          "type": "Int_t",
+          "variable": "Nxjeh"
+        },
+        {
+          "description": "Number of jets at parton level with CA algorithm, MC trees only",
+          "type": "Int_t",
+          "variable": "Nxjcp"
+        },
+        {
+          "description": "Number of jets at parton level with CA algorithm, MC trees only",
+          "type": "Int_t",
+          "variable": "Nxjch"
+        },
+        {
+          "description": "Transition parameters for Durham jets at parton level, size [Nxjdp], MC trees only",
+          "type": "Float_t",
+          "variable": "Ydp[31]"
+        },
+        {
+          "description": "Transition parameters for JADE jets at parton level, size [Nxjep], MC trees only",
+          "type": "Float_t",
+          "variable": "Yep[31]"
+        },
+        {
+          "description": "Transition parameters for CA jets at parton level, size [Nxjcp], MC trees only",
+          "type": "Float_t",
+          "variable": "Ycp[31]"
+        },
+        {
+          "description": "",
+          "type": "Char_t",
+          "variable": "Njcep[7]"
+        },
+        {
+          "description": "",
+          "type": "Char_t",
+          "variable": "Njcrp[7]"
+        },
+        {
+          "description": "Transition parameters for Durham jets at particle level, size [Nxjdh], MC trees only",
+          "type": "Float_t",
+          "variable": "Ydh[31]"
+        },
+        {
+          "description": "Transition parameters for JADE jets at particle level, size [Nxjeh], MC trees only",
+          "type": "Float_t",
+          "variable": "Yeh[31]"
+        },
+        {
+          "description": "Transition parameters for CA jets at particle level, size [Nxjch], MC trees only",
+          "type": "Float_t",
+          "variable": "Ych[31]"
+        },
+        {
+          "description": "",
+          "type": "Char_t",
+          "variable": "Njceh[7]"
+        },
+        {
+          "description": "",
+          "type": "Char_t",
+          "variable": "Njcrh[7]"
+        },
+        {
+          "description": "of partons, MC trees only",
+          "type": "Int_t",
+          "variable": "Ntrkp"
+        },
+        {
+          "description": "",
+          "type": "Char_t",
+          "variable": "Ilucp[50]"
+        },
+        {
+          "description": "of partons, size [Ntrkp], MC trees only",
+          "type": "Float_t",
+          "variable": "Ptrkp[50][4]"
+        },
+        {
+          "description": "of final hadrons, MC trees only",
+          "type": "Int_t",
+          "variable": "Ntrkh"
+        },
+        {
+          "description": "",
+          "type": "Int_t",
+          "variable": "Ntrk2"
+        },
+        {
+          "description": "of final hadrons, size [Ntrkh], MC trees only",
+          "type": "Float_t",
+          "variable": "Ptrkh[2004][4]"
+        },
+        {
+          "description": "",
+          "type": "Int_t",
+          "variable": "Iluch[2004]"
+        },
+        {
+          "description": "MC ID code of particle associated with track, size [Ntrk2], MC trees only",
+          "type": "Int_t",
+          "variable": "Iluc[501]"
+        },
+        {
+          "description": "",
+          "type": "UChar_t",
+          "variable": "Istrt[501]"
+        },
+        {
+          "description": "",
+          "type": "Char_t",
+          "variable": "Ichgh[2004]"
+        }
+      ],
+      "date_published": "2021",
+      "distribution": {
+        "formats": [
+          "C",
+          "pdf",
+          "root"
+        ],
+        "number_events": 1255308,
+        "number_files": 9,
+        "size": 73681875
+      },
+      "doi": "10.7483/OPENDATA.PHENIX.70SC.C9E7",
+      "experiment": [
+        "JADE"
+      ],
+      "files": [
+        {
+          "checksum": "",
+          "size": 0,
+          "uri": ""
+        }
+      ],
+      "publisher": "CERN Open Data Portal",
+      "recid": "26998",
+      "title": "Examples of basic analysis techniques for the JADE detector",
+      "type": {
+        "primary": "Dataset",
+        "secondary": [
+          "Derived"
+        ]
+      },
+      "usage": {
+        "description": "See the attached PDF guide and the example ROOT macros illustrating how to work with the data."
+      }
+    }
+  ]
