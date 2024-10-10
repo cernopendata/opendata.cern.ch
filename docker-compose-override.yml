@@ -30,7 +30,7 @@ services:
       - TEMPLATES_AUTO_RELOAD=True
     command: bash -c "/content/scripts/start-server-debug.sh"
     restart: "unless-stopped"
-    image: registry.cern.ch/cernopendata/cernopendata-portal:latest
+    image: registry.cern.ch/cernopendata/cernopendata-portal:0.1.11
     volumes:
       - ../opendata.cern.ch:/content
       - ./cernopendata:/code/cernopendata
