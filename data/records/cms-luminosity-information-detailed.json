@@ -1,7 +1,7 @@
 [
   {
     "abstract": {
-      "description": " <p>CMS measures the luminosity using different luminometers (luminosity detectors) and algorithms. When available, the values taken with the Pixel Luminosity Telescope (<strong>pxl</strong>) should be used.  If no pxl value is available for a particular lumi section, then the <strong>hfoc</strong> (Hadron Forward Zero Counting) value should be retrieved for that lumi section.</p>\n<p>The integrated luminosity for validated runs and luminosity sections of all 2011 p-p data taking is available in the tables <a href=\"/record/1053/files/2011lumi_pxl.txt\">2011lumi_pxl.txt</a> and <a href=\"/record/1053/files/2011lumi_hfoc.txt\">2011lumi_hfoc.txt</a>, for the respective luminometer. They include values for 2011 RunA and RunB.</p>\n<p>In your estimate for the integrated luminosity, check for which runs the trigger you have selected is active and sum the values for those runs. The uncertainty in the luminosity measurement of 2011 data should be considered as 2.2% (reference <a href=\"https://cds.cern.ch/record/1434360/files/SMP-12-008-pas.pdf\">CMS PAS SMP-12-008</a>).</p>\n<p>If you are using prescaled triggers, you can find the trigger prescale factors as shown in <a href=\"/record/5004\">the trigger examples</a>. The change of prescales (run, lumi section, index of prescales) is logged in the <a href=\"/record/1053/files/2011lumi_prescales.txt\">2011lumi_prescales.txt</a> file.</p><p> For luminosity calculation, a detailed list of luminosity by lumi section is provided in <a href=\"/record/1053/files/2011lumibyls_pxl.csv\">2011lumibyls_pxl.csv</a> and <a href=\"/record/1053/files/2011lumibyls_hfoc.csv\">2011lumibyls_hfoc.csv</a> for the <a href=\"/record/1001\">list of validated runs</a> and lumi sections.</p>\n<p>Note that if there are <em>orphan</em> lumi sections &ndash; listed at the bottom of the lumi files as <em>in json but not in results</em>&ndash; for which there are neither pxl values nor hfoc values, they can be safely ignored.  These lumi sections have no events as they correspond to the very end of runs for which the <em>stable beam</em> flag was not disabled yet during acquisition.</p>\n<p>Additional information on how to extract luminosity values using the <strong>brilcalc tool</strong> can be found in the <a href=\"/docs/cms-guide-luminosity-calculation\"> luminosity calculation guide</a>.</p> "
+      "description": " <p>CMS measures the luminosity using different luminometers (luminosity detectors) and algorithms. When available, the values taken with the Pixel Luminosity Telescope (<strong>pxl</strong>) should be used.  If no pxl value is available for a particular lumi section, then the <strong>hfoc</strong> (Hadron Forward Zero Counting) value should be retrieved for that lumi section.</p>\n<p>The integrated luminosity for validated runs and luminosity sections of all 2011 p-p data taking is available in the tables <a href=\"/record/1053/files/2011lumi_pxl.txt\">2011lumi_pxl.txt</a> and <a href=\"/record/1053/files/2011lumi_hfoc.txt\">2011lumi_hfoc.txt</a>, for the respective luminometer. They include values for 2011 RunA and RunB.</p>\n<p>In your estimate for the integrated luminosity, check for which runs the trigger you have selected is active and sum the values for those runs. The uncertainty in the luminosity measurement of 2011 data should be considered as 2.2% (reference <a href=\"https://cds.cern.ch/record/1434360/files/SMP-12-008-pas.pdf\">CMS PAS SMP-12-008</a>).</p>\n<p>If you are using prescaled triggers, you can find the trigger prescale factors as shown in <a href=\"/record/5004\">the trigger examples</a>. The change of prescales (run, lumi section, index of prescales) is logged in the <a href=\"/record/1053/files/2011lumi_prescales.txt\">2011lumi_prescales.txt</a> file.</p><p> For luminosity calculation, a detailed list of luminosity by lumi section is provided in <a href=\"/record/1053/files/2011lumibyls_pxl.csv\">2011lumibyls_pxl.csv</a> and <a href=\"/record/1053/files/2011lumibyls_hfoc.csv\">2011lumibyls_hfoc.csv</a> for the <a href=\"/record/1001\">list of validated runs</a> and lumi sections. Condensed information about the instantaneous luminosity by lumi section needed to determine the uncertainty in the pileup prediction is provided in the <a href=\"/record/1053/files/pileup_2011_JSON_pixelLumi.txt\">pileup_2011_JSON_pixelLumi.txt</a> file.</p>\n<p>Note that if there are <em>orphan</em> lumi sections &ndash; listed at the bottom of the lumi files as <em>in json but not in results</em>&ndash; for which there are neither pxl values nor hfoc values, they can be safely ignored.  These lumi sections have no events as they correspond to the very end of runs for which the <em>stable beam</em> flag was not disabled yet during acquisition.</p>\n<p>Additional information on how to extract luminosity values using the <strong>brilcalc tool</strong> can be found in the <a href=\"/docs/cms-guide-luminosity-calculation\"> luminosity calculation guide</a>.</p> "
     },
     "accelerator": "CERN-LHC",
     "collaboration": {
@@ -20,7 +20,7 @@
         "txt",
         "csv"
       ],
-      "number_files": 5,
+      "number_files": 6,
       "size": 27376324
     },
     "doi": "10.7483/OPENDATA.CMS.97U1.XZGT",
@@ -52,7 +52,12 @@
         "checksum": "adler32:d1b639f9",
         "size": 13719998,
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2011/2011lumibyls_hfoc.csv"
-      }
+      },
+      {
+        "checksum": "",
+        "size": 1,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2011/pileup_2011_JSON_pixelLumi.txt"
+      }	    
     ],
     "publisher": "CERN Open Data Portal",
     "recid": "1053",
@@ -77,7 +82,7 @@
   },
   {
     "abstract": {
-      "description": " <p>CMS measures the luminosity using different luminometers (luminosity detectors) and algorithms. When available, the values taken with the Pixel Luminosity Telescope (<strong>pxl</strong>) should be used.  If no pxl value is available for a particular lumi section, then the <strong>hfoc</strong> (Hadron Forward Zero Counting) value should be retrieved for that lumi section.</p>\n<p>The integrated luminosity values for validated runs and luminosity sections of the 2012 RunA, RunB, RunC, and RunD data-taking periods for the two luminometers, separately, are available in the tables<ul><li><a href=\"/record/1054/files/2012RunAlumi_pxl.txt\">2012RunAlumi_pxl.txt</a></li><li><a href=\"/record/1054/files/2012RunAlumi_hfoc.txt\">2012RunAlumi_hfoc.txt</a><li><a href=\"/record/1054/files/2012RunBlumi_pxl.txt\">2012RunBlumi_pxl.txt</a></li><li><a href=\"/record/1054/files/2012RunBlumi_hfoc.txt\">2012RunBlumi_hfoc.txt</a></li><li><a href=\"/record/1054/files/2012RunClumi_pxl.txt\">2012RunClumi_pxl.txt</a></li><li><a href=\"/record/1054/files/2012RunClumi_hfoc.txt\">2012RunClumi_hfoc.txt</a><li><a href=\"/record/1054/files/2012RunDlumi_pxl.txt\">2012RunDlumi_pxl.txt</a></li><li><a href=\"/record/1054/files/2012RunDlumi_hfoc.txt\">2012RunDlumi_hfoc.txt</a></li></ul></p>\n<p>The integrated luminosity values of all 2012 p-p data taking in single tables, for the two luminometers, are available in<ul><li><a href=\"/record/1054/files/2012lumi_pxl.txt\">2012lumi_pxl.txt</a></li><li><a href=\"/record/1054/files/2012lumi_hfoc.txt\">2012lumi_hfoc.txt</a></li></ul></p>\n<p>Note that if there are <em>orphan</em> lumi sections &ndash;listed at the bottom of the lumi files as <em>in json but not in results</em>&ndash; for which there are neither pxl values nor hfoc values, they can be safely ignored.  These lumi sections have no events as they correspond to the very end of runs for which the <em>stable beam</em> flag was not disabled yet during acquisition.</p>\n<p>The uncertainty in the luminosity measurement of 2012 data should be considered as 2.6% (reference <a href=\"https://cds.cern.ch/record/1598864\">CMS PAS LUM-13-001</a>).</p>\n<p>In your estimate for the integrated luminosity, check for which runs the trigger you have selected is active and sum the values for those runs. If you are using prescaled triggers, you can find the trigger prescale factors as shown in <a href=\"/record/5004\">the trigger examples</a>. The change of prescales (run, lumi section, index of prescales) is logged in the <a href=\"/record/1054/files/2012lumi_prescales.txt\">2012lumi_prescales.txt</a> file.</p>\n<p>For luminosity calculation, a detailed list of luminosity by lumi section is provided in <a href=\"/record/1054/files/2012lumibyls_pxl.csv\">2012lumibyls_pxl.csv</a> and <a href=\"/record/1054/files/2012lumibyls_hfoc.csv\">2012lumibyls_hfoc.csv</a> for the <a href=\"/record/1002\">list of validated runs</a> and lumi sections.</p>\n<p>Additional information on how to extract luminosity values using the <strong>brilcalc tool</strong> can be found in the <a href=\"/docs/cms-guide-luminosity-calculation\"> luminosity calculation guide</a>.</p>"
+      "description": " <p>CMS measures the luminosity using different luminometers (luminosity detectors) and algorithms. When available, the values taken with the Pixel Luminosity Telescope (<strong>pxl</strong>) should be used.  If no pxl value is available for a particular lumi section, then the <strong>hfoc</strong> (Hadron Forward Zero Counting) value should be retrieved for that lumi section.</p>\n<p>The integrated luminosity values for validated runs and luminosity sections of the 2012 RunA, RunB, RunC, and RunD data-taking periods for the two luminometers, separately, are available in the tables<ul><li><a href=\"/record/1054/files/2012RunAlumi_pxl.txt\">2012RunAlumi_pxl.txt</a></li><li><a href=\"/record/1054/files/2012RunAlumi_hfoc.txt\">2012RunAlumi_hfoc.txt</a><li><a href=\"/record/1054/files/2012RunBlumi_pxl.txt\">2012RunBlumi_pxl.txt</a></li><li><a href=\"/record/1054/files/2012RunBlumi_hfoc.txt\">2012RunBlumi_hfoc.txt</a></li><li><a href=\"/record/1054/files/2012RunClumi_pxl.txt\">2012RunClumi_pxl.txt</a></li><li><a href=\"/record/1054/files/2012RunClumi_hfoc.txt\">2012RunClumi_hfoc.txt</a><li><a href=\"/record/1054/files/2012RunDlumi_pxl.txt\">2012RunDlumi_pxl.txt</a></li><li><a href=\"/record/1054/files/2012RunDlumi_hfoc.txt\">2012RunDlumi_hfoc.txt</a></li></ul></p>\n<p>The integrated luminosity values of all 2012 p-p data taking in single tables, for the two luminometers, are available in<ul><li><a href=\"/record/1054/files/2012lumi_pxl.txt\">2012lumi_pxl.txt</a></li><li><a href=\"/record/1054/files/2012lumi_hfoc.txt\">2012lumi_hfoc.txt</a></li></ul></p>\n<p>Note that if there are <em>orphan</em> lumi sections &ndash;listed at the bottom of the lumi files as <em>in json but not in results</em>&ndash; for which there are neither pxl values nor hfoc values, they can be safely ignored.  These lumi sections have no events as they correspond to the very end of runs for which the <em>stable beam</em> flag was not disabled yet during acquisition.</p>\n<p>The uncertainty in the luminosity measurement of 2012 data should be considered as 2.6% (reference <a href=\"https://cds.cern.ch/record/1598864\">CMS PAS LUM-13-001</a>).</p>\n<p>In your estimate for the integrated luminosity, check for which runs the trigger you have selected is active and sum the values for those runs. If you are using prescaled triggers, you can find the trigger prescale factors as shown in <a href=\"/record/5004\">the trigger examples</a>. The change of prescales (run, lumi section, index of prescales) is logged in the <a href=\"/record/1054/files/2012lumi_prescales.txt\">2012lumi_prescales.txt</a> file.</p>\n<p>For luminosity calculation, a detailed list of luminosity by lumi section is provided in <a href=\"/record/1054/files/2012lumibyls_pxl.csv\">2012lumibyls_pxl.csv</a> and <a href=\"/record/1054/files/2012lumibyls_hfoc.csv\">2012lumibyls_hfoc.csv</a> for the <a href=\"/record/1002\">list of validated runs</a> and lumi sections. Condensed information about the instantaneous luminosity by lumi section needed to determine the uncertainty in the pileup prediction is provided in the <a href=\"/record/1054/files/pileup_2012_JSON_pixelLumi.txt\">pileup_2012_JSON_pixelLumi.txt</a> file.</p>\n<p>Additional information on how to extract luminosity values using the <strong>brilcalc tool</strong> can be found in the <a href=\"/docs/cms-guide-luminosity-calculation\"> luminosity calculation guide</a>.</p>"
     },
     "accelerator": "CERN-LHC",
     "collaboration": {
@@ -96,7 +101,7 @@
         "txt",
         "csv"
       ],
-      "number_files": 13,
+      "number_files": 14,
       "size": 38943879
     },
     "doi": "10.7483/OPENDATA.CMS.SJ1E.7GFW",
@@ -168,7 +173,13 @@
         "checksum": "adler32:aadbe673",
         "size": 19469262,
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2012/2012lumibyls_hfoc.csv"
+      },
+      {
+        "checksum": "",
+        "size": 1,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2012/pileup_2012_JSON_pixelLumi.txt"
       }
+
     ],
     "publisher": "CERN Open Data Portal",
     "recid": "1054",
@@ -195,7 +206,7 @@
   },
   {
     "abstract": {
-      "description": "<p>CMS measures the luminosity using different luminometers (luminosity detectors) and algorithms. The luminometer giving the best value for each luminosity section is recorded in a 'normtag' file <a href=\"/record/1055/files/normtag_PHYSICS_2015.json\">normtag_PHYSICS_2015.json</a> that is used in the luminosity calculation.</p><p>The integrated luminosity for validated runs and luminosity sections of the 2015 public data (Run2015D) is available in <a href=\"/record/1055/files/Run2015Dlumi.txt\">Run2015Dlumi.txt</a>. (The integrated luminosity for validated runs and luminosity sections of all 2015 p-p data taking is available in <a href=\"/record/1055/files/2015lumi.txt\">2015lumi.txt</a>.)</p><p> For luminosity calculation, a detailed list of luminosity by lumi section is provided in <a href=\"/record/1055/files/2015lumibyls.csv\">2015lumibyls.csv</a> for the <a href=\"/record/14210\">list of validated runs</a> and lumi sections.</p><p>The uncertainty in the luminosity measurement of 2015 data should be considered as 1.6% (reference <a href=\"https://cds.cern.ch/record/2759951\">Precision luminosity measurement in proton-proton collisions at $\\sqrt{s} =$ 13 TeV in 2015 and 2016 at CMS</a>).</p><p>In your estimate for the integrated luminosity, check for which runs the trigger you have selected is active and sum the values for those runs. If you are using prescaled triggers, you can find the trigger prescale factors as shown in <a href=\"https://github.com/cms-opendata-analyses/PhysObjectExtractorTool/blob/2015MiniAOD/PhysObjectExtractor/src/TriggerAnalyzer.cc\">TriggerAnalyzer.cc</a> of the PhysObjectExtractorTool example code. The change of prescales (run, lumi section, index of prescales) is recorded in <a href=\"/record/1055/files/prescale2015.csv\">prescale2015.csv</a></p><p>Additional information on how to extract luminosity values using the <strong>brilcalc tool</strong> can be found in the <a href=\"/docs/cms-guide-luminosity-calculation\"> luminosity calculation guide</a>.</p>"
+      "description": "<p>CMS measures the luminosity using different luminometers (luminosity detectors) and algorithms. The luminometer giving the best value for each luminosity section is recorded in a 'normtag' file <a href=\"/record/1055/files/normtag_PHYSICS_2015.json\">normtag_PHYSICS_2015.json</a> that is used in the luminosity calculation.</p><p>The integrated luminosity for validated runs and luminosity sections of the 2015 public data (Run2015D) is available in <a href=\"/record/1055/files/Run2015Dlumi.txt\">Run2015Dlumi.txt</a>. (The integrated luminosity for validated runs and luminosity sections of all 2015 p-p data taking is available in <a href=\"/record/1055/files/2015lumi.txt\">2015lumi.txt</a>.)</p><p> For luminosity calculation, a detailed list of luminosity by lumi section is provided in <a href=\"/record/1055/files/2015lumibyls.csv\">2015lumibyls.csv</a> for the <a href=\"/record/14210\">list of validated runs</a> and lumi sections. Condensed information about the instantaneous luminosity by lumi section needed to determine the uncertainty in the pileup prediction is provided in the <a href=\"/record/1055/files/pileup_2015_JSON.txt\">pileup_2015_JSON.txt</a> file.</p><p>The uncertainty in the luminosity measurement of 2015 data should be considered as 1.6% (reference <a href=\"https://cds.cern.ch/record/2759951\">Precision luminosity measurement in proton-proton collisions at $\\sqrt{s} =$ 13 TeV in 2015 and 2016 at CMS</a>).</p><p>In your estimate for the integrated luminosity, check for which runs the trigger you have selected is active and sum the values for those runs. If you are using prescaled triggers, you can find the trigger prescale factors as shown in <a href=\"https://github.com/cms-opendata-analyses/PhysObjectExtractorTool/blob/2015MiniAOD/PhysObjectExtractor/src/TriggerAnalyzer.cc\">TriggerAnalyzer.cc</a> of the PhysObjectExtractorTool example code. The change of prescales (run, lumi section, index of prescales) is recorded in <a href=\"/record/1055/files/prescale2015.csv\">prescale2015.csv</a></p><p>Additional information on how to extract luminosity values using the <strong>brilcalc tool</strong> can be found in the <a href=\"/docs/cms-guide-luminosity-calculation\"> luminosity calculation guide</a>.</p>"
     },
     "accelerator": "CERN-LHC",
     "collaboration": {
@@ -218,7 +229,7 @@
         "txt",
         "csv"
       ],
-      "number_files": 6,
+      "number_files": 7,
       "size": 3024814
     },
     "experiment": [
@@ -254,6 +265,11 @@
         "checksum": "adler32:c94476ff",
         "size": 2144,
         "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2015/prescale2015.csv"
+      },
+      {
+        "checksum": "",
+        "size": 1,
+        "uri": "root://eospublic.cern.ch//eos/opendata/cms/luminosity/2015/pileup_2015_JSON.txt"
       }
     ],
     "license": {
