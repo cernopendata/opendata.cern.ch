@@ -1,0 +1,195 @@
+[
+  {
+    "abstract": {
+      "description": "The dataset contains columns with detailed information from the 2011 TOTEM measurement conducted with the Roman Pot detectors. Data is provided in an NTuple format (.root file). Due to the close proximity of the detectors to the beam center (approximately 5 sigma beam) in a specific run with β* = 90 m, it covers |t|-values down to 5·10^{-3} GeV². The descriptions of the columns are provided below. The dataset is designed to facilitate easy access and analysis of the proton-proton scattering due to precalculated kinematic variables."
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "TOTEM collaboration"
+    },
+    "collections": [
+      "TOTEM-Derived-Datasets"
+    ],
+    "collision_information": {
+      "energy": "7TeV",
+      "type": "pp"
+    },
+    "dataset_semantics": [
+      {
+        "description": "Flag describing if Roman Pot number * registered a hit",
+        "type": "boolean",
+        "unit": "N/A",
+        "variable": "track_rp_*_valid"
+      },
+      {
+        "description": "x coordinate of the hit in the Roman Pot number *, equals 0 if valid flag is flase",
+        "type": "double",
+        "unit": "Milimeters",
+        "variable": "track_rp_*_x"
+      },
+      {
+        "description": "y coordinate of the hit in the Roman Pot number *, equals 0 if valid flag is flase",
+        "type": "double",
+        "unit": "Milimeters",
+        "variable": "track_rp_*_y"
+      },
+      {
+        "description": "UNIX timestamp of the event, 1s resolution",
+        "type": "unsigned int",
+        "unit": "N/A",
+        "variable": "timestamp"
+      },
+      {
+        "description": "Run number in form [run number*1E4 + [raw-data file index]",
+        "type": "unsigned int",
+        "unit": "N/A",
+        "variable": "run_no"
+      },
+      {
+        "description": "The number of bunch(-pair) collided in this event",
+        "type": "unsigned int",
+        "unit": "N/A",
+        "variable": "bunch_num"
+      },
+      {
+        "description": "Incremental counter of triggers accepted by DAQ",
+        "type": "unsigned int",
+        "unit": "N/A",
+        "variable": "event_num"
+      },
+      {
+        "description": "Incremental trigger counter",
+        "type": "unsigned int",
+        "unit": "N/A",
+        "variable": "trigger_num"
+      },
+      {
+        "description": "Result of the trigger logic where each bit corresponds to one entry in the trigger menu",
+        "type": "unsigned int",
+        "unit": "N/A",
+        "variable": "input_status_bits"
+      },
+      {
+        "description": "Number of the dataset that this event belongs to",
+        "type": "int",
+        "unit": "N/A",
+        "variable": "dataset_num"
+      },
+      {
+        "description": "Reconstructed interaction point vertex x position based on information from left station",
+        "type": "double",
+        "unit": "Milimeters",
+        "variable": "vtx_x_L"
+      },
+      {
+        "description": "Milimeters; Reconstructed interaction point vertex x position based on information from right station",
+        "type": "double",
+        "unit": "Milimeters",
+        "variable": "vtx_x_R"
+      },
+      {
+        "description": "Reconstructed interaction point vertex x position",
+        "type": "double",
+        "unit": "Milimeters",
+        "variable": "vtx_x"
+      },
+      {
+        "description": "Reconstructed theta collision angle y value based on information from left station",
+        "type": "double",
+        "unit": "Radians",
+        "variable": "th_y_L"
+      },
+      {
+        "description": "Reconstructed theta collision angle y value based on information from right station",
+        "type": "double",
+        "unit": "Radians",
+        "variable": "th_y_R"
+      },
+      {
+        "description": "Reconstructed theta collision angle y value",
+        "type": "double",
+        "unit": "Radians",
+        "variable": "th_y"
+      },
+      {
+        "description": "Reconstructed theta collision angle x value based on information from left station",
+        "type": "double",
+        "unit": "Radians",
+        "variable": "th_x_L"
+      },
+      {
+        "description": "Reconstructed theta collision angle x value based on information from right station",
+        "type": "double",
+        "unit": "Radians",
+        "variable": "th_x_R"
+      },
+      {
+        "description": "Reconstructed theta collision angle x value",
+        "type": "double",
+        "unit": "Radians",
+        "variable": "th_x"
+      },
+      {
+        "description": "Reconstructed theta collision angle vector magnitude",
+        "type": "double",
+        "unit": "Radians",
+        "variable": "th"
+      },
+      {
+        "description": "Reconstructed four-momentum of the protons after collision",
+        "type": "double",
+        "unit": "GeV^2",
+        "variable": "t"
+      }
+    ],
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2024",
+    "distribution": {
+      "formats": [
+        "root",
+        "NTuple"
+      ],
+      "number_events": 12606699,
+      "number_files": 1,
+      "size": 440698145
+    },
+    "doi": "10.7483/OPENDATA.TOTEM.DZ6R.41RB",
+    "experiment": [
+      "TOTEM"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:a958f7e3",
+        "size": 440698145,
+        "uri": "root://eospublic.cern.ch//eos/opendata/totem/collision-data/2011_90m_7TeV/2011_RomanPot_PP/prepared_data.root"
+      }
+    ],
+    "keywords": [
+      "Roman Pot"
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "84000",
+    "title": "2011 Proton scattering data from Roman Pots at energy sqrt(s) = 7 TeV",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived"
+      ]
+    },
+    "usage": {
+      "description": "The linked example Jupyter Notebook can be used to load the files into a RDataFrame object to present the content of the dataset.",
+      "links": [
+        {
+          "description": "Link to the notebooks",
+          "recid": "84001"
+        },
+        {
+          "description": "Link to the article",
+          "url": "https://iopscience.iop.org/article/10.1209/0295-5075/101/21002"
+        }
+      ]
+    }
+  }
+]

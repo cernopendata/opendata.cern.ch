@@ -1,0 +1,91 @@
+[
+  {
+    "abstract": {
+      "description": "The main goal of this analysis is to reproduce the 2011 analysis, which aimed to measure the differential elastic cross-section (𝑑𝜎/𝑑𝑡) of proton-proton collisions as a function of the four-momentum transfer squared |t|. Initial research by the TOTEM collaboration covered the |t| range from 0.36 to 2.5 GeV. By using a special beam optics configuration (𝛽∗ = 90 𝑚), they extended this range to as low as 2 ⋅ 10^-2 GeV. This wider range allowed extrapolation to |t| = 0, enabling the determination of the elastic and total cross-sections via the optical theorem for the first time at the LHC. This analysis improved the |t|-distribution measurement, achieving higher statistics and covering values down to 5 ⋅ 10^-3 GeV. The data was recorded in October 2011 at sqrt(s) = 7 TeV and is divided into three datasets, with Roman Pot detectors positioned at different distances from the beam. This setup enabled the observation of 91% of the elastic cross-section, an improvement over the 67% observed previously. While running the notebooks, new .root files are created, which are necessary for the subsequent steps of the analysis. The final plot is the proton-proton differential elastic scattering cross-section dependent on the four-momentum transfer squared |t|. The notebooks also calculate the total, elastic and inelastic cross-sections."
+    },
+    "collaboration": {
+      "name": "TOTEM collaboration"
+    },
+    "collections": [
+      "TOTEM-Analyses"
+    ],
+    "date_created": [
+      "2011"
+    ],
+    "date_published": "2024",
+    "distribution": {
+      "formats": [
+        "ipynb"
+      ],
+      "number_files": 6,
+      "size": 2843025
+    },
+    "doi": "10.7483/OPENDATA.TOTEM.MSZI.XJ8R",
+    "experiment": [
+      "TOTEM"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:c1932bd3",
+        "size": 1689691,
+        "uri": "root://eospublic.cern.ch//eos/opendata/totem/analyses/2011_PP_elastic_scattering/v1/step1.ipynb"
+      },
+      {
+        "checksum": "adler32:29140c98",
+        "size": 684239,
+        "uri": "root://eospublic.cern.ch//eos/opendata/totem/analyses/2011_PP_elastic_scattering/v1/step2.ipynb"
+      },
+      {
+        "checksum": "adler32:5f00976b",
+        "size": 68415,
+        "uri": "root://eospublic.cern.ch//eos/opendata/totem/analyses/2011_PP_elastic_scattering/v1/step3.ipynb"
+      },
+      {
+        "checksum": "adler32:db3ea370",
+        "size": 110443,
+        "uri": "root://eospublic.cern.ch//eos/opendata/totem/analyses/2011_PP_elastic_scattering/v1/step4.ipynb"
+      },
+      {
+        "checksum": "adler32:fee735e2",
+        "size": 72931,
+        "uri": "root://eospublic.cern.ch//eos/opendata/totem/analyses/2011_PP_elastic_scattering/v1/step5.ipynb"
+      },
+      {
+        "checksum": "adler32:2670b587",
+        "size": 217306,
+        "uri": "root://eospublic.cern.ch//eos/opendata/totem/analyses/2011_PP_elastic_scattering/v1/step6.ipynb"
+      }
+    ],
+    "keywords": [
+      "Roman Pot"
+    ],
+    "publisher": "CERN Open Data Portal",
+    "recid": "84001",
+    "system_details": {
+      "description": "Jupyter Notebook<br/>Python: version 3.9 - 3.12<br/>External libraries: pyroot, numpy"
+    },
+    "title": "Measurement of proton-proton elastic scattering and total cross-section at sqrt(s) = 7 TeV",
+    "type": {
+      "primary": "Software",
+      "secondary": [
+        "Analysis"
+      ]
+    },
+    "usage": {
+      "description": "To open notebooks use any tool for reading and running Jupyter Notebooks. Recomended Python versions and needed libraries are specified in System Details section. Jupyter Notebooks load the files into a RDataFrame object for further analysis. Each step of the analysis produces result needed for next step. Notebooks are based on publication: \"Measurement of proton-proton elastic scattering and total cross-section at sqrt(s) = 7 TeV\" and Python implementation was made by: Paweł Kruczkiewicz, Piotr Sobczyński and Rafał Komuda."
+    },
+    "use_with": {
+      "description": "This analysis uses data from Roman Pots taken in 2011 at enegry 7 TeV.",
+      "links": [
+        {
+          "description": "Link to the dataset",
+          "recid": "84000"
+        },
+        {
+          "description": "Link to the article",
+          "url": "https://iopscience.iop.org/article/10.1209/0295-5075/101/21002"
+        }
+      ]
+    }
+  }
+]
