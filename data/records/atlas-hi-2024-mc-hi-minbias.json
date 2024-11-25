@@ -1,0 +1,106 @@
+[
+  {
+    "abstract": {
+      "description": "Run 2 2015 Pb-Pb MC simulation from the ATLAS experiment"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "primary": "Heavy-Ion Physics",
+      "source": "ATLAS Collaboration"
+    },
+    "collaboration": {
+      "name": "ATLAS collaboration"
+    },
+    "collections": [
+      "ATLAS-Primary-Datasets"
+    ],
+    "collision_information": {
+      "energy": "5TeV",
+      "type": "PbPb"
+    },
+    "date_created": [
+      "2015"
+    ],
+    "date_published": "2024",
+    "date_reprocessed": "2019",
+    "distribution": {
+      "formats": [
+        "DAOD_HION14",
+        "root"
+      ],
+      "number_events": 100000,
+      "number_files": 8,
+      "size": 30198635603
+    },
+    "doi": "10.7483/OPENDATA.ATLAS.PHZ2.52QI",
+    "experiment": [
+      "ATLAS"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:a8523632",
+        "size": 2034,
+        "type": "index.json",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/rucio/mc16_5TeV/file-indexes/mc16_5TeV_MC_420000_Hijing_PbPb_5p02TeV_MinBias_Flow_JJFV6_file_index.json"
+      },
+      {
+        "checksum": "adler32:a8523632",
+        "size": 2034,
+        "type": "index.txt",
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/rucio/mc16_5TeV/file-indexes/mc16_5TeV_MC_420000_Hijing_PbPb_5p02TeV_MinBias_Flow_JJFV6_file_index.txt"
+      }
+    ],
+    "license": {
+      "attribution": "CC0"
+    },
+    "methodology": {
+      "description": "<p>These data were created during LS2 as part of a major reprocessing campaign of the Run 2 data. All data were reprocessed using Athena Release 21, and new corresponding MC simulation samples were produced. These data and MC simulation datasets were processed into DAOD_HION14 format files; this is a light-weight data format intended for analysis of heavy ion minimum bias data, sufficient to support a wide variety of ATLAS analyses."
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "80037",
+    "relations": [
+      {
+        "description": "For citing all the Heavy Ion Open Data for Research from this release, and to find other related datasets, please see",
+        "doi": "10.7483/OPENDATA.ATLAS.9HK7.P5SI",
+        "recid": "80020",
+        "title": "DAOD_HION14 format 2015 Pb-Pb Open Data for Research from the ATLAS experiment",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "2015"
+    ],
+    "title": "ATLAS DAOD_HION14 format Run 2 2015 Pb-Pb MC simulation",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "<p> The data and MC simulation provided by the ATLAS experiment in DAOD_HION14 format is released under a CC0 license; citation of the data and acknowledgement of the collaboration is requested. This format can be used directly like a ROOT ntuple (or using uproot) for simple studies or processed into secondary ntuples with systematic uncertainties included using the ATLAS AnalysisBase software. <p>Extensive instructions for interacting with the data, as well as documentation of the dataset naming conventions and their contents, are provided on the ATLAS Open Data website linked below. Designing and implementing a research-quality data analysis is a complex process that requires an understanding of particle physics; for those new to the subject, the open data designed for education (also linked below) might be a good starting point. Please be sure to cite the Open Data that you use, in line with the policy below.",
+      "links": [
+        {
+          "description": "ATLAS Open Data Website",
+          "url": "http://opendata.atlas.cern"
+        },
+        {
+          "description": "Resources to understand and use the open data for research",
+          "url": "https://opendata.atlas.cern/docs/userpath/researchers"
+        },
+        {
+          "description": "ATLAS Analysis Software Tutorial",
+          "url": "https://atlassoftwaredocs.web.cern.ch/ASWTutorial/TutorialWeek/"
+        },
+        {
+          "description": "More about the DAOD_HION14 data format",
+          "url": "https://opendata.atlas.cern/docs/documentation/data_format/HI_formats"
+        },
+        {
+          "description": "Citation policy",
+          "url": "https://opendata.atlas.cern/docs/documentation/ethical_legal/citation_policy"
+        }
+      ]
+    }
+  }
+]
