@@ -99,6 +99,10 @@ check_isort () {
     isort -rc -c -df --profile black -- **/*.py
 }
 
+check_licenses () {
+    scripts/check_licenses.py
+}
+
 check_all () {
     check_script
     check_fixtures
@@ -106,6 +110,7 @@ check_all () {
     check_black
     check_pydocstyle
     check_isort
+    check_licenses
 }
 
 if [ $# -eq 0 ]; then
@@ -121,6 +126,7 @@ do
         --check-pycodestyle) check_pycodestyle;;
         --check-pydocstyle) check_pydocstyle;;
         --check-isort) check_isort;;
+        --check-licenses) check_licenses;;
         *)
     esac
 done
