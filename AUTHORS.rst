@@ -18,6 +18,7 @@ The list of contributors in alphabetical order:
 - `Clemens Lange <https://github.com/clelange>`_
 - `Daan Rosendal <https://github.com/DaanRosendal>`_
 - `Dana Alsharif <https://github.com/danaalsharif>`_
+- `David Horvát <https://github.com/biscgit>`_
 - `Diego Rodriguez <https://orcid.org/0000-0003-0649-2002>`_
 - `Edgar Carrera <https://github.com/caredg>`_
 - `Eric Engestrom <https://github.com/1ace>`_
