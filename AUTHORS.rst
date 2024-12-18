@@ -38,6 +38,7 @@ The list of contributors in alphabetical order:
 - `Kati Lassila-Perini <https://github.com/katilp>`_
 - `Kyle Cranmer <https://github.com/cranmer>`_
 - `Laura Rueda <https://github.com/espacial>`_
+- `Leszek Grzanka <https://github.com/grzanka>`_
 - `Linda Hemmann <https://github.com/hemmlin>`_
 - `Mantas Savaniakas <https://github.com/mantasavas>`_
 - `Matt Bellis <https://github.com/mattbellis>`_
