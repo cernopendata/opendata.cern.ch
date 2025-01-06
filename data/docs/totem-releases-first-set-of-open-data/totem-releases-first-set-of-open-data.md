@@ -14,7 +14,7 @@ This release notably contains:
 - [Measurement of proton-proton elastic scattering and total cross-section at sqrt(s) = 7 TeV](/record/84001)
 
 <p align="center">
-  <img src="/static/docs/totem-releases-first-set-of-open-data/totem-roman-pots-in-the-lhc-tunnel.jpeg/"
+  <img src="/static/docs/totem-releases-first-set-of-open-data/totem-roman-pots-in-the-lhc-tunnel.jpeg"
     width="60%" alt="TOTEM Roman Pots in the LHC tunnel">
   <br/><em>TOTEM Roman Pots in the LHC tunnel</em>
 </p>
