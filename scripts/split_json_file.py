@@ -24,11 +24,11 @@ def split_json_file(filename, split):
 
         for i in range(0, math.ceil(len(records) / split)):
             filenamepart = filename.replace(
-                ".json", f"-part_{i+1:0{len(str(num_output_files))}}.json"
+                ".json", f"-part_{i + 1:0{len(str(num_output_files))}}.json"
             )
             print("[INFO] Creating file %s..." % filenamepart)
             split_content = json.dumps(
-                records[split * i: split * (i + 1)],
+                records[split * i : split * (i + 1)],
                 indent=2,
                 sort_keys=True,
                 ensure_ascii=False,

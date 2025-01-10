@@ -1,5 +1,5 @@
 # This file is part of CERN Open Data Portal.
-# Copyright (C) 2020, 2023, 2024 CERN.
+# Copyright (C) 2020, 2023, 2024, 2025 CERN.
 #
 # CERN Open Data Portal is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -20,117 +20,241 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
-name: CI
+name: ci
 
 on: [push, pull_request]
 
 jobs:
-  lint-shellcheck:
-    runs-on: ubuntu-20.04
+  data-dois:
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Runs shell script static analysis
-        run: |
-          sudo apt-get install shellcheck
-          ./run-tests.sh --check-shellscript
-
-  lint-black:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
-
-      - name: Check Python code formatting
-        run: |
-          pip install black
-          ./run-tests.sh --check-black
-
-  lint-pycodestyle:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
-
-      - name: Check compliance with Python coding style conventions
-        run: |
-          pip install --upgrade pip
-          pip install pycodestyle
-          ./run-tests.sh --check-pycodestyle
-
-  lint-pydocstyle:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.9
-
-      - name: Check compliance with Python docstring conventions
-        run: |
-          pip install --upgrade pip
-          pip install pydocstyle
-          ./run-tests.sh --check-pydocstyle
-
-  check-fixtures:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: "14"
+        uses: actions/setup-node@v4
 
-      - name: Install Node dependencies
-        run: npm install -g jsonlint
+      - name: Check data DOIs
+        run: ./run-tests.sh --data-dois
 
-      - name: Check fixtures
-        run: ./run-tests.sh --check-fixtures
-
-  check-isort:
-    runs-on: ubuntu-20.04
+  data-json:
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: 3.9
 
-      - name: Check isort
+      - name: Check data JSON
         run: |
-          pip install --upgrade pip
+          pip install click
+          ./run-tests.sh --data-json
+
+  data-licenses:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.9
+
+      - name: Check data licenses
+        run: |
+          ./run-tests.sh --data-licenses
+
+  data-recids:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+
+      - name: Check data record IDs
+        run: ./run-tests.sh --data-recids
+
+  data-slugs:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+
+      - name: Check data slugs
+        run: ./run-tests.sh --data-slugs
+
+  data-types:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+
+      - name: Check data types
+        run: ./run-tests.sh --data-types
+
+  format-black:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.9
+
+      - name: Check formatting of Python code
+        run: |
+          pip install black
+          ./run-tests.sh --format-black
+
+  format-isort:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.9
+
+      - name: Check formatting of Python imports
+        run: |
           pip install isort
-          ./run-tests.sh --check-isort
+          ./run-tests.sh --format-isort
 
-  check-licenses:
-    runs-on: ubuntu-20.04
+  format-shfmt:
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+
+      - name: Check formatting of shell scripts
+        run: |
+          sudo apt-get install shfmt
+          ./run-tests.sh --format-shfmt
+
+  format-whitespace:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+
+      - name: Check formatting of whitespace
+        run: ./run-tests.sh --format-whitespace
+
+  lint-commitlint:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+
+      - name: Install commitlint
+        run: |
+          npm install conventional-changelog-conventionalcommits
+          npm install commitlint@latest
+
+      - name: Check commit message compliance of the recently pushed commit
+        if: github.event_name == 'push'
+        run: |
+          ./run-tests.sh --lint-commitlint HEAD~1 HEAD
+
+      - name: Check commit message compliance of the pull request
+        if: github.event_name == 'pull_request'
+        run: |
+          ./run-tests.sh --lint-commitlint ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} ${{ github.event.pull_request.number }}
+
+  lint-flake8:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: 3.9
 
-      - name: Check licenses
+      - name: Check linting of Python code
         run: |
-          pip install --upgrade pip
-          ./run-tests.sh --check-licenses
+          pip install flake8
+          ./run-tests.sh --lint-flake8
+
+  lint-jsonlint:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+
+      - name: Check linting of JSON files
+        run: |
+          npm install jsonlint --global
+          ./run-tests.sh --lint-jsonlint
+
+  lint-pydocstyle:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.9
+
+      - name: Check linting of Python docstrings
+        run: |
+          pip install pydocstyle
+          ./run-tests.sh --lint-pydocstyle
+
+  lint-shellcheck:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check linting of shell scripts
+        run: |
+          sudo apt-get install shellcheck
+          ./run-tests.sh --lint-shellcheck
+
+  lint-yamllint:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Lint YAML files
+        run: |
+          pip install yamllint
+          ./run-tests.sh --lint-yamllint

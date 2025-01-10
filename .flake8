@@ -1,0 +1,19 @@
+[flake8]
+max-line-length = 89
+
+exclude =
+    build
+    dist
+    docs
+    coverage.xml
+    cernopendata_client.egg-info
+    .*/
+    env/
+    .git
+    __pycache__
+
+ignore = E203, E231, E266, E501, W503, F403, F401, W605
+
+max-complexity = 18
+
+select = B,C,E,F,W,T4,B9
