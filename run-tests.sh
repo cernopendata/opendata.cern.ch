@@ -40,7 +40,7 @@ check_fixtures () {
     find data/ -name "*.json" -exec jsonlint -q {} \;
 
     # check record ID uniqueness:
-    dupes=$(jq '.[].recid' data/records/*.json | sort | uniq -d)
+    dupes=$(jq '.[].recid' data/{records,skeletons}/*.json | sort | uniq -d)
     if [ "x${dupes}" != "x" ]; then
         echo "[ERROR] Found duplicate record IDs:"
         echo "${dupes}"
@@ -48,7 +48,7 @@ check_fixtures () {
     fi
 
     # check DOI uniqueness:
-    dupes=$(jq '.[].doi' data/records/*.json | sort | grep -v null | uniq -d)
+    dupes=$(jq '.[].doi' data/{records,skeletons}/*.json | sort | grep -v null | uniq -d)
     if [ "x${dupes}" != "x" ]; then
         echo "[ERROR] Found duplicate record DOIs:"
         echo "${dupes}"
