@@ -36,7 +36,7 @@ data_dois() {
 }
 
 data_json() {
-    find . -name "*.json" -exec ./scripts/clean_json_file.py --check {} \;
+    find . -name "*.json" -exec ./scripts/clean_json_file.py --check {} \+
 }
 
 data_licenses() {
