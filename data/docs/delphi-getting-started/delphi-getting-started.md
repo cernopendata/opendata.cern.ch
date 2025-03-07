@@ -54,7 +54,7 @@ Here is a selection for getting started:
 * [DST contents](/record/80504)
 
 ## <a name="sources">Source code</a>
-The sources are available from https://gitlab.cern.ch/delphi. Some modules still requires CERN authentication. The plan is to release the software in the near future.
+The sources are available from <https://gitlab.cern.ch/delphi>. Some modules still requires CERN authentication. The plan is to release the software in the near future.
 
 ## <a name="compilers">Compilers</a>
 The DELPHI stack is mostly written in `Fortran`, with some bits written in `C`. Only `gfortran` and `GNU gcc` are supported. We use the `gfortran` version which comes with the
@@ -62,11 +62,14 @@ supported operating system. Recommended compiler and linker flags are set by the
 
 ## <a name="help">Getting help</a>
 
-The collaboration main contact for data preservation is the mailing list DELPHI-data-preservation-board@cern.ch. Support can only be given on a best effort basis.
-Suggestions and feedback is of course welcome!
+The collaboration main contact for data preservation is the mailing list DELPHI-data-preservation-board@cern.ch. Support can only be given on a best effort basis though. In addition, there is a [discussion forum](https://opendata-forum.cern.ch/c/delphi/20) which you are invited to join, to exchange experiences and get in touch with former members of the collaboration.
+
+Suggestions and feedback is welcome!
+
+
 
 # <a name="examples">Examples</a>
-Some basic examples of how to run the software stack and perform various tasks can be found in the `/cvmfs/delphi.cern.ch/examples` tree.
+Some basic examples of how to run the software stack and perform various tasks can be found in the repository <https://gitlab.cern.ch/delphi/examples>. In addition, the repository <https://gitlab.cern.ch/delphi/modern-delphi-examples> has some proof-of-concept level examples about how to access the DELPHI data from e.g. C++.
 
 In the following, we will
 
@@ -152,4 +155,4 @@ For convenience, copy the files you want to scan to `~/graexe/data`.
 Please take a look at the [DELGRA guide](delphi-guide-delgra) on how to proceed.
 
 ## <a name="more">More examples</a>
-More examples can be found at https://gitlab.cern.ch/delphi/examples.
+More examples can be found at <https://gitlab.cern.ch/delphi/examples>.
