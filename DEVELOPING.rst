@@ -440,7 +440,7 @@ Appendix C: Git commit messages
 ===============================
 
 We are using `conventional commits
-<https://www.conventionalcommits.org/en/v1.0.0/ >`_ style which is also checked
+<https://www.conventionalcommits.org/en/v1.0.0/>`_ style which is also checked
 by the continuous integration process.
 
 The commit message structure is as follows:
