@@ -19,6 +19,11 @@ The image is configured with a local user called `delphi`. For the commands belo
 * a prompt `$ xyz` indicates that the command `xyz` is to be run on your local machine or VM.
 * a prompt `[delphi ~] $ xyz` indicates that the command `xyz` is to be run inside the started container.
 
+The Alma9 images come with support for `EOS`: when launched on a system which supports fuse file systems, the DELPHI data will be available inside the container beneath the path `/eos/opendata/delphi`. In addition, they support reading data over the network using the xrootd protocol.
+
+Be aware that due to the --rm option, the container will be destroyed when you exit it, and all the work done inside the container will be lost.
+
+### On a Linux based system
 To start the container on a Linux based system, use:
 
 ```
@@ -28,7 +33,22 @@ $ docker run --privileged --rm -it -e DISPLAY --network host -v /tmp/.X11-unix:/
 
 This command will download the Alma9 based container and create a login shell for the DELPHI user.
 
-This image comes with support for `EOS`: when launched on a system which supports fuse file systems, the DELPHI data will be available inside the container beneath the path `/eos/opendata/delphi`. Note that due to the --rm option, the container will be destroyed when you exit it, and all the work done inside the container will be lost.
+### On MacOS
+On recent Macs with M1, M2 or M3 CPUs it is better to use the ARM64 image, to avoid issues when linking executables inside the container. Also, if you are running MacOS, the command to start the container is a bit different.
+
+```
+podman run --privileged -it -e DISPLAY=host.docker.internal:0 --network host -v /tmp/.X11-unix:/tmp/.X11-unix -v ~/.Xauthority:/home/delphi/.Xauthority --user delphi gitlab-registry.cern.ch/delphi/deployment/delphi/al9_aarch64 /bin/bash -l
+```
+
+Also, the X server settings must allow connections from external sources. In addition, you may have to set
+```
+export LIBGL_ALWAYS_INDIRECT=1
+```
+in the container shell if you plan to run the event display.
+
+### On Windows
+Running the container images on Windows has not been tested. Feedback is welcome.
+
 
 <p><center><img src="/static/docs/delphi-guide-docker/delphi-container-start.png" width="60%"></center></p>
 
