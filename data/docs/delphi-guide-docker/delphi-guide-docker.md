@@ -28,7 +28,7 @@ To start the container on a Linux based system, use:
 
 ```
 $ xhost + local:docker
-$ docker run --privileged --rm -it -e DISPLAY --network host -v /tmp/.X11-unix:/tmp/.X11-unix -v ~/.Xauthority:/home/delphi/.Xauthority --user delphi gitlab-registry.cern.ch/delphi/deployment/delphi/al9_64 /bin/bash -l
+$ docker run --privileged --rm -it -e DISPLAY --network host -v /tmp/.X11-unix:/tmp/.X11-unix -v ~/.Xauthority:/home/delphi/.Xauthority --user delphi gitlab-registry.cern.ch/delphi/deployment/delphi/al9_64_xrd /bin/bash -l
 ```
 
 This command will download the Alma9 based container and create a login shell for the DELPHI user.
