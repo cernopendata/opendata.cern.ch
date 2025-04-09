@@ -19,8 +19,12 @@
     ],
     "date_published": "2020",
     "distribution": {
-      "number_files": 1,
-      "size": 1593950859
+      "formats": [
+        "root",
+        "zip"
+      ],
+      "number_files": 10,
+      "size": 3709990685
     },
     "doi": "10.7483/OPENDATA.ATLAS.B5BJ.3SGS",
     "experiment": [
@@ -31,6 +35,51 @@
         "checksum": "adler32:d880482c",
         "size": 1593950859,
         "uri": "root://eospublic.cern.ch//eos/opendata/atlas/OutreachDatasets/2020-08-19/GamGam.zip"
+      },
+      {
+        "checksum": "adler32:29634ba7",
+        "size": 81250713,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/OutreachDatasets/2020-08-19/GamGam/Data/data_A.GamGam.root"
+      },
+      {
+        "checksum": "adler32:afaa0bed",
+        "size": 289902606,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/OutreachDatasets/2020-08-19/GamGam/Data/data_B.GamGam.root"
+      },
+      {
+        "checksum": "adler32:46c10b74",
+        "size": 424774751,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/OutreachDatasets/2020-08-19/GamGam/Data/data_C.GamGam.root"
+      },
+      {
+        "checksum": "adler32:3c5ca072",
+        "size": 686798449,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/OutreachDatasets/2020-08-19/GamGam/Data/data_D.GamGam.root"
+      },
+      {
+        "checksum": "adler32:f76530f0",
+        "size": 217819076,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/OutreachDatasets/2020-08-19/GamGam/MC/mc_341081.ttH125_gamgam.GamGam.root"
+      },
+      {
+        "checksum": "adler32:5b858188",
+        "size": 218418347,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/OutreachDatasets/2020-08-19/GamGam/MC/mc_343981.ggH125_gamgam.GamGam.root"
+      },
+      {
+        "checksum": "adler32:8cff2e38",
+        "size": 108616148,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/OutreachDatasets/2020-08-19/GamGam/MC/mc_345041.VBFH125_gamgam.GamGam.root"
+      },
+      {
+        "checksum": "adler32:5ac6bca3",
+        "size": 29757932,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/OutreachDatasets/2020-08-19/GamGam/MC/mc_345318.WpH125J_Wincl_gamgam.GamGam.root"
+      },
+      {
+        "checksum": "adler32:6b506f04",
+        "size": 58701804,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/OutreachDatasets/2020-08-19/GamGam/MC/mc_345319.ZH125J_Zincl_gamgam.GamGam.root"
       }
     ],
     "license": {
@@ -53,7 +102,7 @@
       ]
     },
     "usage": {
-      "description": "This dataset is provided by the ATLAS Collaboration <strong>only for educational purposes and is not suited for scientific publications</strong>.\n You can access these data through the ATLAS Virtual Machine and Software.\n More documentation is available at:",
+      "description": "<p>This dataset is provided as a zipped tarball (<code>GamGam.zip</code>) and as a list of unzipped individually-accessible ROOT files containing the collision data (such as <code>data_A.GamGam.root</code>) and the simulated data (such as <code>mc_341081.ttH125_gamgam.GamGam.root</code>). You can use either the tarball or the individual ROOT files.</p> <p>This dataset is provided by the ATLAS Collaboration <strong>only for educational purposes and is not suited for scientific publications</strong>.\n You can access these data through the ATLAS Virtual Machine and Software.\n More documentation is available at:</p>",
       "links": [
         {
           "description": "The ATLAS Open Data documentation for 13 TeV release",
