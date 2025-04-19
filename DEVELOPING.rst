@@ -108,7 +108,7 @@ in the portal infrastructure repository.
 
 If you would like to modify the JSON schema, for example to add a new field,
 this would require working with the `cernopendata-portal` repository. Please
-see its own `documenation
+see its own `documentation
 <https://github.com/cernopendata/cernopendata-portal/>`_ about how to add new
 metadata fields. We would be happy to assist with the process.
 
@@ -119,7 +119,7 @@ If you would like to change the way how the data records are displayed on the
 web, for example to introduce new section displaying newly added field, this is
 something that is governed by `Jinja templating language
 <https://jinja.palletsprojects.com/en/2.10.x/templates/>`_ in the
-`cernopendata-portal` repository. Please see its own `documenation
+`cernopendata-portal` repository. Please see its own `documentation
 <https://github.com/cernopendata/cernopendata-portal/>`_ about how to amend
 look and feel of the record metadata. We would be happy to assist with the
 process.
