@@ -62,3 +62,4 @@ The list of contributors in alphabetical order:
 - `Xiaohe Shen <https://github.com/Ari-mu-l>`_
 - `Zach Marshall <https://github.com/zlmarshall>`_
 - `Zacharias Zacharodimos <https://github.com/zzacharo>`_
+- `Wei Lai <https://github.com/WeiShengL>`_
