@@ -1,0 +1,79 @@
+[
+  {
+    "abstract": {
+      "description": "The DELPHI conditions database consists of 7 different files, storing distinct information about the run condition during the different periods. The format is proprietary, and there are tools available to read it both programmatic from Fortran and interactively via the commands `dplot` and applications like `dtobin` or `dlist`.  The database contains information about the run conditions, including background (raw) delivered luminosity, meteorological information, fill information and calibration data for the different detector components.<p>The conditions database is needed for event reconstruction, as provided by the DELPHI event server. It is not needed for data analysis or for simulation. The latter uses yearly snapshot databases instead, which ships with the corresponding simulation version.<p> Manuals, including usage examples, are available from the CERN document server, in particular the [CARGO Database Management Package](https://cds.cern.ch/record/2625473/files/delphi-93-5_ocr.pdf), [DPLOT Database graphics](https://cds.cern.ch/record/2630031/files/96_139_das_180_prog_219.pdf) and the [DELPHI Detector Description Application Package user manual](https://cds.cern.ch/record/2629009/files/delphi-90-37_ocr.pdf)."
+    },
+    "accelerator": "CERN-LEP",
+    "collaboration": {
+      "name": "DELPHI collaboration",
+      "recid": "80050"
+    },
+    "collection": [
+      "DELPHI-Condition-Data"
+    ],
+    "date_created": [
+      "2000"
+    ],
+    "date_published": "2025",
+    "distribution": {
+      "formats": [
+        "dat"
+      ],
+      "number_files": 7,
+      "size": 3205865472
+    },
+    "doi": "10.7483/OPENDATA.DELPHI.18JY.GL8K",
+    "experiment": [
+      "DELPHI"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:18ab9196",
+        "size": 1497251840,
+        "uri": "root://eospublic.cern.ch//eos/opendata/delphi/condition-data/DBcalb.dat"
+      },
+      {
+        "checksum": "adler32:b74dd263",
+        "size": 32432128,
+        "uri": "root://eospublic.cern.ch//eos/opendata/delphi/condition-data/DBgeom.dat"
+      },
+      {
+        "checksum": "adler32:21bf3c40",
+        "size": 1655250944,
+        "uri": "root://eospublic.cern.ch//eos/opendata/delphi/condition-data/DBlepm.dat"
+      },
+      {
+        "checksum": "adler32:dc088849",
+        "size": 40960,
+        "uri": "root://eospublic.cern.ch//eos/opendata/delphi/condition-data/DBmisc.dat"
+      },
+      {
+        "checksum": "adler32:0190cfad",
+        "size": 20307968,
+        "uri": "root://eospublic.cern.ch//eos/opendata/delphi/condition-data/DBrunt.dat"
+      },
+      {
+        "checksum": "adler32:0fd5e6e0",
+        "size": 450560,
+        "uri": "root://eospublic.cern.ch//eos/opendata/delphi/condition-data/DBscon.dat"
+      },
+      {
+        "checksum": "adler32:1d8e2a3b",
+        "size": 131072,
+        "uri": "root://eospublic.cern.ch//eos/opendata/delphi/condition-data/DBsysf.dat"
+      }
+    ],
+    "license": {
+      "attribution": "CC0-1.0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "80509",
+    "title": "DELPHI conditions databases",
+    "type": {
+      "primary": "Environment",
+      "secondary": [
+        "Condition"
+      ]
+    }
+  }
+]
