@@ -24,9 +24,17 @@ async def validate_file(path: pathlib.Path) -> int:
     """Validate a single file."""
     checks = 0
     errors = 0
-    records = await asyncio.get_event_loop().run_in_executor(
-        None, lambda p: json.loads(open(p, "rb").read()), path
-    )
+
+    try:
+        records = await asyncio.get_event_loop().run_in_executor(
+            None, lambda p: json.loads(open(p, "rb").read()), path
+        )
+
+    except Exception as e:
+        message = f"Failed to load {path.name} because of {type(e).__name__}: {e}"
+
+        logging.error(message)
+        raise e
 
     for record in records:
         if rec_licenses := record.get("license"):
