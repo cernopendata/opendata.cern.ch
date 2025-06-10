@@ -17,6 +17,7 @@ The list of contributors in alphabetical order:
 - `Audrius Mecionis <https://orcid.org/0000-0002-3759-1663>`_
 - `Clemens Lange <https://github.com/clelange>`_
 - `Daan Rosendal <https://github.com/DaanRosendal>`_
+- `Dan Guest <https://github.com/dguest>`_
 - `Dana Alsharif <https://github.com/danaalsharif>`_
 - `David Horvát <https://github.com/biscgit>`_
 - `Diego Rodriguez <https://orcid.org/0000-0003-0649-2002>`_
