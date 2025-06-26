@@ -153,7 +153,7 @@ Upload the locally-modified file into your instance:
 
    $ docker exec -i -t opendatacernch-web-1 cernopendata fixtures docs \
         --mode insert-or-replace \
-        -f data/docs/lhcb-about/lhcb-about.json
+        -f /content/data/docs/lhcb-about/lhcb-about.json
 
 Note that, similarly as for records, we are uploading document JSON files,
 using the `fixtures docs` command. Even if you would like to change only the
