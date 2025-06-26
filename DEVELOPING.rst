@@ -80,7 +80,6 @@ Upload the locally-modified file into your instance:
 .. code-block:: console
 
    $ docker exec -i -t opendatacernch-web-1 cernopendata fixtures records \
-        --mode insert-or-replace \
         -f /content/data/records/cms-primary-datasets.json
 
 You can then check your changes at `http://127.0.0.1:500
@@ -93,7 +92,7 @@ all experiment records locally, for example for ATLAS:
 
    $ for file in data/records/atlas-*; do \
        docker exec -i -t opendatacernch-web-1 cernopendata fixtures records \
-           --mode insert-or-replace -f $file; \
+           $file; \
      done
 
 Understanding metadata fields
@@ -152,8 +151,7 @@ Upload the locally-modified file into your instance:
 .. code-block:: console
 
    $ docker exec -i -t opendatacernch-web-1 cernopendata fixtures docs \
-        --mode insert-or-replace \
-        -f data/docs/lhcb-about/lhcb-about.json
+        -f /content/data/docs/lhcb-about/lhcb-about.json
 
 Note that, similarly as for records, we are uploading document JSON files,
 using the `fixtures docs` command. Even if you would like to change only the
