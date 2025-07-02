@@ -1,0 +1,89 @@
+[
+  {
+    "abstract": {
+      "description": "<p>HEPMC format 13 TeV proton-proton Open Data from the ATLAS experiment.</p><p>This summary record is provided as a single point of entry and single record to cite for the HEPMC open data.</p><p>As additional datasets are added to the open data, this record will be extended.<p></p><i>Created on June 10th 2025. The record currently only contains the first set of samples. This is to allow time for\ncommunity feedback (which is welcome). More samples will be added in the near future.</i></p>"
+    },
+    "accelerator": "CERN-LHC",
+    "categories": {
+      "source": "ATLAS Collaboration"
+    },
+    "collaboration": {
+      "name": "ATLAS collaboration"
+    },
+    "collections": [
+      "ATLAS-Simulated-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2015",
+      "2016",
+      "2017",
+      "2018"
+    ],
+    "date_published": "2025",
+    "date_reprocessed": "2025",
+    "distribution": {
+      "formats": [
+        "HEPMC"
+      ],
+      "number_events": 24190000,
+      "number_files": 2671,
+      "size": 1237406845211
+    },
+    "doi": "10.7483/OPENDATA.ATLAS.XPJL.4L42",
+    "experiment": [
+      "ATLAS"
+    ],
+    "license": {
+      "attribution": "CC0-1.0"
+    },
+    "methodology": {
+      "description": "<p>These data were created over the years from the start of Run 2 up to today. Event generation is run continuously by the experiment, with new samples replacing old on a regular basis as improved configurations are identified and new generator versions become available. All data were reprocessed using Athena Release 25 to create HEPMC files from the ROOT-based EVNT format used internally in the collaboration."
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "160000",
+    "relations": [
+      {
+        "recid": "160002",
+        "type": "isParentOf"
+      }
+    ],
+    "run_period": [
+      "2015",
+      "2016",
+      "2017",
+      "2018"
+    ],
+    "title": "HEPMC format 13 TeV proton-proton Open Data from the ATLAS experiment",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "<p> The event generation output provided by the ATLAS experiment in HEPMC format is released under a CC0 license; citation of the data and acknowledgement of the collaboration is requested. This format can be used in simple analysis scripts (it is text-based) or as input to various phenomenological tools. <p>Extensive instructions for interacting with the data, as well as documentation of the dataset naming conventions and their contents, are provided on the ATLAS Open Data website linked below. If any problems are identified with the data, please contact the team through the website below. Please be sure to cite the Open Data that you use, in line with the policy below.",
+      "links": [
+        {
+          "description": "ATLAS Open Data Website",
+          "url": "http://opendata.atlas.cern"
+        },
+        {
+          "description": "Resources to understand and use the event generation open data",
+          "url": "https://opendata.atlas.cern/docs/data/for_research/evgen_data"
+        },
+        {
+          "description": "More about the HEPMC format",
+          "url": "https://github.com/alisw/hepmc/tree/master"
+        },
+        {
+          "description": "Citation policy",
+          "url": "https://opendata.atlas.cern/docs/documentation/ethical_legal/citation_policy"
+        }
+      ]
+    }
+  }
+]
