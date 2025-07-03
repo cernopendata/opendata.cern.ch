@@ -1,0 +1,81 @@
+[
+  {
+    "abstract": {
+      "description": "<p>Flavour-tagging — the task of identifying heavy flavor jets — is essential for many physics analyses at the ATLAS experiment. This dataset, released for public use, can be used to train and evaluate machine learning models for jet flavour-tagging, as described in <a href=\"https://arxiv.org/abs/2505.19689\">arXiv:2505.19689</a>. It aims broaden interest and further development of innovative machine learning techniques to improve flavour-tagging performance.</p>\n<p>The dataset consists of approximately 50 million events from simulated top quark pair production at a centre-of-mass energy of 13.6 TeV. It is stored in HDF5 format and contains structured event-level, jet-level, track-level and truth hadron information. This dataset is designed to be compatible with the flavour-tagging algorithm development pipeline used at ATLAS, and is supported by accompanying instructions and example configurations provided in open-source repositories.</p>\n<p>To improve usability, the dataset is split into three mutually exclusive HDF5 files:</p>\n<ul>\n<li><code>mc-flavtag-ttbar-small.h5</code> — ~1.36 million events (~5.6 million jets)</li>\n<li><code>mc-flavtag-ttbar-medium.h5</code> — ~6.23 million events (~25.6 million jets)</li>\n<li><code>mc-flavtag-ttbar-large.h5</code> — ~41.1 million events (~168 million jets)</li>\n</ul>\n<p>Downloading all three files will provide access to the complete dataset. The smaller subsets are useful for quick exploration or prototyping workflows.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "ATLAS collaboration"
+    },
+    "collections": [
+      "ATLAS-Derived-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13.6TeV",
+      "type": "pp"
+    },
+    "date_published": "2025",
+    "distribution": {
+      "formats": [
+        "h5"
+      ],
+      "number_events": 48698675,
+      "number_files": 3,
+      "size": 107788972974
+    },
+    "doi": "10.7483/OPENDATA.ATLAS.QG8W.TO8P",
+    "experiment": [
+      "ATLAS"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:8d7e9098",
+        "size": 3055139850,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/ATLAS-FTAG-2023-05/mc-flavtag-ttbar-small.h5"
+      },
+      {
+        "checksum": "adler32:e29be59c",
+        "size": 13935881976,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/ATLAS-FTAG-2023-05/mc-flavtag-ttbar-medium.h5"
+      },
+      {
+        "checksum": "adler32:61adcbcb",
+        "size": 90797951148,
+        "uri": "root://eospublic.cern.ch//eos/opendata/atlas/datascience/ATLAS-FTAG-2023-05/mc-flavtag-ttbar-large.h5"
+      }
+    ],
+    "keywords": [
+      "datascience"
+    ],
+    "license": {
+      "attribution": "CC0-1.0"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "93940",
+    "title": "ATLAS $t\\bar{t}$ simulation for ML-based jet flavour tagging (JetSet)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Derived",
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "A detailed explanation of this dataset, and instructions for pre-processing, training, and evaluation workflows are provided in the accompanying GitLab repository. If this dataset is used in a publication, please cite this dataset record along with the accompanying ATLAS paper describing GN2, a ATLAS flavour-tagging algorithm with a transformer-like architecture.",
+      "links": [
+        {
+          "description": "Transforming Jet Flavour: Documentation and training pipeline",
+          "url": "https://gitlab.cern.ch/atlas/open-data/transforming-jet-flavor"
+        },
+        {
+          "description": "ATLAS-FTAG-2023-05",
+          "url": "https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/FTAG-2023-05/"
+        },
+        {
+          "description": "arXiv:2505.19689",
+          "url": "https://arxiv.org/abs/2505.19689"
+        }
+      ]
+    }
+  }
+]
