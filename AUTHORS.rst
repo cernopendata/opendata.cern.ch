@@ -21,8 +21,10 @@ The list of contributors in alphabetical order:
 - `Dana Alsharif <https://github.com/danaalsharif>`_
 - `David Horvát <https://github.com/biscgit>`_
 - `Diego Rodriguez <https://orcid.org/0000-0003-0649-2002>`_
+- `Dillon Fitzgerald <https://orcid.org/0000-0001-6862-6876>`_
 - `Edgar Carrera <https://github.com/caredg>`_
 - `Eric Engestrom <https://github.com/1ace>`_
+- `Esteban Felipe Molina Cardenas <https://orcid.org/0009-0002-0674-5305>`_
 - `Felix Socher <https://github.com/fsocher>`_
 - `Filip Maxin <https://orcid.org/0000-0002-2726-3535>`_
 - `Giovanni Guerrieri <https://github.com/Soap2G>`_
@@ -49,6 +51,7 @@ The list of contributors in alphabetical order:
 - `Osama Sh. Almomani <https://github.com/OsamaMomani>`_
 - `Pablo Saiz <https://github.com/psaiz>`_
 - `Pamfilos Fokianos <https://github.com/pamfilos>`_
+- `Piet Nogga <https://orcid.org/0009-0006-2269-4666>`_
 - `Patricia Herterich <https://github.com/pherterich>`_
 - `Richard Hildebrandt <https://github.com/rdebrand>`_
 - `Sebastian Feger <https://github.com/sefeg>`_
