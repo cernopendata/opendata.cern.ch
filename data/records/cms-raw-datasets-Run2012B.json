@@ -59,57 +59,6 @@
     },
     "publisher": "CERN Open Data Portal",
     "recid": "62",
-    "run_period": [
-      "Run2012B"
-    ],
-    "system_details": {
-      "container_images": [
-        {
-          "name": "docker.io/cmsopendata/cmssw_5_3_32-slc6_amd64_gcc472:latest",
-          "registry": "dockerhub"
-        },
-        {
-          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_32-slc6_amd64_gcc472:latest",
-          "registry": "gitlab"
-        }
-      ],
-      "global_tag": "FT53_V21A_AN6",
-      "release": "CMSSW_5_3_32"
-    },
-    "title": "/MinimumBias/Run2012B-v1/RAW",
-    "title_additional": "MinimumBias primary dataset sample in RAW format from RunB of 2012 (from /MinimumBias/Run2012B-v1/RAW)",
-    "type": {
-      "primary": "Dataset",
-      "secondary": [
-        "Collision"
-      ]
-    },
-    "usage": {
-      "description": "<p>These data are in RAW format and not directly usable in analysis. The reconstructed data reprocessed from these RAW data are included in the data of <a href=\"/record/6013\">this record</a>. \n  The reconstruction step can be repeated with the configuration file below and the resulting AOD can be compared with the original one using the code available in <a href=\"/record/464\">Validation code to plot basic physics objects from AOD</a></p>",
-      "links": [
-        {
-          "description": "Example configuration file for reconstruction",
-          "url": "/eos/opendata/cms/configuration-files/RAWtoAOD/raw_to_aod_primarydata2012.py"
-        }
-      ]
-    },
-    "validation": {
-      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
-      "links": [
-        {
-          "description": "CMS data quality monitoring: Systems and experiences",
-          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
-        },
-        {
-          "description": "The CMS Data Quality Monitoring software experience and future improvements",
-          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
-        },
-        {
-          "description": "The CMS data quality monitoring software: experience and future prospects",
-          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
-        }
-      ]
-    },
     "run_numbers": [
       "194047",
       "193959",
@@ -175,7 +124,58 @@
       "194034",
       "194050",
       "193919"
-    ]
+    ],
+    "run_period": [
+      "Run2012B"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_32-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_32-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "FT53_V21A_AN6",
+      "release": "CMSSW_5_3_32"
+    },
+    "title": "/MinimumBias/Run2012B-v1/RAW",
+    "title_additional": "MinimumBias primary dataset sample in RAW format from RunB of 2012 (from /MinimumBias/Run2012B-v1/RAW)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>These data are in RAW format and not directly usable in analysis. The reconstructed data reprocessed from these RAW data are included in the data of <a href=\"/record/6013\">this record</a>. \n  The reconstruction step can be repeated with the configuration file below and the resulting AOD can be compared with the original one using the code available in <a href=\"/record/464\">Validation code to plot basic physics objects from AOD</a></p>",
+      "links": [
+        {
+          "description": "Example configuration file for reconstruction",
+          "url": "/eos/opendata/cms/configuration-files/RAWtoAOD/raw_to_aod_primarydata2012.py"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
   },
   {
     "abstract": {
@@ -237,6 +237,21 @@
     },
     "publisher": "CERN Open Data Portal",
     "recid": "63",
+    "run_numbers": [
+      "194115",
+      "194106",
+      "194113",
+      "194075",
+      "194066",
+      "194073",
+      "194105",
+      "194052",
+      "194076",
+      "194051",
+      "194069",
+      "194108",
+      "194058"
+    ],
     "run_period": [
       "Run2012B"
     ],
@@ -287,22 +302,7 @@
           "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
         }
       ]
-    },
-    "run_numbers": [
-      "194115",
-      "194106",
-      "194113",
-      "194075",
-      "194066",
-      "194073",
-      "194105",
-      "194052",
-      "194076",
-      "194051",
-      "194069",
-      "194108",
-      "194058"
-    ]
+    }
   },
   {
     "abstract": {
@@ -364,6 +364,30 @@
     },
     "publisher": "CERN Open Data Portal",
     "recid": "64",
+    "run_numbers": [
+      "194157",
+      "194184",
+      "194120",
+      "194132",
+      "194155",
+      "194153",
+      "194137",
+      "194139",
+      "194134",
+      "194151",
+      "194140",
+      "194143",
+      "194196",
+      "194117",
+      "194197",
+      "194119",
+      "194135",
+      "194144",
+      "194182",
+      "194199",
+      "194130",
+      "194150"
+    ],
     "run_period": [
       "Run2012B"
     ],
@@ -414,31 +438,7 @@
           "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
         }
       ]
-    },
-    "run_numbers": [
-      "194157",
-      "194184",
-      "194120",
-      "194132",
-      "194155",
-      "194153",
-      "194137",
-      "194139",
-      "194134",
-      "194151",
-      "194140",
-      "194143",
-      "194196",
-      "194117",
-      "194197",
-      "194119",
-      "194135",
-      "194144",
-      "194182",
-      "194199",
-      "194130",
-      "194150"
-    ]
+    }
   },
   {
     "abstract": {
@@ -500,6 +500,31 @@
     },
     "publisher": "CERN Open Data Portal",
     "recid": "65",
+    "run_numbers": [
+      "194526",
+      "194603",
+      "194530",
+      "194691",
+      "194464",
+      "194535",
+      "194479",
+      "194480",
+      "194643",
+      "194688",
+      "194441",
+      "194644",
+      "194448",
+      "194627",
+      "194615",
+      "194439",
+      "194452",
+      "194619",
+      "194631",
+      "194687",
+      "194514",
+      "194533",
+      "194455"
+    ],
     "run_period": [
       "Run2012B"
     ],
@@ -550,32 +575,7 @@
           "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
         }
       ]
-    },
-    "run_numbers": [
-      "194526",
-      "194603",
-      "194530",
-      "194691",
-      "194464",
-      "194535",
-      "194479",
-      "194480",
-      "194643",
-      "194688",
-      "194441",
-      "194644",
-      "194448",
-      "194627",
-      "194615",
-      "194439",
-      "194452",
-      "194619",
-      "194631",
-      "194687",
-      "194514",
-      "194533",
-      "194455"
-    ]
+    }
   },
   {
     "abstract": {
@@ -637,57 +637,6 @@
     },
     "publisher": "CERN Open Data Portal",
     "recid": "66",
-    "run_period": [
-      "Run2012B"
-    ],
-    "system_details": {
-      "container_images": [
-        {
-          "name": "docker.io/cmsopendata/cmssw_5_3_32-slc6_amd64_gcc472:latest",
-          "registry": "dockerhub"
-        },
-        {
-          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_32-slc6_amd64_gcc472:latest",
-          "registry": "gitlab"
-        }
-      ],
-      "global_tag": "FT53_V21A_AN6",
-      "release": "CMSSW_5_3_32"
-    },
-    "title": "/DoubleMuParked/Run2012B-v1/RAW",
-    "title_additional": "DoubleMuParked primary dataset sample in RAW format from RunB of 2012 (from /DoubleMuParked/Run2012B-v1/RAW)",
-    "type": {
-      "primary": "Dataset",
-      "secondary": [
-        "Collision"
-      ]
-    },
-    "usage": {
-      "description": "<p>These data are in RAW format and not directly usable in analysis. The reconstructed data reprocessed from these RAW data are included in the data of <a href=\"/record/6004\">this record</a>. \n    The reconstruction step can be repeated with the configuration file below and the resulting AOD can be compared with the original one using the code available in <a href=\"/record/464\">Validation code to plot basic physics objects from AOD</a></p>",
-      "links": [
-        {
-          "description": "Example configuration file for reconstruction",
-          "url": "/eos/opendata/cms/configuration-files/RAWtoAOD/raw_to_aod_primarydata2012.py"
-        }
-      ]
-    },
-    "validation": {
-      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
-      "links": [
-        {
-          "description": "CMS data quality monitoring: Systems and experiences",
-          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
-        },
-        {
-          "description": "The CMS Data Quality Monitoring software experience and future improvements",
-          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
-        },
-        {
-          "description": "The CMS data quality monitoring software: experience and future prospects",
-          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
-        }
-      ]
-    },
     "run_numbers": [
       "194401",
       "194251",
@@ -742,7 +691,58 @@
       "194403",
       "194221",
       "194230"
-    ]
+    ],
+    "run_period": [
+      "Run2012B"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_32-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_32-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "FT53_V21A_AN6",
+      "release": "CMSSW_5_3_32"
+    },
+    "title": "/DoubleMuParked/Run2012B-v1/RAW",
+    "title_additional": "DoubleMuParked primary dataset sample in RAW format from RunB of 2012 (from /DoubleMuParked/Run2012B-v1/RAW)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>These data are in RAW format and not directly usable in analysis. The reconstructed data reprocessed from these RAW data are included in the data of <a href=\"/record/6004\">this record</a>. \n    The reconstruction step can be repeated with the configuration file below and the resulting AOD can be compared with the original one using the code available in <a href=\"/record/464\">Validation code to plot basic physics objects from AOD</a></p>",
+      "links": [
+        {
+          "description": "Example configuration file for reconstruction",
+          "url": "/eos/opendata/cms/configuration-files/RAWtoAOD/raw_to_aod_primarydata2012.py"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
   },
   {
     "abstract": {
@@ -804,57 +804,6 @@
     },
     "publisher": "CERN Open Data Portal",
     "recid": "67",
-    "run_period": [
-      "Run2012B"
-    ],
-    "system_details": {
-      "container_images": [
-        {
-          "name": "docker.io/cmsopendata/cmssw_5_3_32-slc6_amd64_gcc472:latest",
-          "registry": "dockerhub"
-        },
-        {
-          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_32-slc6_amd64_gcc472:latest",
-          "registry": "gitlab"
-        }
-      ],
-      "global_tag": "FT53_V21A_AN6",
-      "release": "CMSSW_5_3_32"
-    },
-    "title": "/JetHT/Run2012B-v1/RAW",
-    "title_additional": "JetHT primary dataset sample in RAW format from RunB of 2012 (from /JetHT/Run2012B-v1/RAW)",
-    "type": {
-      "primary": "Dataset",
-      "secondary": [
-        "Collision"
-      ]
-    },
-    "usage": {
-      "description": "<p>These data are in RAW format and not directly usable in analysis. The reconstructed data reprocessed from these RAW data are included in the data of <a href=\"/record/17\">this record</a>. \n    The reconstruction step can be repeated with the configuration file below and the resulting AOD can be compared with the original one using the code available in <a href=\"/record/464\">Validation code to plot basic physics objects from AOD</a></p>",
-      "links": [
-        {
-          "description": "Example configuration file for reconstruction",
-          "url": "/eos/opendata/cms/configuration-files/RAWtoAOD/raw_to_aod_primarydata2012.py"
-        }
-      ]
-    },
-    "validation": {
-      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
-      "links": [
-        {
-          "description": "CMS data quality monitoring: Systems and experiences",
-          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
-        },
-        {
-          "description": "The CMS Data Quality Monitoring software experience and future improvements",
-          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
-        },
-        {
-          "description": "The CMS data quality monitoring software: experience and future prospects",
-          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
-        }
-      ]
-    },
     "run_numbers": [
       "195111",
       "194903",
@@ -918,6 +867,57 @@
       "194987",
       "194910",
       "195014"
-    ]
+    ],
+    "run_period": [
+      "Run2012B"
+    ],
+    "system_details": {
+      "container_images": [
+        {
+          "name": "docker.io/cmsopendata/cmssw_5_3_32-slc6_amd64_gcc472:latest",
+          "registry": "dockerhub"
+        },
+        {
+          "name": "gitlab-registry.cern.ch/cms-cloud/cmssw-docker-opendata/cmssw_5_3_32-slc6_amd64_gcc472:latest",
+          "registry": "gitlab"
+        }
+      ],
+      "global_tag": "FT53_V21A_AN6",
+      "release": "CMSSW_5_3_32"
+    },
+    "title": "/JetHT/Run2012B-v1/RAW",
+    "title_additional": "JetHT primary dataset sample in RAW format from RunB of 2012 (from /JetHT/Run2012B-v1/RAW)",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>These data are in RAW format and not directly usable in analysis. The reconstructed data reprocessed from these RAW data are included in the data of <a href=\"/record/17\">this record</a>. \n    The reconstruction step can be repeated with the configuration file below and the resulting AOD can be compared with the original one using the code available in <a href=\"/record/464\">Validation code to plot basic physics objects from AOD</a></p>",
+      "links": [
+        {
+          "description": "Example configuration file for reconstruction",
+          "url": "/eos/opendata/cms/configuration-files/RAWtoAOD/raw_to_aod_primarydata2012.py"
+        }
+      ]
+    },
+    "validation": {
+      "description": "During data taking all the runs recorded by CMS are certified as good for physics analysis if all subdetectors, trigger, lumi and physics objects (tracking, electron, muon, photon, jet and MET) show the expected performance. Certification is based first on the offline shifters evaluation and later on the feedback provided by detector and Physics Object Group experts. Based on the above information, which is stored in a specific database called Run Registry, the Data Quality Monitoring group verifies the consistency of the certification and prepares a json file of certified runs to be used for physics analysis. For each reprocessing of the raw data, the above mentioned steps are repeated. For more information see:",
+      "links": [
+        {
+          "description": "CMS data quality monitoring: Systems and experiences",
+          "url": "http://iopscience.iop.org/1742-6596/219/7/072020/pdf/1742-6596_219_7_072020.pdf"
+        },
+        {
+          "description": "The CMS Data Quality Monitoring software experience and future improvements",
+          "url": "http://cds.cern.ch/record/1631039/files/CR2013_418.pdf"
+        },
+        {
+          "description": "The CMS data quality monitoring software: experience and future prospects",
+          "url": "http://iopscience.iop.org/1742-6596/513/3/032024/pdf/1742-6596_513_3_032024.pdf"
+        }
+      ]
+    }
   }
 ]
