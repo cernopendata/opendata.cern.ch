@@ -1,1 +1,8 @@
-The Large Hadron Collider (LHC) is not only a tool with which to search for exotic new particles, but also a factory of particles whose existence is in no doubt but whose precise properties are not yet known well enough. LHCb, unlike the other experiments ATLAS and CMS, which search for new particles produced directly in the proton–proton collisions, is devoted to the study of well established particles, the beauty (B) and charmed (C) mesons. These particles, which comprise a bottom or charm quark or antiquark plus one other quark with a different “flavour”, only exist for about a trillionth of a second before decaying into lighter particles. But subtle quantum effects called loops, in which virtual particles are temporarily created by borrowing energy from the vacuum, can influence the behaviour of B and C mesons and give researchers a handle on particles that are too heavy to be produced directly.
+The Large Hadron Collider beauty (LHCb) experiment is one of the four big experiments at the Large Hadron Collider (LHC). In contrast to its siblings, LHCb is an asymmetric detector that covers events at forward rapidities ($2<\eta<5$). The spirit behind this particular design is to exploit the large production of heavy-flavour quarks in the forward rapidity region.  
+
+The **main goal** of LHCb is to study sources of CP violation, via rare decays of *B* (beauty) and *D* mesons, in order to explain the current asymmetry of matter-antimatter in the universe.  
+
+The [LHCb Open Data Guide](https://lhcb-opendata-guide.web.cern.ch/) contains information about:  
+
+- Analysis of datasets of Run 1 that are found in the Open Data Portal.  
+- Usage of the LHCb Ntupling Service.
