@@ -12,4 +12,4 @@ By the end of 2023, LHCb released all of its Run I data, via CERN Open Data Port
     - Scripts used for each production step
     - List of Logical File Names (LFNs) on [LHCb DIRAC](https://lhcb-dirac.readthedocs.io/en/latest/)
 
-The [LHCb Open Data Guide](https://lhcb-opendata-guide.web.cern.ch/) and the metadata provided on the Open Data Portal should help the user to navigate, select, and work with LHCb Open Data.  
+The [LHCb Open Data Guide](https://lhcb-opendata-guide.web.cern.ch/) and the metadata provided on the Open Data Portal should help the user to navigate, select, and work with LHCb Open Data.
