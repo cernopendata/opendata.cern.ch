@@ -1,0 +1,40 @@
+[
+  {
+    "abstract": {
+      "description": "<p> For the upcoming high luminosity runs at ATLAS, it is necessary to replace the full calorimeter simulation with the fast calorimeter simulation in almost all cases. The current ATLAS fast calorimeter simulation, AtlFast3, uses parametric approaches to speed up the computing time significantly. Even though AtlFast3 generally achieves a high degree of accuracy, further quality improvements within the fast calorimeter simulation are necessary to enable this replacement. Here, we present a new voxelization scheme for fast calorimeter simulation of electromagnetic photon showers in the ATLAS Lar barrel. This updated discretization significantly reduces several artifacts previously observed in reconstructed photon shower shapes and can be used to train modern generative machine learning models for the ATLAS fast calorimeter simulation. This work contains two different voxelizations, a non-regular but smaller binning and dataset with more voxels that are binned in a regular scheme. Both voxelizations were performed for a 1.5M event training dataset and a 1.5 M validation dataset. While this work concentrates on photons, extensions to other particle types are foreseen in future developments.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "ATLAS collaboration"
+    },
+    "date_published": "2025",
+    "distribution": {
+      "formats": [
+        "hdf5"
+      ],
+      "number_events": 6000000,
+      "number_files": 4,
+      "size": 26011336844
+    },
+    "experiment": [
+      "ATLAS"
+    ],
+    "links": [
+      {
+        "description": "ATLAS PUB-NOTE: ATL-SOFT-PUB-2025-003",
+        "url": "https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-SOFT-PUB-2025-003/"
+      }
+    ],
+    "publisher": "CERN Open Data Portal",
+    "title": "Photon showers in the ATLAS fast calorimeter simulation: A voxelized dataset with minimized information loss and improved ML models",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Simulated"
+      ]
+    },
+    "usage": {
+      "description": "</p>If this dataset is used in a publication, please cite this dataset record along with the accompanying PUB-NOTE <a href=\"https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-SOFT-PUB-2025-003/\">ATL-SOFT-PUB-2025-003</a>.</p>"
+    }
+  }
+]
