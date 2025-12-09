@@ -45,7 +45,7 @@ follows:
 
    $ git clone https://github.com/cernopendata/opendata.cern.ch
    $ git clone https://github.com/cernopendata/cernopendata-portal
-   $ cd cernopendata-portal && git checkout -B stable v0.2.9
+   $ cd cernopendata-portal && git checkout -B release-v0.13.0 v0.13.0
    $ cd ../opendata.cern.ch
    $ docker compose pull
    $ docker compose up -d
@@ -55,7 +55,7 @@ follows:
 
 This will create a running instance of the CERN Open Data portal with a
 relatively empty content. The portal will be accessible locally at
-`http://127.0.0.1:500 <http://127.0.0.1:5000>`_.
+`http://127.0.0.1:8000 <http://127.0.0.1:8000>`_.
 
 If you would like to stop and delete your local instance, you can do:
 
@@ -83,8 +83,8 @@ Upload the locally-modified file into your instance:
         --mode insert-or-replace \
         -f /content/data/records/cms-primary-datasets.json
 
-You can then check your changes at `http://127.0.0.1:500
-<http://127.0.0.1:5000>`_.
+You can then check your changes at `http://127.0.0.1:8000
+<http://127.0.0.1:8000>`_.
 
 Note that you can take advantage of shell scripting if you would like to upload
 all experiment records locally, for example for ATLAS:
@@ -160,8 +160,8 @@ using the `fixtures docs` command. Even if you would like to change only the
 document content that is living in the associated Markdown files, the document
 JSON file is to be uploaded.
 
-You can then check your changes at `http://127.0.0.1:500
-<http://127.0.0.1:5000>`_.
+You can then check your changes at `http://127.0.0.1:8000
+<http://127.0.0.1:8000>`_.
 
 Working with documents: Markdown
 ================================
