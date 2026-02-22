@@ -1,0 +1,425 @@
+[
+  {
+    "abstract": {
+      "description": "<p>Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for exploring $B^{\\pm} \\to J/\\psi (\\to \\mu^{+} \\mu^{-}) K^{\\pm}$ decays.</p> <p> Ntuples are created using DaVinci version v46r11 and the Analysis Productions batch processing system. Quantities saved to the ntuple are specified during the request phase and detailed in the code configuration files attached below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "date_created": [
+      "2016",
+      "2017"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "py",
+        "yaml"
+      ],
+      "number_files": 3,
+      "size": 2751
+    },
+    "doi": "10.7483/OOPENDATA.LHCB.EBYF.C7OY",
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:564ffe9c",
+        "size": 742,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.EBYF.C7OY/inputs/BMassExample/Btree.py"
+      },
+      {
+        "checksum": "adler32:a61a532e",
+        "size": 1205,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.EBYF.C7OY/inputs/BMassExample/Btree.yaml"
+      },
+      {
+        "checksum": "adler32:0280eec6",
+        "size": 804,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.EBYF.C7OY/inputs/BMassExample/info.yaml"
+      }
+    ],
+    "methodology": {
+      "description": "These ntuples were produced from the LHCb Open Data Ntupling Service user request 4530. Please see the input configuration files attached below."
+    },
+    "publisher": "CERN Open Data portal",
+    "recid": "93945",
+    "relations": [
+      {
+        "recid": "93946",
+        "type": "isParentOf"
+      },
+      {
+        "recid": "93947",
+        "type": "isParentOf"
+      },
+      {
+        "recid": "93948",
+        "type": "isParentOf"
+      },
+      {
+        "recid": "93949",
+        "type": "isParentOf"
+      }
+    ],
+    "title": "[$B^{\\pm} \\to J/\\psi (\\to \\mu^{+} \\mu^{-}) K^{\\pm}$]CC Ntuples 4530",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>Ntuples and instructions are provided in the links under Related datasets. They are ready to be downloaded and used for analysis. If these do not suit your needs, you can clone and amend this ntupling request here:",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service",
+          "url": "https://opendata-lhcb-ntupling-service.app.cern.ch/"
+        },
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        },
+        {
+          "description": "B2JpsiK analysis example",
+          "url": "https://github.com/reanahub/reana-demo-lhcb-run2-b2jpsik"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for exploring $B^{\\pm} \\to J/\\psi (\\to \\mu^{+} \\mu^{-}) K^{\\pm}$ decays."
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_files": 2,
+      "size": 2138195640
+    },
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:975e9417",
+        "size": 1969934069,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.EBYF.C7OY/outputs/real-production/00334560_00000001_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:1642a095",
+        "size": 168261571,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.EBYF.C7OY/outputs/real-production/00334560_00000002_1.dvntuple.root"
+      }
+    ],
+    "magnet_polarity": "MagDown",
+    "methodology": {
+      "description": "<p>These ntuples were produced from the LHCb Open Data Ntupling Service user request 4530. Please see the input configuration files <a href=\"/record/93945\">here</a>.</p>"
+    },
+    "publisher": "CERN Open Data portal",
+    "recid": "93946",
+    "relations": [
+      {
+        "recid": "93945",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "2016"
+    ],
+    "stripping": {
+      "stream": "DIMUON",
+      "version": "stripping28r2"
+    },
+    "title": "[$B^{\\pm} \\to J/\\psi (\\to \\mu^{+} \\mu^{-}) K^{\\pm}$]CC Ntuples 4530 -- 2016 Magnet Down",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>You can use these ntuples with <a href=\"https://root.cern.ch/\">ROOT</a> data analysis framework. See documentation and examples here:</p>",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        },
+        {
+          "description": "First LHCb Open Data and Ntuple Wizard Workshop",
+          "url": "https://indico.cern.ch/event/1429526/timetable/#20241022.detailed"
+        },
+        {
+          "description": "B2JpsiK analysis example",
+          "url": "https://github.com/reanahub/reana-demo-lhcb-run2-b2jpsik"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for exploring $B^{\\pm} \\to J/\\psi (\\to \\mu^{+} \\mu^{-}) K^{\\pm}$ decays."
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_files": 1,
+      "size": 2062502943
+    },
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:f22406b1",
+        "size": 2062502943,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.EBYF.C7OY/outputs/real-production/00334565_00000001_1.dvntuple.root"
+      }
+    ],
+    "magnet_polarity": "MagUp",
+    "methodology": {
+      "description": "<p>These ntuples were produced from the LHCb Open Data Ntupling Service user request 4530. Please see the input configuration files <a href=\"/record/93945\">here</a>.</p>"
+    },
+    "publisher": "CERN Open Data portal",
+    "recid": "93947",
+    "relations": [
+      {
+        "recid": "93945",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "2016"
+    ],
+    "stripping": {
+      "stream": "DIMUON",
+      "version": "stripping28r2"
+    },
+    "title": "[$B^{\\pm} \\to J/\\psi (\\to \\mu^{+} \\mu^{-}) K^{\\pm}$]CC Ntuples 4530 -- 2016 Magnet Up",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>You can use these ntuples with <a href=\"https://root.cern.ch/\">ROOT</a> data analysis framework. See documentation and examples here:</p>",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        },
+        {
+          "description": "First LHCb Open Data and Ntuple Wizard Workshop",
+          "url": "https://indico.cern.ch/event/1429526/timetable/#20241022.detailed"
+        },
+        {
+          "description": "B2JpsiK analysis example",
+          "url": "https://github.com/reanahub/reana-demo-lhcb-run2-b2jpsik"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for exploring $B^{\\pm} \\to J/\\psi (\\to \\mu^{+} \\mu^{-}) K^{\\pm}$ decays."
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2017"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_files": 1,
+      "size": 2158947104
+    },
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:c8b77640",
+        "size": 2158947104,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.EBYF.C7OY/outputs/real-production/00334564_00000001_1.dvntuple.root"
+      }
+    ],
+    "magnet_polarity": "MagDown",
+    "methodology": {
+      "description": "<p>These ntuples were produced from the LHCb Open Data Ntupling Service user request 4530. Please see the input configuration files <a href=\"/record/93945\">here</a>.</p>"
+    },
+    "publisher": "CERN Open Data portal",
+    "recid": "93948",
+    "relations": [
+      {
+        "recid": "93945",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "2017"
+    ],
+    "stripping": {
+      "stream": "DIMUON",
+      "version": "stripping29r2p1"
+    },
+    "title": "[$B^{\\pm} \\to J/\\psi (\\to \\mu^{+} \\mu^{-}) K^{\\pm}$]CC Ntuples 4530 -- 2017 Magnet Down",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>You can use these ntuples with <a href=\"https://root.cern.ch/\">ROOT</a> data analysis framework. See documentation and examples here:</p>",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        },
+        {
+          "description": "First LHCb Open Data and Ntuple Wizard Workshop",
+          "url": "https://indico.cern.ch/event/1429526/timetable/#20241022.detailed"
+        },
+        {
+          "description": "B2JpsiK analysis example",
+          "url": "https://github.com/reanahub/reana-demo-lhcb-run2-b2jpsik"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for exploring $B^{\\pm} \\to J/\\psi (\\to \\mu^{+} \\mu^{-}) K^{\\pm}$ decays."
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2017"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_files": 1,
+      "size": 2075441594
+    },
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:4a34339c",
+        "size": 2075441594,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.EBYF.C7OY/outputs/real-production/00334566_00000001_1.dvntuple.root"
+      }
+    ],
+    "magnet_polarity": "MagUp",
+    "methodology": {
+      "description": "<p>These ntuples were produced from the LHCb Open Data Ntupling Service user request 4530. Please see the input configuration files <a href=\"/record/93945\">here</a>.</p>"
+    },
+    "publisher": "CERN Open Data portal",
+    "recid": "93949",
+    "relations": [
+      {
+        "recid": "93945",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "2017"
+    ],
+    "stripping": {
+      "stream": "DIMUON",
+      "version": "stripping29r2p1"
+    },
+    "title": "[$B^{\\pm} \\to J/\\psi (\\to \\mu^{+} \\mu^{-}) K^{\\pm}$]CC Ntuples 4530 -- 2017 Magnet Up",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>You can use these ntuples with <a href=\"https://root.cern.ch/\">ROOT</a> data analysis framework. See documentation and examples here:</p>",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        },
+        {
+          "description": "First LHCb Open Data and Ntuple Wizard Workshop",
+          "url": "https://indico.cern.ch/event/1429526/timetable/#20241022.detailed"
+        },
+        {
+          "description": "B2JpsiK analysis example",
+          "url": "https://github.com/reanahub/reana-demo-lhcb-run2-b2jpsik"
+        }
+      ]
+    }
+  }
+]
