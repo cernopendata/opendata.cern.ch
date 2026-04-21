@@ -5,6 +5,7 @@ The list of contributors in alphabetical order:
 
 - `Achintya Rao <https://orcid.org/0000-0002-1628-2618>`_
 - `Adam Novorolnik <https://github.com/ANovorolnik>`_
+- `Adrian Sevcenco <https://orcid.org/0000-0002-4151-1057>`_
 - `Adriano Di Florio <https://github.com/AdrianoDee>`_
 - `Alexander Ioannidis <https://github.com/slint>`_
 - `Ana Trisovic <https://github.com/atrisovic>`_
