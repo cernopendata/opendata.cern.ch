@@ -1,0 +1,831 @@
+[
+  {
+    "abstract": {
+      "description": "<p>Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for exploring $\\Omega_c^0 \\to \\Xi_c^+ (\\to K^- p \\pi^+) K^-$ and charge-conjugate decays.</p> <p>Ntuples are created using DaVinci version v46r11 and the Analysis Productions batch processing system. Quantities saved to the ntuple are specified during the request phase and detailed in the code configuration files attached below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "date_created": [
+      "2015",
+      "2016",
+      "2017"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "py",
+        "yaml"
+      ],
+      "number_files": 3,
+      "size": 6081
+    },
+    "doi": "10.7483/OPENDATA.LHCB.MHK4.OQO3",
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:62f202c9",
+        "size": 761,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/inputs/OmegaCOpenDataTest/DecayTree.py"
+      },
+      {
+        "checksum": "adler32:a4755ea8",
+        "size": 3980,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/inputs/OmegaCOpenDataTest/DecayTree.yaml"
+      },
+      {
+        "checksum": "adler32:33c3949f",
+        "size": 1340,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/inputs/OmegaCOpenDataTest/info.yaml"
+      }
+    ],
+    "methodology": {
+      "description": "These ntuples were produced from the LHCb Open Data Ntupling Service user request 4413. Please see the input configuration files attached below."
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "94014",
+    "relations": [
+      {
+        "recid": "94015",
+        "type": "isParentOf"
+      },
+      {
+        "recid": "94016",
+        "type": "isParentOf"
+      },
+      {
+        "recid": "94017",
+        "type": "isParentOf"
+      },
+      {
+        "recid": "94018",
+        "type": "isParentOf"
+      },
+      {
+        "recid": "94019",
+        "type": "isParentOf"
+      },
+      {
+        "recid": "94020",
+        "type": "isParentOf"
+      }
+    ],
+    "title": "[$\\Omega_c^0 \\to \\Xi_c^+ (\\to K^- p \\pi^+) K^-$]CC Ntuples 4413",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>Ntuples and instructions are provided in the links under Related datasets. They are ready to be downloaded and used for analysis. If these do not suit your needs, you can clone and amend this ntupling request here:</p>",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service",
+          "url": "https://opendata-lhcb-ntupling-service.app.cern.ch/"
+        },
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        },
+        {
+          "description": "OmegaC2XicK analysis example",
+          "url": "https://github.com/lhcb-opendata-examples/omegac_resonances"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for exploring $\\Omega_c^0 \\to \\Xi_c^+ (\\to K^- p \\pi^+) K^-$ and charge-conjugate decays."
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2015"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_files": 3,
+      "size": 30845686173
+    },
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:ae1b3309",
+        "size": 12466074664,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331353_00000001_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:305aef2d",
+        "size": 12447057899,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331353_00000002_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:8ef72413",
+        "size": 5932553610,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331353_00000003_1.dvntuple.root"
+      }
+    ],
+    "magnet_polarity": "MagDown",
+    "methodology": {
+      "description": "<p>These ntuples were produced from the LHCb Open Data Ntupling Service user request 4413. Please see the input configuration files <a href=\"/record/94014\">here</a>.</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "94015",
+    "relations": [
+      {
+        "recid": "94014",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "2015"
+    ],
+    "stripping": {
+      "stream": "CHARM.MDST",
+      "version": "stripping24r2"
+    },
+    "title": "[$\\Omega_c^0 \\to \\Xi_c^+ (\\to K^- p \\pi^+) K^-$]CC Ntuples 4413 -- 2015 Magnet Down",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>You can use these ntuples with <a href=\"https://root.cern.ch/\">ROOT</a> data analysis framework. See documentation and examples here:</p>",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        },
+        {
+          "description": "First LHCb Open Data and Ntuple Wizard Workshop",
+          "url": "https://indico.cern.ch/event/1429526/timetable/#20241022.detailed"
+        },
+        {
+          "description": "OmegaC2XicK analysis example",
+          "url": "https://github.com/lhcb-opendata-examples/omegac_resonances"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for exploring $\\Omega_c^0 \\to \\Xi_c^+ (\\to K^- p \\pi^+) K^-$ and charge-conjugate decays."
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2015"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_files": 2,
+      "size": 20886498326
+    },
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:ea1c9107",
+        "size": 12414870256,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331357_00000001_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:3b3bea41",
+        "size": 8471628070,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331357_00000002_1.dvntuple.root"
+      }
+    ],
+    "magnet_polarity": "MagUp",
+    "methodology": {
+      "description": "<p>These ntuples were produced from the LHCb Open Data Ntupling Service user request 4413. Please see the input configuration files <a href=\"/record/94014\">here</a>.</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "94016",
+    "relations": [
+      {
+        "recid": "94014",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "2015"
+    ],
+    "stripping": {
+      "stream": "CHARM.MDST",
+      "version": "stripping24r2"
+    },
+    "title": "[$\\Omega_c^0 \\to \\Xi_c^+ (\\to K^- p \\pi^+) K^-$]CC Ntuples 4413 -- 2015 Magnet Up",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>You can use these ntuples with <a href=\"https://root.cern.ch/\">ROOT</a> data analysis framework. See documentation and examples here:</p>",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        },
+        {
+          "description": "First LHCb Open Data and Ntuple Wizard Workshop",
+          "url": "https://indico.cern.ch/event/1429526/timetable/#20241022.detailed"
+        },
+        {
+          "description": "OmegaC2XicK analysis example",
+          "url": "https://github.com/lhcb-opendata-examples/omegac_resonances"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for exploring $\\Omega_c^0 \\to \\Xi_c^+ (\\to K^- p \\pi^+) K^-$ and charge-conjugate decays."
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_files": 12,
+      "size": 151364639247
+    },
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:a40b8b8f",
+        "size": 13056100171,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331361_00000001_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:f3ef80b9",
+        "size": 12775768126,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331361_00000003_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:1307bf78",
+        "size": 12755437760,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331361_00000004_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:fc494a6a",
+        "size": 13079970743,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331361_00000005_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:d8accece",
+        "size": 13110305165,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331361_00000006_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:71ee25cb",
+        "size": 12876800996,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331361_00000007_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:985141f4",
+        "size": 12818769963,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331361_00000008_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:b76cfb04",
+        "size": 12999625100,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331361_00000009_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:4f9bc781",
+        "size": 12977825635,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331361_00000010_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:ff4f8d43",
+        "size": 12828959711,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331361_00000011_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:6a54b95f",
+        "size": 12823536035,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331361_00000012_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:fb3c13bb",
+        "size": 9261539842,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331361_00000013_1.dvntuple.root"
+      }
+    ],
+    "magnet_polarity": "MagDown",
+    "methodology": {
+      "description": "<p>These ntuples were produced from the LHCb Open Data Ntupling Service user request 4413. Please see the input configuration files <a href=\"/record/94014\">here</a>.</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "94017",
+    "relations": [
+      {
+        "recid": "94014",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "2016"
+    ],
+    "stripping": {
+      "stream": "CHARM.MDST",
+      "version": "stripping28r2p2"
+    },
+    "title": "[$\\Omega_c^0 \\to \\Xi_c^+ (\\to K^- p \\pi^+) K^-$]CC Ntuples 4413 -- 2016 Magnet Down",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>You can use these ntuples with <a href=\"https://root.cern.ch/\">ROOT</a> data analysis framework. See documentation and examples here:</p>",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        },
+        {
+          "description": "First LHCb Open Data and Ntuple Wizard Workshop",
+          "url": "https://indico.cern.ch/event/1429526/timetable/#20241022.detailed"
+        },
+        {
+          "description": "OmegaC2XicK analysis example",
+          "url": "https://github.com/lhcb-opendata-examples/omegac_resonances"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for exploring $\\Omega_c^0 \\to \\Xi_c^+ (\\to K^- p \\pi^+) K^-$ and charge-conjugate decays."
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_files": 11,
+      "size": 131022119651
+    },
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:1d19767d",
+        "size": 12807670805,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331359_00000001_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:292152d9",
+        "size": 12769726051,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331359_00000002_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:7550374e",
+        "size": 13068614580,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331359_00000003_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:b56a48e2",
+        "size": 12764019806,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331359_00000004_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:0c22b23b",
+        "size": 12854774458,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331359_00000005_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:dcd48028",
+        "size": 12960578038,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331359_00000006_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:0a094d46",
+        "size": 13050572657,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331359_00000007_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:036a7473",
+        "size": 12875146796,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331359_00000008_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:78006f49",
+        "size": 13086095493,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331359_00000009_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:28576e59",
+        "size": 13045482432,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331359_00000010_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:0807153f",
+        "size": 1739438535,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331359_00000011_1.dvntuple.root"
+      }
+    ],
+    "magnet_polarity": "MagUp",
+    "methodology": {
+      "description": "<p>These ntuples were produced from the LHCb Open Data Ntupling Service user request 4413. Please see the input configuration files <a href=\"/record/94014\">here</a>.</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "94018",
+    "relations": [
+      {
+        "recid": "94014",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "2016"
+    ],
+    "stripping": {
+      "stream": "CHARM.MDST",
+      "version": "stripping28r2p2"
+    },
+    "title": "[$\\Omega_c^0 \\to \\Xi_c^+ (\\to K^- p \\pi^+) K^-$]CC Ntuples 4413 -- 2016 Magnet Up",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>You can use these ntuples with <a href=\"https://root.cern.ch/\">ROOT</a> data analysis framework. See documentation and examples here:</p>",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        },
+        {
+          "description": "First LHCb Open Data and Ntuple Wizard Workshop",
+          "url": "https://indico.cern.ch/event/1429526/timetable/#20241022.detailed"
+        },
+        {
+          "description": "OmegaC2XicK analysis example",
+          "url": "https://github.com/lhcb-opendata-examples/omegac_resonances"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for exploring $\\Omega_c^0 \\to \\Xi_c^+ (\\to K^- p \\pi^+) K^-$ and charge-conjugate decays."
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2017"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_files": 13,
+      "size": 162176974945
+    },
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:c52a1c16",
+        "size": 13094239966,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331356_00000001_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:05bfec03",
+        "size": 13023983488,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331356_00000002_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:c8513f13",
+        "size": 12954263743,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331356_00000003_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:6e1891e8",
+        "size": 12752304438,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331356_00000004_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:5e72d8be",
+        "size": 12813711715,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331356_00000005_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:2cb3a203",
+        "size": 13037680771,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331356_00000006_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:ae6655d4",
+        "size": 12961422762,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331356_00000007_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:69a95258",
+        "size": 12726965065,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331356_00000008_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:6e0b5e65",
+        "size": 13079377539,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331356_00000009_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:26fe9084",
+        "size": 13127390688,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331356_00000010_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:f8ce354b",
+        "size": 13125035128,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331356_00000011_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:47dfbd33",
+        "size": 12791011232,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331356_00000012_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:042f0efd",
+        "size": 6689588410,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331356_00000013_1.dvntuple.root"
+      }
+    ],
+    "magnet_polarity": "MagDown",
+    "methodology": {
+      "description": "<p>These ntuples were produced from the LHCb Open Data Ntupling Service user request 4413. Please see the input configuration files <a href=\"/record/94014\">here</a>.</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "94019",
+    "relations": [
+      {
+        "recid": "94014",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "2017"
+    ],
+    "stripping": {
+      "stream": "CHARM.MDST",
+      "version": "stripping29r2p3"
+    },
+    "title": "[$\\Omega_c^0 \\to \\Xi_c^+ (\\to K^- p \\pi^+) K^-$]CC Ntuples 4413 -- 2017 Magnet Down",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>You can use these ntuples with <a href=\"https://root.cern.ch/\">ROOT</a> data analysis framework. See documentation and examples here:</p>",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        },
+        {
+          "description": "First LHCb Open Data and Ntuple Wizard Workshop",
+          "url": "https://indico.cern.ch/event/1429526/timetable/#20241022.detailed"
+        },
+        {
+          "description": "OmegaC2XicK analysis example",
+          "url": "https://github.com/lhcb-opendata-examples/omegac_resonances"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for exploring $\\Omega_c^0 \\to \\Xi_c^+ (\\to K^- p \\pi^+) K^-$ and charge-conjugate decays."
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2017"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_files": 13,
+      "size": 154168058969
+    },
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:95d3b249",
+        "size": 12617008500,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331352_00000001_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:9a669a55",
+        "size": 12573001297,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331352_00000002_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:ea9409ce",
+        "size": 12722618093,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331352_00000003_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:ea452515",
+        "size": 12790121052,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331352_00000004_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:a90a0d70",
+        "size": 12704377730,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331352_00000005_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:dc9c99d5",
+        "size": 12587879042,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331352_00000006_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:cfdfe64b",
+        "size": 12567425703,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331352_00000007_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:7ebc4d41",
+        "size": 12760006562,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331352_00000008_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:3e71eee5",
+        "size": 12820289174,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331352_00000009_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:624b1451",
+        "size": 12617386027,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331352_00000010_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:ec6436c2",
+        "size": 12706497769,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331352_00000011_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:d75f1637",
+        "size": 12625398411,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331352_00000012_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:885343b4",
+        "size": 2076049609,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/OPENDATA.LHCB.MHK4.OQO3/outputs/real-production/00331352_00000013_1.dvntuple.root"
+      }
+    ],
+    "magnet_polarity": "MagUp",
+    "methodology": {
+      "description": "<p>These ntuples were produced from the LHCb Open Data Ntupling Service user request 4413. Please see the input configuration files <a href=\"/record/94014\">here</a>.</p>"
+    },
+    "publisher": "CERN Open Data Portal",
+    "recid": "94020",
+    "relations": [
+      {
+        "recid": "94014",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "2017"
+    ],
+    "stripping": {
+      "stream": "CHARM.MDST",
+      "version": "stripping29r2p3"
+    },
+    "title": "[$\\Omega_c^0 \\to \\Xi_c^+ (\\to K^- p \\pi^+) K^-$]CC Ntuples 4413 -- 2017 Magnet Up",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>You can use these ntuples with <a href=\"https://root.cern.ch/\">ROOT</a> data analysis framework. See documentation and examples here:</p>",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        },
+        {
+          "description": "First LHCb Open Data and Ntuple Wizard Workshop",
+          "url": "https://indico.cern.ch/event/1429526/timetable/#20241022.detailed"
+        },
+        {
+          "description": "OmegaC2XicK analysis example",
+          "url": "https://github.com/lhcb-opendata-examples/omegac_resonances"
+        }
+      ]
+    }
+  }
+]
