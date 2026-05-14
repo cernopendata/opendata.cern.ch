@@ -14,7 +14,7 @@ Note that applying the same mean number of interactions to all the bunch crossin
 
 #### Measured from data
 
-The pileup distributions measured from data are available in the [CMS Luminosity information page](https://twiki.cern.ch/twiki/bin/view/CMSPublic/LumiPublicResults).
+The pileup distributions measured from data are available in the [CMS Luminosity information page](https://twiki.cern.ch/twiki/bin/view/CMSPublic/LumiPublicResults). Instructions to use the observed pileup information to compute pileup reweighting distributions and uncertainties for simulation can be found on the [CMS Open Data Guide](https://cms-opendata-guide.web.cern.ch/analysis/systematics/pileupuncertain/).
 
 #### Used in Monte Carlo production
 
