@@ -53,20 +53,35 @@ jobs:
           pip install click
           ./run-tests.sh --data-json
 
-  data-licenses:
+  data-mapping:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: 3.9
 
-      - name: Check data licenses
+      - name: Fetch base branch
         run: |
-          ./run-tests.sh --data-licenses
+          git fetch origin ${{ github.event.pull_request.base.ref }}
+
+      - name: Check mapping of changed records
+        if: github.event_name == 'pull_request'
+        run: |
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.event.pull_request.base.ref }}...HEAD data/records/)
+          echo "Changed files: $CHANGED_FILES"
+          pip install click pyyaml
+          ./run-tests.sh --data-mapping ${CHANGED_FILES}
+
+      - name: Check mapping of all records
+        run: |
+          pip install click pyyaml
+          ./run-tests.sh --data-mapping
 
   data-recids:
     runs-on: ubuntu-24.04
