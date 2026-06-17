@@ -1,0 +1,631 @@
+[
+  {
+    "abstract": {
+      "description": "<p>Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for analyzing dijet events where the jets are tagged such that they contain a secondary vertex likely originating from a heavy flavor decay.</p> <p> Ntuples are created using DaVinci version v46r11 and the Analysis Productions batch processing system. Quantities saved to the ntuple are specified during the request phase and detailed in the code configuration files attached below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "date_created": [
+      "2015",
+      "2016",
+      "2017"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "py",
+        "yaml"
+      ],
+      "number_files": 3,
+      "size": 9999
+    },
+    "doi": "TODO_DOI_TAGGED",
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "df-tagged-TODO_INFO_YAML_CHECKSUM",
+        "size": 9999,
+        "uri": "df-tagged-TODO_INFO_YAML_URI"
+      },
+      {
+        "checksum": "df-tagged-TODO_DECAYTREE_PY_CHECKSUM",
+        "size": 9999,
+        "uri": "df-tagged-TODO_DECAYTREE_PY_URI"
+      },
+      {
+        "checksum": "df-tagged-TODO_DECAYTREE_YAML_CHECKSUM",
+        "size": 9999,
+        "uri": "df-tagged-TODO_DECAYTREE_YAML_URI"
+      }
+    ],
+    "methodology": {
+      "description": "These ntuples were produced from the LHCb Open Data Ntupling Service user request 5970. Please see the input configuration files attached below."
+    },
+    "publisher": "CERN Open Data portal",
+    "recid": "100007",
+    "relations": [
+      {
+        "recid": "100008",
+        "type": "isParentOf"
+      },
+      {
+        "recid": "100009",
+        "type": "isParentOf"
+      },
+      {
+        "recid": "100010",
+        "type": "isParentOf"
+      },
+      {
+        "recid": "100011",
+        "type": "isParentOf"
+      },
+      {
+        "recid": "100012",
+        "type": "isParentOf"
+      },
+      {
+        "recid": "100013",
+        "type": "isParentOf"
+      }
+    ],
+    "title": "SV Tagged DiJet Ntuples 5970",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>Ntuples and instructions are provided in the links under Related datasets. They are ready to be downloaded and used for analysis. If these do not suit your needs, you can clone and amend this ntupling request here:",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service",
+          "url": "https://opendata-lhcb-ntupling-service.app.cern.ch/"
+        },
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        },
+        {
+          "description": "Jet fragmentation analysis example",
+          "url": "https://github.com/lhcb-opendata-examples/jet-fragmentation"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for analyzing dijet events where the jets are tagged such that they contain a secondary vertex likely originating from a heavy flavor decay."
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2015"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_files": 1,
+      "size": 3362745891
+    },
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:065419b4",
+        "size": 3362745891,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5970/outputs/real-production/00394032_00000001_1.dvntuple.root"
+      }
+    ],
+    "magnet_polarity": "MagDown",
+    "methodology": {
+      "description": "<p>These ntuples were produced from the LHCb Open Data Ntupling Service user request 5970. Please see the input configuration files <a href=\"/record/100007\">here</a>.</p>"
+    },
+    "publisher": "CERN Open Data portal",
+    "recid": "100008",
+    "relations": [
+      {
+        "recid": "100007",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "2015"
+    ],
+    "stripping": {
+      "stream": "BHADRONCOMPLETEEVENT",
+      "version": "stripping24r2"
+    },
+    "title": "SV Tagged DiJet Ntuples 5970 -- 2015 Magnet Down",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>You can use these ntuples with <a href=\"https://root.cern.ch/\">ROOT</a> data analysis framework. See documentation and examples here:</p>",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        },
+        {
+          "description": "First LHCb Open Data and Ntuple Wizard Workshop",
+          "url": "https://indico.cern.ch/event/1429526/timetable/#20241022.detailed"
+        },
+        {
+          "description": "Jet fragmentation analysis example",
+          "url": "https://github.com/lhcb-opendata-examples/jet-fragmentation"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for analyzing dijet events where the jets are tagged such that they contain a secondary vertex likely originating from a heavy flavor decay."
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2015"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_files": 1,
+      "size": 2584449418
+    },
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:a49d06bd",
+        "size": 2584449418,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5970/outputs/real-production/00394031_00000001_1.dvntuple.root"
+      }
+    ],
+    "magnet_polarity": "MagUp",
+    "methodology": {
+      "description": "<p>These ntuples were produced from the LHCb Open Data Ntupling Service user request 5970. Please see the input configuration files <a href=\"/record/100007\">here</a>.</p>"
+    },
+    "publisher": "CERN Open Data portal",
+    "recid": "100009",
+    "relations": [
+      {
+        "recid": "100007",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "2015"
+    ],
+    "stripping": {
+      "stream": "BHADRONCOMPLETEEVENT",
+      "version": "stripping24r2"
+    },
+    "title": "SV Tagged DiJet Ntuples 5970 -- 2015 Magnet Up",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>You can use these ntuples with <a href=\"https://root.cern.ch/\">ROOT</a> data analysis framework. See documentation and examples here:</p>",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        },
+        {
+          "description": "First LHCb Open Data and Ntuple Wizard Workshop",
+          "url": "https://indico.cern.ch/event/1429526/timetable/#20241022.detailed"
+        },
+        {
+          "description": "Jet fragmentation analysis example",
+          "url": "https://github.com/lhcb-opendata-examples/jet-fragmentation"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for analyzing dijet events where the jets are tagged such that they contain a secondary vertex likely originating from a heavy flavor decay."
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_files": 3,
+      "size": 19848476632
+    },
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:45587deb",
+        "size": 6640182527,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5970/outputs/real-production/00394036_00000001_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:002fcf4a",
+        "size": 6669191828,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5970/outputs/real-production/00394036_00000002_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:6b17f7d9",
+        "size": 6539102277,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5970/outputs/real-production/00394036_00000003_1.dvntuple.root"
+      }
+    ],
+    "magnet_polarity": "MagDown",
+    "methodology": {
+      "description": "<p>These ntuples were produced from the LHCb Open Data Ntupling Service user request 5970. Please see the input configuration files <a href=\"/record/100007\">here</a>.</p>"
+    },
+    "publisher": "CERN Open Data portal",
+    "recid": "100010",
+    "relations": [
+      {
+        "recid": "100007",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "2016"
+    ],
+    "stripping": {
+      "stream": "BHADRONCOMPLETEEVENT",
+      "version": "stripping28r2"
+    },
+    "title": "SV Tagged DiJet Ntuples 5970 -- 2016 Magnet Down",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>You can use these ntuples with <a href=\"https://root.cern.ch/\">ROOT</a> data analysis framework. See documentation and examples here:</p>",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        },
+        {
+          "description": "First LHCb Open Data and Ntuple Wizard Workshop",
+          "url": "https://indico.cern.ch/event/1429526/timetable/#20241022.detailed"
+        },
+        {
+          "description": "Jet fragmentation analysis example",
+          "url": "https://github.com/lhcb-opendata-examples/jet-fragmentation"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for analyzing dijet events where the jets are tagged such that they contain a secondary vertex likely originating from a heavy flavor decay."
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2016"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_files": 3,
+      "size": 18542640319
+    },
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:ebc5d749",
+        "size": 6652657118,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5970/outputs/real-production/00394035_00000001_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:1a635c63",
+        "size": 6680448104,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5970/outputs/real-production/00394035_00000002_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:968b164f",
+        "size": 5209535097,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5970/outputs/real-production/00394035_00000003_1.dvntuple.root"
+      }
+    ],
+    "magnet_polarity": "MagUp",
+    "methodology": {
+      "description": "<p>These ntuples were produced from the LHCb Open Data Ntupling Service user request 5970. Please see the input configuration files <a href=\"/record/100007\">here</a>.</p>"
+    },
+    "publisher": "CERN Open Data portal",
+    "recid": "100011",
+    "relations": [
+      {
+        "recid": "100007",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "2016"
+    ],
+    "stripping": {
+      "stream": "BHADRONCOMPLETEEVENT",
+      "version": "stripping28r2"
+    },
+    "title": "SV Tagged DiJet Ntuples 5970 -- 2016 Magnet Up",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>You can use these ntuples with <a href=\"https://root.cern.ch/\">ROOT</a> data analysis framework. See documentation and examples here:</p>",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        },
+        {
+          "description": "First LHCb Open Data and Ntuple Wizard Workshop",
+          "url": "https://indico.cern.ch/event/1429526/timetable/#20241022.detailed"
+        },
+        {
+          "description": "Jet fragmentation analysis example",
+          "url": "https://github.com/lhcb-opendata-examples/jet-fragmentation"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for analyzing dijet events where the jets are tagged such that they contain a secondary vertex likely originating from a heavy flavor decay."
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2017"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_files": 3,
+      "size": 19608202292
+    },
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:fb3c5db2",
+        "size": 6711032278,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5970/outputs/real-production/00394040_00000001_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:5926e330",
+        "size": 6688625933,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5970/outputs/real-production/00394040_00000002_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:007e4d74",
+        "size": 6208544081,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5970/outputs/real-production/00394040_00000003_1.dvntuple.root"
+      }
+    ],
+    "magnet_polarity": "MagDown",
+    "methodology": {
+      "description": "<p>These ntuples were produced from the LHCb Open Data Ntupling Service user request 5970. Please see the input configuration files <a href=\"/record/100007\">here</a>.</p>"
+    },
+    "publisher": "CERN Open Data portal",
+    "recid": "100012",
+    "relations": [
+      {
+        "recid": "100007",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "2017"
+    ],
+    "stripping": {
+      "stream": "BHADRONCOMPLETEEVENT",
+      "version": "stripping29r2"
+    },
+    "title": "SV Tagged DiJet Ntuples 5970 -- 2017 Magnet Down",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>You can use these ntuples with <a href=\"https://root.cern.ch/\">ROOT</a> data analysis framework. See documentation and examples here:</p>",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        },
+        {
+          "description": "First LHCb Open Data and Ntuple Wizard Workshop",
+          "url": "https://indico.cern.ch/event/1429526/timetable/#20241022.detailed"
+        },
+        {
+          "description": "Jet fragmentation analysis example",
+          "url": "https://github.com/lhcb-opendata-examples/jet-fragmentation"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for analyzing dijet events where the jets are tagged such that they contain a secondary vertex likely originating from a heavy flavor decay."
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "collision_information": {
+      "energy": "13TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2017"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_files": 3,
+      "size": 16379598573
+    },
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:056d71ae",
+        "size": 6722499514,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5970/outputs/real-production/00394039_00000001_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:af8aa34c",
+        "size": 4476811285,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5970/outputs/real-production/00394039_00000002_1.dvntuple.root"
+      },
+      {
+        "checksum": "adler32:012be388",
+        "size": 5180287774,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/upload/opendata-lhcb-ntupling-service/analysis-productions/merge-requests/5970/outputs/real-production/00394039_00000003_1.dvntuple.root"
+      }
+    ],
+    "magnet_polarity": "MagUp",
+    "methodology": {
+      "description": "<p>These ntuples were produced from the LHCb Open Data Ntupling Service user request 5970. Please see the input configuration files <a href=\"/record/100007\">here</a>.</p>"
+    },
+    "publisher": "CERN Open Data portal",
+    "recid": "100013",
+    "relations": [
+      {
+        "recid": "100007",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "2017"
+    ],
+    "stripping": {
+      "stream": "BHADRONCOMPLETEEVENT",
+      "version": "stripping29r2"
+    },
+    "title": "SV Tagged DiJet Ntuples 5970 -- 2017 Magnet Up",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>You can use these ntuples with <a href=\"https://root.cern.ch/\">ROOT</a> data analysis framework. See documentation and examples here:</p>",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        },
+        {
+          "description": "First LHCb Open Data and Ntuple Wizard Workshop",
+          "url": "https://indico.cern.ch/event/1429526/timetable/#20241022.detailed"
+        },
+        {
+          "description": "Jet fragmentation analysis example",
+          "url": "https://github.com/lhcb-opendata-examples/jet-fragmentation"
+        }
+      ]
+    }
+  }
+]
