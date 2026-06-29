@@ -1,0 +1,234 @@
+[{
+  "abstract": {
+    "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment in the year 2017 of Run2 of the LHC."
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "LHCb collaboration",
+    "recid": "456"
+  },
+  "collections": [
+    "LHCb-Collision-Datasets"
+  ],
+  "collision_information": {
+    "energy": "13TeV",
+    "type": "pp"
+  },
+  "date_created": [
+    "2017"
+  ],
+  "date_published": "2026",
+  "date_reprocessed": "2023",
+  "distribution": {
+    "formats": [
+      "MDST"
+    ],
+    "number_events": 1983645533,
+    "number_files": 6787,
+    "size": 23097546414509
+  },
+  "experiment": [
+    "LHCb"
+  ],
+  "magnet_polarity": "MagUp",
+  "methodology": {
+    "description": "<p> This dataset was created in several production steps. These steps, software used and the configuration is provided below. </p><p> <strong> Prod ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> 206436<p> <strong>Prod type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong> Merge<p> <strong> Parent Prod ID:&nbsp;&nbsp;&nbsp;&nbsp; </strong> 206435<p> <strong> Parent Prod type: </strong> DataStripping<p> <strong> Conditions: </strong><p>dddb-20220927-2017<p>cond-20191004-2</strong><p> <strong> List of Trigger Configuration Keys (TCK): </strong> </p> <p><p><strong>TCK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Number of Files </strong><p>0x11501705 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 942<p>0x11501704 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 227<p>0x11501703 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 218<p>0x114e1702 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 37<p>0x114e1703 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 21<p>0x11501706 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 186<p>0x11611709 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2608<p>0x11601707 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 931<p>0x11561707 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 645<p>0x11601708 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 972",
+    "steps": [
+      {
+        "configuration_files": [
+          {
+            "title": "DaVinci/DV-Stripping29r2p3-Stripping.py"
+          },
+          {
+            "title": "DaVinci/DataType-2017.py"
+          },
+          {
+            "title": "DaVinci/InputType-RDST.py"
+          },
+          {
+            "title": "DaVinci/DV-RawEventJuggler-0_3-to-4_3.py"
+          },
+          {
+            "title": "Persistency/Compression-ZLIB-1.py"
+          }
+        ],
+        "release": "DaVinci.v44r11p6 AppConfig.v3r421 Det/SQLDDDB.v7r12 TMVAWeights.v1r18",
+        "type": "Stripping29r2p3_mu"
+      },
+      {
+        "configuration_files": [
+          {
+            "title": "Merging/DV-Stripping-Merging.py"
+          },
+          {
+            "title": "Persistency/Compression-LZMA-4.py"
+          }
+        ],
+        "release": "DaVinci.v44r11p6 AppConfig.v3r421 Det/SQLDDDB.v7r12 TMVAWeights.v1r18",
+        "type": "Merge_Stripping29r2p3_mu"
+      },
+      {
+        "configuration_files": [
+          {
+            "title": "DaVinci/DV-Stripping29r2p3-Stripping.py"
+          },
+          {
+            "title": "DaVinci/DataType-2017.py"
+          },
+          {
+            "title": "DaVinci/InputType-RDST.py"
+          },
+          {
+            "title": "DaVinci/DV-RawEventJuggler-0_3-to-4_3.py"
+          },
+          {
+            "title": "Persistency/Compression-ZLIB-1.py"
+          }
+        ],
+        "release": "DaVinci.v44r11p6 AppConfig.v3r421 Det/SQLDDDB.v7r12 TMVAWeights.v1r18",
+        "type": "Stripping29r2p3_mu"
+      },
+      {
+        "configuration_files": [
+          {
+            "title": "Merging/DV-Stripping-Merging.py"
+          },
+          {
+            "title": "Persistency/Compression-LZMA-4.py"
+          }
+        ],
+        "release": "DaVinci.v44r11p6 AppConfig.v3r421 Det/SQLDDDB.v7r12 TMVAWeights.v1r18",
+        "type": "Merge_Stripping29r2p3_mu"
+      },
+      {
+        "configuration_files": [
+          {
+            "title": "DaVinci/DV-Stripping29r2p3-Stripping.py"
+          },
+          {
+            "title": "DaVinci/DataType-2017.py"
+          },
+          {
+            "title": "DaVinci/InputType-RDST.py"
+          },
+          {
+            "title": "DaVinci/DV-RawEventJuggler-0_3-to-4_3.py"
+          },
+          {
+            "title": "Persistency/Compression-ZLIB-1.py"
+          }
+        ],
+        "release": "DaVinci.v44r11p6 AppConfig.v3r421 Det/SQLDDDB.v7r12 TMVAWeights.v1r18",
+        "type": "Stripping29r2p3_mu"
+      },
+      {
+        "configuration_files": [
+          {
+            "title": "Merging/DV-Stripping-Merging.py"
+          },
+          {
+            "title": "Persistency/Compression-LZMA-4.py"
+          }
+        ],
+        "release": "DaVinci.v44r11p6 AppConfig.v3r421 Det/SQLDDDB.v7r12 TMVAWeights.v1r18",
+        "type": "Merge_Stripping29r2p3_mu"
+      },
+      {
+        "configuration_files": [
+          {
+            "title": "DaVinci/DV-Stripping29r2p3-Stripping.py"
+          },
+          {
+            "title": "DaVinci/DataType-2017.py"
+          },
+          {
+            "title": "DaVinci/InputType-RDST.py"
+          },
+          {
+            "title": "DaVinci/DV-RawEventJuggler-0_3-to-4_3.py"
+          },
+          {
+            "title": "Persistency/Compression-ZLIB-1.py"
+          }
+        ],
+        "release": "DaVinci.v44r11p6 AppConfig.v3r421 Det/SQLDDDB.v7r12 TMVAWeights.v1r18",
+        "type": "Stripping29r2p3_mu"
+      },
+      {
+        "configuration_files": [
+          {
+            "title": "Merging/DV-Stripping-Merging.py"
+          },
+          {
+            "title": "Persistency/Compression-LZMA-4.py"
+          }
+        ],
+        "release": "DaVinci.v44r11p6 AppConfig.v3r421 Det/SQLDDDB.v7r12 TMVAWeights.v1r18",
+        "type": "Merge_Stripping29r2p3_mu"
+      },
+      {
+        "configuration_files": [
+          {
+            "title": "DaVinci/DV-Stripping29r2p3-Stripping.py"
+          },
+          {
+            "title": "DaVinci/DataType-2017.py"
+          },
+          {
+            "title": "DaVinci/InputType-RDST.py"
+          },
+          {
+            "title": "DaVinci/DV-RawEventJuggler-0_3-to-4_3.py"
+          },
+          {
+            "title": "Persistency/Compression-ZLIB-1.py"
+          }
+        ],
+        "release": "DaVinci.v44r11p6 AppConfig.v3r421 Det/SQLDDDB.v7r12 TMVAWeights.v1r18",
+        "type": "Stripping29r2p3_mu"
+      },
+      {
+        "configuration_files": [
+          {
+            "title": "Merging/DV-Stripping-Merging.py"
+          },
+          {
+            "title": "Persistency/Compression-LZMA-4.py"
+          }
+        ],
+        "release": "DaVinci.v44r11p6 AppConfig.v3r421 Det/SQLDDDB.v7r12 TMVAWeights.v1r18",
+        "type": "Merge_Stripping29r2p3_mu"
+      }
+    ]
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "24776",
+  "run_period": [
+    "2017"
+  ],
+  "stripping": {
+    "stream": "CHARM",
+    "version": "stripping29r2p3"
+  },
+  "title": "LHCb 2017 Beam6500GeV MagUp CHARM Stream Stripping29r2p3",
+  "title_additional": "",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Collision"
+    ]
+  },
+  "usage": {
+    "description": "<p> The Run 1 and 2 data collected by the LHCb detector is available using the LHCb Ntupling Service, while the Run 1 data is additionally available in .DST and .mDST formats. The data obtained from the LHCb Ntupling Service are ROOT ntuples and do not require custom software to analyze. <p> Links are provided to the LHCb Ntupling Service for exploration of available data and the LHCb Open Data Guide for usage instructions.",
+    "links": [
+      {
+        "description": "LHCb Ntupling Service",
+        "url": "https://opendata-lhcb-ntupling-service.app.cern.ch/"
+      },
+      {
+        "description": "LHCb Open Data Guide",
+        "url": "https://lhcb-opendata-guide.web.cern.ch/"
+      }
+    ]
+  }
+}]
