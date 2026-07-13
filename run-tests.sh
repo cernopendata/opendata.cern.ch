@@ -39,8 +39,9 @@ data_json() {
     find . -name "*.json" -exec ./scripts/clean_json_file.py --check {} \+
 }
 
-data_licenses() {
-    scripts/check_licenses.py
+data_mapping() {
+    shift
+    scripts/check_mapping.py "$@"
 }
 
 data_recids() {
@@ -151,7 +152,7 @@ lint_yamllint() {
 all() {
     data_dois
     data_json
-    data_licenses
+    data_mapping
     data_recids
     data_slugs
     data_types
@@ -173,7 +174,7 @@ help() {
     echo "  --all                Perform all checks [default]"
     echo "  --data-dois          Check data DOIs"
     echo "  --data-json          Check data JSON"
-    echo "  --data-licenses      Check data licenses"
+    echo "  --data-mapping       Check data mapping"
     echo "  --data-recids        Check data record IDs "
     echo "  --data-slugs         Check data slugs"
     echo "  --data-types         Check data types"
@@ -201,7 +202,7 @@ case $arg in
 --help) help ;;
 --data-dois) data_dois ;;
 --data-json) data_json ;;
---data-licenses) data_licenses ;;
+--data-mapping) data_mapping "$@" ;;
 --data-recids) data_recids ;;
 --data-slugs) data_slugs ;;
 --data-types) data_types ;;
