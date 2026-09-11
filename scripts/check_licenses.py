@@ -2,6 +2,7 @@
 
 """Check if license fields are valid in all records."""
 
+import argparse
 import asyncio
 import json
 import logging
@@ -17,16 +18,20 @@ VALID_LICENSE_IDENTIFIERS = [
     "BSD-3-Clause",
 ]
 
-logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(message)s")
+logging.basicConfig(level=logging.WARNING, format="[%(levelname)s] %(message)s")
 
 
 async def validate_file(path: pathlib.Path) -> int:
     """Validate a single file."""
     checks = 0
     errors = 0
-    records = await asyncio.get_event_loop().run_in_executor(
-        None, lambda p: json.loads(open(p, "rb").read()), path
-    )
+    try:
+        records = await asyncio.get_event_loop().run_in_executor(
+            None, lambda p: json.loads(open(p, "rb").read()), path
+        )
+    except Exception as exc:
+        logging.error(f"Failed to load or parse JSON in file {path.name}: {exc}")
+        raise ValueError(1)
 
     for record in records:
         if rec_licenses := record.get("license"):
@@ -52,24 +57,20 @@ async def validate_file(path: pathlib.Path) -> int:
     if errors:
         raise ValueError(errors)
 
-    logging.info(f"Successfully validated file {path.name}")
+    logging.debug(f"Successfully validated file {path.name}")
     return checks
 
 
-async def check_all_paths():
-    """Execute checks on all found files."""
+async def check_paths(file_paths):
+    """Execute checks on specified files."""
     start_time = time.perf_counter()
-
     loop = asyncio.get_event_loop()
 
-    root_path = pathlib.Path(os.getcwd()) / "data" / "records"
-    all_paths = list(root_path.glob("*.json"))
-
-    tasks = [loop.create_task(validate_file(file_path)) for file_path in all_paths]
+    tasks = [loop.create_task(validate_file(file_path)) for file_path in file_paths]
     results = await asyncio.gather(*tasks, return_exceptions=True)
 
     finish_time = time.perf_counter() - start_time
-    logging.info(f"Processed {len(all_paths)} files within {finish_time:.2f} seconds.")
+    logging.info(f"Processed {len(file_paths)} files within {finish_time:.2f} seconds.")
 
     if any(isinstance(result, Exception) for result in results):
         errors = sum(
@@ -86,16 +87,45 @@ async def check_all_paths():
             f"please contact `opendata-team@cern.ch`."
         )
         exit(1)
-
     else:
         logging.info(f"Successfully validated {sum(results)} records. No errors found.")
 
 
 def main():
-    """Test to validate all license fields."""
+    """Test to validate license fields."""
+    parser = argparse.ArgumentParser(
+        description="Check if license fields are valid in records."
+    )
+    parser.add_argument(
+        "files",
+        metavar="[FILE]",
+        nargs="*",
+        type=pathlib.Path,
+        help="Optional specific JSON files to check. If omitted, checks all files in data/records.",
+    )
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        action="store_true",
+        help="Increase output verbosity to include info and statistics.",
+    )
+    args = parser.parse_args()
+
+    if args.verbose:
+        logging.getLogger().setLevel(logging.INFO)
+
+    if args.files:
+        all_paths = [p for p in args.files if p.is_file() and p.name.endswith(".json")]
+        if not all_paths:
+            logging.info("No JSON files matched the provided arguments.")
+            return
+    else:
+        root_path = pathlib.Path(os.getcwd()) / "data" / "records"
+        all_paths = list(root_path.glob("*.json"))
+
     loop = asyncio.new_event_loop()
     try:
-        loop.run_until_complete(check_all_paths())
+        loop.run_until_complete(check_paths(all_paths))
     finally:
         loop.close()
 
