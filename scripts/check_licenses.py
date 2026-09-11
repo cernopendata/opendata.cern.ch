@@ -2,6 +2,7 @@
 
 """Check if license fields are valid in all records."""
 
+import argparse
 import asyncio
 import json
 import logging
@@ -17,7 +18,7 @@ VALID_LICENSE_IDENTIFIERS = [
     "BSD-3-Clause",
 ]
 
-logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(message)s")
+logging.basicConfig(level=logging.WARNING, format="[%(levelname)s] %(message)s")
 
 
 async def validate_file(path: pathlib.Path) -> int:
@@ -97,6 +98,20 @@ async def check_all_paths():
 
 def main():
     """Test to validate all license fields."""
+    parser = argparse.ArgumentParser(
+        description="Check if license fields are valid in all records."
+    )
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        action="store_true",
+        help="Increase output verbosity to include info and statistics.",
+    )
+    args = parser.parse_args()
+
+    if args.verbose:
+        logging.getLogger().setLevel(logging.INFO)
+
     loop = asyncio.new_event_loop()
     try:
         loop.run_until_complete(check_all_paths())
