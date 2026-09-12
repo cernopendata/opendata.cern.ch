@@ -65,6 +65,7 @@ def load_vocabularies(config_path: pathlib.Path = None) -> dict:
             else:
                 data = json.loads(content)
             if isinstance(data, dict):
+
                 def _flatten_vocab(prefix, obj):
                     flat = {}
                     if isinstance(obj, list):
@@ -80,7 +81,9 @@ def load_vocabularies(config_path: pathlib.Path = None) -> dict:
                     if isinstance(allowed, list):
                         vocabularies[field] = allowed
         except Exception as exc:
-            logging.warning(f"Could not load vocabulary configuration from {config_path}: {exc}")
+            logging.warning(
+                f"Could not load vocabulary configuration from {config_path}: {exc}"
+            )
 
     return vocabularies
 
@@ -133,9 +136,7 @@ async def validate_file(path: pathlib.Path, vocabularies: dict) -> int:
                 if val is None:
                     continue
                 if val not in allowed_values:
-                    message = (
-                        f"Invalid value `{val}` for field `{field_path}` in file {path.name} for recid {recid}! "
-                    )
+                    message = f"Invalid value `{val}` for field `{field_path}` in file {path.name} for recid {recid}! "
                     logging.error(message)
                     errors += 1
                 else:
@@ -153,7 +154,10 @@ async def check_paths(file_paths, vocabularies: dict):
     start_time = time.perf_counter()
     loop = asyncio.get_event_loop()
 
-    tasks = [loop.create_task(validate_file(file_path, vocabularies)) for file_path in file_paths]
+    tasks = [
+        loop.create_task(validate_file(file_path, vocabularies))
+        for file_path in file_paths
+    ]
     results = await asyncio.gather(*tasks, return_exceptions=True)
 
     finish_time = time.perf_counter() - start_time
