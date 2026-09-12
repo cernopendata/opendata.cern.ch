@@ -2,6 +2,7 @@
 
 """Check if license fields are valid in all records."""
 
+import argparse
 import asyncio
 import json
 import logging
@@ -17,16 +18,19 @@ VALID_LICENSE_IDENTIFIERS = [
     "BSD-3-Clause",
 ]
 
-logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(message)s")
-
 
 async def validate_file(path: pathlib.Path) -> int:
     """Validate a single file."""
     checks = 0
     errors = 0
-    records = await asyncio.get_event_loop().run_in_executor(
-        None, lambda p: json.loads(open(p, "rb").read()), path
-    )
+    try:
+        content = await asyncio.get_event_loop().run_in_executor(
+            None, lambda p: open(p, "rb").read(), path
+        )
+        records = json.loads(content)
+    except Exception as e:
+        logging.error(f"Failed to read or parse JSON file {path.name}: {e}")
+        raise ValueError(1)
 
     for record in records:
         if rec_licenses := record.get("license"):
@@ -34,7 +38,10 @@ async def validate_file(path: pathlib.Path) -> int:
                 attr = rec_licenses["attribution"]
             except KeyError:
                 recid = record.get("recid", "UNSET")
-                message = f"License field set but without attribution in file {path.name} with recid {recid}!"
+                message = (
+                    f"License field set but without attribution in file {path.name} "
+                    f"with recid {recid}!"
+                )
 
                 logging.error(message)
                 errors += 1
@@ -42,7 +49,10 @@ async def validate_file(path: pathlib.Path) -> int:
 
             if attr not in VALID_LICENSE_IDENTIFIERS:
                 recid = record.get("recid", "UNSET")
-                message = f"Invalid license identifier `{attr}` in file {path.name} for recid {recid}! "
+                message = (
+                    f"Invalid license identifier `{attr}` in file {path.name} "
+                    f"for recid {recid}!"
+                )
 
                 logging.error(message)
                 errors += 1
@@ -56,20 +66,20 @@ async def validate_file(path: pathlib.Path) -> int:
     return checks
 
 
-async def check_all_paths():
-    """Execute checks on all found files."""
+async def check_paths(file_paths: list[pathlib.Path], verbose: bool = False):
+    """Execute checks on given files."""
     start_time = time.perf_counter()
 
     loop = asyncio.get_event_loop()
 
-    root_path = pathlib.Path(os.getcwd()) / "data" / "records"
-    all_paths = list(root_path.glob("*.json"))
-
-    tasks = [loop.create_task(validate_file(file_path)) for file_path in all_paths]
+    tasks = [loop.create_task(validate_file(file_path)) for file_path in file_paths]
     results = await asyncio.gather(*tasks, return_exceptions=True)
 
     finish_time = time.perf_counter() - start_time
-    logging.info(f"Processed {len(all_paths)} files within {finish_time:.2f} seconds.")
+    if verbose:
+        logging.info(
+            f"Processed {len(file_paths)} files within {finish_time:.2f} seconds."
+        )
 
     if any(isinstance(result, Exception) for result in results):
         errors = sum(
@@ -81,21 +91,51 @@ async def check_all_paths():
         )
         logging.error(
             f"Validation completed with {errors} errors!\n"
-            f"\tPlease ensure the licenses are one of the following: {VALID_LICENSE_IDENTIFIERS}.\n"
-            f"\tIf you are using a valid SPDX license string that is not in the above list, "
-            f"please contact `opendata-team@cern.ch`."
+            f"\tPlease ensure the licenses are one of the following: "
+            f"{VALID_LICENSE_IDENTIFIERS}.\n"
+            f"\tIf you are using a valid SPDX license string that is not in the "
+            f"above list, please contact `opendata-team@cern.ch`."
         )
         exit(1)
 
     else:
-        logging.info(f"Successfully validated {sum(results)} records. No errors found.")
+        if verbose:
+            logging.info(
+                f"Successfully validated {sum(results)} records. No errors found."
+            )
 
 
 def main():
     """Test to validate all license fields."""
+    parser = argparse.ArgumentParser(
+        description="Check if license fields are valid in record JSON files."
+    )
+    parser.add_argument(
+        "files",
+        metavar="FILE",
+        nargs="*",
+        help="Optional file path(s) to check. If omitted, checks all files in data/records/.",
+    )
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        action="store_true",
+        help="Increase output verbosity to show informational messages.",
+    )
+    args = parser.parse_args()
+
+    log_level = logging.INFO if args.verbose else logging.WARNING
+    logging.basicConfig(level=log_level, format="[%(levelname)s] %(message)s")
+
+    if args.files:
+        file_paths = [pathlib.Path(f) for f in args.files]
+    else:
+        root_path = pathlib.Path(os.getcwd()) / "data" / "records"
+        file_paths = list(root_path.glob("*.json"))
+
     loop = asyncio.new_event_loop()
     try:
-        loop.run_until_complete(check_all_paths())
+        loop.run_until_complete(check_paths(file_paths, verbose=args.verbose))
     finally:
         loop.close()
 
