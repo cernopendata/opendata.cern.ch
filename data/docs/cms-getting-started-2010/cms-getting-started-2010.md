@@ -1,3 +1,5 @@
+> **Note**: This page is kept for reference. Please see the consolidated [Getting Started with CMS AOD Data](/docs/cms-getting-started-aod) guide for up-to-date instructions.
+
 1. ["I have installed the CERN Virtual Machine: now what?"](#vm)
 2. ["Do I have to use a virtual machine?"](#container)
 3. ["OK! Where can I get the CMS data?"](#data)

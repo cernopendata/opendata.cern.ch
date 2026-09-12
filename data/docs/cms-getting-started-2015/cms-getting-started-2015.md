@@ -1,3 +1,5 @@
+> **Note**: This page is kept for reference. Please see the consolidated [Getting Started with CMS MiniAOD Open Data](/docs/cms-getting-started-miniaod) guide for up-to-date instructions.
+
 1. ["I have installed the CMS open data environment: now what?"](#vm)
 2. ["OK! What is in the CMS data?"](#data)
 3. ["Nice! But how do I analyse these data?"](#nice)
