@@ -66,6 +66,7 @@ jobs:
 
       - name: Check data licenses
         run: |
+          pip install pyyaml
           ./run-tests.sh --data-licenses
 
   data-recids:
