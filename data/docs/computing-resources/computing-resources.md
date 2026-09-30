@@ -2,6 +2,8 @@ The CERN Open Data files are large. Downloading all of them needs much disk spac
 
 The list is not complete. Each entry says who can use the resource and how to reach the data. The entries are not ranked. Choose the one that fits your task.
 
+Some resources that belong to an experiment have rules for their use. For example, Grid resources are normally for work that benefits the experiment. They are not for open data studies that lead to a publication outside the experiment. Read the usage policy of the resource, or ask the resource managers if you are not sure.
+
 1. [Resources at a glance](#glance)
 2. [Resources](#resources)
 3. [How to reach the data](#data)
@@ -9,24 +11,26 @@ The list is not complete. Each entry says who can use the resource and how to re
 
 ## <a name="glance">Resources at a glance</a>
 
+The table shows who can use each resource.
+
 | Resource | Run by | Who can use it | Interface |
 |---|---|---|---|
 | [CERN SWAN](#swan) | CERN | People with a CERN account | Jupyter notebooks |
-| [EOSC CERN Node](#eosc) | CERN | Researchers who sign in with an EOSC-compatible identity | Jupyter notebooks and workflows |
-| [Nebraska coffea-casa](#nebraska) | University of Nebraska-Lincoln | Anyone (account request; Google sign-in works) | Jupyter notebooks |
+| [CERN EOSC Node](#eosc) | CERN | Researchers who sign in with an identity that the European Open Science Cloud accepts | Jupyter notebooks and workflows |
+| [Nebraska coffea-casa](#nebraska) | University of Nebraska-Lincoln | Anyone with an account. Google sign-in works | Jupyter notebooks |
 | [EXPLORE](#explore) | University of Göttingen | Anyone (free registration) | Jupyter notebooks |
 | [Google Colab and Binder](#free) | Google, the Binder project | Anyone | Jupyter notebooks |
-| [Commercial cloud](#cloud) | Google, Amazon and others | Anyone (paid; some free credit) | Virtual machines |
+| [Commercial cloud](#cloud) | Google, Amazon and others | Anyone. You pay, but some providers give free credit | Virtual machines |
 
 ## <a name="resources">Resources</a>
 
 ### <a name="swan">CERN SWAN</a>
 
-[SWAN](https://swan.cern.ch) is the CERN service for analysis in Jupyter notebooks. It uses the CERN software stack and CERN storage. You need a CERN account. See the [SWAN documentation](https://swan.docs.cern.ch).
+[SWAN](https://swan.cern.ch) (Service for Web-based ANalysis) is the CERN service for analysis in Jupyter notebooks. It uses the CERN software stack and CERN storage. You need a CERN account. See the [SWAN documentation](https://swan.docs.cern.ch).
 
-### <a name="eosc">EOSC CERN Node</a>
+### <a name="eosc">The CERN EOSC Node</a>
 
-The [EOSC CERN Node](https://eosc.cern) gives researchers in the European Open Science Cloud access to a SWAN-based Virtual Research Environment and to REANA workflows. You do not need a CERN account. Access to the analysis services is granted on request. Read the Node pages for the current access rules and limits.
+The [CERN EOSC Node](https://eosc.cern) is part of the European Open Science Cloud (EOSC). It offers a SWAN-based Virtual Research Environment and REANA (reusable analyses) workflows. You do not need a CERN account. You request access to the analysis services. Read the Node pages for the current access rules and limits.
 
 ### <a name="nebraska">Nebraska coffea-casa</a>
 
@@ -36,7 +40,7 @@ The site has a cache (xcache) that gives faster access to the open data. See [Ho
 
 ### <a name="explore">EXPLORE (University of Göttingen)</a>
 
-[EXPLORE](https://punchlogin.goegrid.gwdg.de/) is an open data analysis platform at the Georg-August-Universität Göttingen. It is free and supported by PUNCH4NFDI. Students, teachers and other interested people can register without an affiliation to an LHC experiment or institution. The site offers tutorials for ATLAS Open Data, including the 13 TeV education releases and the research release in PHYSLITE format.
+[EXPLORE](https://punchlogin.goegrid.gwdg.de/) is an open data analysis platform at the Georg-August-Universität Göttingen. It is free and supported by PUNCH4NFDI. Students, teachers and other interested people can register without an affiliation to an LHC experiment or institution. The site has tutorials for ATLAS Open Data. They cover the 13 TeV education releases and the research release in PHYSLITE format.
 
 ### <a name="free">Google Colab and Binder</a>
 
@@ -54,14 +58,16 @@ You can find the files you need with the [CERN Open Data client](https://cernope
 
 You can use the files in two ways:
 
-- **Download** a file once, then work on the local copy. This is usually the best choice on a slow connection. Use `xrdcp` with a file name that starts with `root://`, or `curl -O` with a file name that starts with `https://`. Which one is faster depends on your system.
-- **Read remotely**, without a download. Give the full file name that starts with `root://`. This needs `xrootd` to be installed. It also depends on the network between CERN and your resource.
+- **Download** a file once, then work on the local copy. This is usually the best choice on a slow connection. Use `xrdcp` with a file name that starts with `root://`. Or use `curl -O` with a file name that starts with `https://`. Which one is faster depends on your system.
+- **Read remotely**, without a download. Give the full file name that starts with `root://`. You must install `xrootd` first. Speed also depends on the network between CERN and your resource.
+
+Some software, for example ROOT and uproot, reads remotely by default when it can. This is also true for a file name that starts with `https://`. If you want a local copy, download the file first. In uproot, you can put `simplecache::` before the file name. Then uproot downloads the file when it reads it.
 
 Some notes:
 
-- Do not read many files in a fast loop. The portal limits the number of requests for each user. Download a file once and reuse it.
+- Do not read the same file again and again in a loop. The portal limits the number of requests for each user. Download the file once and reuse it.
 - On Google resources, `xrootd` is slow to build. It is easier to skip it and use `curl`.
-- At Nebraska, use the xcache. In the file names you get from the client, replace `root://eospublic.cern.ch/` with `root://red-xcache1.unl.edu:1096/`. Access is faster, mainly for files that are already in the cache.
+- At Nebraska, use the xcache. In the file names you get from the client, replace `root://eospublic.cern.ch/` with `root://red-xcache1.unl.edu:1096/`. Reading is faster, mainly for files that are already in the cache.
 
 ## <a name="add">Add your resource</a>
 
@@ -74,4 +80,8 @@ Do you run a service where people can analyse open data? To add it to this page,
 - a link to the documentation,
 - a contact person.
 
-A resource is suitable if people outside a collaboration can use it, it has public documentation, and someone has run an open data example on it.
+A resource is suitable if:
+
+- people outside a collaboration can use it,
+- it has public documentation,
+- someone has run an open data example on it.
