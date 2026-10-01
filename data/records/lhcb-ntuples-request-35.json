@@ -1,0 +1,229 @@
+[
+  {
+    "abstract": {
+      "description": "<p>Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for exploring $B^0 \\to J/\\psi (\\to \\mu^+ \\mu^-) K^- \\pi^+$ and charge-conjugate decays.</p> <p>Ntuples are created using DaVinci version v46r11 and the Analysis Productions batch processing system. Quantities saved to the ntuple are specified during the request phase and detailed in the code configuration files attached below.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "date_created": [
+      "2012"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "py",
+        "yaml"
+      ],
+      "number_files": 3,
+      "size": 2491
+    },
+    "doi": "__REQ35_DOI__",
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:4209f928",
+        "size": 737,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/__REQ35_DOI__/inputs/BtoKpiJpsi/JK.py"
+      },
+      {
+        "checksum": "adler32:e69f5b8c",
+        "size": 1238,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/__REQ35_DOI__/inputs/BtoKpiJpsi/JK.yaml"
+      },
+      {
+        "checksum": "adler32:8ae29d70",
+        "size": 516,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/__REQ35_DOI__/inputs/BtoKpiJpsi/info.yaml"
+      }
+    ],
+    "methodology": {
+      "description": "These ntuples were produced from the LHCb Open Data Ntupling Service user request 35. Please see the input configuration files attached below."
+    },
+    "publisher": "CERN Open Data portal",
+    "recid": "__REQ35_PARENT_RECID__",
+    "relations": [
+      {
+        "recid": "__REQ35_2012_DOWN_RECID__",
+        "type": "isParentOf"
+      },
+      {
+        "recid": "__REQ35_2012_UP_RECID__",
+        "type": "isParentOf"
+      }
+    ],
+    "title": "[$B^0 \\to J/\\psi (\\to \\mu^+ \\mu^-) K^- \\pi^+$]CC Ntuples 35",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>Ntuples and instructions are provided in the links under Related datasets. They are ready to be downloaded and used for analysis. If these do not suit your needs, you can clone and amend this ntupling request here:</p>",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service",
+          "url": "https://opendata-lhcb-ntupling-service.app.cern.ch/"
+        },
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for exploring $B^0 \\to J/\\psi (\\to \\mu^+ \\mu^-) K^- \\pi^+$ and charge-conjugate decays.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "collision_information": {
+      "energy": "8TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2012"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_files": 1,
+      "size": 163505172
+    },
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:7f547e9f",
+        "size": 163505172,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/__REQ35_DOI__/outputs/real-production/00370939_00000001_1.dvntuple.root"
+      }
+    ],
+    "magnet_polarity": "MagDown",
+    "methodology": {
+      "description": "<p>These ntuples were produced from the LHCb Open Data Ntupling Service user request 35. Please see the input configuration files <a href=\"/record/__REQ35_PARENT_RECID__\">here</a>.</p>"
+    },
+    "publisher": "CERN Open Data portal",
+    "recid": "__REQ35_2012_DOWN_RECID__",
+    "relations": [
+      {
+        "recid": "__REQ35_PARENT_RECID__",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "2012"
+    ],
+    "stripping": {
+      "stream": "BHADRON",
+      "version": "stripping21"
+    },
+    "title": "[$B^0 \\to J/\\psi (\\to \\mu^+ \\mu^-) K^- \\pi^+$]CC Ntuples 35 -- 2012 Magnet Down",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>You can use these ntuples with <a href=\"https://root.cern.ch/\">ROOT</a> data analysis framework. See documentation and examples here:</p>",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        }
+      ]
+    }
+  },
+  {
+    "abstract": {
+      "description": "<p>Data from proton-proton (pp) collisions collected by the LHCb experiment filtered to produce ntuples for exploring $B^0 \\to J/\\psi (\\to \\mu^+ \\mu^-) K^- \\pi^+$ and charge-conjugate decays.</p>"
+    },
+    "accelerator": "CERN-LHC",
+    "collaboration": {
+      "name": "LHCb collaboration"
+    },
+    "collections": [
+      "LHCb-Collision-Datasets"
+    ],
+    "collision_information": {
+      "energy": "8TeV",
+      "type": "pp"
+    },
+    "date_created": [
+      "2012"
+    ],
+    "date_published": "2026",
+    "date_reprocessed": "2026",
+    "distribution": {
+      "formats": [
+        "root"
+      ],
+      "number_files": 1,
+      "size": 160751643
+    },
+    "experiment": [
+      "LHCb"
+    ],
+    "files": [
+      {
+        "checksum": "adler32:1bfc7e1d",
+        "size": 160751643,
+        "uri": "root://eospublic.cern.ch//eos/opendata/lhcb/CollisionNtuples/__REQ35_DOI__/outputs/real-production/00370938_00000001_1.dvntuple.root"
+      }
+    ],
+    "magnet_polarity": "MagUp",
+    "methodology": {
+      "description": "<p>These ntuples were produced from the LHCb Open Data Ntupling Service user request 35. Please see the input configuration files <a href=\"/record/__REQ35_PARENT_RECID__\">here</a>.</p>"
+    },
+    "publisher": "CERN Open Data portal",
+    "recid": "__REQ35_2012_UP_RECID__",
+    "relations": [
+      {
+        "recid": "__REQ35_PARENT_RECID__",
+        "type": "isChildOf"
+      }
+    ],
+    "run_period": [
+      "2012"
+    ],
+    "stripping": {
+      "stream": "BHADRON",
+      "version": "stripping21"
+    },
+    "title": "[$B^0 \\to J/\\psi (\\to \\mu^+ \\mu^-) K^- \\pi^+$]CC Ntuples 35 -- 2012 Magnet Up",
+    "type": {
+      "primary": "Dataset",
+      "secondary": [
+        "Collision"
+      ]
+    },
+    "usage": {
+      "description": "<p>You can use these ntuples with <a href=\"https://root.cern.ch/\">ROOT</a> data analysis framework. See documentation and examples here:</p>",
+      "links": [
+        {
+          "description": "LHCb Open Data Ntupling Service Usage Guide",
+          "url": "https://lhcb-opendata-guide.web.cern.ch/ntupling-service/"
+        }
+      ]
+    }
+  }
+]
