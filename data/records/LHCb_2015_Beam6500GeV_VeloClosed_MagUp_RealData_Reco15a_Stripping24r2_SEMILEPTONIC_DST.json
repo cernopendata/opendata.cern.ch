@@ -1,0 +1,105 @@
+[{
+  "abstract": {
+    "description": "Data from proton-proton (pp) collisions collected by the LHCb experiment in the year 2015 of Run2 of the LHC."
+  },
+  "accelerator": "CERN-LHC",
+  "collaboration": {
+    "name": "LHCb collaboration",
+    "recid": "456"
+  },
+  "collections": [
+    "LHCb-Collision-Datasets"
+  ],
+  "collision_information": {
+    "energy": "13TeV",
+    "type": "pp"
+  },
+  "date_created": [
+    "2015"
+  ],
+  "date_published": "2026",
+  "date_reprocessed": "2020",
+  "distribution": {
+    "formats": [
+      "DST"
+    ],
+    "number_events": 117710274,
+    "number_files": 2930,
+    "size": 10274478942024
+  },
+  "experiment": [
+    "LHCb"
+  ],
+  "magnet_polarity": "MagUp",
+  "methodology": {
+    "description": "<p> This dataset was created in several production steps. These steps, software used and the configuration is provided below. </p><p> <strong> Prod ID: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> 102356<p> <strong>Prod type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong> Merge<p> <strong> Parent Prod ID:&nbsp;&nbsp;&nbsp;&nbsp; </strong> 102355<p> <strong> Parent Prod type: </strong> DataStripping<p> <strong> Conditions: </strong><p>dddb-20190206-3<p>cond-20191004</strong><p> <strong> List of Trigger Configuration Keys (TCK): </strong> </p> <p><p><strong>TCK &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Number of Files </strong><p>0x10800a2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1177<p>0x11400a8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1753",
+    "steps": [
+      {
+        "configuration_files": [
+          {
+            "title": "DaVinci/DV-Stripping24r2-Stripping.py"
+          },
+          {
+            "title": "DaVinci/DV-RedoCaloPID-Stripping_28_24.py"
+          },
+          {
+            "title": "DaVinci/DataType-2015.py"
+          },
+          {
+            "title": "DaVinci/InputType-RDST.py"
+          },
+          {
+            "title": "Persistency/Compression-ZLIB-1.py"
+          },
+          {
+            "title": "DaVinci/DV-RawEventJuggler-0_3-to-4_3.py"
+          }
+        ],
+        "release": "DaVinci.v44r10p5 AppConfig.v3r393 Det/SQLDDDB.v7r10 TMVAWeights.v1r16",
+        "type": "Stripping24r2"
+      },
+      {
+        "configuration_files": [
+          {
+            "title": "Merging/DV-Stripping-Merging.py"
+          },
+          {
+            "title": "Persistency/Compression-LZMA-4.py"
+          }
+        ],
+        "release": "DaVinci.v44r10p5 AppConfig.v3r393 Det/SQLDDDB.v7r10",
+        "type": "Stripping24r2-Merging"
+      }
+    ]
+  },
+  "publisher": "CERN Open Data Portal",
+  "recid": "24639",
+  "run_period": [
+    "2015"
+  ],
+  "stripping": {
+    "stream": "SEMILEPTONIC",
+    "version": "stripping24r2"
+  },
+  "title": "LHCb 2015 Beam6500GeV MagUp SEMILEPTONIC Stream Stripping24r2",
+  "title_additional": "",
+  "type": {
+    "primary": "Dataset",
+    "secondary": [
+      "Collision"
+    ]
+  },
+  "usage": {
+    "description": "<p> The Run 1 and 2 data collected by the LHCb detector is available using the LHCb Ntupling Service, while the Run 1 data is additionally available in .DST and .mDST formats. The data obtained from the LHCb Ntupling Service are ROOT ntuples and do not require custom software to analyze. <p> Links are provided to the LHCb Ntupling Service for exploration of available data and the LHCb Open Data Guide for usage instructions.",
+    "links": [
+      {
+        "description": "LHCb Ntupling Service",
+        "url": "https://opendata-lhcb-ntupling-service.app.cern.ch/"
+      },
+      {
+        "description": "LHCb Open Data Guide",
+        "url": "https://lhcb-opendata-guide.web.cern.ch/"
+      }
+    ]
+  }
+}]
